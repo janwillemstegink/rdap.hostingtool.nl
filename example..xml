@@ -1,0 +1,154 @@
+@@ -0,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<domains>
+	<domain id="webhostingtech.nl">
+		<domain_view_datetime>2022-01-26 00:00:00</domain_view_datetime>
+		<domain_view_type>public</domain_view_type>
+		<domain_status>active</domain_status>
+		<domain_dnssec>yes</domain_dnssec>
+		<registrar>
+			<registrar_name>team.blue nl B.V.</registrar_name>
+			<registrar_web_id></registrar_web_id>
+			<registrar_abuse_desk>abuse@nl.team.blue</registrar_abuse_desk>
+			<registrar_street>Vondellaan 47</registrar_street>
+			<registrar_postal_code>2332 AA</registrar_postal_code>
+			<registrar_city>Leiden</registrar_city>
+			<registrar_country_code>NL</registrar_country_code>
+			<registrar_country_name>Netherlands</registrar_country_name>
+			<registrar_country_language>nl-NL</registrar_country_language>
+			<registrar_held_back>none</registrar_held_back>
+		</registrar>
+		<reseller>
+			<reseller_name>TransIP</reseller_name>
+			<reseller_web_id></reseller_web_id>
+			<reseller_street>Vondellaan 47</reseller_street>
+			<reseller_postal_code>2332 AA</reseller_postal_code>
+			<reseller_city>Leiden</reseller_city>
+			<reseller_country_code>NL</reseller_country_code>
+			<reseller_country_name>Netherlands</reseller_country_name>
+			<reseller_country_language>nl-NL</reseller_country_language>
+			<reseller_held_back>none></reseller_held_back>
+		</reseller>
+		<registrant>
+			<holder_name>JWST</holder_name>
+			<holder_web_id></holder_web_id>
+			<holder_country_code>NL</holder_country_code>
+			<holder_country_name>Netherlands</holder_country_name>
+			<holder_country_language>nl-NL</holder_country_language>
+			<holder_held_back>legal_address</holder_held_back>
+		</registrant>
+		<admin>
+			<admin_email>admindesk@janwillemstegink.nl</admin_email>
+			<admin_held_back>admin_name,admin_address</admin_held_back>
+		</admin>
+		<tech>
+			<contact_1>
+				<tech_email_1>techdesk@hostfusion.nl</tech_email_1>
+				<tech_held_back_1>tech_name,tech_address</tech_held_back_1>
+			</contact_1>
+		</tech>
+		<name_servers>
+			<server_1>
+				<server_name1>ns0.transip.net</server_name1>
+				<ipv4_1></ipv4_1>
+				<ipv6_1></ipv6_1>
+			</server_1>
+			<server_2>
+				<server_name2>ns1.transip.nl</server_name2>
+				<ipv4_2></ipv4_2>
+				<ipv6_2></ipv6_2>
+			</server_2>
+			<server_3>
+				<server_name3>ns2.transip.eu</server_name3>
+				<ipv4_3></ipv4_3>
+				<ipv6_3></ipv6_3>
+			</server_3>
+		</name_servers>			
+		<creation_datetime>2018-11-03 00:00:00</creation_datetime>
+		<expiration_datetime>2022-11-01 23:59:59</expiration_datetime>
+		<updated_datetime>2018-11-03 00:00:00</updated_datetime>
+		<out_of_quarantine></out_of_quarantine>
+		<last_renewal_datetime>2021-11-02 00:00:00</last_renewal_datetime>
+		<data_management>
+			<registry_name>NL Domain Registry</registry_name>
+			<registry_language>nl-NL</registry_language>
+			<restrictions_legally>xxx</restrictions_legally>
+			<restrictions_translated>xxx</restrictions_translated>
+		</data_management>
+	</domain>
+	<domain id="hostingtool.nl">
+		<domain_view_datetime>2022-01-26 00:00:00</domain_view_datetime>
+		<domain_view_type>public</domain_view_type>
+		<domain_status>active</domain_status>
+		<domain_dnssec>yes</domain_dnssec>
+		<registrar>
+			<registrar_name>team.blue nl B.V.</registrar_name>
+			<registrar_web_id></registrar_web_id>
+			<registrar_abuse_desk>abuse@nl.team.blue</registrar_abuse_desk>
+			<registrar_street>Vondellaan 47</registrar_street>
+			<registrar_postal_code>2332 AA</registrar_postal_code>
+			<registrar_city>Leiden</registrar_city>
+			<registrar_country_code>NL</registrar_country_code>
+			<registrar_country_name>Netherlands</registrar_country_name>
+			<registrar_country_language>nl-NL</registrar_country_language>
+			<registrar_held_back>none</registrar_held_back>
+		</registrar>
+		<reseller>
+			<reseller_name>TransIP</reseller_name>
+			<reseller_web_id></reseller_web_id>
+			<reseller_street>Vondellaan 47</reseller_street>
+			<reseller_postal_code>2332 AA</reseller_postal_code>
+			<reseller_city>Leiden</reseller_city>
+			<reseller_country_code>NL</reseller_country_code>
+			<reseller_country_name>Netherlands</reseller_country_name>
+			<reseller_country_language>nl-NL</reseller_country_language>
+			<reseller_held_back>none></reseller_held_back>
+		</reseller>
+		<registrant>
+			<holder_name>JWST</holder_name>
+			<holder_web_id></holder_web_id>
+			<holder_country_code>NL</holder_country_code>
+			<holder_country_name>Netherlands</holder_country_name>
+			<holder_country_language>nl-NL</holder_country_language>
+			<holder_held_back>legal_address</holder_held_back>
+		</registrant>
+		<admin>
+			<admin_email>admindesk@janwillemstegink.nl</admin_email>
+			<admin_held_back>admin_name,admin_address</admin_held_back>
+		</admin>
+		<tech>
+			<contact_1>
+				<tech_email_1>techdesk@hostfusion.nl</tech_email_1>
+				<tech_held_back_1>tech_name,tech_address</tech_held_back_1>
+			</contact_1>
+		</tech>
+		<name_servers>
+			<server_1>
+				<server_name1>ns0.transip.net</server_name1>
+				<ipv4_1></ipv4_1>
+				<ipv6_1></ipv6_1>
+			</server_1>
+			<server_2>
+				<server_name2>ns1.transip.nl</server_name2>
+				<ipv4_2></ipv4_2>
+				<ipv6_2></ipv6_2>
+			</server_2>
+			<server_3>
+				<server_name3>ns2.transip.eu</server_name3>
+				<ipv4_3></ipv4_3>
+				<ipv6_3></ipv6_3>
+			</server_3>
+		</name_servers>			
+		<creation_datetime>2021-08-15 00:00:00</creation_datetime>
+		<expiration_datetime>2022-08-14 23:59:59</expiration_datetime>
+		<updated_datetime>2021-08-15 00:00:00</updated_datetime>
+		<out_of_quarantine></out_of_quarantine>
+		<last_renewal_datetime></last_renewal_datetime>
+		<data_management>
+			<registry_name>NL Domain Registry</registry_name>
+			<registry_language>nl-NL</registry_language>
+			<restrictions_legally>xxx</restrictions_legally>
+			<restrictions_translated>xxx</restrictions_translated>
+		</data_management>
+	</domain>
+</domains>
