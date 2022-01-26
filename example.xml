@@ -1,0 +1,77 @@
+<domains>
+	<domain="webhostingtech.nl">
+		<domain_view_datetime="2022-01-26 00:00:00">
+		<domain_view_type="public">
+		<domain_status="active">
+		<domain_dnssec="yes">
+		<registrar>
+			<registrar_name="team.blue nl B.V.">
+			<registrar_web_id="">
+			<registrar_abuse_desk="abuse@nl.team.blue">
+			<registrar_street="Vondellaan 47">
+			<registrar_postal_code="2332 AA">
+			<registrar_city="Leiden">
+			<registrar_country_code="NL">
+			<registrar_country_name="Netherlands">
+			<registrar_country_language="nl-NL">
+			<registrar_held_back="none">
+		</registrar>
+		<reseller>
+			<reseller_name="TransIP">
+			<reseller_web_id="">
+			<reseller_street="Vondellaan 47">
+			<reseller_postal_code="2332 AA">
+			<reseller_city="Leiden">
+			<reseller_country_code="NL">
+			<reseller_country_name="Netherlands">
+			<reseller_country_language="nl-NL">
+			<reseller_held_back="none">
+		</reseller>
+		<registrant>
+			<holder_name="JWST">
+			<holder_web_id="">
+			<holder_country_code="NL">
+			<holder_country_name="Netherlands">
+			<holder_country_language="nl-NL">
+			<holder_held_back="legal_address">
+		</registrant>
+		<admin>
+			<admin_email="admindesk@janwillemstegink.nl">
+			<admin_held_back="admin_name, admin_address">
+		</admin>
+		<tech>
+			<contact id="1">
+				<tech_email="techdesk@hostfusion.nl">
+				<tech_held_back="tech_name, tech_address">
+			</contact>
+		</tech>
+		<name_servers>
+			<server id="1">
+				<server_name="ns0.transip.net">
+				<ipv4="">
+				<ipv6="">
+			</server>
+			<server id="2">
+				<name_server="ns1.transip.nl">
+				<ipv4="">
+				<ipv6="">
+			</server>
+			<server id="3">
+				<name_server="ns2.transip.eu">
+				<ipv4="">
+				<ipv6="">
+			</server>
+		</name_servers>			
+		<creation_datetime="2018-11-03 00:00:00">
+		<expiration_datetime="2022-11-01 23:59:59">
+		<updated_datetime="2018-11-03 00:00:00">
+		<out_of_quarantine="">
+		<last_renewal_datetime="2021-11-02 00:00:00">
+		<data_management>
+			<organization="NL Domain Registry">
+			<lang="nl-NL">
+			<restrictions_legally="xxx">
+			<restrictions_translated="xxx">
+		</data_management>
+	</domain>
+</domains>
