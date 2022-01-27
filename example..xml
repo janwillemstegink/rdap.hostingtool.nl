@@ -65,10 +65,10 @@
 			</server_3>
 		</name_servers>			
 		<creation_datetime>2018-11-03 00:00:00</creation_datetime>
+		<last_renewal_datetime>2021-11-02 00:00:00</last_renewal_datetime>
 		<expiration_datetime>2022-11-01 23:59:59</expiration_datetime>
 		<updated_datetime>2018-11-03 00:00:00</updated_datetime>
 		<out_of_quarantine></out_of_quarantine>
-		<last_renewal_datetime>2021-11-02 00:00:00</last_renewal_datetime>
 		<data_management>
 			<registry_description>NL Domain Registry</registry_description>
 			<registry_language>nl-NL</registry_language>
@@ -140,10 +140,10 @@
 			</server_3>
 		</name_servers>			
 		<creation_datetime>2021-08-15 00:00:00</creation_datetime>
+		<last_renewal_datetime></last_renewal_datetime>
 		<expiration_datetime>2022-08-14 23:59:59</expiration_datetime>
 		<updated_datetime>2021-08-15 00:00:00</updated_datetime>
 		<out_of_quarantine></out_of_quarantine>
-		<last_renewal_datetime></last_renewal_datetime>
 		<data_management>
 			<registry_description>NL Domain Registry</registry_description>
 			<registry_language>nl-NL</registry_language>
