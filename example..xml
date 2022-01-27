@@ -49,17 +49,17 @@
 		</tech>
 		<name_servers>
 			<server_1>
-				<server_name1>ns0.transip.net</server_name1>
+				<server_name_1>ns0.transip.net</server_name_1>
 				<ipv4_1></ipv4_1>
 				<ipv6_1></ipv6_1>
 			</server_1>
 			<server_2>
-				<server_name2>ns1.transip.nl</server_name2>
+				<server_name_2>ns1.transip.nl</server_name_2>
 				<ipv4_2></ipv4_2>
 				<ipv6_2></ipv6_2>
 			</server_2>
 			<server_3>
-				<server_name3>ns2.transip.eu</server_name3>
+				<server_name_3>ns2.transip.eu</server_name_3>
 				<ipv4_3></ipv4_3>
 				<ipv6_3></ipv6_3>
 			</server_3>
