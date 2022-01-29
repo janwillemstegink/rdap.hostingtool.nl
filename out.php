@@ -1,3 +1,4 @@
+<?php
 $inputPathAndFile = '/home/admin/whois_file/example.xml';
 $inputFile = 'example.xml';
 if (file_exists($inputPathAndFile))	{
@@ -12,7 +13,7 @@ else	{
 	die('The XML file was not found.');	
 }
 $html_text = '<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Whois for Public</title></head>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="robots" content="noindex"><title>Whois for Public</title></head>
 <body><div style="border-spacing=0; padding=0; border-width=0; padding-bottom:5px; line-height:120%;">
 <table style="border-collapse:collapse; font-family:Helvetica, Arial, sans-serif; font-size:13px; width:570px; max-width:570px;">
 <tr><th style="width:40%"></th><th style="width:60%"></th></tr>';
@@ -125,6 +126,7 @@ foreach ($xml->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td>registry_description</td><td>'.$item->data_management->registry_description.'</td></tr>';
 	$html_text .= '<tr><td>registry_language</td><td>'.$item->data_management->registry_language.'</td></tr>';
+	$html_text .= '<tr><td>registry_format</td><td>'.$item->data_management->registry_format.'</td></tr>';
 	$html_text .= '<tr><td>restrictions_legally</td><td>'.$item->data_management->restrictions_legally.'</td></tr>';
 	$html_text .= '<tr><td>restrictions_translated</td><td>'.$item->data_management->restrictions_translated.'</td></tr>';		
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
@@ -132,3 +134,4 @@ foreach ($xml->xpath('//domain') as $item)	{
 }
 $html_text .= '</table></div></body>';
 echo $html_text;
+?>
