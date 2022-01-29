@@ -115,8 +115,8 @@ foreach ($xml->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td>creation_datetime</td><td>'.$item->creation_datetime.'</td></tr>';
 	$html_text .= '<tr><td>last_renewal_datetime</td><td>'.$item->last_renewal_datetime.'</td></tr>';
-	$html_text .= '<tr><td>expiration_datetime</td><td>'.$item->expiration_datetime.'</td></tr>';
 	$html_text .= '<tr><td>updated_datetime</td><td>'.$item->updated_datetime.'</td></tr>';
+	$html_text .= '<tr><td>expiration_datetime</td><td>'.$item->expiration_datetime.'</td></tr>';
 	$html_text .= '<tr><td>out_of_quarantine</td><td>'.$item->out_of_quarantine.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td>registry_description</td><td>'.$item->data_management->registry_description.'</td></tr>';
