@@ -43,6 +43,7 @@
 		<registrant>
 			<registrant_holder_contact_id></registrant_holder_contact_id>
 			<registrant_holder_name>JWST</registrant_holder_name>
+			<registrant_holder_business_use>yes</registrant_holder_business_use>
 			<registrant_holder_web_id></registrant_holder_web_id>
 			<registrant_holder_street></registrant_holder_street>
 			<registrant_holder_postal_code></registrant_holder_postal_code>
@@ -151,6 +152,7 @@ Auteurswet, geschriftenbescherming (art. 10 lid 1 sub 1).</restrictions_legally>
 		<registrant>
 			<registrant_holder_contact_id></registrant_holder_contact_id>
 			<registrant_holder_name>JWST</registrant_holder_name>
+			<registrant_holder_business_use>yes</registrant_holder_business_use>
 			<registrant_holder_web_id></registrant_holder_web_id>
 			<registrant_holder_street></registrant_holder_street>
 			<registrant_holder_postal_code></registrant_holder_postal_code>
