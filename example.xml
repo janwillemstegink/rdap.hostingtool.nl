@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <domains>
-	<domain id="webhostingtech.nl">
+	<domain item="webhostingtech.nl">
+		<domain_id></domain_id>
 		<domain_name>webhostingtech.nl</domain_name>
 		<domain_view_datetime>2022-01-26 00:00:00</domain_view_datetime>
 		<domain_view_type>public</domain_view_type>
 		<domain_status>active</domain_status>
-		<domain_dnssec>yes</domain_dnssec>
+		<domain_creation>2018-11-03 00:00:00</domain_creation>
+		<domain_last_renewal>2021-11-02 00:00:00</domain_last_renewal>
+		<domain_updated>2018-11-03 00:00:00</domain_updated>
+		<domain_expiration>2022-11-01 23:59:59</domain_expiration>
+		<domain_out_of_quarantine></domain_out_of_quarantine>
 		<registrar>
 			<registrar_contact_id></registrar_contact_id>
 			<registrar_name>team.blue nl B.V.</registrar_name>
 			<registrar_web_id></registrar_web_id>
-			<registrar_abuse_desk>abuse@nl.team.blue</registrar_abuse_desk>
+			<registrar_abuse_email>abuse@nl.team.blue</registrar_abuse_email>
+			<registrar_abuse_phone></registrar_abuse_phone>
 			<registrar_street>Vondellaan 47</registrar_street>
 			<registrar_postal_code>2332 AA</registrar_postal_code>
 			<registrar_city>Leiden</registrar_city>
 			<registrar_country_code>NL</registrar_country_code>
 			<registrar_country_name>Netherlands</registrar_country_name>
 			<registrar_country_language>nl-NL</registrar_country_language>
+			<registrar_whois_server></registrar_whois_server>
+			<registrar_url></registrar_url>
+			<registrar_iana_id></registrar_iana_id>
 			<registrar_held_back>none</registrar_held_back>
 		</registrar>
 		<reseller>
@@ -75,12 +84,8 @@
 				<ipv4_3></ipv4_3>
 				<ipv6_3></ipv6_3>
 			</server_3>
-		</name_servers>			
-		<creation_datetime>2018-11-03 00:00:00</creation_datetime>
-		<last_renewal_datetime>2021-11-02 00:00:00</last_renewal_datetime>
-		<updated_datetime>2018-11-03 00:00:00</updated_datetime>
-		<expiration_datetime>2022-11-01 23:59:59</expiration_datetime>
-		<out_of_quarantine></out_of_quarantine>
+			<name_servers_dnssec>yes</name_servers_dnssec>
+		</name_servers>
 		<data_management>
 			<registry_description>NL Domain Registry</registry_description>
 			<registry_language>nl-NL</registry_language>
@@ -88,22 +93,31 @@
 			<restrictions_translated>xxx</restrictions_translated>
 		</data_management>
 	</domain>
-	<domain id="hostingtool.nl">
+	<domain item="hostingtool.nl">
+		<domain_id></domain_id>
 		<domain_name>hostingtool.nl</domain_name>
 		<domain_view_datetime>2022-01-26 00:00:00</domain_view_datetime>
 		<domain_view_type>public</domain_view_type>
 		<domain_status>active</domain_status>
-		<domain_dnssec>yes</domain_dnssec>
+		<domain_creation>2021-08-15 00:00:00</domain_creation>
+		<domain_last_renewal></domain_last_renewal>
+		<domain_updated>2021-08-15 00:00:00</domain_updated>
+		<domain_expiration>2022-08-14 23:59:59</domain_expiration>
+		<domain_out_of_quarantine></domain_out_of_quarantine>
 		<registrar>
 			<registrar_name>team.blue nl B.V.</registrar_name>
 			<registrar_web_id></registrar_web_id>
-			<registrar_abuse_desk>abuse@nl.team.blue</registrar_abuse_desk>
+			<registrar_abuse_email>abuse@nl.team.blue</registrar_abuse_email>
+			<registrar_abuse_phone></registrar_abuse_phone>
 			<registrar_street>Vondellaan 47</registrar_street>
 			<registrar_postal_code>2332 AA</registrar_postal_code>
 			<registrar_city>Leiden</registrar_city>
 			<registrar_country_code>NL</registrar_country_code>
 			<registrar_country_name>Netherlands</registrar_country_name>
 			<registrar_country_language>nl-NL</registrar_country_language>
+			<registrar_whois_server></registrar_whois_server>
+			<registrar_url></registrar_url>
+			<registrar_iana_id></registrar_iana_id>
 			<registrar_held_back>none</registrar_held_back>
 		</registrar>
 		<reseller>
@@ -160,12 +174,8 @@
 				<ipv4_3></ipv4_3>
 				<ipv6_3></ipv6_3>
 			</server_3>
-		</name_servers>			
-		<creation_datetime>2021-08-15 00:00:00</creation_datetime>
-		<last_renewal_datetime></last_renewal_datetime>
-		<updated_datetime>2021-08-15 00:00:00</updated_datetime>
-		<expiration_datetime>2022-08-14 23:59:59</expiration_datetime>
-		<out_of_quarantine></out_of_quarantine>
+			<name_servers_dnssec>yes</name_servers_dnssec>
+		</name_servers>
 		<data_management>
 			<registry_description>NL Domain Registry</registry_description>
 			<registry_language>nl-NL</registry_language>

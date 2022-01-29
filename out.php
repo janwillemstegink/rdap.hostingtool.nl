@@ -18,22 +18,31 @@ $html_text = '<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
 <tr><th style="width:40%"></th><th style="width:60%"></th></tr>';
 foreach ($xml->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
+	$html_text .= '<tr><td>domain_id</td><td>'.$item->domain_id.'</td></tr>';
 	$html_text .= '<tr><td>domain_name</td><td>'.$item->domain_name.'</td></tr>';
 	$html_text .= '<tr><td>domain_view_datetime</td><td>'.$item->domain_view_datetime.'</td></tr>';
 	$html_text .= '<tr><td>domain_view_type</td><td>'.$item->domain_view_type.'</td></tr>';
 	$html_text .= '<tr><td>domain_status</td><td>'.$item->domain_status.'</td></tr>';
-	$html_text .= '<tr><td>domain_dnssec</td><td>'.$item->domain_dnssec.'</td></tr>';
+	$html_text .= '<tr><td>domain_creation</td><td>'.$item->domain_creation.'</td></tr>';
+	$html_text .= '<tr><td>domain_last_renewal</td><td>'.$item->domain_last_renewal.'</td></tr>';
+	$html_text .= '<tr><td>domain_updated</td><td>'.$item->domain_updated.'</td></tr>';
+	$html_text .= '<tr><td>domain_expiration</td><td>'.$item->domain_expiration.'</td></tr>';
+	$html_text .= '<tr><td>domain_out_of_quarantine</td><td>'.$item->domain_out_of_quarantine.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td>registrar_contact_id</td><td>'.$item->registrar->registrar_contact_id.'</td></tr>';
 	$html_text .= '<tr><td>registrar_name</td><td>'.$item->registrar->registrar_name.'</td></tr>';
 	$html_text .= '<tr><td>registrar_web_id</td><td>'.$item->registrar->registrar_web_id.'</td></tr>';
-	$html_text .= '<tr><td>registrar_abuse_desk</td><td>'.$item->registrar->registrar_abuse_desk.'</td></tr>';
+	$html_text .= '<tr><td>registrar_abuse_email</td><td>'.$item->registrar->registrar_abuse_email.'</td></tr>';
+	$html_text .= '<tr><td>registrar_abuse_phone</td><td>'.$item->registrar->registrar_abuse_phone.'</td></tr>';
 	$html_text .= '<tr><td>registrar_street</td><td>'.$item->registrar->registrar_street.'</td></tr>';
 	$html_text .= '<tr><td>registrar_postal_code</td><td>'.$item->registrar->registrar_postal_code.'</td></tr>';
 	$html_text .= '<tr><td>registrar_city</td><td>'.$item->registrar->registrar_city.'</td></tr>';
 	$html_text .= '<tr><td>registrar_country_code</td><td>'.$item->registrar->registrar_country_code.'</td></tr>';
 	$html_text .= '<tr><td>registrar_country_name</td><td>'.$item->registrar->registrar_country_name.'</td></tr>';
 	$html_text .= '<tr><td>registrar_country_language</td><td>'.$item->registrar->registrar_country_language.'</td></tr>';
+	$html_text .= '<tr><td>registrar_whois_server</td><td>'.$item->registrar->registrar_whois_server.'</td></tr>';
+	$html_text .= '<tr><td>registrar_url</td><td>'.$item->registrar->registrar_url.'</td></tr>';
+	$html_text .= '<tr><td>registrar_iana_id</td><td>'.$item->registrar->registrar_iana_id.'</td></tr>';
 	$html_text .= '<tr><td>registrar_held_back</td><td>'.$item->registrar->registrar_held_back.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td>reseller_contact_id</td><td>'.$item->reseller->reseller_contact_id.'</td></tr>';
@@ -112,12 +121,7 @@ foreach ($xml->xpath('//domain') as $item)	{
 		$html_text .= '<tr><td>ipv4_6</td><td>'.$item->name_servers->server_6->ipv4_6.'</td></tr>';
 		$html_text .= '<tr><td>ipv6_6</td><td>'.$item->name_servers->server_6->ipv6_6.'</td></tr>';
 	}
-	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td>creation_datetime</td><td>'.$item->creation_datetime.'</td></tr>';
-	$html_text .= '<tr><td>last_renewal_datetime</td><td>'.$item->last_renewal_datetime.'</td></tr>';
-	$html_text .= '<tr><td>updated_datetime</td><td>'.$item->updated_datetime.'</td></tr>';
-	$html_text .= '<tr><td>expiration_datetime</td><td>'.$item->expiration_datetime.'</td></tr>';
-	$html_text .= '<tr><td>out_of_quarantine</td><td>'.$item->out_of_quarantine.'</td></tr>';
+	$html_text .= '<tr><td>name_servers_dnssec</td><td>'.$item->name_servers_dnssec.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td>registry_description</td><td>'.$item->data_management->registry_description.'</td></tr>';
 	$html_text .= '<tr><td>registry_language</td><td>'.$item->data_management->registry_language.'</td></tr>';
