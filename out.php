@@ -5,7 +5,7 @@ if (file_exists($inputPathAndFile))	{
 	$xml = simplexml_load_file($inputPathAndFile);
 	file_get_contents($inputPathAndFile);
 }
-elseif(file_exists($inputFile))	{
+elseif (file_exists($inputFile))	{
 	$xml = simplexml_load_file($inputFile);
 	file_get_contents($inputFile);	
 }	
@@ -132,6 +132,6 @@ foreach ($xml->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 }
-$html_text .= '</table></div></body>';
+$html_text .= '</table></div></body></html>';
 echo $html_text;
 ?>
