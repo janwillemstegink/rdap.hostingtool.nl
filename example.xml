@@ -32,16 +32,16 @@
 			<reseller_held_back>none</reseller_held_back>
 		</reseller>
 		<registrant>
-			<registrant_contact_id></registrant_contact_id>
-			<holder_name>JWST</holder_name>
-			<holder_web_id></holder_web_id>
-			<holder_street></holder_street>
-			<holder_postal_code></holder_postal_code>
-			<holder_city></holder_city>
-			<holder_country_code>NL</holder_country_code>
-			<holder_country_name>Netherlands</holder_country_name>
-			<holder_country_language>nl-NL</holder_country_language>
-			<holder_held_back>legal_address</holder_held_back>
+			<registrant_holder_contact_id></registrant_holder_contact_id>
+			<registrant_holder_name>JWST</registrant_holder_name>
+			<registrant_holder_web_id></registrant_holder_web_id>
+			<registrant_holder_street></registrant_holder_street>
+			<registrant_holder_postal_code></registrant_holder_postal_code>
+			<registrant_holder_city></registrant_holder_city>
+			<registrant_holder_country_code>NL</registrant_holder_country_code>
+			<registrant_holder_country_name>Netherlands</registrant_holder_country_name>
+			<registrant_holder_country_language>nl-NL</registrant_holder_country_language>
+			<registrant_holder_held_back>legal_address</registrant_holder_held_back>
 		</registrant>
 		<admin>
 			<admin_email>admindesk@janwillemstegink.nl</admin_email>
