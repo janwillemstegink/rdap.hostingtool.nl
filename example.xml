@@ -58,16 +58,6 @@
 				<tech_email_2>techdesk@hostfusion.nl</tech_email_2>
 				<tech_held_back_2>tech_name,tech_address,tech_phone</tech_held_back_2>
 			</contact_2>
-			<contact_3>
-				<tech_contact_id_3></tech_contact_id_3>
-				<tech_email_3>techdesk@hostfusion.nl</tech_email_3>
-				<tech_held_back_3>tech_name,tech_address,tech_phone</tech_held_back_3>
-			</contact_3>
-			<contact_4>
-				<tech_contact_id_4></tech_contact_id_4>
-				<tech_email_4>techdesk@hostfusion.nl</tech_email_4>
-				<tech_held_back_4>tech_name,tech_address,tech_phone</tech_held_back_4>
-			</contact_4>
 		</tech>
 		<name_servers>
 			<server_1>

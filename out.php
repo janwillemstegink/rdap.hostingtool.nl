@@ -1,4 +1,3 @@
-<?php
 $inputPathAndFile = '/home/admin/whois_file/example.xml';
 $inputFile = 'example.xml';
 if (file_exists($inputPathAndFile))	{
@@ -62,28 +61,57 @@ foreach ($xml->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>admin_email</td><td>'.$item->admin->admin_email.'</td></tr>';
 	$html_text .= '<tr><td>admin_held_back</td><td>'.$item->admin->admin_held_back.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td>tech_contact_id_1</td><td>'.$item->tech->contact_1->tech_contact_id_1.'</td></tr>';
-	$html_text .= '<tr><td>tech_email_1</td><td>'.$item->tech->contact_1->tech_email_1.'</td></tr>';
-	$html_text .= '<tr><td>tech_held_back_1</td><td>'.$item->tech->contact_1->tech_held_back_1.'</td></tr>';
-	$html_text .= '<tr><td>tech_contact_id_2</td><td>'.$item->tech->contact_2->tech_contact_id_2.'</td></tr>';
-	$html_text .= '<tr><td>tech_email_2</td><td>'.$item->tech->contact_2->tech_email_2.'</td></tr>';
-	$html_text .= '<tr><td>tech_held_back_2</td><td>'.$item->tech->contact_2->tech_held_back_2.'</td></tr>';
-	$html_text .= '<tr><td>tech_contact_id_3</td><td>'.$item->tech->contact_3->tech_contact_id_3.'</td></tr>';
-	$html_text .= '<tr><td>tech_email_3</td><td>'.$item->tech->contact_3->tech_email_3.'</td></tr>';
-	$html_text .= '<tr><td>tech_held_back_3</td><td>'.$item->tech->contact_3->tech_held_back_3.'</td></tr>';
-	$html_text .= '<tr><td>tech_contact_id_4</td><td>'.$item->tech->contact_4->tech_contact_id_4.'</td></tr>';
-	$html_text .= '<tr><td>tech_email_4</td><td>'.$item->tech->contact_4->tech_email_4.'</td></tr>';
-	$html_text .= '<tr><td>tech_held_back_4</td><td>'.$item->tech->contact_4->tech_held_back_4.'</td></tr>';
+	if (strlen(trim($item->tech->contact_1->tech_email_1)))	{	
+		$html_text .= '<tr><td>tech_contact_id_1</td><td>'.$item->tech->contact_1->tech_contact_id_1.'</td></tr>';
+		$html_text .= '<tr><td>tech_email_1</td><td>'.$item->tech->contact_1->tech_email_1.'</td></tr>';
+		$html_text .= '<tr><td>tech_held_back_1</td><td>'.$item->tech->contact_1->tech_held_back_1.'</td></tr>';
+	}
+	if (strlen(trim($item->tech->contact_2->tech_email_2)))	{	
+		$html_text .= '<tr><td>tech_contact_id_2</td><td>'.$item->tech->contact_2->tech_contact_id_2.'</td></tr>';
+		$html_text .= '<tr><td>tech_email_2</td><td>'.$item->tech->contact_2->tech_email_2.'</td></tr>';
+		$html_text .= '<tr><td>tech_held_back_2</td><td>'.$item->tech->contact_2->tech_held_back_2.'</td></tr>';
+	}
+	if (strlen(trim($item->tech->contact_3->tech_email_3)))	{	
+		$html_text .= '<tr><td>tech_contact_id_3</td><td>'.$item->tech->contact_3->tech_contact_id_3.'</td></tr>';
+		$html_text .= '<tr><td>tech_email_3</td><td>'.$item->tech->contact_3->tech_email_3.'</td></tr>';
+		$html_text .= '<tr><td>tech_held_back_3</td><td>'.$item->tech->contact_3->tech_held_back_3.'</td></tr>';
+	}
+	if (strlen(trim($item->tech->contact_4->tech_email_4)))	{	
+		$html_text .= '<tr><td>tech_contact_id_4</td><td>'.$item->tech->contact_4->tech_contact_id_4.'</td></tr>';
+		$html_text .= '<tr><td>tech_email_4</td><td>'.$item->tech->contact_4->tech_email_4.'</td></tr>';
+		$html_text .= '<tr><td>tech_held_back_4</td><td>'.$item->tech->contact_4->tech_held_back_4.'</td></tr>';
+	}	
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td>server_name_1</td><td>'.$item->name_servers->server_1->server_name_1.'</td></tr>';
-	$html_text .= '<tr><td>ipv4_1</td><td>'.$item->name_servers->server_1->ipv4_1.'</td></tr>';
-	$html_text .= '<tr><td>ipv6_1</td><td>'.$item->name_servers->server_1->ipv6_1.'</td></tr>';
-	$html_text .= '<tr><td>server_name_2</td><td>'.$item->name_servers->server_2->server_name_2.'</td></tr>';
-	$html_text .= '<tr><td>ipv4_2</td><td>'.$item->name_servers->server_2->ipv4_2.'</td></tr>';
-	$html_text .= '<tr><td>ipv6_2</td><td>'.$item->name_servers->server_2->ipv6_2.'</td></tr>';
-	$html_text .= '<tr><td>server_name_3</td><td>'.$item->name_servers->server_3->server_name_3.'</td></tr>';
-	$html_text .= '<tr><td>ipv4_3</td><td>'.$item->name_servers->server_3->ipv4_3.'</td></tr>';
-	$html_text .= '<tr><td>ipv6_3</td><td>'.$item->name_servers->server_3->ipv6_3.'</td></tr>';
+	if (strlen(trim($item->name_servers->server_1->server_name_1)))	{
+		$html_text .= '<tr><td>server_name_1</td><td>'.$item->name_servers->server_1->server_name_1.'</td></tr>';
+		$html_text .= '<tr><td>ipv4_1</td><td>'.$item->name_servers->server_1->ipv4_1.'</td></tr>';
+		$html_text .= '<tr><td>ipv6_1</td><td>'.$item->name_servers->server_1->ipv6_1.'</td></tr>';
+	}
+	if (strlen(trim($item->name_servers->server_2->server_name_2)))	{
+		$html_text .= '<tr><td>server_name_2</td><td>'.$item->name_servers->server_2->server_name_2.'</td></tr>';
+		$html_text .= '<tr><td>ipv4_2</td><td>'.$item->name_servers->server_2->ipv4_2.'</td></tr>';
+		$html_text .= '<tr><td>ipv6_2</td><td>'.$item->name_servers->server_2->ipv6_2.'</td></tr>';
+	}
+	if (strlen(trim($item->name_servers->server_3->server_name_3)))	{
+		$html_text .= '<tr><td>server_name_3</td><td>'.$item->name_servers->server_3->server_name_3.'</td></tr>';
+		$html_text .= '<tr><td>ipv4_3</td><td>'.$item->name_servers->server_3->ipv4_3.'</td></tr>';
+		$html_text .= '<tr><td>ipv6_3</td><td>'.$item->name_servers->server_3->ipv6_3.'</td></tr>';
+	}
+	if (strlen(trim($item->name_servers->server_4->server_name_4)))	{
+		$html_text .= '<tr><td>server_name_4</td><td>'.$item->name_servers->server_4->server_name_4.'</td></tr>';
+		$html_text .= '<tr><td>ipv4_4</td><td>'.$item->name_servers->server_4->ipv4_4.'</td></tr>';
+		$html_text .= '<tr><td>ipv6_4</td><td>'.$item->name_servers->server_4->ipv6_4.'</td></tr>';
+	}
+	if (strlen(trim($item->name_servers->server_5->server_name_5)))	{
+		$html_text .= '<tr><td>server_name_5</td><td>'.$item->name_servers->server_5->server_name_5.'</td></tr>';
+		$html_text .= '<tr><td>ipv4_5</td><td>'.$item->name_servers->server_5->ipv4_5.'</td></tr>';
+		$html_text .= '<tr><td>ipv6_5</td><td>'.$item->name_servers->server_5->ipv6_5.'</td></tr>';
+	}
+	if (strlen(trim($item->name_servers->server_6->server_name_6)))	{
+		$html_text .= '<tr><td>server_name_6</td><td>'.$item->name_servers->server_6->server_name_6.'</td></tr>';
+		$html_text .= '<tr><td>ipv4_6</td><td>'.$item->name_servers->server_6->ipv4_6.'</td></tr>';
+		$html_text .= '<tr><td>ipv6_6</td><td>'.$item->name_servers->server_6->ipv6_6.'</td></tr>';
+	}
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td>creation_datetime</td><td>'.$item->creation_datetime.'</td></tr>';
 	$html_text .= '<tr><td>last_renewal_datetime</td><td>'.$item->last_renewal_datetime.'</td></tr>';
@@ -100,4 +128,3 @@ foreach ($xml->xpath('//domain') as $item)	{
 }
 $html_text .= '</table></div></body>';
 echo $html_text;
-?>
