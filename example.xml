@@ -134,6 +134,11 @@
 				<tech_email_1>techdesk@hostfusion.nl</tech_email_1>
 				<tech_held_back_1>tech_name,tech_address</tech_held_back_1>
 			</contact_1>
+			<contact_2>
+				<tech_contact_id_2></tech_contact_id_2>
+				<tech_email_2>techdesk@hostfusion.nl</tech_email_2>
+				<tech_held_back_2>tech_name,tech_address,tech_phone</tech_held_back_2>
+			</contact_2>
 		</tech>
 		<name_servers>
 			<server_1>
