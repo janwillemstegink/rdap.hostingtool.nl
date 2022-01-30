@@ -54,6 +54,7 @@
 			<registrant_holder_held_back>legal_address</registrant_holder_held_back>
 		</registrant>
 		<admin>
+			<admin_contact_id></admin_contact_id>
 			<admin_email>admindesk@janwillemstegink.nl</admin_email>
 			<admin_held_back>admin_name,admin_address</admin_held_back>
 		</admin>
@@ -104,7 +105,8 @@
 		<domain_updated>2021-08-15 00:00:00</domain_updated>
 		<domain_expiration>2022-08-14 23:59:59</domain_expiration>
 		<domain_out_of_quarantine></domain_out_of_quarantine>
-		<registrar>
+				<registrar>
+			<registrar_contact_id></registrar_contact_id>
 			<registrar_name>team.blue nl B.V.</registrar_name>
 			<registrar_web_id></registrar_web_id>
 			<registrar_abuse_email>abuse@nl.team.blue</registrar_abuse_email>
@@ -121,6 +123,7 @@
 			<registrar_held_back>none</registrar_held_back>
 		</registrar>
 		<reseller>
+			<reseller_contact_id></reseller_contact_id>
 			<reseller_name>TransIP</reseller_name>
 			<reseller_web_id></reseller_web_id>
 			<reseller_street>Vondellaan 47</reseller_street>
@@ -145,11 +148,13 @@
 			<registrant_holder_held_back>legal_address</registrant_holder_held_back>
 		</registrant>
 		<admin>
+			<admin_contact_id></admin_contact_id>
 			<admin_email>admindesk@janwillemstegink.nl</admin_email>
 			<admin_held_back>admin_name,admin_address</admin_held_back>
 		</admin>
 		<tech>
 			<contact_1>
+				<tech_contact_id_1></tech_contact_id_1>
 				<tech_email_1>techdesk@hostfusion.nl</tech_email_1>
 				<tech_held_back_1>tech_name,tech_address,tech_phone</tech_held_back_1>
 			</contact_1>

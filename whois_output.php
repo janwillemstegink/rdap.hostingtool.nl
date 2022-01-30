@@ -81,6 +81,7 @@ foreach ($xml->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>registrant_holder_country_language</td><td>'.$item->registrant->registrant_holder_country_language.'</td></tr>';
 	$html_text .= '<tr><td>registrant_holder_held_back</td><td>'.$item->registrant->registrant_holder_held_back.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
+	$html_text .= '<tr><td>admin_contact_id</td><td>'.$item->admin->admin_contact_id.'</td></tr>';
 	$html_text .= '<tr><td>admin_email</td><td>'.$item->admin->admin_email.'</td></tr>';
 	$html_text .= '<tr><td>admin_held_back</td><td>'.$item->admin->admin_held_back.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
