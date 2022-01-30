@@ -147,7 +147,7 @@ Auteurswet, geschriftenbescherming (art. 10 lid 1 sub 1).</restrictions_legally>
 			<reseller_country_code>NL</reseller_country_code>
 			<reseller_country_name>Netherlands</reseller_country_name>
 			<reseller_country_language>nl-NL</reseller_country_language>
-			<reseller_held_back>none></reseller_held_back>
+			<reseller_held_back>none</reseller_held_back>
 		</reseller>
 		<registrant>
 			<registrant_holder_contact_id></registrant_holder_contact_id>
