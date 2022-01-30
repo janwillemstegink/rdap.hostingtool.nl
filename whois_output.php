@@ -31,8 +31,9 @@ $html_text = '<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
 <tr><th style="width:25%"></th><th style="width:75%"></th></th></tr>';
 foreach ($xml->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
+	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td>domain_id</td><td>'.$item->domain_id.'</td></tr>';
-	$html_text .= '<tr><td>domain_name</td><td>'.$item->domain_name.'</td></tr>';
+	$html_text .= '<tr><td><b>domain_name</b></td><td><b>'.$item->domain_name.'</b></td></tr>';
 	$html_text .= '<tr><td>domain_view_datetime</td><td>'.$item->domain_view_datetime.'</td></tr>';
 	$html_text .= '<tr><td>domain_view_type</td><td>'.$item->domain_view_type.'</td></tr>';
 	$html_text .= '<tr><td>domain_status</td><td>'.$item->domain_status.'</td></tr>';
@@ -145,12 +146,12 @@ foreach ($xml->xpath('//domain') as $item)	{
 }	
 foreach ($xml2->xpath('//domain') as $item)	{
 simplexml_load_string($item->asXML());	
+	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td></td><td>'.$item->restrictions_legally.'</td></tr>';
 	$html_text .= '<tr><td></td><td>'.$item->restrictions_translated.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 	break;
 }
-$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 $html_text .= '</table></div></body></html>';
 echo $html_text;
 ?>
