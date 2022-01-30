@@ -43,8 +43,9 @@
 		<registrant>
 			<registrant_holder_contact_id></registrant_holder_contact_id>
 			<registrant_holder_name>JWST</registrant_holder_name>
+			<registrant_holder_web_publish>yes</registrant_holder_web_publish>
+			<registrant_holder_web_id>NL13COMM01234567890123456789012345</registrant_holder_web_id>
 			<registrant_holder_business_use>yes</registrant_holder_business_use>
-			<registrant_holder_web_id></registrant_holder_web_id>
 			<registrant_holder_street></registrant_holder_street>
 			<registrant_holder_postal_code></registrant_holder_postal_code>
 			<registrant_holder_city></registrant_holder_city>
@@ -137,8 +138,9 @@
 		<registrant>
 			<registrant_holder_contact_id></registrant_holder_contact_id>
 			<registrant_holder_name>JWST</registrant_holder_name>
+			<registrant_holder_web_publish>yes</registrant_holder_web_publish>
+			<registrant_holder_web_id>NL13COMM01234567890123456789012345</registrant_holder_web_id>
 			<registrant_holder_business_use>yes</registrant_holder_business_use>
-			<registrant_holder_web_id></registrant_holder_web_id>
 			<registrant_holder_street></registrant_holder_street>
 			<registrant_holder_postal_code></registrant_holder_postal_code>
 			<registrant_holder_city></registrant_holder_city>
