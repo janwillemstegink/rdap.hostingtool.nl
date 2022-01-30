@@ -123,7 +123,7 @@ foreach ($xml->xpath('//domain') as $item)	{
 		$html_text .= '<tr><td>ipv4_6</td><td>'.$item->name_servers->server_6->ipv4_6.'</td></tr>';
 		$html_text .= '<tr><td>ipv6_6</td><td>'.$item->name_servers->server_6->ipv6_6.'</td></tr>';
 	}
-	$html_text .= '<tr><td>name_servers_dnssec</td><td>'.$item->name_servers_dnssec.'</td></tr>';
+	$html_text .= '<tr><td>name_servers_dnssec</td><td>'.$item->name_servers->name_servers_dnssec.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td>registry_description</td><td>'.$item->data_management->registry_description.'</td></tr>';
 	$html_text .= '<tr><td>registry_language</td><td>'.$item->data_management->registry_language.'</td></tr>';
