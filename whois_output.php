@@ -29,6 +29,7 @@ $html_text = '<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
 <body><div style="border-spacing=0; padding=0; border-width=0; padding-bottom:5px; line-height:120%;">
 <table style="border-collapse:collapse; font-family:Helvetica, Arial, sans-serif; font-size:13px;">
 <tr><th style="width:25%"></th><th style="width:75%"></th></th></tr>';
+$html_text .= '<tr><td COLSPAN=2><b>Web Domain Whois Modeling</b></td></tr>';
 foreach ($xml->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
