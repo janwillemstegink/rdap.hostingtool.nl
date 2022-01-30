@@ -1,10 +1,10 @@
 <?php
-$inputPath = '/home/admin/whois_file/';
-$inputPathAndFile = $inputPath.'whois_input.xml';
+$filesPath = '/home/admin/whois_file/';
 $inputFile = 'whois_input.xml';
-if (file_exists($inputPathAndFile))	{
-	$xml = simplexml_load_file($inputPathAndFile);
-	file_get_contents($inputPathAndFile);
+$restrictionsFile = 'whois_restrictions.xml';
+if (file_exists($filesPath.$inputFile))	{
+	$xml = simplexml_load_file($filesPath.$inputFile);
+	file_get_contents($filesPath.$inputFile);
 }
 elseif (file_exists($inputFile))	{
 	$xml = simplexml_load_file($inputFile);
@@ -13,15 +13,13 @@ elseif (file_exists($inputFile))	{
 else	{
 	die('The XML input file was not found.');	
 }
-$inputPathAndFile = $inputPath.'whois_restrictions.xml';
-$inputFile = 'whois_restrictions.xml';
-if (file_exists($inputPathAndFile))	{
-	$xml2 = simplexml_load_file($inputPathAndFile);
-	file_get_contents($inputPathAndFile);
+if (file_exists($filesPath.$restrictionsFile))	{
+	$xml2 = simplexml_load_file($filesPath.$restrictionsFile);
+	file_get_contents($filesPath.$restrictionsFile);
 }
-elseif (file_exists($inputFile))	{
-	$xml2 = simplexml_load_file($inputFile);
-	file_get_contents($inputFile);	
+elseif (file_exists($restrictionsFile))	{
+	$xml2 = simplexml_load_file($restrictionsFile);
+	file_get_contents($restrictionsFile);	
 }	
 else	{
 	die('The XML restrictions file was not found.');	
