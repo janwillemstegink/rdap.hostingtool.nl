@@ -88,12 +88,16 @@ foreach ($xml->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>registrant_holder_held_back</td><td>'.$item->registrant->registrant_holder_held_back.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td>admin_contact_id</td><td>'.$item->admin->admin_contact_id.'</td></tr>';
-	$html_text .= '<tr><td>admin_email</td><td>'.$item->admin->admin_email.'</td></tr>';
+	$html_text .= '<tr><td>admin_email</td><td>'.$item->admin->admin_email.'</td>
+	<td>Admin beantwoordt en adresseert een gemeld probleem voor een oplossing.</td>
+	<td>Admin answers and addresses a reported issue for a solution.</td></tr>';
 	$html_text .= '<tr><td>admin_held_back</td><td>'.$item->admin->admin_held_back.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	if (strlen(trim($item->tech->contact_1->tech_email_1)))	{	
 		$html_text .= '<tr><td>tech_contact_id_1</td><td>'.$item->tech->contact_1->tech_contact_id_1.'</td></tr>';
-		$html_text .= '<tr><td>tech_email_1</td><td>'.$item->tech->contact_1->tech_email_1.'</td></tr>';
+		$html_text .= '<tr><td>tech_email_1</td><td>'.$item->tech->contact_1->tech_email_1.'</td>
+		<td>Eén van de technische contacten reageert om een storingsmelding op te lossen.</td>
+	<td>One of the technical contacts responds to resolve a malfunction notification.</td></tr>';
 		$html_text .= '<tr><td>tech_held_back_1</td><td>'.$item->tech->contact_1->tech_held_back_1.'</td></tr>';
 	}
 	if (strlen(trim($item->tech->contact_2->tech_email_2)))	{	
