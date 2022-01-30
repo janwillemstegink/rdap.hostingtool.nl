@@ -97,7 +97,7 @@ foreach ($xml->xpath('//domain') as $item)	{
 		$html_text .= '<tr><td>tech_contact_id_1</td><td>'.$item->tech->contact_1->tech_contact_id_1.'</td></tr>';
 		$html_text .= '<tr><td>tech_email_1</td><td>'.$item->tech->contact_1->tech_email_1.'</td>
 		<td>Eén van de technische contacten reageert om een storingsmelding op te lossen.</td>
-	<td>One of the technical contacts responds to resolve a malfunction notification.</td></tr>';
+		<td>One of the technical contacts responds to resolve a malfunction notification.</td></tr>';
 		$html_text .= '<tr><td>tech_held_back_1</td><td>'.$item->tech->contact_1->tech_held_back_1.'</td></tr>';
 	}
 	if (strlen(trim($item->tech->contact_2->tech_email_2)))	{	
@@ -146,7 +146,9 @@ foreach ($xml->xpath('//domain') as $item)	{
 		$html_text .= '<tr><td>ipv4_6</td><td>'.$item->name_servers->server_6->ipv4_6.'</td></tr>';
 		$html_text .= '<tr><td>ipv6_6</td><td>'.$item->name_servers->server_6->ipv6_6.'</td></tr>';
 	}
-	$html_text .= '<tr><td>name_servers_dnssec</td><td>'.$item->name_servers->name_servers_dnssec.'</td></tr>';
+	$html_text .= '<tr><td>name_servers_dnssec</td><td>'.$item->name_servers->name_servers_dnssec.'</td>
+	<td>DNSSEC is een web-route-beveiligingsuitbreiding op het DNS.</td>
+	<td>DNSSEC is a suite of web-route-security extensions to the DNS.</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td>registry_description</td><td>'.$item->data_management->registry_description.'</td></tr>';
 	$html_text .= '<tr><td>registry_language</td><td>'.$item->data_management->registry_language.'</td></tr>';
