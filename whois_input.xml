@@ -51,7 +51,7 @@
 			<registrant_holder_country_code>NL</registrant_holder_country_code>
 			<registrant_holder_country_name>Netherlands</registrant_holder_country_name>
 			<registrant_holder_country_language>nl-NL</registrant_holder_country_language>
-			<registrant_holder_held_back>legal_address</registrant_holder_held_back>
+			<registrant_holder_held_back>holder_address</registrant_holder_held_back>
 		</registrant>
 		<admin>
 			<admin_contact_id></admin_contact_id>
@@ -145,7 +145,7 @@
 			<registrant_holder_country_code>NL</registrant_holder_country_code>
 			<registrant_holder_country_name>Netherlands</registrant_holder_country_name>
 			<registrant_holder_country_language>nl-NL</registrant_holder_country_language>
-			<registrant_holder_held_back>legal_address</registrant_holder_held_back>
+			<registrant_holder_held_back>holder_address</registrant_holder_held_back>
 		</registrant>
 		<admin>
 			<admin_contact_id></admin_contact_id>
