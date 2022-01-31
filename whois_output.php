@@ -76,9 +76,9 @@ foreach ($xml->xpath('//domain') as $item)	{
 	<td>Voor zakelijk gebruik is de houdernaam zichtbaar. Juridische behoefte: directe verantwoordelijkheid wordt beperkt tot het laagste niveau van fysieke toegang.</td>
 	<td>For business use, the holder name is visible. Legal need: direct responsibility is limited to the lowest level of physical access.</td></tr>';
 	$html_text .= '<tr><td><b>registrant_holder_web_publish</b></td><td><b>'.$item->registrant->registrant_holder_web_publish.'</b></td>
-	<td>Voor web browsing is web_publish ontworpen.</td><td>For web browsing, web_publish is designed.</td></tr>';
+	<td>Voor zoekmachines is web_publish mogelijk.</td><td>For search engines, web_publish is possible.</td></tr>';
 	$html_text .= '<tr><td><b>registrant_holder_web_id</b></td><td><b>'.$item->registrant->registrant_holder_web_id.'</b></td>
-	<td>Voor identificatie is web_id ontworpen.</td><td>For identification, web_id is designed.</td></tr>';
+	<td>Voor identificatie is een web_id mogelijk.</td><td>For identification, a web_id is possible.</td></tr>';
 	$html_text .= '<tr><td><b>registrant_holder_business_use</b></td><td><b>'.$item->registrant->registrant_holder_business_use.'</b></td>';
 	$html_text .= '<tr><td>registrant_holder_street</td><td>'.$item->registrant->registrant_holder_street.'</td></tr>';
 	$html_text .= '<tr><td>registrant_holder_postal_code</td><td>'.$item->registrant->registrant_holder_postal_code.'</td></tr>';
