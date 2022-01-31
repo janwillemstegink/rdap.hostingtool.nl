@@ -26,7 +26,7 @@
 			<registrar_whois_server></registrar_whois_server>
 			<registrar_url></registrar_url>
 			<registrar_iana_id></registrar_iana_id>
-			<registrar_held_back>none</registrar_held_back>
+			<registrar_hidden>none</registrar_hidden>
 		</registrar>
 		<reseller>
 			<reseller_contact_id></reseller_contact_id>
@@ -38,7 +38,7 @@
 			<reseller_country_code>NL</reseller_country_code>
 			<reseller_country_name>Netherlands</reseller_country_name>
 			<reseller_country_language>nl-NL</reseller_country_language>
-			<reseller_held_back>none</reseller_held_back>
+			<reseller_hidden>none</reseller_hidden>
 		</reseller>
 		<registrant>
 			<registrant_holder_contact_id></registrant_holder_contact_id>
@@ -52,23 +52,23 @@
 			<registrant_holder_country_code>NL</registrant_holder_country_code>
 			<registrant_holder_country_name>Netherlands</registrant_holder_country_name>
 			<registrant_holder_country_language>nl-NL</registrant_holder_country_language>
-			<registrant_holder_held_back>holder_address</registrant_holder_held_back>
+			<registrant_holder_hidden>holder_address</registrant_holder_hidden>
 		</registrant>
 		<admin>
 			<admin_contact_id></admin_contact_id>
 			<admin_email>admindesk@janwillemstegink.nl</admin_email>
-			<admin_held_back>admin_name,admin_address</admin_held_back>
+			<admin_hidden>admin_name,admin_address</admin_hidden>
 		</admin>
 		<tech>
 			<contact_1>
 				<tech_contact_id_1></tech_contact_id_1>
 				<tech_email_1>techdesk@hostfusion.nl</tech_email_1>
-				<tech_held_back_1>tech_name,tech_address,tech_phone</tech_held_back_1>
+				<tech_hidden_1>tech_name,tech_address,tech_phone</tech_hidden_1>
 			</contact_1>
 			<contact_2>
 				<tech_contact_id_2></tech_contact_id_2>
 				<tech_email_2>techdesk@hostfusion.nl</tech_email_2>
-				<tech_held_back_2>tech_name,tech_address,tech_phone</tech_held_back_2>
+				<tech_hidden_2>tech_name,tech_address,tech_phone</tech_hidden_2>
 			</contact_2>
 		</tech>
 		<name_servers>
@@ -121,7 +121,7 @@
 			<registrar_whois_server></registrar_whois_server>
 			<registrar_url></registrar_url>
 			<registrar_iana_id></registrar_iana_id>
-			<registrar_held_back>none</registrar_held_back>
+			<registrar_hidden>none</registrar_hidden>
 		</registrar>
 		<reseller>
 			<reseller_contact_id></reseller_contact_id>
@@ -133,7 +133,7 @@
 			<reseller_country_code>NL</reseller_country_code>
 			<reseller_country_name>Netherlands</reseller_country_name>
 			<reseller_country_language>nl-NL</reseller_country_language>
-			<reseller_held_back>none</reseller_held_back>
+			<reseller_hidden>none</reseller_hidden>
 		</reseller>
 		<registrant>
 			<registrant_holder_contact_id></registrant_holder_contact_id>
@@ -147,23 +147,23 @@
 			<registrant_holder_country_code>NL</registrant_holder_country_code>
 			<registrant_holder_country_name>Netherlands</registrant_holder_country_name>
 			<registrant_holder_country_language>nl-NL</registrant_holder_country_language>
-			<registrant_holder_held_back>holder_address</registrant_holder_held_back>
+			<registrant_holder_hidden>holder_address</registrant_holder_hidden>
 		</registrant>
 		<admin>
 			<admin_contact_id></admin_contact_id>
 			<admin_email>admindesk@janwillemstegink.nl</admin_email>
-			<admin_held_back>admin_name,admin_address</admin_held_back>
+			<admin_hidden>admin_name,admin_address</admin_hidden>
 		</admin>
 		<tech>
 			<contact_1>
 				<tech_contact_id_1></tech_contact_id_1>
 				<tech_email_1>techdesk@hostfusion.nl</tech_email_1>
-				<tech_held_back_1>tech_name,tech_address,tech_phone</tech_held_back_1>
+				<tech_hidden_1>tech_name,tech_address,tech_phone</tech_hidden_1>
 			</contact_1>
 			<contact_2>
 				<tech_contact_id_2></tech_contact_id_2>
 				<tech_email_2>techdesk@hostfusion.nl</tech_email_2>
-				<tech_held_back_2>tech_name,tech_address,tech_phone</tech_held_back_2>
+				<tech_hidden_2>tech_name,tech_address,tech_phone</tech_hidden_2>
 			</contact_2>
 		</tech>
 		<name_servers>
