@@ -73,7 +73,7 @@ foreach ($xml->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td>registrant_holder_contact_id</td><td>'.$item->registrant->registrant_holder_contact_id.'</td></tr>';
 	$html_text .= '<tr><td><b>registrant_holder_name</b></td><td><b>'.$item->registrant->registrant_holder_name.'</b></td>
-	<td>Voor zakelijk gebruik is de houdernaam zichtbaar. Juridische behoefte: directe verantwoordelijkheid is beperkt tot het laagste niveau van fysieke toegang.</td>
+	<td>Voor zakelijk gebruik is de houdernaam zichtbaar. Juridische behoefte: directe verantwoordelijkheid wordt beperkt tot het laagste niveau van fysieke toegang.</td>
 	<td>For business use, the holder name is visible. Legal need: direct responsibility is limited to the lowest level of physical access.</td></tr>';
 	$html_text .= '<tr><td><b>registrant_holder_web_publish</b></td><td><b>'.$item->registrant->registrant_holder_web_publish.'</b></td>
 	<td>Voor web browsing is web_publish ontworpen.</td><td>For web browsing, web_publish is designed.</td></tr>';
@@ -159,8 +159,8 @@ foreach ($xml->xpath('//domain') as $item)	{
 foreach ($xml2->xpath('//domain') as $item)	{
 simplexml_load_string($item->asXML());	
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td></td><td COLSPAN=3>'.$item->restrictions_legally.'</td></tr>';
-	$html_text .= '<tr><td></td><td COLSPAN=3>'.$item->restrictions_translated.'</td></tr>';
+	$html_text .= '<tr><td></td><td></td><td COLSPAN="2">'.$item->restrictions_legally.'</td></tr>';
+	$html_text .= '<tr><td></td><td></td><td COLSPAN="2">'.$item->restrictions_translated.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	break;
 }
