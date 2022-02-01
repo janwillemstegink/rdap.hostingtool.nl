@@ -73,12 +73,12 @@ foreach ($xml->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td>registrant_holder_contact_id</td><td>'.$item->registrant->registrant_holder_contact_id.'</td></tr>';
 	$html_text .= '<tr><td><b>registrant_holder_name</b></td><td><b>'.$item->registrant->registrant_holder_name.'</b></td>
-	<td>Voor zakelijk gebruik is de houdernaam zichtbaar. Juridische behoefte: directe verantwoordelijkheid wordt beperkt tot het laagste niveau van fysieke toegang.</td>
-	<td>For business use, the holder name is visible. Legal need: direct responsibility is limited to the lowest level of physical access.</td></tr>';
+	<td>Voor zakelijk gebruik is de houdernaam zichtbaar. Voorgestelde regel: directe verantwoordelijkheid wordt beperkt tot het laagste niveau van fysieke toegang.</td>
+	<td>For business use, the holder name is visible. Proposed rule: direct responsibility is limited to the lowest level of physical access.</td></tr>';
 	$html_text .= '<tr><td><b>registrant_holder_web_publish</b></td><td><b>'.$item->registrant->registrant_holder_web_publish.'</b></td>
 	<td>Zoekmachines geven pas weer als web_publish dit aangeeft.</td><td>Search engines only display when web_publish indicates this.</td></tr>';
 	$html_text .= '<tr><td><b>registrant_holder_web_id</b></td><td><b>'.$item->registrant->registrant_holder_web_id.'</b></td>
-	<td>Een dergelijk web_id werkt voor identificatie (gewenst sinds 2006).</td><td>Such a web id works for identification (desired since 2006)</td></tr>';
+	<td>Een dergelijk web_id werkt voor identificatie (gewenst sinds 2006).</td><td>Such a web_id works for identification (desired since 2006)</td></tr>';
 	$html_text .= '<tr><td><b>registrant_holder_business_use</b></td><td><b>'.$item->registrant->registrant_holder_business_use.'</b></td>
 	<td>Zakelijk gebruik, of niet, is de sleutel tot transparantie versus privacy.</td><td>Business use, or not, is the key to transparency vs privacy.</td></tr>';
 	$html_text .= '<tr><td>registrant_holder_street</td><td>'.$item->registrant->registrant_holder_street.'</td></tr>';
