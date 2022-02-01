@@ -76,10 +76,11 @@ foreach ($xml->xpath('//domain') as $item)	{
 	<td>Voor zakelijk gebruik is de houdernaam zichtbaar. Juridische behoefte: directe verantwoordelijkheid wordt beperkt tot het laagste niveau van fysieke toegang.</td>
 	<td>For business use, the holder name is visible. Legal need: direct responsibility is limited to the lowest level of physical access.</td></tr>';
 	$html_text .= '<tr><td><b>registrant_holder_web_publish</b></td><td><b>'.$item->registrant->registrant_holder_web_publish.'</b></td>
-	<td>Voor zoekmachines is web_publish mogelijk.</td><td>For search engines, web_publish is possible.</td></tr>';
+	<td>Zoekmachines geven pas weer als web_publish dit aangeeft.</td><td>Search engines only display when web_publish indicates this.</td></tr>';
 	$html_text .= '<tr><td><b>registrant_holder_web_id</b></td><td><b>'.$item->registrant->registrant_holder_web_id.'</b></td>
-	<td>Voor identificatie is een web_id mogelijk.</td><td>For identification, a web_id is possible.</td></tr>';
-	$html_text .= '<tr><td><b>registrant_holder_business_use</b></td><td><b>'.$item->registrant->registrant_holder_business_use.'</b></td>';
+	<td>Een dergelijk web_id werkt voor identificatie (gewenst sinds 2006).</td><td>Such a web id works for identification (desired since 2006)</td></tr>';
+	$html_text .= '<tr><td><b>registrant_holder_business_use</b></td><td><b>'.$item->registrant->registrant_holder_business_use.'</b></td>
+	<td>Zakelijk gebruik, of niet, is de sleutel tot transparantie versus privacy.</td><td>Business use, or not, is the key to transparency vs privacy.</td></tr>';
 	$html_text .= '<tr><td>registrant_holder_street</td><td>'.$item->registrant->registrant_holder_street.'</td></tr>';
 	$html_text .= '<tr><td>registrant_holder_postal_code</td><td>'.$item->registrant->registrant_holder_postal_code.'</td></tr>';
 	$html_text .= '<tr><td>registrant_holder_city</td><td>'.$item->registrant->registrant_holder_city.'</td></tr>';
