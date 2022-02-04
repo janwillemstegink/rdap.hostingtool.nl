@@ -4,7 +4,7 @@ The holder's name and contact details are relevant for customer protection and m
 
 Discussion worldwide requires modeling of non-centralized server communication.
 
-Modeling for teams of expertise: https://whois.hostingtool.nl/WhoisForPublic/.
+Modeling for teams of expertise: https://whois.hostingtool.nl/.
 
 An overview of web domains could be made available via the Trade Register for checking.
 
