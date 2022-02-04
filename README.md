@@ -1,8 +1,19 @@
-Public XML-exchange of web domain WHOIS-properties
+Currently, the WHOIS properties of a web domain are hardly readable.
 
-2022-01-26:
-My purpose is to communicate Whois to public in a readable way.
+The holder's name and contact details are relevant for customer protection and manageable administrative workload.
 
-Note: The XML files contain data from two domains, which makes Excel open properly.
+Discussion worldwide requires modeling of non-centralized server communication.
 
-See also https://webhostingtech.nl for design. See for example output https://whois.hostingtool.nl/WhoisForPublic/.
+Modeling for teams of expertise: https://whois.hostingtool.nl/WhoisForPublic/.
+
+An overview of web domains could be made available via the Trade Register for checking.
+
+See for background information:
+
+https://webhostingtech.nl/nl-zone-clearer-whois/
+
+https://webhostingtech.nl/us-eu-steps-for-whois/
+
+https://webhostingtech.nl/nl-country-list-whois/
+
+Note: The XML files contain data from two domains, so Excel is able to check XML syntax.
