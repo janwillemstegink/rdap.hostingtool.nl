@@ -31,7 +31,7 @@ elseif (file_exists($restrictionsFile))	{
 }
 else	{	
 	//$url2 = "http://whois.hostingtool.nl/whois_fetch.php?domain=".$inputdomain."&format=xml&type=2";
-	$url2 = "http://whois.hostingtool.nl/whois_input.xml";
+	$url2 = "http://whois.hostingtool.nl/whois_restrictions.xml";
 	$xml2 = simplexml_load_file($url2, "SimpleXMLElement", LIBXML_NOCDATA) or die("Cannot load xml file 2 by url.");
 }
 $html_text = '<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
