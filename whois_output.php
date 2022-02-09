@@ -148,7 +148,7 @@ foreach ($xml->xpath('//domain') as $item)	{
 	<td>Een "web_id" in het Handelsregister kan goed werken voor identificatie. Het verzoek is uit 2006. De KvK kan een efficiënte Whois-lijst automatiseren.</td>
 	<td>A "web_id" in the Trade Register can work well for identification. The request is from 2006. The Chamber of Commerce can automate an efficient Whois list.</td></tr>';
 	$html_text .= '<tr><td><b>registrant_holder_business_use</b></td><td><b>'.$item->registrant->registrant_holder_business_use.'</b></td>
-	<td>Het Whois "business_use" veld verheldert de beoogde zakelijke transparantie. De privacy geldt alleen van toepassing op een natuurlijk persoon.</td>
+	<td>Het Whois "business_use" veld verheldert de beoogde zakelijke transparantie. De privacy geldt alleen voor een natuurlijk persoon.</td>
 	<td>The Whois "business_use" field clarifies the intended business transparency. The privacy only applies to a natural person.</td></tr>';
 	$html_text .= '<tr><td>registrant_holder_street</td><td>'.$item->registrant->registrant_holder_street.'</td></tr>';
 	$html_text .= '<tr><td>registrant_holder_postal_code</td><td>'.$item->registrant->registrant_holder_postal_code.'</td></tr>';
