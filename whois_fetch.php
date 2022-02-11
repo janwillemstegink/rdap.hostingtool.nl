@@ -5,9 +5,11 @@ if (!empty($_GET['domain']))	{
 		if	($_GET['format'] == 'xml')	{
 			if	($_GET['type'] == 1)	{
 				echo write_file1($whois_domain);
+				die();
 			}	
 			elseif	($_GET['type'] == 2)	{
 				echo write_file2($whois_domain);
+				die();
 			}
 			else	{
 				die("No data type matches.");	
