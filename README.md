@@ -4,11 +4,11 @@ The holder's name and contact details are relevant for customer protection and m
 
 Discussion worldwide requires modeling of non-centralized server communication.
 
-Modeling for teams of expertise: https://whois.hostingtool.nl/whois_public/
+Proposed Whois fields and explanation: https://whois.hostingtool.nl/whois_public/
 
-An overview of web domains could be made available via the Trade Register for checking.
+Proposed check via the Trade Register: https://whois.hostingtool.nl/grid_domains/
 
-See for background information:
+Background information on:
 
 https://webhostingtech.nl/nl-zone-clearer-whois/
 
