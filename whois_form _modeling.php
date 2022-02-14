@@ -102,10 +102,11 @@ foreach ($xml->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>domain_id</td><td>'.$item->domain_id.'</td></tr>';
 	$html_text .= '<tr><td><b>domain_name</b></td><td><b>'.$item->domain_name.'</b></td></tr>';
 	$html_text .= '<tr><td><b>domain_web_publish</b></td><td><b>'.$item->domain_web_publish.'</b></td>
-	<td>Als "web_publish" is ingesteld op ja, kunnen zoekmachines legaal publiceren.</td><td>Having "web_publish" set to yes, search engines can publish legally.</td></tr>';
+	<td>Als "web_publish" is ingesteld op ja, kunnen zoekmachines legaal publiceren.</td>
+	<td>Having "web_publish" set to yes, search engines can publish legally.</td></tr>';
 	$html_text .= '<tr><td><b>domain_business_use</b></td><td><b>'.$item->domain_business_use.'</b></td>
-	<td>Het "business_use" (form-)veld maakt zakelijke transparantie rechtmatig.</td>
-	<td>The "business use" (form) field makes business transparency legitimate.</td></tr>';
+	<td>Het "business_use" (form-)veld verantwoordt zakelijke transparantie.</td>
+	<td>The "business_use" (form) field justifies business transparency.</td></tr>';
 	$html_text .= '<tr><td>domain_status</td><td>'.$item->domain_status.'</td></tr>';
 	$html_text .= '<tr><td>domain_creation</td><td>'.$item->domain_creation.'</td></tr>';
 	$html_text .= '<tr><td>domain_last_renewal</td><td>'.$item->domain_last_renewal.'</td></tr>';
