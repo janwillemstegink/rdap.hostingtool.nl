@@ -98,6 +98,7 @@ foreach ($xml->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td>view_datetime</td><td>'.$item->view->view_datetime.'</td></tr>';
 	$html_text .= '<tr><td>view_type</td><td>'.$item->view->view_type.'</td></tr>';
+	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td>domain_id</td><td>'.$item->domain_id.'</td></tr>';
 	$html_text .= '<tr><td><b>domain_name</b></td><td><b>'.$item->domain_name.'</b></td></tr>';
 	$html_text .= '<tr><td><b>domain_web_publish</b></td><td><b>'.$item->domain_web_publish.'</b></td>
