@@ -8,7 +8,7 @@ Proposed Whois fields and explanation: https://whois.hostingtool.nl/whois_public
 
 Proposed check via the Trade Register: https://whois.hostingtool.nl/grid_domains/
 
-Background information on:
+Find background information on:
 
 https://webhostingtech.nl/nl-zone-clearer-whois/
 
