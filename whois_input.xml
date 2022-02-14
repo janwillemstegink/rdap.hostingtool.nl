@@ -98,17 +98,21 @@
 		</data_management>
 	</domain>
 	<domain item="hostingtool.nl">
+		<view>
+			<view_datetime>2022-01-26 00:00:00</view_datetime>
+			<view_type>public</view_type>
+		</view>
 		<domain_id></domain_id>
 		<domain_name>hostingtool.nl</domain_name>
-		<domain_view_datetime>2022-01-26 00:00:00</domain_view_datetime>
-		<domain_view_type>public</domain_view_type>
+		<domain_web_publish>yes</domain_web_publish>
+		<domain_business_use>yes</domain_business_use>
 		<domain_status>active</domain_status>
 		<domain_creation>2021-08-15 00:00:00</domain_creation>
 		<domain_last_renewal></domain_last_renewal>
 		<domain_updated>2021-08-15 00:00:00</domain_updated>
 		<domain_expiration>2022-08-14 23:59:59</domain_expiration>
 		<domain_out_of_quarantine></domain_out_of_quarantine>
-				<registrar>
+		<registrar>
 			<registrar_contact_id></registrar_contact_id>
 			<registrar_name>team.blue nl B.V.</registrar_name>
 			<registrar_web_id></registrar_web_id>
@@ -140,9 +144,7 @@
 		<registrant>
 			<registrant_holder_contact_id></registrant_holder_contact_id>
 			<registrant_holder_name>JWST</registrant_holder_name>
-			<registrant_holder_web_publish>yes</registrant_holder_web_publish>
 			<registrant_holder_web_id>NL13COMM01234567890123456789012345</registrant_holder_web_id>
-			<registrant_holder_business_use>yes</registrant_holder_business_use>
 			<registrant_holder_street></registrant_holder_street>
 			<registrant_holder_postal_code></registrant_holder_postal_code>
 			<registrant_holder_city></registrant_holder_city>
