@@ -104,8 +104,8 @@ foreach ($xml->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><b>domain_web_publish</b></td><td><b>'.$item->domain_web_publish.'</b></td>
 	<td>Als "web_publish" is ingesteld op ja, kunnen zoekmachines legaal publiceren.</td><td>Having "web_publish" set to yes, search engines can publish legally.</td></tr>';
 	$html_text .= '<tr><td><b>domain_business_use</b></td><td><b>'.$item->domain_business_use.'</b></td>
-	<td>Het Whois "business_use" veld verheldert de beoogde zakelijke transparantie. De privacy geldt alleen voor een natuurlijk persoon.</td>
-	<td>The Whois "business_use" field clarifies the intended business transparency. The privacy only applies to a natural person.</td></tr>';
+	<td>Het "business_use" (form-)veld maakt zakelijke transparantie rechtmatig.</td>
+	<td>The "business use" (form) field makes business transparency legitimate.</td></tr>';
 	$html_text .= '<tr><td>domain_status</td><td>'.$item->domain_status.'</td></tr>';
 	$html_text .= '<tr><td>domain_creation</td><td>'.$item->domain_creation.'</td></tr>';
 	$html_text .= '<tr><td>domain_last_renewal</td><td>'.$item->domain_last_renewal.'</td></tr>';
@@ -146,11 +146,11 @@ foreach ($xml->xpath('//domain') as $item)	{
 	}	
 	$html_text .= '<tr><td>registrant_holder_contact_id</td><td>'.$item->registrant->registrant_holder_contact_id.'</td></tr>';
 	$html_text .= '<tr><td><b>registrant_holder_name</b></td><td><b>'.$item->registrant->registrant_holder_name.'</b></td>	
-	<td>Zakelijk gebruik heeft een zichtbare en bestaande naam nodig. Dit vraagt om directe verantwoordelijkheid bij de houder, en anders bij de reseller.</td>
-	<td>Business use needs a visible and existing name. This requires direct responsibility with the holder, and otherwise with the reseller.</td></tr>';
+	<td>Een zichtbare en bestaande houdernaam is aan de houder, of de reseller.</td>
+	<td>A visible and existing holder name is up to the holder, or the reseller.</td></tr>';
 	$html_text .= '<tr><td><b>registrant_holder_web_id</b></td><td><b>'.$item->registrant->registrant_holder_web_id.'</b></td>
-	<td>Een "web_id" in het Handelsregister kan goed werken voor identificatie. Het verzoek is uit 2006. De KvK kan een efficiënte Whois-lijst automatiseren.</td>
-	<td>A "web_id" in the Trade Register can work well for identification. The request is from 2006. The Chamber of Commerce can automate an efficient Whois list.</td></tr>';
+	<td>De KvK kan een web_id eigenschap in het Handelsregister toevoegen.</td>
+	<td>The Chamber of Commerce can add a web_id property in the Trade Register.</td></tr>';
 	$html_text .= '<tr><td>registrant_holder_street</td><td>'.$item->registrant->registrant_holder_street.'</td></tr>';
 	$html_text .= '<tr><td>registrant_holder_postal_code</td><td>'.$item->registrant->registrant_holder_postal_code.'</td></tr>';
 	$html_text .= '<tr><td>registrant_holder_city</td><td>'.$item->registrant->registrant_holder_city.'</td></tr>';
