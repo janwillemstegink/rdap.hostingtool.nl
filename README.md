@@ -12,4 +12,4 @@ https://webhostingtech.nl/us-eu-steps-for-whois/
 
 https://webhostingtech.nl/nl-country-list-whois/
 
-Note: The XML files contain data from two domains to enable Excel to check XML syntax.
+Note: The XML files contain data from two domains so Excel can check XML syntax.
