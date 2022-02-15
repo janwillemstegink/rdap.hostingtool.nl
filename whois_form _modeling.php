@@ -105,8 +105,8 @@ foreach ($xml->xpath('//domain') as $item)	{
 	<td>Als "web_publish" is ingesteld op ja, kunnen zoekmachines legaal publiceren.</td>
 	<td>Having "web_publish" set to yes, search engines can publish legally.</td></tr>';
 	$html_text .= '<tr><td><b>domain_business_use</b></td><td><b>'.$item->domain_business_use.'</b></td>
-	<td>Voor klantenbescherming en beheersbare naamgeving: "business_use" ja/nee.</td>
-	<td>For customer protection and manageable naming: "business_use" yes/no.</td></tr>';
+	<td>Voor een bestaande houdernaam en klantenbescherming: "business_use" ja/nee.</td>
+	<td>For an existing holder name and customer protection: "business_use" yes/no.</td></tr>';
 	$html_text .= '<tr><td>domain_status</td><td>'.$item->domain_status.'</td></tr>';
 	$html_text .= '<tr><td>domain_creation</td><td>'.$item->domain_creation.'</td></tr>';
 	$html_text .= '<tr><td>domain_last_renewal</td><td>'.$item->domain_last_renewal.'</td></tr>';
