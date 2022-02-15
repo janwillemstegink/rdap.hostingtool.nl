@@ -92,7 +92,7 @@ $html_text = '</head><body><div style="border-spacing=0; padding=0; border-width
 }  
 </style>
 <tr><th style="width:25%"></th><th style="width:25%"></th><th style="width:25%"></th><th style="width:25%"></th></tr>';
-$html_text .= '<tr><td><b>Web Domain Whois Modeling</b></td><td>Whois search to base on a file in XML format written by the registry</td><td>https://github.com/janwillemstegink/xml-whois</td></tr>';
+$html_text .= '<tr><td><b>Web Domain Whois Modeling</b></td><td>Data in XML format from the registry</td><td>https://github.com/janwillemstegink/xml-whois</td></tr>';
 foreach ($xml->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
