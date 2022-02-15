@@ -105,8 +105,8 @@ foreach ($xml->xpath('//domain') as $item)	{
 	<td>Als "web_publish" is ingesteld op ja, kunnen zoekmachines legaal publiceren.</td>
 	<td>Having "web_publish" set to yes, search engines can publish legally.</td></tr>';
 	$html_text .= '<tr><td><b>domain_business_use</b></td><td><b>'.$item->domain_business_use.'</b></td>
-	<td>Voor een bestaande houdernaam en klantenbescherming: "business_use" ja/nee.</td>
-	<td>For an existing holder name and customer protection: "business_use" yes/no.</td></tr>';
+	<td>Bij zakelijk gebruik is een zichtbare (en bestaande) naam van de houder vereist.</td>
+	<td>For business use, a visible (and existing) name of the holder is required.</td></tr>';
 	$html_text .= '<tr><td>domain_status</td><td>'.$item->domain_status.'</td></tr>';
 	$html_text .= '<tr><td>domain_creation</td><td>'.$item->domain_creation.'</td></tr>';
 	$html_text .= '<tr><td>domain_last_renewal</td><td>'.$item->domain_last_renewal.'</td></tr>';
@@ -114,7 +114,7 @@ foreach ($xml->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>domain_expiration</td><td>'.$item->domain_expiration.'</td></tr>';
 	$html_text .= '<tr><td>domain_out_of_quarantine</td><td>'.$item->domain_out_of_quarantine.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(20)">expand / collapse registrar details</a></td></tr>';
+	$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(20)">expand / collapse registrar</a></td></tr>';
 	$html_text .= '<tr id="B1" class="RowToSwitch"><td>registrar_contact_id</td><td>'.$item->registrar->registrar_contact_id.'</td></tr>';
 	$html_text .= '<tr id="B2" class="StandardRow"><td>registrar_name</td><td>'.$item->registrar->registrar_name.'</td></tr>';
 	$html_text .= '<tr id="B3" class="RowToSwitch"><td>registrar_web_id</td><td>'.$item->registrar->registrar_web_id.'</td></tr>';
@@ -132,7 +132,7 @@ foreach ($xml->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="B15" class="RowToSwitch"><td>registrar_hidden</td><td>'.$item->registrar->registrar_hidden.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	if (strlen(trim($item->reseller->reseller_name)))	{
-		$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(30)">expand / collapse reseller details</a></td></tr>';
+		$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(30)">expand / collapse reseller</a></td></tr>';
 		$html_text .= '<tr id="C1" class="RowToSwitch"><td>reseller_contact_id</td><td>'.$item->reseller->reseller_contact_id.'</td></tr>';
 		$html_text .= '<tr id="C2" class="StandardRow"><td>reseller_name</td><td>'.$item->reseller->reseller_name.'</td></tr>';
 		$html_text .= '<tr id="C3" class="RowToSwitch"><td>reseller_web_id</td><td>'.$item->reseller->reseller_web_id.'</td></tr>';
@@ -147,11 +147,11 @@ foreach ($xml->xpath('//domain') as $item)	{
 	}	
 	$html_text .= '<tr><td>registrant_holder_contact_id</td><td>'.$item->registrant->registrant_holder_contact_id.'</td></tr>';
 	$html_text .= '<tr><td><b>registrant_holder_name</b></td><td><b>'.$item->registrant->registrant_holder_name.'</b></td>	
-	<td>Een zichtbare en wenselijke houdernaam is aan de houder, of de reseller.</td>
-	<td>A visible and desirable holder name is up to the holder, or the reseller.</td></tr>';
+	<td>De houder, en anders de reseller, is direct verantwoordelijk voor de houdernaam.</td>
+	<td>The holder, otherwise the reseller, is directly responsible for the holder name.</td></tr>';
 	$html_text .= '<tr><td><b>registrant_holder_web_id</b></td><td><b>'.$item->registrant->registrant_holder_web_id.'</b></td>
-	<td>De KVK kan een web_id eigenschap in het Handelsregister toevoegen.</td>
-	<td>The Chamber of Commerce can add a web_id property in the Trade Register.</td></tr>';
+	<td>De KVK kan een "web_id" eigenschap in het Handelsregister toevoegen.</td>
+	<td>The Chamber of Commerce can add a "web_id" property in the Trade Register.</td></tr>';
 	$html_text .= '<tr><td>registrant_holder_street</td><td>'.$item->registrant->registrant_holder_street.'</td></tr>';
 	$html_text .= '<tr><td>registrant_holder_postal_code</td><td>'.$item->registrant->registrant_holder_postal_code.'</td></tr>';
 	$html_text .= '<tr><td>registrant_holder_city</td><td>'.$item->registrant->registrant_holder_city.'</td></tr>';
@@ -189,7 +189,7 @@ foreach ($xml->xpath('//domain') as $item)	{
 		$html_text .= '<tr><td>tech_hidden_4</td><td>'.$item->tech->contact_4->tech_hidden_4.'</td></tr>';
 	}	
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(40)">expand / collapse name server details</a></td></tr>';
+	$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(40)">expand / collapse name servers</a></td></tr>';
 	if (strlen(trim($item->name_servers->server_1->server_name_1)))	{
 		$html_text .= '<tr id="F1" class="RowToSwitch"><td>server_name_1</td><td>'.$item->name_servers->server_1->server_name_1.'</td></tr>';
 		$html_text .= '<tr id="F2" class="RowToSwitch"><td>ipv4_1</td><td>'.$item->name_servers->server_1->ipv4_1.'</td></tr>';
@@ -224,7 +224,7 @@ foreach ($xml->xpath('//domain') as $item)	{
 	<td>DNSSEC is een web-route-beveiligingsvoorziening op het DNS.</td>
 	<td>DNSSEC is a web route security feature on the DNS.</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(50)">expand / collapse registry details</a></td></tr>';
+	$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(50)">expand / collapse registry</a></td></tr>';
 	$html_text .= '<tr><td>registry_description</td><td>'.$item->data_management->registry_description.'</td></tr>';
 	$html_text .= '<tr id="G1" class="RowToSwitch"><td>registry_language</td><td>'.$item->data_management->registry_language.'</td></tr>';
 	$html_text .= '<tr id="G2" class="RowToSwitch"><td>registry_format</td><td>'.$item->data_management->registry_format.'</td></tr>';
