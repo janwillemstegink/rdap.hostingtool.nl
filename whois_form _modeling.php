@@ -147,8 +147,8 @@ foreach ($xml->xpath('//domain') as $item)	{
 	}	
 	$html_text .= '<tr><td>registrant_holder_contact_id</td><td>'.$item->registrant->registrant_holder_contact_id.'</td></tr>';
 	$html_text .= '<tr><td><b>registrant_holder_name</b></td><td><b>'.$item->registrant->registrant_holder_name.'</b></td>	
-	<td>Een zichtbare en bestaande houdernaam is aan de houder, of de reseller.</td>
-	<td>A visible and existing holder name is up to the holder, or the reseller.</td></tr>';
+	<td>Een zichtbare, en bestaande, houdernaam is aan de houder, of de reseller.</td>
+	<td>A visible, and existing, holder name is up to the holder, or the reseller.</td></tr>';
 	$html_text .= '<tr><td><b>registrant_holder_web_id</b></td><td><b>'.$item->registrant->registrant_holder_web_id.'</b></td>
 	<td>De KVK kan een web_id eigenschap in het Handelsregister toevoegen.</td>
 	<td>The Chamber of Commerce can add a web_id property in the Trade Register.</td></tr>';
