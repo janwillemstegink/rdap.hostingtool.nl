@@ -1,8 +1,8 @@
 Currently, the WHOIS properties of a web domain are hardly readable. The holder's name and contact details are relevant for customer protection and manageable administrative workload. Discussion worldwide requires modeling of non-centralized server communication.
 
-Proposed Whois fields and explanation: https://whois.hostingtool.nl/whois_form_modeling/
+Whois fields and explanation: https://whois.hostingtool.nl/whois_form_modeling/
 
-Proposed check via the Trade Register: https://whois.hostingtool.nl/whois_list_modeling/
+Check via the Trade Register: https://whois.hostingtool.nl/whois_list_modeling/
 
 Find background information on:
 
