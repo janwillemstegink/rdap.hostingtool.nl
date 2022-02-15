@@ -93,7 +93,7 @@ $html_text = '</head><body><div style="border-spacing=0; padding=0; border-width
 </style>
 <tr><th style="width:25%"></th><th style="width:25%"></th><th style="width:25%"></th><th style="width:25%"></th></tr>';
 $html_text .= '<tr><td><b>Clearer Whois - https://github.com/janwillemstegink/xml-whois</b></td>
-<td>Data from a registry made available in XML format</td><td>nl-NL - Toelichting</td><td>en-US - Explanation</td></tr>';
+<td><b>Data from a registry made available in XML format</b></td><td><b>nl-NL - Toelichting</b></td><td><b>en-US - Explanation</b></td></tr>';
 foreach ($xml->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
@@ -115,7 +115,7 @@ foreach ($xml->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>domain_expiration</td><td>'.$item->domain_expiration.'</td></tr>';
 	$html_text .= '<tr><td>domain_out_of_quarantine</td><td>'.$item->domain_out_of_quarantine.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(20)">expand / collapse registrar</a></td></tr>';
+	$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(20)">expand / collapse registrar data</a></td></tr>';
 	$html_text .= '<tr id="B1" class="RowToSwitch"><td>registrar_contact_id</td><td>'.$item->registrar->registrar_contact_id.'</td></tr>';
 	$html_text .= '<tr id="B2" class="StandardRow"><td>registrar_name</td><td>'.$item->registrar->registrar_name.'</td></tr>';
 	$html_text .= '<tr id="B3" class="RowToSwitch"><td>registrar_web_id</td><td>'.$item->registrar->registrar_web_id.'</td></tr>';
@@ -133,7 +133,7 @@ foreach ($xml->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="B15" class="RowToSwitch"><td>registrar_hidden</td><td>'.$item->registrar->registrar_hidden.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	if (strlen(trim($item->reseller->reseller_name)))	{
-		$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(30)">expand / collapse reseller</a></td></tr>';
+		$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(30)">expand / collapse reseller data</a></td></tr>';
 		$html_text .= '<tr id="C1" class="RowToSwitch"><td>reseller_contact_id</td><td>'.$item->reseller->reseller_contact_id.'</td></tr>';
 		$html_text .= '<tr id="C2" class="StandardRow"><td>reseller_name</td><td>'.$item->reseller->reseller_name.'</td></tr>';
 		$html_text .= '<tr id="C3" class="RowToSwitch"><td>reseller_web_id</td><td>'.$item->reseller->reseller_web_id.'</td></tr>';
@@ -190,7 +190,7 @@ foreach ($xml->xpath('//domain') as $item)	{
 		$html_text .= '<tr><td>tech_hidden_4</td><td>'.$item->tech->contact_4->tech_hidden_4.'</td></tr>';
 	}	
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(40)">expand / collapse name servers</a></td></tr>';
+	$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(40)">expand / collapse name server data</a></td></tr>';
 	if (strlen(trim($item->name_servers->server_1->server_name_1)))	{
 		$html_text .= '<tr id="F1" class="RowToSwitch"><td>server_name_1</td><td>'.$item->name_servers->server_1->server_name_1.'</td></tr>';
 		$html_text .= '<tr id="F2" class="RowToSwitch"><td>ipv4_1</td><td>'.$item->name_servers->server_1->ipv4_1.'</td></tr>';
@@ -225,7 +225,7 @@ foreach ($xml->xpath('//domain') as $item)	{
 	<td>DNSSEC is een web-route-beveiligingsvoorziening op het DNS.</td>
 	<td>DNSSEC is a web route security feature on the DNS.</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(50)">expand / collapse registry</a></td></tr>';
+	$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(50)">expand / collapse registry data</a></td></tr>';
 	$html_text .= '<tr><td>registry_description</td><td>'.$item->data_management->registry_description.'</td></tr>';
 	$html_text .= '<tr id="G1" class="RowToSwitch"><td>registry_language</td><td>'.$item->data_management->registry_language.'</td></tr>';
 	$html_text .= '<tr id="G2" class="RowToSwitch"><td>registry_format</td><td>'.$item->data_management->registry_format.'</td></tr>';
