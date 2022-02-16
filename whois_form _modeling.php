@@ -93,7 +93,7 @@ $html_text = '</head><body><div style="border-spacing=0; padding=0; border-width
 </style>
 <tr><th style="width:25%"></th><th style="width:25%"></th><th style="width:25%"></th><th style="width:25%"></th></tr>';
 $html_text .= '<tr><td><b>Clearer Whois - https://github.com/janwillemstegink/xml-whois</b></td>
-<td><b>Data from a registry made available in XML format</b></td><td><b>nl-NL - Toelichting</b></td><td><b>en-US - Explanation</b></td></tr>';
+<td><b>Registry data made available in XML format</b></td><td><b>nl-NL - Toelichting</b></td><td><b>en-US - Explanation</b></td></tr>';
 foreach ($xml->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
