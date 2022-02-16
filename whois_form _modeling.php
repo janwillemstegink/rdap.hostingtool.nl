@@ -41,32 +41,46 @@ $html_text = '<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="robots" content="index"><title>Whois modeling for Trade Register use</title>';
 ?><script>
 function SwitchVisibility(type) {
-	if (type == 20)	{ // registrar
+	if (type == 20)	{ // domain
 		var pre = 'B';
-		var max = 15
-	}	
-	else if (type == 30)	{ // reseller
-		var pre = 'C';
 		var max = 10
 	}
-	else if (type == 40)	{ // name servers
+	else if (type == 30)	{ // registrar
+		var pre = 'C';
+		var max = 15
+	}
+	else if (type == 40)	{ // reseller
+		var pre = 'D';
+		var max = 10
+	}
+	else if (type == 50)	{ // holder
+		var pre = 'E';
+		var max = 10
+	}
+	else if (type == 60)	{ // admin
 		var pre = 'F';
+		var max = 3
+	}
+	else if (type == 70)	{ // tech
+		var pre = 'G';
+		var max = 12
+	}
+	else if (type == 80)	{ // name servers
+		var pre = 'H';
 		var max = 18
 	}
-	else if (type == 50)	{ // registry
-		var pre = 'G';
-		var max = 2
+	else if (type == 90)	{ // registry
+		var pre = 'I';
+		var max = 3
 	}
 	else	{
 		return;	
 	}
 	
 	for (let i = 1; i <= max; i++) {
-		lineDetails(pre + i.toString());
-	}
-		
-	function lineDetails(id) {
-		if (document.getElementById(id).style.display == "table-row" && id != "B2" && id != "B4" && id != "C2") { 	
+		var id = pre + i.toString();
+		if (document.getElementById(id).style.display == "table-row" && id != 'B2' && id != 'B3' && id != 'B4' && id != 'C2' && id != 'C4' && id != 'D2' && id != 'E2' && id != 'E3' 
+			&& id != 'F2' && id != 'G2' && id != 'G5' && id != 'G8' && id != 'G11' && id != 'I1')	{
 			document.getElementById(id).style.display = "none";	
 		}
 		else	{
@@ -92,151 +106,152 @@ $html_text = '</head><body><div style="border-spacing=0; padding=0; border-width
 }  
 </style>
 <tr><th style="width:25%"></th><th style="width:25%"></th><th style="width:25%"></th><th style="width:25%"></th></tr>';
-$html_text .= '<tr><td><b>Clearer Whois - https://github.com/janwillemstegink/xml-whois</b></td>
-<td><b>Registry data made available in XML format</b></td><td><b>nl_NL - Toelichting</b></td><td><b>en_US - Explanation</b></td></tr>';
+$html_text .= '<tr><td><b>Clearer Whois, see also </b><a href="https://github.com/janwillemstegink/xml-whois" target="_blank">github.com/janwillemstegink/xml-whois</a></td>
+<td><b>From a registry in XML format</b></td><td><b>Toelichting</b></td><td><b>Explanation</b></td></tr>';
 foreach ($xml->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td>view_datetime</td><td>'.$item->view->view_datetime.'</td></tr>';
 	$html_text .= '<tr><td>view_type</td><td>'.$item->view->view_type.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td>domain_id</td><td>'.$item->domain_id.'</td></tr>';
-	$html_text .= '<tr><td><b>domain_name</b></td><td><b>'.$item->domain_name.'</b></td></tr>';
-	$html_text .= '<tr><td><b>domain_web_publish</b></td><td><b>'.$item->domain_web_publish.'</b></td>
-	<td>Als "web_publish" is ingesteld op ja, kunnen zoekmachines legaal publiceren.</td>
+	$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(20)">domain details more / less</a></td></tr>';
+	$html_text .= '<tr id="B1" class="RowToSwitch"><td>domain_id</td><td>'.$item->domain_id.'</td></tr>';
+	$html_text .= '<tr id="B2" class="StandardRow"><td>domain_name</td><td>'.$item->domain_name.'</td></tr>';
+	$html_text .= '<tr id="B3" class="StandardRow"><td>domain_web_publish</td><td>'.$item->domain_web_publish.'</td>
+	<td>Met "web_publish" ingesteld op ja, kunnen zoekmachines legaal publiceren.</td>
 	<td>Having "web_publish" set to yes, search engines can publish legally.</td></tr>';
-	$html_text .= '<tr><td><b>domain_business_use</b></td><td><b>'.$item->domain_business_use.'</b></td>
+	$html_text .= '<tr id="B4" class="StandardRow"><td>domain_business_use</td><td>'.$item->domain_business_use.'</td>
 	<td>Zakelijk gebruik vereist het type: bestaande en zichtbare naam van de houder.</td>
 	<td>Business use requires the type: existing and visible name of the holder.</td></tr>';
-	$html_text .= '<tr><td>domain_status</td><td>'.$item->domain_status.'</td></tr>';
-	$html_text .= '<tr><td>domain_creation</td><td>'.$item->domain_creation.'</td></tr>';
-	$html_text .= '<tr><td>domain_last_renewal</td><td>'.$item->domain_last_renewal.'</td></tr>';
-	$html_text .= '<tr><td>domain_updated</td><td>'.$item->domain_updated.'</td></tr>';
-	$html_text .= '<tr><td>domain_expiration</td><td>'.$item->domain_expiration.'</td></tr>';
-	$html_text .= '<tr><td>domain_out_of_quarantine</td><td>'.$item->domain_out_of_quarantine.'</td></tr>';
+	$html_text .= '<tr id="B5" class="RowToSwitch"><td>domain_status</td><td>'.$item->domain_status.'</td></tr>';
+	$html_text .= '<tr id="B6" class="RowToSwitch"><td>domain_creation</td><td>'.$item->domain_creation.'</td></tr>';
+	$html_text .= '<tr id="B7" class="RowToSwitch"><td>domain_last_renewal</td><td>'.$item->domain_last_renewal.'</td></tr>';
+	$html_text .= '<tr id="B8" class="RowToSwitch"><td>domain_updated</td><td>'.$item->domain_updated.'</td></tr>';
+	$html_text .= '<tr id="B9" class="RowToSwitch"><td>domain_expiration</td><td>'.$item->domain_expiration.'</td></tr>';
+	$html_text .= '<tr id="B10" class="RowToSwitch"><td>domain_out_of_quarantine</td><td>'.$item->domain_out_of_quarantine.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(20)">expand / collapse registrar data</a></td></tr>';
-	$html_text .= '<tr id="B1" class="RowToSwitch"><td>registrar_contact_id</td><td>'.$item->registrar->registrar_contact_id.'</td></tr>';
-	$html_text .= '<tr id="B2" class="StandardRow"><td>registrar_name</td><td>'.$item->registrar->registrar_name.'</td></tr>';
-	$html_text .= '<tr id="B3" class="RowToSwitch"><td>registrar_web_id</td><td>'.$item->registrar->registrar_web_id.'</td></tr>';
-	$html_text .= '<tr id="B4" class="StandardRow"><td>registrar_abuse_email</td><td>'.$item->registrar->registrar_abuse_email.'</td></tr>';
-	$html_text .= '<tr id="B5" class="RowToSwitch"><td>registrar_abuse_phone</td><td>'.$item->registrar->registrar_abuse_phone.'</td></tr>';
-	$html_text .= '<tr id="B6" class="RowToSwitch"><td>registrar_street</td><td>'.$item->registrar->registrar_street.'</td></tr>';
-	$html_text .= '<tr id="B7" class="RowToSwitch"><td>registrar_postal_code</td><td>'.$item->registrar->registrar_postal_code.'</td></tr>';
-	$html_text .= '<tr id="B8" class="RowToSwitch"><td>registrar_city</td><td>'.$item->registrar->registrar_city.'</td></tr>';
-	$html_text .= '<tr id="B9" class="RowToSwitch"><td>registrar_country_code</td><td>'.$item->registrar->registrar_country_code.'</td></tr>';
-	$html_text .= '<tr id="B10" class="RowToSwitch"><td>registrar_country_name</td><td>'.$item->registrar->registrar_country_name.'</td></tr>';
-	$html_text .= '<tr id="B11" class="RowToSwitch"><td>registrar_country_language</td><td>'.$item->registrar->registrar_country_language.'</td></tr>';
-	$html_text .= '<tr id="B12" class="RowToSwitch"><td>registrar_whois_server</td><td>'.$item->registrar->registrar_whois_server.'</td></tr>';
-	$html_text .= '<tr id="B13" class="RowToSwitch"><td>registrar_url</td><td>'.$item->registrar->registrar_url.'</td></tr>';
-	$html_text .= '<tr id="B14" class="RowToSwitch"><td>registrar_iana_id</td><td>'.$item->registrar->registrar_iana_id.'</td></tr>';
-	$html_text .= '<tr id="B15" class="RowToSwitch"><td>registrar_hidden</td><td>'.$item->registrar->registrar_hidden.'</td></tr>';
+	$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(30)">registrar details more / less</a></td></tr>';
+	$html_text .= '<tr id="C1" class="RowToSwitch"><td>registrar_contact_id</td><td>'.$item->registrar->registrar_contact_id.'</td></tr>';
+	$html_text .= '<tr id="C2" class="StandardRow"><td>registrar_name</td><td>'.$item->registrar->registrar_name.'</td></tr>';
+	$html_text .= '<tr id="C3" class="RowToSwitch"><td>registrar_web_id</td><td>'.$item->registrar->registrar_web_id.'</td></tr>';
+	$html_text .= '<tr id="C4" class="StandardRow"><td>registrar_abuse_email</td><td>'.$item->registrar->registrar_abuse_email.'</td></tr>';
+	$html_text .= '<tr id="C5" class="RowToSwitch"><td>registrar_abuse_phone</td><td>'.$item->registrar->registrar_abuse_phone.'</td></tr>';
+	$html_text .= '<tr id="C6" class="RowToSwitch"><td>registrar_street</td><td>'.$item->registrar->registrar_street.'</td></tr>';
+	$html_text .= '<tr id="C7" class="RowToSwitch"><td>registrar_postal_code</td><td>'.$item->registrar->registrar_postal_code.'</td></tr>';
+	$html_text .= '<tr id="C8" class="RowToSwitch"><td>registrar_city</td><td>'.$item->registrar->registrar_city.'</td></tr>';
+	$html_text .= '<tr id="C9" class="RowToSwitch"><td>registrar_country_code</td><td>'.$item->registrar->registrar_country_code.'</td></tr>';
+	$html_text .= '<tr id="C10" class="RowToSwitch"><td>registrar_country_name</td><td>'.$item->registrar->registrar_country_name.'</td></tr>';
+	$html_text .= '<tr id="C11" class="RowToSwitch"><td>registrar_country_language</td><td>'.$item->registrar->registrar_country_language.'</td></tr>';
+	$html_text .= '<tr id="C12" class="RowToSwitch"><td>registrar_whois_server</td><td>'.$item->registrar->registrar_whois_server.'</td></tr>';
+	$html_text .= '<tr id="C13" class="RowToSwitch"><td>registrar_url</td><td>'.$item->registrar->registrar_url.'</td></tr>';
+	$html_text .= '<tr id="C14" class="RowToSwitch"><td>registrar_iana_id</td><td>'.$item->registrar->registrar_iana_id.'</td></tr>';
+	$html_text .= '<tr id="C15" class="RowToSwitch"><td>registrar_hidden</td><td>'.$item->registrar->registrar_hidden.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	if (strlen(trim($item->reseller->reseller_name)))	{
-		$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(30)">expand / collapse reseller data</a></td></tr>';
-		$html_text .= '<tr id="C1" class="RowToSwitch"><td>reseller_contact_id</td><td>'.$item->reseller->reseller_contact_id.'</td></tr>';
-		$html_text .= '<tr id="C2" class="StandardRow"><td>reseller_name</td><td>'.$item->reseller->reseller_name.'</td></tr>';
-		$html_text .= '<tr id="C3" class="RowToSwitch"><td>reseller_web_id</td><td>'.$item->reseller->reseller_web_id.'</td></tr>';
-		$html_text .= '<tr id="C4" class="RowToSwitch"><td>reseller_street</td><td>'.$item->reseller->reseller_street.'</td></tr>';
-		$html_text .= '<tr id="C5" class="RowToSwitch"><td>reseller_postal_code</td><td>'.$item->reseller->reseller_postal_code.'</td></tr>';
-		$html_text .= '<tr id="C6" class="RowToSwitch"><td>reseller_city</td><td>'.$item->reseller->reseller_city.'</td></tr>';
-		$html_text .= '<tr id="C7" class="RowToSwitch"><td>reseller_country_code</td><td>'.$item->reseller->reseller_country_code.'</td></tr>';
-		$html_text .= '<tr id="C8" class="RowToSwitch"><td>reseller_country_name</td><td>'.$item->reseller->reseller_country_name.'</td></tr>';
-		$html_text .= '<tr id="C9" class="RowToSwitch"><td>reseller_country_language</td><td>'.$item->reseller->reseller_country_language.'</td></tr>';
-		$html_text .= '<tr id="C10" class="RowToSwitch"><td>reseller_hidden</td><td>'.$item->reseller->reseller_hidden.'</td></tr>';
+		$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(40)">reseller details more / less</a></td></tr>';
+		$html_text .= '<tr id="D1" class="RowToSwitch"><td>reseller_contact_id</td><td>'.$item->reseller->reseller_contact_id.'</td></tr>';
+		$html_text .= '<tr id="D2" class="StandardRow"><td>reseller_name</td><td>'.$item->reseller->reseller_name.'</td></tr>';
+		$html_text .= '<tr id="D3" class="RowToSwitch"><td>reseller_web_id</td><td>'.$item->reseller->reseller_web_id.'</td></tr>';
+		$html_text .= '<tr id="D4" class="RowToSwitch"><td>reseller_street</td><td>'.$item->reseller->reseller_street.'</td></tr>';
+		$html_text .= '<tr id="D5" class="RowToSwitch"><td>reseller_postal_code</td><td>'.$item->reseller->reseller_postal_code.'</td></tr>';
+		$html_text .= '<tr id="D6" class="RowToSwitch"><td>reseller_city</td><td>'.$item->reseller->reseller_city.'</td></tr>';
+		$html_text .= '<tr id="D7" class="RowToSwitch"><td>reseller_country_code</td><td>'.$item->reseller->reseller_country_code.'</td></tr>';
+		$html_text .= '<tr id="D8" class="RowToSwitch"><td>reseller_country_name</td><td>'.$item->reseller->reseller_country_name.'</td></tr>';
+		$html_text .= '<tr id="D9" class="RowToSwitch"><td>reseller_country_language</td><td>'.$item->reseller->reseller_country_language.'</td></tr>';
+		$html_text .= '<tr id="D10" class="RowToSwitch"><td>reseller_hidden</td><td>'.$item->reseller->reseller_hidden.'</td></tr>';
 		$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	}	
-	$html_text .= '<tr><td>registrant_holder_contact_id</td><td>'.$item->registrant->registrant_holder_contact_id.'</td></tr>';
-	$html_text .= '<tr><td><b>registrant_holder_name</b></td><td><b>'.$item->registrant->registrant_holder_name.'</b></td>	
+	}
+	$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(50)">holder details more / less</a></td></tr>';
+	$html_text .= '<tr id="E1" class="RowToSwitch"><td>registrant_holder_contact_id</td><td>'.$item->registrant->registrant_holder_contact_id.'</td></tr>';
+	$html_text .= '<tr id="E2" class="StandardRow"><td>registrant_holder_name</td><td>'.$item->registrant->registrant_holder_name.'</td>	
 	<td>De houder, en anders de reseller, is direct verantwoordelijk voor de houdernaam.</td>
 	<td>The holder, otherwise the reseller, is directly responsible for the holder name.</td></tr>';
-	$html_text .= '<tr><td><b>registrant_holder_web_id</b></td><td><b>'.$item->registrant->registrant_holder_web_id.'</b></td>
+	$html_text .= '<tr id="E3" class="StandardRow"><td>registrant_holder_web_id</td><td>'.$item->registrant->registrant_holder_web_id.'</td>
 	<td>De KVK kan een "web_id" eigenschap in het Handelsregister toevoegen.</td>
 	<td>The Chamber of Commerce can add a "web_id" property in the Trade Register.</td></tr>';
-	$html_text .= '<tr><td>registrant_holder_street</td><td>'.$item->registrant->registrant_holder_street.'</td></tr>';
-	$html_text .= '<tr><td>registrant_holder_postal_code</td><td>'.$item->registrant->registrant_holder_postal_code.'</td></tr>';
-	$html_text .= '<tr><td>registrant_holder_city</td><td>'.$item->registrant->registrant_holder_city.'</td></tr>';
-	$html_text .= '<tr><td>registrant_holder_country_code</td><td>'.$item->registrant->registrant_holder_country_code.'</td></tr>';
-	$html_text .= '<tr><td>registrant_holder_country_name</td><td>'.$item->registrant->registrant_holder_country_name.'</td></tr>';
-	$html_text .= '<tr><td>registrant_holder_country_language</td><td>'.$item->registrant->registrant_holder_country_language.'</td></tr>';
-	$html_text .= '<tr><td>registrant_holder_hidden</td><td>'.$item->registrant->registrant_holder_hidden.'</td></tr>';
+	$html_text .= '<tr id="E4" class="RowToSwitch"><td>registrant_holder_street</td><td>'.$item->registrant->registrant_holder_street.'</td></tr>';
+	$html_text .= '<tr id="E5" class="RowToSwitch"><td>registrant_holder_postal_code</td><td>'.$item->registrant->registrant_holder_postal_code.'</td></tr>';
+	$html_text .= '<tr id="E6" class="RowToSwitch"><td>registrant_holder_city</td><td>'.$item->registrant->registrant_holder_city.'</td></tr>';
+	$html_text .= '<tr id="E7" class="RowToSwitch"><td>registrant_holder_country_code</td><td>'.$item->registrant->registrant_holder_country_code.'</td></tr>';
+	$html_text .= '<tr id="E8" class="RowToSwitch"><td>registrant_holder_country_name</td><td>'.$item->registrant->registrant_holder_country_name.'</td></tr>';
+	$html_text .= '<tr id="E9" class="RowToSwitch"><td>registrant_holder_country_language</td><td>'.$item->registrant->registrant_holder_country_language.'</td></tr>';
+	$html_text .= '<tr id="E10" class="RowToSwitch"><td>registrant_holder_hidden</td><td>'.$item->registrant->registrant_holder_hidden.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td>admin_contact_id</td><td>'.$item->admin->admin_contact_id.'</td></tr>';
-	$html_text .= '<tr><td>admin_email</td><td>'.$item->admin->admin_email.'</td>
+	$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(60)">admin details more / less</a></td></tr>';
+	$html_text .= '<tr id="F1" class="RowToSwitch"><td>admin_contact_id</td><td>'.$item->admin->admin_contact_id.'</td></tr>';
+	$html_text .= '<tr id="F2" class="StandardRow"><td>admin_email</td><td>'.$item->admin->admin_email.'</td>
 	<td>Admin beantwoordt en adresseert een gemeld probleem voor een oplossing.</td>
 	<td>Admin answers and addresses a reported issue for a solution.</td></tr>';
-	$html_text .= '<tr><td>admin_hidden</td><td>'.$item->admin->admin_hidden.'</td></tr>';
+	$html_text .= '<tr id="F3" class="RowToSwitch"><td>admin_hidden</td><td>'.$item->admin->admin_hidden.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
+	$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(70)">tech details more / less</a></td></tr>';
 	if (strlen(trim($item->tech->contact_1->tech_email_1)))	{	
-		$html_text .= '<tr><td>tech_contact_id_1</td><td>'.$item->tech->contact_1->tech_contact_id_1.'</td></tr>';
-		$html_text .= '<tr><td>tech_email_1</td><td>'.$item->tech->contact_1->tech_email_1.'</td>
+		$html_text .= '<tr id="G1" class="RowToSwitch"><td>tech_contact_id_1</td><td>'.$item->tech->contact_1->tech_contact_id_1.'</td></tr>';
+		$html_text .= '<tr id="G2" class="StandardRow"><td>tech_email_1</td><td>'.$item->tech->contact_1->tech_email_1.'</td>
 		<td>Een technisch contact reageert om een storingsmelding op te lossen.</td>
 		<td>A technical contact responds to resolve a malfunction notification.</td></tr>';
-		$html_text .= '<tr><td>tech_hidden_1</td><td>'.$item->tech->contact_1->tech_hidden_1.'</td></tr>';
+		$html_text .= '<tr id="G3" class="RowToSwitch"><td>tech_hidden_1</td><td>'.$item->tech->contact_1->tech_hidden_1.'</td></tr>';
 	}
 	if (strlen(trim($item->tech->contact_2->tech_email_2)))	{	
-		$html_text .= '<tr><td>tech_contact_id_2</td><td>'.$item->tech->contact_2->tech_contact_id_2.'</td></tr>';
-		$html_text .= '<tr><td>tech_email_2</td><td>'.$item->tech->contact_2->tech_email_2.'</td></tr>';
-		$html_text .= '<tr><td>tech_hidden_2</td><td>'.$item->tech->contact_2->tech_hidden_2.'</td></tr>';
+		$html_text .= '<tr id="G4" class="RowToSwitch"><td>tech_contact_id_2</td><td>'.$item->tech->contact_2->tech_contact_id_2.'</td></tr>';
+		$html_text .= '<tr id="G5" class="StandardRow"><td>tech_email_2</td><td>'.$item->tech->contact_2->tech_email_2.'</td></tr>';
+		$html_text .= '<tr id="G6" class="RowToSwitch"><td>tech_hidden_2</td><td>'.$item->tech->contact_2->tech_hidden_2.'</td></tr>';
 	}
 	if (strlen(trim($item->tech->contact_3->tech_email_3)))	{	
-		$html_text .= '<tr><td>tech_contact_id_3</td><td>'.$item->tech->contact_3->tech_contact_id_3.'</td></tr>';
-		$html_text .= '<tr><td>tech_email_3</td><td>'.$item->tech->contact_3->tech_email_3.'</td></tr>';
-		$html_text .= '<tr><td>tech_hidden_3</td><td>'.$item->tech->contact_3->tech_hidden_3.'</td></tr>';
+		$html_text .= '<tr id="G7" class="RowToSwitch"><td>tech_contact_id_3</td><td>'.$item->tech->contact_3->tech_contact_id_3.'</td></tr>';
+		$html_text .= '<tr id="G8" class="StandardRow"><td>tech_email_3</td><td>'.$item->tech->contact_3->tech_email_3.'</td></tr>';
+		$html_text .= '<tr id="G9" class="RowToSwitch"><td>tech_hidden_3</td><td>'.$item->tech->contact_3->tech_hidden_3.'</td></tr>';
 	}
 	if (strlen(trim($item->tech->contact_4->tech_email_4)))	{	
-		$html_text .= '<tr><td>tech_contact_id_4</td><td>'.$item->tech->contact_4->tech_contact_id_4.'</td></tr>';
-		$html_text .= '<tr><td>tech_email_4</td><td>'.$item->tech->contact_4->tech_email_4.'</td></tr>';
-		$html_text .= '<tr><td>tech_hidden_4</td><td>'.$item->tech->contact_4->tech_hidden_4.'</td></tr>';
+		$html_text .= '<tr id="G10" class="RowToSwitch"><td>tech_contact_id_4</td><td>'.$item->tech->contact_4->tech_contact_id_4.'</td></tr>';
+		$html_text .= '<tr id="G11" class="StandardRow"><td>tech_email_4</td><td>'.$item->tech->contact_4->tech_email_4.'</td></tr>';
+		$html_text .= '<tr id="G12" class="RowToSwitch"><td>tech_hidden_4</td><td>'.$item->tech->contact_4->tech_hidden_4.'</td></tr>';
 	}	
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(40)">expand / collapse name server data</a></td></tr>';
+	$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(80)">name server details more / less</a></td></tr>';
 	if (strlen(trim($item->name_servers->server_1->server_name_1)))	{
-		$html_text .= '<tr id="F1" class="RowToSwitch"><td>server_name_1</td><td>'.$item->name_servers->server_1->server_name_1.'</td></tr>';
-		$html_text .= '<tr id="F2" class="RowToSwitch"><td>ipv4_1</td><td>'.$item->name_servers->server_1->ipv4_1.'</td></tr>';
-		$html_text .= '<tr id="F3" class="RowToSwitch"><td>ipv6_1</td><td>'.$item->name_servers->server_1->ipv6_1.'</td></tr>';
+		$html_text .= '<tr id="H1" class="RowToSwitch"><td>server_name_1</td><td>'.$item->name_servers->server_1->server_name_1.'</td></tr>';
+		$html_text .= '<tr id="H2" class="RowToSwitch"><td>ipv4_1</td><td>'.$item->name_servers->server_1->ipv4_1.'</td></tr>';
+		$html_text .= '<tr id="H3" class="RowToSwitch"><td>ipv6_1</td><td>'.$item->name_servers->server_1->ipv6_1.'</td></tr>';
 	}
 	if (strlen(trim($item->name_servers->server_2->server_name_2)))	{
-		$html_text .= '<tr id="F4" class="RowToSwitch"><td>server_name_2</td><td>'.$item->name_servers->server_2->server_name_2.'</td></tr>';
-		$html_text .= '<tr id="F5" class="RowToSwitch"><td>ipv4_2</td><td>'.$item->name_servers->server_2->ipv4_2.'</td></tr>';
-		$html_text .= '<tr id="F6" class="RowToSwitch"><td>ipv6_2</td><td>'.$item->name_servers->server_2->ipv6_2.'</td></tr>';
+		$html_text .= '<tr id="H4" class="RowToSwitch"><td>server_name_2</td><td>'.$item->name_servers->server_2->server_name_2.'</td></tr>';
+		$html_text .= '<tr id="H5" class="RowToSwitch"><td>ipv4_2</td><td>'.$item->name_servers->server_2->ipv4_2.'</td></tr>';
+		$html_text .= '<tr id="H6" class="RowToSwitch"><td>ipv6_2</td><td>'.$item->name_servers->server_2->ipv6_2.'</td></tr>';
 	}
 	if (strlen(trim($item->name_servers->server_3->server_name_3)))	{
-		$html_text .= '<tr id="F7" class="RowToSwitch"><td>server_name_3</td><td>'.$item->name_servers->server_3->server_name_3.'</td></tr>';
-		$html_text .= '<tr id="F8" class="RowToSwitch"><td>ipv4_3</td><td>'.$item->name_servers->server_3->ipv4_3.'</td></tr>';
-		$html_text .= '<tr id="F9" class="RowToSwitch"><td>ipv6_3</td><td>'.$item->name_servers->server_3->ipv6_3.'</td></tr>';
+		$html_text .= '<tr id="H7" class="RowToSwitch"><td>server_name_3</td><td>'.$item->name_servers->server_3->server_name_3.'</td></tr>';
+		$html_text .= '<tr id="H8" class="RowToSwitch"><td>ipv4_3</td><td>'.$item->name_servers->server_3->ipv4_3.'</td></tr>';
+		$html_text .= '<tr id="H9" class="RowToSwitch"><td>ipv6_3</td><td>'.$item->name_servers->server_3->ipv6_3.'</td></tr>';
 	}
 	if (strlen(trim($item->name_servers->server_4->server_name_4)))	{
-		$html_text .= '<tr id="F10" class="RowToSwitch"><td>server_name_4</td><td>'.$item->name_servers->server_4->server_name_4.'</td></tr>';
-		$html_text .= '<tr id="F11" class="RowToSwitch"><td>ipv4_4</td><td>'.$item->name_servers->server_4->ipv4_4.'</td></tr>';
-		$html_text .= '<tr id="F12" class="RowToSwitch"><td>ipv6_4</td><td>'.$item->name_servers->server_4->ipv6_4.'</td></tr>';
+		$html_text .= '<tr id="H10" class="RowToSwitch"><td>server_name_4</td><td>'.$item->name_servers->server_4->server_name_4.'</td></tr>';
+		$html_text .= '<tr id="H11" class="RowToSwitch"><td>ipv4_4</td><td>'.$item->name_servers->server_4->ipv4_4.'</td></tr>';
+		$html_text .= '<tr id="H12" class="RowToSwitch"><td>ipv6_4</td><td>'.$item->name_servers->server_4->ipv6_4.'</td></tr>';
 	}
 	if (strlen(trim($item->name_servers->server_5->server_name_5)))	{
-		$html_text .= '<tr id="F13" class="RowToSwitch"><td>server_name_5</td><td>'.$item->name_servers->server_5->server_name_5.'</td></tr>';
-		$html_text .= '<tr id="F14" class="RowToSwitch"><td>ipv4_5</td><td>'.$item->name_servers->server_5->ipv4_5.'</td></tr>';
-		$html_text .= '<tr id="F15" class="RowToSwitch"><td>ipv6_5</td><td>'.$item->name_servers->server_5->ipv6_5.'</td></tr>';
+		$html_text .= '<tr id="H13" class="RowToSwitch"><td>server_name_5</td><td>'.$item->name_servers->server_5->server_name_5.'</td></tr>';
+		$html_text .= '<tr id="H14" class="RowToSwitch"><td>ipv4_5</td><td>'.$item->name_servers->server_5->ipv4_5.'</td></tr>';
+		$html_text .= '<tr id="H15" class="RowToSwitch"><td>ipv6_5</td><td>'.$item->name_servers->server_5->ipv6_5.'</td></tr>';
 	}
 	if (strlen(trim($item->name_servers->server_6->server_name_6)))	{
-		$html_text .= '<tr id="F16" class="RowToSwitch"><td>server_name_6</td><td>'.$item->name_servers->server_6->server_name_6.'</td></tr>';
-		$html_text .= '<tr id="F17" class="RowToSwitch"><td>ipv4_6</td><td>'.$item->name_servers->server_6->ipv4_6.'</td></tr>';
-		$html_text .= '<tr id="F18" class="RowToSwitch"><td>ipv6_6</td><td>'.$item->name_servers->server_6->ipv6_6.'</td></tr>';
+		$html_text .= '<tr id="H16" class="RowToSwitch"><td>server_name_6</td><td>'.$item->name_servers->server_6->server_name_6.'</td></tr>';
+		$html_text .= '<tr id="H17" class="RowToSwitch"><td>ipv4_6</td><td>'.$item->name_servers->server_6->ipv4_6.'</td></tr>';
+		$html_text .= '<tr id="H18" class="RowToSwitch"><td>ipv6_6</td><td>'.$item->name_servers->server_6->ipv6_6.'</td></tr>';
 	}
 	$html_text .= '<tr><td>name_servers_dnssec</td><td>'.$item->name_servers->name_servers_dnssec.'</td>
 	<td>DNSSEC is een web-route-beveiligingsvoorziening op het DNS.</td>
 	<td>DNSSEC is a web route security feature on the DNS.</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(50)">expand / collapse registry data</a></td></tr>';
-	$html_text .= '<tr><td>registry_description</td><td>'.$item->data_management->registry_description.'</td></tr>';
-	$html_text .= '<tr id="G1" class="RowToSwitch"><td>registry_language</td><td>'.$item->data_management->registry_language.'</td></tr>';
-	$html_text .= '<tr id="G2" class="RowToSwitch"><td>registry_format</td><td>'.$item->data_management->registry_format.'</td></tr>';
-	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
+	$html_text .= '<tr><td></td><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(90)">registry details more / less</a></td></tr>';
+	$html_text .= '<tr id="I1" class="StandardRow"><td>registry_description</td><td>'.$item->data_management->registry_description.'</td></tr>';
+	$html_text .= '<tr id="I2" class="RowToSwitch"><td>registry_language</td><td>'.$item->data_management->registry_language.'</td></tr>';
+	$html_text .= '<tr id="I3" class="RowToSwitch"><td>registry_format</td><td>'.$item->data_management->registry_format.'</td></tr>';
 	break;
 }	
 foreach ($xml2->xpath('//domain') as $item)	{
 simplexml_load_string($item->asXML());	
-	$html_text .= '<tr><td COLSPAN="4">'.$item->restrictions_legally.'</td></tr>';
-	$html_text .= '<tr><td COLSPAN="4"><hr></td></tr>';
-	$html_text .= '<tr><td COLSPAN="4">'.$item->restrictions_translated.'</td></tr>';
+	$html_text .= '<tr><td></td><td></td><td>'.$item->restrictions_legally.'</td><td>'.$item->restrictions_translated.'</td></tr>';
 	$html_text .= '<tr><td COLSPAN="4"><hr></td></tr>';
 	break;
 }
