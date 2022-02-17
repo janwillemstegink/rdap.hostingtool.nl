@@ -73,6 +73,10 @@ function SwitchVisibility(type) {
 		var pre = 'I';
 		var max = 7
 	}
+	else if (type == 100)	{ // conditions
+		var pre = 'J';
+		var max = 3
+	}
 	else	{
 		return;	
 	}
@@ -238,7 +242,7 @@ foreach ($xml->xpath('//domain') as $item)	{
 	<td>DNSSEC is een web-route-beveiligingsvoorziening op het DNS.</td>
 	<td>DNSSEC is a web route security feature on the DNS.</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(90)">registry conditions +/-</a></td></tr>';
+	$html_text .= '<tr><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(90)">registry +/-</a></td></tr>';
 	$html_text .= '<tr><td>registry_description</td><td>'.$item->data_management->registry_description.'</td></tr>';
 	$html_text .= '<tr id="I1" class="RowToSwitch"><td>registry_language</td><td>'.$item->data_management->registry_language.'</td></tr>';
 	$html_text .= '<tr id="I2" class="RowToSwitch"><td>registry_format</td><td>'.$item->data_management->registry_format.'</td></tr>';
@@ -246,11 +250,12 @@ foreach ($xml->xpath('//domain') as $item)	{
 }	
 foreach ($xml2->xpath('//domain') as $item)	{
 simplexml_load_string($item->asXML());
-	$html_text .= '<tr id="I3" class="RowToSwitch"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr id="I4" class="RowToSwitch"><td>restrictions_legally</td><td>'.$item->restrictions_legally.'</td></tr>';
-	$html_text .= '<tr id="I5" class="RowToSwitch"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr id="I6" class="RowToSwitch"><td>restrictions_translated</td><td>'.$item->restrictions_translated.'</td></tr>';
-	$html_text .= '<tr id="I7" class="RowToSwitch"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
+	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
+	$html_text .= '<tr><td><button a style="cursor: pointer; cursor: hand; " onclick="SwitchVisibility(100)">conditions +/-</a></td></tr>';
+	$html_text .= '<tr id="J1" class="RowToSwitch"><td>restrictions_legally</td><td>'.$item->restrictions_legally.'</td></tr>';
+	$html_text .= '<tr id="J2" class="RowToSwitch"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
+	$html_text .= '<tr id="J3" class="RowToSwitch"><td>restrictions_translated</td><td>'.$item->restrictions_translated.'</td></tr>';
+	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	break;
 }
 $html_text .= '</table></div></body></html>';
