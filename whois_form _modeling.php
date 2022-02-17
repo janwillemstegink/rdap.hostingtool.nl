@@ -112,11 +112,11 @@ foreach ($xml->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="B1" style="display:none"><td>domain_id</td><td>'.$item->domain_id.'</td></tr>';
 	$html_text .= '<tr><td>domain_name</td><td>'.$item->domain_name.'</td></tr>';
 	$html_text .= '<tr><td>domain_web_publish</td><td>'.$item->domain_web_publish.'</td>
-	<td>Met "web_publish" ingesteld op ja, kunnen zoekmachines legaal publiceren.</td>
-	<td>Having "web_publish" set to yes, search engines can publish legally.</td></tr>';
+	<td>Met "web_publish" op "ja", kunnen zoekmachines overeengekomen publiceren.</td>
+	<td>With "web_publish" set to "yes", search engines can publish agreed upon.</td></tr>';
 	$html_text .= '<tr><td>domain_business_use</td><td>'.$item->domain_business_use.'</td>
-	<td>Zakelijk gebruik vereist het type: bestaande en zichtbare naam van de houder.</td>
-	<td>Business use requires the type: existing and visible name of the holder.</td></tr>';
+	<td>Voor zakelijk gebruik moet de naam van de houder bestaan en zichtbaar zijn.</td>
+	<td>For business use, the name of the holder must exist and be visible.</td></tr>';
 	$html_text .= '<tr><td>domain_status</td><td>'.$item->domain_status.'</td></tr>';
 	$html_text .= '<tr id="B2" style="display:none"><td>domain_creation</td><td>'.$item->domain_creation.'</td></tr>';
 	$html_text .= '<tr id="B3" style="display:none"><td>domain_last_renewal</td><td>'.$item->domain_last_renewal.'</td></tr>';
@@ -158,8 +158,8 @@ foreach ($xml->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><button a style="cursor:pointer;cursor:hand" onclick="SwitchDisplay(50)">holder +/-</a></td></tr>';
 	$html_text .= '<tr id="E1" style="display:none"><td>registrant_holder_contact_id</td><td>'.$item->registrant->registrant_holder_contact_id.'</td></tr>';
 	$html_text .= '<tr><td>registrant_holder_name</td><td>'.$item->registrant->registrant_holder_name.'</td>	
-	<td>De houder, en anders de reseller, is direct verantwoordelijk voor de houdernaam.</td>
-	<td>The holder, otherwise the reseller, is directly responsible for the holder name.</td></tr>';
+	<td>De directe verantwoordelijkheid voor de houdernaam ligt bij de houder (anders de reseller).</td>
+	<td>The direct responsibility for the holder name rests with the holder (otherwise the reseller).</td></tr>';
 	$html_text .= '<tr><td>registrant_holder_web_id</td><td>'.$item->registrant->registrant_holder_web_id.'</td>
 	<td>De KVK kan een "web_id" eigenschap in het Handelsregister toevoegen.</td>
 	<td>The Chamber of Commerce can add a "web_id" property in the Trade Register.</td></tr>';
@@ -174,8 +174,8 @@ foreach ($xml->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><button a style="cursor:pointer;cursor:hand" onclick="SwitchDisplay(60)">admin +/-</a></td></tr>';
 	$html_text .= '<tr id="F1" style="display:none"><td>admin_contact_id</td><td>'.$item->admin->admin_contact_id.'</td></tr>';
 	$html_text .= '<tr><td>admin_email</td><td>'.$item->admin->admin_email.'</td>
-	<td>Admin beantwoordt en adresseert een gemeld probleem voor een oplossing.</td>
-	<td>Admin answers and addresses a reported issue for a solution.</td></tr>';
+	<td>Admin beantwoordt een gemeld probleem en adresseert t.b.v. een oplossing.</td>
+	<td>Admin answers a reported problem and addresses it for a solution.</td></tr>';
 	$html_text .= '<tr id="F2" style="display:none"><td>admin_hidden</td><td>'.$item->admin->admin_hidden.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button a style="cursor:pointer;cursor:hand" onclick="SwitchDisplay(70)">tech +/-</a></td></tr>';
@@ -246,7 +246,7 @@ foreach ($xml->xpath('//domain') as $item)	{
 foreach ($xml2->xpath('//domain') as $item)	{
 simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button a style="cursor:pointer;cursor:hand" onclick="SwitchDisplay(100)">whois conditions +/-</a></td></tr>';
+	$html_text .= '<tr><td><button a style="cursor:pointer;cursor:hand" onclick="SwitchDisplay(100)">whois restrictions +/-</a></td></tr>';
 	$html_text .= '<tr id="J1" style="display:none"><td>restrictions_legally</td><td>'.$item->restrictions_legally.'</td></tr>';
 	$html_text .= '<tr id="J2" style="display:none"><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr id="J3" style="display:none"><td>restrictions_translated</td><td>'.$item->restrictions_translated.'</td></tr>';
