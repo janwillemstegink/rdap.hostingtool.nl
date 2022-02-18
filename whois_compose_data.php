@@ -66,6 +66,6 @@ $domain->appendChild($restrictions_legally);
 $restrictions_translated = $doc->createElement("restrictions_translated", $restrictions_2);
 $domain->appendChild($restrictions_translated); 
 	
-return $doc->saveXML();
+return $doc->saveXML(NULL, LIBXML_NOEMPTYTAG);
 }		
 ?>
