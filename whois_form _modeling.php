@@ -1,4 +1,5 @@
 <?php
+//session_start();  // is needed with no PHP Generator Scriptcase
 if (!function_exists('simplexml_load_file')) {
 	die('simpleXML functions are not available.');
 }
