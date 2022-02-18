@@ -19,7 +19,7 @@ elseif (file_exists($dataFile))	{
 	$xml = simplexml_load_file($dataFile) or die("Cannot load xml file 1 from same folder.");
 }
 else	{
-	//$url = "http://whois.hostingtool.nl/whois_compose_data/index.php?domain=".$inputdomain."&format=xml&type=1";
+	//$url = "http://whois.hostingtool.nl/whois_compose_data/index.php?domain=$inputdomain&format=xml&type=1";
 	$url = "http://whois.hostingtool.nl/".$dataFile;
 	$xml = simplexml_load_file($url, "SimpleXMLElement", LIBXML_NOCDATA) or die("Cannot load xml file 1 by url.");
 }
@@ -32,12 +32,12 @@ elseif (file_exists($restrictionsFile))	{
 	$xml2 = simplexml_load_file($restrictionsFile) or die("Cannot load xml file 2 from same folder.");
 }
 else	{	
-	$url2 = "http://whois.hostingtool.nl/whois_compose_data/index.php?domain=".$inputdomain."&format=xml&type=2";
+	$url2 = "http://whois.hostingtool.nl/whois_compose_data/index.php?domain=$inputdomain&format=xml&type=2";
 	//$url2 = "http://whois.hostingtool.nl/".$restrictionsFile;
 	$xml2 = simplexml_load_file($url2, "SimpleXMLElement", LIBXML_NOCDATA) or die("Cannot load xml file 2 by url.");
 }
 
-$html_text = '<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+$html_text = '<!DOCTYPE html><html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="robots" content="index"><title>Whois modeling for Trade Register use</title>';
 ?><script>
 function SwitchDisplay(type) {
@@ -158,8 +158,8 @@ foreach ($xml->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><button a style="cursor:pointer;cursor:hand" onclick="SwitchDisplay(50)">holder +/-</a></td></tr>';
 	$html_text .= '<tr id="E1" style="display:none"><td>registrant_holder_contact_id</td><td>'.$item->registrant->registrant_holder_contact_id.'</td></tr>';
 	$html_text .= '<tr><td>registrant_holder_name</td><td>'.$item->registrant->registrant_holder_name.'</td>	
-	<td>De directe verantwoordelijkheid voor de houdernaam ligt bij de houder (anders de reseller).</td>
-	<td>The direct responsibility for the holder name rests with the holder (otherwise the reseller).</td></tr>';
+	<td>De directe verantwoordelijkheid voor de houdernaam ligt bij de houder, anders de reseller.</td>
+	<td>The direct responsibility for the holder name rests with the holder, otherwise the reseller.</td></tr>';
 	$html_text .= '<tr><td>registrant_holder_web_id</td><td>'.$item->registrant->registrant_holder_web_id.'</td>
 	<td>De KVK kan een "web_id" eigenschap in het Handelsregister toevoegen.</td>
 	<td>The Chamber of Commerce can add a "web_id" property in the Trade Register.</td></tr>';
