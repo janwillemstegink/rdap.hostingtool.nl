@@ -102,7 +102,7 @@ function SwitchDisplay(type) {
 $html_text = '</head><body><div style="border-spacing=0; padding=0; border-width=0; padding-bottom:5px; line-height:120%;">
 <table style="border-collapse:collapse; font-family:Helvetica, Arial, sans-serif; font-size:13px;">
 <tr><th style="width:15%"></th><th style="width:25%"></th><th style="width:30%"></th><th style="width:30%"></th></tr>';
-$html_text .= '<tr><td><b>Clearer Whois</td><td><b>From a registry in xml - </b><a href="https://github.com/janwillemstegink/xml-whois" target="_blank">github.com/janwillemstegink/xml-whois</a></b></td><td><b>Toelichting</b></td><td><b>Explanation</b></td></tr>';
+$html_text .= '<tr><td><b>Clearer Whois</td><td><b>From a registry in xml</b> - https://github.com/janwillemstegink/xml-whois</td><td><b>Toelichting</b></td><td><b>Explanation</b></td></tr>';
 foreach ($xml->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
@@ -162,8 +162,8 @@ foreach ($xml->xpath('//domain') as $item)	{
 	<td>De houdernaam is de directe verantwoordelijkheid van de houder, anders van de reseller.</td>
 	<td>The holder name is the direct responsibility of the holder, otherwise of the reseller.</td></tr>';
 	$html_text .= '<tr><td>registrant_holder_web_id</td><td>'.$item->registrant->registrant_holder_web_id.'</td>
-	<td>De KVK kan de gewenste "web_id" identificatie in het Handelsregister toevoegen.</td>
-	<td>The Chamber of Commerce can add the desired "web_id" identification in the Trade Register.</td></tr>';
+	<td>De KVK kan de gewenste "web_id" identificatie aan het Handelsregister toevoegen.</td>
+	<td>The Chamber of Commerce can add the desired "web_id" identification to the Trade Register.</td></tr>';
 	$html_text .= '<tr id="E2" style="display:none"><td>registrant_holder_street</td><td>'.$item->registrant->registrant_holder_street.'</td></tr>';
 	$html_text .= '<tr id="E3" style="display:none"><td>registrant_holder_postal_code</td><td>'.$item->registrant->registrant_holder_postal_code.'</td></tr>';
 	$html_text .= '<tr id="E4" style="display:none"><td>registrant_holder_city</td><td>'.$item->registrant->registrant_holder_city.'</td></tr>';
