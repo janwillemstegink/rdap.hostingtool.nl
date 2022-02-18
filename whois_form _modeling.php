@@ -174,8 +174,8 @@ foreach ($xml->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><button a style="cursor:pointer;cursor:hand" onclick="SwitchDisplay(60)">admin +/-</a></td></tr>';
 	$html_text .= '<tr id="F1" style="display:none"><td>admin_contact_id</td><td>'.$item->admin->admin_contact_id.'</td></tr>';
 	$html_text .= '<tr><td>admin_email</td><td>'.$item->admin->admin_email.'</td>
-	<td>Admin beantwoordt een gemeld probleem en adresseert t.b.v. een oplossing.</td>
-	<td>Admin answers a reported problem and addresses it for a solution.</td></tr>';
+	<td>Het administratief aanspreekpunt beantwoordt een verzoek, en stuurt indien nodig door.</td>
+	<td>The administratively responsible desk answers a request, and forwards if necessary.</td></tr>';
 	$html_text .= '<tr id="F2" style="display:none"><td>admin_hidden</td><td>'.$item->admin->admin_hidden.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button a style="cursor:pointer;cursor:hand" onclick="SwitchDisplay(70)">tech +/-</a></td></tr>';
