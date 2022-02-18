@@ -20,7 +20,7 @@ elseif (file_exists($dataFile))	{
 	$xml = simplexml_load_file($dataFile) or die("Cannot load xml file 1 from same folder.");
 }
 else	{
-	//$url = "http://whois.hostingtool.nl/whois_compose_data/index.php?domain=$inputdomain&format=xml&type=1";
+	//$url = "http://whois.hostingtool.nl/whois_compose_data/index.php?domain=$inputdomain&format=xml&type=1"; // the path may differ
 	$url = "http://whois.hostingtool.nl/".$dataFile;
 	$xml = simplexml_load_file($url, "SimpleXMLElement", LIBXML_NOCDATA) or die("Cannot load xml file 1 by url.");
 }
@@ -33,7 +33,7 @@ elseif (file_exists($restrictionsFile))	{
 	$xml2 = simplexml_load_file($restrictionsFile) or die("Cannot load xml file 2 from same folder.");
 }
 else	{	
-	$url2 = "http://whois.hostingtool.nl/whois_compose_data/index.php?domain=$inputdomain&format=xml&type=2";
+	$url2 = "http://whois.hostingtool.nl/whois_compose_data/index.php?domain=$inputdomain&format=xml&type=2"; // the path may differ
 	//$url2 = "http://whois.hostingtool.nl/".$restrictionsFile;
 	$xml2 = simplexml_load_file($url2, "SimpleXMLElement", LIBXML_NOCDATA) or die("Cannot load xml file 2 by url.");
 }
@@ -113,8 +113,8 @@ foreach ($xml->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="B1" style="display:none"><td>domain_id</td><td>'.$item->domain_id.'</td></tr>';
 	$html_text .= '<tr><td>domain_name</td><td>'.$item->domain_name.'</td></tr>';
 	$html_text .= '<tr><td>domain_web_publish</td><td>'.$item->domain_web_publish.'</td>
-	<td>Met "web_publish" op "ja", kunnen zoekmachines overeengekomen publiceren.</td>
-	<td>With "web_publish" set to "yes", search engines can publish agreed upon.</td></tr>';
+	<td>Met "web_publish" ingesteld op "ja", is publicatie van een zoekresultaat verantwoord.</td>
+	<td>With "web_publish" set to "yes", publishing a search result is justified.</td></tr>';
 	$html_text .= '<tr><td>domain_business_use</td><td>'.$item->domain_business_use.'</td>
 	<td>Voor zakelijk gebruik moet de naam van de houder bestaan en zichtbaar zijn.</td>
 	<td>For business use, the name of the holder must exist and be visible.</td></tr>';
