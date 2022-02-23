@@ -125,8 +125,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><button a style="cursor:pointer;cursor:hand" onclick="OpenMenu()">button to work instruction by a c-c registry</a></td></tr>';
 	$html_text .= '<tr><td><b>view_datetime</b></td><td>'.$item->view->view_datetime.'</td></tr>';
 	$html_text .= '<tr><td><b>view_type</b></td><td>'.$item->view->view_type.'</td>
-	<td>Typen: alles, registrar, publiek</td>
-	<td>Types: all, registrar, public</td></tr>';
+	<td>Typen: alles, isp, publiek</td>
+	<td>Types: all, isp, public</td></tr>';
 	$html_text .= '<tr><td><b><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button a style="cursor:pointer;cursor:hand" onclick="SwitchDisplay(20)">domain +/-</a></td></tr>';
 	$html_text .= '<tr id="B1" style="display:none"><td><b>domain_id</b></td><td>'.$item->domain_id.'</td></tr>';
