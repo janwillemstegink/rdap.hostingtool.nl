@@ -4,6 +4,7 @@ The holder's name and contact details are relevant for customer protection, mana
 
 The global discussion can, I think, proceed by country along with modeling of non-centralized server communications in XML.
 For the increasing number of top-level domains, a database per continent can indicate the Whois server name of a registry.
+
 Whois fields and explanation: https://whois.hostingtool.nl/whois_form_modeling/
 
 Check via the Trade Register: https://whois.hostingtool.nl/whois_list_modeling/
