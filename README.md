@@ -1,4 +1,4 @@
-Currently, the WHOIS properties of a web domain are not sufficiently accessible. The holder's name and contact details are relevant for customer protection and manageable administrative workload. The global discussion can continue with modeling of and preparing non-centralized server communications at the same time.
+Currently, the WHOIS properties of a web domain are not sufficiently accessible. The holder's name and contact details are relevant for customer protection and manageable administrative workload. The global discussion can, I think, proceed by country along with modeling of non-centralized server communications.
 
 Whois fields and explanation: https://whois.hostingtool.nl/whois_form_modeling/
 
