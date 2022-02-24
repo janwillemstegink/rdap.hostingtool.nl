@@ -1,4 +1,4 @@
-Currently, the Whois properties of a web domain are not sufficiently accessible. Public misunderstanding ends up with registrars.
+Currently, the Whois properties of a web domain are not sufficiently accessible. Public misunderstanding causes considerable work for registrars.
 
 The holder's name and contact details are relevant for customer protection, manageable administrative workload and for an 'In Control Statement' (ICS).
 
