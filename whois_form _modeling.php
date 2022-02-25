@@ -111,9 +111,8 @@ function OpenMenu()	{
 
 </script><?php
 
-$html_text = '<!DOCTYPE html><html><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="robots" content="index"><title>Whois modeling for Trade Register use</title>';
-$html_text = '</head><body><div style="border-spacing=0; padding=0; border-width=0; padding-bottom:5px; line-height:120%;">
+$html_text = '<!DOCTYPE html><html lang="en"><head><meta charset=UTF-8"><meta name="robots" content="index"><title>Whois modeling for Trade Register use</title></head>';
+$html_text .= '<body><div style="border-spacing=0; padding=0; border-width=0; padding-bottom:5px; line-height:120%;">
 <table style="border-collapse:collapse; font-family:Helvetica, Arial, sans-serif; font-size:13px;">
 <tr><th style="width:15%"></th><th style="width:25%"></th><th style="width:30%"></th><th style="width:30%"></th></tr>';
 $html_text .= '<tr><td><b><u>Modeling of web domain Whois fields</u></td><td><b>Data to retrieve in xml format from a registry</b></td>

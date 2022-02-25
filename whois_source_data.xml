@@ -55,7 +55,7 @@
 			<registrant_holder_country_code>NL</registrant_holder_country_code>
 			<registrant_holder_country_name>Netherlands</registrant_holder_country_name>
 			<registrant_holder_country_language>nl-NL</registrant_holder_country_language>
-			<registrant_holder_protected>holder_email,holder_address,holder_phone</registrant_holder_protected>
+			<registrant_holder_protected>holder_address,holder_phone,holder_email</registrant_holder_protected>
 		</registrant>
 		<admin>
 			<admin_contact_id></admin_contact_id>
@@ -160,7 +160,7 @@
 			<registrant_holder_country_code>NL</registrant_holder_country_code>
 			<registrant_holder_country_name>Netherlands</registrant_holder_country_name>
 			<registrant_holder_country_language>nl-NL</registrant_holder_country_language>
-			<registrant_holder_protected>holder_email,holder_address,holder_phone</registrant_holder_protected>
+			<registrant_holder_protected>holder_address,holder_phone,holder_email</registrant_holder_protected>
 		</registrant>
 		<admin>
 			<admin_contact_id></admin_contact_id>
