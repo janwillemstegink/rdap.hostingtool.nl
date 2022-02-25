@@ -48,7 +48,7 @@ else	{
 function SwitchDisplay(type) {
 	if (type == 20)	{ // domain
 		var pre = 'B';
-		var max = 6
+		var max = 5
 	}
 	else if (type == 30)	{ // registrar
 		var pre = 'C';
@@ -137,20 +137,20 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	<td>Als "web_publish" is ingesteld op "ja", dan komt het publiceren van een zoekresultaat overeen.</td>
 	<td>If "web_publish" is set to "yes", then publishing a search result will match.</td></tr>';
 	$html_text .= '<tr id="B2" style="display:none"><td><b>domain_creation</b></td><td>'.$item->domain_creation.'</td></tr>';
-	$html_text .= '<tr id="B3" style="display:none"><td><b>domain_last_renewal</b></td><td>'.$item->domain_last_renewal.'</td>
-	<td>Een zoekmachine kan deze, afgeleide, datum gebruiken om de jaarlijkse verlenging te controleren.</td>
+	$html_text .= '<tr><td><b>domain_last_renewal</b></td><td>'.$item->domain_last_renewal.'</td>
+	<td>Een zoekmachine kan deze, afgeleide, datum gebruiken om jaarlijkse verlenging te controleren.</td>
 	<td>A search engine can use this, derived, date to check annual renewal.</td></tr>';
-	$html_text .= '<tr id="B4" style="display:none"><td><b>domain_updated</b></td><td>'.$item->domain_updated.'</td></tr>';
-	$html_text .= '<tr id="B5" style="display:none"><td><b>domain_expiration</b></td><td>'.$item->domain_expiration.'</td></tr>';
-	$html_text .= '<tr id="B6" style="display:none"><td><b>domain_out_of_quarantine</b></td><td>'.$item->domain_out_of_quarantine.'</td></tr>';
+	$html_text .= '<tr id="B3" style="display:none"><td><b>domain_updated</b></td><td>'.$item->domain_updated.'</td></tr>';
+	$html_text .= '<tr id="B4" style="display:none"><td><b>domain_expiration</b></td><td>'.$item->domain_expiration.'</td></tr>';
+	$html_text .= '<tr id="B5" style="display:none"><td><b>domain_out_of_quarantine</b></td><td>'.$item->domain_out_of_quarantine.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button a style="cursor:pointer;cursor:hand" onclick="SwitchDisplay(30)">registrar +/-</a></td></tr>';
 	$html_text .= '<tr id="C1" style="display:none"><td><b>registrar_contact_id</b></td><td>'.$item->registrar->registrar_contact_id.'</td></tr>';
 	$html_text .= '<tr><td><b>registrar_name</b></td><td>'.$item->registrar->registrar_name.'</td></tr>';
 	$html_text .= '<tr><td><b>registrar_web_id</b></td><td>'.$item->registrar->registrar_web_id.'</td></tr>';
 	$html_text .= '<tr><td><b>registrar_abuse_email</b></td><td>'.$item->registrar->registrar_abuse_email.'</td>
-	<td>Het invullen van contactgegevens om misbruik te melden is niet verplicht voor de registrar.</td>
-	<td>Filling in contact details to report abuse is not mandatory for the registrar.</td></tr>';
+	<td>Contactgegevens om misbruik te melden zijn niet verplicht voor een registrar.</td>
+	<td>Contact details to report abuse are not mandatory for a registrar.</td></tr>';
 	$html_text .= '<tr id="C2" style="display:none"><td><b>registrar_abuse_phone</b></td><td>'.$item->registrar->registrar_abuse_phone.'</td></tr>';
 	$html_text .= '<tr id="C3" style="display:none"><td><b>registrar_street</b></td><td>'.$item->registrar->registrar_street.'</td></tr>';
 	$html_text .= '<tr id="C4" style="display:none"><td><b>registrar_postal_code</b></td><td>'.$item->registrar->registrar_postal_code.'</td></tr>';
