@@ -53,12 +53,12 @@
 			<registrant_holder_country_code>NL</registrant_holder_country_code>
 			<registrant_holder_country_name>Netherlands</registrant_holder_country_name>
 			<registrant_holder_country_language>nl-NL</registrant_holder_country_language>
-			<registrant_holder_protected>holder_address</registrant_holder_protected>
+			<registrant_holder_protected>holder_email,holder_address,holder_phone</registrant_holder_protected>
 		</registrant>
 		<admin>
 			<admin_contact_id></admin_contact_id>
 			<admin_email>admindesk@janwillemstegink.nl</admin_email>
-			<admin_protected>admin_name,admin_address</admin_protected>
+			<admin_protected>admin_name,admin_address,admin_phone</admin_protected>
 		</admin>
 		<tech>
 			<contact_1>
@@ -150,12 +150,12 @@
 			<registrant_holder_country_code>NL</registrant_holder_country_code>
 			<registrant_holder_country_name>Netherlands</registrant_holder_country_name>
 			<registrant_holder_country_language>nl-NL</registrant_holder_country_language>
-			<registrant_holder_protected>holder_address</registrant_holder_protected>
+			<registrant_holder_protected>holder_email,holder_address,holder_phone</registrant_holder_protected>
 		</registrant>
 		<admin>
 			<admin_contact_id></admin_contact_id>
 			<admin_email>admindesk@janwillemstegink.nl</admin_email>
-			<admin_protected>admin_name,admin_address</admin_protected>
+			<admin_protected>admin_name,admin_address,admin_phone</admin_protected>
 		</admin>
 		<tech>
 			<contact_1>
