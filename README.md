@@ -2,9 +2,11 @@ Currently, the Whois properties of a web domain are not sufficiently accessible.
 
 The global discussion can, I think, proceed by country along with modeling of non-centralized server communications in XML. For the increasing number of top-level domains, a database per continent can indicate the Whois server name of a registry.
 
-Whois fields and explanation: https://whois.hostingtool.nl/whois_form_modeling/
+Whois by the registry: https://whois.hostingtool.nl/whois_form_modeling/
 
-Check via the Trade Register: https://whois.hostingtool.nl/whois_list_modeling/
+List by the Trade Register: https://whois.hostingtool.nl/whois_list_modeling/
+
+Confirmation by email: https://whois.hostingtool.nl/whois_email_modeling/
 
 Find background information on:
 
