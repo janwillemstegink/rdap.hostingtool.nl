@@ -28,11 +28,16 @@ else	{
 	$xml1 = simplexml_load_file($url1b, "SimpleXMLElement", LIBXML_NOCDATA) or die("Cannot load url1b from public_html folder.");
 }
 
-$html_text = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="robots" content="index"><title>Whois modeling for confirmation</title></head>';
+$html_text = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="robots" content="noindex"><title>Whois modeling for confirmation</title></head>';
 $html_text .= '<body><div style="border-spacing=0; padding=0; border-width=0; padding-bottom:5px; line-height:120%;">
 <table style="border-collapse:collapse; font-family:Helvetica, Arial, sans-serif; font-size:13px;">
 <tr><th style="width:300px"></th><th style="width:400px"></th></tr>';
 $html_text .= '<tr><td><b>Modeling of confirmation to admin_email</b></td><td></td></tr>';
+$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
+$html_text .= '<tr><td COLSPAN="2">Dear registrant,</td></tr>';
+$html_text .= '<tr><td></td><td></td></tr>';
+$html_text .= '<tr><td COLSPAN="2">You are receiving this message because you are the administrative contact for a domain name.</td></tr>';
+$html_text .= '<tr><td COLSPAN="2">team.blue nl B.V. has changed the registrant of webhostingtech.nl, as follows:</td></tr>';
 foreach ($xml1->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
@@ -56,6 +61,15 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><b>admin_email</b></td><td>'.$item->admin->admin_email.'</td></tr>';
 	$html_text .= '<tr><td><b>admin_protected</b></td><td>'.$item->admin->admin_protected.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
+	$html_text .= '<tr><td COLSPAN="2">If you think that a mistake has been made, please contact the service provider that manages the registration
+	(team.blue nl B.V.) or the reseller (TransIP). With physical access to the Whois menu, a registrant is primarily responsible.</td></tr>';
+	$html_text .= '<tr><td COLSPAN="2"></td></tr>';
+	$html_text .= '<tr><td COLSPAN="2"></td></tr>';
+	$html_text .= '<tr><td COLSPAN="2">Kind regards,</td></tr>';
+	$html_text .= '<tr><td COLSPAN="2">SIDN</td></tr>';
+	$html_text .= '<tr><td COLSPAN="2"></td></tr>';
+	$html_text .= '<tr><td COLSPAN="2"></td></tr>';
+	$html_text .= '<tr><td COLSPAN="2">Please don&#39;t reply to this mail. If you have any questions or feedback, please contact <a href="mailto:support@sidn.nl">support@sidn.nl</a>.</td></tr>';
 	break;
 }
 $html_text .= '</table></div></body></html>';
