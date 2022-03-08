@@ -4,9 +4,9 @@ The global discussion can, I think, proceed by country along with modeling of no
 
 Whois by the registry: https://whois.hostingtool.nl/whois_form_modeling/
 
-List by the Trade Register: https://whois.hostingtool.nl/whois_list_modeling/
-
 Confirmation by email: https://whois.hostingtool.nl/whois_email_modeling/
+
+List by the Trade Register: https://whois.hostingtool.nl/whois_list_modeling/
 
 Find background information on:
 
