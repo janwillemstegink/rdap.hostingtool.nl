@@ -1,6 +1,7 @@
 <?php
 session_start();  // is not needed using PHP Generator Scriptcase
-echo '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="robots" content="index"><title>Whois modeling for Trade Register use</title>';
+
+echo '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="robots" content="index"><title>Modeling of domain Whois fields</title>';
 
 ?><script>
 function SwitchDisplay(type) {
@@ -111,7 +112,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("name_servers_dnssec").innerText = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";	
 	}
 	else if (inputlanguage == 4)	{
-		document.getElementById("view_type").innerText = "Types : tous, FAI (fournisseur d'accès Internet), public";		
+		document.getElementById("view_type").innerText = "Types : tous, FSI (fournisseur de service Internet), public";		
 		document.getElementById("domain_status").innerText = "Statuts : libre, retiré, exclu, demandé, actif, inactif, en quarantaine.";	
 		document.getElementById("domain_web_publish").innerText = "Si 'web_publish' est défini sur 'yes', la publication d'un résultat de recherche correspondra.";	
 		document.getElementById("domain_last_renewal").innerText = "Un moteur de recherche peut utiliser cette date pour vérifier le renouvellement annuel.";	
@@ -175,8 +176,8 @@ else	{
 }
 $html_text = '<body onload=SwitchTranslation(2)><div style="border-spacing=0; padding=0; border-width=0; padding-bottom:5px; line-height:120%;">
 <table style="border-collapse:collapse; font-family:Helvetica, Arial, sans-serif; font-size:13px;">
-<tr><th style="width:250px"></th><th style="width:300px"></th><th style="width:650px"></th></tr>';
-$html_text .= '<tr><td><b><u>Modeling of domain Whois fields</u></b></td><td><b>Data to retrieve in xml format from a registry</b></td>
+<tr><th style="width:250px"></th><th style="width:300px"></th><th style="width:700px"></th></tr>';
+$html_text .= '<tr><td><b>Modeling of domain Whois fields</b></td><td>Data to retrieve in xml format from a registry</td>
 <td><a href="https://www.sidn.nl/whois?q=webhostingtech.nl" target="_blank">sidn.nl/whois?q=webhostingtech.nl/whois</a>
 - <a href="https://github.com/janwillemstegink/xml-whois" target="_blank">github.com/janwillemstegink/xml-whois</a></td></tr>';
 foreach ($xml1->xpath('//domain') as $item)	{
