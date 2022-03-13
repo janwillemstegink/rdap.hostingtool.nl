@@ -22,7 +22,7 @@
 			<admin_personal_name>Jan Willem Stegink</admin_personal_name>
 			<admin_phone>+31.264453916</admin_phone>
 			<admin_email>admindesk@janwillemstegink.nl</admin_email>
-			<admin_protected>contact_id,personal_name,address,phone</admin_protected>
+			<admin_protected>contact_id,company_name,personal_name,address,phone</admin_protected>
 		</admin>
 		<billing>
 			<billing_contact_id></billing_contact_id>
