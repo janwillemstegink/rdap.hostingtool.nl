@@ -73,7 +73,7 @@ function OpenMenu()	{
 function SwitchTranslation(inputlanguage)	{
 	if (inputlanguage == 1)	{
 		var newdomainfield = 'NIEUW veld';
-		var newcontactfield = 'NIEUW veld (tabel met contacten)';
+		var newcontactfield = '(nieuw veld in de tabel met contacten)';
 		document.getElementById("view_type").innerText = "Typen: alles, isp (Internet Service Provider), publiek";
 		document.getElementById("domain_status").innerText = "Statussen: vrij, onttrokken, uitgesloten, in aanvraag, actief, inactief, in quarantaine.";
 		document.getElementById("domain_web_publish").innerText = newdomainfield + ": Als 'web_publish' is ingesteld op 'ja', dan komt publiceren van een zoekresultaat overeen.";
@@ -99,7 +99,7 @@ function SwitchTranslation(inputlanguage)	{
 	}
 	else if (inputlanguage == 2)	{
 		var newdomainfield = 'NEW field';
-		var newcontactfield = 'NEW field (contacts table)';
+		var newcontactfield = '(new field in the table of contacts)';
 		document.getElementById("view_type").innerText = "Types: all, isp (Internet Service Provider), public";		
 		document.getElementById("domain_status").innerText = "Statusses: free, withdrawn, excluded, requested, active, inactive, in quarantaine.";	
 		document.getElementById("domain_web_publish").innerText = newdomainfield + ": If 'web_publish' is set to 'yes', then publishing a search result will match.";	
@@ -125,7 +125,7 @@ function SwitchTranslation(inputlanguage)	{
 	}
 	else if (inputlanguage == 3)	{
 		var newdomainfield = 'NEUES Feld';
-		var newcontactfield = 'NEUES Feld (Kontakttabelle)';
+		var newcontactfield = '(neues Feld in der Kontakttabelle)';
 		document.getElementById("view_type").innerText = "Typen: all, isp (Internet Service Provider), öffentlich";
 		document.getElementById("domain_status").innerText = "Status: frei, zurückgezogen, ausgeschlossen, beantragt, aktiv, inaktiv, in Quarantäne.";
 		document.getElementById("domain_web_publish").innerText = newdomainfield + ": Wenn „web_publish“ auf „yes“ gesetzt ist, wird die Veröffentlichung eines Suchergebnisses übereinstimmen.";
@@ -151,7 +151,7 @@ function SwitchTranslation(inputlanguage)	{
 	}
 	else if (inputlanguage == 4)	{
 		var newdomainfield = 'NOUVEAU champ';
-		var newcontactfield = 'NOUVEAU champ (table des contacts)';
+		var newcontactfield = '(nouveau champ dans le table des contacts)';
 		document.getElementById("view_type").innerText = "Types : tous, FSI (fournisseur de service Internet), public";
 		document.getElementById("domain_status").innerText = "Statuts : libre, retiré, exclu, demandé, actif, inactif, en quarantaine.";
 		document.getElementById("domain_web_publish").innerText = newdomainfield + " : Si 'web_publish' est défini sur 'yes', la publication d'un résultat de recherche correspondra.";
