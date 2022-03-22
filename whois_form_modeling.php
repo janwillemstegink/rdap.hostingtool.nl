@@ -223,7 +223,7 @@ else	{
 }
 $html_text = '<body onload=SwitchTranslation(2)><div style="border-spacing=0; padding=0; border-width=0; padding-bottom:5px; line-height:120%;">
 <table style="border-collapse:collapse; font-family:Helvetica, Arial, sans-serif; font-size:13px;">
-<tr><th style="width:250px"></th><th style="width:400px"></th><th style="width:725px"></th></tr>';
+<tr><th style="width:250px"></th><th style="width:300px"></th><th style="width:725px"></th></tr>';
 $html_text .= '<tr><td style="font-size:16px"><b>Web Domain Whois Modeling</b></td><td>Data to retrieve in xml format from a registry</td>
 <td><a href="https://www.sidn.nl/whois?q=webhostingtech.nl" target="_blank">sidn.nl/whois?q=webhostingtech.nl/whois</a>
 - <a href="https://github.com/janwillemstegink/xml-whois" target="_blank">github.com/janwillemstegink/xml-whois</a></td></tr>';
@@ -231,10 +231,10 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;cursor:hand" onclick="OpenMenu()">see work instruction by a c-c registry</button></td><td></td><td>
-	<button style="cursor:pointer;cursor:hand" onclick="SwitchTranslation(1)">Dutch</button> 
-	<button style="cursor:pointer;cursor:hand" onclick="SwitchTranslation(2)">English</button> 
-	<button style="cursor:pointer;cursor:hand" onclick="SwitchTranslation(3)">German</button> 
-	<button style="cursor:pointer;cursor:hand" onclick="SwitchTranslation(4)">French</button></td></tr>';
+	<button style="cursor:pointer;cursor:hand" onclick="SwitchTranslation(1)">nl_NL</button> 
+	<button style="cursor:pointer;cursor:hand" onclick="SwitchTranslation(2)">en_US</button> 
+	<button style="cursor:pointer;cursor:hand" onclick="SwitchTranslation(3)">de_DE</button> 
+	<button style="cursor:pointer;cursor:hand" onclick="SwitchTranslation(4)">fr_FR</button></td></tr>';
 	$html_text .= '<tr><td><b>view_datetime</b></td><td>'.$item->view->view_datetime.'</td><td></td></tr>';
 	$html_text .= '<tr><td><b>view_type</b></td><td>'.$item->view->view_type.'</td><td id="view_type"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
