@@ -1,4 +1,7 @@
-Currently, Whois properties of a web domain are not sufficiently accessible. Business transparency must be combined with the privacy of a natural person. Public misunderstanding causes considerable work for registrars. The holder's name and contact details are relevant for customer protection, manageable administrative workload and for an 'In Control Statement' (ICS).
+- Whois properties of a web domain are not sufficiently accessible;
+- Business transparency must be combined with privacy of a natural person;
+- Public misunderstanding causes considerable work for registrars;
+- The holder's name and contact details are relevant for customer protection, manageable administrative workload and for an 'In Control Statement' (ICS).
 
 The global discussion can, I think, proceed by country along with modeling of non-centralized server communications in XML. For the increasing number of top-level domains, a database per continent can indicate the Whois server name of a registry.
 
