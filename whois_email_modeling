@@ -74,7 +74,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>billing_country_language</td><td>'.$item->billing->billing_country_language.'</td></tr>';
 	$html_text .= '<tr><td>billing_protected</td><td>'.$item->billing->billing_protected.'</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Is er iets mis? Het bedrijf dat deze domeinnaam beheert is: team.blue nl B.V. of de reseller: TransIP.</td></tr>';
-	$html_text .= '<tr><td COLSPAN="2">Met fysieke toegang om te wijzigen, bent u als registrant primair verantwoordelijk.</td></tr>';
+	$html_text .= '<tr><td COLSPAN="2">Als u als registrant toegang heeft tot het menu, dan kunt u primair verantwoordelijk zijn.</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Met vriendelijke groet,</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2">SIDN - Aanbieder van Essentiële Diensten</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Beantwoord deze mail niet. Wij krijgen het antwoord namelijk niet binnen. Vragen kun je sturen naar <a href="mailto:support@sidn.nl">support@sidn.nl</a>.</td></tr>';
@@ -85,7 +85,7 @@ $html_text .= '<tr><td COLSPAN="2"><br />Dear registrant,</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />You are receiving this message because you are the administrative contact for a domain name.</td></tr>';
 $html_text .= '<tr><td COLSPAN="2">team.blue nl B.V. has changed the registrant of webhostingtech.nl, as mentioned above.</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />Is something wrong? The company that manages this domain name is: team.blue nl B.V. or the reseller: TransIP.</td></tr>';
-$html_text .= '<tr><td COLSPAN="2">With physical access to change, you as the registrant are primarily responsible.</td></tr>';
+$html_text .= '<tr><td COLSPAN="2">If you as a registrant have access to the menu, then you can be primarily responsible.</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />Kind regards</td></tr>';
 $html_text .= '<tr><td COLSPAN="2">SIDN - Essential Services Provider</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />Please don&#39;t reply to this mail. If you have any questions or feedback, please contact <a href="mailto:support@sidn.nl">support@sidn.nl</a>.</td></tr>';
