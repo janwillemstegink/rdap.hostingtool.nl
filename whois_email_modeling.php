@@ -77,7 +77,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td COLSPAN="2">Als u als registrant toegang heeft tot het menu, dan kunt u primair verantwoordelijk zijn.</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Met vriendelijke groet,</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2">SIDN - Aanbieder van Essentiële Diensten</td></tr>';
-	$html_text .= '<tr><td COLSPAN="2"><br />Beantwoord deze mail niet. Wij krijgen het antwoord namelijk niet binnen. Vragen kun je sturen naar <a href="mailto:support@sidn.nl">support@sidn.nl</a>.</td></tr>';
+	$html_text .= '<tr><td COLSPAN="2"><br />Beantwoord deze mail niet. Als je vragen of feedback hebt, neem dan contact op met <a href="mailto:support@sidn.nl">support@sidn.nl</a>.</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 	break;
 }
