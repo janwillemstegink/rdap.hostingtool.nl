@@ -42,7 +42,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td COLSPAN="2"><br />Houder / Registrant:</td></tr>';
 	$html_text .= '<tr><td>registrant_contact_id</td><td>'.$item->registrant->registrant_contact_id.'</td></tr>';
-	$html_text .= '<tr><td>registrant_company_name</td><td>'.$item->registrant->registrant_company_name.'</td></tr>';
+	$html_text .= '<tr><td>registrant_business_name</td><td>'.$item->registrant->registrant_business_name.'</td></tr>';
 	$html_text .= '<tr><td>registrant_personal_name</td><td>'.$item->registrant->registrant_personal_name.'</td></tr>';	
 	$html_text .= '<tr><td>registrant_street</td><td>'.$item->registrant->registrant_street.'</td></tr>';
 	$html_text .= '<tr><td>registrant_postal_code</td><td>'.$item->registrant->registrant_postal_code.'</td></tr>';
@@ -55,14 +55,14 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>registrant_protected</td><td>'.$item->registrant->registrant_protected.'</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Administratieve contactpersoon / Administrative contact:</td></tr>';
 	$html_text .= '<tr><td>admin_contact_id</td><td>'.$item->admin->admin_contact_id.'</td></tr>';
-	$html_text .= '<tr><td>admin_company_name</td><td>'.$item->admin->admin_company_name.'</td></tr>';
+	$html_text .= '<tr><td>admin_business_name</td><td>'.$item->admin->admin_business_name.'</td></tr>';
 	$html_text .= '<tr><td>admin_personal_name</td><td>'.$item->admin->admin_personal_name.'</td></tr>';
 	$html_text .= '<tr><td>admin_phone</td><td>'.$item->admin->admin_phone.'</td></tr>';
 	$html_text .= '<tr><td>admin_email</td><td>'.$item->admin->admin_email.'</td></tr>';
 	$html_text .= '<tr><td>admin_protected</td><td>'.$item->admin->admin_protected.'</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Facturering / Billing:</td></tr>';
 	$html_text .= '<tr><td>billing_contact_id</td><td>'.$item->billing->billing_contact_id.'</td></tr>';
-	$html_text .= '<tr><td>billing_company_name</td><td>'.$item->billing->billing_company_name.'</td></tr>';
+	$html_text .= '<tr><td>billing_business_name</td><td>'.$item->billing->billing_business_name.'</td></tr>';
 	$html_text .= '<tr><td>billing_personal_name</td><td>'.$item->billing->billing_personal_name.'</td></tr>';	
 	$html_text .= '<tr><td>billing_street</td><td>'.$item->billing->billing_street.'</td></tr>';
 	$html_text .= '<tr><td>billing_postal_code</td><td>'.$item->billing->billing_postal_code.'</td></tr>';
