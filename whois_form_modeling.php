@@ -1,5 +1,5 @@
 <?php
-session_start();  // is needed with no PHP Generator Scriptcase
+session_start();  // is n50ded with no PHP Generator Scriptcase
 echo '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="index">
 <title>Web Domain Whois Modeling</title><link rel="dns-prefetch" href="https://www.googletagmanager.com">';
@@ -86,7 +86,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_business_name").innerText = "De verwerkersovereenkomst kan tussen de reseller en de houder zijn.";
 		document.getElementById("reseller_web_id").innerText = newcontactfield;
 		document.getElementById("reseller_protected").innerText = newcontactfield;
-		document.getElementById("registrant_business_name").innerText = purpose + ": Er is legitiem houderschap met een bestaande, beoogde en zichtbare bedrijfsnaam.";
+		document.getElementById("registrant_business_name").innerText = purpose + ": Legitiem houderschap bestaat met een bestaande, beoogde en zichtbare bedrijfsnaam.";
 		document.getElementById("registrant_web_id").innerText = newdomainfield + ": De KVK kan de benodigde 'web_id'-identificatie aan het Handelsregister toevoegen.";
 		document.getElementById("registrant_personal_name").innerText = "De houdernaam van een natuurlijke persoon kan op verzoek zichtbaar zijn.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
@@ -116,7 +116,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_business_name").innerText = "The processing agreement may be between the reseller and the holder.";
 		document.getElementById("reseller_web_id").innerText = newcontactfield;
 		document.getElementById("reseller_protected").innerText = newcontactfield;
-		document.getElementById("registrant_business_name").innerText = purpose + ": Legitimate holdership exists with an existing, intended and visible company name.";	
+		document.getElementById("registrant_business_name").innerText = purpose + ": Legitimate holdership exists with an existing, intended and visible business name.";	
 		document.getElementById("registrant_web_id").innerText = newdomainfield + ": The Chamber of Commerce can add the required 'web_id' identification to the Trade Register.";	
 		document.getElementById("registrant_personal_name").innerText = "The holder's name of a natural person can be visible on request.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
@@ -146,7 +146,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_business_name").innerText = "Die Verarbeitungsvereinbarung kann zwischen dem Wiederverkäufer und dem Halter abgeschlossen werden.";
 		document.getElementById("reseller_web_id").innerText = newcontactfield;
 		document.getElementById("reseller_protected").innerText = newcontactfield;
-		document.getElementById("registrant_business_name").innerText = purpose + ": Eine rechtmäßige Inhaberschaft liegt mit einem bestehenden, beabsichtigten und sichtbaren Firmennamen vor.";
+		document.getElementById("registrant_business_name").innerText = purpose + ": Eine rechtmäßige Inhaberschaft besteht mit einem bestehenden, beabsichtigten und sichtbaren Firmennamen.";
 		document.getElementById("registrant_web_id").innerText = newdomainfield + ": Die Handelskammer kann die erforderliche Kennung „web_id“ zum Handelsregister hinzufügen.";
 		document.getElementById("registrant_personal_name").innerText = "Der Name des Inhabers einer natürlichen Person kann auf Anfrage sichtbar sein.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
@@ -176,7 +176,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_business_name").innerText = "L'accord de traitement peut être conclu entre le revendeur et le titulaire.";
 		document.getElementById("reseller_web_id").innerText = newcontactfield;
 		document.getElementById("reseller_protected").innerText = newcontactfield;
-		document.getElementById("registrant_business_name").innerText = purpose + " : Un détenteur légitime existe avec un nom de société existant, prévu et visible.";
+		document.getElementById("registrant_business_name").innerText = purpose + " : Un détenteur légitime existe avec un nom commercial existant, prévu et visible.";
 		document.getElementById("registrant_web_id").innerText = newdomainfield + " : La Chambre de Commerce peut ajouter l'identification 'web_id' requise au registre du commerce.";
 		document.getElementById("registrant_personal_name").innerText = "Le nom du titulaire d'une personne physique peut être visible sur demande.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
