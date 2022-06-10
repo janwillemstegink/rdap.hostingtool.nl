@@ -88,7 +88,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_protected").innerText = newcontactfield;
 		document.getElementById("registrant_business_name").innerText = purpose + ": Legitiem houderschap bestaat met een bestaande, beoogde en zichtbare bedrijfsnaam.";
 		document.getElementById("registrant_web_id").innerText = newdomainfield + ": De KVK kan de benodigde 'web_id'-identificatie aan het Handelsregister toevoegen.";
-		document.getElementById("registrant_personal_name").innerText = "De houdernaam van een natuurlijke persoon kan op verzoek zichtbaar zijn.";
+		document.getElementById("registrant_personal_name").innerText = "De naam van een natuurlijk persoon als houder kan op verzoek zichtbaar zijn.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
 		document.getElementById("admin_web_id").innerText = newcontactfield;
 		document.getElementById("admin_email").innerText = purpose + ": Het administratief aanspreekpunt beantwoordt een verzoek, en stuurt het indien nodig door.";
@@ -118,7 +118,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_protected").innerText = newcontactfield;
 		document.getElementById("registrant_business_name").innerText = purpose + ": Legitimate holdership exists with an existing, intended and visible business name.";	
 		document.getElementById("registrant_web_id").innerText = newdomainfield + ": The Chamber of Commerce can add the required 'web_id' identification to the Trade Register.";	
-		document.getElementById("registrant_personal_name").innerText = "The holder's name of a natural person can be visible on request.";
+		document.getElementById("registrant_personal_name").innerText = "The name of a natural person as holder can be visible on request.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
 		document.getElementById("admin_web_id").innerText = newcontactfield;
 		document.getElementById("admin_email").innerText = purpose + ": The administratively responsible desk answers a request, and forwards it if necessary.";
@@ -148,7 +148,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_protected").innerText = newcontactfield;
 		document.getElementById("registrant_business_name").innerText = purpose + ": Eine rechtmäßige Inhaberschaft besteht mit einem bestehenden, beabsichtigten und sichtbaren Firmennamen.";
 		document.getElementById("registrant_web_id").innerText = newdomainfield + ": Die Handelskammer kann die erforderliche Kennung „web_id“ zum Handelsregister hinzufügen.";
-		document.getElementById("registrant_personal_name").innerText = "Der Name des Inhabers einer natürlichen Person kann auf Anfrage sichtbar sein.";
+		document.getElementById("registrant_personal_name").innerText = "Der Name einer natürlichen Person als Inhaber kann auf Anfrage einsehbar sein.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
 		document.getElementById("admin_web_id").innerText = newcontactfield;
 		document.getElementById("admin_email").innerText = purpose + ": Die administrativ zuständige Stelle beantwortet eine Anfrage und leitet diese gegebenenfalls weiter.";
@@ -178,7 +178,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_protected").innerText = newcontactfield;
 		document.getElementById("registrant_business_name").innerText = purpose + " : Un détenteur légitime existe avec un nom commercial existant, prévu et visible.";
 		document.getElementById("registrant_web_id").innerText = newdomainfield + " : La Chambre de Commerce peut ajouter l'identification 'web_id' requise au registre du commerce.";
-		document.getElementById("registrant_personal_name").innerText = "Le nom du titulaire d'une personne physique peut être visible sur demande.";
+		document.getElementById("registrant_personal_name").innerText = "Le nom d'une personne physique titulaire peut être visible sur demande.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
 		document.getElementById("admin_web_id").innerText = newcontactfield;
 		document.getElementById("admin_email").innerText = purpose + " : Le bureau administrativement responsable répond à une demande, et la transmet si nécessaire.";
