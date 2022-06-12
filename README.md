@@ -1,4 +1,4 @@
-- Whois properties of a web domain can be much more accessible;
+- Whois properties of a web domain could be more accessible;
 - Business transparency must be combined with privacy of a natural person;
 - Better public understanding clears up workload for registrars;
 - The name and contact details of the holder matter for customer protection, manageable administrative workload and for an 'In Control Statement' (ICS).
