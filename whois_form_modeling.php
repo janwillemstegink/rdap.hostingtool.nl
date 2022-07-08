@@ -1,5 +1,6 @@
 <?php
 session_start();  // is n50ded with no PHP Generator Scriptcase
+$inputlanguage = 2;
 echo '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="index">
 <title>Web Domain Whois Modeling</title><link rel="dns-prefetch" href="https://www.googletagmanager.com">';
@@ -235,7 +236,7 @@ elseif (@get_headers($url2a))	{
 else	{	
 	$xml2 = simplexml_load_file($url2b, "SimpleXMLElement", LIBXML_NOCDATA) or die("Cannot load url2b from public_html folder.");
 }
-$html_text = '<body onload=SwitchTranslation(2)><div style="border-spacing=0; padding=0; border-width=0; padding-bottom:5px; line-height:120%;">
+$html_text = '<body onload=SwitchTranslation('.$inputlanguage.')><div style="border-spacing=0; padding=0; border-width=0; padding-bottom:5px; line-height:120%;">
 <table style="border-collapse:collapse; font-family:Helvetica, Arial, sans-serif; font-size:13px;">
 <tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th></tr>';
 $html_text .= '<tr><td id="title" style="font-size:16px;color:blue;font-weight:bold"></td><td id="data" style="color:blue;font-weight:bold"></td>
