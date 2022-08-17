@@ -240,7 +240,7 @@ $html_text = '<body onload=SwitchTranslation('.$inputlanguage.')><div style="bor
 <table style="border-collapse:collapse; font-family:Helvetica, Arial, sans-serif; font-size:13px;">
 <tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th></tr>';
 $html_text .= '<tr><td id="title" style="font-size:16px;color:blue;font-weight:bold"></td><td id="data" style="color:blue;font-weight:bold"></td>
-<td><a href="https://www.sidn.nl/whois?q=webhostingtech.nl" target="_blank">sidn.nl/whois?q=webhostingtech.nl/whois</a>
+<td><a href="https://www.sidn.nl/en/whois?q=webhostingtech.nl" target="_blank">sidn.nl/en/whois?q=webhostingtech.nl/whois</a>
 - <a href="https://github.com/janwillemstegink/xml-whois" target="_blank">github.com/janwillemstegink/xml-whois</a>
 - <a href="">future detailed work instructions</a></td></tr>';
 $html_text .= '<tr><td></td><td></td><td id="what_about_whois"style="font-size:16px;font-style:italic"></td></tr>';
