@@ -75,7 +75,7 @@ function SwitchTranslation(inputlanguage)	{
 		var newcontactfield = '(nieuw veld in de tabel met contacten)';
 		var purpose = 'DOEL';
 		document.getElementById("title").innerText = "Webdomein Whois-modellering";
-		document.getElementById("data").innerText = "Gegevens in xml-formaat uit het register";
+		document.getElementById("data").innerText = "XML-gegevensoverdracht";
 		document.getElementById("what_about_whois").innerText = "Beheert uw organisatie webdomeinen met de bestaande, beoogde en zichtbare houdernaam?";
 		document.getElementById("view_type").innerText = "Typen: alles, isp (Internet Service Provider), publiek";
 		document.getElementById("domain_status").innerText = "Statussen: vrij, onttrokken, uitgesloten, in aanvraag, actief, inactief, in quarantaine.";
@@ -105,7 +105,7 @@ function SwitchTranslation(inputlanguage)	{
 		var newcontactfield = '(new field in the table of contacts)';
 		var purpose = 'PURPOSE';
 		document.getElementById("title").innerText = "Web Domain Whois Modeling";
-		document.getElementById("data").innerText = "Data in xml format from the registry";
+		document.getElementById("data").innerText = "XML data transfer";
 		document.getElementById("what_about_whois").innerText = "Does your organization control web domains with its existing, intended and visible holder name?";
 		document.getElementById("view_type").innerText = "Types: all, isp (Internet Service Provider), public";		
 		document.getElementById("domain_status").innerText = "Statusses: free, withdrawn, excluded, requested, active, inactive, in quarantaine.";	
@@ -135,7 +135,7 @@ function SwitchTranslation(inputlanguage)	{
 		var newcontactfield = '(neues Feld in der Kontakttabelle)';
 		var purpose = 'ZWECK';
 		document.getElementById("title").innerText = "Whois-Modellierung von Webdomänen";
-		document.getElementById("data").innerText = "Daten im xml-Format aus der Registry";
+		document.getElementById("data").innerText = "XML-Datenübertragung";
 		document.getElementById("what_about_whois").innerText = "Kontrolliert Ihre Organisation Webdomänen mit ihrem bestehenden, beabsichtigten und sichtbaren Inhabernamen?";
 		document.getElementById("view_type").innerText = "Typen: all, isp (Internet Service Provider), öffentlich";
 		document.getElementById("domain_status").innerText = "Status: frei, zurückgezogen, ausgeschlossen, beantragt, aktiv, inaktiv, in Quarantäne.";
@@ -165,7 +165,7 @@ function SwitchTranslation(inputlanguage)	{
 		var newcontactfield = '(nouveau champ dans le table des contacts)';
 		var purpose = 'BUT';
 		document.getElementById("title").innerText = "Modélisation Whois de domaine Web";
-		document.getElementById("data").innerText = "Données au format xml du registre";
+		document.getElementById("data").innerText = "Transfert de données XML";
 		document.getElementById("what_about_whois").innerText = "Votre organisation contrôle-t-elle les domaines Web avec son nom de titulaire existant, prévu et visible ?";
 		document.getElementById("view_type").innerText = "Types : tous, FSI (fournisseur de service Internet), public";
 		document.getElementById("domain_status").innerText = "Statuts : libre, retiré, exclu, demandé, actif, inactif, en quarantaine.";
