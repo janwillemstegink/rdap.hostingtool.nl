@@ -8,7 +8,7 @@ echo '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equi
 function SwitchDisplay(type) {
 	if (type == 20)	{ // domain
 		var pre = '20';
-		var max = 5
+		var max = 7
 	}
 	else if (type == 30)	{ // registrar
 		var pre = '30';
@@ -259,12 +259,14 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="201" style="display:none"><td><b>domain_id</b></td><td>'.$item->domain_id.'</td><td></td></tr>';
 	$html_text .= '<tr><td><b>domain_name</b></td><td>'.$item->domain_name.'</td><td></td></tr>';
 	$html_text .= '<tr><td><b>domain_status</b></td><td>'.$item->domain_status.'</td><td id="domain_status"></td></tr>';
+	$html_text .= '<tr id="202" style="display:none"><td><b>domain_status_codes_registry</b></td><td>'.$item->domain_status_codes_registry.'</td><td></td></tr>';
+	$html_text .= '<tr id="203" style="display:none"><td><b>domain_status_codes_registrar</b></td><td>'.$item->domain_status_codes_registrar.'</td><td></td></tr>';
 	$html_text .= '<tr><td><b>domain_web_publish</b></td><td>'.$item->domain_web_publish.'</td><td id="domain_web_publish"  style="font-weight:bold"></td></tr>';
-	$html_text .= '<tr id="202" style="display:none"><td><b>domain_creation</b></td><td>'.$item->domain_creation.'</td><td></td></tr>';
+	$html_text .= '<tr id="204" style="display:none"><td><b>domain_creation</b></td><td>'.$item->domain_creation.'</td><td></td></tr>';
 	$html_text .= '<tr><td><b>domain_last_renewal</b></td><td>'.$item->domain_last_renewal.'</td><td id="domain_last_renewal"  style="font-weight:bold"></td></tr>';
-	$html_text .= '<tr id="203" style="display:none"><td><b>domain_updated</b></td><td>'.$item->domain_updated.'</td><td></td></tr>';
-	$html_text .= '<tr id="204" style="display:none"><td><b>domain_expiration</b></td><td>'.$item->domain_expiration.'</td><td></td></tr>';
-	$html_text .= '<tr id="205" style="display:none"><td><b>domain_out_of_quarantine</b></td><td>'.$item->domain_out_of_quarantine.'</td><td></td></tr>';
+	$html_text .= '<tr id="205" style="display:none"><td><b>domain_updated</b></td><td>'.$item->domain_updated.'</td><td></td></tr>';
+	$html_text .= '<tr id="206" style="display:none"><td><b>domain_expiration</b></td><td>'.$item->domain_expiration.'</td><td></td></tr>';
+	$html_text .= '<tr id="207" style="display:none"><td><b>domain_out_of_quarantine</b></td><td>'.$item->domain_out_of_quarantine.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;cursor:hand" onclick="SwitchDisplay(30)">registrar +/-</button></td><td></td><td></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td><b>registrar_contact_id</b></td><td>'.$item->registrar->registrar_contact_id.'</td><td></td></tr>';
