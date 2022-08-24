@@ -36,7 +36,7 @@
 			<billing_country_code>NL</billing_country_code>
 			<billing_country_name>Netherlands</billing_country_name>
 			<billing_country_language>nl-NL</billing_country_language>
-			<billing_protected>contact_id,personal_name,address,phone,email</billing_protected>
+			<billing_protected>contact_id,business_name,personal_name,address,phone,email</billing_protected>
 		</billing>
 	</domain>
 </domains>
