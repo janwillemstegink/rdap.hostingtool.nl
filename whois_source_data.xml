@@ -8,8 +8,7 @@
 		<domain_id></domain_id>
 		<domain_name>webhostingtech.nl</domain_name>
 		<domain_status>active</domain_status>
-		<domain_status_codes_registry></domain_status_codes_registry>
-		<domain_status_codes_registrar></domain_status_codes_registrar>
+		<domain_status_codes>OK</domain_status_codes>
 		<domain_web_publish>yes</domain_web_publish>
 		<domain_creation>2018-11-03 00:00:00</domain_creation>
 		<domain_last_renewal>2021-11-02 00:00:00</domain_last_renewal>
@@ -129,8 +128,7 @@
 		<domain_name>hostingtool.nl</domain_name>
 		<domain_web_publish>yes</domain_web_publish>
 		<domain_status>active</domain_status>
-		<domain_status_codes_registry></domain_status_codes_registry>
-		<domain_status_codes_registrar></domain_status_codes_registrar>
+		<domain_status_codes>OK</domain_status_codes>
 		<domain_creation>2021-08-15 00:00:00</domain_creation>
 		<domain_last_renewal></domain_last_renewal>
 		<domain_updated>2021-08-15 00:00:00</domain_updated>
