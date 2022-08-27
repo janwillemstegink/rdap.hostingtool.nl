@@ -24,11 +24,11 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 60)	{ // admin
 		var pre = '60';
-		var max = 6
+		var max = 12
 	}
 	else if (type == 70)	{ // tech
 		var pre = '70';
-		var max = 24
+		var max = 12
 	}
 	else if (type == 80)	{ // billing
 		var pre = '80';
@@ -326,22 +326,30 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="602" style="display:none"><td><b>admin_business_name</b></td><td>'.$item->admin->admin_business_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="603" style="display:none"><td><b>admin_web_id</b></td><td>'.$item->admin->admin_web_id.'</td><td id="admin_web_id"></td></tr>';
 	$html_text .= '<tr id="604" style="display:none"><td><b>admin_personal_name</b></td><td>'.$item->admin->admin_personal_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="605" style="display:none"><td><b>admin_phone</b></td><td>'.$item->admin->admin_phone.'</td><td></td></tr>';
+	$html_text .= '<tr id="605" style="display:none"><td><b>admin_street</b></td><td>'.$item->admin->admin_street.'</td><td></td></tr>';
+	$html_text .= '<tr id="606" style="display:none"><td><b>admin_postal_code</b></td><td>'.$item->admin->admin_postal_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="607" style="display:none"><td><b>admin_city</b></td><td>'.$item->admin->admin_city.'</td><td></td></tr>';
+	$html_text .= '<tr id="608" style="display:none"><td><b>admin_phone</b></td><td>'.$item->admin->admin_phone.'</td><td></td></tr>';
 	$html_text .= '<tr><td><b>admin_email</b></td><td>'.$item->admin->admin_email.'</td><td id="admin_email"></td></tr>';
-	$html_text .= '<tr id="606" style="display:none"><td><b>admin_protected</b></td><td>'.$item->admin->admin_protected.'</td><td id="admin_protected"></td></tr>';
+	$html_text .= '<tr id="609" style="display:none"><td><b>admin_country_code</b></td><td>'.$item->admin->admin_country_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="6010" style="display:none"><td><b>admin_country_name</b></td><td>'.$item->admin->admin_country_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="6011" style="display:none"><td><b>admin_country_language</b></td><td>'.$item->admin->admin_country_language.'</td><td></td></tr>';
+	$html_text .= '<tr id="6012" style="display:none"><td><b>admin_protected</b></td><td>'.$item->admin->admin_protected.'</td><td id="admin_protected"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;cursor:hand" onclick="SwitchDisplay(70)">tech +/-</button></td><td></td><td></td></tr>';
-	if (!empty($item->tech->tech_email))	{
-		if (strlen(trim($item->tech->tech_email)))	{	
-			$html_text .= '<tr id="701" style="display:none"><td><b>tech_contact_id</b></td><td>'.$item->tech->tech_contact_id.'</td><td></td></tr>';
-			$html_text .= '<tr id="702" style="display:none"><td><b>tech_business_name</b></td><td>'.$item->tech->tech_business_name.'</td><td></td></tr>';
-			$html_text .= '<tr id="703" style="display:none"><td><b>tech_web_id</b></td><td>'.$item->tech->tech_web_id.'</td><td id="tech_web_id"></td></tr>';
-			$html_text .= '<tr id="704" style="display:none"><td><b>tech_personal_name</b></td><td>'.$item->tech->tech_personal_name.'</td><td></td></tr>';
-			$html_text .= '<tr id="705" style="display:none"><td><b>tech_phone</b></td><td>'.$item->tech->tech_phone.'</td><td></td></tr>';
-			$html_text .= '<tr><td><b>tech_email</b></td><td>'.$item->tech->tech_email.'</td><td id="tech_email"></td></tr>';
-			$html_text .= '<tr id="706" style="display:none"><td><b>tech_protected</b></td><td>'.$item->tech->tech_protected.'</td><td id="tech_protected"></td></tr>';
-		}	
-	}
+	$html_text .= '<tr id="701" style="display:none"><td><b>tech_contact_id</b></td><td>'.$item->tech->tech_contact_id.'</td><td></td></tr>';
+	$html_text .= '<tr id="702" style="display:none"><td><b>tech_business_name</b></td><td>'.$item->tech->tech_business_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="703" style="display:none"><td><b>tech_web_id</b></td><td>'.$item->tech->tech_web_id.'</td><td id="tech_web_id"></td></tr>';
+	$html_text .= '<tr id="704" style="display:none"><td><b>tech_personal_name</b></td><td>'.$item->tech->tech_personal_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="705" style="display:none"><td><b>tech_street</b></td><td>'.$item->tech->tech_street.'</td><td></td></tr>';
+	$html_text .= '<tr id="706" style="display:none"><td><b>tech_postal_code</b></td><td>'.$item->tech->tech_postal_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="707" style="display:none"><td><b>tech_city</b></td><td>'.$item->tech->tech_city.'</td><td></td></tr>';
+	$html_text .= '<tr id="708" style="display:none"><td><b>tech_phone</b></td><td>'.$item->tech->tech_phone.'</td><td></td></tr>';
+	$html_text .= '<tr><td><b>tech_email</b></td><td>'.$item->tech->tech_email.'</td><td id="tech_email"></td></tr>';
+	$html_text .= '<tr id="709" style="display:none"><td><b>tech_country_code</b></td><td>'.$item->tech->tech_country_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="7010" style="display:none"><td><b>tech_country_name</b></td><td>'.$item->tech->tech_country_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="7011" style="display:none"><td><b>tech_country_language</b></td><td>'.$item->tech->tech_country_language.'</td><td></td></tr>';
+	$html_text .= '<tr id="7012" style="display:none"><td><b>tech_protected</b></td><td>'.$item->tech->tech_protected.'</td><td id="tech_protected"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;cursor:hand" onclick="SwitchDisplay(80)">billing +/-</button></td><td></td><td></td></tr>';
 	$html_text .= '<tr id="801" style="display:none"><td><b>billing_contact_id</b></td><td>'.$item->billing->billing_contact_id.'</td><td></td></tr>';

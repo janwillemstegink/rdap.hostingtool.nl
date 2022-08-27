@@ -69,17 +69,29 @@
 			<admin_contact_id></admin_contact_id>
 			<admin_business_name><![CDATA[Stegink Hosting & E-mail]]></admin_business_name>
 			<admin_personal_name></admin_personal_name>
+			<admin_street></admin_street>
+			<admin_postal_code></admin_postal_code>
+			<admin_city></admin_city>
 			<admin_phone></admin_phone>
 			<admin_email>admindesk@janwillemstegink.nl</admin_email>
-			<admin_protected>contact_id,personal_name,address,phone</admin_protected>
+			<admin_country_code></admin_country_code>
+			<admin_country_name></admin_country_name>
+			<admin_country_language></admin_country_language>
+			<admin_protected>contact_id,personal_name,address,phone,country</admin_protected>
 		</admin>
 		<tech>
 			<tech_contact_id></tech_contact_id>
 			<tech_business_name><![CDATA[Stegink Hosting & E-mail]]></tech_business_name>
 			<tech_personal_name></tech_personal_name>
+			<tech_street></tech_street>
+			<tech_postal_code></tech_postal_code>
+			<tech_city></tech_city>
 			<tech_phone></tech_phone>
 			<tech_email>techdesk@hostfusion.nl</tech_email>
-			<tech_protected>contact_id,personal_name,address,phone</tech_protected>
+			<tech_country_code></tech_country_code>
+			<tech_country_name></tech_country_name>
+			<tech_country_language></tech_country_language>
+			<tech_protected>contact_id,personal_name,address,phone,country</tech_protected>
 		</tech>
 		<billing>
 			<billing_contact_id></billing_contact_id>
@@ -93,7 +105,7 @@
 			<billing_country_code></billing_country_code>
 			<billing_country_name></billing_country_name>
 			<billing_country_language></billing_country_language>
-			<billing_protected>contact_id,business_name,personal_name,address,phone,email</billing_protected>
+			<billing_protected>contact_id,business_name,personal_name,address,phone,email,country</billing_protected>
 		</billing>
 		<name_servers>
 			<server_1>
@@ -188,17 +200,29 @@
 			<admin_contact_id></admin_contact_id>
 			<admin_business_name><![CDATA[Stegink Hosting & E-mail]]></admin_business_name>
 			<admin_personal_name></admin_personal_name>
+			<admin_street></admin_street>
+			<admin_postal_code></admin_postal_code>
+			<admin_city></admin_city>
 			<admin_phone></admin_phone>
 			<admin_email>admindesk@janwillemstegink.nl</admin_email>
-			<admin_protected>contact_id,personal_name,address,phone</admin_protected>
+			<admin_country_code></admin_country_code>
+			<admin_country_name></admin_country_name>
+			<admin_country_language></admin_country_language>
+			<admin_protected>contact_id,personal_name,address,phone,country</admin_protected>
 		</admin>
 		<tech>
 			<tech_contact_id></tech_contact_id>
 			<tech_business_name><![CDATA[Stegink Hosting & E-mail]]></tech_business_name>
 			<tech_personal_name></tech_personal_name>
+			<tech_street></tech_street>
+			<tech_postal_code></tech_postal_code>
+			<tech_city></tech_city>
 			<tech_phone></tech_phone>
 			<tech_email>techdesk@hostfusion.nl</tech_email>
-			<tech_protected>contact_id,personal_name,address,phone</tech_protected>
+			<tech_country_code></tech_country_code>
+			<tech_country_name></tech_country_name>
+			<tech_country_language></tech_country_language>
+			<tech_protected>contact_id,personal_name,address,phone,country</tech_protected>
 		</tech>
 		<billing>
 			<billing_contact_id></billing_contact_id>
@@ -212,7 +236,7 @@
 			<billing_country_code></billing_country_code>
 			<billing_country_name></billing_country_name>
 			<billing_country_language></billing_country_language>
-			<billing_protected>contact_id,business_name,personal_name,address,phone,email</billing_protected>
+			<billing_protected>contact_id,business_name,personal_name,address,phone,email,country</billing_protected>
 		</billing>
 		<name_servers>
 			<server_1>

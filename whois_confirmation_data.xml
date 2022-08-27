@@ -28,7 +28,7 @@
 			<admin_country_code>NL</admin_country_code>
 			<admin_country_name>Netherlands</admin_country_name>
 			<admin_country_language>nl-NL</admin_country_language>
-			<admin_protected>contact_id,personal_name,address,phone</admin_protected>
+			<admin_protected>contact_id,personal_name,address,phone,country</admin_protected>
 		</admin>
 		<billing>
 			<billing_contact_id></billing_contact_id>
@@ -42,7 +42,7 @@
 			<billing_country_code>NL</billing_country_code>
 			<billing_country_name>Netherlands</billing_country_name>
 			<billing_country_language>nl-NL</billing_country_language>
-			<billing_protected>contact_id,business_name,personal_name,address,phone,email</billing_protected>
+			<billing_protected>contact_id,business_name,personal_name,address,phone,email,country</billing_protected>
 		</billing>
 	</domain>
 </domains>
