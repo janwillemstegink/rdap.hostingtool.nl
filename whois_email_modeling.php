@@ -11,8 +11,8 @@ else	{
 $filesPath = '/home/admin/whois_file/';
 $dataFile = 'whois_confirmation_data.xml';
 $inputdomain = 'webhostingtech.nl';
-$url1a = "http://whois.hostingtool.nl/whois_compose_data/index.php?domain=$inputdomain&format=xml&type=1";
-$url1b = "http://whois.hostingtool.nl/".$dataFile;
+$url1a = "https://whois.hostingtool.nl/whois_compose_data/index.php?domain=$inputdomain&format=xml&type=1";
+$url1b = "https://whois.hostingtool.nl/".$dataFile;
 
 if (file_exists($filesPath.$dataFile) and false)	{ // skipping initial testing
 	$xml1 = simplexml_load_file($filesPath.$dataFile) or die("Cannot load xml1 from path,");
@@ -24,7 +24,7 @@ elseif (@get_headers($url1a) and false)	{ // skipping complex application to com
 	$xml1 = simplexml_load_file($url1a, "SimpleXMLElement", LIBXML_NOCDATA) or die("Cannot load url1a from Scriptcase folder.");
 }
 else	{
-	$url1 = "http://whois.hostingtool.nl/whois_compose_data/index.php?domain=$inputdomain&format=xml&type=1";
+	//$url1 = "http://whois.hostingtool.nl/whois_compose_data/index.php?domain=$inputdomain&format=xml&type=1";
 	$xml1 = simplexml_load_file($url1b, "SimpleXMLElement", LIBXML_NOCDATA) or die("Cannot load url1b from public_html folder.");
 }
 
@@ -36,8 +36,8 @@ $html_text .= '<tr><td style="font-size:16px;color:blue;font-weight:bold"><b>Web
 $html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 $html_text .= '<tr><td COLSPAN="2">- English version of this message below –</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />Beste domeinnaamhouder,</td></tr>';
-$html_text .= '<tr><td COLSPAN="2"><br />Je krijgt deze mail omdat je de administratieve contactpersoon bent van een domeinnaam.</td></tr>';
-$html_text .= '<tr><td COLSPAN="2">team.blue nl B.V. heeft minimaal één van de houdergegevens van webhostingtech.nl gewijzigd. Dit zijn de gegevens:</td></tr>';
+$html_text .= '<tr><td COLSPAN="2"><br />Je krijgt deze mail omdat je de administratieve contactpersoon bent voor het webdomein webhostingtech.nl.</td></tr>';
+$html_text .= '<tr><td COLSPAN="2">team.blue nl B.V. heeft minimaal één van de houdergegevens gewijzigd. Dit zijn de gegevens:</td></tr>';
 foreach ($xml1->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td COLSPAN="2"><br />Houder / Registrant:</td></tr>';
@@ -73,21 +73,21 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>billing_country_name</td><td>'.$item->billing->billing_country_name.'</td></tr>';
 	$html_text .= '<tr><td>billing_country_language</td><td>'.$item->billing->billing_country_language.'</td></tr>';
 	$html_text .= '<tr><td>billing_protected</td><td>'.$item->billing->billing_protected.'</td></tr>';
-	$html_text .= '<tr><td COLSPAN="2"><br />Is er iets mis? Het bedrijf dat deze domeinnaam beheert is: team.blue nl B.V. of de reseller: TransIP.</td></tr>';
+	$html_text .= '<tr><td COLSPAN="2"><br />Is er iets mis? Het bedrijf dat deze domeinnaam beheert is: team.blue nl B.V., of de reseller: TransIP.</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2">Als u als registrant toegang heeft tot het menu, dan kunt u primair verantwoordelijk zijn.</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Met vriendelijke groet,</td></tr>';
-	$html_text .= '<tr><td COLSPAN="2">SIDN - Essentiële Aanbieder</td></tr>';
+	$html_text .= '<tr><td COLSPAN="2">SIDN (Essentiële Aanbieder)</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Beantwoord deze mail niet. Als je vragen of feedback hebt, neem dan contact op met <a href="mailto:support@sidn.nl">support@sidn.nl</a>.</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 	break;
 }
 $html_text .= '<tr><td COLSPAN="2"><br />Dear registrant,</td></tr>';
-$html_text .= '<tr><td COLSPAN="2"><br />You are receiving this message because you are the administrative contact for a domain name.</td></tr>';
-$html_text .= '<tr><td COLSPAN="2">team.blue nl B.V. has changed at least one of the holder details of webhostingtech.nl, as mentioned above.</td></tr>';
-$html_text .= '<tr><td COLSPAN="2"><br />Is something wrong? The company that manages this domain name is: team.blue nl B.V. or the reseller: TransIP.</td></tr>';
+$html_text .= '<tr><td COLSPAN="2"><br />You are receiving this message because you are the administrative contact for web domain webhostingtech.nl.</td></tr>';
+$html_text .= '<tr><td COLSPAN="2">team.blue nl B.V. has changed at least one of the holder details, as mentioned above.</td></tr>';
+$html_text .= '<tr><td COLSPAN="2"><br />Is something wrong? The company that manages this domain name is: team.blue nl B.V., or the reseller: TransIP.</td></tr>';
 $html_text .= '<tr><td COLSPAN="2">If you as a registrant have access to the menu, then you can be primarily responsible.</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />Kind regards</td></tr>';
-$html_text .= '<tr><td COLSPAN="2">SIDN - Essential Provider</td></tr>';
+$html_text .= '<tr><td COLSPAN="2">SIDN (Essential Provider)</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />Please don&#39;t reply to this mail. If you have any questions or feedback, please contact <a href="mailto:support@sidn.nl">support@sidn.nl</a>.</td></tr>';
 $html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 $html_text .= '</table></div></body></html>';
