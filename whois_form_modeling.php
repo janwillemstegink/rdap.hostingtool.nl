@@ -167,7 +167,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("title").innerText = "Modélisation Whois de domaine Web";
 		document.getElementById("data").innerText = "Transfert de données XML";
 		document.getElementById("what_about_whois").innerText = "Votre organisation contrôle-t-elle les domaines Web avec son nom de titulaire existant, prévu et visible ?";
-		document.getElementById("view_type").innerText = "Types : tous, FSI (fournisseur de service Internet), public";
+		document.getElementById("view_type").innerText = "Types : toutes, FSI (fournisseur de service Internet), public";
 		document.getElementById("domain_status").innerText = "Statuts : libre, retiré, exclu, demandé, actif, inactif, en quarantaine.";
 		document.getElementById("domain_web_publish").innerText = newdomainfield + " : Si 'web_publish' est défini sur 'yes', la publication d'un résultat de recherche correspondra.";
 		document.getElementById("domain_last_renewal").innerText = newdomainfield + " : Un moteur de recherche peut utiliser cette date pour vérifier le renouvellement annuel.";
