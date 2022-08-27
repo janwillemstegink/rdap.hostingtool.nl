@@ -137,7 +137,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("title").innerText = "Whois-Modellierung von Webdomänen";
 		document.getElementById("data").innerText = "XML-Datenübertragung";
 		document.getElementById("what_about_whois").innerText = "Kontrolliert Ihre Organisation Webdomänen mit ihrem bestehenden, beabsichtigten und sichtbaren Inhabernamen?";
-		document.getElementById("view_type").innerText = "Typen: all, isp (Internet Service Provider), öffentlich";
+		document.getElementById("view_type").innerText = "Typen: alle, isp (Internet Service Provider), öffentlich";
 		document.getElementById("domain_status").innerText = "Status: frei, zurückgezogen, ausgeschlossen, beantragt, aktiv, inaktiv, in Quarantäne.";
 		document.getElementById("domain_web_publish").innerText = newdomainfield + ": Wenn „web_publish“ auf „yes“ gesetzt ist, wird die Veröffentlichung eines Suchergebnisses übereinstimmen.";
 		document.getElementById("domain_last_renewal").innerText = newdomainfield + ": Eine Suchmaschine kann dieses Datum verwenden, um nach einer jährlichen Verlängerung zu suchen.";
