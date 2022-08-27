@@ -57,8 +57,14 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>admin_contact_id</td><td>'.$item->admin->admin_contact_id.'</td></tr>';
 	$html_text .= '<tr><td>admin_business_name</td><td>'.$item->admin->admin_business_name.'</td></tr>';
 	$html_text .= '<tr><td>admin_personal_name</td><td>'.$item->admin->admin_personal_name.'</td></tr>';
+	$html_text .= '<tr><td>admin_street</td><td>'.$item->admin->admin_street.'</td></tr>';
+	$html_text .= '<tr><td>admin_postal_code</td><td>'.$item->admin->admin_postal_code.'</td></tr>';
+	$html_text .= '<tr><td>admin_city</td><td>'.$item->admin->admin_city.'</td></tr>';
 	$html_text .= '<tr><td>admin_phone</td><td>'.$item->admin->admin_phone.'</td></tr>';
 	$html_text .= '<tr><td>admin_email</td><td>'.$item->admin->admin_email.'</td></tr>';
+	$html_text .= '<tr><td>admin_country_code</td><td>'.$item->admin->admin_country_code.'</td></tr>';
+	$html_text .= '<tr><td>admin_country_name</td><td>'.$item->admin->admin_country_name.'</td></tr>';
+	$html_text .= '<tr><td>admin_country_language</td><td>'.$item->admin->admin_country_language.'</td></tr>';
 	$html_text .= '<tr><td>admin_protected</td><td>'.$item->admin->admin_protected.'</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Facturering / Billing:</td></tr>';
 	$html_text .= '<tr><td>billing_contact_id</td><td>'.$item->billing->billing_contact_id.'</td></tr>';

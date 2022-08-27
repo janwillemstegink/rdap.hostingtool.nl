@@ -20,8 +20,14 @@
 			<admin_contact_id>STE135418-TRAIP</admin_contact_id>
 			<admin_business_name><![CDATA[Stegink Hosting & E-mail]]></admin_business_name>
 			<admin_personal_name>Jan Willem Stegink</admin_personal_name>
+			<admin_street>Dr. Schaepmanlaan 44</admin_street>
+			<admin_postal_code>6823 AS</admin_postal_code>
+			<admin_city>Arnhem</admin_city>
 			<admin_phone>+31.264453916</admin_phone>
 			<admin_email>admindesk@janwillemstegink.nl</admin_email>
+			<admin_country_code>NL</admin_country_code>
+			<admin_country_name>Netherlands</admin_country_name>
+			<admin_country_language>nl-NL</admin_country_language>
 			<admin_protected>contact_id,personal_name,address,phone</admin_protected>
 		</admin>
 		<billing>
