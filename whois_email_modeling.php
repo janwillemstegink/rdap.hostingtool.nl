@@ -28,8 +28,12 @@ else	{
 	$xml1 = simplexml_load_file($url1b, "SimpleXMLElement", LIBXML_NOCDATA) or die("Cannot load url1b from public_html folder.");
 }
 
-$html_text = '<!DOCTYPE html><html lang="en"><head><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta charset="UTF-8">
-<meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="robots" content="index"><title>Web Domain Whois Email Modeling</title></head>';
+$html_text = '<!DOCTYPE html><html lang="en"><head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<meta name="robots" content="index" />
+<title>Web Domain Whois Email Modeling</title></head>';
 $html_text .= '<body><div style="border-collapse:collapse; line-height:120%">
 <table style="font-family:Helvetica, Arial, sans-serif; font-size:13px;">
 <tr><th style="width:350px"></th><th style="width:475px"></th></tr>';

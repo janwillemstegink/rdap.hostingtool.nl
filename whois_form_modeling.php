@@ -1,9 +1,12 @@
 <?php
 session_start();  // is n50ded with no PHP Generator Scriptcase
 $inputlanguage = 2;
-echo '<!DOCTYPE html><html lang="en"><head><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta charset="UTF-8">
-<meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="robots" content="index">
-<title>Web Domain Whois Modeling</title><link rel="dns-prefetch" href="https://www.googletagmanager.com">';
+echo '<!DOCTYPE html><html lang="en"><head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<meta name="robots" content="index" />
+<title>Web Domain Whois Modeling</title>';
 ?><script>
 function SwitchDisplay(type) {
 	if (type == 20)	{ // domain
