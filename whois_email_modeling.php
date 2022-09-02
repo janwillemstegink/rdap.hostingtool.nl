@@ -95,7 +95,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 }
 $html_text .= '<tr><td COLSPAN="2"><br />Dear registrant,</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />You are receiving this message because you are the administrative contact for web domain webhostingtech.nl.</td></tr>';
-$html_text .= '<tr><td COLSPAN="2">team.blue nl B.V. has changed at least one of the holder details, as mentioned above.</td></tr>';
+$html_text .= '<tr><td COLSPAN="2">team.blue nl B.V. has changed at least one of the holder details. This information is above.</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />Is something wrong? The company that manages this domain name is: team.blue nl B.V., or the reseller: TransIP.</td></tr>';
 $html_text .= '<tr><td COLSPAN="2">If you as a registrant have access to the menu, then you can be primarily responsible.</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />Kind regards</td></tr>';
