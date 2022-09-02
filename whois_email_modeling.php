@@ -33,7 +33,7 @@ $html_text = '<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
 <meta name="robots" content="index" />
-<title>Web Domain Whois Email Modeling</title></head>';
+<title>Whois Web Domain Email (modeling)</title></head>';
 $html_text .= '<body><div style="border-collapse:collapse; line-height:120%">
 <table style="font-family:Helvetica, Arial, sans-serif; font-size:13px;">
 <tr><th style="width:350px"></th><th style="width:475px"></th></tr>';

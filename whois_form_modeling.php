@@ -77,7 +77,7 @@ function SwitchTranslation(inputlanguage)	{
 		var newdomainfield = 'NIEUW';
 		var newcontactfield = '(nieuw veld in de tabel met contacten)';
 		var purpose = 'DOEL';
-		document.getElementById("title").innerText = "Webdomein Whois-modellering";
+		document.getElementById("title").innerText = "Whois-webdomein (modellering)";
 		document.getElementById("data").innerText = "XML-gegevensoverdracht";
 		document.getElementById("what_about_whois").innerText = "Beheert uw organisatie webdomeinen met de bestaande, beoogde en zichtbare houdernaam?";
 		document.getElementById("view_type").innerText = "Typen: alles, isp (Internet Service Provider), publiek";
@@ -107,7 +107,7 @@ function SwitchTranslation(inputlanguage)	{
 		var newdomainfield = 'NEW';
 		var newcontactfield = '(new field in the table of contacts)';
 		var purpose = 'PURPOSE';
-		document.getElementById("title").innerText = "Web Domain Whois Modeling";
+		document.getElementById("title").innerText = "Whois Web Domain (modeling)";
 		document.getElementById("data").innerText = "XML data transfer";
 		document.getElementById("what_about_whois").innerText = "Does your organization control web domains with its existing, intended and visible holder name?";
 		document.getElementById("view_type").innerText = "Types: all, isp (Internet Service Provider), public";		
@@ -137,7 +137,7 @@ function SwitchTranslation(inputlanguage)	{
 		var newdomainfield = 'NEU';
 		var newcontactfield = '(neues Feld in der Kontakttabelle)';
 		var purpose = 'ZWECK';
-		document.getElementById("title").innerText = "Whois-Modellierung von Webdomänen";
+		document.getElementById("title").innerText = "Whois-Webdomain (Modellierung)";
 		document.getElementById("data").innerText = "XML-Datenübertragung";
 		document.getElementById("what_about_whois").innerText = "Kontrolliert Ihre Organisation Webdomänen mit ihrem bestehenden, beabsichtigten und sichtbaren Inhabernamen?";
 		document.getElementById("view_type").innerText = "Typen: alle, isp (Internet Service Provider), öffentlich";
@@ -167,7 +167,7 @@ function SwitchTranslation(inputlanguage)	{
 		var newdomainfield = 'NOUVEAU';
 		var newcontactfield = '(nouveau champ dans le table des contacts)';
 		var purpose = 'BUT';
-		document.getElementById("title").innerText = "Modélisation Whois de domaine Web";
+		document.getElementById("title").innerText = "Domaine Web Whois (modélisation)";
 		document.getElementById("data").innerText = "Transfert de données XML";
 		document.getElementById("what_about_whois").innerText = "Votre organisation contrôle-t-elle les domaines Web avec son nom de titulaire existant, prévu et visible ?";
 		document.getElementById("view_type").innerText = "Types : toutes, FSI (fournisseur de service Internet), public";
