@@ -37,7 +37,7 @@ $html_text = '<!DOCTYPE html><html lang="en"><head>
 $html_text .= '<body><div style="border-collapse:collapse; line-height:120%">
 <table style="font-family:Helvetica, Arial, sans-serif; font-size:13px;">
 <tr><th style="width:350px"></th><th style="width:475px"></th></tr>';
-$html_text .= '<tr><td style="font-size:16px;color:blue;font-weight:bold"><b>Web Domain Whois Email Modeling</b></td><td><a href="https://www.sidn.nl/whois?q=webhostingtech.nl" target="_blank">sidn.nl/whois?q=webhostingtech.nl/whois</a> - <a href="https://github.com/janwillemstegink/xml-whois" target="_blank">github.com/janwillemstegink/xml-whois</a></td></tr>';
+$html_text .= '<tr><td style="font-size:16px;color:blue;font-weight:bold"><b>Whois Web Domain Email (modeling)</b></td><td><a href="https://www.sidn.nl/whois?q=webhostingtech.nl" target="_blank">sidn.nl/whois?q=webhostingtech.nl/whois</a> - <a href="https://github.com/janwillemstegink/xml-whois" target="_blank">github.com/janwillemstegink/xml-whois</a></td></tr>';
 $html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 $html_text .= '<tr><td COLSPAN="2">- English version of this message below –</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />Beste domeinnaamhouder,</td></tr>';

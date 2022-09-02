@@ -6,7 +6,7 @@ echo '<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
 <meta name="robots" content="index" />
-<title>Web Domain Whois Modeling</title>';
+<title>Whois Web Domain (modeling)</title>';
 ?><script>
 function SwitchDisplay(type) {
 	if (type == 20)	{ // domain
