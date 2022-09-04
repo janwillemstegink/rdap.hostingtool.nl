@@ -1,7 +1,7 @@
 <?php
 session_start();  // is n50ded with no PHP Generator Scriptcase
 $inputlanguage = 2;
-echo '<!DOCTYPE html><html lang="en"><head>
+echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta charset="UTF-8" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -240,20 +240,20 @@ else	{
 	$xml2 = simplexml_load_file($url2b, "SimpleXMLElement", LIBXML_NOCDATA) or die("Cannot load url2b from public_html folder.");
 }
 $html_text = '<body onload=SwitchTranslation('.$inputlanguage.')><div style="border-collapse:collapse; line-height:120%">
-<table style="font-family:Helvetica, Arial, sans-serif; font-size:13px">
+<table style="font-family:Helvetica, Arial, sans-serif; font-size: 1rem">
 <tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th></tr>';
-$html_text .= '<tr><td id="title" style="font-size:16px;color:blue;font-weight:bold"></td><td id="data" style="color:blue;font-weight:bold"></td>
-<td><a href="https://www.sidn.nl/en/whois?q=webhostingtech.nl" target="_blank">sidn.nl/en/whois?q=webhostingtech.nl/whois</a>
+$html_text .= '<tr><td id="title" style="font-size: 1.2rem;color:blue;font-weight:bold"></td><td id="data" style="font-size:1.2rem;color:blue;font-weight:bold"></td>
+<td style="font-size: .9rem"><a href="https://www.sidn.nl/en/whois?q=webhostingtech.nl" target="_blank">sidn.nl/en/whois?q=webhostingtech.nl/whois</a>
 - <a href="https://github.com/janwillemstegink/xml-whois" target="_blank">github.com/janwillemstegink/xml-whois</a>
 - <a href="">future detailed work instructions</a></td></tr>';
-$html_text .= '<tr><td></td><td></td><td id="what_about_whois" style="font-size:16px;font-style:italic"></td></tr>';
+$html_text .= '<tr><td></td><td></td><td id="what_about_whois" style="font-size: 1.1rem;font-style:italic"></td></tr>';
 foreach ($xml1->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';	
 	$html_text .= '<tr><td></td><td></td><td>
-	<button style="cursor:pointer" onclick="SwitchTranslation(1)">nl_NL</button> 
-	<button style="cursor:pointer" onclick="SwitchTranslation(2)">en_US</button> 
-	<button style="cursor:pointer" onclick="SwitchTranslation(3)">de_DE</button> 
+	<button style="cursor:pointer" onclick="SwitchTranslation(1)">nl_NL</button> - 
+	<button style="cursor:pointer" onclick="SwitchTranslation(2)">en_US</button> - 
+	<button style="cursor:pointer" onclick="SwitchTranslation(3)">de_DE</button> - 
 	<button style="cursor:pointer" onclick="SwitchTranslation(4)">fr_FR</button></td></tr>';
 	$html_text .= '<tr><td><b>view_datetime</b></td><td>'.$item->view->view_datetime.'</td><td></td></tr>';
 	$html_text .= '<tr><td><b>view_type</b></td><td>'.$item->view->view_type.'</td><td id="view_type"></td></tr>';
@@ -263,9 +263,9 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><b>domain_name</b></td><td>'.$item->domain_name.'</td><td></td></tr>';
 	$html_text .= '<tr><td><b>domain_status</b></td><td>'.$item->domain_status.'</td><td id="domain_status"></td></tr>';
 	$html_text .= '<tr id="202" style="display:none"><td><b>domain_status_codes</b></td><td>'.$item->domain_status_codes.'</td><td><a href="https://www.icann.org/en/system/files/files/epp-status-codes-30jun11-en.pdf" target="_blank">www.icann.org/en/system/files/files/epp-status-codes-30jun11-en.pdf</a></td></tr>';
-	$html_text .= '<tr><td><b>domain_web_publish</b></td><td>'.$item->domain_web_publish.'</td><td id="domain_web_publish"  style="font-weight:bold"></td></tr>';
+	$html_text .= '<tr><td><b>domain_web_publish</b></td><td>'.$item->domain_web_publish.'</td><td id="domain_web_publish" style="font-weight:bold"></td></tr>';
 	$html_text .= '<tr id="203" style="display:none"><td><b>domain_creation</b></td><td>'.$item->domain_creation.'</td><td></td></tr>';
-	$html_text .= '<tr><td><b>domain_last_renewal</b></td><td>'.$item->domain_last_renewal.'</td><td id="domain_last_renewal"  style="font-weight:bold"></td></tr>';
+	$html_text .= '<tr><td><b>domain_last_renewal</b></td><td>'.$item->domain_last_renewal.'</td><td id="domain_last_renewal" style="font-weight:bold"></td></tr>';
 	$html_text .= '<tr id="204" style="display:none"><td><b>domain_updated</b></td><td>'.$item->domain_updated.'</td><td></td></tr>';
 	$html_text .= '<tr id="205" style="display:none"><td><b>domain_expiration</b></td><td>'.$item->domain_expiration.'</td><td></td></tr>';
 	$html_text .= '<tr id="206" style="display:none"><td><b>domain_out_of_quarantine</b></td><td>'.$item->domain_out_of_quarantine.'</td><td></td></tr>';

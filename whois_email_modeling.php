@@ -28,16 +28,16 @@ else	{
 	$xml1 = simplexml_load_file($url1b, "SimpleXMLElement", LIBXML_NOCDATA) or die("Cannot load url1b from public_html folder.");
 }
 
-$html_text = '<!DOCTYPE html><html lang="en"><head>
+$html_text = '<!DOCTYPE html><html lang="en" style="font-size:100%"><head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta charset="UTF-8" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
 <meta name="robots" content="index" />
 <title>Whois Web Domain Email (modeling)</title></head>';
 $html_text .= '<body><div style="border-collapse:collapse; line-height:120%">
-<table style="font-family:Helvetica, Arial, sans-serif; font-size:13px;">
+<table style="font-family:Helvetica, Arial, sans-serif; font-size:.85rem">
 <tr><th style="width:350px"></th><th style="width:475px"></th></tr>';
-$html_text .= '<tr><td style="font-size:16px;color:blue;font-weight:bold"><b>Whois Web Domain Email (modeling)</b></td><td><a href="https://www.sidn.nl/whois?q=webhostingtech.nl" target="_blank">sidn.nl/whois?q=webhostingtech.nl/whois</a> - <a href="https://github.com/janwillemstegink/xml-whois" target="_blank">github.com/janwillemstegink/xml-whois</a></td></tr>';
+$html_text .= '<tr><td style="font-size:1.1rem;color:blue;font-weight:bold"><b>Whois Web Domain Email (modeling)</b></td><td style="font-size:.8rem"><a href="https://www.sidn.nl/whois?q=webhostingtech.nl" target="_blank">sidn.nl/whois?q=webhostingtech.nl/whois</a> - <a href="https://github.com/janwillemstegink/xml-whois" target="_blank">github.com/janwillemstegink/xml-whois</a></td></tr>';
 $html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 $html_text .= '<tr><td COLSPAN="2">- English version of this message below –</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />Beste domeinnaamhouder,</td></tr>';
