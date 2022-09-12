@@ -129,6 +129,7 @@
 			<registry_description>NL Domain Registry</registry_description>
 			<registry_language>nl-NL</registry_language>
 			<registry_format>PLAIN</registry_format>
+			<registry_time_zone>Europe/Amsterdam</registry_time_zone>
 		</data_management>
 	</domain>
 	<domain item="hostingtool.nl">
@@ -275,6 +276,7 @@
 			<registry_description>NL Domain Registry</registry_description>
 			<registry_language>nl-NL</registry_language>
 			<registry_format>PLAIN</registry_format>
+			<registry_time_zone>Europe/Amsterdam</registry_time_zone>
 		</data_management>
 	</domain>
 </domains>

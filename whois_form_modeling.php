@@ -43,7 +43,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 100)	{ // registry
 		var pre = '100';
-		var max = 2
+		var max = 3
 	}
 	else if (type == 110)	{ // conditions
 		var pre = '110';
@@ -83,7 +83,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("view_type").innerText = "Typen: alles, isp (Internet Service Provider), publiek";
 		document.getElementById("domain_status").innerText = "Statussen: vrij, onttrokken, uitgesloten, in aanvraag, actief, inactief, in quarantaine.";
 		document.getElementById("domain_web_publish").innerText = newdomainfield + ": Als 'web_publish' is ingesteld op 'ja', dan komt publiceren van een zoekresultaat overeen.";
-		document.getElementById("domain_renewed").innerText = newdomainfield + ": Deze datum plus tijd is voor de zoekmachine om te controleren op jaarlijkse verlenging.";
+		document.getElementById("domain_renewed").innerText = newdomainfield + ": Deze datum plus tijd is voor zoekmachines om te controleren op jaarlijkse verlenging.";
 		document.getElementById("registrar_web_id").innerText = newcontactfield;
 		document.getElementById("registrar_abuse_email").innerText = "Contactgegevens om misbruik te melden zijn niet verplicht voor een registrar.";
 		document.getElementById("registrar_protected").innerText = newcontactfield;
@@ -113,7 +113,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("view_type").innerText = "Types: all, isp (Internet Service Provider), public";		
 		document.getElementById("domain_status").innerText = "Statusses: free, withdrawn, excluded, requested, active, inactive, in quarantaine.";
 		document.getElementById("domain_web_publish").innerText = newdomainfield + ": If 'web_publish' is set to 'yes', then publishing a search result will match.";	
-		document.getElementById("domain_renewed").innerText = newdomainfield + ": This date plus time is for search engine to check for annual renewal.";
+		document.getElementById("domain_renewed").innerText = newdomainfield + ": This date plus time is for search engines to check for annual renewal.";
 		document.getElementById("registrar_web_id").innerText = newcontactfield;
 		document.getElementById("registrar_abuse_email").innerText = "Contact details to report abuse are not mandatory for a registrar.";
 		document.getElementById("registrar_protected").innerText = newcontactfield;
@@ -143,7 +143,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("view_type").innerText = "Typen: alle, isp (Internet Service Provider), öffentlich";
 		document.getElementById("domain_status").innerText = "Status: frei, zurückgezogen, ausgeschlossen, beantragt, aktiv, inaktiv, in Quarantäne.";
 		document.getElementById("domain_web_publish").innerText = newdomainfield + ": Wenn „web_publish“ auf „yes“ gesetzt ist, wird die Veröffentlichung eines Suchergebnisses übereinstimmen.";
-		document.getElementById("domain_renewed").innerText = newdomainfield + ": Dieses Datum plus Zeit dient der Suchmaschine zur Prüfung auf jährliche Erneuerung.";
+		document.getElementById("domain_renewed").innerText = newdomainfield + ": Dieses Datum und die Uhrzeit dienen Suchmaschinen zur Prüfung auf jährliche Erneuerung.";
 		document.getElementById("registrar_abuse_email").innerText = "Kontaktdaten zum Melden von Missbrauch sind für einen Registrar nicht zwingend erforderlich.";
 		document.getElementById("registrar_web_id").innerText = newcontactfield;
 		document.getElementById("registrar_protected").innerText = newcontactfield;
@@ -173,7 +173,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("view_type").innerText = "Types : toutes, FSI (fournisseur de service Internet), public";
 		document.getElementById("domain_status").innerText = "Statuts : libre, retiré, exclu, demandé, actif, inactif, en quarantaine.";
 		document.getElementById("domain_web_publish").innerText = newdomainfield + " : Si 'web_publish' est défini sur 'yes', la publication d'un résultat de recherche correspondra.";
-		document.getElementById("domain_renewed").innerText = newdomainfield + " : Cette date et cette heure permettent au moteur de recherche de vérifier le renouvellement annuel.";
+		document.getElementById("domain_renewed").innerText = newdomainfield + " : Cette date et cette heure permettent aux moteurs de recherche de vérifier le renouvellement annuel.";
 		document.getElementById("registrar_web_id").innerText = newcontactfield;
 		document.getElementById("registrar_abuse_email").innerText = "Les coordonnées pour signaler un abus ne sont pas obligatoires pour un bureau d'enregistrement.";
 		document.getElementById("registrar_protected").innerText = newcontactfield;
@@ -417,6 +417,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><b>registry_description</b></td><td>'.$item->data_management->registry_description.'</td><td></td></tr>';
 	$html_text .= '<tr id="1001" style="display:none"><td><b>registry_language</b></td><td>'.$item->data_management->registry_language.'</td><td></td></tr>';
 	$html_text .= '<tr id="1002" style="display:none"><td><b>registry_format</b></td><td>'.$item->data_management->registry_format.'</td><td></td></tr>';
+	$html_text .= '<tr id="1003" style="display:none"><td><b>registry_time_zone</b></td><td>'.$item->data_management->registry_time_zone.'</td><td></td></tr>';
 	break;
 }	
 foreach ($xml2->xpath('//domain') as $item)	{
