@@ -264,7 +264,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><b>domain_status</b></td><td>'.$item->domain_status.'</td><td id="domain_status"></td></tr>';
 	$html_text .= '<tr id="202" style="display:none"><td><b>domain_status_codes</b></td><td>'.$item->domain_status_codes.'</td><td><a href="https://www.icann.org/en/system/files/files/epp-status-codes-30jun11-en.pdf" target="_blank">www.icann.org/en/system/files/files/epp-status-codes-30jun11-en.pdf</a></td></tr>';
 	$html_text .= '<tr><td><b>domain_web_publish</b></td><td>'.$item->domain_web_publish.'</td><td id="domain_web_publish" style="font-weight:bold"></td></tr>';
-	$html_text .= '<tr id="203" style="display:none"><td><b>domain_creation</b></td><td>'.$item->domain_creation.'</td><td></td></tr>';
+	$html_text .= '<tr id="203" style="display:none"><td><b>domain_created</b></td><td>'.$item->domain_created.'</td><td></td></tr>';
 	$html_text .= '<tr><td><b>domain_last_renewal</b></td><td>'.$item->domain_last_renewal.'</td><td id="domain_last_renewal" style="font-weight:bold"></td></tr>';
 	$html_text .= '<tr id="204" style="display:none"><td><b>domain_updated</b></td><td>'.$item->domain_updated.'</td><td></td></tr>';
 	$html_text .= '<tr id="205" style="display:none"><td><b>domain_expiration</b></td><td>'.$item->domain_expiration.'</td><td></td></tr>';
