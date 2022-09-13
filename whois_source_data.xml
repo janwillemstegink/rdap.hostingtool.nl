@@ -11,7 +11,7 @@
 		<domain_status_codes>OK</domain_status_codes>
 		<domain_web_publish>yes</domain_web_publish>
 		<domain_created>2018-11-03 00:00:00</domain_created>
-		<domain_renewed>2021-11-02 00:00:00</domain_renewed>
+		<domain_transaction>2021-11-02 00:00:00</domain_transaction>
 		<domain_updated>2021-11-29 00:00:00</domain_updated>
 		<domain_expiration>2022-11-01 23:59:59</domain_expiration>
 		<domain_out_of_quarantine></domain_out_of_quarantine>
@@ -143,7 +143,7 @@
 		<domain_status>active</domain_status>
 		<domain_status_codes>OK</domain_status_codes>
 		<domain_created>2021-08-15 00:00:00</domain_created>
-		<domain_renewed></domain_renewed>
+		<domain_transaction>2021-08-15 00:00:00</domain_transaction>
 		<domain_updated>2021-08-15 00:00:00</domain_updated>
 		<domain_expiration>2022-08-14 23:59:59</domain_expiration>
 		<domain_out_of_quarantine></domain_out_of_quarantine>
