@@ -30,7 +30,6 @@
 			<registrar_country_code>NL</registrar_country_code>
 			<registrar_country_name>Netherlands</registrar_country_name>
 			<registrar_country_language>nl-NL</registrar_country_language>
-			<registrar_whois_server>whois.domain-registry.nl</registrar_whois_server>
 			<registrar_url>http://www.transip.nl</registrar_url>
 			<registrar_iana_id>1603</registrar_iana_id>
 			<registrar_protected>personal_name,phone,email</registrar_protected>
@@ -126,6 +125,7 @@
 			<name_servers_dnssec>yes</name_servers_dnssec>
 		</name_servers>
 		<data_management>
+			<registry_whois_server>whois.domain-registry.nl</registry_whois_server>
 			<registry_description>NL Domain Registry</registry_description>
 			<registry_language>nl-NL</registry_language>
 			<registry_format>PLAIN</registry_format>
@@ -162,7 +162,6 @@
 			<registrar_country_code>NL</registrar_country_code>
 			<registrar_country_name>Netherlands</registrar_country_name>
 			<registrar_country_language>nl-NL</registrar_country_language>
-			<registrar_whois_server>whois.domain-registry.nl</registrar_whois_server>
 			<registrar_url>http://www.transip.nl</registrar_url>
 			<registrar_iana_id>1603</registrar_iana_id>
 			<registrar_protected>personal_name,phone,email</registrar_protected>
@@ -273,6 +272,7 @@
 			<name_servers_dnssec>yes</name_servers_dnssec>
 		</name_servers>
 		<data_management>
+			<registry_whois_server>whois.domain-registry.nl</registry_whois_server>
 			<registry_description>NL Domain Registry</registry_description>
 			<registry_language>nl-NL</registry_language>
 			<registry_format>PLAIN</registry_format>
