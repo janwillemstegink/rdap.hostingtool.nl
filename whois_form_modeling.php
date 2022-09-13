@@ -413,8 +413,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><b>name_servers_dnssec</b></td><td>'.$item->name_servers->name_servers_dnssec.'</td><td id="name_servers_dnssec"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(100)">registry +/-</button></td><td></td><td></td></tr>';
-	$html_text .= '<tr id="1001" style="display:none"><td><b>registry_whois_server</b></td><td>'.$item->data_management->registry_whois_server.'</td><td></td></tr>';
-	$html_text .= '<tr><td><b>registry_description</b></td><td>'.$item->data_management->registry_description.'</td><td></td></tr>';
+	$html_text .= '<tr><td><b>registry_whois_server</b></td><td>'.$item->data_management->registry_whois_server.'</td><td></td></tr>';
+	$html_text .= '<tr id="1001" style="display:none"><td><b>registry_description</b></td><td>'.$item->data_management->registry_description.'</td><td></td></tr>';
 	$html_text .= '<tr id="1002" style="display:none"><td><b>registry_language</b></td><td>'.$item->data_management->registry_language.'</td><td></td></tr>';
 	$html_text .= '<tr id="1003" style="display:none"><td><b>registry_format</b></td><td>'.$item->data_management->registry_format.'</td><td></td></tr>';
 	$html_text .= '<tr id="1004" style="display:none"><td><b>registry_time_zone</b></td><td>'.$item->data_management->registry_time_zone.'</td><td></td></tr>';
