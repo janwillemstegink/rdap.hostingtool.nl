@@ -87,7 +87,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td COLSPAN="2"><br />Is er iets mis? Het bedrijf dat deze domeinnaam beheert is: team.blue nl B.V., of de reseller: TransIP.</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2">Als u als registrant toegang heeft tot het menu, dan kunt u primair verantwoordelijk zijn.</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Met vriendelijke groet,</td></tr>';
-	$html_text .= '<tr><td COLSPAN="2"><br />SIDN, Essentiële Aanbieder</td></tr>';
+	$html_text .= '<tr><td COLSPAN="2"><br />SIDN</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Beantwoord deze mail niet. Als je vragen of feedback hebt, neem dan contact op met <a href="mailto:support@sidn.nl">support@sidn.nl</a>.</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 	break;
@@ -98,7 +98,7 @@ $html_text .= '<tr><td COLSPAN="2">team.blue nl B.V. has changed at least one of
 $html_text .= '<tr><td COLSPAN="2"><br />Is something wrong? The company that manages this domain name is: team.blue nl B.V., or the reseller: TransIP.</td></tr>';
 $html_text .= '<tr><td COLSPAN="2">If you as a registrant have access to the menu, then you can be primarily responsible.</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />Kind regards</td></tr>';
-$html_text .= '<tr><td COLSPAN="2"><br />SIDN, Essential Provider</td></tr>';
+$html_text .= '<tr><td COLSPAN="2"><br />SIDN</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />Please don&#39;t reply to this mail. If you have any questions or feedback, please contact <a href="mailto:support@sidn.nl">support@sidn.nl</a>.</td></tr>';
 $html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 $html_text .= '</table></div></body></html>';
