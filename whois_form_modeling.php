@@ -87,10 +87,10 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("registrar_web_id").innerText = newcontactfield;
 		document.getElementById("registrar_abuse_email").innerText = "Contactgegevens om misbruik te melden zijn niet verplicht voor een registrar.";
 		document.getElementById("registrar_protected").innerText = newcontactfield;
-		document.getElementById("reseller_business_name").innerText = "De verwerkersovereenkomst kan tussen de reseller en de houder zijn.";
+		document.getElementById("reseller_trade_name").innerText = "De verwerkersovereenkomst kan tussen de reseller en de houder zijn.";
 		document.getElementById("reseller_web_id").innerText = newcontactfield;
 		document.getElementById("reseller_protected").innerText = newcontactfield;
-		document.getElementById("registrant_business_name").innerText = purpose + ": Legitiem houderschap bestaat met een bestaande, beoogde en zichtbare bedrijfsnaam.";
+		document.getElementById("registrant_trade_name").innerText = purpose + ": Legitiem houderschap bestaat met een bestaande, beoogde en zichtbare handelsnaam.";
 		document.getElementById("registrant_web_id").innerText = newdomainfield + ": De KVK kan de benodigde 'web_id'-identificatie aan het Handelsregister toevoegen.";
 		document.getElementById("registrant_personal_name").innerText = "De naam van een natuurlijk persoon als houder kan op verzoek zichtbaar zijn.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
@@ -117,10 +117,10 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("registrar_web_id").innerText = newcontactfield;
 		document.getElementById("registrar_abuse_email").innerText = "Contact details to report abuse are not mandatory for a registrar.";
 		document.getElementById("registrar_protected").innerText = newcontactfield;
-		document.getElementById("reseller_business_name").innerText = "The processing agreement may be between the reseller and the holder.";
+		document.getElementById("reseller_trade_name").innerText = "The processing agreement may be between the reseller and the holder.";
 		document.getElementById("reseller_web_id").innerText = newcontactfield;
 		document.getElementById("reseller_protected").innerText = newcontactfield;
-		document.getElementById("registrant_business_name").innerText = purpose + ": Legitimate holdership exists with an existing, intended and visible business name.";	
+		document.getElementById("registrant_trade_name").innerText = purpose + ": Legitimate holdership exists with an existing, intended and visible trade name.";	
 		document.getElementById("registrant_web_id").innerText = newdomainfield + ": The Chamber of Commerce can add the required 'web_id' identification to the Trade Register.";	
 		document.getElementById("registrant_personal_name").innerText = "The name of a natural person as holder can be visible on request.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
@@ -147,10 +147,10 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("registrar_abuse_email").innerText = "Kontaktdaten zum Melden von Missbrauch sind für einen Registrar nicht zwingend erforderlich.";
 		document.getElementById("registrar_web_id").innerText = newcontactfield;
 		document.getElementById("registrar_protected").innerText = newcontactfield;
-		document.getElementById("reseller_business_name").innerText = "Die Verarbeitungsvereinbarung kann zwischen dem Wiederverkäufer und dem Halter abgeschlossen werden.";
+		document.getElementById("reseller_trade_name").innerText = "Die Verarbeitungsvereinbarung kann zwischen dem Wiederverkäufer und dem Halter abgeschlossen werden.";
 		document.getElementById("reseller_web_id").innerText = newcontactfield;
 		document.getElementById("reseller_protected").innerText = newcontactfield;
-		document.getElementById("registrant_business_name").innerText = purpose + ": Eine rechtmäßige Inhaberschaft besteht mit einem bestehenden, beabsichtigten und sichtbaren Firmennamen.";
+		document.getElementById("registrant_trade_name").innerText = purpose + ": Eine rechtmäßige Inhaberschaft besteht mit einem bestehenden, beabsichtigten und sichtbaren Handelsnamen.";
 		document.getElementById("registrant_web_id").innerText = newdomainfield + ": Die Handelskammer kann die erforderliche Kennung „web_id“ zum Handelsregister hinzufügen.";
 		document.getElementById("registrant_personal_name").innerText = "Der Name einer natürlichen Person als Inhaber kann auf Anfrage einsehbar sein.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
@@ -177,10 +177,10 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("registrar_web_id").innerText = newcontactfield;
 		document.getElementById("registrar_abuse_email").innerText = "Les coordonnées pour signaler un abus ne sont pas obligatoires pour un bureau d'enregistrement.";
 		document.getElementById("registrar_protected").innerText = newcontactfield;
-		document.getElementById("reseller_business_name").innerText = "L'accord de traitement peut être conclu entre le revendeur et le titulaire.";
+		document.getElementById("reseller_trade_name").innerText = "L'accord de traitement peut être conclu entre le revendeur et le titulaire.";
 		document.getElementById("reseller_web_id").innerText = newcontactfield;
 		document.getElementById("reseller_protected").innerText = newcontactfield;
-		document.getElementById("registrant_business_name").innerText = purpose + " : Un détenteur légitime existe avec un nom commercial existant, prévu et visible.";
+		document.getElementById("registrant_trade_name").innerText = purpose + " : Un détenteur légitime existe avec un nom commercial existant, prévu et visible.";
 		document.getElementById("registrant_web_id").innerText = newdomainfield + " : La Chambre de Commerce peut ajouter l'identification 'web_id' requise au registre du commerce.";
 		document.getElementById("registrant_personal_name").innerText = "Le nom d'une personne physique titulaire peut être visible sur demande.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
@@ -272,7 +272,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(30)">registrar +/-</button></td><td></td><td></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td><b>registrar_contact_id</b></td><td>'.$item->registrar->registrar_contact_id.'</td><td></td></tr>';
-	$html_text .= '<tr><td><b>registrar_business_name</b></td><td>'.$item->registrar->registrar_business_name.'</td><td></td></tr>';
+	$html_text .= '<tr><td><b>registrar_trade_name</b></td><td>'.$item->registrar->registrar_trade_name.'</td><td></td></tr>';
 	$html_text .= '<tr><td><b>registrar_web_id</b></td><td>'.$item->registrar->registrar_web_id.'</td><td id="registrar_web_id"></td></tr>';
 	$html_text .= '<tr id="302" style="display:none"><td><b>registrar_personal_name</b></td><td>'.$item->registrar->registrar_personal_name.'</td><td></td></tr>';
 	$html_text .= '<tr><td><b>registrar_abuse_email</b></td><td>'.$item->registrar->registrar_abuse_email.'</td><td id="registrar_abuse_email"></td></tr>';
@@ -289,11 +289,11 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="3013" style="display:none"><td><b>registrar_iana_id</b></td><td>'.$item->registrar->registrar_iana_id.'</td><td></td></tr>';
 	$html_text .= '<tr id="3014" style="display:none"><td><b>registrar_protected</b></td><td>'.$item->registrar->registrar_protected.'</td><td id="registrar_protected"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	if (!empty($item->reseller->reseller_business_name))	{
-		if (strlen(trim($item->reseller->reseller_business_name)))	{
+	if (!empty($item->reseller->reseller_trade_name))	{
+		if (strlen(trim($item->reseller->reseller_trade_name)))	{
 			$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(40)">reseller +/-</button></td><td></td><td></td></tr>';
 			$html_text .= '<tr id="401" style="display:none"><td><b>reseller_contact_id</b></td><td>'.$item->reseller->reseller_contact_id.'</td><td></td></tr>';
-			$html_text .= '<tr><td><b>reseller_business_name</b></td><td>'.$item->reseller->reseller_business_name.'</td><td id="reseller_business_name"></td></tr>';
+			$html_text .= '<tr><td><b>reseller_trade_name</b></td><td>'.$item->reseller->reseller_trade_name.'</td><td id="reseller_trade_name"></td></tr>';
 			$html_text .= '<tr><td><b>reseller_web_id</b></td><td>'.$item->reseller->reseller_web_id.'</td><td id="reseller_web_id"></td></tr>';
 			$html_text .= '<tr id="402" style="display:none"><td><b>reseller_personal_name</b></td><td>'.$item->reseller->reseller_personal_name.'</td><td></td></tr>';
 			$html_text .= '<tr id="403" style="display:none"><td><b>reseller_street</b></td><td>'.$item->reseller->reseller_street.'</td><td></td></tr>';
@@ -310,7 +310,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	}
 	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(50)">registrant +/-</button></td><td></td><td></td></tr>';
 	$html_text .= '<tr id="501" style="display:none"><td><b>registrant_contact_id</b></td><td>'.$item->registrant->registrant_contact_id.'</td><td></td></tr>';
-	$html_text .= '<tr><td><b>registrant_business_name</b></td><td>'.$item->registrant->registrant_business_name.'</td><td id="registrant_business_name" style="font-weight:bold"></td></tr>';
+	$html_text .= '<tr><td><b>registrant_trade_name</b></td><td>'.$item->registrant->registrant_trade_name.'</td><td id="registrant_trade_name" style="font-weight:bold"></td></tr>';
 	$html_text .= '<tr><td><b>registrant_web_id</b></td><td>'.$item->registrant->registrant_web_id.'</td><td id="registrant_web_id" style="font-weight:bold"></td></tr>';
 	$html_text .= '<tr><td><b>registrant_personal_name</b></td><td>'.$item->registrant->registrant_personal_name.'</td><td id="registrant_personal_name"></td></tr>';	
 	$html_text .= '<tr id="502" style="display:none"><td><b>registrant_street</b></td><td>'.$item->registrant->registrant_street.'</td><td></td></tr>';
@@ -325,7 +325,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(60)">admin +/-</button></td><td></td><td></td></tr>';
 	$html_text .= '<tr id="601" style="display:none"><td><b>admin_contact_id</b></td><td>'.$item->admin->admin_contact_id.'</td><td></td></tr>';
-	$html_text .= '<tr id="602" style="display:none"><td><b>admin_business_name</b></td><td>'.$item->admin->admin_business_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="602" style="display:none"><td><b>admin_trade_name</b></td><td>'.$item->admin->admin_trade_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="603" style="display:none"><td><b>admin_web_id</b></td><td>'.$item->admin->admin_web_id.'</td><td id="admin_web_id"></td></tr>';
 	$html_text .= '<tr id="604" style="display:none"><td><b>admin_personal_name</b></td><td>'.$item->admin->admin_personal_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="605" style="display:none"><td><b>admin_street</b></td><td>'.$item->admin->admin_street.'</td><td></td></tr>';
@@ -340,7 +340,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(70)">tech +/-</button></td><td></td><td></td></tr>';
 	$html_text .= '<tr id="701" style="display:none"><td><b>tech_contact_id</b></td><td>'.$item->tech->tech_contact_id.'</td><td></td></tr>';
-	$html_text .= '<tr id="702" style="display:none"><td><b>tech_business_name</b></td><td>'.$item->tech->tech_business_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="702" style="display:none"><td><b>tech_trade_name</b></td><td>'.$item->tech->tech_trade_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="703" style="display:none"><td><b>tech_web_id</b></td><td>'.$item->tech->tech_web_id.'</td><td id="tech_web_id"></td></tr>';
 	$html_text .= '<tr id="704" style="display:none"><td><b>tech_personal_name</b></td><td>'.$item->tech->tech_personal_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="705" style="display:none"><td><b>tech_street</b></td><td>'.$item->tech->tech_street.'</td><td></td></tr>';
@@ -355,7 +355,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(80)">billing +/-</button></td><td></td><td></td></tr>';
 	$html_text .= '<tr id="801" style="display:none"><td><b>billing_contact_id</b></td><td>'.$item->billing->billing_contact_id.'</td><td></td></tr>';
-	$html_text .= '<tr id="802" style="display:none"><td><b>billing_business_name</b></td><td>'.$item->billing->billing_business_name.'</td><td id="billing_business_name"></td></tr>';
+	$html_text .= '<tr id="802" style="display:none"><td><b>billing_trade_name</b></td><td>'.$item->billing->billing_trade_name.'</td><td id="billing_trade_name"></td></tr>';
 	$html_text .= '<tr id="803" style="display:none"><td><b>billing_personal_name</b></td><td>'.$item->billing->billing_personal_name.'</td><td id="billing_personal_name"></td></tr>';	
 	$html_text .= '<tr id="804" style="display:none"><td><b>billing_street</b></td><td>'.$item->billing->billing_street.'</td><td></td></tr>';
 	$html_text .= '<tr id="805" style="display:none"><td><b>billing_postal_code</b></td><td>'.$item->billing->billing_postal_code.'</td><td></td></tr>';

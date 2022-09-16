@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<domains>
+<domains>market_name
 	<domain item="webhostingtech.nl">	
 		<registrant>
 			<registrant_contact_id>STE135417-TRAIP</registrant_contact_id>
-			<registrant_business_name><![CDATA[Stegink Hosting & E-mail]]></registrant_business_name>
+			<registrant_trade_name><![CDATA[Stegink Hosting & E-mail]]></registrant_trade_name>
 			<registrant_web_id>NL13COMM01234567890123456789012345</registrant_web_id>
 			<registrant_personal_name>Jan Willem Stegink</registrant_personal_name>
 			<registrant_street>Dr. Schaepmanlaan 44</registrant_street>
@@ -18,7 +18,7 @@
 		</registrant>
 		<admin>
 			<admin_contact_id>STE135418-TRAIP</admin_contact_id>
-			<admin_business_name><![CDATA[Stegink Hosting & E-mail]]></admin_business_name>
+			<admin_trade_name><![CDATA[Stegink Hosting & E-mail]]></admin_trade_name>
 			<admin_personal_name>Jan Willem Stegink</admin_personal_name>
 			<admin_street>Dr. Schaepmanlaan 44</admin_street>
 			<admin_postal_code>6823 AS</admin_postal_code>
@@ -32,7 +32,7 @@
 		</admin>
 		<billing>
 			<billing_contact_id></billing_contact_id>
-			<billing_business_name><![CDATA[Stegink Hosting & E-mail]]></billing_business_name>
+			<billing_trade_name><![CDATA[Stegink Hosting & E-mail]]></billing_trade_name>
 			<billing_personal_name>Jan Willem Stegink</billing_personal_name>
 			<billing_street>Dr. Schaepmanlaan 44</billing_street>
 			<billing_postal_code>6823 AS</billing_postal_code>
@@ -42,7 +42,7 @@
 			<billing_country_code>NL</billing_country_code>
 			<billing_country_name>Netherlands</billing_country_name>
 			<billing_country_language>nl-NL</billing_country_language>
-			<billing_protected>contact_id,business_name,personal_name,address,phone,email,country</billing_protected>
+			<billing_protected>contact_id,trade_name,personal_name,address,phone,email,country</billing_protected>
 		</billing>
 	</domain>
 </domains>
