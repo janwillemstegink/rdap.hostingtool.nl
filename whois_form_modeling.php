@@ -1,6 +1,6 @@
 <?php
 session_start();  // is n50ded with no PHP Generator Scriptcase
-$inputlanguage = 2;
+$inputlanguage = 0;
 echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta charset="UTF-8" />
@@ -73,7 +73,37 @@ function SwitchDisplay(type) {
 }
 
 function SwitchTranslation(inputlanguage)	{
-	if (inputlanguage == 1)	{
+	if (inputlanguage == 0)	{
+		var newdomainfield = '';
+		var newcontactfield = '';
+		var purpose = '';
+		document.getElementById("title").innerText = "Whois Web Domain (modeling)";
+		document.getElementById("data").innerText = "XML data transfer";
+		document.getElementById("what_about_whois").innerText = "Does your organization control web domains with its existing, intended and visible holder name?";
+		document.getElementById("view_type").innerText = "";		
+		document.getElementById("domain_status").innerText = "";
+		document.getElementById("domain_web_publish").innerText = newdomainfield + "";	
+		document.getElementById("domain_transaction").innerText = newdomainfield + "";
+		document.getElementById("registrar_web_id").innerText = newcontactfield;
+		document.getElementById("registrar_abuse_email").innerText = "";
+		document.getElementById("registrar_protected").innerText = newcontactfield;
+		document.getElementById("reseller_trade_name").innerText = "";
+		document.getElementById("reseller_web_id").innerText = newcontactfield;
+		document.getElementById("reseller_protected").innerText = newcontactfield;
+		document.getElementById("registrant_trade_name").innerText = purpose + "";	
+		document.getElementById("registrant_web_id").innerText = newdomainfield + "";	
+		document.getElementById("registrant_personal_name").innerText = "";
+		document.getElementById("registrant_protected").innerText = newcontactfield;
+		document.getElementById("admin_web_id").innerText = newcontactfield;
+		document.getElementById("admin_email").innerText = purpose + "";
+		document.getElementById("admin_protected").innerText = newdomainfield;
+		document.getElementById("tech_web_id").innerText = newcontactfield;
+		document.getElementById("tech_email").innerText = purpose + "";
+		document.getElementById("tech_protected").innerText = newcontactfield;
+		document.getElementById("billing_protected").innerText = newcontactfield;
+		document.getElementById("name_servers_dnssec").innerText = purpose + "";	
+	}
+	else if (inputlanguage == 1)	{
 		var newdomainfield = 'NIEUW';
 		var newcontactfield = '(nieuw veld in de tabel met contacten)';
 		var purpose = 'DOEL';
@@ -250,11 +280,11 @@ $html_text .= '<tr><td></td><td></td><td id="what_about_whois" style="font-size:
 foreach ($xml1->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';	
-	$html_text .= '<tr><td></td><td></td><td>
-	<button style="cursor:pointer" onclick="SwitchTranslation(1)">nl_NL</button> - 
-	<button style="cursor:pointer" onclick="SwitchTranslation(2)">en_US</button> - 
-	<button style="cursor:pointer" onclick="SwitchTranslation(3)">de_DE</button> - 
-	<button style="cursor:pointer" onclick="SwitchTranslation(4)">fr_FR</button></td></tr>';
+	$html_text .= '<tr><td COLSPAN="2">
+	<button style="cursor:pointer" onclick="SwitchTranslation(1)">Uitleg in het nederlands</button>
+	<button style="cursor:pointer" onclick="SwitchTranslation(2)">Explanation in English</button>
+	<button style="cursor:pointer" onclick="SwitchTranslation(3)">Erläuterung auf Deutsch</button>
+	<button style="cursor:pointer" onclick="SwitchTranslation(4)">Explication en français</button></td><td></td></tr>';
 	$html_text .= '<tr><td><b>view_datetime</b></td><td>'.$item->view->view_datetime.'</td><td></td></tr>';
 	$html_text .= '<tr><td><b>view_type</b></td><td>'.$item->view->view_type.'</td><td id="view_type"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
