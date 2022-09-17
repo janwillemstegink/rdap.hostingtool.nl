@@ -280,11 +280,12 @@ $html_text .= '<tr><td></td><td></td><td id="what_about_whois" style="font-size:
 foreach ($xml1->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';	
-	$html_text .= '<tr><td COLSPAN="2">
-	<button style="cursor:pointer" onclick="SwitchTranslation(1)">Uitleg in het nederlands</button>
-	<button style="cursor:pointer" onclick="SwitchTranslation(2)">Explanation in English</button>
-	<button style="cursor:pointer" onclick="SwitchTranslation(3)">Erläuterung auf Deutsch</button>
-	<button style="cursor:pointer" onclick="SwitchTranslation(4)">Explication en français</button></td><td></td></tr>';
+	$html_text .= '<tr><td></td><td></td><td>
+	<button style="cursor:pointer" onclick="SwitchTranslation(0)">0</button> - 
+	<button style="cursor:pointer" onclick="SwitchTranslation(1)">Uitleg in het nederlands</button> - 
+	<button style="cursor:pointer" onclick="SwitchTranslation(2)">Explanation in English</button> - 
+	<button style="cursor:pointer" onclick="SwitchTranslation(3)">Erläuterung auf Deutsch</button> - 
+	<button style="cursor:pointer" onclick="SwitchTranslation(4)">Explication en français</button></td></tr>';
 	$html_text .= '<tr><td><b>view_datetime</b></td><td>'.$item->view->view_datetime.'</td><td></td></tr>';
 	$html_text .= '<tr><td><b>view_type</b></td><td>'.$item->view->view_type.'</td><td id="view_type"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
