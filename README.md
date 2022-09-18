@@ -7,7 +7,7 @@ The global discussion can, I think, proceed by country along with modeling of no
 
 WHOIS: https://whois.hostingtool.nl/whois_form_modeling/
 
-Confirmation by email: https://whois.hostingtool.nl/whois_email_modeling/
+Data check by email: https://whois.hostingtool.nl/whois_email_modeling/
 
 Listing by the Trade Register: https://whois.hostingtool.nl/whois_list_modeling/
 
