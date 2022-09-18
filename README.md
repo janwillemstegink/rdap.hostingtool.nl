@@ -5,7 +5,7 @@
 
 The global discussion can, I think, proceed by country along with modeling of non-centralized server communications in XML. For the increasing number of top-level domains, a database per continent can indicate the WHOIS server name of a top-level zone, plus the other zone values. Servers of the RIPE organization could fit. My modeled XML zone file can contain all top-level data for download once a day.
 
-WHIS (by the registry): https://whois.hostingtool.nl/whois_form_modeling/
+WHOIS (by the registry): https://whois.hostingtool.nl/whois_form_modeling/
 
 Confirmation by email: https://whois.hostingtool.nl/whois_email_modeling/
 
