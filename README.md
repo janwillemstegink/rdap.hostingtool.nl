@@ -3,7 +3,7 @@
 - Better public understanding clears up workload for registrars;
 - The name and contact details of the holder matter for customer protection, manageable administrative workload and for an 'In Control Statement' (ICS).
 
-The global discussion can, I think, proceed by country along with modeling of non-centralized server communications in XML. For the increasing number of top-level domains, a database per continent can indicate the Whois server name of a top-level zone, plus the other zone values. Servers of the RIPE organization could fit. My modeled XML zone file can contain all top-level zone data for download once a day.
+The global discussion can, I think, proceed by country along with modeling of non-centralized server communications in XML. For the increasing number of top-level domains, a database per continent can indicate the Whois server name of a top-level zone, plus the other zone values. Servers of the RIPE organization could fit. My modeled XML zone file can contain all top-level data for download once a day.
 
 Whois by the registry: https://whois.hostingtool.nl/whois_form_modeling/
 
