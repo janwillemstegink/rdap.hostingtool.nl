@@ -23,7 +23,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 50)	{ // registrant
 		var pre = '50';
-		var max = 11
+		var max = 10
 	}
 	else if (type == 60)	{ // admin
 		var pre = '60';
@@ -102,7 +102,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("tech_email").innerText = purpose + "";
 		document.getElementById("tech_protected").innerText = newcontactfield;
 		document.getElementById("billing_protected").innerText = newcontactfield;
-		document.getElementById("name_servers_dnssec").innerText = purpose + "";	
+		document.getElementById("name_servers_dnssec").innerText = purpose + "";
 	}
 	else if (inputlanguage == 1)	{
 		var newdomainfield = 'NIEUW';
@@ -133,7 +133,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("tech_email").innerText = purpose + ": Een technisch contact reageert om een gemelde storing op te lossen.";
 		document.getElementById("tech_protected").innerText = newcontactfield;
 		document.getElementById("billing_protected").innerText = newcontactfield;
-		document.getElementById("name_servers_dnssec").innerText = purpose + ": DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";				
+		document.getElementById("name_servers_dnssec").innerText = purpose + ": DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
 	}
 	else if (inputlanguage == 2)	{
 		var newdomainfield = 'NEW';
@@ -163,7 +163,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("tech_email").innerText = purpose + ": A technical contact responds to resolve a reported malfunction.";
 		document.getElementById("tech_protected").innerText = newcontactfield;
 		document.getElementById("billing_protected").innerText = newcontactfield;
-		document.getElementById("name_servers_dnssec").innerText = purpose + ": DNSSEC is a web route security feature on the DNS (Domain Name System).";	
+		document.getElementById("name_servers_dnssec").innerText = purpose + ": DNSSEC is a web route security feature on the DNS (Domain Name System).";
 	}
 	else if (inputlanguage == 3)	{
 		var newdomainfield = 'NEU';
@@ -343,16 +343,16 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="501" style="display:none"><td><b>registrant_contact_id</b></td><td>'.$item->registrant->registrant_contact_id.'</td><td></td></tr>';
 	$html_text .= '<tr><td><b>registrant_trade_name</b></td><td>'.$item->registrant->registrant_trade_name.'</td><td id="registrant_trade_name" style="font-style:italic"></td></tr>';
 	$html_text .= '<tr><td><b>registrant_web_id</b></td><td>'.$item->registrant->registrant_web_id.'</td><td id="registrant_web_id" style="font-style:italic"></td></tr>';
-	$html_text .= '<tr id="502" style="display:none"><td><b>registrant_personal_name</b></td><td>'.$item->registrant->registrant_personal_name.'</td><td id="registrant_personal_name" style="font-style:italic"></td></tr>';	
-	$html_text .= '<tr id="503" style="display:none"><td><b>registrant_street</b></td><td>'.$item->registrant->registrant_street.'</td><td></td></tr>';
-	$html_text .= '<tr id="504" style="display:none"><td><b>registrant_postal_code</b></td><td>'.$item->registrant->registrant_postal_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="505" style="display:none"><td><b>registrant_city</b></td><td>'.$item->registrant->registrant_city.'</td><td></td></tr>';
-	$html_text .= '<tr id="506" style="display:none"><td><b>registrant_phone</b></td><td>'.$item->registrant->registrant_phone.'</td><td></td></tr>';
-	$html_text .= '<tr id="507" style="display:none"><td><b>registrant_email</b></td><td>'.$item->registrant->registrant_email.'</td><td></td></tr>';
-	$html_text .= '<tr id="508" style="display:none"><td><b>registrant_country_code</b></td><td>'.$item->registrant->registrant_country_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="509" style="display:none"><td><b>registrant_country_name</b></td><td>'.$item->registrant->registrant_country_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="5010" style="display:none"><td><b>registrant_country_language</b></td><td>'.$item->registrant->registrant_country_language.'</td><td></td></tr>';
-	$html_text .= '<tr id="5011" style="display:none"><td><b>registrant_protected</b></td><td>'.$item->registrant->registrant_protected.'</td><td id="registrant_protected" style="font-style:italic"></td></tr>';
+	$html_text .= '<tr><td><b>registrant_personal_name</b></td><td>'.$item->registrant->registrant_personal_name.'</td><td id="registrant_personal_name" style="font-style:italic"></td></tr>';	
+	$html_text .= '<tr id="502" style="display:none"><td><b>registrant_street</b></td><td>'.$item->registrant->registrant_street.'</td><td></td></tr>';
+	$html_text .= '<tr id="503" style="display:none"><td><b>registrant_postal_code</b></td><td>'.$item->registrant->registrant_postal_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="504" style="display:none"><td><b>registrant_city</b></td><td>'.$item->registrant->registrant_city.'</td><td></td></tr>';
+	$html_text .= '<tr id="505" style="display:none"><td><b>registrant_phone</b></td><td>'.$item->registrant->registrant_phone.'</td><td></td></tr>';
+	$html_text .= '<tr id="506" style="display:none"><td><b>registrant_email</b></td><td>'.$item->registrant->registrant_email.'</td><td></td></tr>';
+	$html_text .= '<tr id="507" style="display:none"><td><b>registrant_country_code</b></td><td>'.$item->registrant->registrant_country_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="508" style="display:none"><td><b>registrant_country_name</b></td><td>'.$item->registrant->registrant_country_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="509" style="display:none"><td><b>registrant_country_language</b></td><td>'.$item->registrant->registrant_country_language.'</td><td></td></tr>';
+	$html_text .= '<tr id="5010" style="display:none"><td><b>registrant_protected</b></td><td>'.$item->registrant->registrant_protected.'</td><td id="registrant_protected" style="font-style:italic"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(60)">admin +/-</button></td><td></td><td></td></tr>';
 	$html_text .= '<tr id="601" style="display:none"><td><b>admin_contact_id</b></td><td>'.$item->admin->admin_contact_id.'</td><td></td></tr>';
