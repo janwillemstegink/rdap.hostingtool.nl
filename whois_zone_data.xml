@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones>
+	<zone item="nl">
+		<zone_whois_server>whois.domain-registry.nl</zone_whois_server>
+		<zone_description>NL Domain Registry</zone_description>
+		<zone_support_email>support@sidn.nl</zone_support_email>
+		<zone_registry_full_name>Stichting Internet Domeinregistratie Nederland</zone_registry_full_name>
+		<zone_registry_abbreviated_name>SIDN</zone_registry_abbreviated_name>
+		<zone_time_zone>Europe/Amsterdam</zone_time_zone>
+		<zone_language>nl-NL</zone_language>
+		<zone_format>PLAIN</zone_format>
+		<whois_legal_restrictions>
+			<![CDATA[
+		Auteursrechtvoorbehoud
+Niets uit deze publicatie mag zonder voorafgaande uitdrukkelijke toestemming van SIDN worden verveelvoudigd, openbaar gemaakt, worden opgeslagen in een gegevensbestand of worden overgezonden, in welke vorm dan ook, elektronisch, mechanisch, door middel van opname of anderszins. Voor registrars geldt dit voorbehoud onverkort, behoudens redelijkerwijs noodzakelijke verveelvoudigingen of openbaarmakingen ten behoeve van de werkzaamheden van registrars, zoals vermeld in de 'Algemene voorwaarden voor registrars'.
+
+Elk gebruik van deze informatie voor commerciële of reclamedoeleinden of soortgelijke activiteiten, is expliciet verboden en tegen overtreding van dat verbod zal worden opgetreden. Stichting Internet Domeinregistratie Nederland (SIDN) verzoekt te worden geïnformeerd bij constatering van dergelijke activiteiten of enig vermoeden daarvan.
+
+© Stichting Internet Domeinregistratie Nederland (SIDN) Auteurswet, geschriftenbescherming (art. 10 lid 1 sub 1).
+			]]>
+		</whois_legal_restrictions>
+		<whois_translated_restrictions>
+			<![CDATA[
+		Copyright notice
+No part of this publication may be reproduced, published, stored in a retrieval system or transmitted, in any form or by any means, electronic, mechanical, recording, or otherwise, without the prior permission of the Foundation for Internet Domain Registration in the Netherlands (SIDN). These restrictions apply equally to registrars, except in that reproduction and publication are permitted insofar as reasonable, necessary and undertaken solely in the context of the registration activities referred to in the General Terms and Conditions for .nl Registrars.
+
+Any use of this material for advertising, the targeting of commercial offers or similar activities is explicitly forbidden and liable to result in legal action. Anyone who is aware or suspects that such activities are taking place is asked to inform the Foundation for Internet Domain Registration in the Netherlands.
+
+©The Foundation for Internet Domain Registration in the Netherlands (SIDN) Dutch Copyright Act, protection of authors' rights (Section 10, subsection 1, clause 1).
+			]]>
+		</whois_translated_restrictions>
+	</zone>
+</zones>
