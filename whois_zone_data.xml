@@ -3,7 +3,8 @@
 	<zone item="nl">
 		<zone_whois_server>whois.domain-registry.nl</zone_whois_server>
 		<zone_description>NL Domain Registry</zone_description>
-		<zone_registry_name>SIDN</zone_registry_name>
+		<zone_registry_full_name>Stichting Internet Domeinregistratie Nederland</zone_registry_full_name>
+		<zone_registry_abbreviated_name>SIDN</zone_registry_abbreviated_name>
 		<zone_time_zone>Europe/Amsterdam</zone_time_zone>
 		<zone_language>nl-NL</zone_language>
 		<zone_format>PLAIN</zone_format>

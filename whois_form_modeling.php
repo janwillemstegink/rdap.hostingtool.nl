@@ -43,7 +43,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 100)	{ // zone
 		var pre = '100';
-		var max = 5
+		var max = 6
 	}
 	else if (type == 110)	{ // restrictions
 		var pre = '110';
@@ -264,7 +264,7 @@ if (file_exists($developmentpath.$zonefile) and false)	{ // for development
 elseif (file_exists($zonefile))	{ // for working with just the GitHub files
 	$xml2 = simplexml_load_file($zonefile) or die("Cannot load xml2 from same folder.");
 }
-elseif (@get_headers($url2a) and false)	{ // for using the application to compose
+elseif (@get_headers($url2a))	{ // for using the application to compose
 	$xml2 = simplexml_load_file($url2a, "SimpleXMLElement", LIBXML_NOCDATA) or die("Cannot load url2a from non-public folder.");
 }
 else	{
@@ -450,10 +450,11 @@ foreach ($xml2->xpath('//zone') as $item)	{
 	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(100)">zone +/-</button></td><td></td><td></td></tr>';
 	$html_text .= '<tr><td><b>zone_whois_server</b></td><td>'.$item->zone_whois_server.'</td><td></td></tr>';
 	$html_text .= '<tr id="1001" style="display:none"><td><b>zone_description</b></td><td>'.$item->zone_description.'</td><td></td></tr>';
-	$html_text .= '<tr id="1002" style="display:none"><td><b>zone_registry_name</b></td><td>'.$item->zone_registry_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="1003" style="display:none"><td><b>zone_time_zone</b></td><td>'.$item->zone_time_zone.'</td><td></td></tr>';
-	$html_text .= '<tr id="1004" style="display:none"><td><b>zone_language</b></td><td>'.$item->zone_language.'</td><td></td></tr>';
-	$html_text .= '<tr id="1005" style="display:none"><td><b>zone_format</b></td><td>'.$item->zone_format.'</td><td></td></tr>';
+	$html_text .= '<tr id="1002" style="display:none"><td><b>zone_registry_full_name</b></td><td>'.$item->zone_registry_full_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="1003" style="display:none"><td><b>zone_registry_abbreviated_name</b></td><td>'.$item->zone_registry_abbreviated_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="1004" style="display:none"><td><b>zone_time_zone</b></td><td>'.$item->zone_time_zone.'</td><td></td></tr>';
+	$html_text .= '<tr id="1005" style="display:none"><td><b>zone_language</b></td><td>'.$item->zone_language.'</td><td></td></tr>';
+	$html_text .= '<tr id="1006" style="display:none"><td><b>zone_format</b></td><td>'.$item->zone_format.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(110)">whois restrictions +/-</button></td><td></td><td></td></tr>';
 	$html_text .= '<tr id="1101" style="display:none"><td><b>whois_legal_restrictions</b></td><td>'.$item->whois_legal_restrictions.'</td><td></td></tr>';

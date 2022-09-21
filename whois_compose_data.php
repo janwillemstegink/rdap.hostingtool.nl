@@ -38,7 +38,8 @@ function write_file2($inputtopleveldomain)	{
 
 $whois_server = 'whois.domain-zone';
 $description = 'NL Domain zone';
-$registry_name = 'SIDN';	
+$registry_full_name = 'Stichting Internet Domeinregistratie Nederland';	
+$registry_abbreviated_name = 'SIDN';
 $time_zone = 'Europe/Amsterdam';
 $language = 'nl-NL';
 $format = 'PLAIN';	
@@ -76,9 +77,13 @@ $zone_description = $doc->createElement("zone_description");
 $zone_description->appendChild($doc->createCDATASection($description));	
 $zone->appendChild($zone_description);
 	
-$zone_registry_name = $doc->createElement("zone_registry_name");
-$zone_registry_name->appendChild($doc->createCDATASection($registry_name));	
-$zone->appendChild($zone_registry_name);
+$zone_registry_full_name = $doc->createElement("zone_registry_full_name");
+$zone_registry_full_name->appendChild($doc->createCDATASection($registry_full_name));	
+$zone->appendChild($zone_registry_full_name);
+	
+$zone_registry_abbreviated_name = $doc->createElement("zone_registry_abbreviated_name");
+$zone_registry_abbreviated_name->appendChild($doc->createCDATASection($registry_abbreviated_name));	
+$zone->appendChild($zone_registry_abbreviated_name);
 	
 $zone_time_zone = $doc->createElement("zone_time_zone");
 $zone_time_zone->appendChild($doc->createCDATASection($time_zone));	
@@ -105,5 +110,5 @@ $doc->appendChild($zones);
 	
 //return $doc->saveXML(NULL, LIBXML_NOEMPTYTAG);	
 return $doc->saveXML();
-}					
+}						
 ?>
