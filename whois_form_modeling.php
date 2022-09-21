@@ -15,7 +15,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 30)	{ // registrar
 		var pre = '30';
-		var max = 14
+		var max = 15
 	}
 	else if (type == 40)	{ // reseller
 		var pre = '40';
@@ -43,7 +43,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 100)	{ // zone
 		var pre = '100';
-		var max = 4
+		var max = 5
 	}
 	else if (type == 110)	{ // restrictions
 		var pre = '110';
@@ -306,19 +306,19 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><b>registrar_trade_name</b></td><td>'.$item->registrar->registrar_trade_name.'</td><td></td></tr>';
 	$html_text .= '<tr><td><b>registrar_web_id</b></td><td>'.$item->registrar->registrar_web_id.'</td><td id="registrar_web_id" style="font-style:italic"></td></tr>';
 	$html_text .= '<tr id="302" style="display:none"><td><b>registrar_personal_name</b></td><td>'.$item->registrar->registrar_personal_name.'</td><td></td></tr>';
-	$html_text .= '<tr><td><b>registrar_abuse_email</b></td><td>'.$item->registrar->registrar_abuse_email.'</td><td id="registrar_abuse_email" style="font-style:italic"></td></tr>';
-	$html_text .= '<tr id="303" style="display:none"><td><b>registrar_abuse_phone</b></td><td>'.$item->registrar->registrar_abuse_phone.'</td><td></td></tr>';
-	$html_text .= '<tr id="304" style="display:none"><td><b>registrar_street</b></td><td>'.$item->registrar->registrar_street.'</td><td></td></tr>';
-	$html_text .= '<tr id="305" style="display:none"><td><b>registrar_postal_code</b></td><td>'.$item->registrar->registrar_postal_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="306" style="display:none"><td><b>registrar_city</b></td><td>'.$item->registrar->registrar_city.'</td><td></td></tr>';
-	$html_text .= '<tr id="307" style="display:none"><td><b>registrar_phone</b></td><td>'.$item->registrar->registrar_phone.'</td><td></td></tr>';
-	$html_text .= '<tr id="308" style="display:none"><td><b>registrar_email</b></td><td>'.$item->registrar->registrar_email.'</td><td></td></tr>';
-	$html_text .= '<tr id="309" style="display:none"><td><b>registrar_country_code</b></td><td>'.$item->registrar->registrar_country_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="3010" style="display:none"><td><b>registrar_country_name</b></td><td>'.$item->registrar->registrar_country_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="3011" style="display:none"><td><b>registrar_country_language</b></td><td>'.$item->registrar->registrar_country_language.'</td><td></td></tr>';
-	$html_text .= '<tr id="3012" style="display:none"><td><b>registrar_url</b></td><td>'.$item->registrar->registrar_url.'</td><td></td></tr>';
-	$html_text .= '<tr id="3013" style="display:none"><td><b>registrar_iana_id</b></td><td>'.$item->registrar->registrar_iana_id.'</td><td></td></tr>';
-	$html_text .= '<tr id="3014" style="display:none"><td><b>registrar_protected</b></td><td>'.$item->registrar->registrar_protected.'</td><td id="registrar_protected" style="font-style:italic"></td></tr>';
+	$html_text .= '<tr id="303" style="display:none"><td><b>registrar_abuse_email</b></td><td>'.$item->registrar->registrar_abuse_email.'</td><td id="registrar_abuse_email" style="font-style:italic"></td></tr>';
+	$html_text .= '<tr id="304" style="display:none"><td><b>registrar_abuse_phone</b></td><td>'.$item->registrar->registrar_abuse_phone.'</td><td></td></tr>';
+	$html_text .= '<tr id="305" style="display:none"><td><b>registrar_street</b></td><td>'.$item->registrar->registrar_street.'</td><td></td></tr>';
+	$html_text .= '<tr id="306" style="display:none"><td><b>registrar_postal_code</b></td><td>'.$item->registrar->registrar_postal_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="307" style="display:none"><td><b>registrar_city</b></td><td>'.$item->registrar->registrar_city.'</td><td></td></tr>';
+	$html_text .= '<tr id="308" style="display:none"><td><b>registrar_phone</b></td><td>'.$item->registrar->registrar_phone.'</td><td></td></tr>';
+	$html_text .= '<tr id="309" style="display:none"><td><b>registrar_email</b></td><td>'.$item->registrar->registrar_email.'</td><td></td></tr>';
+	$html_text .= '<tr id="3010" style="display:none"><td><b>registrar_country_code</b></td><td>'.$item->registrar->registrar_country_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="3011" style="display:none"><td><b>registrar_country_name</b></td><td>'.$item->registrar->registrar_country_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="3012" style="display:none"><td><b>registrar_country_language</b></td><td>'.$item->registrar->registrar_country_language.'</td><td></td></tr>';
+	$html_text .= '<tr id="3013" style="display:none"><td><b>registrar_url</b></td><td>'.$item->registrar->registrar_url.'</td><td></td></tr>';
+	$html_text .= '<tr id="3014" style="display:none"><td><b>registrar_iana_id</b></td><td>'.$item->registrar->registrar_iana_id.'</td><td></td></tr>';
+	$html_text .= '<tr id="3015" style="display:none"><td><b>registrar_protected</b></td><td>'.$item->registrar->registrar_protected.'</td><td id="registrar_protected" style="font-style:italic"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	if (!empty($item->reseller->reseller_trade_name))	{
 		if (strlen(trim($item->reseller->reseller_trade_name)))	{
@@ -450,9 +450,10 @@ foreach ($xml2->xpath('//zone') as $item)	{
 	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(100)">zone +/-</button></td><td></td><td></td></tr>';
 	$html_text .= '<tr><td><b>zone_whois_server</b></td><td>'.$item->zone_whois_server.'</td><td></td></tr>';
 	$html_text .= '<tr id="1001" style="display:none"><td><b>zone_description</b></td><td>'.$item->zone_description.'</td><td></td></tr>';
-	$html_text .= '<tr id="1002" style="display:none"><td><b>zone_time_zone</b></td><td>'.$item->zone_time_zone.'</td><td></td></tr>';
-	$html_text .= '<tr id="1003" style="display:none"><td><b>zone_language</b></td><td>'.$item->zone_language.'</td><td></td></tr>';
-	$html_text .= '<tr id="1004" style="display:none"><td><b>zone_format</b></td><td>'.$item->zone_format.'</td><td></td></tr>';
+	$html_text .= '<tr id="1002" style="display:none"><td><b>zone_registry_name</b></td><td>'.$item->zone_registry_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="1003" style="display:none"><td><b>zone_time_zone</b></td><td>'.$item->zone_time_zone.'</td><td></td></tr>';
+	$html_text .= '<tr id="1004" style="display:none"><td><b>zone_language</b></td><td>'.$item->zone_language.'</td><td></td></tr>';
+	$html_text .= '<tr id="1005" style="display:none"><td><b>zone_format</b></td><td>'.$item->zone_format.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(110)">whois restrictions +/-</button></td><td></td><td></td></tr>';
 	$html_text .= '<tr id="1101" style="display:none"><td><b>whois_legal_restrictions</b></td><td>'.$item->whois_legal_restrictions.'</td><td></td></tr>';
