@@ -47,8 +47,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td COLSPAN="2"><br />Houder / Registrant:</td></tr>';
 	$html_text .= '<tr><td>registrant_contact_id</td><td>'.$item->registrant->registrant_contact_id.'</td></tr>';
-	$html_text .= '<tr><td>registrant_whois_name</td><td>'.$item->registrant->registrant_whois_name.'</td></tr>';
 	$html_text .= '<tr><td>registrant_trade_name</td><td>'.$item->registrant->registrant_trade_name.'</td></tr>';
+	$html_text .= '<tr><td>registrant_whois_name</td><td>'.$item->registrant->registrant_whois_name.'</td></tr>';
 	$html_text .= '<tr><td>registrant_personal_name</td><td>'.$item->registrant->registrant_personal_name.'</td></tr>';
 	$html_text .= '<tr><td>registrant_email</td><td>'.$item->registrant->registrant_email.'</td></tr>';
 	$html_text .= '<tr><td>registrant_phone</td><td>'.$item->registrant->registrant_phone.'</td></tr>';
