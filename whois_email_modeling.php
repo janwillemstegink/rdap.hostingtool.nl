@@ -76,7 +76,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>admin_country_name</td><td>'.$item->admin->admin_country_name.'</td></tr>';
 	$html_text .= '<tr><td>admin_country_language</td><td>'.$item->admin->admin_country_language.'</td></tr>';
 	$html_text .= '<tr><td>admin_protected</td><td>'.$item->admin->admin_protected.'</td></tr>';
-	$html_text .= '<tr><td COLSPAN="2"><br />Facturering (als zaak van de registry in discussie) / Billing (as a registry matter under discussion):</td></tr>';
+	$html_text .= '<tr><td COLSPAN="2"><br />Facturering (indien de registry dit onderhoudt) / Billing (if the registry maintains this):</td></tr>';
 	$html_text .= '<tr><td>billing_contact_id</td><td>'.$item->billing->billing_contact_id.'</td></tr>';
 	$html_text .= '<tr><td>billing_web_id</td><td>'.$item->billing->billing_web_id.'</td></tr>';
 	$html_text .= '<tr><td>billing_trade_name</td><td>'.$item->billing->billing_trade_name.'</td></tr>';
