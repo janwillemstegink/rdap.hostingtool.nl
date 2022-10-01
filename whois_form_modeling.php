@@ -93,7 +93,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_protected").innerText = newcontactfield;
 		document.getElementById("registrant_web_id").innerText = newdomainfield + "";
 		document.getElementById("registrant_trade_name").innerText = purpose + "";
-		document.getElementById("registrant_whois_name").innerText = newdomainfield + "";
+		document.getElementById("registrant_public_name").innerText = newdomainfield + "";
 		document.getElementById("registrant_personal_name").innerText = "";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
 		document.getElementById("admin_web_id").innerText = newcontactfield;
@@ -125,7 +125,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_protected").innerText = newcontactfield;
 		document.getElementById("registrant_web_id").innerText = newdomainfield + ": De KVK kan het benodigd webid-identificatienummer toevoegen aan het Handelsregister.";
 		document.getElementById("registrant_trade_name").innerText = purpose + ": Een zakelijke houder onderhoudt een bestaande, beoogde en zichtbare handelsnaam.";
-		document.getElementById("registrant_whois_name").innerText = newdomainfield + ": Bij zakelijk gebruik dient een zichtbare handelsnaam, of de privénaam, tot transparantie.";
+		document.getElementById("registrant_public_name").innerText = newdomainfield + ": Bij zakelijk gebruik dient een zichtbare handelsnaam, of de privénaam, tot transparantie.";
 		document.getElementById("registrant_personal_name").innerText = "De naam in het veld van de natuurlijke persoon kan afgeschermd blijven.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
 		document.getElementById("admin_web_id").innerText = newcontactfield;
@@ -156,7 +156,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_protected").innerText = newcontactfield;
 		document.getElementById("registrant_web_id").innerText = newdomainfield + ": The Chamber of Commerce can add the required web id identification to the Trade Register.";
 		document.getElementById("registrant_trade_name").innerText = purpose + ": A business holder maintains an existing, intended and visible trade name.";	
-		document.getElementById("registrant_whois_name").innerText = newdomainfield + ": In business use, a visible trade name, or the personal name, serves for transparency.";
+		document.getElementById("registrant_public_name").innerText = newdomainfield + ": In business use, a visible trade name, or the personal name, serves for transparency.";
 		document.getElementById("registrant_personal_name").innerText = "The name in the field of the natural person can remain protected.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
 		document.getElementById("admin_web_id").innerText = newcontactfield;
@@ -187,7 +187,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_protected").innerText = newcontactfield;
 		document.getElementById("registrant_web_id").innerText = newdomainfield + ": Die Handelskammer kann die erforderliche Web-ID-Kennung zum Handelsregister hinzufügen.";
 		document.getElementById("registrant_trade_name").innerText = purpose + ": Ein Geschäftsinhaber behält einen bestehenden, beabsichtigten und sichtbaren Handelsnamen bei.";
-		document.getElementById("registrant_whois_name").innerText = newdomainfield + ": Im geschäftlichen Gebrauch dient ein sichtbarer Handelsname oder der Personenname der Transparenz.";
+		document.getElementById("registrant_public_name").innerText = newdomainfield + ": Im geschäftlichen Gebrauch dient ein sichtbarer Handelsname oder der Personenname der Transparenz.";
 		document.getElementById("registrant_personal_name").innerText = "Der Name im Bereich der natürlichen Person kann geschützt bleiben.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
 		document.getElementById("admin_web_id").innerText = newcontactfield;
@@ -218,7 +218,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_protected").innerText = newcontactfield;
 		document.getElementById("registrant_web_id").innerText = newdomainfield + " : La Chambre de commerce peut ajouter l'identifiant Web requis au registre du commerce.";
 		document.getElementById("registrant_trade_name").innerText = purpose + " : Un titulaire d'entreprise maintient un nom commercial existant, prévu et visible.";
-		document.getElementById("registrant_whois_name").innerText = newdomainfield + " : Dans l'utilisation commerciale, un nom commercial visible, ou le nom personnel, sert à la transparence.";
+		document.getElementById("registrant_public_name").innerText = newdomainfield + " : Dans l'utilisation commerciale, un nom commercial visible, ou le nom personnel, sert à la transparence.";
 		document.getElementById("registrant_personal_name").innerText = "Le nom dans le champ de la personne physique peut rester protégé.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
 		document.getElementById("admin_web_id").innerText = newcontactfield;
@@ -350,7 +350,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="501" style="display:none"><td><b>registrant_contact_id</b></td><td>'.$item->registrant->registrant_contact_id.'</td><td></td></tr>';
 	$html_text .= '<tr><td><b>registrant_web_id</b></td><td>'.$item->registrant->registrant_web_id.'</td><td id="registrant_web_id" style="font-style:italic"></td></tr>';
 	$html_text .= '<tr><td><b>registrant_trade_name</b></td><td>'.$item->registrant->registrant_trade_name.'</td><td id="registrant_trade_name" style="font-style:italic"></td></tr>';
-	$html_text .= '<tr><td><b>registrant_whois_name</b></td><td>'.$item->registrant->registrant_whois_name.'</td><td id="registrant_whois_name" style="font-style:italic"></td></tr>';
+	$html_text .= '<tr><td><b>registrant_public_name</b></td><td>'.$item->registrant->registrant_public_name.'</td><td id="registrant_public_name" style="font-style:italic"></td></tr>';
 	$html_text .= '<tr id="502" style="display:none"><td><b>registrant_personal_name</b></td><td>'.$item->registrant->registrant_personal_name.'</td><td id="registrant_personal_name" style="font-style:italic"></td></tr>';
 	$html_text .= '<tr id="503" style="display:none"><td><b>registrant_email</b></td><td>'.$item->registrant->registrant_email.'</td><td></td></tr>';
 	$html_text .= '<tr id="504" style="display:none"><td><b>registrant_phone</b></td><td>'.$item->registrant->registrant_phone.'</td><td></td></tr>';
