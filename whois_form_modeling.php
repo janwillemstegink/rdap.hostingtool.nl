@@ -125,7 +125,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_protected").innerText = newcontactfield;
 		document.getElementById("registrant_web_id").innerText = newdomainfield + ": De KVK kan het benodigd webid-identificatienummer toevoegen aan het Handelsregister.";
 		document.getElementById("registrant_trade_name").innerText = purpose + ": De zakelijke houder onderhoudt een bestaande, beoogde en zichtbare handelsnaam.";
-		document.getElementById("registrant_public_name").innerText = newdomainfield + ": Bij zakelijk gebruik dient de handelsnaam, of de persoonlijke naam, zichtbaar te zijn.";
+		document.getElementById("registrant_public_name").innerText = newdomainfield + ": Bij zakelijk gebruik dient de handelsnaam, anders de persoonlijke naam, zichtbaar te zijn.";
 		document.getElementById("registrant_personal_name").innerText = "De naam in het veld van de natuurlijke persoon kan afgeschermd blijven.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
 		document.getElementById("admin_web_id").innerText = newcontactfield;
@@ -156,7 +156,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_protected").innerText = newcontactfield;
 		document.getElementById("registrant_web_id").innerText = newdomainfield + ": The Chamber of Commerce can add the required web id identification to the Trade Register.";
 		document.getElementById("registrant_trade_name").innerText = purpose + ": The business holder maintains an existing, intended and visible trade name.";	
-		document.getElementById("registrant_public_name").innerText = newdomainfield + ": For business use, the trade name, or personal name, must be visible.";
+		document.getElementById("registrant_public_name").innerText = newdomainfield + ": For business use, the trade name, otherwise the personal name, must be visible.";
 		document.getElementById("registrant_personal_name").innerText = "The name in the field of the natural person can remain protected.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
 		document.getElementById("admin_web_id").innerText = newcontactfield;
@@ -187,7 +187,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_protected").innerText = newcontactfield;
 		document.getElementById("registrant_web_id").innerText = newdomainfield + ": Die Handelskammer kann die erforderliche Web-ID-Kennung zum Handelsregister hinzufügen.";
 		document.getElementById("registrant_trade_name").innerText = purpose + ": Der Geschäftsinhaber behält einen bestehenden, beabsichtigten und sichtbaren Handelsnamen bei.";
-		document.getElementById("registrant_public_name").innerText = newdomainfield + ": Für die geschäftliche Nutzung muss der Handelsname oder der persönliche Name sichtbar sein.";
+		document.getElementById("registrant_public_name").innerText = newdomainfield + ": Bei geschäftlicher Nutzung muss der Handelsname, ansonsten der Personenname, ersichtlich sein.";
 		document.getElementById("registrant_personal_name").innerText = "Der Name im Bereich der natürlichen Person kann geschützt bleiben.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
 		document.getElementById("admin_web_id").innerText = newcontactfield;
@@ -218,7 +218,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_protected").innerText = newcontactfield;
 		document.getElementById("registrant_web_id").innerText = newdomainfield + " : La Chambre de commerce peut ajouter l'identifiant Web requis au registre du commerce.";
 		document.getElementById("registrant_trade_name").innerText = purpose + " : Le titulaire de l'entreprise maintient un nom commercial existant, prévu et visible.";
-		document.getElementById("registrant_public_name").innerText = newdomainfield + " : Pour un usage professionnel, le nom commercial ou le nom personnel doit être visible.";
+		document.getElementById("registrant_public_name").innerText = newdomainfield + " : Pour un usage professionnel, le nom commercial, sinon le nom personnel, doit être visible.";
 		document.getElementById("registrant_personal_name").innerText = "Le nom dans le champ de la personne physique peut rester protégé.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
 		document.getElementById("admin_web_id").innerText = newcontactfield;
