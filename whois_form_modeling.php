@@ -126,7 +126,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("registrant_web_id").innerText = newdomainfield + ": De KVK kan het benodigd webid-identificatienummer toevoegen aan het Handelsregister.";
 		document.getElementById("registrant_trade_name").innerText = purpose + ": De zakelijke houder onderhoudt een bestaande, beoogde en zichtbare handelsnaam.";
 		document.getElementById("registrant_personal_public").innerText = purpose + ": Bij zakelijk gebruik dient de handelsnaam, anders de persoonsnaam, zichtbaar te zijn.";
-		document.getElementById("registrant_personal_name").innerText = "De naam in het veld van de natuurlijke persoon kan afgeschermd blijven.";
+		document.getElementById("registrant_personal_name").innerText = "De naam in het veld van de natuurlijke persoon is standaard afgeschermd.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
 		document.getElementById("admin_web_id").innerText = newcontactfield;
 		document.getElementById("admin_email").innerText = purpose + ": Het administratief aanspreekpunt beantwoordt een verzoek, en stuurt het indien nodig door.";
@@ -157,7 +157,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("registrant_web_id").innerText = newdomainfield + ": The Chamber of Commerce can add the required web id identification to the Trade Register.";
 		document.getElementById("registrant_trade_name").innerText = purpose + ": The business holder maintains an existing, intended and visible trade name.";	
 		document.getElementById("registrant_personal_public").innerText = purpose + ": For business use, the trade name, otherwise the personal name, must be visible.";
-		document.getElementById("registrant_personal_name").innerText = "The name in the field of the natural person can remain protected.";
+		document.getElementById("registrant_personal_name").innerText = "The name in the field of the natural person is protected by default.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
 		document.getElementById("admin_web_id").innerText = newcontactfield;
 		document.getElementById("admin_email").innerText = purpose + ": The administratively responsible desk answers a request, and forwards it if necessary.";
@@ -188,7 +188,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("registrant_web_id").innerText = newdomainfield + ": Die Handelskammer kann die erforderliche Web-ID-Kennung zum Handelsregister hinzufügen.";
 		document.getElementById("registrant_trade_name").innerText = purpose + ": Der Geschäftsinhaber behält einen bestehenden, beabsichtigten und sichtbaren Handelsnamen bei.";
 		document.getElementById("registrant_personal_public").innerText = purpose + ": Bei geschäftlicher Nutzung muss der Handelsname, ansonsten der Personenname, ersichtlich sein.";
-		document.getElementById("registrant_personal_name").innerText = "Der Name im Bereich der natürlichen Person kann geschützt bleiben.";
+		document.getElementById("registrant_personal_name").innerText = "Der Name im Feld der natürlichen Person ist standardmäßig geschützt.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
 		document.getElementById("admin_web_id").innerText = newcontactfield;
 		document.getElementById("admin_email").innerText = purpose + ": Die administrativ zuständige Stelle beantwortet eine Anfrage und leitet diese gegebenenfalls weiter.";
@@ -219,7 +219,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("registrant_web_id").innerText = newdomainfield + " : La Chambre de commerce peut ajouter l'identifiant Web requis au registre du commerce.";
 		document.getElementById("registrant_trade_name").innerText = purpose + " : Le titulaire de l'entreprise maintient un nom commercial existant, prévu et visible.";
 		document.getElementById("registrant_personal_public").innerText = purpose + " : Pour un usage professionnel, le nom commercial, sinon le nom personnel, doit être visible.";
-		document.getElementById("registrant_personal_name").innerText = "Le nom dans le champ de la personne physique peut rester protégé.";
+		document.getElementById("registrant_personal_name").innerText = "Le nom dans le champ de la personne physique est protégé par défaut.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
 		document.getElementById("admin_web_id").innerText = newcontactfield;
 		document.getElementById("admin_email").innerText = purpose + " : Le bureau administrativement responsable répond à une demande, et la transmet si nécessaire.";
