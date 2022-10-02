@@ -125,7 +125,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_protected").innerText = newcontactfield;
 		document.getElementById("registrant_web_id").innerText = newdomainfield + ": De KVK kan het benodigd webid-identificatienummer toevoegen aan het Handelsregister.";
 		document.getElementById("registrant_trade_name").innerText = purpose + ": De zakelijke houder onderhoudt een bestaande, beoogde en zichtbare handelsnaam.";
-		document.getElementById("registrant_public_name").innerText = newdomainfield + ": Bij zakelijk gebruik dient de handelsnaam, anders de persoonlijke naam, zichtbaar te zijn.";
+		document.getElementById("registrant_public_name").innerText = newdomainfield + ": Bij zakelijk gebruik dient de handelsnaam, anders de persoonsnaam, zichtbaar te zijn.";
 		document.getElementById("registrant_personal_name").innerText = "De naam in het veld van de natuurlijke persoon kan afgeschermd blijven.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
 		document.getElementById("admin_web_id").innerText = newcontactfield;
