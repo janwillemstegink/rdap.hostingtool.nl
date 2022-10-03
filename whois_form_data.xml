@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<domains>
+	<domain item="webhostingtech.nl">	
+		<view>
+			<view_datetime>2022-01-26 00:00:00</view_datetime>
+			<view_type>public</view_type>
+		</view>
+		<domain_id></domain_id>
+		<domain_name>webhostingtech.nl</domain_name>
+		<domain_status>active</domain_status>
+		<domain_status_codes>OK</domain_status_codes>
+		<domain_created>2018-11-03 00:00:00</domain_created>
+		<domain_transaction>2021-11-02 00:00:00</domain_transaction>
+		<domain_updated>2021-11-29 00:00:00</domain_updated>
+		<domain_expiration>2022-11-01 23:59:59</domain_expiration>
+		<domain_out_of_quarantine></domain_out_of_quarantine>
+		<registrar>
+			<registrar_contact_id></registrar_contact_id>
+			<registrar_web_id></registrar_web_id>
+			<registrar_trade_name>team.blue nl B.V.</registrar_trade_name>
+			<registrar_url>http://www.transip.nl</registrar_url>
+			<registrar_iana_id>1603</registrar_iana_id>
+			<registrar_personal_name></registrar_personal_name>
+			<registrar_email></registrar_email>				
+			<registrar_phone></registrar_phone>
+			<registrar_abuse_email>abuse@nl.team.blue</registrar_abuse_email>
+			<registrar_abuse_phone></registrar_abuse_phone>
+			<registrar_street>Vondellaan 47</registrar_street>
+			<registrar_postal_code>2332 AA</registrar_postal_code>
+			<registrar_city>Leiden</registrar_city>
+			<registrar_state>Zuid-Holland</registrar_state>
+			<registrar_country_code>NL</registrar_country_code>
+			<registrar_country_name>Netherlands</registrar_country_name>
+			<registrar_country_language>nl-NL</registrar_country_language>
+			<registrar_protected>personal_name,email,phone</registrar_protected>
+		</registrar>
+		<reseller>
+			<reseller_contact_id></reseller_contact_id>
+			<reseller_web_id></reseller_web_id>
+			<reseller_trade_name>TransIP</reseller_trade_name>
+			<reseller_personal_name></reseller_personal_name>
+			<reseller_email></reseller_email>
+			<reseller_phone></reseller_phone>
+			<reseller_street>Vondellaan 47</reseller_street>
+			<reseller_postal_code>2332 AA</reseller_postal_code>
+			<reseller_city>Leiden</reseller_city>
+			<reseller_state>Zuid-Holland</reseller_state>							
+			<reseller_country_code>NL</reseller_country_code>
+			<reseller_country_name>Netherlands</reseller_country_name>
+			<reseller_country_language>nl-NL</reseller_country_language>
+			<reseller_protected>personal_name,email,phone</reseller_protected>
+		</reseller>
+		<registrant>
+			<registrant_contact_id></registrant_contact_id>
+			<registrant_web_id>NL88COMM01234567890123456789012345</registrant_web_id>
+			<registrant_trade_name><![CDATA[Stegink Hosting & E-mail]]></registrant_trade_name>
+			<registrant_personal_public>no</registrant_personal_public>
+			<registrant_personal_name></registrant_personal_name>
+			<registrant_email></registrant_email>
+			<registrant_phone></registrant_phone>
+			<registrant_street></registrant_street>
+			<registrant_postal_code></registrant_postal_code>
+			<registrant_city></registrant_city>
+			<registrant_state></registrant_state>
+			<registrant_country_code>NL</registrant_country_code>
+			<registrant_country_name>Netherlands</registrant_country_name>
+			<registrant_country_language>nl-NL</registrant_country_language>
+			<registrant_protected>contact_id,personal_name,email,phone,address</registrant_protected>
+		</registrant>
+		<admin>
+			<admin_contact_id></admin_contact_id>
+			<admin_web_id>NL88COMM01234567890123456789012345</admin_web_id>
+			<admin_trade_name><![CDATA[Stegink Hosting & E-mail]]></admin_trade_name>
+			<admin_personal_name></admin_personal_name>
+			<admin_email>admindesk@janwillemstegink.nl</admin_email>
+			<admin_phone></admin_phone>
+			<admin_street></admin_street>
+			<admin_postal_code></admin_postal_code>
+			<admin_city></admin_city>
+			<admin_state></admin_state>		
+			<admin_country_code></admin_country_code>
+			<admin_country_name></admin_country_name>
+			<admin_country_language></admin_country_language>
+			<admin_protected>contact_id,personal_name,phone,address,country</admin_protected>
+		</admin>
+		<tech>
+			<tech_contact_id></tech_contact_id>
+			<tech_web_id>NL88COMM01234567890123456789012345</tech_web_id>
+			<tech_trade_name><![CDATA[Stegink Hosting & E-mail]]></tech_trade_name>
+			<tech_personal_name></tech_personal_name>
+			<tech_email>techdesk@hostfusion.nl</tech_email>
+			<tech_phone></tech_phone>
+			<tech_street></tech_street>
+			<tech_postal_code></tech_postal_code>
+			<tech_city></tech_city>
+			<tech_state></tech_state>			
+			<tech_country_code></tech_country_code>
+			<tech_country_name></tech_country_name>
+			<tech_country_language></tech_country_language>
+			<tech_protected>contact_id,personal_name,phone,address,country</tech_protected>
+		</tech>
+		<billing>
+			<billing_contact_id></billing_contact_id>
+			<billing_web_id>NL88COMM01234567890123456789012345</billing_web_id>
+			<billing_trade_name><![CDATA[Stegink Hosting & E-mail]]></billing_trade_name>
+			<billing_personal_name></billing_personal_name>
+			<billing_email></billing_email>
+			<billing_phone></billing_phone>
+			<billing_street></billing_street>
+			<billing_postal_code></billing_postal_code>
+			<billing_city></billing_city>
+			<billing_state></billing_state>
+			<billing_country_code></billing_country_code>
+			<billing_country_name></billing_country_name>
+			<billing_country_language></billing_country_language>
+			<billing_protected>contact_id,personal_name,email,phone,address,country</billing_protected>
+		</billing>
+		<name_servers>
+			<server_1>
+				<server_name_1>ns0.transip.net</server_name_1>
+				<ipv4_1></ipv4_1>
+				<ipv6_1></ipv6_1>
+			</server_1>
+			<server_2>
+				<server_name_2>ns1.transip.nl</server_name_2>
+				<ipv4_2></ipv4_2>
+				<ipv6_2></ipv6_2>
+			</server_2>
+			<server_3>
+				<server_name_3>ns2.transip.eu</server_name_3>
+				<ipv4_3></ipv4_3>
+				<ipv6_3></ipv6_3>
+			</server_3>
+			<name_servers_dnssec>yes</name_servers_dnssec>
+		</name_servers>
+		<data_management>
+			<registry_whois_server>whois.domain-registry.nl</registry_whois_server>
+			<registry_description>NL Domain Registry</registry_description>
+			<registry_language>nl-NL</registry_language>
+			<registry_format>PLAIN</registry_format>
+			<registry_time_zone>Europe/Amsterdam</registry_time_zone>
+		</data_management>
+	</domain>
+	<domain item="hostingtool.nl">
+		<view>
+			<view_datetime>2022-01-26 00:00:00</view_datetime>
+			<view_type>public</view_type>
+		</view>
+		<domain_id></domain_id>
+		<domain_name>hostingtool.nl</domain_name>
+		<domain_status>active</domain_status>
+		<domain_status_codes>OK</domain_status_codes>
+		<domain_created>2021-08-15 00:00:00</domain_created>
+		<domain_transaction>2021-08-15 00:00:00</domain_transaction>
+		<domain_updated>2021-08-15 00:00:00</domain_updated>
+		<domain_expiration>2022-08-14 23:59:59</domain_expiration>
+		<domain_out_of_quarantine></domain_out_of_quarantine>
+				<registrar>
+			<registrar_contact_id></registrar_contact_id>
+			<registrar_web_id></registrar_web_id>
+			<registrar_trade_name>team.blue nl B.V.</registrar_trade_name>
+			<registrar_url>http://www.transip.nl</registrar_url>
+			<registrar_iana_id>1603</registrar_iana_id>
+			<registrar_personal_name></registrar_personal_name>
+			<registrar_email></registrar_email>				
+			<registrar_phone></registrar_phone>
+			<registrar_abuse_email>abuse@nl.team.blue</registrar_abuse_email>
+			<registrar_abuse_phone></registrar_abuse_phone>
+			<registrar_street>Vondellaan 47</registrar_street>
+			<registrar_postal_code>2332 AA</registrar_postal_code>
+			<registrar_city>Leiden</registrar_city>
+			<registrar_state>Zuid-Holland</registrar_state>
+			<registrar_country_code>NL</registrar_country_code>
+			<registrar_country_name>Netherlands</registrar_country_name>
+			<registrar_country_language>nl-NL</registrar_country_language>
+			<registrar_protected>personal_name,email,phone</registrar_protected>
+		</registrar>
+		<reseller>
+			<reseller_contact_id></reseller_contact_id>
+			<reseller_web_id></reseller_web_id>
+			<reseller_trade_name>TransIP</reseller_trade_name>
+			<reseller_personal_name></reseller_personal_name>
+			<reseller_email></reseller_email>
+			<reseller_phone></reseller_phone>
+			<reseller_street>Vondellaan 47</reseller_street>
+			<reseller_postal_code>2332 AA</reseller_postal_code>
+			<reseller_city>Leiden</reseller_city>
+			<reseller_state>Zuid-Holland</reseller_state>							
+			<reseller_country_code>NL</reseller_country_code>
+			<reseller_country_name>Netherlands</reseller_country_name>
+			<reseller_country_language>nl-NL</reseller_country_language>
+			<reseller_protected>personal_name,email,phone</reseller_protected>
+		</reseller>
+		<registrant>
+			<registrant_contact_id></registrant_contact_id>
+			<registrant_web_id>NL88COMM01234567890123456789012345</registrant_web_id>
+			<registrant_trade_name><![CDATA[Stegink Hosting & E-mail]]></registrant_trade_name>
+			<registrant_personal_public>no</registrant_personal_public>
+			<registrant_personal_name></registrant_personal_name>
+			<registrant_email></registrant_email>
+			<registrant_phone></registrant_phone>
+			<registrant_street></registrant_street>
+			<registrant_postal_code></registrant_postal_code>
+			<registrant_city></registrant_city>
+			<registrant_state></registrant_state>
+			<registrant_country_code>NL</registrant_country_code>
+			<registrant_country_name>Netherlands</registrant_country_name>
+			<registrant_country_language>nl-NL</registrant_country_language>
+			<registrant_protected>contact_id,personal_name,email,phone,address</registrant_protected>
+		</registrant>
+		<admin>
+			<admin_contact_id></admin_contact_id>
+			<admin_web_id>NL88COMM01234567890123456789012345</admin_web_id>
+			<admin_trade_name><![CDATA[Stegink Hosting & E-mail]]></admin_trade_name>
+			<admin_personal_name></admin_personal_name>
+			<admin_email>admindesk@janwillemstegink.nl</admin_email>
+			<admin_phone></admin_phone>
+			<admin_street></admin_street>
+			<admin_postal_code></admin_postal_code>
+			<admin_city></admin_city>
+			<admin_state></admin_state>		
+			<admin_country_code></admin_country_code>
+			<admin_country_name></admin_country_name>
+			<admin_country_language></admin_country_language>
+			<admin_protected>contact_id,personal_name,phone,address,country</admin_protected>
+		</admin>
+		<tech>
+			<tech_contact_id></tech_contact_id>
+			<tech_web_id>NL88COMM01234567890123456789012345</tech_web_id>
+			<tech_trade_name><![CDATA[Stegink Hosting & E-mail]]></tech_trade_name>
+			<tech_personal_name></tech_personal_name>
+			<tech_email>techdesk@hostfusion.nl</tech_email>
+			<tech_phone></tech_phone>
+			<tech_street></tech_street>
+			<tech_postal_code></tech_postal_code>
+			<tech_city></tech_city>
+			<tech_state></tech_state>			
+			<tech_country_code></tech_country_code>
+			<tech_country_name></tech_country_name>
+			<tech_country_language></tech_country_language>
+			<tech_protected>contact_id,personal_name,phone,address,country</tech_protected>
+		</tech>
+		<billing>
+			<billing_contact_id></billing_contact_id>
+			<billing_web_id>NL88COMM01234567890123456789012345</billing_web_id>
+			<billing_trade_name><![CDATA[Stegink Hosting & E-mail]]></billing_trade_name>
+			<billing_personal_name></billing_personal_name>
+			<billing_email></billing_email>
+			<billing_phone></billing_phone>
+			<billing_street></billing_street>
+			<billing_postal_code></billing_postal_code>
+			<billing_city></billing_city>
+			<billing_state></billing_state>
+			<billing_country_code></billing_country_code>
+			<billing_country_name></billing_country_name>
+			<billing_country_language></billing_country_language>
+			<billing_protected>contact_id,personal_name,email,phone,address,country</billing_protected>
+		</billing>
+		<name_servers>
+			<server_1>
+				<server_name_1>ns0.transip.net</server_name_1>
+				<ipv4_1></ipv4_1>
+				<ipv6_1></ipv6_1>
+			</server_1>
+			<server_2>
+				<server_name_2>ns1.transip.nl</server_name_2>
+				<ipv4_2></ipv4_2>
+				<ipv6_2></ipv6_2>
+			</server_2>
+			<server_3>
+				<server_name_3>ns2.transip.eu</server_name_3>
+				<ipv4_3></ipv4_3>
+				<ipv6_3></ipv6_3>
+			</server_3>
+			<server_4>
+				<server_name_4></server_name_4>
+				<ipv4_4></ipv4_4>
+				<ipv6_4></ipv6_4>
+			</server_4>
+			<server_5>
+				<server_name_5></server_name_5>
+				<ipv4_5></ipv4_5>
+				<ipv6_5></ipv6_5>
+			</server_5>
+			<server_6>
+				<server_name_6></server_name_6>
+				<ipv4_6></ipv4_6>
+				<ipv6_6></ipv6_6>
+			</server_6>
+			<name_servers_dnssec>yes</name_servers_dnssec>
+		</name_servers>
+	</domain>
+</domains>
