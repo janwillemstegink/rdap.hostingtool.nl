@@ -114,7 +114,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("view_type").innerText = "Typen: alles, isp (Internet Service Provider), publiek";
 		document.getElementById("domain_status").innerText = "Statussen: vrij, onttrokken, uitgesloten, in aanvraag, actief, inactief, in quarantaine.";
 		document.getElementById("domain_status_codes").innerText = "Statuscodes: " + statuscodes;
-		document.getElementById("domain_transaction").innerText = newdomainfield + ": Deze datum plus tijd is voor zoekmachines om te controleren op jaarlijkse verlenging.";
+		document.getElementById("domain_transaction").innerText = newdomainfield + ": Zoekmachines kunnen weergave tot jaarlijks bevestigde domeinen beperken.";
 		document.getElementById("registrar_web_id").innerText = newcontactfield;
 		document.getElementById("registrar_abuse_email").innerText = "Contactgegevens om misbruik te melden kunnen verplicht worden voor een registrar.";
 		document.getElementById("registrar_protected").innerText = newcontactfield;
@@ -144,7 +144,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("view_type").innerText = "Types: all, isp (Internet Service Provider), public";		
 		document.getElementById("domain_status").innerText = "Statusses: free, withdrawn, excluded, requested, active, inactive, in quarantaine.";
 		document.getElementById("domain_status_codes").innerText = "Status codes: " + statuscodes;
-		document.getElementById("domain_transaction").innerText = newdomainfield + ": This date plus time is for search engines to check for annual renewal.";
+		document.getElementById("domain_transaction").innerText = newdomainfield + ": Search engines can limit display to annually confirmed domains.";
 		document.getElementById("registrar_web_id").innerText = newcontactfield;
 		document.getElementById("registrar_abuse_email").innerText = "Contact details to report abuse may become mandatory for a registrar.";
 		document.getElementById("registrar_protected").innerText = newcontactfield;
@@ -174,7 +174,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("view_type").innerText = "Typen: alle, isp (Internet Service Provider), öffentlich";
 		document.getElementById("domain_status").innerText = "Status: frei, zurückgezogen, ausgeschlossen, beantragt, aktiv, inaktiv, in Quarantäne.";
 		document.getElementById("domain_status_codes").innerText = "Statuscodes: " + statuscodes;
-		document.getElementById("domain_transaction").innerText = newdomainfield + ": Dieses Datum und die Uhrzeit dienen Suchmaschinen zur Prüfung auf jährliche Erneuerung.";
+		document.getElementById("domain_transaction").innerText = newdomainfield + ": Suchmaschinen können die Anzeige auf jährlich bestätigte Domains beschränken.";
 		document.getElementById("registrar_abuse_email").innerText = "Kontaktdaten zum Melden von Missbrauch können für einen Registrar obligatorisch werden.";
 		document.getElementById("registrar_web_id").innerText = newcontactfield;
 		document.getElementById("registrar_protected").innerText = newcontactfield;
@@ -204,7 +204,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("view_type").innerText = "Types : toutes, FSI (fournisseur de service Internet), public";
 		document.getElementById("domain_status").innerText = "Statuts : libre, retiré, exclu, demandé, actif, inactif, en quarantaine.";
 		document.getElementById("domain_status_codes").innerText = "Codes de statuts : " + statuscodes;
-		document.getElementById("domain_transaction").innerText = newdomainfield + " : Cette date et cette heure permettent aux moteurs de recherche de vérifier le renouvellement annuel.";
+		document.getElementById("domain_transaction").innerText = newdomainfield + " : Les moteurs de recherche peuvent limiter l'affichage aux domaines confirmés annuellement.";
 		document.getElementById("registrar_web_id").innerText = newcontactfield;
 		document.getElementById("registrar_abuse_email").innerText = "Les coordonnées pour signaler un abus peuvent devenir obligatoires pour un bureau d'enregistrement.";
 		document.getElementById("registrar_protected").innerText = newcontactfield;
