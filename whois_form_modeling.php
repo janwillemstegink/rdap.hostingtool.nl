@@ -121,7 +121,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_protected").innerText = newcontactfield;
 		document.getElementById("registrant_web_id").innerText = 'Het webid-identificatienummer in het Handelsregister is in de ontwerpfase.';
 		document.getElementById("registrant_trade_name").innerText = "Het Handelsregister kan matchen met een bestaande, beoogde en zichtbare handelsnaam.";
-		document.getElementById("registrant_personal_public").innerText = "Bij zakelijk gebruik dient de handelsnaam, anders de persoonsnaam, zichtbaar te zijn.";
+		document.getElementById("registrant_personal_public").innerText = "Voor zakelijk gebruik zonder handelsnaam kan de persoonlijke naam zichtbaar zijn.";
 		document.getElementById("registrant_personal_name").innerText = "De privacybescherming van de persoonlijke naam van de houder geldt niet altijd.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
 		document.getElementById("admin_web_id").innerText = "";
@@ -150,7 +150,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_protected").innerText = newcontactfield;
 		document.getElementById("registrant_web_id").innerText = 'The webid identification number in the Trade Register is in the design phase.';
 		document.getElementById("registrant_trade_name").innerText = "The Trade Register can match an existing, intended and visible trade name.";	
-		document.getElementById("registrant_personal_public").innerText = "For business use, the trade name, otherwise the personal name, must be visible.";
+		document.getElementById("registrant_personal_public").innerText = "For business use without a trade name, the personal name can be visible.";
 		document.getElementById("registrant_personal_name").innerText = "The privacy protection of the holder's personal name does not always apply.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
 		document.getElementById("admin_web_id").innerText = "";
@@ -179,7 +179,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_protected").innerText = newcontactfield;
 		document.getElementById("registrant_web_id").innerText = 'Die Webid-Identifikationsnummer im Handelsregister befindet sich in der Konzeptionsphase.';
 		document.getElementById("registrant_trade_name").innerText = "Das Handelsregister kann mit einem bestehenden, beabsichtigten und sichtbaren Handelsnamen übereinstimmen.";
-		document.getElementById("registrant_personal_public").innerText = "Bei geschäftlicher Nutzung muss der Handelsname, ansonsten der Personenname, ersichtlich sein.";
+		document.getElementById("registrant_personal_public").innerText = "Für die geschäftliche Nutzung ohne Handelsnamen kann der persönliche Name sichtbar sein.";
 		document.getElementById("registrant_personal_name").innerText = "Der Datenschutz des Personennamens des Inhabers gilt nicht immer.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
 		document.getElementById("admin_web_id").innerText = "";
@@ -208,7 +208,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_protected").innerText = newcontactfield;
 		document.getElementById("registrant_web_id").innerText = "Le numéro d'identification webid au registre du commerce est en phase de conception.";
 		document.getElementById("registrant_trade_name").innerText = "Le registre du commerce peut correspondre à un nom commercial existant, prévu et visible.";
-		document.getElementById("registrant_personal_public").innerText = "Pour un usage professionnel, le nom commercial, sinon le nom personnel, doit être visible.";
+		document.getElementById("registrant_personal_public").innerText = "Pour une utilisation professionnelle sans nom commercial, le nom personnel peut être visible.";
 		document.getElementById("registrant_personal_name").innerText = "La protection de la vie privée du nom personnel du titulaire ne s'applique pas toujours.";
 		document.getElementById("registrant_protected").innerText = newcontactfield;
 		document.getElementById("admin_web_id").innerText = "";
