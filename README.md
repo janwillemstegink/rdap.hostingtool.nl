@@ -1,4 +1,4 @@
-- The WHOIS properties of a web domain can be informative;
+- The WHOIS properties of a web domain can become informative to use;
 - Business transparency needs to be combined with privacy of a natural person;
 - Better public understanding clears up workload for registrars;
 - Interfaces can recognize ‘Personal private use’, ‘Personal public use’ and ‘Business use';
