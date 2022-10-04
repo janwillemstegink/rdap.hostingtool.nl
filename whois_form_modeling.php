@@ -1,6 +1,6 @@
 <?php
 session_start();  // is needed with no PHP Generator Scriptcase
-$inputlanguage = 0;
+$inputlanguage = 2;
 echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta charset="UTF-8" />
@@ -120,9 +120,9 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_trade_name").innerText = "De verwerkersovereenkomst kan tussen de reseller en de houder zijn.";
 		document.getElementById("reseller_protected").innerText = derivedfield;
 		document.getElementById("registrant_web_id").innerText = 'Het web-ID identificatienummer is in voorbereiding voor de Handelsregisters.';
-		document.getElementById("registrant_trade_name").innerText = "WHOIS biedt informatie met een bestaande, beoogde en zichtbare handelsnaam.";
-		document.getElementById("registrant_personal_public").innerText = "De persoonsnaam kan zichtbaar zijn voor zakelijk gebruik zonder handelsnaam.";
-		document.getElementById("registrant_personal_name").innerText = "De bescherming van de privacy van de persoonsnaam van de houder is niet doorslaggevend.";
+		document.getElementById("registrant_trade_name").innerText = "WHOIS is informatief bij een bestaande, beoogde en zichtbare handelsnaam.";
+		document.getElementById("registrant_personal_public").innerText = "De persoonsnaam kan openbaar zijn bij zakelijk gebruik zonder handelsnaam.";
+		document.getElementById("registrant_personal_name").innerText = "Het is mogelijk om af te wijken van de bescherming van de privacy van de persoonsnaam van de houder.";
 		document.getElementById("registrant_protected").innerText = derivedfield;
 		document.getElementById("admin_web_id").innerText = "";
 		document.getElementById("admin_email").innerText = "Het administratief aanspreekpunt beantwoordt een verzoek, en stuurt het indien nodig door.";
@@ -149,9 +149,9 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_trade_name").innerText = "The processing agreement may be between the reseller and the holder.";
 		document.getElementById("reseller_protected").innerText = derivedfield;
 		document.getElementById("registrant_web_id").innerText = 'The web ID identification number is being prepared for the Trade Registers.';
-		document.getElementById("registrant_trade_name").innerText = "WHOIS provides information with an existing, intended and visible trade name.";	
-		document.getElementById("registrant_personal_public").innerText = "The person's name may be visible for business use without a trade name.";
-		document.getElementById("registrant_personal_name").innerText = "The protection of the privacy of the holder's personal name is not decisive.";
+		document.getElementById("registrant_trade_name").innerText = "WHOIS is informative with an existing, intended and visible trade name.";	
+		document.getElementById("registrant_personal_public").innerText = "The personal name may be public for business use without a trade name.";
+		document.getElementById("registrant_personal_name").innerText = "It is possible to deviate from the privacy protection of the holder's personal name.";
 		document.getElementById("registrant_protected").innerText = derivedfield;
 		document.getElementById("admin_web_id").innerText = "";
 		document.getElementById("admin_email").innerText = "The administratively responsible desk answers a request, and forwards it if necessary.";
@@ -178,9 +178,9 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_trade_name").innerText = "Die Verarbeitungsvereinbarung kann zwischen dem Wiederverkäufer und dem Halter abgeschlossen werden.";
 		document.getElementById("reseller_protected").innerText = derivedfield;
 		document.getElementById("registrant_web_id").innerText = 'Die Web-ID-Identifikationsnummer wird für die Handelsregister vorbereitet.';
-		document.getElementById("registrant_trade_name").innerText = "WHOIS liefert Informationen mit einem bestehenden, beabsichtigten und sichtbaren Handelsnamen.";
-		document.getElementById("registrant_personal_public").innerText = "Der Name der Person kann für geschäftliche Zwecke ohne Handelsnamen sichtbar sein.";
-		document.getElementById("registrant_personal_name").innerText = "Der Schutz der Privatsphäre des Personennamens des Inhabers ist nicht entscheidend.";
+		document.getElementById("registrant_trade_name").innerText = "WHOIS ist informativ mit einem bestehenden, beabsichtigten und sichtbaren Handelsnamen.";
+		document.getElementById("registrant_personal_public").innerText = "Der Personenname kann im geschäftlichen Gebrauch ohne Handelsnamen öffentlich sein.";
+		document.getElementById("registrant_personal_name").innerText = "Es ist möglich, vom Datenschutz des Personennamens des Inhabers abzuweichen.";
 		document.getElementById("registrant_protected").innerText = derivedfield;
 		document.getElementById("admin_web_id").innerText = "";
 		document.getElementById("admin_email").innerText = "Die administrativ zuständige Stelle beantwortet eine Anfrage und leitet diese gegebenenfalls weiter.";
@@ -207,9 +207,9 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_trade_name").innerText = "L'accord de traitement peut être conclu entre le revendeur et le titulaire.";
 		document.getElementById("reseller_protected").innerText = derivedfield;
 		document.getElementById("registrant_web_id").innerText = "Le numéro d'identification web ID est en cours d'élaboration pour les registres du commerce.";
-		document.getElementById("registrant_trade_name").innerText = "WHOIS fournit des informations avec un nom commercial existant, prévu et visible.";
-		document.getElementById("registrant_personal_public").innerText = "Le nom de la personne peut être visible pour un usage professionnel sans nom commercial.";
-		document.getElementById("registrant_personal_name").innerText = "La protection de la confidentialité du nom personnel du titulaire n'est pas déterminante.";
+		document.getElementById("registrant_trade_name").innerText = "Le WHOIS est informatif avec un nom commercial existant, prévu et visible.";
+		document.getElementById("registrant_personal_public").innerText = "Le nom personnel peut être public à usage commercial sans nom commercial.";
+		document.getElementById("registrant_personal_name").innerText = "Il est possible de déroger à la protection de la vie privée du nom personnel du titulaire.";
 		document.getElementById("registrant_protected").innerText = derivedfield;
 		document.getElementById("admin_web_id").innerText = "";
 		document.getElementById("admin_email").innerText = "Le bureau administrativement responsable répond à une demande, et la transmet si nécessaire.";
