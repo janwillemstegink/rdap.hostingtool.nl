@@ -1,5 +1,5 @@
 - The WHOIS properties of a web domain can become informative to outsiders;
-- Business transparency needs to be combined with privacy of a natural person;
+- Business transparency must be combined with privacy of a natural person;
 - Better public understanding clears up workload for registrars;
 - Interfaces can recognize ‘Personal private use’, ‘Personal public use’ and ‘Business use';
 - The name and contact details of the holder matter for customer protection, manageable administrative workload and for an 'In Control Statement' (ICS);
