@@ -2,7 +2,7 @@
 - Business transparency must be combined with privacy of a natural person;
 - Better public understanding clears up workload for registrars;
 - Interfaces can recognize ‘Personal private use’, ‘Personal public use’ and ‘Business use';
-- The name and contact details of the holder matter for customer protection, manageable administrative workload and for an 'In Control Statement' (ICS);
+- The name and contact details of the holder matter for customer protection, manageable administrative workload and an 'In Control Statement' (ICS);
 - Legal structure for Whois can arise after narrowing down physical structure first.
 
 Discussing globally can, I think, proceed by country along with modeling of non-centralized server communications in XML. For the increasing number of top-level domains, a database per continent can indicate the Whois server name of a top-level zone plus other static values. Servers of the RIPE organization could fit. My XML zone file is modeled to contain the necessary top-level data for download once a day.
