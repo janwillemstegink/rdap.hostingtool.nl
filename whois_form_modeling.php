@@ -298,7 +298,7 @@ else	{
 $html_text = '<body onload=SwitchTranslation('.$inputlanguage.')><div style="border-collapse:collapse; line-height:120%">
 <table style="font-family:Helvetica, Arial, sans-serif; font-size: 1rem">
 <tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th></tr>';
-$html_text .= '<tr><td id="title" style="font-size: 1.5rem;font-weight:bold"></td><td id="data" style="font-size:1.2rem;font-weight:bold"></td>
+$html_text .= '<tr><td id="title" style="font-size: 1.5rem;color:blue;font-weight:bold"></td><td id="data" style="font-size:1.2rem;color:blue;font-weight:bold"></td>
 <td style="font-size: .9rem"><a href="https://www.sidn.nl/en/whois?q=webhostingtech.nl" target="_blank">sidn.nl/en/whois?q=webhostingtech.nl/whois</a>
 - <a href="https://github.com/janwillemstegink/xml-whois" target="_blank">github.com/janwillemstegink/xml-whois</a>
 - <a href="">future detailed work instructions</a></td></tr>';
