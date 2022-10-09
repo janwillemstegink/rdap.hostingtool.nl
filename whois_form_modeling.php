@@ -127,7 +127,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_role").textContent = "Een domain reseller kan verantwoordelijk zijn voor de verwerking van de gegevens van de houder.";
 		document.getElementById("reseller_web_id").textContent = "";
 		document.getElementById("reseller_protected").textContent = derivedfield;
-		document.getElementById("registrant_role").textContent = "Een domain registrant heeft tenminste de abonnementsrechten van een domein.";
+		document.getElementById("registrant_role").textContent = "Een domeinhouder heeft tenminste de abonnementsrechten van een domein.";
 		document.getElementById("registrant_web_id").textContent = 'Het web-ID identificatienummer is in voorbereiding voor de Handelsregisters.';
 		document.getElementById("registrant_trade_name").textContent = "WHOIS is informatief bij een bestaande, beoogde en zichtbare handelsnaam.";
 		document.getElementById("registrant_personal_public").textContent = "De persoonsnaam kan openbaar zijn bij zakelijk gebruik zonder handelsnaam.";
