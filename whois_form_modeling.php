@@ -127,7 +127,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_role").textContent = "Een domain reseller kan verantwoordelijk zijn voor de verwerking van de gegevens van de houder.";
 		document.getElementById("reseller_web_id").textContent = "";
 		document.getElementById("reseller_protected").textContent = derivedfield;
-		document.getElementById("registrant_role").textContent = "Een domeinhouder heeft tenminste de abonnementsrechten van een domein.";
+		document.getElementById("registrant_role").textContent = "Een domeinhouder heeft tenminste de rechten van een abonnement van zijn domein.";
 		document.getElementById("registrant_web_id").textContent = 'Het web-ID identificatienummer is in voorbereiding voor de Handelsregisters.';
 		document.getElementById("registrant_trade_name").textContent = "WHOIS is informatief bij een bestaande, beoogde en zichtbare handelsnaam.";
 		document.getElementById("registrant_personal_public").textContent = "De persoonsnaam kan openbaar zijn bij zakelijk gebruik zonder handelsnaam.";
@@ -162,7 +162,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_role").textContent = "A domain reseller may be responsible for processing of the holder's data.";
 		document.getElementById("reseller_web_id").textContent = "";
 		document.getElementById("reseller_protected").textContent = derivedfield;
-		document.getElementById("registrant_role").textContent = "A domain registrant has at least the subscription rights of a domain.";
+		document.getElementById("registrant_role").textContent = "A domain holder has at least the rights of a subscription of his domain.";
 		document.getElementById("registrant_web_id").textContent = 'The web ID identification number is being prepared for the Trade Registers.';
 		document.getElementById("registrant_trade_name").textContent = "WHOIS is informative with an existing, intended and visible trade name.";	
 		document.getElementById("registrant_personal_public").textContent = "The personal name may be public for business use without a trade name.";
@@ -197,7 +197,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_role").textContent = "Ein Domain-Wiederverkäufer kann für die Verarbeitung der Daten des Inhabers verantwortlich sein.";
 		document.getElementById("reseller_web_id").textContent = "";
 		document.getElementById("reseller_protected").textContent = derivedfield;
-		document.getElementById("registrant_role").textContent = "Ein Domain-Registrant hat mindestens die Bezugsrechte einer Domain.";
+		document.getElementById("registrant_role").textContent = "Ein Domaininhaber hat zumindest die Rechte eines Abonnements seiner Domain.";
 		document.getElementById("registrant_web_id").textContent = 'Die Web-ID-Identifikationsnummer wird für die Handelsregister vorbereitet.';
 		document.getElementById("registrant_trade_name").textContent = "WHOIS ist informativ mit einem bestehenden, beabsichtigten und sichtbaren Handelsnamen.";
 		document.getElementById("registrant_personal_public").textContent = "Der Personenname kann im geschäftlichen Gebrauch ohne Handelsnamen öffentlich sein.";
@@ -232,7 +232,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_role").textContent = "Un revendeur de domaine peut être responsable du traitement des données du titulaire.";
 		document.getElementById("reseller_web_id").textContent = "";
 		document.getElementById("reseller_protected").textContent = derivedfield;
-		document.getElementById("registrant_role").textContent = "Un titulaire de nom de domaine a au moins les droits d'abonnement d'un domaine.";
+		document.getElementById("registrant_role").textContent = "Un titulaire de domaine a au moins les droits d'un abonnement de son domaine.";
 		document.getElementById("registrant_web_id").textContent = "Le numéro d'identification web ID est en cours d'élaboration pour les registres du commerce.";
 		document.getElementById("registrant_trade_name").textContent = "Le WHOIS est informatif avec un nom commercial existant, prévu et visible.";
 		document.getElementById("registrant_personal_public").textContent = "Le nom personnel peut être public à usage commercial sans nom commercial.";
