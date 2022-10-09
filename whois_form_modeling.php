@@ -116,7 +116,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("title").textContent = "WHOIS-modellering";
 		document.getElementById("data").textContent = "webhostingtech.nl";
 		document.getElementById("view_type").textContent = "Typen: alles, isp (Internet Service Provider), publiek";
-		document.getElementById("domain_role").textContent = "Een domeinnaam identificeert bestuurlijke autonomie, autoriteit of controle binnen het internet.";
+		document.getElementById("domain_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
 		document.getElementById("domain_status").textContent = "Statussen: vrij, onttrokken, uitgesloten, in aanvraag, actief, inactief, in quarantaine.";
 		document.getElementById("domain_status_codes").textContent = "Statuscodes: " + statuscodes;
 		document.getElementById("domain_renewed").textContent = newfield + ": Zoekmachines kunnen filteren op 'actief' en een transactie die niet ouder is dan een jaar.";
@@ -151,7 +151,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("title").textContent = "WHOIS modeling";
 		document.getElementById("data").textContent = "webhostingtech.nl";
 		document.getElementById("view_type").textContent = "Types: all, isp (Internet Service Provider), public";
-		document.getElementById("domain_role").textContent = "A domain name identifies administrative autonomy, authority or control within the Internet.";
+		document.getElementById("domain_role").textContent = "A web domain under a top-level domain is unique worldwide and can be freely chosen under certain rules.";
 		document.getElementById("domain_status").textContent = "Statusses: free, withdrawn, excluded, requested, active, inactive, in quarantaine.";
 		document.getElementById("domain_status_codes").textContent = "Status codes: " + statuscodes;
 		document.getElementById("domain_renewed").textContent = newfield + ": Search engines can filter by 'active' and a transaction that is not older than one year.";
@@ -186,7 +186,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("title").textContent = "WHOIS-Modellierung";
 		document.getElementById("data").textContent = "webhostingtech.nl";
 		document.getElementById("view_type").textContent = "Typen: alle, isp (Internet Service Provider), öffentlich";
-		document.getElementById("domain_role").textContent = "Ein Domänenname kennzeichnet administrative Autonomie, Autorität oder Kontrolle innerhalb des Internets.";
+		document.getElementById("domain_role").textContent = "Eine Webdomain unter einer Top-Level-Domain ist weltweit einzigartig und unter bestimmten Regeln frei wählbar.";
 		document.getElementById("domain_status").textContent = "Status: frei, zurückgezogen, ausgeschlossen, beantragt, aktiv, inaktiv, in Quarantäne.";
 		document.getElementById("domain_status_codes").textContent = "Statuscodes: " + statuscodes;
 		document.getElementById("domain_renewed").textContent = newfield + ": Suchmaschinen können nach „aktiv“ und einer Transaktion filtern, die nicht älter als ein Jahr ist.";
@@ -221,7 +221,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("title").textContent = "Modélisation WHOIS";
 		document.getElementById("data").textContent = "webhostingtech.nl";
 		document.getElementById("view_type").textContent = "Types : toutes, FSI (fournisseur de service Internet), public";
-		document.getElementById("domain_role").textContent = "Un nom de domaine identifie l'autonomie administrative, l'autorité ou le contrôle au sein d'Internet.";
+		document.getElementById("domain_role").textContent = "Un domaine Web sous un domaine de premier niveau est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_status").textContent = "Statuts : libre, retiré, exclu, demandé, actif, inactif, en quarantaine.";
 		document.getElementById("domain_status_codes").textContent = "Codes de statuts : " + statuscodes;
 		document.getElementById("domain_renewed").textContent = newfield + " : Les moteurs de recherche peuvent filtrer par 'actif' et une transaction datant de moins d'un an.";
