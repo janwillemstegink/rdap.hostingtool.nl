@@ -139,7 +139,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("tech_role").textContent = "Een technisch contact reageert om een gemelde storing op te lossen.";
 		document.getElementById("tech_web_id").textContent = "";
 		document.getElementById("tech_protected").textContent = derivedfield;
-		document.getElementById("billing_role").textContent = "Een domain registry kan gegevens registreren voor facturatiedoeleinden.";
+		document.getElementById("billing_role").textContent = "Sommige registers houden gegevens bij om hun facturering uit te voeren.";
 		document.getElementById("billing_protected").textContent = derivedfield;
 		document.getElementById("name_servers_role").textContent = "Naamservers helpen URL's om verbinding te maken met het IP-adres van webservers.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
@@ -174,7 +174,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("tech_role").textContent = "A technical contact responds to resolve a reported malfunction.";
 		document.getElementById("tech_web_id").textContent = "";
 		document.getElementById("tech_protected").textContent = derivedfield;
-		document.getElementById("billing_role").textContent = "A domain registry can register data for billing purposes.";
+		document.getElementById("billing_role").textContent = "Some registries maintain records to perform their billing.";
 		document.getElementById("billing_protected").textContent = derivedfield;
 		document.getElementById("name_servers_role").textContent = "Name Servers help URLs connect to the IP address of web servers.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
@@ -209,7 +209,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("tech_role").textContent = "Ein technischer Kontakt reagiert, um eine gemeldete Störung zu beheben.";
 		document.getElementById("tech_web_id").textContent = "";
 		document.getElementById("tech_protected").textContent = derivedfield;
-		document.getElementById("billing_role").textContent = "Eine Domänenregistrierungsstelle kann Daten für Abrechnungszwecke registrieren.";
+		document.getElementById("billing_role").textContent = "Einige Registrierungsstellen führen Aufzeichnungen, um ihre Abrechnung durchzuführen.";
 		document.getElementById("billing_protected").textContent = derivedfield;
 		document.getElementById("name_servers_role").textContent = "Nameserver helfen URLs, sich mit der IP-Adresse von Webservern zu verbinden.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
@@ -244,7 +244,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("tech_role").textContent = "Un contact technique répond pour résoudre un dysfonctionnement signalé.";
 		document.getElementById("tech_web_id").textContent = "";
 		document.getElementById("tech_protected").textContent = derivedfield;
-		document.getElementById("billing_role").textContent = "Un registre de domaine peut enregistrer des données à des fins de facturation.";
+		document.getElementById("billing_role").textContent = "Certains registres conservent des enregistrements pour effectuer leur facturation.";
 		document.getElementById("billing_protected").textContent = derivedfield;
 		document.getElementById("name_servers_role").textContent = "Les serveurs de noms aident les URL à se connecter à l'adresse IP des serveurs Web.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
