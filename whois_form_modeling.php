@@ -6,7 +6,7 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 <meta charset="UTF-8" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
 <meta name="robots" content="index" />
-<title>WHOIS modeling</title>';
+<title>Whois modeling</title>';
 ?><script>
 function SwitchDisplay(type) {
 	if (type == 20)	{ // domain
@@ -77,8 +77,8 @@ function SwitchTranslation(inputlanguage)	{
 	if (inputlanguage == 0)	{
 		var newfield = '';
 		var derivedfield = '';
-		document.getElementById("title").textContent = "WHOIS";
-		document.getElementById("data").textContent = "webhostingtech.nl";
+		document.getElementById("title").textContent = "Whois";
+		document.getElementById("data").textContent = "";
 		document.getElementById("view_type").textContent = "";
 		document.getElementById("domain_role").textContent = "";
 		document.getElementById("domain_status").textContent = "";
@@ -113,8 +113,8 @@ function SwitchTranslation(inputlanguage)	{
 		var newfield = 'NIEUW';
 		var derivedfield = 'NIEUW: Niet-openbare gegevens';
 		var url = '<a href="https://www.icann.org/en/system/files/files/epp-status-codes-30jun11-en.pdf" target="_blank">www.icann.org/en/system/files/files/epp-status-codes-30jun11-en.pdf</a>';
-		document.getElementById("title").textContent = "WHOIS-modellering";
-		document.getElementById("data").textContent = "webhostingtech.nl";
+		document.getElementById("title").textContent = "Whois-modellering";
+		document.getElementById("data").textContent = "Domeinnaamgegevens";
 		document.getElementById("view_type").textContent = "Typen: alles, isp (Internet Service Provider), publiek";
 		document.getElementById("domain_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
 		document.getElementById("domain_status").textContent = "Statussen: vrij, onttrokken, uitgesloten, in aanvraag, actief, inactief, in quarantaine.";
@@ -129,7 +129,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_protected").textContent = derivedfield;
 		document.getElementById("registrant_role").textContent = "Een domeinhouder heeft tenminste de rechten van een abonnement op zijn domein.";
 		document.getElementById("registrant_web_id").textContent = 'Het web-ID identificatienummer is in voorbereiding voor de Handelsregisters.';
-		document.getElementById("registrant_trade_name").textContent = "WHOIS is informatief bij een bestaande, beoogde en zichtbare handelsnaam.";
+		document.getElementById("registrant_trade_name").textContent = "Whois is informatief bij een bestaande, beoogde en zichtbare handelsnaam.";
 		document.getElementById("registrant_personal_public").textContent = "De persoonsnaam kan openbaar zijn bij zakelijk gebruik zonder handelsnaam.";
 		document.getElementById("registrant_personal_name").textContent = "Het is mogelijk om af te wijken van de bescherming van de privacy van de persoonsnaam van de houder.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
@@ -148,8 +148,8 @@ function SwitchTranslation(inputlanguage)	{
 	else if (inputlanguage == 2)	{
 		var newfield = 'NEW';
 		var derivedfield = 'NEW: Non-public data';
-		document.getElementById("title").textContent = "WHOIS modeling";
-		document.getElementById("data").textContent = "webhostingtech.nl";
+		document.getElementById("title").textContent = "Whois modeling";
+		document.getElementById("data").textContent = "Domain Name Details";
 		document.getElementById("view_type").textContent = "Types: all, isp (Internet Service Provider), public";
 		document.getElementById("domain_role").textContent = "A web domain under a top-level domain is unique worldwide and can be freely chosen under certain rules.";
 		document.getElementById("domain_status").textContent = "Statusses: free, withdrawn, excluded, requested, active, inactive, in quarantaine.";
@@ -164,7 +164,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_protected").textContent = derivedfield;
 		document.getElementById("registrant_role").textContent = "A domain holder has at least the rights of a subscription to his domain.";
 		document.getElementById("registrant_web_id").textContent = 'The web ID identification number is being prepared for the Trade Registers.';
-		document.getElementById("registrant_trade_name").textContent = "WHOIS is informative with an existing, intended and visible trade name.";	
+		document.getElementById("registrant_trade_name").textContent = "Whois is informative with an existing, intended and visible trade name.";	
 		document.getElementById("registrant_personal_public").textContent = "The personal name may be public for business use without a trade name.";
 		document.getElementById("registrant_personal_name").textContent = "It is possible to deviate from the privacy protection of the holder's personal name.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
@@ -183,8 +183,8 @@ function SwitchTranslation(inputlanguage)	{
 	else if (inputlanguage == 3)	{
 		var newfield = 'NEU';
 		var derivedfield = 'NEU: Nicht öffentliche Daten';
-		document.getElementById("title").textContent = "WHOIS-Modellierung";
-		document.getElementById("data").textContent = "webhostingtech.nl";
+		document.getElementById("title").textContent = "Whois-Modellierung";
+		document.getElementById("data").textContent = "Details zum Domänennamen";
 		document.getElementById("view_type").textContent = "Typen: alle, isp (Internet Service Provider), öffentlich";
 		document.getElementById("domain_role").textContent = "Eine Webdomain unter einer Top-Level-Domain ist weltweit einzigartig und unter bestimmten Regeln frei wählbar.";
 		document.getElementById("domain_status").textContent = "Status: frei, zurückgezogen, ausgeschlossen, beantragt, aktiv, inaktiv, in Quarantäne.";
@@ -199,7 +199,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_protected").textContent = derivedfield;
 		document.getElementById("registrant_role").textContent = "Ein Domaininhaber hat zumindest die Rechte eines Abonnements seiner Domain.";
 		document.getElementById("registrant_web_id").textContent = 'Die Web-ID-Identifikationsnummer wird für die Handelsregister vorbereitet.';
-		document.getElementById("registrant_trade_name").textContent = "WHOIS ist informativ mit einem bestehenden, beabsichtigten und sichtbaren Handelsnamen.";
+		document.getElementById("registrant_trade_name").textContent = "Whois ist informativ mit einem bestehenden, beabsichtigten und sichtbaren Handelsnamen.";
 		document.getElementById("registrant_personal_public").textContent = "Der Personenname kann im geschäftlichen Gebrauch ohne Handelsnamen öffentlich sein.";
 		document.getElementById("registrant_personal_name").textContent = "Es ist möglich, vom Datenschutz des Personennamens des Inhabers abzuweichen.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
@@ -218,8 +218,8 @@ function SwitchTranslation(inputlanguage)	{
 	else if (inputlanguage == 4)	{
 		var newfield = 'NOUVEAU';
 		var derivedfield = 'NOUVEAU : Données non publiques';
-		document.getElementById("title").textContent = "Modélisation WHOIS";
-		document.getElementById("data").textContent = "webhostingtech.nl";
+		document.getElementById("title").textContent = "Modélisation Whois";
+		document.getElementById("data").textContent = "Détails du nom de domaine";
 		document.getElementById("view_type").textContent = "Types : toutes, FSI (fournisseur de service Internet), public";
 		document.getElementById("domain_role").textContent = "Un domaine Web sous un domaine de premier niveau est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_status").textContent = "Statuts : libre, retiré, exclu, demandé, actif, inactif, en quarantaine.";
@@ -234,7 +234,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_protected").textContent = derivedfield;
 		document.getElementById("registrant_role").textContent = "Un titulaire de domaine a au moins les droits d'un abonnement à son domaine.";
 		document.getElementById("registrant_web_id").textContent = "Le numéro d'identification web ID est en cours d'élaboration pour les registres du commerce.";
-		document.getElementById("registrant_trade_name").textContent = "Le WHOIS est informatif avec un nom commercial existant, prévu et visible.";
+		document.getElementById("registrant_trade_name").textContent = "Le Whois est informatif avec un nom commercial existant, prévu et visible.";
 		document.getElementById("registrant_personal_public").textContent = "Le nom personnel peut être public à usage commercial sans nom commercial.";
 		document.getElementById("registrant_personal_name").textContent = "Il est possible de déroger à la protection de la vie privée du nom personnel du titulaire.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
