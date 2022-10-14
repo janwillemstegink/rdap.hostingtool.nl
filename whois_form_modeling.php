@@ -115,7 +115,7 @@ function SwitchTranslation(inputlanguage)	{
 		var url = '<a href="https://www.icann.org/en/system/files/files/epp-status-codes-30jun11-en.pdf" target="_blank">www.icann.org/en/system/files/files/epp-status-codes-30jun11-en.pdf</a>';
 		document.getElementById("title").textContent = "Whois-modellering";
 		document.getElementById("data").textContent = "Domeinnaamgegevens";
-		document.getElementById("view_type").textContent = "Typen: alles, isp (Internet Service Provider), publiek";
+		document.getElementById("view_type").textContent = "Typen: alles, isp (Internet Service Provider), publiek, se (zoekmachine)";
 		document.getElementById("domain_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
 		document.getElementById("domain_status").textContent = "Statussen: vrij, onttrokken, uitgesloten, in aanvraag, actief, inactief, in quarantaine.";
 		document.getElementById("domain_status_codes").textContent = "Statuscodes: " + statuscodes;
@@ -150,7 +150,7 @@ function SwitchTranslation(inputlanguage)	{
 		var derivedfield = 'NEW: Non-public data';
 		document.getElementById("title").textContent = "Whois modeling";
 		document.getElementById("data").textContent = "Domain Name Details";
-		document.getElementById("view_type").textContent = "Types: all, isp (Internet Service Provider), public";
+		document.getElementById("view_type").textContent = "Types: all, isp (Internet Service Provider), public, se (Search Engine)";
 		document.getElementById("domain_role").textContent = "A web domain under a top-level domain is unique worldwide and can be freely chosen under certain rules.";
 		document.getElementById("domain_status").textContent = "Statusses: free, withdrawn, excluded, requested, active, inactive, in quarantaine.";
 		document.getElementById("domain_status_codes").textContent = "Status codes: " + statuscodes;
@@ -185,7 +185,7 @@ function SwitchTranslation(inputlanguage)	{
 		var derivedfield = 'NEU: Nicht öffentliche Daten';
 		document.getElementById("title").textContent = "Whois-Modellierung";
 		document.getElementById("data").textContent = "Details zum Domänennamen";
-		document.getElementById("view_type").textContent = "Typen: alle, isp (Internet Service Provider), öffentlich";
+		document.getElementById("view_type").textContent = "Typen: alle, isp (Internet Service Provider), öffentlich, se (Suchmaschine)";
 		document.getElementById("domain_role").textContent = "Eine Webdomain unter einer Top-Level-Domain ist weltweit einzigartig und unter bestimmten Regeln frei wählbar.";
 		document.getElementById("domain_status").textContent = "Status: frei, zurückgezogen, ausgeschlossen, beantragt, aktiv, inaktiv, in Quarantäne.";
 		document.getElementById("domain_status_codes").textContent = "Statuscodes: " + statuscodes;
@@ -220,7 +220,7 @@ function SwitchTranslation(inputlanguage)	{
 		var derivedfield = 'NOUVEAU : Données non publiques';
 		document.getElementById("title").textContent = "Modélisation Whois";
 		document.getElementById("data").textContent = "Détails du nom de domaine";
-		document.getElementById("view_type").textContent = "Types : toutes, FSI (fournisseur de service Internet), public";
+		document.getElementById("view_type").textContent = "Types : toutes, fsi (fournisseur de service Internet), public, se (moteur de recherche)";
 		document.getElementById("domain_role").textContent = "Un domaine Web sous un domaine de premier niveau est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_status").textContent = "Statuts : libre, retiré, exclu, demandé, actif, inactif, en quarantaine.";
 		document.getElementById("domain_status_codes").textContent = "Codes de statuts : " + statuscodes;
