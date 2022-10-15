@@ -41,12 +41,13 @@ $html_text .= '<tr><td style="font-size:1.1rem;color:blue;font-weight:bold"><b>W
 $html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 $html_text .= '<tr><td COLSPAN="2">- English version of this message below –</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />Beste domeinnaamhouder,</td></tr>';
-$html_text .= '<tr><td COLSPAN="2"><br />Je krijgt deze mail omdat je de administratieve contactpersoon bent voor het webdomein webhostingtech.nl.</td></tr>';
+$html_text .= '<tr><td COLSPAN="2"><br />Je krijgt deze mail omdat je de administratieve contactpersoon bent voor onderstaand webdomein.</td></tr>';
 $html_text .= '<tr><td COLSPAN="2">team.blue nl B.V. heeft minimaal één van de houdergegevens gewijzigd. Dit zijn de gegevens:</td></tr>';
 foreach ($xml1->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td COLSPAN="2"><br />Domein / Domain:</td></tr>';
-	$html_text .= '<tr><td>domain_type</td><td>'.$item->domain_type.'</td></tr>';	
+	$html_text .= '<tr><td>domain_name</td><td>'.$item->domain_name.'</td></tr>';
+	$html_text .= '<tr><td>domain_type</td><td>'.$item->domain_type.'</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Houder / Registrant:</td></tr>';
 	$html_text .= '<tr><td>registrant_contact_id</td><td>'.$item->registrant->registrant_contact_id.'</td></tr>';
 	$html_text .= '<tr><td>registrant_web_id</td><td>'.$item->registrant->registrant_web_id.'</td></tr>';
@@ -101,8 +102,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	break;
 }
 $html_text .= '<tr><td COLSPAN="2"><br />Dear registrant,</td></tr>';
-$html_text .= '<tr><td COLSPAN="2"><br />You are receiving this message because you are the administrative contact for web domain webhostingtech.nl.</td></tr>';
-$html_text .= '<tr><td COLSPAN="2">team.blue nl B.V. has changed at least one of the holder details. This information is above.</td></tr>';
+$html_text .= '<tr><td COLSPAN="2"><br />You are receiving this message because you are the administrative contact for the above web domain.</td></tr>';
+$html_text .= '<tr><td COLSPAN="2">team.blue nl B.V. has changed at least one of the holder details. This information is listed.</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />Is something wrong? The company that manages this domain name is: team.blue nl B.V., or the reseller: TransIP.</td></tr>';
 $html_text .= '<tr><td COLSPAN="2">If you as a registrant have access to the menu, then you can be primarily responsible.</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />Kind regards</td></tr>';

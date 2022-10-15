@@ -222,7 +222,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("data").textContent = "Détails du nom de domaine";
 		document.getElementById("view_type").textContent = "Types d'affichage : toutes, fsi (fournisseur de service Internet), public, se (moteur de recherche)";
 		document.getElementById("domain_role").textContent = "Un domaine Web sous un domaine de premier niveau est unique au monde et peut être choisi librement selon certaines règles.";
-		document.getElementById("domain_type").textContent = newfield + " Type de domaine : usage privé personnel, usage public personnel, usage professionnel.";
+		document.getElementById("domain_type").textContent = newfield + " Type de domaine : usage privé personnel, usage public personnel, usage professionnel,";
 		document.getElementById("domain_status").textContent = "Statuts : libre, retiré, exclu, demandé, actif, inactif, en quarantaine.";
 		document.getElementById("domain_status_codes").textContent = "Codes de statuts : " + statuscodes;
 		document.getElementById("domain_renewed").textContent = newfield + " Les moteurs de recherche peuvent filtrer par 'actif' et une transaction datant de moins d'un an.";
