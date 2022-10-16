@@ -119,7 +119,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("view_type").textContent = "Weergavetypen: alles, isp (Internet Service Provider), publiek, se (zoekmachine)";
 		document.getElementById("domain_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
 		document.getElementById("domain_name_unicode").textContent = "Namen met speciale tekens worden opgeslagen als ASCII-tekenreeksen met behulp van Punycode-transcriptie.";
-		document.getElementById("domain_type").textContent = newfield + "Domeintypen: persoonlijk privégebruik, persoonlijk openbaar gebruik, zakelijk gebruik.";
+		document.getElementById("domain_type").textContent = newfield + "Domeintypen: persoonlijk privégebruik, persoonlijk openbaar gebruik, handelsnaam bestaat.";
 		document.getElementById("domain_status").textContent = "Domeinstatussen: vrij, onttrokken, uitgesloten, in aanvraag, actief, inactief, in quarantaine.";
 		document.getElementById("domain_status_codes").textContent = "Statuscodes: " + statuscodes;
 		document.getElementById("domain_renewed").textContent = newfield + "Zoekmachines kunnen filteren op 'actief' en een transactie die niet ouder is dan een jaar.";
@@ -155,7 +155,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("view_type").textContent = "View types: all, isp (Internet Service Provider), public, se (Search Engine)";
 		document.getElementById("domain_role").textContent = "A web domain under a top-level domain is unique worldwide and can be freely chosen under certain rules.";
 		document.getElementById("domain_name_unicode").textContent = "Names with special characters are stored as ASCII strings using Punycode transcription.";
-		document.getElementById("domain_type").textContent = newfield + "Domain types: personal private use, personal public use, business use.";
+		document.getElementById("domain_type").textContent = newfield + "Domain types: personal private use, personal public use, trade name exists.";
 		document.getElementById("domain_status").textContent = "Domain statuses: free, withdrawn, excluded, requested, active, inactive, in quarantaine.";
 		document.getElementById("domain_status_codes").textContent = "Status codes: " + statuscodes;
 		document.getElementById("domain_renewed").textContent = newfield + "Search engines can filter by 'active' and a transaction that is not older than one year.";
@@ -191,7 +191,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("view_type").textContent = "Typen anzeigen: alle, isp (Internet Service Provider), öffentlich, se (Suchmaschine)";
 		document.getElementById("domain_role").textContent = "Eine Webdomain unter einer Top-Level-Domain ist weltweit einzigartig und unter bestimmten Regeln frei wählbar.";
 		document.getElementById("domain_name_unicode").textContent = "Namen mit Sonderzeichen werden mittels Punycode-Transkription als ASCII-Strings gespeichert.";
-		document.getElementById("domain_type").textContent = newfield + "Domain-Typen: persönliche private Nutzung, persönliche öffentliche Nutzung, geschäftliche Nutzung.";
+		document.getElementById("domain_type").textContent = newfield + "Domain-Typen: persönliche private Nutzung, persönliche öffentliche Nutzung, Handelsname existiert.";
 		document.getElementById("domain_status").textContent = "Domänenstatus: frei, zurückgezogen, ausgeschlossen, beantragt, aktiv, inaktiv, in Quarantäne.";
 		document.getElementById("domain_status_codes").textContent = "Statuscodes: " + statuscodes;
 		document.getElementById("domain_renewed").textContent = newfield + "Suchmaschinen können nach „aktiv“ und einer Transaktion filtern, die nicht älter als ein Jahr ist.";
@@ -227,7 +227,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("view_type").textContent = "Types d'affichage : toutes, fsi (fournisseur de service Internet), public, se (moteur de recherche)";
 		document.getElementById("domain_role").textContent = "Un domaine Web sous un domaine de premier niveau est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_name_unicode").textContent = "Les noms avec des caractères spéciaux sont stockés sous forme de chaînes ASCII à l'aide de la transcription Punycode.";
-		document.getElementById("domain_type").textContent = newfield + "Type de domaine : usage privé personnel, usage public personnel, usage professionnel,";
+		document.getElementById("domain_type").textContent = newfield + "Type de domaine : usage privé personnel, usage public personnel, le nom commercial existe.";
 		document.getElementById("domain_status").textContent = "Statuts de domaine : libre, retiré, exclu, demandé, actif, inactif, en quarantaine.";
 		document.getElementById("domain_status_codes").textContent = "Codes de statuts : " + statuscodes;
 		document.getElementById("domain_renewed").textContent = newfield + "Les moteurs de recherche peuvent filtrer par 'actif' et une transaction datant de moins d'un an.";
