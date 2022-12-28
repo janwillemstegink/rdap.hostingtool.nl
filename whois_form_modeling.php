@@ -8,6 +8,7 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 <meta name="robots" content="index" />
 <title>Whois modeling</title>';
 ?><script>
+	
 function SwitchDisplay(type) {
 	if (type == 20)	{ // domain
 		var pre = '20';
@@ -506,8 +507,8 @@ foreach ($xml2->xpath('//zone') as $item)	{
 	$html_text .= '<tr><td><b>zone_whois_server</b></td><td>'.$item->zone_whois_server.'</td><td></td></tr>';
 	$html_text .= '<tr id="1001" style="display:none"><td><b>zone_description</b></td><td>'.$item->zone_description.'</td><td></td></tr>';
 	$html_text .= '<tr id="1002" style="display:none"><td><b>zone_support_email</b></td><td>'.$item->zone_support_email.'</td><td></td></tr>';
-	$html_text .= '<tr id="1003" style="display:none"><td><b>zone_registry_full_name</b></td><td>'.$item->zone_registry_full_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="1004" style="display:none"><td><b>zone_registry_abbreviated_name</b></td><td>'.$item->zone_registry_abbreviated_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="1003" style="display:none"><td><b>zone_registry_name</b></td><td>'.$item->zone_registry_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="1004" style="display:none"><td><b>zone_registry_abbreviation</b></td><td>'.$item->zone_registry_abbreviation.'</td><td></td></tr>';
 	$html_text .= '<tr id="1005" style="display:none"><td><b>zone_registry_web_id</b></td><td>'.$item->zone_registry_web_id.'</td><td></td></tr>';
 	$html_text .= '<tr id="1006" style="display:none"><td><b>zone_time_zone</b></td><td>'.$item->zone_time_zone.'</td><td></td></tr>';
 	$html_text .= '<tr id="1007" style="display:none"><td><b>zone_language</b></td><td>'.$item->zone_language.'</td><td></td></tr>';
