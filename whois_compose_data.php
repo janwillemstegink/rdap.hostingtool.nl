@@ -39,8 +39,8 @@ function write_file2($inputtopleveldomain)	{
 $whois_server = 'whois.domain-zone';
 $description = 'NL Domain zone';
 $support_email = 'support@sidn.nl';
-$registry_full_name = 'Stichting Internet Domeinregistratie Nederland';	
-$registry_abbreviated_name = 'SIDN';
+$registry_name = 'Stichting Internet Domeinregistratie Nederland';	
+$registry_abbreviation = 'SIDN';
 $registry_web_id = '';
 $time_zone = 'Europe/Amsterdam';
 $language = 'nl-NL';
@@ -83,13 +83,13 @@ $zone_support_email = $doc->createElement("zone_support_email");
 $zone_support_email->appendChild($doc->createCDATASection($support_email));	
 $zone->appendChild($zone_support_email);
 	
-$zone_registry_full_name = $doc->createElement("zone_registry_full_name");
-$zone_registry_full_name->appendChild($doc->createCDATASection($registry_full_name));	
-$zone->appendChild($zone_registry_full_name);
+$zone_registry_name = $doc->createElement("zone_registry_name");
+$zone_registry_name->appendChild($doc->createCDATASection($registry_name));	
+$zone->appendChild($zone_registry_name);
 	
-$zone_registry_abbreviated_name = $doc->createElement("zone_registry_abbreviated_name");
-$zone_registry_abbreviated_name->appendChild($doc->createCDATASection($registry_abbreviated_name));	
-$zone->appendChild($zone_registry_abbreviated_name);
+$zone_registry_abbreviation = $doc->createElement("zone_registry_abbreviation");
+$zone_registry_abbreviation->appendChild($doc->createCDATASection($registry_abbreviation));	
+$zone->appendChild($zone_registry_abbreviation);
 	
 $zone_registry_web_id = $doc->createElement("zone_registry_web_id");
 $zone_registry_web_id->appendChild($doc->createCDATASection($registry_web_id));	
@@ -120,5 +120,5 @@ $doc->appendChild($zones);
 	
 //return $doc->saveXML(NULL, LIBXML_NOEMPTYTAG);	
 return $doc->saveXML();
-}							
+}								
 ?>
