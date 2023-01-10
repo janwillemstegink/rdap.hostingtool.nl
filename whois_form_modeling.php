@@ -508,9 +508,9 @@ foreach ($xml1->xpath('//domain') as $item)	{
 foreach ($xml2->xpath('//zone') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(100)">zone +/-</button></td><td></td><td id="zone_role" style="font-weight:bold"></td></tr>';
-	$html_text .= '<tr><td><b>zone_whois_server</b></td><td>'.$item->zone_whois_server.'</td><td></td></tr>';
-	$html_text .= '<tr id="1001" style="display:none"><td><b>zone_description</b></td><td>'.$item->zone_description.'</td><td></td></tr>';
-	$html_text .= '<tr id="1002" style="display:none"><td><b>zone_menu</b></td><td>'.$item->zone_menu.'</td><td id="zone_menu" style="font-style:italic"></td></tr>';
+	$html_text .= '<tr id="1001" style="display:none"><td><b>zone_whois_server</b></td><td>'.$item->zone_whois_server.'</td><td></td></tr>';
+	$html_text .= '<tr id="1002" style="display:none"><td><b>zone_description</b></td><td>'.$item->zone_description.'</td><td></td></tr>';
+	$html_text .= '<tr><td><b>zone_menu</b></td><td>'.$item->zone_menu.'</td><td id="zone_menu" style="font-style:italic"></td></tr>';
 	$html_text .= '<tr id="1003" style="display:none"><td><b>zone_support</b></td><td>'.$item->zone_support.'</td><td></td></tr>';
 	$html_text .= '<tr id="1004" style="display:none"><td><b>zone_registry_name</b></td><td>'.$item->zone_registry_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="1005" style="display:none"><td><b>zone_registry_abbreviation</b></td><td>'.$item->zone_registry_abbreviation.'</td><td></td></tr>';

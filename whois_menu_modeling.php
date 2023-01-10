@@ -33,6 +33,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("procedures").textContent = "Procedures";
 		document.getElementById("statutory_law").textContent = "Wettelijk recht";
 		document.getElementById("judicial_law").textContent = "Rechtersrecht";
+		document.getElementById("common_law").textContent = "Gewoonterecht";
 		document.getElementById("pricing").textContent = "Prijsinformatie";
 		document.getElementById("authorities").textContent = "Gerelateerde instanties";
 	}
@@ -44,6 +45,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("procedures").textContent = "Procedures";
 		document.getElementById("statutory_law").textContent = "Statutory law";
 		document.getElementById("judicial_law").textContent = "Judicial law";
+		document.getElementById("common_law").textContent = "Common law";
 		document.getElementById("pricing").textContent = "Pricing information";
 		document.getElementById("authorities").textContent = "Related authorities";
 	}
@@ -55,6 +57,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("procedures").textContent = "Verfahren";
 		document.getElementById("statutory_law").textContent = "Gesetzesrecht";
 		document.getElementById("judicial_law").textContent = "Gerichtsrecht";
+		document.getElementById("common_law").textContent = "Gewohnheitsrecht";
 		document.getElementById("pricing").textContent = "Preisinformationen";
 		document.getElementById("authorities").textContent = "Zugehörige Behörden";
 	}
@@ -66,6 +69,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("procedures").textContent = "Procédures";
 		document.getElementById("statutory_law").textContent = "Loi statutaire";
 		document.getElementById("judicial_law").textContent = "Droit judiciaire";
+		document.getElementById("common_law").textContent = "Loi commune";
 		document.getElementById("pricing").textContent = "Information sur les prix";
 		document.getElementById("authorities").textContent = "Autorités connexes";
 	}
@@ -89,6 +93,7 @@ $html_text .= '<tr><td id="terms" style="font-weight:bold"></td><td>...hyperlink
 $html_text .= '<tr><td id="procedures" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
 $html_text .= '<tr><td id="statutory_law" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
 $html_text .= '<tr><td id="judicial_law" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
+$html_text .= '<tr><td id="common_law" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
 $html_text .= '<tr><td id="pricing" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
 $html_text .= '<tr><td id="authorities" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
 $html_text .= '</table></div></body></html>';
