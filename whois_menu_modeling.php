@@ -26,10 +26,11 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 100%"><head>
 	
 function SwitchTranslation(inputlanguage)	{
 	if (inputlanguage == 1)	{
-		document.getElementById("title").textContent = "'.nl' zone-informatie";
+		document.getElementById("title").textContent = "Menu voor '.nl' zone-informatie";
 		document.getElementById("find").textContent = "Vind een nieuwe domeinnaam";
 		document.getElementById("view").textContent = "Gegevens van een domein bekijken";
 		document.getElementById("terms").textContent = "Voorwaarden";
+		document.getElementById("additional_terms").textContent = "Aanvullende voorwaarden";
 		document.getElementById("procedures").textContent = "Procedures";
 		document.getElementById("statutory_law").textContent = "Wettelijk recht";
 		document.getElementById("judicial_law").textContent = "Rechtersrecht";
@@ -38,10 +39,11 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("authorities").textContent = "Gerelateerde instanties";
 	}
 	else if (inputlanguage == 2)	{
-		document.getElementById("title").textContent = "'.nl' zone information";
+		document.getElementById("title").textContent = "Menu for '.nl' zone information";
 		document.getElementById("find").textContent = "Find a new domain name";
 		document.getElementById("view").textContent = "View data of a domain";
 		document.getElementById("terms").textContent = "Terms and conditions";
+		document.getElementById("additional_terms").textContent = "Additional terms";
 		document.getElementById("procedures").textContent = "Procedures";
 		document.getElementById("statutory_law").textContent = "Statutory law";
 		document.getElementById("judicial_law").textContent = "Judicial law";
@@ -50,10 +52,11 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("authorities").textContent = "Related authorities";
 	}
 	else if (inputlanguage == 3)	{
-		document.getElementById("title").textContent = "'.nl'-Zoneninformationen";
+		document.getElementById("title").textContent = "Menü für '.nl'-Zoneninformationen";
 		document.getElementById("find").textContent = "Finden Sie einen neuen Domainnamen";
 		document.getElementById("view").textContent = "Daten einer Domain anzeigen";
 		document.getElementById("terms").textContent = "Geschäftsbedingungen";
+		document.getElementById("additional_terms").textContent = "Zusätzliche Bedingungen";
 		document.getElementById("procedures").textContent = "Verfahren";
 		document.getElementById("statutory_law").textContent = "Gesetzesrecht";
 		document.getElementById("judicial_law").textContent = "Gerichtsrecht";
@@ -62,10 +65,11 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("authorities").textContent = "Zugehörige Behörden";
 	}
 	else if (inputlanguage == 4)	{
-		document.getElementById("title").textContent = "Informations sur la zone '.nl'";
+		document.getElementById("title").textContent = "Menu pour les informations de zone '.nl'";
 		document.getElementById("find").textContent = "Trouver un nouveau nom de domaine";
 		document.getElementById("view").textContent = "Afficher les données d'un domaine";
 		document.getElementById("terms").textContent = "Termes et conditions";
+		document.getElementById("additional_terms").textContent = "Termes supplémentaires";
 		document.getElementById("procedures").textContent = "Procédures";
 		document.getElementById("statutory_law").textContent = "Loi statutaire";
 		document.getElementById("judicial_law").textContent = "Droit judiciaire";
@@ -90,6 +94,7 @@ $html_text .= '<tr><td></td><td>
 $html_text .= '<tr><td id="find" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
 $html_text .= '<tr><td id="view" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
 $html_text .= '<tr><td id="terms" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
+$html_text .= '<tr><td id="additional_terms" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
 $html_text .= '<tr><td id="procedures" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
 $html_text .= '<tr><td id="statutory_law" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
 $html_text .= '<tr><td id="judicial_law" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
