@@ -110,7 +110,9 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("name_servers_role").textContent = "";
 		document.getElementById("name_servers_dnssec").textContent = "";
 		document.getElementById("zone_role").textContent = "";
+		document.getElementById("zone_whois_server").textContent = "";
 		document.getElementById("zone_menu").textContent = "";
+		document.getElementById("zone_support").textContent = "";
 	}
 	else if (inputlanguage == 1)	{
 		var newfield = 'NIEUW - ';
@@ -148,7 +150,9 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("name_servers_role").textContent = "Naamservers helpen URL's om verbinding te maken met het IP-adres van webservers.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
 		document.getElementById("zone_role").textContent = "Een domein zone is door de ICANN toegewezen aan een domain registry om domeinen te beheren.";
+		document.getElementById("zone_whois_server").textContent = newfield + "De route van topniveau naar domeinniveau kan generiek worden geprogrammeerd.";
 		document.getElementById("zone_menu").textContent = newfield + "Een uitgebreid vervolgkeuzemenu voor uitleg en details.";
+		document.getElementById("zone_support").textContent = newfield + "Hulp vanuit de registry is mogelijk per e-mail.";
 	}
 	else if (inputlanguage == 2)	{
 		var newfield = 'NEW - ';
@@ -185,7 +189,9 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("name_servers_role").textContent = "Name Servers help URLs connect to the IP address of web servers.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
 		document.getElementById("zone_role").textContent = "A domain zone is assigned by the ICANN to a domain registry to manage domains.";
+		document.getElementById("zone_whois_server").textContent = newfield + "The route from top level to domain level can be programmed generically.";
 		document.getElementById("zone_menu").textContent = newfield + "An extensive drop-down menu for explanations and details.";
+		document.getElementById("zone_support").textContent = newfield + "Help from the registry is possible by e-mail.";
 	}
 	else if (inputlanguage == 3)	{
 		var newfield = 'NEU - ';
@@ -222,7 +228,9 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("name_servers_role").textContent = "Nameserver helfen URLs, sich mit der IP-Adresse von Webservern zu verbinden.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
 		document.getElementById("zone_role").textContent = "Eine Domänenzone wird von ICANN einer Domänenregistrierungsstelle zugewiesen, um Domänen zu verwalten.";
+		document.getElementById("zone_whois_server").textContent = newfield + "Der Weg von der obersten Ebene zur Domänenebene kann generisch programmiert werden.";
 		document.getElementById("zone_menu").textContent = newfield + "Ein umfangreiches Dropdown-Menü für Erklärungen und Details.";
+		document.getElementById("zone_support").textContent = newfield + "Hilfe aus der Registry ist per E-Mail möglich.";
 	}
 	else if (inputlanguage == 4)	{
 		var newfield = 'NOUVEAU - ';
@@ -259,7 +267,9 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("name_servers_role").textContent = "Les serveurs de noms aident les URL à se connecter à l'adresse IP des serveurs Web.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
 		document.getElementById("zone_role").textContent = "Une zone de domaine est attribuée par l'ICANN à un registre de domaine pour gérer les domaines.";
+		document.getElementById("zone_whois_server").textContent = newfield + "La route du niveau supérieur au niveau domaine peut être programmée de manière générique.";
 		document.getElementById("zone_menu").textContent = newfield + "Un vaste menu déroulant pour des explications et des détails.";
+		document.getElementById("zone_support").textContent = newfield + "L'aide du registre est possible par e-mail.";
 	}
 }	
 </script><?php
@@ -508,10 +518,10 @@ foreach ($xml1->xpath('//domain') as $item)	{
 foreach ($xml2->xpath('//zone') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(100)">zone +/-</button></td><td></td><td id="zone_role" style="font-weight:bold"></td></tr>';
-	$html_text .= '<tr id="1001" style="display:none"><td><b>zone_whois_server</b></td><td>'.$item->zone_whois_server.'</td><td></td></tr>';
+	$html_text .= '<tr id="1001" style="display:none"><td><b>zone_whois_server</b></td><td>'.$item->zone_whois_server.'</td><td id="zone_whois_server" style="font-style:italic"></td></tr>';
 	$html_text .= '<tr id="1002" style="display:none"><td><b>zone_description</b></td><td>'.$item->zone_description.'</td><td></td></tr>';
 	$html_text .= '<tr><td><b>zone_menu</b></td><td>'.$item->zone_menu.'</td><td id="zone_menu" style="font-style:italic"></td></tr>';
-	$html_text .= '<tr id="1003" style="display:none"><td><b>zone_support</b></td><td>'.$item->zone_support.'</td><td></td></tr>';
+	$html_text .= '<tr id="1003" style="display:none"><td><b>zone_support</b></td><td>'.$item->zone_support.'</td><td id="zone_support" style="font-style:italic"></td></tr>';
 	$html_text .= '<tr id="1004" style="display:none"><td><b>zone_registry_name</b></td><td>'.$item->zone_registry_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="1005" style="display:none"><td><b>zone_registry_abbreviation</b></td><td>'.$item->zone_registry_abbreviation.'</td><td></td></tr>';
 	$html_text .= '<tr id="1006" style="display:none"><td><b>zone_registry_web_id</b></td><td>'.$item->zone_registry_web_id.'</td><td></td></tr>';
