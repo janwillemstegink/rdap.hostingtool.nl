@@ -85,6 +85,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("zone_server").textContent = "";
 		document.getElementById("zone_menu").textContent = "";
 		document.getElementById("zone_support").textContent = "";
+		document.getElementById("zone_restrictions").textContent = "";
 		document.getElementById("domain_role").textContent = "";
 		document.getElementById("domain_name_unicode").textContent = "";
 		document.getElementById("domain_type").textContent = newfield;
@@ -123,8 +124,9 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("view_type").textContent = "Weergavetypen: alles, isp (Internet Service Provider), publiek, se (zoekmachine)";
 		document.getElementById("zone_role").textContent = "Een domein zone is (door de ICANN) toegewezen aan een domain registry om domeinen te beheren.";
 		document.getElementById("zone_server").textContent = newfield + "De route van topniveau naar domeinniveau kan generiek worden geprogrammeerd.";
-		document.getElementById("zone_menu").textContent = newfield + "Een uitgebreid vervolgkeuzemenu voor uitleg en details.";
+		document.getElementById("zone_menu").textContent = newfield + "Een uitgebreid vervolgkeuzemenu voor uitleg en details per topdomeinnaam.";
 		document.getElementById("zone_support").textContent = newfield + "Hulp vanuit de registry is mogelijk per e-mail.";
+		document.getElementById("zone_restrictions").textContent = "Het bekijken van domeingegevens is aan beperkingen onderhevig.";
 		document.getElementById("domain_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
 		document.getElementById("domain_name_unicode").textContent = "Namen met speciale tekens worden opgeslagen als ASCII-tekenreeksen met behulp van Punycode-transcriptie.";
 		document.getElementById("domain_type").textContent = newfield + "Domeintypen: persoonlijk privégebruik, persoonlijk openbaar gebruik, zakelijk gebruik.";
@@ -163,8 +165,9 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("view_type").textContent = "View types: all, isp (Internet Service Provider), public, se (Search Engine)";
 		document.getElementById("zone_role").textContent = "A domain zone is assigned (by the ICANN) to a domain registry to manage domains.";
 		document.getElementById("zone_server").textContent = newfield + "The route from top level to domain level can be programmed generically.";
-		document.getElementById("zone_menu").textContent = newfield + "An extensive drop-down menu for explanations and details.";
+		document.getElementById("zone_menu").textContent = newfield + "A comprehensive drop-down menu for explanations and details by top-level domain name.";
 		document.getElementById("zone_support").textContent = newfield + "Help from the registry is possible by e-mail.";
+		document.getElementById("zone_restrictions").textContent = "Viewing domain data is subject to restrictions.";
 		document.getElementById("domain_role").textContent = "A web domain under a top-level domain is unique worldwide and can be freely chosen under certain rules.";
 		document.getElementById("domain_name_unicode").textContent = "Names with special characters are stored as ASCII strings using Punycode transcription.";
 		document.getElementById("domain_type").textContent = newfield + "Domain types: personal private use, personal public use, business use.";
@@ -203,8 +206,9 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("view_type").textContent = "Typen anzeigen: alle, isp (Internet Service Provider), öffentlich, se (Suchmaschine)";
 		document.getElementById("zone_role").textContent = "Eine Domänenzone wird (von ICANN) einer Domänenregistrierungsstelle zugewiesen, um Domänen zu verwalten.";
 		document.getElementById("zone_server").textContent = newfield + "Der Weg von der obersten Ebene zur Domänenebene kann generisch programmiert werden.";
-		document.getElementById("zone_menu").textContent = newfield + "Ein umfangreiches Dropdown-Menü für Erklärungen und Details.";
+		document.getElementById("zone_menu").textContent = newfield + "Ein umfassendes Dropdown-Menü für Erklärungen und Details nach Top-Level-Domainnamen.";
 		document.getElementById("zone_support").textContent = newfield + "Hilfe aus der Registry ist per E-Mail möglich.";
+		document.getElementById("zone_restrictions").textContent = "Das Anzeigen von Domänendaten unterliegt Einschränkungen.";
 		document.getElementById("domain_role").textContent = "Eine Webdomain unter einer Top-Level-Domain ist weltweit einzigartig und unter bestimmten Regeln frei wählbar.";
 		document.getElementById("domain_name_unicode").textContent = "Namen mit Sonderzeichen werden mittels Punycode-Transkription als ASCII-Strings gespeichert.";
 		document.getElementById("domain_type").textContent = newfield + "Domain-Typen: persönliche private Nutzung, persönliche öffentliche Nutzung, geschäftliche Nutzung.";
@@ -242,8 +246,9 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("view_type").textContent = "Types d'affichage : toutes, fsi (fournisseur de service Internet), public, se (moteur de recherche)";
 		document.getElementById("zone_role").textContent = "Une zone de domaine est attribuée (par l'ICANN) à un registre de domaine pour gérer les domaines.";
 		document.getElementById("zone_server").textContent = newfield + "La route du niveau supérieur au niveau domaine peut être programmée de manière générique.";
-		document.getElementById("zone_menu").textContent = newfield + "Un vaste menu déroulant pour des explications et des détails.";
+		document.getElementById("zone_menu").textContent = newfield + "Un menu déroulant complet pour des explications et des détails par nom de domaine de premier niveau.";
 		document.getElementById("zone_support").textContent = newfield + "L'aide du registre est possible par e-mail.";
+		document.getElementById("zone_restrictions").textContent = "L'affichage des données de domaine est soumis à des restrictions.";
 		document.getElementById("domain_role").textContent = "Un domaine Web sous un domaine de premier niveau est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_name_unicode").textContent = "Les noms avec des caractères spéciaux sont stockés sous forme de chaînes ASCII à l'aide de la transcription Punycode.";
 		document.getElementById("domain_type").textContent = newfield + "Type de domaine : usage privé personnel, usage public personnel, utilisation commerciale.";
@@ -343,7 +348,7 @@ foreach ($xml1->xpath('//zone') as $item)	{
 	$html_text .= '<tr id="107" style="display:none"><td><b>zone_language</b></td><td>'.$item->zone_language.'</td><td></td></tr>';
 	$html_text .= '<tr id="108" style="display:none"><td><b>zone_format</b></td><td>'.$item->zone_format.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(11)">zone restrictions +/-</button></td><td></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(11)">zone restrictions +/-</button></td><td></td><td id="zone_restrictions" style="font-style:italic"></td></tr>';
 	$html_text .= '<tr id="111" style="display:none"><td><b>zone_legal_restrictions</b></td><td>'.$item->zone_legal_restrictions.'</td><td></td></tr>';
 	$html_text .= '<tr id="112" style="display:none"><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr id="113" style="display:none"><td><b>zone_translated_restrictions</b></td><td>'.$item->zone_translated_restrictions.'</td><td></td></tr>';
