@@ -1,4 +1,4 @@
-- Web domain information can become informative for outsiders;
+- Web domain information can become readable for outsiders;
 - Business transparency must be combined with privacy of a natural person;
 - Better public understanding clears up workload for registrars;
 - Interfaces can recognize ‘Personal private use’, ‘Personal public use’ and ‘Business use';
