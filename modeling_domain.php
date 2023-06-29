@@ -135,7 +135,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("domain_renewed").textContent = newfield + "Zoekmachines kunnen filteren op 'actief' en een transactie die niet ouder is dan een jaar.";
 		document.getElementById("registrar_role").textContent = "Een domain registrar verzorgt de reservering van domeinen en IP-adresroutering.";
 		document.getElementById("registrar_web_id").textContent = "";
-		document.getElementById("registrar_abuse_email").textContent = "Contactgegevens om misbruik te melden kunnen verplicht worden voor een registrar.";
+		document.getElementById("registrar_abuse_email").textContent = "Een derde partij moet contact kunnen opnemen met de registrar van een domein.";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("reseller_role").textContent = "Een domain reseller kan verantwoordelijk zijn voor de verwerking van de gegevens van de houder.";
 		document.getElementById("reseller_web_id").textContent = "";
@@ -176,7 +176,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("domain_renewed").textContent = newfield + "Search engines can filter by 'active' and a transaction that is not older than one year.";
 		document.getElementById("registrar_role").textContent = "A domain registrar takes care of domain reservations and IP address routing.";
 		document.getElementById("registrar_web_id").textContent = "";
-		document.getElementById("registrar_abuse_email").textContent = "Contact details to report abuse may become mandatory for a registrar.";
+		document.getElementById("registrar_abuse_email").textContent = "A third party must be able to contact the Registrar of a domain.";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("reseller_role").textContent = "A domain reseller may be responsible for processing of the holder's data.";
 		document.getElementById("reseller_web_id").textContent = "";
@@ -216,7 +216,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("domain_status_codes").textContent = "Statuscodes: " + statuscodes;
 		document.getElementById("domain_renewed").textContent = newfield + "Suchmaschinen können nach „aktiv“ und einer Transaktion filtern, die nicht älter als ein Jahr ist.";
 		document.getElementById("registrar_role").textContent = "Ein Domain-Registrar kümmert sich um Domain-Reservierungen und IP-Adress-Routing.";
-		document.getElementById("registrar_abuse_email").textContent = "Kontaktdaten zum Melden von Missbrauch können für einen Registrar obligatorisch werden.";
+		document.getElementById("registrar_abuse_email").textContent = "Ein Dritter muss den Registrar einer Domain kontaktieren können.";
 		document.getElementById("registrar_web_id").textContent = "";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("reseller_role").textContent = "Ein Domain-Wiederverkäufer kann für die Verarbeitung der Daten des Inhabers verantwortlich sein.";
@@ -257,7 +257,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("domain_renewed").textContent = newfield + "Les moteurs de recherche peuvent filtrer par 'actif' et une transaction datant de moins d'un an.";
 		document.getElementById("registrar_role").textContent = "Un registraire de domaine s'occupe des réservations de domaine et du routage des adresses IP.";
 		document.getElementById("registrar_web_id").textContent = "";
-		document.getElementById("registrar_abuse_email").textContent = "Les coordonnées pour signaler un abus peuvent devenir obligatoires pour un bureau d'enregistrement.";
+		document.getElementById("registrar_abuse_email").textContent = "Un tiers doit pouvoir contacter le Registrar d'un domaine.";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("reseller_role").textContent = "Un revendeur de domaine peut être responsable du traitement des données du titulaire.";
 		document.getElementById("reseller_web_id").textContent = "";
