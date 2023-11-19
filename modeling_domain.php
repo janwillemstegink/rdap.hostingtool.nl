@@ -124,7 +124,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("view_type").textContent = "Weergavetypen: alles, isp (Internet Service Provider), publiek, se (zoekmachine)";
 		document.getElementById("zone_role").textContent = "Een domein zone is (door de ICANN) toegewezen aan een domain registry om domeinen te beheren.";
 		document.getElementById("zone_server").textContent = newfield + "De route van topniveau naar domeinniveau kan generiek worden geprogrammeerd.";
-		document.getElementById("zone_menu").textContent = newfield + "Een uitgebreid vervolgkeuzemenu voor uitleg en details per topdomeinnaam.";
+		document.getElementById("zone_menu").textContent = newfield + "Een vervolgkeuzemenu voor uitleg en details per zone via een subdomein van de registry.";
 		document.getElementById("zone_support").textContent = newfield + "Hulp vanuit de registry is mogelijk per e-mail.";
 		document.getElementById("zone_restrictions").textContent = "Het bekijken van domeingegevens is aan beperkingen onderhevig.";
 		document.getElementById("domain_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
@@ -135,7 +135,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("domain_renewed").textContent = newfield + "Zoekmachines kunnen filteren op 'actief' en een transactie die niet ouder is dan een jaar.";
 		document.getElementById("registrar_role").textContent = "Een domain registrar verzorgt de reservering van domeinen en IP-adresroutering.";
 		document.getElementById("registrar_web_id").textContent = "";
-		document.getElementById("registrar_abuse_email").textContent = "Contactgegevens om misbruik te melden kunnen verplicht worden voor een registrar.";
+		document.getElementById("registrar_abuse_email").textContent = "Een derde partij moet contact kunnen opnemen met de registrar van een domein.";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("reseller_role").textContent = "Een domain reseller kan verantwoordelijk zijn voor de verwerking van de gegevens van de houder.";
 		document.getElementById("reseller_web_id").textContent = "";
@@ -165,7 +165,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("view_type").textContent = "View types: all, isp (Internet Service Provider), public, se (Search Engine)";
 		document.getElementById("zone_role").textContent = "A domain zone is assigned (by the ICANN) to a domain registry to manage domains.";
 		document.getElementById("zone_server").textContent = newfield + "The route from top level to domain level can be programmed generically.";
-		document.getElementById("zone_menu").textContent = newfield + "A comprehensive drop-down menu for explanations and details by top-level domain name.";
+		document.getElementById("zone_menu").textContent = newfield + "A drop-down menu for explanations and details per zone via a subdomain of the registry.";
 		document.getElementById("zone_support").textContent = newfield + "Help from the registry is possible by e-mail.";
 		document.getElementById("zone_restrictions").textContent = "Viewing domain data is subject to restrictions.";
 		document.getElementById("domain_role").textContent = "A web domain under a top-level domain is unique worldwide and can be freely chosen under certain rules.";
@@ -176,7 +176,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("domain_renewed").textContent = newfield + "Search engines can filter by 'active' and a transaction that is not older than one year.";
 		document.getElementById("registrar_role").textContent = "A domain registrar takes care of domain reservations and IP address routing.";
 		document.getElementById("registrar_web_id").textContent = "";
-		document.getElementById("registrar_abuse_email").textContent = "Contact details to report abuse may become mandatory for a registrar.";
+		document.getElementById("registrar_abuse_email").textContent = "A third party must be able to contact the Registrar of a domain.";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("reseller_role").textContent = "A domain reseller may be responsible for processing of the holder's data.";
 		document.getElementById("reseller_web_id").textContent = "";
@@ -206,7 +206,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("view_type").textContent = "Typen anzeigen: alle, isp (Internet Service Provider), öffentlich, se (Suchmaschine)";
 		document.getElementById("zone_role").textContent = "Eine Domänenzone wird (von ICANN) einer Domänenregistrierungsstelle zugewiesen, um Domänen zu verwalten.";
 		document.getElementById("zone_server").textContent = newfield + "Der Weg von der obersten Ebene zur Domänenebene kann generisch programmiert werden.";
-		document.getElementById("zone_menu").textContent = newfield + "Ein umfassendes Dropdown-Menü für Erklärungen und Details nach Top-Level-Domainnamen.";
+		document.getElementById("zone_menu").textContent = newfield + "Ein Dropdown-Menü für Erläuterungen und Details pro Zone über eine Subdomain der Registry.";
 		document.getElementById("zone_support").textContent = newfield + "Hilfe aus der Registry ist per E-Mail möglich.";
 		document.getElementById("zone_restrictions").textContent = "Das Anzeigen von Domänendaten unterliegt Einschränkungen.";
 		document.getElementById("domain_role").textContent = "Eine Webdomain unter einer Top-Level-Domain ist weltweit einzigartig und unter bestimmten Regeln frei wählbar.";
@@ -216,7 +216,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("domain_status_codes").textContent = "Statuscodes: " + statuscodes;
 		document.getElementById("domain_renewed").textContent = newfield + "Suchmaschinen können nach „aktiv“ und einer Transaktion filtern, die nicht älter als ein Jahr ist.";
 		document.getElementById("registrar_role").textContent = "Ein Domain-Registrar kümmert sich um Domain-Reservierungen und IP-Adress-Routing.";
-		document.getElementById("registrar_abuse_email").textContent = "Kontaktdaten zum Melden von Missbrauch können für einen Registrar obligatorisch werden.";
+		document.getElementById("registrar_abuse_email").textContent = "Ein Dritter muss den Registrar einer Domain kontaktieren können.";
 		document.getElementById("registrar_web_id").textContent = "";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("reseller_role").textContent = "Ein Domain-Wiederverkäufer kann für die Verarbeitung der Daten des Inhabers verantwortlich sein.";
@@ -246,7 +246,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("view_type").textContent = "Types d'affichage : toutes, fsi (fournisseur de service Internet), public, se (moteur de recherche)";
 		document.getElementById("zone_role").textContent = "Une zone de domaine est attribuée (par l'ICANN) à un registre de domaine pour gérer les domaines.";
 		document.getElementById("zone_server").textContent = newfield + "La route du niveau supérieur au niveau domaine peut être programmée de manière générique.";
-		document.getElementById("zone_menu").textContent = newfield + "Un menu déroulant complet pour des explications et des détails par nom de domaine de premier niveau.";
+		document.getElementById("zone_menu").textContent = newfield + "Un menu déroulant pour des explications et des détails par zone via un sous-domaine du registre.";
 		document.getElementById("zone_support").textContent = newfield + "L'aide du registre est possible par e-mail.";
 		document.getElementById("zone_restrictions").textContent = "L'affichage des données de domaine est soumis à des restrictions.";
 		document.getElementById("domain_role").textContent = "Un domaine Web sous un domaine de premier niveau est unique au monde et peut être choisi librement selon certaines règles.";
@@ -257,7 +257,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("domain_renewed").textContent = newfield + "Les moteurs de recherche peuvent filtrer par 'actif' et une transaction datant de moins d'un an.";
 		document.getElementById("registrar_role").textContent = "Un registraire de domaine s'occupe des réservations de domaine et du routage des adresses IP.";
 		document.getElementById("registrar_web_id").textContent = "";
-		document.getElementById("registrar_abuse_email").textContent = "Les coordonnées pour signaler un abus peuvent devenir obligatoires pour un bureau d'enregistrement.";
+		document.getElementById("registrar_abuse_email").textContent = "Un tiers doit pouvoir contacter le Registrar d'un domaine.";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("reseller_role").textContent = "Un revendeur de domaine peut être responsable du traitement des données du titulaire.";
 		document.getElementById("reseller_web_id").textContent = "";
