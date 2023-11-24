@@ -121,7 +121,7 @@ function SwitchTranslation(inputlanguage)	{
 		var url = '<a href="https://www.icann.org/en/system/files/files/epp-status-codes-30jun11-en.pdf" target="_blank">www.icann.org/en/system/files/files/epp-status-codes-30jun11-en.pdf</a>';
 		document.getElementById("title").textContent = "Model";
 		document.getElementById("data").textContent = "Domeinnaamgegevens";
-		document.getElementById("view_type").textContent = "Query: all (alles), isp (internet service provider), br (business register), pb (publiek), se (zoekmachine)";
+		document.getElementById("view_type").textContent = "Soorten: all (alles), isp (internet service provider), br (business register), public, se (zoekmachine)";
 		document.getElementById("zone_role").textContent = "Een domein zone is (door de ICANN) toegewezen aan een domain registry om domeinen te beheren.";
 		document.getElementById("zone_server").textContent = newfield + "De route van topniveau naar domeinniveau kan generiek worden geprogrammeerd.";
 		document.getElementById("zone_menu").textContent = newfield + "Een vervolgkeuzemenu voor uitleg en details per zone via een subdomein van de registry.";
@@ -162,7 +162,7 @@ function SwitchTranslation(inputlanguage)	{
 		var derivedfield = 'NEW - Non-public data';
 		document.getElementById("title").textContent = "Model";
 		document.getElementById("data").textContent = "Domain Name Details";
-		document.getElementById("view_type").textContent = "Query: all, isp (nternet service provider), br (business register), pb (public), se (search engine)";
+		document.getElementById("view_type").textContent = "Types: all, isp (nternet service provider), br (business register), public, se (search engine)";
 		document.getElementById("zone_role").textContent = "A domain zone is assigned (by the ICANN) to a domain registry to manage domains.";
 		document.getElementById("zone_server").textContent = newfield + "The route from top level to domain level can be programmed generically.";
 		document.getElementById("zone_menu").textContent = newfield + "A drop-down menu for explanations and details per zone via a subdomain of the registry.";
@@ -203,7 +203,7 @@ function SwitchTranslation(inputlanguage)	{
 		var derivedfield = 'NEU - Nicht öffentliche Daten';
 		document.getElementById("title").textContent = "Modell";
 		document.getElementById("data").textContent = "Details zum Domänennamen";
-		document.getElementById("view_type").textContent = "Abfrage: alle, isp (Internetdienstanbieter), br (Unternehmensregister), pb (öffentlich), se (Suchmaschine)";
+		document.getElementById("view_type").textContent = "Typen: alle, isp (Internetdienstanbieter), br (Unternehmensregister), public, se (Suchmaschine)";
 		document.getElementById("zone_role").textContent = "Eine Domänenzone wird (von ICANN) einer Domänenregistrierungsstelle zugewiesen, um Domänen zu verwalten.";
 		document.getElementById("zone_server").textContent = newfield + "Der Weg von der obersten Ebene zur Domänenebene kann generisch programmiert werden.";
 		document.getElementById("zone_menu").textContent = newfield + "Ein Dropdown-Menü für Erläuterungen und Details pro Zone über eine Subdomain der Registry.";
@@ -243,7 +243,7 @@ function SwitchTranslation(inputlanguage)	{
 		var derivedfield = 'NOUVEAU - Données non publiques';
 		document.getElementById("title").textContent = "Modèle";
 		document.getElementById("data").textContent = "Détails du nom de domaine";
-		document.getElementById("view_type").textContent = "Requête : all, isp (fournisseur d'accès Internet), br (registre du commerce), pb (public), se (moteur de recherche)";
+		document.getElementById("view_type").textContent = "Les types : all, isp (fournisseur d'accès Internet), br (registre du commerce), public, se (moteur de recherche)";
 		document.getElementById("zone_role").textContent = "Une zone de domaine est attribuée (par l'ICANN) à un registre de domaine pour gérer les domaines.";
 		document.getElementById("zone_server").textContent = newfield + "La route du niveau supérieur au niveau domaine peut être programmée de manière générique.";
 		document.getElementById("zone_menu").textContent = newfield + "Un menu déroulant pour des explications et des détails par zone via un sous-domaine du registre.";
