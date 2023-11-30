@@ -12,7 +12,7 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 function SwitchDisplay(type) {
 	if (type == 10)	{ // zone
 		var pre = '10';
-		var max = 8
+		var max = 10
 	}
 	else if (type == 11)	{ // restrictions
 		var pre = '11';
@@ -337,15 +337,17 @@ foreach ($xml1->xpath('//zone') as $item)	{
 	<button style="cursor:pointer" onclick="SwitchTranslation(3)">Erläuterung auf Deutsch</button> - 
 	<button style="cursor:pointer" onclick="SwitchTranslation(4)">Explication en français</button></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(10)">zone +/-</button></td><td></td><td id="zone_role" style="font-weight:bold"></td></tr>';
-	$html_text .= '<tr id="101" style="display:none"><td><b>zone_server</b></td><td>'.$item->zone_server.'</td><td id="zone_server" style="font-style:italic"></td></tr>';
-	$html_text .= '<tr id="102" style="display:none"><td><b>zone_description</b></td><td>'.$item->zone_description.'</td><td></td></tr>';
+	$html_text .= '<tr id="101" style="display:none"><td><b>zone_description</b></td><td>'.$item->zone_description.'</td><td></td></tr>';
 	$html_text .= '<tr><td><b>zone_menu</b></td><td>'.$item->zone_menu.'</td><td id="zone_menu" style="font-style:italic"></td></tr>';
-	$html_text .= '<tr id="103" style="display:none"><td><b>zone_support</b></td><td>'.$item->zone_support.'</td><td id="zone_support" style="font-style:italic"></td></tr>';
-	$html_text .= '<tr id="104" style="display:none"><td><b>zone_registry_web_id</b></td><td>'.$item->zone_registry_web_id.'</td><td></td></tr>';
-	$html_text .= '<tr id="105" style="display:none"><td><b>zone_registry_trade_name</b></td><td>'.$item->zone_registry_trade_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="106" style="display:none"><td><b>zone_time_zone</b></td><td>'.$item->zone_time_zone.'</td><td></td></tr>';
-	$html_text .= '<tr id="107" style="display:none"><td><b>zone_language</b></td><td>'.$item->zone_language.'</td><td></td></tr>';
-	$html_text .= '<tr id="108" style="display:none"><td><b>zone_format</b></td><td>'.$item->zone_format.'</td><td></td></tr>';
+	$html_text .= '<tr id="102" style="display:none"><td><b>zone_support</b></td><td>'.$item->zone_support.'</td><td id="zone_support" style="font-style:italic"></td></tr>';
+	$html_text .= '<tr id="103" style="display:none"><td><b>zone_registry_web_id</b></td><td>'.$item->zone_registry_web_id.'</td><td></td></tr>';
+	$html_text .= '<tr id="104" style="display:none"><td><b>zone_registry_trade_name</b></td><td>'.$item->zone_registry_trade_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="105" style="display:none"><td><b>zone_time_zone</b></td><td>'.$item->zone_time_zone.'</td><td></td></tr>';
+	$html_text .= '<tr id="106" style="display:none"><td><b>zone_language</b></td><td>'.$item->zone_language.'</td><td></td></tr>';
+	$html_text .= '<tr id="107" style="display:none"><td><b>zone_links_value</b></td><td>'.$item->zone_links_value.'</td><td id="zone_server" style="font-style:italic"></td></tr>';
+	$html_text .= '<tr id="108" style="display:none"><td><b>zone_links_rel</b></td><td>'.$item->zone_links_rel.'</td><td></td></tr>';
+	$html_text .= '<tr id="109" style="display:none"><td><b>zone_links_href</b></td><td>'.$item->zone_links_href.'</td><td></td></tr>';
+	$html_text .= '<tr id="1010" style="display:none"><td><b>zone_links_type</b></td><td>'.$item->zone_links_type.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(11)">zone restrictions +/-</button></td><td></td><td id="zone_restrictions" style="font-style:italic"></td></tr>';
 	$html_text .= '<tr id="111" style="display:none"><td><b>zone_legal_restrictions</b></td><td>'.$item->zone_legal_restrictions.'</td><td></td></tr>';

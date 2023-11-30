@@ -43,10 +43,12 @@ $copyright_restrictions_1_1 = $obj['notices'][1]['description'][1];
 $copyright_description_2_0 = $obj['notices'][2]['description'][0];
 $copyright_description_2_1 = $obj['notices'][2]['description'][1];
 $language = $obj['lang'];	
-$server = $obj['links'][0]['href'];
-$server = str_replace('https://', '', $server);	
-$server = str_replace($inputdomain, '', $server);	
-$format = $obj['links'][0]['type'];	
+$links_value = $obj['links'][0]['value'];
+//$links_value = str_replace('https://', '', $links_value);	
+//$links_value = str_replace($inputdomain, '', $links_value);	
+$links_rel = $obj['links'][0]['rel'];
+$links_href = $obj['links'][0]['href'];
+$links_type = $obj['links'][0]['type'];
 
 $toplevel_domain = mb_substr($inputdomain, strrpos($inputdomain, '.') + 1);
 $description = 'NL Domain Registry';
@@ -98,9 +100,21 @@ $zone_language = $doc->createElement("zone_language");
 $zone_language->appendChild($doc->createCDATASection($language));	
 $zone->appendChild($zone_language);
 	
-$zone_format = $doc->createElement("zone_format");
-$zone_format->appendChild($doc->createCDATASection($format));	
-$zone->appendChild($zone_format);	
+$zone_links_value = $doc->createElement("zone_links_value");
+$zone_links_value->appendChild($doc->createCDATASection($links_value));	
+$zone->appendChild($zone_links_value);
+	
+$zone_links_rel = $doc->createElement("zone_links_rel");
+$zone_links_rel->appendChild($doc->createCDATASection($links_rel));	
+$zone->appendChild($zone_links_rel);
+	
+$zone_links_href = $doc->createElement("zone_links_href");
+$zone_links_href->appendChild($doc->createCDATASection($links_href));	
+$zone->appendChild($zone_links_href);
+	
+$zone_links_type = $doc->createElement("zone_links_type");
+$zone_links_type->appendChild($doc->createCDATASection($links_type));	
+$zone->appendChild($zone_links_type);	
 	
 $zone_legal_restrictions = $doc->createElement("zone_legal_restrictions");
 $zone_legal_restrictions->appendChild($doc->createCDATASection($copyright_restrictions_1_0));	
