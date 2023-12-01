@@ -1,5 +1,5 @@
 <?php
-//$_GET['type'] = 1;
+//$_GET['type'] = 2;
 //$_GET['domain'] = 'webhostingtech.nl';
 //$_GET['format'] = 'json';
 
@@ -133,6 +133,14 @@ function write_file2($inputdomain)	{
 	
 $url = 'https://rdap.sidn.nl/domain/'.$inputdomain;
 $obj = json_decode(file_get_contents($url), true);
+$view_datetime = date('Y-m-d\Th:i:s\Z');
+$view_type = 'public';	
+$links_value = $obj['links'][0]['value'];
+//$links_value = str_replace('https://', '', $links_value);	
+//$links_value = str_replace($inputdomain, '', $links_value);	
+$links_rel = $obj['links'][0]['rel'];
+$links_href = $obj['links'][0]['href'];
+$links_type = $obj['links'][0]['type'];	
 	
 $created = $obj['events'][0]['eventDate'];
 $updated = $obj['events'][1]['eventDate'];
@@ -155,7 +163,7 @@ $registrar_city = $obj['entities'][3]['vcardArray'][1][2][3][3];
 $registrar_postal_code = $obj['entities'][3]['vcardArray'][1][2][3][5];
 $registrar_country_code = $obj['entities'][3]['vcardArray'][1][2][3][6];
 $registrar_iana_id = '1603';
-$registrar_abuse_email = $obj['entities'][3]['entities'][0][2][3][3];
+$registrar_abuse_email = $obj['entities'][3]['entities'][0]['vcardArray'][1][2][3];
 $registrar_protected = 'personal_name,phone,fax,email';
 
 $reseller_trade_name = $obj['entities'][4]['vcardArray'][1][1][3];
@@ -168,17 +176,10 @@ $reseller_protected = 'personal_name,phone,fax,email';
 $server_name_1 = $obj['nameservers'][0]['ldhName'];
 $server_name_2 = $obj['nameservers'][1]['ldhName'];
 $server_name_3 = $obj['nameservers'][2]['ldhName'];
-	
-$links_value = $obj['links'][0]['value'];
-//$links_value = str_replace('https://', '', $links_value);	
-//$links_value = str_replace($inputdomain, '', $links_value);	
-$links_rel = $obj['links'][0]['rel'];
-$links_href = $obj['links'][0]['href'];
-$links_type = $obj['links'][0]['type'];	
 
 $doc = new DOMDocument("1.0", "UTF-8");
 $doc->xmlStandalone = true;	
-$doc->formatOutput = true;
+$doc->formatOutput = true;		
 	
 $domains = $doc->createElement("domains");
 $doc->appendChild($domains);
@@ -189,11 +190,28 @@ $domain->setAttribute("item", $inputdomain);
 $view = $doc->createElement("view");
 $domain->appendChild($view);	
 $domain_view_datetime = $doc->createElement("view_datetime");
-$domain_view_datetime->appendChild($doc->createCDATASection(date("Y-m-d H:i:s")));	
+$domain_view_datetime->appendChild($doc->createCDATASection($view_datetime));
 $view->appendChild($domain_view_datetime);
+
 $domain_view_type = $doc->createElement("view_type");
-$domain_view_type->appendChild($doc->createCDATASection('public'));	
+$domain_view_type->appendChild($doc->createCDATASection($view_type));	
 $view->appendChild($domain_view_type);
+
+$domain_view_links_value = $doc->createElement("view_links_value");
+$domain_view_links_value->appendChild($doc->createCDATASection($links_value));	
+$view->appendChild($domain_view_links_value);
+	
+$domain_view_links_rel = $doc->createElement("view_links_rel");
+$domain_view_links_rel->appendChild($doc->createCDATASection($links_rel));	
+$view->appendChild($domain_view_links_rel);
+	
+$domain_view_links_href = $doc->createElement("view_links_href");
+$domain_view_links_href->appendChild($doc->createCDATASection($links_href));	
+$view->appendChild($domain_view_links_href);
+	
+$domain_view_links_type = $doc->createElement("view_links_type");
+$domain_view_links_type->appendChild($doc->createCDATASection($links_type));	
+$view->appendChild($domain_view_links_type);
 $domain->appendChild($view);
 	
 $domain_created = $doc->createElement("domain_created");
@@ -327,23 +345,7 @@ $name_servers->appendChild($server_3);
 $domain_server_name_3 = $doc->createElement("server_name_3");
 $domain_server_name_3->appendChild($doc->createCDATASection($server_name_3));		
 $server_3->appendChild($domain_server_name_3);
-$name_servers->appendChild($server_3);
-	
-$domain_links_value = $doc->createElement("domain_links_value");
-$domain_links_value->appendChild($doc->createCDATASection($links_value));	
-$domain->appendChild($domain_links_value);
-	
-$domain_links_rel = $doc->createElement("domain_links_rel");
-$domain_links_rel->appendChild($doc->createCDATASection($links_rel));	
-$domain->appendChild($domain_links_rel);
-	
-$domain_links_href = $doc->createElement("domain_links_href");
-$domain_links_href->appendChild($doc->createCDATASection($links_href));	
-$domain->appendChild($domain_links_href);
-	
-$domain_links_type = $doc->createElement("domain_links_type");
-$domain_links_type->appendChild($doc->createCDATASection($links_type));	
-$domain->appendChild($domain_links_type);	
+$name_servers->appendChild($server_3);	
 	
 $domain->appendChild($name_servers);	
 	
