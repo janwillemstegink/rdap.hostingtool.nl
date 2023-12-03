@@ -11,8 +11,8 @@ else	{
 $filesPath = '/home/admin/whois_file/';
 $dataFile = 'data_email.xml';
 $inputdomain = 'webhostingtech.nl';
-$url1a = "https://whois.hostingtool.nl/compose_data/index.php?domain=$inputdomain&format=xml&type=2";
-$url1b = "https://whois.hostingtool.nl/".$dataFile;
+$url1a = "https://rdap.hostingtool.nl/compose_data/index.php?domain=$inputdomain&format=xml&type=2";
+$url1b = "https://rdap.hostingtool.nl/".$dataFile;
 
 if (file_exists($filesPath.$dataFile) and false)	{ // for development
 	$xml1 = simplexml_load_file($filesPath.$dataFile) or die("Cannot load xml1 from path,");
@@ -105,7 +105,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>billing_country_language</td><td>'.$item->billing->billing_country_language.'</td></tr>';
 	$html_text .= '<tr><td>billing_protected</td><td>'.$item->billing->billing_protected.'</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Is er iets mis? Het bedrijf dat deze domeinnaam beheert is: team.blue nl B.V., of de reseller: TransIP.</td></tr>';
-	$html_text .= '<tr><td COLSPAN="2">Als u als registrant toegang heeft tot het menu, dan kunt u primair verantwoordelijk zijn.</td></tr>';
+	$html_text .= '<tr><td COLSPAN="2">Als u als registrant via hun menu wijzigingen kunt aanbrengen, dan bent u primair verantwoordelijk.</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Met vriendelijke groet,</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2">SIDN</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Beantwoord deze mail niet. Als je vragen of feedback hebt, neem dan contact op met <a href="mailto:support@sidn.nl">support@sidn.nl</a>.</td></tr>';
@@ -115,8 +115,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 $html_text .= '<tr><td COLSPAN="2"><br />Dear registrant,</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />You are receiving this message because you are the administrative contact for the above web domain.</td></tr>';
 $html_text .= '<tr><td COLSPAN="2">team.blue nl B.V. has changed at least one of the holder details. This information is listed.</td></tr>';
-$html_text .= '<tr><td COLSPAN="2"><br />Is something wrong? The company that manages this domain name is: team.blue nl B.V., or the reseller: TransIP.</td></tr>';
-$html_text .= '<tr><td COLSPAN="2">If you as a registrant have access to the menu, then you can be primarily responsible.</td></tr>';
+$html_text .= '<tr><td COLSPAN="2"><br />Is there something wrong? The company that manages this domain name is: team.blue nl B.V., or the reseller: TransIP.</td></tr>';
+$html_text .= '<tr><td COLSPAN="2">If you, as a registrant, can make changes via their menu, you are primarily responsible.</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />Kind regards</td></tr>';
 $html_text .= '<tr><td COLSPAN="2">SIDN</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />Please don&#39;t reply to this mail. If you have any questions or feedback, please contact <a href="mailto:support@sidn.nl">support@sidn.nl</a>.</td></tr>';

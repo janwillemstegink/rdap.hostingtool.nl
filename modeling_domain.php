@@ -99,7 +99,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("domain_renewed").textContent = newfield;
 		document.getElementById("registrar_role").textContent = "";
 		document.getElementById("registrar_web_id").textContent = "";
-		document.getElementById("registrar_iana_id").textContent = newfield;
+		document.getElementById("registrar_iana_id").textContent = "";
 		document.getElementById("registrar_abuse_email").textContent = "";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("reseller_role").textContent = "";
@@ -127,7 +127,7 @@ function SwitchTranslation(inputlanguage)	{
 		var newfield = 'NIEUW - ';
 		var derivedfield = 'NIEUW - Niet-openbare gegevens';
 		var url = '<a href="https://www.icann.org/en/system/files/files/epp-status-codes-30jun11-en.pdf" target="_blank">www.icann.org/en/system/files/files/epp-status-codes-30jun11-en.pdf</a>';
-		document.getElementById("title").textContent = "Model";
+		document.getElementById("title").textContent = "Model RDAP-weergave";
 		document.getElementById("data").textContent = "Domeinnaamgegevens";
 		document.getElementById("view_datetime").textContent = newfield + "Er ontbreekt een tijdstempel in RDAP-gegevens.";
 		document.getElementById("view_type").textContent = newfield + "all, isp (internet service provider), br (business register), public, se (zoekmachine)";
@@ -144,7 +144,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("domain_renewed").textContent = newfield + "Zoekmachines kunnen filteren op 'actief' en een transactie die niet ouder is dan een jaar.";
 		document.getElementById("registrar_role").textContent = "Een domain registrar verzorgt de reservering van domeinen en IP-adresroutering.";
 		document.getElementById("registrar_web_id").textContent = "";
-		document.getElementById("registrar_iana_id").textContent = newfield + "De IANA-registratie ontbreekt in de RDAP-gegevens.";
+		document.getElementById("registrar_iana_id").textContent = "De IANA-registratie ontbreekt in de RDAP-gegevens.";
 		document.getElementById("registrar_abuse_email").textContent = "Een derde partij moet contact kunnen opnemen met de registrar van een domein.";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("reseller_role").textContent = "Een domain reseller kan verantwoordelijk zijn voor de verwerking van de gegevens van de houder.";
@@ -172,7 +172,7 @@ function SwitchTranslation(inputlanguage)	{
 	else if (inputlanguage == 2)	{
 		var newfield = 'NEW - ';
 		var derivedfield = 'NEW - Non-public data';
-		document.getElementById("title").textContent = "Model";
+		document.getElementById("title").textContent = "Model RDAP view";
 		document.getElementById("data").textContent = "Domain Name Details";
 		document.getElementById("view_datetime").textContent = newfield + "A timestamp is missing in RDAP data.";
 		document.getElementById("view_type").textContent = newfield + "all, isp (nternet service provider), br (business register), public, se (search engine)";
@@ -189,7 +189,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("domain_renewed").textContent = newfield + "Search engines can filter by 'active' and a transaction that is not older than one year.";
 		document.getElementById("registrar_role").textContent = "A domain registrar takes care of domain reservations and IP address routing.";
 		document.getElementById("registrar_web_id").textContent = "";
-		document.getElementById("registrar_iana_id").textContent = newfield + "The IANA registration is missing from the RDAP data.";
+		document.getElementById("registrar_iana_id").textContent = "The IANA registration is missing from the RDAP data.";
 		document.getElementById("registrar_abuse_email").textContent = "A third party must be able to contact the Registrar of a domain.";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("reseller_role").textContent = "A domain reseller may be responsible for processing of the holder's data.";
@@ -217,7 +217,7 @@ function SwitchTranslation(inputlanguage)	{
 	else if (inputlanguage == 3)	{
 		var newfield = 'NEU - ';
 		var derivedfield = 'NEU - Nicht öffentliche Daten';
-		document.getElementById("title").textContent = "Modell";
+		document.getElementById("title").textContent = "Modell-RDAP-Ansicht";
 		document.getElementById("data").textContent = "Details zum Domänennamen";
 		document.getElementById("view_datetime").textContent = newfield + "In den RDAP-Daten fehlt ein Zeitstempel.";
 		document.getElementById("view_type").textContent = newfield + "all, isp (Internetdienstanbieter), br (Unternehmensregister), public, se (Suchmaschine)";
@@ -234,7 +234,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("domain_renewed").textContent = newfield + "Suchmaschinen können nach „aktiv“ und einer Transaktion filtern, die nicht älter als ein Jahr ist.";
 		document.getElementById("registrar_role").textContent = "Ein Domain-Registrar kümmert sich um Domain-Reservierungen und IP-Adress-Routing.";
 		document.getElementById("registrar_web_id").textContent = "";
-		document.getElementById("registrar_iana_id").textContent = newfield + "Die IANA-Registrierung fehlt in den RDAP-Daten.";
+		document.getElementById("registrar_iana_id").textContent = "Die IANA-Registrierung fehlt in den RDAP-Daten.";
 		document.getElementById("registrar_abuse_email").textContent = "Ein Dritter muss den Registrar einer Domain kontaktieren können.";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("reseller_role").textContent = "Ein Domain-Wiederverkäufer kann für die Verarbeitung der Daten des Inhabers verantwortlich sein.";
@@ -261,7 +261,7 @@ function SwitchTranslation(inputlanguage)	{
 	else if (inputlanguage == 4)	{
 		var newfield = 'NOUVEAU - ';
 		var derivedfield = 'NOUVEAU - Données non publiques';
-		document.getElementById("title").textContent = "Modèle";
+		document.getElementById("title").textContent = "Vue modèle RDAP";
 		document.getElementById("data").textContent = "Détails du nom de domaine";
 		document.getElementById("view_datetime").textContent = newfield + "Un horodatage est manquant dans les données RDAP.";
 		document.getElementById("view_type").textContent = newfield + "all, isp (fournisseur d'accès Internet), br (registre du commerce), public, se (moteur de recherche)";
@@ -278,7 +278,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("domain_renewed").textContent = newfield + "Les moteurs de recherche peuvent filtrer par 'actif' et une transaction datant de moins d'un an.";
 		document.getElementById("registrar_role").textContent = "Un registraire de domaine s'occupe des réservations de domaine et du routage des adresses IP.";
 		document.getElementById("registrar_web_id").textContent = "";
-		document.getElementById("registrar_iana_id").textContent = newfield + "L'enregistrement IANA est absent des données RDAP.";
+		document.getElementById("registrar_iana_id").textContent = "L'enregistrement IANA est absent des données RDAP.";
 		document.getElementById("registrar_abuse_email").textContent = "Un tiers doit pouvoir contacter le Registrar d'un domaine.";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("reseller_role").textContent = "Un revendeur de domaine peut être responsable du traitement des données du titulaire.";
@@ -317,10 +317,10 @@ $developmentpath = '/home/admin/whois_file/';
 $zonefile = 'data_zones.xml';
 $domainfile = 'data_domains.xml';
 $inputdomain = 'webhostingtech.nl';
-$url1a = "https://whois.hostingtool.nl/compose_data/index.php?domain=$inputdomain&format=json&type=1";
-$url1b = "https://whois.hostingtool.nl/".$zonefile;
-$url2a = "https://whois.hostingtool.nl/compose_data/index.php?domain=$inputdomain&format=json&type=2";
-$url2b = "https://whois.hostingtool.nl/".$domainfile;
+$url1a = "https://rdap.hostingtool.nl/compose_data/index.php?domain=$inputdomain&format=json&type=1";
+$url1b = "https://rdap.hostingtool.nl/".$zonefile;
+$url2a = "https://rdap.hostingtool.nl/compose_data/index.php?domain=$inputdomain&format=json&type=2";
+$url2b = "https://rdap.hostingtool.nl/".$domainfile;
 if (file_exists($developmentpath.$zonefile) and false)	{ // for development
 	$xml1 = simplexml_load_file($developmentpath.$zonefile) or die("Cannot load xml1 from path.");
 }
