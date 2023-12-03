@@ -7,11 +7,11 @@
 
 Discussing globally can, I think, proceed by country along with modeling of non-centralized server communications. For the increasing number of top-level domains, a database per continent can indicate the Whois server name of a top-level zone plus other static values. Servers of the RIPE organization could fit. My zone file is modeled to contain the necessary top-level data for download once a day.
 
-Domain information all/public: https://whois.hostingtool.nl/modeling_domain/
+Domain information all/public: https://rdap.hostingtool.nl/modeling_domain/
 
-Data check by email: https://whois.hostingtool.nl/modeling_email/
+Data check by email: https://rdap.hostingtool.nl/modeling_email/
 
-Listing by the Trade Register: https://whois.hostingtool.nl/modeling_list/
+Listing by the Trade Register: https://rdap.hostingtool.nl/modeling_list/
 
 Find background information on:
 
