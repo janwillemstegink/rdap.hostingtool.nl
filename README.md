@@ -11,7 +11,7 @@ Domain information all/public: https://rdap.hostingtool.nl/modeling_domain/
 
 Data check by email: https://rdap.hostingtool.nl/modeling_email/
 
-Listing by the Trade Register: https://rdap.hostingtool.nl/modeling_list/
+Listing by the Trade Register: https://rdap.hostingtool.nl/modeling_entities_domains/
 
 Find background information on:
 
