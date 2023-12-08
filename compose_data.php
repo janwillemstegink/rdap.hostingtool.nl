@@ -53,9 +53,9 @@ $view_links_related = $obj['links'][0]['rel'];
 $view_links_href = $obj['links'][0]['href'];
 $view_links_type = $obj['links'][0]['type'];	
 	
-$created = $obj['events'][0]['eventDate'];
-$updated = $obj['events'][1]['eventDate'];
-$refreshed = $obj['events'][2]['eventDate'];
+//$created = $obj['events'][0]['eventDate'];
+//$updated = $obj['events'][1]['eventDate'];
+//$refreshed = $obj['events'][2]['eventDate'];
 $type = 'business use';
 $status = $obj['status'][0];
 $registrar_iana_id = $obj['entities'][0]['publicIds'][0]['identifier'];
@@ -99,15 +99,27 @@ $tech_protected = 'contact_id,personal_name,phone,fax,address,country';
 $server_name_1 = $obj['nameservers'][0]['ldhName'];
 $server_name_2 = $obj['nameservers'][1]['ldhName'];
 $server_name_3 = $obj['nameservers'][2]['ldhName'];
+$server_name_4 = $obj['nameservers'][3]['ldhName'];
+$server_name_5 = $obj['nameservers'][4]['ldhName'];
+$server_name_6 = $obj['nameservers'][5]['ldhName'];	
 $server_name_unicode_1 = $obj['nameservers'][0]['unicodeName'];
 $server_name_unicode_2 = $obj['nameservers'][1]['unicodeName'];
 $server_name_unicode_3 = $obj['nameservers'][2]['unicodeName'];
+$server_name_unicode_4 = $obj['nameservers'][3]['unicodeName'];
+$server_name_unicode_5 = $obj['nameservers'][4]['unicodeName'];
+$server_name_unicode_6 = $obj['nameservers'][5]['unicodeName'];	
 $server_ipv4_1 = $obj['nameservers'][0]['ipAddresses']['v4'][0];
 $server_ipv6_1 = $obj['nameservers'][0]['ipAddresses']['v6'][0];	
 $server_ipv4_2 = $obj['nameservers'][1]['ipAddresses']['v4'][0];
 $server_ipv6_2 = $obj['nameservers'][1]['ipAddresses']['v6'][0];
 $server_ipv4_3 = $obj['nameservers'][2]['ipAddresses']['v4'][0];
 $server_ipv6_3 = $obj['nameservers'][2]['ipAddresses']['v6'][0];
+$server_ipv4_4 = $obj['nameservers'][3]['ipAddresses']['v4'][0];
+$server_ipv6_4 = $obj['nameservers'][3]['ipAddresses']['v6'][0];	
+$server_ipv4_5 = $obj['nameservers'][4]['ipAddresses']['v4'][0];
+$server_ipv6_5 = $obj['nameservers'][4]['ipAddresses']['v6'][0];
+$server_ipv4_6 = $obj['nameservers'][5]['ipAddresses']['v4'][0];
+$server_ipv6_6 = $obj['nameservers'][5]['ipAddresses']['v6'][0];	
 	
 $registrar_abuse_email = 'NA';
 $registrar = -1;	
@@ -150,37 +162,48 @@ foreach($obj as $key1 => $value1) {
 foreach($obj as $key1 => $value1) {
 	foreach($value1 as $key2 => $value2) {
 		foreach($value2 as $key3 => $value3) {
+			if ($key1 == 'events' )	{
+				if ($value3 == 'registration')	{
+					$created = $value2['eventDate'];
+				}
+				elseif ($value3 == 'last changed')	{
+					$updated = $value2['eventDate'];
+				}
+				elseif ($value3 == 'last update of RDAP database')	{
+					$refreshed = $value2['eventDate'];
+				}
+			}	
 			foreach($value3 as $key4 => $value4) {
 				foreach($value4 as $key5 => $value5) {
 					foreach($value5 as $key6 => $value6) {
 						if ($key4 == 1 and $key5 == 1 and $key6 == 3)	{
-							if ($key1 == 'entities' and $key2 == $registrar and $key3 == 'vcardArray')	{
-								$registrar_trade_name = $value6;
+							if ($key1 == 'entities' and $key2 == $registrar and $key3 == 'vcardArray' and $value5[0] == 'fn')	{
+								$registrar_trade_name = $value5[3];
 							}
-							elseif ($key1 == 'entities' and $key2 == $reseller and $key3 == 'vcardArray')	{
-								$reseller_trade_name = $value6;
+							elseif ($key1 == 'entities' and $key2 == $reseller and $key3 == 'vcardArray' and $value5[0] == 'fn')	{
+								$reseller_trade_name = $value5[3];
 							}
-							elseif ($key1 == 'entities' and $key2 == $registrant and $key3 == 'vcardArray')	{
-								$registrant_trade_name = $value6;								
+							elseif ($key1 == 'entities' and $key2 == $registrant and $key3 == 'vcardArray' and $value5[0] == 'fn')	{
+								$registrant_trade_name = $value5[3];
 							}
 						}	
 						elseif ($key4 == 1 and $key5 == 2 and $key6 == 3)	{
-							if ($key1 == 'entities' and $key2 == $admin and $key3 == 'vcardArray')	{
+							if ($key1 == 'entities' and $key2 == $admin and $key3 == 'vcardArray' and $value5[0] == 'adr')	{
 								$admin_email = $value6;
 							}
-							elseif ($key1 == 'entities' and $key2 == $tech and $key3 == 'vcardArray')	{
+							elseif ($key1 == 'entities' and $key2 == $tech and $key3 == 'vcardArray' and $value5[0] == 'adr')	{
 								$tech_email = $value6;		
 							}
 						}	
 						foreach($value6 as $key7 => $value7) {
 							if ($key4 == 1 and $key5 == 2 and $key6 == 3)	{
-								if ($key1 == 'entities' and $key2 == $registrar and $key3 == 'vcardArray')	{
+								if ($key1 == 'entities' and $key2 == $registrar and $key3 == 'vcardArray' and $value5[0] == 'adr')	{
 									$registrar_street = $value6[2];
 									$registrar_city = $value6[3];
 									$registrar_postal_code = $value6[5];
 									$registrar_country_code = $value6[6];
 								}
-								elseif ($key1 == 'entities' and $key2 == $reseller and $key3 == 'vcardArray')	{
+								elseif ($key1 == 'entities' and $key2 == $reseller and $key3 == 'vcardArray' and $value5[0] == 'adr')	{
 									$reseller_street = $value6[2];
 									$reseller_city = $value6[3];
 									$reseller_postal_code = $value6[5];
@@ -193,7 +216,7 @@ foreach($obj as $key1 => $value1) {
 										$registrar_abuse_phone = $value7[3];									
 									}
 									elseif ($value8 == 'email')	{
-										$registrar_abuse_email = $value7[3];//$registrar_abuse_email = $obj['entities'][3]['entities'][0]['vcardArray'][1][2][3];
+										$registrar_abuse_email = $value7[3];
 									}	
 								}
 							}	
@@ -464,6 +487,51 @@ $domain_server_ipv6_3 = $doc->createElement("server_ipv6_3");
 $domain_server_ipv6_3->appendChild($doc->createCDATASection($server_ipv6_3));		
 $server_3->appendChild($domain_server_ipv6_3);		
 $name_servers->appendChild($server_3);
+$server_4 = $doc->createElement("server_4");
+$name_servers->appendChild($server_4);	
+$domain_server_name_4 = $doc->createElement("server_name_4");
+$domain_server_name_4->appendChild($doc->createCDATASection($server_name_4));		
+$server_4->appendChild($domain_server_name_4);
+$domain_server_name_unicode_4 = $doc->createElement("server_name_unicode_4");
+$domain_server_name_unicode_4->appendChild($doc->createCDATASection($server_name_unicode_4));		
+$server_4->appendChild($domain_server_name_unicode_4);
+$domain_server_ipv4_4 = $doc->createElement("server_ipv4_4");
+$domain_server_ipv4_4->appendChild($doc->createCDATASection($server_ipv4_4));		
+$server_4->appendChild($domain_server_ipv4_4);
+$domain_server_ipv6_4 = $doc->createElement("server_ipv6_4");
+$domain_server_ipv6_4->appendChild($doc->createCDATASection($server_ipv6_4));		
+$server_4->appendChild($domain_server_ipv6_4);		
+$name_servers->appendChild($server_4);
+$server_5 = $doc->createElement("server_5");
+$name_servers->appendChild($server_5);	
+$domain_server_name_5 = $doc->createElement("server_name_5");
+$domain_server_name_5->appendChild($doc->createCDATASection($server_name_5));		
+$server_5->appendChild($domain_server_name_5);
+$domain_server_name_unicode_5 = $doc->createElement("server_name_unicode_5");
+$domain_server_name_unicode_5->appendChild($doc->createCDATASection($server_name_unicode_5));		
+$server_5->appendChild($domain_server_name_unicode_5);
+$domain_server_ipv5_5 = $doc->createElement("server_ipv5_5");
+$domain_server_ipv5_5->appendChild($doc->createCDATASection($server_ipv5_5));		
+$server_5->appendChild($domain_server_ipv5_5);
+$domain_server_ipv6_5 = $doc->createElement("server_ipv6_5");
+$domain_server_ipv6_5->appendChild($doc->createCDATASection($server_ipv6_5));		
+$server_5->appendChild($domain_server_ipv6_5);		
+$name_servers->appendChild($server_5);
+$server_6 = $doc->createElement("server_6");
+$name_servers->appendChild($server_6);	
+$domain_server_name_6 = $doc->createElement("server_name_6");
+$domain_server_name_6->appendChild($doc->createCDATASection($server_name_6));		
+$server_6->appendChild($domain_server_name_6);
+$domain_server_name_unicode_6 = $doc->createElement("server_name_unicode_6");
+$domain_server_name_unicode_6->appendChild($doc->createCDATASection($server_name_unicode_6));		
+$server_6->appendChild($domain_server_name_unicode_6);
+$domain_server_ipv6_6 = $doc->createElement("server_ipv6_6");
+$domain_server_ipv6_6->appendChild($doc->createCDATASection($server_ipv6_6));		
+$server_6->appendChild($domain_server_ipv6_6);
+$domain_server_ipv6_6 = $doc->createElement("server_ipv6_6");
+$domain_server_ipv6_6->appendChild($doc->createCDATASection($server_ipv6_6));		
+$server_6->appendChild($domain_server_ipv6_6);		
+$name_servers->appendChild($server_6);	
 	
 $domain_name_servers_dnssec = $doc->createElement("name_servers_dnssec");
 $domain_name_servers_dnssec->appendChild($doc->createCDATASection($name_servers_dnssec));	
