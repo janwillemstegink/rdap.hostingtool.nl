@@ -176,24 +176,20 @@ foreach($obj as $key1 => $value1) {
 			foreach($value3 as $key4 => $value4) {
 				foreach($value4 as $key5 => $value5) {
 					foreach($value5 as $key6 => $value6) {
-						if ($key4 == 1 and $key5 == 1 and $key6 == 3)	{
-							if ($key1 == 'entities' and $key2 == $registrar and $key3 == 'vcardArray' and $value5[0] == 'fn')	{
-								$registrar_trade_name = $value5[3];
-							}
-							elseif ($key1 == 'entities' and $key2 == $reseller and $key3 == 'vcardArray' and $value5[0] == 'fn')	{
-								$reseller_trade_name = $value5[3];
-							}
-							elseif ($key1 == 'entities' and $key2 == $registrant and $key3 == 'vcardArray' and $value5[0] == 'fn')	{
-								$registrant_trade_name = $value5[3];
-							}
-						}	
-						elseif ($key4 == 1 and $key5 == 2 and $key6 == 3)	{
-							if ($key1 == 'entities' and $key2 == $admin and $key3 == 'vcardArray' and $value5[0] == 'adr')	{
-								$admin_email = $value6;
-							}
-							elseif ($key1 == 'entities' and $key2 == $tech and $key3 == 'vcardArray' and $value5[0] == 'adr')	{
-								$tech_email = $value6;		
-							}
+						if ($key1 == 'entities' and $key2 == $registrar and $key3 == 'vcardArray' and $value5[0] == 'fn')	{
+							$registrar_trade_name = $value5[3];
+						}
+						elseif ($key1 == 'entities' and $key2 == $reseller and $key3 == 'vcardArray' and $value5[0] == 'fn')	{
+							$reseller_trade_name = $value5[3];
+						}
+						elseif ($key1 == 'entities' and $key2 == $registrant and $key3 == 'vcardArray' and $value5[0] == 'fn')	{
+							$registrant_trade_name = $value5[3];
+						}
+						elseif ($key1 == 'entities' and $key2 == $admin and $key3 == 'vcardArray' and $value5[0] == 'email')	{
+							$admin_email = $value6;
+						}
+						elseif ($key1 == 'entities' and $key2 == $tech and $key3 == 'vcardArray' and $value5[0] == 'email')	{
+							$tech_email = $value6;		
 						}	
 						foreach($value6 as $key7 => $value7) {
 							if ($key4 == 1 and $key5 == 2 and $key6 == 3)	{
