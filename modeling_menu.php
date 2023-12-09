@@ -1,6 +1,6 @@
 <?php
 session_start();  // is needed with no PHP Generator Scriptcase
-if (empty($inputlanguage))	{
+|if (empty($inputlanguage))	{
 	$browserlanguage = getLanguage();
 	switch ($browserlanguage) {
 		case 'nl':
@@ -84,7 +84,7 @@ $html_text = '<body onload=SwitchTranslation('.$inputlanguage.')><div style="bor
 <table style="font-family:Helvetica, Arial, sans-serif; font-size: 1rem">
 <tr><th style="width:400px"></th></th><th style="width:450px"></th></tr>';
 $html_text .= '<tr><td id="title" style="font-size: 1.25rem;color:blue;font-weight:bold"></td>
-<td style="font-size: .9rem"><a href="https://github.com/janwillemstegink/xml-whois" target="_blank">github.com/janwillemstegink/xml-whois</a></td></tr>';
+<td style="font-size: .9rem"><a href="https://github.com/janwillemstegink/model_rdap_view" target="_blank">github.com/janwillemstegink/model_rdap_view</a></td></tr>';
 $html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';	
 $html_text .= '<tr><td></td><td>
 <button style="cursor:pointer" onclick="SwitchTranslation(1)">In het nederlands</button> - 

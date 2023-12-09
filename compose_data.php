@@ -122,12 +122,12 @@ $server_ipv4_6 = $obj['nameservers'][5]['ipAddresses']['v4'][0];
 $server_ipv6_6 = $obj['nameservers'][5]['ipAddresses']['v6'][0];	
 	
 $registrar_abuse_email = 'NA';
-$registrar = -1;	
-$abuse = -1;
-$reseller = -1;	
-$registrant = -1;
-$admin = -1;
-$tech = -1;	
+$entity_registrar = -1;	
+$entity_abuse = -1;
+$entity_reseller = -1;	
+$entity_registrant = -1;
+$entity_admin = -1;
+$entity_tech = -1;	
 	
 foreach($obj as $key1 => $value1) {
     foreach($value1 as $key2 => $value2) {
@@ -537,5 +537,5 @@ $domains->appendChild($domain);
 $doc->appendChild($domains);
 //return $doc->saveXML(NULL, LIBXML_NOEMPTYTAG);
 return $doc->saveXML();
-}					
+}			
 ?>

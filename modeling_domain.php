@@ -1,6 +1,5 @@
 <?php
 session_start();  // is needed with no Scriptcase PHP Generator
-//session_start();  // is needed with no PHP Generator Scriptcase
 $inputlanguage = 2;
 echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -356,7 +355,7 @@ $html_text = '<body onload=SwitchTranslation('.$inputlanguage.')><div style="bor
 <table style="font-family:Helvetica, Arial, sans-serif; font-size: 1rem">
 <tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th></tr>';
 $html_text .= '<tr><td id="title" style="font-size: 1.5rem;color:blue;font-weight:bold"></b></td><td id="data" style="font-size:1.2rem;color:blue;font-weight:bold"></td>
-<td style="font-size: .9rem"><a href="https://www.sidn.nl/en/whois?q=webhostingtech.nl" target="_blank">sidn.nl/en/whois?q=webhostingtech.nl/whois</a>
+<td style="font-size: .9rem"><a href="https://www.sidn.nl/en/whois?q=webhostingtech.nl" target="_blank">sidn.nl/en/whois?q=webhostingtech.nl</a>
 - <a href="https://github.com/janwillemstegink/model_rdap_view" target="_blank">github.com/janwillemstegink/model_rdap_view</a></td></tr>';
 foreach ($xml1->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());

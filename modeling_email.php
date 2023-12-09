@@ -37,7 +37,7 @@ $html_text = '<!DOCTYPE html><html lang="en" style="font-size:100%"><head>
 $html_text .= '<body><div style="border-collapse:collapse; line-height:120%">
 <table style="font-family:Helvetica, Arial, sans-serif; font-size:.85rem">
 <tr><th style="width:350px"></th><th style="width:475px"></th></tr>';
-$html_text .= '<tr><td style="font-size:1.1rem;color:blue;font-weight:bold"><b>Web Domain Email Model</b></td><td style="font-size:.8rem"><a href="https://www.sidn.nl/whois?q=webhostingtech.nl" target="_blank">sidn.nl/whois?q=webhostingtech.nl/whois</a> - <a href="https://github.com/janwillemstegink/xml-whois" target="_blank">github.com/janwillemstegink/xml-whois</a></td></tr>';
+$html_text .= '<tr><td style="font-size:1.1rem;color:blue;font-weight:bold"><b>Web Domain Email Model</b></td><td style="font-size:.8rem"><a href="https://www.sidn.nl?q=webhostingtech.nl" target="_blank">sidn.nl/whois?q=webhostingtech.nl</a> - <a href="https://github.com/janwillemstegink/model_rdap_view" target="_blank">github.com/janwillemstegink/model_rdap_view</a></td></tr>';
 $html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 $html_text .= '<tr><td COLSPAN="2">- English version of this message below –</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />Beste domeinnaamhouder,</td></tr>';
@@ -123,4 +123,5 @@ $html_text .= '<tr><td COLSPAN="2"><br />Please don&#39;t reply to this mail. If
 $html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 $html_text .= '</table></div></body></html>';
 echo $html_text;
+
 ?>
