@@ -439,16 +439,16 @@ foreach ($xml1->xpath('//domain') as $item)	{
 			$html_text .= '<tr><td>reseller_trade_name</td><td><b>'.$item->reseller->reseller_trade_name.'</b></td><td></td></tr>';
 			$html_text .= '<tr id="502" style="display:none"><td>reseller_personal_name</td><td><b>'.$item->reseller->reseller_personal_name.'</b></td><td></td></tr>';
 			$html_text .= '<tr id="503" style="display:none"><td>reseller_phone</td><td><b>'.$item->reseller->reseller_phone.'</b></td><td></td></tr>';
-			$html_text .= '<tr id="504 style="display:none"><td>reseller_fax</td><td><b>'.$item->reseller->reseller_fax.'</b></td><td></td></tr>';
-			$html_text .= '<tr id="505 style="display:none"><td>reseller_email</td><td><b>'.$item->reseller->reseller_email.'</b></td><td></td></tr>';			
-			$html_text .= '<tr id="506style="display:none"><td>reseller_street</td><td><b>'.$item->reseller->reseller_street.'</b></td><td></td></tr>';
-			$html_text .= '<tr id="507 style="display:none"><td>reseller_postal_code</td><td><b>'.$item->reseller->reseller_postal_code.'</b></td><td></td></tr>';
-			$html_text .= '<tr id="508 style="display:none"><td>reseller_city</td><td><b>'.$item->reseller->reseller_city.'</b></td><td></td></tr>';
-			$html_text .= '<tr id="509 style="display:none"><td>reseller_state_province</td><td><b>'.$item->reseller->reseller_state_province.'</b></td><td></td></tr>';			
-			$html_text .= '<tr id="5010style="display:none"><td>reseller_country_code</td><td><b>'.$item->reseller->reseller_country_code.'</b></td><td></td></tr>';
-			$html_text .= '<tr id="5011 style="display:none"><td>reseller_country_name</td><td><b>'.$item->reseller->reseller_country_name.'</b></td><td></td></tr>';
-			$html_text .= '<tr id="5012 style="display:none"><td>reseller_country_language</td><td><b>'.$item->reseller->reseller_country_language.'</b></td><td></td></tr>';
-			$html_text .= '<tr id="5013 style="display:none"><td>reseller_protected</td><td><b>'.$item->reseller->reseller_protected.'</b></td><td id="reseller_protected"></td></tr>';
+			$html_text .= '<tr id="504" style="display:none"><td>reseller_fax</td><td><b>'.$item->reseller->reseller_fax.'</b></td><td></td></tr>';
+			$html_text .= '<tr id="505" style="display:none"><td>reseller_email</td><td><b>'.$item->reseller->reseller_email.'</b></td><td></td></tr>';			
+			$html_text .= '<tr id="506" style="display:none"><td>reseller_street</td><td><b>'.$item->reseller->reseller_street.'</b></td><td></td></tr>';
+			$html_text .= '<tr id="507" style="display:none"><td>reseller_postal_code</td><td><b>'.$item->reseller->reseller_postal_code.'</b></td><td></td></tr>';
+			$html_text .= '<tr id="508" style="display:none"><td>reseller_city</td><td><b>'.$item->reseller->reseller_city.'</b></td><td></td></tr>';
+			$html_text .= '<tr id="509" style="display:none"><td>reseller_state_province</td><td><b>'.$item->reseller->reseller_state_province.'</b></td><td></td></tr>';			
+			$html_text .= '<tr id="5010" style="display:none"><td>reseller_country_code</td><td><b>'.$item->reseller->reseller_country_code.'</b></td><td></td></tr>';
+			$html_text .= '<tr id="5011" style="display:none"><td>reseller_country_name</td><td><b>'.$item->reseller->reseller_country_name.'</b></td><td></td></tr>';
+			$html_text .= '<tr id="5012" style="display:none"><td>reseller_country_language</td><td><b>'.$item->reseller->reseller_country_language.'</b></td><td></td></tr>';
+			$html_text .= '<tr id="5013" style="display:none"><td>reseller_protected</td><td><b>'.$item->reseller->reseller_protected.'</b></td><td id="reseller_protected"></td></tr>';
 			$html_text .= '<tr><td><hr></b></td><td><hr></b></td><td><hr></td></tr>';
 		}	
 	}
