@@ -173,7 +173,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_web_id").textContent = "";
 		document.getElementById("reseller_protected").textContent = derivedfield;
 		document.getElementById("registrant_role").textContent = "Een domeinhouder heeft tenminste de rechten van een abonnement op zijn domein.";
-		document.getElementById("registrant_web_id").textContent = 'Een web-ID identificatienummer is in voorbereiding voor de Handelsregisters.';
+		document.getElementById("registrant_web_id").textContent = 'Voor de Handelsregisters wordt gewerkt aan een WebID-identificatienummer.';
 		document.getElementById("registrant_trade_name").textContent = "Domeininformatie werkt bij een bestaande, beoogde en zichtbare handelsnaam.";
 		document.getElementById("registrant_personal_name").textContent = "Het is mogelijk om af te wijken van de bescherming van de privacy van de persoonsnaam van de houder.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
@@ -225,7 +225,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_web_id").textContent = "";
 		document.getElementById("reseller_protected").textContent = derivedfield;
 		document.getElementById("registrant_role").textContent = "A domain holder has at least the rights of a subscription to his domain.";
-		document.getElementById("registrant_web_id").textContent = 'A web ID identification number is being prepared for the Business Registers.';
+		document.getElementById("registrant_web_id").textContent = 'A WebID identification number is being developed for the Business Registers.';
 		document.getElementById("registrant_trade_name").textContent = "Domain information works with an existing, intended and visible trade name.";	
 		document.getElementById("registrant_personal_name").textContent = "It is possible to deviate from the privacy protection of the holder's personal name.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
@@ -277,7 +277,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_web_id").textContent = "";
 		document.getElementById("reseller_protected").textContent = derivedfield;
 		document.getElementById("registrant_role").textContent = "Ein Domaininhaber hat zumindest die Rechte eines Abonnements seiner Domain.";
-		document.getElementById("registrant_web_id").textContent = 'Eine Web-ID-Identifikationsnummer wird für die Handelsregister erstellt.';
+		document.getElementById("registrant_web_id").textContent = 'Für die Handelsregister wird eine WebID-Identifikationsnummer entwickelt.';
 		document.getElementById("registrant_trade_name").textContent = "Domain-Informationen funktionieren mit einem bestehenden, beabsichtigten und sichtbaren Handelsnamen.";
 		document.getElementById("registrant_personal_name").textContent = "Es ist möglich, vom Datenschutz des Personennamens des Inhabers abzuweichen.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
@@ -328,7 +328,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("reseller_web_id").textContent = "";
 		document.getElementById("reseller_protected").textContent = derivedfield;
 		document.getElementById("registrant_role").textContent = "Un titulaire de domaine a au moins les droits d'un abonnement à son domaine.";
-		document.getElementById("registrant_web_id").textContent = "Un numéro d'identification Web ID est en cours de préparation pour les registres des entreprises.";
+		document.getElementById("registrant_web_id").textContent = "Un numéro d'identification WebID est en cours d'élaboration pour les Registres de Commerce.";
 		document.getElementById("registrant_trade_name").textContent = "Les informations de domaine fonctionnent avec un nom commercial existant, prévu et visible.";
 		document.getElementById("registrant_personal_name").textContent = "Il est possible de déroger à la protection de la vie privée du nom personnel du titulaire.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
@@ -396,7 +396,6 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="113" style="display:none"><td><hr></b></td><td><hr></b></td><td><hr></td></tr>';
 	$html_text .= '<tr id="114" style="display:none;vertical-align:top"><td>zone_copyright_title</td><td><b>'.$item->zone->zone_copyright_title.'</b></td><td></td></tr>';
 	$html_text .= '<tr id="115" style="display:none;vertical-align:top"><td>zone_copyright_legal</td><td><b>'.$item->zone->zone_copyright_legal.'</b></td><td></td></tr>';
-	$html_text .= '<tr><td><hr></b></td><td><hr></b></td><td><hr></td></tr>';	
 	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(12)">restrictions translated +/-</button></b></td><td></b></td><td></td></tr>';
 	$html_text .= '<tr id="121" style="display:none;vertical-align:top"><td>zone_privacy_title</td><td><b>'.$item->zone->zone_privacy_title.'</b></td><td></td></tr>';
 	$html_text .= '<tr id="122" style="display:none;vertical-align:top"><td>zone_privacy_translated</td><td><b>'.$item->zone->zone_privacy_translated.'</b></td><td></td></tr>';
@@ -444,7 +443,6 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4013" style="display:none"><td>registrar_country_name</td><td><b>'.$item->registrar->registrar_country_name.'</b></td><td></td></tr>';
 	$html_text .= '<tr id="4014" style="display:none"><td>registrar_country_language</td><td><b>'.$item->registrar->registrar_country_language.'</b></td><td></td></tr>';
 	$html_text .= '<tr id="4015" style="display:none"><td>registrar_protected</td><td><b>'.$item->registrar->registrar_protected.'</b></td><td id="registrar_protected"></td></tr>';
-	$html_text .= '<tr><td><hr></b></td><td><hr></b></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(45)">registrar abuse +/-</button></b></td><td></b></td><td id="registrar_abuse_role"></td></tr>';
 	$html_text .= '<tr id="451" style="display:none"><td>registrar_abuse_phone</td><td><b>'.$item->registrar->registrar_abuse_phone.'</b></td><td></td></tr>';
 	$html_text .= '<tr id="452" style="display:none"><td>registrar_abuse_email</td><td><b>'.$item->registrar->registrar_abuse_email.'</b></td><td></td></tr>';
