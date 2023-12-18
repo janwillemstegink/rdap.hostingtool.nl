@@ -369,7 +369,7 @@ $html_text = '<body onload=SwitchTranslation('.$inputlanguage.')><div style="bor
 <table style="font-family:Helvetica, Arial, sans-serif; font-size: 1rem">
 <tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th></tr>';
 $html_text .= '<tr><td id="title" style="font-size: 1.4rem;color:blue;font-weight:bold"></b></td>
-<td style="font-size: 0.9rem"><a href="https://github.com/janwillemstegink/model_rdap_view" target="_blank">github.com/janwillemstegink/model_rdap_view</a></td><td>
+<td style="font-size: 0.9rem"><a href="https://github.com/janwillemstegink/rdap_view_model" target="_blank">github.com/janwillemstegink/rdap_view_model</a></td><td>
 	<button style="cursor:pointer" onclick="SwitchTranslation(0)">none</button> - 
 	<button style="cursor:pointer" onclick="SwitchTranslation(1)">Toelichting in het nederlands</button> - 
 	<button style="cursor:pointer" onclick="SwitchTranslation(2)">Explanation in English</button> - 
