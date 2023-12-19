@@ -24,7 +24,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 20)	{ // view
 		var pre = '20';
-		var max = 6
+		var max = 5
 	}
 	else if (type == 30)	{ // domain
 		var pre = '30';
@@ -147,7 +147,6 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Toelichting";
 		document.getElementById("view_role").textContent = "Er zullen centrale servers zijn om in te zien. Dit kan werken voor Web ID-indexering.";
-		document.getElementById("view_datetime").textContent = proposedfield + "Een tijdstempel bij het bekijken van RDAP-gegevens biedt informatie.";
 		document.getElementById("view_type").textContent = proposedfield + "all, isp (internet service provider), br (business register), public, se (zoekmachine)";
 		document.getElementById("zone_role").textContent = "Een domein zone is (door de ICANN) toegewezen aan een domain registry om domeinen te beheren.";
 		document.getElementById("zone_menu").textContent = proposedfield + "Een vervolgkeuzemenu voor uitleg en details per zone via een subdomein van de registry.";
@@ -163,7 +162,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("domain_status").textContent = "Domeinstatussen: vrij, onttrokken, uitgesloten, in aanvraag, actief, inactief, in quarantaine.";
 		document.getElementById("domain_status_codes").textContent = "Statuscodes: " + statuscodes;
 		document.getElementById("domain_renewed").textContent = proposedfield + "Zoekmachines kunnen filteren op 'actief' en een transactie die niet ouder is dan een jaar.";
-		document.getElementById("domain_refreshed").textContent = "De data op de RDAP(Registration Data Acces Protocol)-server zijn afgeleid uit de onderhouden data.";
+		document.getElementById("domain_refreshed").textContent = "RDAP-serverupdate in Zulu-tijd (gecoördineerde universele tijd - UTC).";
 		document.getElementById("registrar_role").textContent = "Een domain registrar verzorgt de reservering van domeinen en IP-adresroutering.";
 		document.getElementById("registrar_web_id").textContent = "";
 		document.getElementById("registrar_iana_id").textContent = "De IANA-registratie ontbreekt in de RDAP-gegevens.";
@@ -199,7 +198,6 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Explanation";		
 		document.getElementById("view_role").textContent = "There will be central servers to view. This can work for Web ID indexing.";	
-		document.getElementById("view_datetime").textContent = proposedfield + "A timestamp when viewing RDAP data provides information.";
 		document.getElementById("view_type").textContent = proposedfield + "all, isp (nternet service provider), br (business register), public, se (search engine)";
 		document.getElementById("zone_role").textContent = "A domain zone is assigned (by ICANN) to a domain registry to manage domains.";	
 		document.getElementById("zone_menu").textContent = proposedfield + "A drop-down menu for explanations and details per zone via a subdomain of the registry.";
@@ -215,7 +213,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("domain_status").textContent = "Domain statuses: free, withdrawn, excluded, requested, active, inactive, in quarantaine.";
 		document.getElementById("domain_status_codes").textContent = "Status codes: " + statuscodes;
 		document.getElementById("domain_renewed").textContent = proposedfield + "Search engines can filter by 'active' and a transaction that is not older than one year.";
-		document.getElementById("domain_refreshed").textContent = "The data on the RDAP (Registration Data Access Protocol) server is derived from maintained data.";
+		document.getElementById("domain_refreshed").textContent = "RDAP server update in Zulu Time (coordinated universal time - UTC).";
 		document.getElementById("registrar_role").textContent = "A domain registrar takes care of domain reservations and IP address routing.";
 		document.getElementById("registrar_web_id").textContent = "";
 		document.getElementById("registrar_iana_id").textContent = "The IANA registration is missing from the RDAP data.";
@@ -251,7 +249,6 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Erläuterung";		
 		document.getElementById("view_role").textContent = "Es werden zentrale Server angezeigt. Dies kann für die Web-ID-Indizierung funktionieren.";
-		document.getElementById("view_datetime").textContent = proposedfield + "Ein Zeitstempel beim Betrachten von RDAP-Daten gibt Aufschluss.";
 		document.getElementById("view_type").textContent = proposedfield + "all, isp (Internetdienstanbieter), br (Unternehmensregister), public, se (Suchmaschine)";
 		document.getElementById("zone_role").textContent = "Eine Domänenzone wird (von ICANN) einer Domänenregistrierungsstelle zugewiesen, um Domänen zu verwalten.";		
 		document.getElementById("zone_menu").textContent = proposedfield + "Ein Dropdown-Menü für Erläuterungen und Details pro Zone über eine Subdomain der Registry.";
@@ -267,7 +264,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("domain_status").textContent = "Domänenstatus: frei, zurückgezogen, ausgeschlossen, beantragt, aktiv, inaktiv, in Quarantäne.";
 		document.getElementById("domain_status_codes").textContent = "Statuscodes: " + statuscodes;
 		document.getElementById("domain_renewed").textContent = proposedfield + "Suchmaschinen können nach „aktiv“ und einer Transaktion filtern, die nicht älter als ein Jahr ist.";
-		document.getElementById("domain_refreshed").textContent = "Die Daten auf dem RDAP-Server (Registration Data Access Protocol) werden aus den gepflegten Daten abgeleitet.";
+		document.getElementById("domain_refreshed").textContent = "RDAP-Server-Update in Zulu-Zeit (koordinierte Weltzeit – UTC).";
 		document.getElementById("registrar_role").textContent = "Ein Domain-Registrar kümmert sich um Domain-Reservierungen und IP-Adress-Routing.";
 		document.getElementById("registrar_web_id").textContent = "";
 		document.getElementById("registrar_iana_id").textContent = "Die IANA-Registrierung fehlt in den RDAP-Daten.";
@@ -302,7 +299,6 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("value").textContent = "Détail";
 		document.getElementById("explanation").textContent = "Explication";		
 		document.getElementById("view_role").textContent = "Il y aura des serveurs centraux à visualiser. Cela peut fonctionner pour l’indexation des Web ID.";
-		document.getElementById("view_datetime").textContent = proposedfield + "Un horodatage lors de la visualisation des données RDAP fournit des informations.";
 		document.getElementById("view_type").textContent = proposedfield + "all, isp (fournisseur d'accès Internet), br (registre du commerce), public, se (moteur de recherche)";
 		document.getElementById("zone_role").textContent = "Une zone de domaine est attribuée (par l'ICANN) à un registre de domaine pour gérer les domaines.";
 		document.getElementById("zone_menu").textContent = proposedfield + "Un menu déroulant pour des explications et des détails par zone via un sous-domaine du registre.";
@@ -318,7 +314,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("domain_status").textContent = "Statuts de domaine : libre, retiré, exclu, demandé, actif, inactif, en quarantaine.";
 		document.getElementById("domain_status_codes").textContent = "Codes de statuts : " + statuscodes;
 		document.getElementById("domain_renewed").textContent = proposedfield + "Les moteurs de recherche peuvent filtrer par 'actif' et une transaction datant de moins d'un an.";
-		document.getElementById("domain_refreshed").textContent = "Les données sur le serveur RDAP (Registration Data Access Protocol) sont dérivées des données conservées.";
+		document.getElementById("domain_refreshed").textContent = "Mise à jour du serveur RDAP en heure zoulou (temps universel coordonné - UTC).";
 		document.getElementById("registrar_role").textContent = "Un registraire de domaine s'occupe des réservations de domaine et du routage des adresses IP.";
 		document.getElementById("registrar_web_id").textContent = "";
 		document.getElementById("registrar_iana_id").textContent = "L'enregistrement IANA est absent des données RDAP.";
@@ -404,12 +400,11 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="125" style="display:none;vertical-align:top"><td>zone_copyright_translated</td><td>'.$item->zone->zone_copyright_translated.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></b></td><td><hr></b></td><td><hr></td></tr>';	
 	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(20)">view +/-</button></b></td><td></b></td><td id="view_role"></td></tr>';
-	$html_text .= '<tr id="201" style="display:none"><td>view_datetime</td><td>'.$item->view->view_datetime.'</td><td id="view_datetime"></td></tr>';
-	$html_text .= '<tr id="202" style="display:none"><td>view_type</td><td>'.$item->view->view_type.'</td><td id="view_type"></td></tr>';
-	$html_text .= '<tr id="203" style="display:none"><td>view_links_value</td><td>'.$item->view->view_links_value.'</td><td></td></tr>';
-	$html_text .= '<tr id="204" style="display:none"><td>view_links_related</td><td>'.$item->view->view_links_related.'</td><td></td></tr>';
-	$html_text .= '<tr id="205" style="display:none"><td>view_links_href</td><td>'.$item->view->view_links_href.'</td><td></td></tr>';
-	$html_text .= '<tr id="206" style="display:none"><td>view_links_type</td><td>'.$item->view->view_links_type.'</td><td></td></tr>';
+	$html_text .= '<tr id="201" style="display:none"><td>view_type</td><td>'.$item->view->view_type.'</td><td id="view_type"></td></tr>';
+	$html_text .= '<tr id="202" style="display:none"><td>view_links_value</td><td>'.$item->view->view_links_value.'</td><td></td></tr>';
+	$html_text .= '<tr id="203" style="display:none"><td>view_links_related</td><td>'.$item->view->view_links_related.'</td><td></td></tr>';
+	$html_text .= '<tr id="204" style="display:none"><td>view_links_href</td><td>'.$item->view->view_links_href.'</td><td></td></tr>';
+	$html_text .= '<tr id="205" style="display:none"><td>view_links_type</td><td>'.$item->view->view_links_type.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></b></td><td><hr></b></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(30)">domain +/-</button></b></td><td></b></td><td id="domain_role"></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>domain_id</td><td>'.$item->domain_id.'</td><td></td></tr>';

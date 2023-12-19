@@ -42,7 +42,6 @@ $zone_registry_trade_name = 'SIDN';
 $zone_registry_web_id = '';
 $zone_time_zone = 'Europe/Amsterdam';
 
-$view_datetime = date('Y-m-d\TH:i:s\Z');
 $view_type = 'public';	
 $view_links_value = $obj['links'][0]['value'];
 //$view_links_value = str_replace('https://', '', $view_links_value);	
@@ -295,10 +294,6 @@ $domain->appendChild($zone);
 
 $view = $doc->createElement("view");
 $domain->appendChild($view);
-	
-$domain_view_datetime = $doc->createElement("view_datetime");
-$domain_view_datetime->appendChild($doc->createCDATASection($view_datetime));
-$view->appendChild($domain_view_datetime);
 
 $domain_view_type = $doc->createElement("view_type");
 $domain_view_type->appendChild($doc->createCDATASection($view_type));	
