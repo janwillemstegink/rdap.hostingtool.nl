@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<domains>market_name
+	<domain item="webhostingtech.nl">
+		<domain_name>webhostingtech.nl</domain_name>
+		<domain_name_unicode>webhostingtech.nl</domain_name_unicode>
+		<domain_type>business use</domain_type>
+		<registrant>
+			<registrant_contact_id>STE135417-TRAIP</registrant_contact_id>
+			<registrant_web_id>NL88COMM01234567890123456789012345</registrant_web_id>
+			<registrant_trade_name><![CDATA[Stegink Hosting & E-mail]]></registrant_trade_name>
+			<registrant_personal_name>Jan Willem Stegink</registrant_personal_name>
+			<registrant_phone>+31.264453916</registrant_phone>
+			<registrant_fax></registrant_fax>
+			<registrant_email>steginkj@freedom.nl</registrant_email>
+			<registrant_street>Dr. Schaepmanlaan 44</registrant_street>
+			<registrant_postal_code>6823 AS</registrant_postal_code>
+			<registrant_city>Arnhem</registrant_city>
+			<registrant_state_province>Gelderland</registrant_state_province>
+			<registrant_country_code>NL</registrant_country_code>
+			<registrant_country_language>nl-NL</registrant_country_language>
+			<registrant_protected>contact_id,personal_name,phone,fax,email,address</registrant_protected>
+		</registrant>
+		<admin>
+			<admin_contact_id>STE135418-TRAIP</admin_contact_id>
+			<admin_web_id>NL88COMM01234567890123456789012345</admin_web_id>
+			<admin_trade_name><![CDATA[Stegink Hosting & E-mail]]></admin_trade_name>
+			<admin_personal_name>Jan Willem Stegink</admin_personal_name>
+			<admin_phone>+31.264453916</admin_phone>
+			<admin_fax></admin_fax>
+			<admin_email>admindesk@janwillemstegink.nl</admin_email>
+			<admin_street>Dr. Schaepmanlaan 44</admin_street>
+			<admin_postal_code>6823 AS</admin_postal_code>
+			<admin_city>Arnhem</admin_city>
+			<admin_state_province>Gelderland</admin_state_province>			
+			<admin_country_code>NL</admin_country_code>
+			<admin_country_language>nl-NL</admin_country_language>
+			<admin_protected>contact_id,personal_name,phone,fax,address,country</admin_protected>
+		</admin>
+		<billing>
+			<billing_contact_id></billing_contact_id>
+			<billing_web_id>NL88COMM01234567890123456789012345</billing_web_id>
+			<billing_trade_name><![CDATA[Stegink Hosting & E-mail]]></billing_trade_name>
+			<billing_personal_name>Jan Willem Stegink</billing_personal_name>
+			<billing_phone>+31.264453916</billing_phone>
+			<billing_fax></billing_fax>
+			<billing_email>steginkj@freedom.nl</billing_email>
+			<billing_street>Dr. Schaepmanlaan 44</billing_street>
+			<billing_postal_code>6823 AS</billing_postal_code>
+			<billing_city>Arnhem</billing_city>
+			<billing_state_province>Gelderland</billing_state_province>
+			<billing_country_code>NL</billing_country_code>
+			<billing_country_language>nl-NL</billing_country_language>
+			<billing_protected>contact_id,personal_name,phone,fax,email,address,country</billing_protected>
+		</billing>
+	</domain>
+</domains>
