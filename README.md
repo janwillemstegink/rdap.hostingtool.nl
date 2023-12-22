@@ -1,7 +1,6 @@
 - Web domain information can become readable for outsiders;
 - Business transparency must be combined with privacy of a natural person;
 - Better public understanding clears up workload for registrars;
-- Interfaces can recognize ‘Personal private use’, ‘Personal public use’ and ‘Business use';
 - The name and contact details of the holder matter for customer protection, manageable administrative workload and an 'In Control Statement' (ICS);
 - Legal structure for domain information can arise after narrowing down physical structure first.
 
