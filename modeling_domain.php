@@ -28,7 +28,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 30)	{ // domain
 		var pre = '30';
-		var max = 8
+		var max = 6
 	}
 	else if (type == 40)	{ // registrar
 		var pre = '40';
@@ -104,11 +104,10 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("zone_restrictions").textContent = "";
 		document.getElementById("domain_role").textContent = "";
 		document.getElementById("domain_name_unicode").textContent = "";
-		document.getElementById("domain_renewed").textContent = proposedfield;
-		document.getElementById("domain_refreshed").textContent = "";
+		document.getElementById("domain_last_renewed").textContent = proposedfield;
+		document.getElementById("domain_last_refreshed").textContent = "";
 		document.getElementById("registrar_role").textContent = "";
 		document.getElementById("registrar_web_id").textContent = "";
-		document.getElementById("registrar_iana_id").textContent = "";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("registrar_abuse_role").textContent = "";
 		document.getElementById("reseller_role").textContent = "";
@@ -150,11 +149,10 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("zone_restrictions").textContent = "Het bekijken van domeingegevens is aan beperkingen onderhevig.";
 		document.getElementById("domain_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
 		document.getElementById("domain_name_unicode").textContent = "Namen met speciale tekens worden opgeslagen als ASCII-tekenreeksen met behulp van Punycode-transcriptie.";
-		document.getElementById("domain_renewed").textContent = proposedfield + "Zoekmachines kunnen filteren op 'actief' en een transactie die niet ouder is dan een jaar.";
-		document.getElementById("domain_refreshed").textContent = "RDAP-serverupdate in Zulu-tijd (gecoördineerde universele tijd - UTC).";
+		document.getElementById("domain_last_renewed").textContent = proposedfield + "Zoekmachines kunnen filteren op 'actief' en een transactie die niet ouder is dan een jaar.";
+		document.getElementById("domain_last_refreshed").textContent = "RDAP-serverupdate in Zulu-tijd (gecoördineerde universele tijd - UTC).";
 		document.getElementById("registrar_role").textContent = "Een domain registrar verzorgt de reservering van domeinen en IP-adresroutering.";
 		document.getElementById("registrar_web_id").textContent = "";
-		document.getElementById("registrar_iana_id").textContent = "De IANA-registratie ontbreekt in de RDAP-gegevens.";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("registrar_abuse_role").textContent = "Door misbruikinformatie kan een derde contact opnemen met de registrar van een domein.";
 		document.getElementById("reseller_role").textContent = "Een domain reseller heeft verantwoordelijkheid, afhankelijk van voorschriften en afspraken.";
@@ -197,11 +195,10 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("zone_restrictions").textContent = "Viewing domain data is subject to restrictions.";
 		document.getElementById("domain_role").textContent = "A web domain under a top-level domain is unique worldwide and can be freely chosen under certain rules.";
 		document.getElementById("domain_name_unicode").textContent = "Names with special characters are stored as ASCII strings using Punycode transcription.";
-		document.getElementById("domain_renewed").textContent = proposedfield + "Search engines can filter by 'active' and a transaction that is not older than one year.";
-		document.getElementById("domain_refreshed").textContent = "RDAP server update in Zulu Time (coordinated universal time - UTC).";
+		document.getElementById("domain_last_renewed").textContent = proposedfield + "Search engines can filter by 'active' and a transaction that is not older than one year.";
+		document.getElementById("domain_last_refreshed").textContent = "RDAP server update in Zulu Time (coordinated universal time - UTC).";
 		document.getElementById("registrar_role").textContent = "A domain registrar takes care of domain reservations and IP address routing.";
 		document.getElementById("registrar_web_id").textContent = "";
-		document.getElementById("registrar_iana_id").textContent = "The IANA registration is missing from the RDAP data.";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("registrar_abuse_role").textContent = "Abuse information allows a third party to contact the registrar of a domain.";
 		document.getElementById("reseller_role").textContent = "A domain reseller has responsibility, depending on regulations and agreements.";
@@ -244,11 +241,10 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("zone_restrictions").textContent = "Das Anzeigen von Domänendaten unterliegt Einschränkungen.";
 		document.getElementById("domain_role").textContent = "Eine Webdomain unter einer Top-Level-Domain ist weltweit einzigartig und unter bestimmten Regeln frei wählbar.";
 		document.getElementById("domain_name_unicode").textContent = "Namen mit Sonderzeichen werden mittels Punycode-Transkription als ASCII-Strings gespeichert.";
-		document.getElementById("domain_renewed").textContent = proposedfield + "Suchmaschinen können nach „aktiv“ und einer Transaktion filtern, die nicht älter als ein Jahr ist.";
-		document.getElementById("domain_refreshed").textContent = "RDAP-Server-Update in Zulu-Zeit (koordinierte Weltzeit – UTC).";
+		document.getElementById("domain_last_renewed").textContent = proposedfield + "Suchmaschinen können nach „aktiv“ und einer Transaktion filtern, die nicht älter als ein Jahr ist.";
+		document.getElementById("domain_last_refreshed").textContent = "RDAP-Server-Update in Zulu-Zeit (koordinierte Weltzeit – UTC).";
 		document.getElementById("registrar_role").textContent = "Ein Domain-Registrar kümmert sich um Domain-Reservierungen und IP-Adress-Routing.";
 		document.getElementById("registrar_web_id").textContent = "";
-		document.getElementById("registrar_iana_id").textContent = "Die IANA-Registrierung fehlt in den RDAP-Daten.";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("registrar_abuse_role").textContent = "Missbrauchsinformationen ermöglichen es einem Dritten, den Registrar einer Domain zu kontaktieren.";
 		document.getElementById("reseller_role").textContent = "Ein Domain-Reseller trägt die Verantwortung, je nach Vorschriften und Vereinbarungen.";
@@ -290,11 +286,10 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("zone_restrictions").textContent = "L'affichage des données de domaine est soumis à des restrictions.";
 		document.getElementById("domain_role").textContent = "Un domaine Web sous un domaine de premier niveau est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_name_unicode").textContent = "Les noms avec des caractères spéciaux sont stockés sous forme de chaînes ASCII à l'aide de la transcription Punycode.";
-		document.getElementById("domain_renewed").textContent = proposedfield + "Les moteurs de recherche peuvent filtrer par 'actif' et une transaction datant de moins d'un an.";
-		document.getElementById("domain_refreshed").textContent = "Mise à jour du serveur RDAP en heure zoulou (temps universel coordonné - UTC).";
+		document.getElementById("domain_last_renewed").textContent = proposedfield + "Les moteurs de recherche peuvent filtrer par 'actif' et une transaction datant de moins d'un an.";
+		document.getElementById("domain_last_refreshed").textContent = "Mise à jour du serveur RDAP en heure zoulou (temps universel coordonné - UTC).";
 		document.getElementById("registrar_role").textContent = "Un registraire de domaine s'occupe des réservations de domaine et du routage des adresses IP.";
 		document.getElementById("registrar_web_id").textContent = "";
-		document.getElementById("registrar_iana_id").textContent = "L'enregistrement IANA est absent des données RDAP.";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("registrar_abuse_role").textContent = "Les informations sur les abus permettent à un tiers de contacter le registraire d'un domaine.";
 		document.getElementById("reseller_role").textContent = "Un revendeur de domaine a la responsabilité, en fonction des réglementations et des accords.";
@@ -400,11 +395,11 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>domain_name</td><td><b>'.$item->domain_name.'</b></td><td></td></tr>';
 	$html_text .= '<tr id="302" style="display:none"><td>domain_name_unicode</td><td>'.$item->domain_name_unicode.'</td><td id="domain_name_unicode"></td></tr>';
 	$html_text .= '<tr><td>domain_status</td><td>'.$item->domain_status.'</td><td></td></tr>';
-	$html_text .= '<tr><td>domain_created</td><td>'.$item->domain_created.'</td><td></td></tr>';
-	$html_text .= '<tr><td>domain_renewed</td><td>'.$item->domain_renewed.'</td><td id="domain_renewed"></td></tr>';
-	$html_text .= '<tr id="303" style="display:none"><td>domain_updated</td><td>'.$item->domain_updated.'</td><td></td></tr>';
-	$html_text .= '<tr id="304" style="display:none"><td>domain_refreshed</td><td>'.$item->domain_refreshed.'</td><td id="domain_refreshed"></td></tr>';
-	$html_text .= '<tr id="305" style="display:none"><td>domain_expiration</td><td>'.$item->domain_expiration.'</td><td></td></tr>';
+	$html_text .= '<tr><td>domain_registered</td><td>'.$item->domain_registered.'</td><td></td></tr>';
+	$html_text .= '<tr><td>domain_last_renewed</td><td>'.$item->domain_last_renewed.'</td><td id="domain_last_renewed"></td></tr>';
+	$html_text .= '<tr id="303" style="display:none"><td>domain_last_changed</td><td>'.$item->domain_last_changed.'</td><td></td></tr>';
+	$html_text .= '<tr id="304" style="display:none"><td>domain_last_refreshed</td><td>'.$item->domain_last_refreshed.'</td><td id="domain_last_refreshed"></td></tr>';
+	$html_text .= '<tr id="305" style="display:none"><td>domain_will_expire</td><td>'.$item->domain_will_expire.'</td><td></td></tr>';
 	$html_text .= '<tr id="306" style="display:none"><td>domain_out_of_quarantine</td><td>'.$item->domain_out_of_quarantine.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></b></td><td><hr></b></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(40)">registrar +/-</button></b></td><td></b></td><td id="registrar_role"></td></tr>';
@@ -413,7 +408,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>registrar_full_name</td><td>'.$item->registrar->registrar_full_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="402" style="display:none"><td>registrar_kind</td><td>'.$item->registrar->registrar_kind.'</td><td></td></tr>';
 	$html_text .= '<tr id="403" style="display:none"><td>registrar_url</td><td>'.$item->registrar->registrar_url.'</td><td></td></tr>';
-	$html_text .= '<tr id="404" style="display:none"><td>registrar_iana_id</td><td>'.$item->registrar->registrar_iana_id.'</td><td id="registrar_iana_id"></td></tr>';
+	$html_text .= '<tr id="404" style="display:none"><td>registrar_iana_id</td><td>'.$item->registrar->registrar_iana_id.'</td><td></td></tr>';
 	$html_text .= '<tr id="405" style="display:none"><td>registrar_name</td><td>'.$item->registrar->registrar_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="406" style="display:none"><td>registrar_phone</td><td>'.$item->registrar->registrar_phone.'</td><td></td></tr>';
 	$html_text .= '<tr id="407" style="display:none"><td>registrar_fax</td><td>'.$item->registrar->registrar_fax.'</td><td></td></tr>';

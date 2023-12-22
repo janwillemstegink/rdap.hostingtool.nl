@@ -38,7 +38,7 @@ $zone_description = 'NL Domain Registry';
 $zone_menu = 'https://nl.sidn.nl';
 $zone_support = 'support@sidn.nl';
 $zone_registry_web_id = '';
-$zone_registry_full_name = 'SIDN';
+$zone_registry_full_name = 'SIDN B.V.';
 $zone_registry_language = $obj['lang'];	
 
 $view_type = 'public';	
@@ -50,12 +50,12 @@ $view_links_title = $obj['links'][0]['title'];
 $view_links_media = $obj['links'][0]['media'];
 $view_links_type = $obj['links'][0]['type'];
 	
-//$created = $obj['events'][0]['eventDate'];
-//$updated = $obj['events'][1]['eventDate'];
-//$refreshed = $obj['events'][2]['eventDate'];
+//$registered = $obj['events'][0]['eventDate'];
+//$last_changed = $obj['events'][1]['eventDate'];
+//$last_refreshed = $obj['events'][2]['eventDate'];
 $status = $obj['status'][0];
-$registrar_iana_id = $obj['entities'][0]['publicIds'][0]['identifier'];
-$registrar_iana_id = '1603';
+//$registrar_iana_id = $obj['entities'][0]['publicIds'][0]['identifier'];
+$registrar_iana_id = ''; // not in SIDN's RDAP
 $name = $obj['ldhName'];
 $name_unicode = $obj['ldhName'];
 if ($obj['secureDNS']['delegationSigned'] == 1)	{
@@ -185,13 +185,16 @@ foreach($obj as $key1 => $value1) {
 		foreach($value2 as $key3 => $value3) {
 			if ($key1 == 'events' )	{
 				if ($value3 == 'registration')	{
-					$created = $value2['eventDate'];
+					$registered = $value2['eventDate'];
 				}
 				elseif ($value3 == 'last changed')	{
-					$updated = $value2['eventDate'];
-				}
+					$last_changed = $value2['eventDate'];
+				}				
 				elseif ($value3 == 'last update of RDAP database')	{
-					$refreshed = $value2['eventDate'];
+					$last_refreshed = $value2['eventDate'];
+				}
+				elseif ($value3 == 'expiration')	{
+					$will_expire = $value2['eventDate'];
 				}
 			}	
 			foreach($value3 as $key4 => $value4) {
@@ -409,15 +412,18 @@ $domain->appendChild($domain_name_unicode);
 $domain_status = $doc->createElement("domain_status");
 $domain_status->appendChild($doc->createCDATASection($status));	
 $domain->appendChild($domain_status);	
-$domain_created = $doc->createElement("domain_created");
-$domain_created->appendChild($doc->createCDATASection($created));	
-$domain->appendChild($domain_created);	
-$domain_updated = $doc->createElement("domain_updated");
-$domain_updated->appendChild($doc->createCDATASection($updated));	
-$domain->appendChild($domain_updated);	
-$domain_refreshed = $doc->createElement("domain_refreshed");
-$domain_refreshed->appendChild($doc->createCDATASection($refreshed));	
-$domain->appendChild($domain_refreshed);	
+$domain_registered = $doc->createElement("domain_registered");
+$domain_registered->appendChild($doc->createCDATASection($registered));	
+$domain->appendChild($domain_registered);	
+$domain_last_changed = $doc->createElement("domain_last_changed");
+$domain_last_changed->appendChild($doc->createCDATASection($last_changed));	
+$domain->appendChild($domain_last_changed);	
+$domain_last_refreshed = $doc->createElement("domain_last_refreshed");
+$domain_last_refreshed->appendChild($doc->createCDATASection($last_refreshed));	
+$domain->appendChild($domain_last_refreshed);
+$domain_will_expire = $doc->createElement("domain_will_expire");
+$domain_will_expire->appendChild($doc->createCDATASection($will_expire));	
+$domain->appendChild($domain_will_expire);	
 
 $registrar = $doc->createElement("registrar");
 $domain->appendChild($registrar);
