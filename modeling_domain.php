@@ -240,7 +240,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("registrar_role").textContent = "Ein Domain-Registrar kümmert sich um Domain-Reservierungen und IP-Adress-Routing.";
 		document.getElementById("registrar_web_id").textContent = "";
 		document.getElementById("registrar_protected").textContent = derivedfield;
-		document.getElementById("registrar_abuse_role").textContent = "Missbrauchsinformationen ermöglichen es einem Dritten, den Registrar einer Domain zu kontaktieren.";
+		document.getElementById("registrar_abuse_role").textContent = "Missbrauch Informationen ermöglichen es einen Dritten, den Registrar einer Domain zu kontaktieren.";
 		document.getElementById("reseller_role").textContent = "Ein Domain-Reseller trägt die Verantwortung, je nach Vorschriften und Vereinbarungen.";
 		document.getElementById("reseller_web_id").textContent = "";
 		document.getElementById("reseller_protected").textContent = derivedfield;
@@ -327,16 +327,15 @@ else	{
 }	
 $rdap_url = 'https://rdap.hostingtool.nl/compose_data/index.php?domain='.$viewdomain;
 if (@get_headers($rdap_url))	{ // the application to compose for zone data
-	$xml1 = simplexml_load_file($rdap_url, "SimpleXMLElement", LIBXML_NOCDATA) or die("Cannot load rdap_url from non-public folder.");
+	$xml1 = simplexml_load_file($rdap_url, "SimpleXMLElement", LIBXML_NOCDATA) or die("An entered domain could not be read.");
 }
 $html_text = '<body onload=SwitchTranslation('.$inputlanguage.')><div style="border-collapse:collapse; line-height:120%">
 <table style="font-family:Helvetica, Arial, sans-serif; font-size: 1rem">
 <tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th></tr>';
-$html_text .= '<tr><td id="title" style="font-size: 1.4rem;color:blue;font-weight:bold"></b></td>
+$html_text .= '<tr style="font-size: .8rem"><td id="title" style="font-size: 1.4rem;color:blue;font-weight:bold"></b></td>
 <td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="post">    
-	<label style="font-size: 1rem" for="inputdomain">.nl .com</label>
-	<input type="text" style="width:65%" id="inputdomain" name="inputdomain" value='.$viewdomain.'>
-	<input type="submit" value="OK" name="IsSubmit" /></form></td><td>
+	<label for="inputdomain">nl/com/uk/de/fr</label>
+	<input type="text" style="width:70%" id="inputdomain" name="inputdomain" value='.$viewdomain.'></form></td><td>
 	<button style="cursor:pointer" onclick="SwitchTranslation(0)">none</button> - 
 	<button style="cursor:pointer" onclick="SwitchTranslation(1)">Nederlands</button> - 
 	<button style="cursor:pointer" onclick="SwitchTranslation(2)">English</button> - 
@@ -392,7 +391,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>domain_name</td><td><b>'.$item->domain_name.'</b></td><td></td></tr>';
 	$html_text .= '<tr id="302" style="display:none"><td>domain_name_unicode</td><td>'.$item->domain_name_unicode.'</td><td id="domain_name_unicode"></td></tr>';
 	$html_text .= '<tr style="vertical-align:top"><td>domain_status</td><td>'.$item->domain_status.'</td><td></td></tr>';
-	$html_text .= '<tr><td>domain_registered</td><td>'.$item->domain_registered.'</td><td></td></tr>';
+	$html_text .= '<tr><td>domain_was_registered</td><td>'.$item->domain_was_registered.'</td><td></td></tr>';
 	$html_text .= '<tr><td>domain_last_renewed</td><td>'.$item->domain_last_renewed.'</td><td id="domain_last_renewed"></td></tr>';
 	$html_text .= '<tr id="303" style="display:none"><td>domain_last_changed</td><td>'.$item->domain_last_changed.'</td><td></td></tr>';
 	$html_text .= '<tr id="304" style="display:none"><td>domain_last_updated</td><td>'.$item->domain_last_updated.'</td><td id="domain_last_updated"></td></tr>';
@@ -422,8 +421,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="451" style="display:none"><td>registrar_abuse_phone</td><td>'.$item->registrar->registrar_abuse_phone.'</td><td></td></tr>';
 	$html_text .= '<tr id="452" style="display:none"><td>registrar_abuse_email</td><td>'.$item->registrar->registrar_abuse_email.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></b></td><td><hr></b></td><td><hr></td></tr>';
-	//if (!empty($item->reseller->reseller_full_name))	{
-	//	if (strlen(trim($item->reseller->reseller_full_name)))	{
+	if (!empty($item->reseller->reseller_full_name))	{
+		if (strlen(trim($item->reseller->reseller_full_name)))	{
 			$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(50)">reseller +/-</button></b></td><td></b></td><td id="reseller_role"></td></tr>';		
 			$html_text .= '<tr id="501" style="display:none"><td>reseller_contact_id</td><td>'.$item->reseller->reseller_contact_id.'</td><td></td></tr>';
 			$html_text .= '<tr><td>reseller_web_id</td><td>'.$item->reseller->reseller_web_id.'</td><td id="reseller_web_id"></td></tr>';
@@ -442,8 +441,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 			$html_text .= '<tr id="5013" style="display:none"><td>reseller_language_pref_2</td><td>'.$item->reseller->reseller_language_pref_2.'</td><td></td></tr>';
 			$html_text .= '<tr id="5014" style="display:none"><td>reseller_protected</td><td>'.$item->reseller->reseller_protected.'</td><td id="reseller_protected"></td></tr>';		
 			$html_text .= '<tr><td><hr></b></td><td><hr></b></td><td><hr></td></tr>';
-	//	}	
-	//}
+		}	
+	}
 	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(60)">registrant +/-</button></b></td><td></b></td><td id="registrant_role"></td></tr>';
 	$html_text .= '<tr id="601" style="display:none"><td>registrant_contact_id</td><td>'.$item->registrant->registrant_contact_id.'</td><td></td></tr>';
 	$html_text .= '<tr><td>registrant_web_id</td><td>'.$item->registrant->registrant_web_id.'</td><td id="registrant_web_id"></td></tr>';

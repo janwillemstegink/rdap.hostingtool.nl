@@ -18,17 +18,27 @@ else	{
 
 function write_file($inputdomain)	{
 	
-$zone_toplevel_domain = mb_substr($inputdomain, strrpos($inputdomain, '.') + 1);	
+$topleveldomain = mb_substr($inputdomain, strrpos($inputdomain, '.') + 1);	
 
-if ($zone_toplevel_domain == 'nl')	{	
-	$url = 'https://rdap.sidn.nl/domain/'.$inputdomain;
+if ($topleveldomain == 'nl')	{	
+	$url = 'https://rdap.sidn.nl/domain/';
 }	
-elseif ($zone_toplevel_domain == 'com')	{
-	$url = 'https://rdap.verisign.com/com/v1/domain/'.$inputdomain;	
+elseif ($topleveldomain == 'com')	{
+	$url = 'https://rdap.verisign.com/com/v1/domain/';	
 }
+elseif ($topleveldomain == 'uk')	{
+	$url = 'https://rdap.nominet.uk/uk/domain/';	
+}	
+elseif ($topleveldomain == 'de')	{
+	$url = 'https://rdap.denic.de/domain/';
+}
+elseif ($topleveldomain == 'fr')	{
+	$url = 'https://rdap.nic.fr/domain/';
+}	
 else	{
-	die("no .nl or .com domain is entered");				
-}		
+	die("No match with a top level domain.");				
+}
+$url = $url.$inputdomain;	
 $obj = json_decode(file_get_contents($url), true);
 	
 $rdap_conformance = $obj['rdapConformance'];
@@ -41,7 +51,7 @@ $zone_copyright_legal = $obj['notices'][1]['description'][0];
 $zone_copyright_translated = $obj['notices'][1]['description'][1];
 $zone_description_legal = $obj['notices'][2]['description'][0];
 $zone_description_translated = $obj['notices'][2]['description'][1];
-if ($zone_toplevel_domain == 'nl')	{
+if ($topleveldomain == 'nl')	{
 	$zone_description = 'NL Domain Registry';
 	$zone_menu = 'https://nl.sidn.nl';
 	$zone_support = 'support@sidn.nl';
@@ -189,7 +199,7 @@ foreach($obj as $key1 => $value1) {
 		foreach($value2 as $key3 => $value3) {
 			if ($key1 == 'events')	{
 				if ($value3 == 'registration')	{
-					$registered = $value2['eventDate'];
+					$was_registered = $value2['eventDate'];
 				}
 				elseif ($value3 == 'last changed')	{
 					$last_changed = $value2['eventDate'];
@@ -484,9 +494,9 @@ $domain->appendChild($domain_name_unicode);
 $domain_status = $doc->createElement("domain_status");
 $domain_status->appendChild($doc->createCDATASection($status));	
 $domain->appendChild($domain_status);	
-$domain_registered = $doc->createElement("domain_registered");
-$domain_registered->appendChild($doc->createCDATASection($registered));	
-$domain->appendChild($domain_registered);	
+$domain_was_registered = $doc->createElement("domain_was_registered");
+$domain_was_registered->appendChild($doc->createCDATASection($was_registered));	
+$domain->appendChild($domain_was_registered);	
 $domain_last_changed = $doc->createElement("domain_last_changed");
 $domain_last_changed->appendChild($doc->createCDATASection($last_changed));	
 $domain->appendChild($domain_last_changed);	
