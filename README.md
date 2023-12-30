@@ -18,4 +18,4 @@ https://webhostingtech.nl/us-eu-steps-for-whois/
 
 https://webhostingtech.nl/nl-country-list-whois/
 
-Note: The XML files contain data from two domains. So Excel can check XML syntax.
+Note: A move to identical functionality in Python is in preparation.
