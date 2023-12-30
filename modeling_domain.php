@@ -101,14 +101,14 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "";
-		document.getElementById("view_role").textContent = "";
-		document.getElementById("view_type").textContent = proposedfield;
 		document.getElementById("zone_role").textContent = "";
-		document.getElementById("zone_menu").textContent = proposedfield;
-		document.getElementById("zone_support").textContent = proposedfield;
 		document.getElementById("zone_registry_web_id").textContent = proposedfield;
 		document.getElementById("zone_registry_full_name").textContent = proposedfield;
+		document.getElementById("zone_menu").textContent = proposedfield;
+		document.getElementById("zone_support").textContent = proposedfield;
 		document.getElementById("zone_notices").textContent = "";
+		document.getElementById("view_role").textContent = "";
+		document.getElementById("view_type").textContent = proposedfield;
 		document.getElementById("domain_role").textContent = "";
 		document.getElementById("domain_name_unicode").textContent = "";
 		document.getElementById("domain_last_renewed").textContent = proposedfield;
@@ -144,14 +144,14 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("field").textContent = "Omschrijving";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Toelichting";
-		document.getElementById("view_role").textContent = "Query's gaan werken met centrale RDAP-servers. Dit kan werken voor Web ID-indexering.";
-		document.getElementById("view_type").textContent = proposedfield + "all, isp (internet service provider), br (business register), public, se (zoekmachine)";
 		document.getElementById("zone_role").textContent = "Een domein zone is (door de ICANN) toegewezen aan een domain registry om domeinen te beheren.";
-		document.getElementById("zone_menu").textContent = proposedfield + "Een vervolgkeuzemenu voor uitleg en details per zone via een subdomein van de registry.";
-		document.getElementById("zone_support").textContent = proposedfield + "Hulp vanuit de registry is mogelijk per e-mail.";
 		document.getElementById("zone_registry_web_id").textContent = proposedfield;
 		document.getElementById("zone_registry_full_name").textContent = proposedfield;
+		document.getElementById("zone_menu").textContent = proposedfield + "Een vervolgkeuzemenu voor uitleg en details per zone via een subdomein van de registry.";
+		document.getElementById("zone_support").textContent = proposedfield + "Hulp vanuit de registry is mogelijk per e-mail.";
 		document.getElementById("zone_notices").textContent = "Het bekijken van domeingegevens is aan beperkingen onderhevig.";
+		document.getElementById("view_role").textContent = "Query's gaan werken met centrale RDAP-servers. Dit kan werken voor Web ID-indexering.";
+		document.getElementById("view_type").textContent = proposedfield + "all, isp (internet service provider), br (business register), public, se (zoekmachine)";
 		document.getElementById("domain_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
 		document.getElementById("domain_name_unicode").textContent = "Namen met speciale tekens worden opgeslagen als ASCII-tekenreeksen met behulp van Punycode-transcriptie.";
 		document.getElementById("domain_last_renewed").textContent = proposedfield + "Zoekmachines kunnen filteren op 'actief' en een transactie die niet ouder is dan een jaar.";
@@ -178,7 +178,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("billing_protected").textContent = derivedfield;
 		document.getElementById("name_servers_role").textContent = "Naam servers leiden naar IP-adressen van webservers van een URL.";
 		document.getElementById("name_servers_ip").textContent = "Een lijmrecord is vereist als de naamservers van de registrar niet worden gebruikt.";
-		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveeiligingsvoorziening op het DNS (Domain Name System).";
+		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
 		
 	}
 	else if (inputlanguage == 2)	{
@@ -188,14 +188,14 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Explanation";		
-		document.getElementById("view_role").textContent = "Queries will work with central RDAP servers. This can work for Web ID indexing.";	
-		document.getElementById("view_type").textContent = proposedfield + "all, isp (nternet service provider), br (business register), public, se (search engine)";
-		document.getElementById("zone_role").textContent = "A domain zone is assigned (by ICANN) to a domain registry to manage domains.";	
-		document.getElementById("zone_menu").textContent = proposedfield + "A drop-down menu for explanations and details per zone via a subdomain of the registry.";
-		document.getElementById("zone_support").textContent = proposedfield + "Help from the registry is possible by e-mail.";
+		document.getElementById("zone_role").textContent = "A domain zone is assigned (by ICANN) to a domain registry to manage domains.";
 		document.getElementById("zone_registry_web_id").textContent = proposedfield;
 		document.getElementById("zone_registry_full_name").textContent = proposedfield;
+		document.getElementById("zone_menu").textContent = proposedfield + "A drop-down menu for explanations and details per zone via a subdomain of the registry.";
+		document.getElementById("zone_support").textContent = proposedfield + "Help from the registry is possible by e-mail.";
 		document.getElementById("zone_notices").textContent = "Viewing domain data is subject to restrictions.";
+		document.getElementById("view_role").textContent = "Queries will work with central RDAP servers. This can work for Web ID indexing.";	
+		document.getElementById("view_type").textContent = proposedfield + "all, isp (nternet service provider), br (business register), public, se (search engine)";
 		document.getElementById("domain_role").textContent = "A web domain under a top-level domain is unique worldwide and can be freely chosen under certain rules.";
 		document.getElementById("domain_name_unicode").textContent = "Names with special characters are stored as ASCII strings using Punycode transcription.";
 		document.getElementById("domain_last_renewed").textContent = proposedfield + "Search engines can filter by 'active' and a transaction that is not older than one year.";
@@ -232,14 +232,14 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("field").textContent = "Beschreibung";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Erläuterung";		
-		document.getElementById("view_role").textContent = "Abfragen funktionieren mit zentralen RDAP-Servern. Dies kann für die Web-ID-Indizierung funktionieren.";
-		document.getElementById("view_type").textContent = proposedfield + "all, isp (Internetdienstanbieter), br (Unternehmensregister), public, se (Suchmaschine)";
 		document.getElementById("zone_role").textContent = "Eine Domänenzone wird (von ICANN) einer Domänenregistrierungsstelle zugewiesen, um Domänen zu verwalten.";		
+		document.getElementById("zone_registry_web_id").textContent = proposedfield;
+		document.getElementById("zone_registry_full_name").textContent = proposedfield;
 		document.getElementById("zone_menu").textContent = proposedfield + "Ein Dropdown-Menü für Erläuterungen und Details pro Zone über eine Subdomain der Registry.";
 		document.getElementById("zone_support").textContent = proposedfield + "Hilfe aus der Registry ist per E-Mail möglich.";
-		document.getElementById("zone_registry_web_id").textContent = proposedfield;
-		document.getElementById("zone_registry_full_name").textContent = proposedfield;	
 		document.getElementById("zone_notices").textContent = "Das Anzeigen von Domänendaten unterliegt Einschränkungen.";
+		document.getElementById("view_role").textContent = "Abfragen funktionieren mit zentralen RDAP-Servern. Dies kann für die Web-ID-Indizierung funktionieren.";
+		document.getElementById("view_type").textContent = proposedfield + "all, isp (Internetdienstanbieter), br (Unternehmensregister), public, se (Suchmaschine)";
 		document.getElementById("domain_role").textContent = "Eine Webdomain unter einer Top-Level-Domain ist weltweit einzigartig und unter bestimmten Regeln frei wählbar.";
 		document.getElementById("domain_name_unicode").textContent = "Namen mit Sonderzeichen werden mittels Punycode-Transkription als ASCII-Strings gespeichert.";
 		document.getElementById("domain_last_renewed").textContent = proposedfield + "Suchmaschinen können nach „aktiv“ und einer Transaktion filtern, die nicht älter als ein Jahr ist.";
@@ -275,14 +275,14 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Détail";
 		document.getElementById("explanation").textContent = "Explication";		
-		document.getElementById("view_role").textContent = "Les requêtes fonctionneront avec les serveurs RDAP centraux. Cela peut fonctionner pour l’indexation des Web ID.";
-		document.getElementById("view_type").textContent = proposedfield + "all, isp (fournisseur d'accès Internet), br (registre du commerce), public, se (moteur de recherche)";
 		document.getElementById("zone_role").textContent = "Une zone de domaine est attribuée (par l'ICANN) à un registre de domaine pour gérer les domaines.";
-		document.getElementById("zone_menu").textContent = proposedfield + "Un menu déroulant pour des explications et des détails par zone via un sous-domaine du registre.";
-		document.getElementById("zone_support").textContent = proposedfield + "L'aide du registre est possible par e-mail.";
 		document.getElementById("zone_registry_web_id").textContent = proposedfield;
 		document.getElementById("zone_registry_full_name").textContent = proposedfield;
+		document.getElementById("zone_menu").textContent = proposedfield + "Un menu déroulant pour des explications et des détails par zone via un sous-domaine du registre.";
+		document.getElementById("zone_support").textContent = proposedfield + "L'aide du registre est possible par e-mail.";
 		document.getElementById("zone_notices").textContent = "L'affichage des données de domaine est soumis à des restrictions.";
+		document.getElementById("view_role").textContent = "Les requêtes fonctionneront avec les serveurs RDAP centraux. Cela peut fonctionner pour l’indexation des Web ID.";
+		document.getElementById("view_type").textContent = proposedfield + "all, isp (fournisseur d'accès Internet), br (registre du commerce), public, se (moteur de recherche)";
 		document.getElementById("domain_role").textContent = "Un domaine Web sous un domaine de premier niveau est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_name_unicode").textContent = "Les noms avec des caractères spéciaux sont stockés sous forme de chaînes ASCII à l'aide de la transcription Punycode.";
 		document.getElementById("domain_last_renewed").textContent = proposedfield + "Les moteurs de recherche peuvent filtrer par 'actif' et une transaction datant de moins d'un an.";
@@ -344,11 +344,11 @@ $html_text .= '<tr style="font-size: .8rem"><td id="title" style="font-size: 1.4
 	<label for="inputdomain">com/net/org/nl/uk/de/fr</label>
 	<input type="text" style="width:%" id="inputdomain" name="inputdomain" value='.$viewdomain.'></form></td><td>
 	<button style="cursor:pointer" onclick="SwitchTranslation(0)">none</button> 
-	<button style="cursor:pointer" onclick="SwitchTranslation(1)">Nederlands</button> 
-	<button style="cursor:pointer" onclick="SwitchTranslation(2)">English</button> 
-	<button style="cursor:pointer" onclick="SwitchTranslation(3)">Deutsch</button> 
-	<button style="cursor:pointer" onclick="SwitchTranslation(4)">Français</button> 
-	Log an issue: <a style="font-size: 0.9rem" href="https://github.com/janwillemstegink/rdap_view_model" target="_blank">github.com/janwillemstegink/rdap_view_model</a></td></tr>';
+	<button style="cursor:pointer" onclick="SwitchTranslation(1)">nl_NL</button> 
+	<button style="cursor:pointer" onclick="SwitchTranslation(2)">en_US</button> 
+	<button style="cursor:pointer" onclick="SwitchTranslation(3)">de_DE</button> 
+	<button style="cursor:pointer" onclick="SwitchTranslation(4)">fr_FR</button> 
+	issues: <a style="font-size: 0.9rem" href="https://github.com/janwillemstegink/rdap_view_model" target="_blank">github.com/janwillemstegink/rdap_view_model</a></td></tr>';
 foreach ($xml1->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
@@ -428,8 +428,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="451" style="display:none"><td>registrar_abuse_phone</td><td>'.$item->registrar->registrar_abuse_phone.'</td><td></td></tr>';
 	$html_text .= '<tr id="452" style="display:none"><td>registrar_abuse_email</td><td>'.$item->registrar->registrar_abuse_email.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	if (!empty($item->reseller->reseller_full_name))	{
-		if (strlen(trim($item->reseller->reseller_full_name)))	{
+	//if (!empty($item->reseller->reseller_full_name))	{
+	//	if (strlen(trim($item->reseller->reseller_full_name)))	{
 			$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(50)">reseller +/-</button></b></td><td></b></td><td id="reseller_role"></td></tr>';		
 			$html_text .= '<tr id="501" style="display:none"><td>reseller_contact_id</td><td>'.$item->reseller->reseller_contact_id.'</td><td></td></tr>';
 			$html_text .= '<tr><td>reseller_web_id</td><td>'.$item->reseller->reseller_web_id.'</td><td id="reseller_web_id"></td></tr>';
@@ -448,8 +448,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 			$html_text .= '<tr id="5013" style="display:none"><td>reseller_language_pref_2</td><td>'.$item->reseller->reseller_language_pref_2.'</td><td></td></tr>';
 			$html_text .= '<tr id="5014" style="display:none"><td>reseller_protected</td><td>'.$item->reseller->reseller_protected.'</td><td id="reseller_protected"></td></tr>';		
 			$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-		}	
-	}
+	//	}	
+	//}
 	$html_text .= '<tr><td><button style="cursor:pointer" onclick="SwitchDisplay(60)">registrant +/-</button></b></td><td></b></td><td id="registrant_role"></td></tr>';
 	$html_text .= '<tr id="601" style="display:none"><td>registrant_contact_id</td><td>'.$item->registrant->registrant_contact_id.'</td><td></td></tr>';
 	$html_text .= '<tr><td>registrant_web_id</td><td>'.$item->registrant->registrant_web_id.'</td><td id="registrant_web_id"></td></tr>';

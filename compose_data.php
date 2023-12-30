@@ -67,18 +67,16 @@ $zone_notice_2_links_0_href = $obj['notices'][2]['links'][0]['href'];
 $zone_notice_2_links_0_type = $obj['notices'][2]['links'][0]['type'];
 	
 if ($topleveldomain == 'nl')	{
-	$zone_description = 'NL Domain Registry';
-	$zone_menu = 'https://nl.sidn.nl';
-	$zone_support = 'support@sidn.nl';
 	$zone_registry_web_id = '';
 	$zone_registry_full_name = 'SIDN B.V.';
+	$zone_menu = 'https://nl.sidn.nl';
+	$zone_support = 'support@sidn.nl';
 }
 else	{
-	$zone_description = '';
-	$zone_menu = '';
-	$zone_support = '';
 	$zone_registry_web_id = '';
 	$zone_registry_full_name = '';
+	$zone_menu = '';
+	$zone_support = '';
 }
 $zone_registry_language = $obj['lang'];	
 $view_type = 'public';	
@@ -225,7 +223,7 @@ foreach($obj as $key1 => $value1) {
 				elseif ($value3 == 'expiration')	{
 					$will_expire = $value2['eventDate'];
 				}
-			}	
+			}
 			foreach($value3 as $key4 => $value4) {
 				foreach($value4 as $key5 => $value5) {
 					foreach($value5 as $key6 => $value6) {
@@ -380,14 +378,6 @@ $domain->setAttribute("item", $inputdomain);
 	
 $zone = $doc->createElement("zone");	
 $domain->appendChild($zone);
-
-$domain_zone_menu = $doc->createElement("zone_menu");
-$domain_zone_menu->appendChild($doc->createCDATASection($zone_menu));	
-$zone->appendChild($domain_zone_menu);	
-	
-$domain_zone_support = $doc->createElement("zone_support");
-$domain_zone_support->appendChild($doc->createCDATASection($zone_support));	
-$zone->appendChild($domain_zone_support);
 	
 $domain_zone_registry_web_id = $doc->createElement("zone_registry_web_id");
 $domain_zone_registry_web_id->appendChild($doc->createCDATASection($zone_registry_web_id));	
@@ -400,6 +390,14 @@ $zone->appendChild($domain_zone_registry_full_name);
 $domain_zone_registry_language = $doc->createElement("zone_registry_language");
 $domain_zone_registry_language->appendChild($doc->createCDATASection($zone_registry_language));	
 $zone->appendChild($domain_zone_registry_language);	
+	
+$domain_zone_menu = $doc->createElement("zone_menu");
+$domain_zone_menu->appendChild($doc->createCDATASection($zone_menu));	
+$zone->appendChild($domain_zone_menu);	
+	
+$domain_zone_support = $doc->createElement("zone_support");
+$domain_zone_support->appendChild($doc->createCDATASection($zone_support));	
+$zone->appendChild($domain_zone_support);	
 	
 $domain_zone_notice_0_title = $doc->createElement("zone_notice_0_title");
 $domain_zone_notice_0_title->appendChild($doc->createCDATASection($zone_notice_0_title));	
