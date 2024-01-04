@@ -7,7 +7,7 @@
 			<registrant_contact_id>STE135417-TRAIP</registrant_contact_id>
 			<registrant_web_id>NL88COMM01234567890123456789012345</registrant_web_id>
 			<registrant_full_name><![CDATA[Stegink Hosting & E-mail]]></registrant_full_name>
-			<registrant_kind>org</registrant_kind>
+			<registrant_kind>org</r1egistrant_kind>
 			<registrant_name>Jan Willem Stegink</registrant_name>
 			<registrant_phone>+31.264453916</registrant_phone>
 			<registrant_fax></registrant_fax>
@@ -33,7 +33,7 @@
 			<admin_city>Arnhem</admin_city>
 			<admin_state_province>Gelderland</admin_state_province>			
 			<admin_country_code>NL</admin_country_code>
-			<admin_protected>contact_id,name,phone,fax,address,country</admin_protected>
+			<admin_protected>contact_id,full_name,name,phone,fax,address,country</admin_protected>
 		</admin>
 		<billing>
 			<billing_contact_id></billing_contact_id>
@@ -49,7 +49,7 @@
 			<billing_city>Arnhem</billing_city>
 			<billing_state_province>Gelderland</billing_state_province>
 			<billing_country_code>NL</billing_country_code>
-			<billing_protected>contact_id,name,phone,fax,email,address,country</billing_protected>
+			<billing_protected>contact_id,full_name,name,phone,fax,email,address,country</billing_protected>
 		</billing>
 	</domain>
 </domains>

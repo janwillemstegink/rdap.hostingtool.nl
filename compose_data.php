@@ -138,9 +138,9 @@ $registrant_postal_code = '';
 $registrant_country_code = '';	
 $registrant_protected = 'contact_id,name,phone,fax,email,address';	
 $admin_country_code = '';	
-$admin_protected = 'contact_id,name,phone,fax,address,country';	
+$admin_protected = 'contact_id,full_name,name,phone,fax,address,country';	
 $tech_country_code = '';	
-$tech_protected = 'contact_id,name,phone,fax,address,country';	
+$tech_protected = 'contact_id,full_name,name,phone,fax,address,country';	
 
 $server_name_1 = $obj['nameservers'][0]['ldhName'];
 $server_name_2 = $obj['nameservers'][1]['ldhName'];
