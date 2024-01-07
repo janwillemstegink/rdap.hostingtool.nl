@@ -20,31 +20,28 @@ else	{
 function write_file($inputdomain)	{
 	
 $topleveldomain = mb_substr($inputdomain, strrpos($inputdomain, '.') + 1);	
-
-if ($topleveldomain == 'nl')	{	
-	$url = 'https://rdap.sidn.nl/domain/';
+switch ($topleveldomain) {
+	case 'nl':
+    	$url = 'https://rdap.sidn.nl/domain/';
+    	break;
+	case 'com':
+    	$url = 'https://rdap.verisign.com/com/v1/domain/';
+    	break;
+	case 'net':
+    	$url = 'https://rdap.verisign.com/net/v1/domain/';
+    	break;
+	case 'org':
+    	$url = 'https://rdap.rrpproxy.net/domain/';	
+    	break;	
+	case 'de':
+    	$url = 'https://rdap.denic.de/domain/';
+    	break;
+	case 'fr':
+   		$url = 'https://rdap.nic.fr/domain/';
+   		break;
+	default:
+   		die("No match with a top level domain.");
 }	
-elseif ($topleveldomain == 'com')	{
-	$url = 'https://rdap.verisign.com/com/v1/domain/';	
-}
-elseif ($topleveldomain == 'net')	{
-	$url = 'https://rdap.verisign.com/net/v1/domain/';	
-}	
-elseif ($topleveldomain == 'org')	{
-	$url = 'https://rdap.rrpproxy.net/domain/';	
-}	
-elseif ($topleveldomain == 'uk')	{
-	$url = 'https://rdap.nominet.uk/uk/domain/';	
-}	
-elseif ($topleveldomain == 'de')	{
-	$url = 'https://rdap.denic.de/domain/';
-}
-elseif ($topleveldomain == 'fr')	{
-	$url = 'https://rdap.nic.fr/domain/';
-}	
-else	{
-	die("No match with a top level domain.");				
-}
 $url = $url.$inputdomain;	
 $obj = json_decode(file_get_contents($url), true);
 	
@@ -128,19 +125,21 @@ $reseller_full_name = '';
 $reseller_street = '';
 $reseller_city = '';
 $reseller_postal_code = '';
-$reseller_country_code = '';
+$reseller_country_code = 'NA';
 $reseller_protected = 'contact_id,name,phone,fax,email';
 $registrant_web_id = 'NL88COMM01234567890123456789012345';
 $registrant_full_name = '';
 $registrant_street = '';
 $registrant_city = '';
 $registrant_postal_code = '';
-$registrant_country_code = '';	
+$registrant_country_code = 'NA';	
 $registrant_protected = 'contact_id,name,phone,fax,email,address';	
-$admin_country_code = '';	
-$admin_protected = 'contact_id,full_name,name,phone,fax,address,country';	
-$tech_country_code = '';	
-$tech_protected = 'contact_id,full_name,name,phone,fax,address,country';	
+$admin_country_code = 'NA';	
+$admin_protected = 'contact_id,web_id,full_name,name,phone,fax,address,country';	
+$tech_country_code = 'NA';	
+$tech_protected = 'contact_id,web_id,full_name,name,phone,fax,address,country';
+$billing_country_code = 'NA';	
+$billing_protected = 'contact_id,web_id,full_name,name,phone,fax,address,country';		
 
 $server_name_1 = $obj['nameservers'][0]['ldhName'];
 $server_name_2 = $obj['nameservers'][1]['ldhName'];
@@ -697,6 +696,28 @@ $domain_tech_protected = $doc->createElement("tech_protected");
 $domain_tech_protected->appendChild($doc->createCDATASection($tech_protected));	
 $tech->appendChild($domain_tech_protected);		
 $domain->appendChild($tech);
+	
+$billing = $doc->createElement("billing");
+$domain->appendChild($billing);
+$domain_billing_full_name = $doc->createElement("billing_full_name");
+$domain_billing_full_name->appendChild($doc->createCDATASection($billing_full_name));	
+$billing->appendChild($domain_billing_full_name);	
+$domain_billing_email = $doc->createElement("billing_email");
+$domain_billing_email->appendChild($doc->createCDATASection($billing_email));	
+$billing->appendChild($domain_billing_email);
+$domain_billing_country_code = $doc->createElement("billing_country_code");
+$domain_billing_country_code->appendChild($doc->createCDATASection($billing_country_code));
+$billing->appendChild($domain_billing_country_code);	
+$domain_billing_language_pref_1 = $doc->createElement("billing_language_pref_1");
+$domain_billing_language_pref_1->appendChild($doc->createCDATASection($billing_language_pref_1));	
+$billing->appendChild($domain_billing_language_pref_1);
+$domain_billing_language_pref_2 = $doc->createElement("billing_language_pref_2");
+$domain_billing_language_pref_2->appendChild($doc->createCDATASection($billing_language_pref_2));	
+$billing->appendChild($domain_billing_language_pref_2);	
+$domain_billing_protected = $doc->createElement("billing_protected");	
+$domain_billing_protected->appendChild($doc->createCDATASection($billing_protected));	
+$billing->appendChild($domain_billing_protected);		
+$domain->appendChild($billing);	
 	
 $name_servers = $doc->createElement("name_servers");
 $domain->appendChild($name_servers);
