@@ -124,6 +124,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "";
 		document.getElementById("registrant_web_id").textContent = "";
 		document.getElementById("registrant_full_name").textContent = "";
+		document.getElementById("registrant_kind").textContent = "";
 		document.getElementById("registrant_name").textContent = "";
 		document.getElementById("registrant_protected").textContent = derivedfield;
 		document.getElementById("admin_role").textContent = "";
@@ -168,7 +169,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "Een domeinhouder heeft tenminste de rechten van een abonnement op zijn domein.";
 		document.getElementById("registrant_web_id").textContent = 'Voor de Handelsregisters wordt gewerkt aan een WebID-identificatienummer.';
 		document.getElementById("registrant_full_name").textContent = "Domeininformatie werkt bij een bestaande, beoogde en zichtbare handelsnaam.";
-		document.getElementById("registrant_name").textContent = "Het is mogelijk om af te wijken van de bescherming van de privacy van de persoonsnaam van de houder.";
+		document.getElementById("registrant_kind").textContent = "De soort houder is beperkt tot 'individual' of 'org'.";
+		document.getElementById("registrant_name").textContent = "RDAP werkt mogelijk niet voor publiek weergeven van de persoonlijke naam van de houder.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
 		document.getElementById("admin_role").textContent = "Het administratief aanspreekpunt beantwoordt een verzoek en stuurt zo nodig door.";
 		document.getElementById("admin_web_id").textContent = "";
@@ -212,8 +214,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_protected").textContent = derivedfield;
 		document.getElementById("registrant_role").textContent = "A domain holder has at least the rights of a subscription to his domain.";
 		document.getElementById("registrant_web_id").textContent = 'A WebID identification number is being developed for the Business Registers.';
-		document.getElementById("registrant_full_name").textContent = "Domain information works with an existing, intended and visible trade name.";	
-		document.getElementById("registrant_name").textContent = "It is possible to deviate from the privacy protection of the holder's personal name.";
+		document.getElementById("registrant_full_name").textContent = "Domain information works with an existing, intended and visible trade name.";
+		document.getElementById("registrant_kind").textContent = "The holder type is limited to 'individual' or 'org'.";
+		document.getElementById("registrant_name").textContent = "RDAP may not work for publicly displaying the registrant's personal name.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
 		document.getElementById("admin_role").textContent = "The administratively responsible desk answers a request, and forwards on if necessary.";
 		document.getElementById("admin_web_id").textContent = "";
@@ -258,7 +261,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "Ein Domaininhaber hat zumindest die Rechte eines Abonnements seiner Domain.";
 		document.getElementById("registrant_web_id").textContent = 'Für die Handelsregister wird eine WebID-Identifikationsnummer entwickelt.';
 		document.getElementById("registrant_full_name").textContent = "Domain-Informationen funktionieren mit einem bestehenden, beabsichtigten und sichtbaren Handelsnamen.";
-		document.getElementById("registrant_name").textContent = "Es ist möglich, vom Datenschutz des Personennamens des Inhabers abzuweichen.";
+		document.getElementById("registrant_kind").textContent = "Der Inhabertyp ist auf 'individual' oder 'org' beschränkt.";
+		document.getElementById("registrant_name").textContent = "RDAP funktioniert möglicherweise nicht für die öffentliche Anzeige des persönlichen Namens des Registranten.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
 		document.getElementById("admin_role").textContent = "Die administrativ zuständige Stelle beantwortet eine Anfrage und leitet sie gegebenenfalls weiter.";
 		document.getElementById("admin_web_id").textContent = "";
@@ -302,7 +306,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "Un titulaire de domaine a au moins les droits d'un abonnement à son domaine.";
 		document.getElementById("registrant_web_id").textContent = "Un numéro d'identification WebID est en cours d'élaboration pour les Registres de Commerce.";
 		document.getElementById("registrant_full_name").textContent = "Les informations de domaine fonctionnent avec un nom commercial existant, prévu et visible.";
-		document.getElementById("registrant_name").textContent = "Il est possible de déroger à la protection de la vie privée du nom personnel du titulaire.";
+		document.getElementById("registrant_kind").textContent = "Le type de titulaire est limité à 'individual' ou 'org'.";
+		document.getElementById("registrant_name").textContent = "RDAP peut ne pas fonctionner pour afficher publiquement le nom personnel du titulaire.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
 		document.getElementById("admin_role").textContent = "Le bureau administrativement responsable répond à une demande, et la transmet si nécessaire.";
 		document.getElementById("admin_web_id").textContent = "";
