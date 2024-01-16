@@ -602,7 +602,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	}
 	$html_text .= '<tr><td>name_servers_dnssec</td><td>'.$item->name_servers->name_servers_dnssec.'</td><td id="name_servers_dnssec"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td colspan="4">RAW DATA FROM JSON FORMAT INPUT:</tr>';
+	$html_text .= '<tr><td colspan="4">RAW DATA FROM DECODED JSON FORMAT:</tr>';
 	$html_text .= '<tr><td colspan="4">'.$item->raw_data.'</tr>';
 }
 $html_text .= '</table></div></body></html>';

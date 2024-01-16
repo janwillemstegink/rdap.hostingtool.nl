@@ -192,11 +192,11 @@ $raw_data = '';
 foreach($obj as $key1 => $value1) {
 	$raw_data .= $key1 . ': ' . $value1 . '<br />';
     foreach($value1 as $key2 => $value2) {
-		$raw_data .= "_". $key2 . ': ' . $value2 . '<br />';
+		$raw_data .= "+". $key2 . ': ' . $value2 . '<br />';
 		foreach($value2 as $key3 => $value3) {
-			$raw_data .= "__" . $key3 . ': ' . $value3 . '<br />';
+			$raw_data .= "++" . $key3 . ': ' . $value3 . '<br />';
 			foreach($value3 as $key4 => $value4) {
-				$raw_data .= "___" . $key4 . ': ' . $value4 . '<br />';				
+				$raw_data .= "+++" . $key4 . ': ' . $value4 . '<br />';				
 				if ($value4 == 'registrar')	{
 					$entity_registrar = $key2;
 				}
@@ -213,19 +213,16 @@ foreach($obj as $key1 => $value1) {
 					$entity_tech = $key2;
 				}
 				foreach($value4 as $key5 => $value5) {
-					$raw_data .= "____" . $key5 . ': ' . $value5 . '<br />';
+					$raw_data .= "++++" . $key5 . ': ' . $value5 . '<br />';
 					foreach($value5 as $key6 => $value6) {
-						$raw_data .= "_____" . $key6 . ': ' . $value6 . '<br />';
+						$raw_data .= "+++++" . $key6 . ': ' . $value6 . '<br />';
 						if ($value6 == 'abuse')	{
 							$entity_abuse = $key4;
 						}
 						foreach($value6 as $key7 => $value7) {
-							$raw_data .= "____" . $key7 . ': ' . $value7 . '<br />';
+							$raw_data .= "++++++" . $key7 . ': ' . $value7 . '<br />';
 							foreach($value7 as $key8 => $value8) {
-								$raw_data .= "____" . $key8 . ': ' . $value8 . '<br />';
-								foreach($value8 as $key9 => $value9) {
-									$raw_data .= "____" . $key9 . ': ' . $value9 . '<br />';
-								}	
+								$raw_data .= "+++++++" . $key8 . ': ' . $value8 . '<br />';	
 							}
 						}	
 					}	

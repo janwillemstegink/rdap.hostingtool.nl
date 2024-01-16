@@ -35,6 +35,7 @@ $html_text .= '<tr><td COLSPAN="2">team.blue nl B.V. heeft minimaal één van de
 foreach ($xml1->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td COLSPAN="2"><br />Domein / Domain:</td></tr>';
+	$html_text .= '<tr><td>domain_handle</td><td>'.$item->domain_handle.'</td></tr>';
 	$html_text .= '<tr><td>domain_name</td><td>'.$item->domain_name.'</td></tr>';
 	$html_text .= '<tr><td>domain_name_unicode</td><td>'.$item->domain_name_unicode.'</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Houder / Registrant:</td></tr>';
