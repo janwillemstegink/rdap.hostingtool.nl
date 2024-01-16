@@ -219,6 +219,15 @@ foreach($obj as $key1 => $value1) {
 						if ($value6 == 'abuse')	{
 							$entity_abuse = $key4;
 						}
+						foreach($value6 as $key7 => $value7) {
+							$raw_data .= "____" . $key7 . ': ' . $value7 . '<br />';
+							foreach($value7 as $key8 => $value8) {
+								$raw_data .= "____" . $key8 . ': ' . $value8 . '<br />';
+								foreach($value8 as $key9 => $value9) {
+									$raw_data .= "____" . $key9 . ': ' . $value9 . '<br />';
+								}	
+							}
+						}	
 					}	
 				}
 			}
