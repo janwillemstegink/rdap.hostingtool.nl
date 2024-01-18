@@ -3,8 +3,10 @@
 //$_GET['domain'] = 'icann.com';
 
 if (!empty($_GET['domain']))	{
-	if (strlen(trim($_GET['domain'])))	{
-		$domain = trim($_GET['domain']);
+	if (strlen($_GET['domain']))	{
+		$domain = str_replace('http://','', trim($_GET['domain']));
+		$domain = str_replace('https://','', $domain);
+		$domain = str_replace('/','', $domain);
         echo write_file($domain);
 		die();
 
@@ -241,6 +243,9 @@ foreach($obj as $key1 => $value1) {
 			if ($key1 == 'events')	{
 				if ($value3 == 'registration')	{
 					$was_registered = $value2['eventDate'];
+				}
+				if ($value3 == 'transfer')	{
+					$was_last_transferred = $value2['eventDate'];
 				}
 				elseif ($value3 == 'last changed')	{
 					$was_last_changed = $value2['eventDate'];
@@ -602,7 +607,10 @@ $domain_status->appendChild($doc->createCDATASection($status));
 $domain->appendChild($domain_status);	
 $domain_was_registered = $doc->createElement("domain_was_registered");
 $domain_was_registered->appendChild($doc->createCDATASection($was_registered));	
-$domain->appendChild($domain_was_registered);		
+$domain->appendChild($domain_was_registered);
+$domain_was_last_transferred = $doc->createElement("domain_was_last_transferred");
+$domain_was_last_transferred->appendChild($doc->createCDATASection($was_last_transferred));	
+$domain->appendChild($domain_was_last_transferred);	
 $domain_will_have_expired = $doc->createElement("domain_will_have_expired");
 $domain_will_have_expired->appendChild($doc->createCDATASection($will_have_expired));	
 $domain->appendChild($domain_will_have_expired);
