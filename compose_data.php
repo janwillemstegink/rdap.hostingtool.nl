@@ -26,6 +26,15 @@ switch ($topleveldomain) {
 	case 'nl':
     	$url = 'https://rdap.sidn.nl/domain/';
     	break;
+	case 'amsterdam':
+    	$url = 'https://rdap.nic.amsterdam/domain/';
+    	break;
+	case 'politie':
+    	$url = 'https://rdap.nic.politie/domain/';
+    	break;	
+	case 'ch':
+    	$url = 'https://rdap.nic.ch/domain/';	
+    	break;	
 	//case 'cc': // transparencia.cc
     //	$url = 'https://rdap.godaddy.com/v1/domain/';
     //	break;	
@@ -36,8 +45,8 @@ switch ($topleveldomain) {
     	$url = 'https://rdap.verisign.com/net/v1/domain/';
     	break;
 	case 'org':
-    	$url = 'https://rdap.rrpproxy.net/domain/';	
-    	break;
+    	$url = 'https://rdap.publicinterestregistry.org/rdap/domain/';
+		break;
 	case 'uk':
     	$url = 'https://rdap.nominet.uk/uk/domain/';
     	break;	
@@ -102,15 +111,15 @@ $view_links_1_media = $obj['links'][1]['media'];
 $view_links_1_type = $obj['links'][1]['type'];
 	
 $status = '';
-$will_have_expired = 'mandatory';	
-$was_last_changed = 'not applicable';
-$was_last_transferred = 'not provided';	
-$expired_unrenewed = 'not provided';	
+$will_have_expired = '(prescribed)';	
+$was_last_changed = '(not available)';
+$was_last_transferred = '';	
+$expired_renew_until = '';	
 $registrar_iana_id = $obj['entities'][0]['publicIds'][0]['identifier'];
 $handle = $obj['handle']; 	
 $name = $obj['ldhName'];
 $name_unicode = $obj['ldhName'];
-$name_servers_dnssec = 'not available';	
+$name_servers_dnssec = '(not available)';	
 if ($obj['secureDNS']['delegationSigned'] === true)	{
 	$name_servers_dnssec = 'yes';
 }
@@ -124,9 +133,9 @@ $admin_handle = '';
 $registrar_name = '';
 $reseller_name = '';
 $registrant_name = '';
-$registrar_kind = 'not available';
-$reseller_kind = 'not available';
-$registrant_kind = 'not available';
+$registrar_kind = '(optional)';
+$reseller_kind = '(optional)';
+$registrant_kind = '(optional)';
 $registrar_language_pref_1 = '';
 $registrar_language_pref_2 = '';
 $reseller_language_pref_1 = '';
@@ -141,23 +150,23 @@ $reseller_full_name = '';
 $reseller_street = '';
 $reseller_city = '';
 $reseller_postal_code = '';
-$reseller_country_code = 'not available';
+$reseller_country_code = '(expected)';
 $reseller_protected = 'name,phone,fax,email';
 $registrant_web_id = 'NL88COMM01234567890123456789012345';
 $registrant_full_name = '';
 $registrant_street = '';
 $registrant_city = '';
 $registrant_postal_code = '';
-$registrant_country_code = 'not available';	
+$registrant_country_code = '(expected)';	
 $registrant_protected = 'name,phone,fax,email,address';
 $admin_handle = '';
-$admin_country_code = 'not available';	
+$admin_country_code = '(expected)';	
 $admin_protected = 'web_id,full_name,name,phone,fax,address';
 $tech_handle = '';
-$tech_country_code = 'not available';
+$tech_country_code = '(expected)';
 $tech_protected = 'web_id,full_name,name,phone,fax,address';
 $billing_handle = '';
-$billing_country_code = 'not available';	
+$billing_country_code = '(expected)';	
 $billing_protected = 'web_id,full_name,name,phone,fax,address';		
 
 $server_name_1 = $obj['nameservers'][0]['ldhName'];
@@ -254,7 +263,7 @@ foreach($obj as $key1 => $value1) {
 					$information_updated = $value2['eventDate'];
 				}
 				elseif ($value3 == 'registrar expiration')	{
-					$expired_unrenewed = $value2['eventDate'];
+					$expired_renew_until = $value2['eventDate'];
 				}
 				elseif ($value3 == 'last changed')	{
 					$was_last_changed = $value2['eventDate'];
@@ -621,9 +630,9 @@ $domain_information_updated = $doc->createElement("domain_information_updated");
 $domain_information_updated->appendChild($doc->createCDATASection($information_updated));	
 $domain->appendChild($domain_information_updated);
 	
-$domain_expired_unrenewed = $doc->createElement("domain_expired_unrenewed");
-$domain_expired_unrenewed->appendChild($doc->createCDATASection($expired_unrenewed));	
-$domain->appendChild($domain_expired_unrenewed);
+$domain_expired_renew_until = $doc->createElement("domain_expired_renew_until");
+$domain_expired_renew_until->appendChild($doc->createCDATASection($expired_renew_until));	
+$domain->appendChild($domain_expired_renew_until);
 $domain_was_last_changed = $doc->createElement("domain_was_last_changed");
 $domain_was_last_changed->appendChild($doc->createCDATASection($was_last_changed));	
 $domain->appendChild($domain_was_last_changed);	
@@ -931,5 +940,5 @@ $domains->appendChild($domain);
 $doc->appendChild($domains);
 //return $doc->saveXML(NULL, LIBXML_NOEMPTYTAG);
 return $doc->saveXML();
-}		
+}	
 ?>
