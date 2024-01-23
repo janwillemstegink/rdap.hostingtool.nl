@@ -111,7 +111,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_type").textContent = proposedfield;
 		document.getElementById("domain_role").textContent = "";
 		document.getElementById("domain_name_unicode").textContent = "";
-		document.getElementById("domain_information").textContent = "";
+		document.getElementById("domain_lookup").textContent = "";
 		document.getElementById("domain_last_cycle_control").textContent = proposedfield;
 		document.getElementById("registrar_role").textContent = "";
 		document.getElementById("registrar_web_id").textContent = "";
@@ -141,7 +141,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 1)	{
 		var proposedfield = 'VOORGESTELD - ';
 		var derivedfield = 'ONTWERP - Niet-openbare gegevens';
-		document.getElementById("title").textContent = "Model voor domeingegevens";
+		document.getElementById("title").textContent = "Model voor domeininformatie";
 		document.getElementById("field").textContent = "Omschrijving";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Toelichting";
@@ -155,7 +155,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_type").textContent = proposedfield + "all, isp (internet service provider), br (business register), public, se (zoekmachine)";
 		document.getElementById("domain_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
 		document.getElementById("domain_name_unicode").textContent = "Namen met speciale tekens worden opgeslagen als ASCII-tekenreeksen met behulp van Punycode-transcriptie.";
-		document.getElementById("domain_information").textContent = "RDAP-database-update in Zulu-tijd (gecoördineerde universele tijd - UTC).";
+		document.getElementById("domain_lookup").textContent = "RDAP-database-update in Zulu-tijd (gecoördineerde universele tijd - UTC).";
 		document.getElementById("domain_last_cycle_control").textContent = proposedfield + "Zoekmachines kunnen filteren op status en een validatie die niet ouder is dan een jaar.";
 		document.getElementById("registrar_role").textContent = "Een domain registrar verzorgt de reservering van domeinen en IP-adresroutering.";
 		document.getElementById("registrar_web_id").textContent = "";
@@ -186,7 +186,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 2)	{
 		var proposedfield = 'PROPOSED - ';
 		var derivedfield = 'DESIGN - Non-public data';
-		document.getElementById("title").textContent = "Domain data model";
+		document.getElementById("title").textContent = "Model for domain information";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Explanation";		
@@ -200,7 +200,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_type").textContent = proposedfield + "all, isp (nternet service provider), br (business register), public, se (search engine)";
 		document.getElementById("domain_role").textContent = "A web domain under a top-level domain is unique worldwide and can be freely chosen under certain rules.";
 		document.getElementById("domain_name_unicode").textContent = "Names with special characters are stored as ASCII strings using Punycode transcription.";
-		document.getElementById("domain_information").textContent = "RDAP database update in Zulu Time (coordinated universal time - UTC).";
+		document.getElementById("domain_lookup").textContent = "RDAP database update in Zulu Time (coordinated universal time - UTC).";
 		document.getElementById("domain_last_cycle_control").textContent = proposedfield + "Search engines can filter by status and a validation that is not older than one year.";
 		document.getElementById("registrar_role").textContent = "A domain registrar takes care of domain reservations and IP address routing.";
 		document.getElementById("registrar_web_id").textContent = "";
@@ -231,7 +231,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 3)	{
 		var proposedfield = 'VORGESCHLAGEN - ';
 		var derivedfield = 'DESIGN - Nicht öffentliche Daten';
-		document.getElementById("title").textContent = "Domänendatenmodell";
+		document.getElementById("title").textContent = "Modell für Domäneninformationen";
 		document.getElementById("field").textContent = "Beschreibung";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Erläuterung";		
@@ -245,7 +245,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_type").textContent = proposedfield + "all, isp (Internetdienstanbieter), br (Unternehmensregister), public, se (Suchmaschine)";
 		document.getElementById("domain_role").textContent = "Eine Webdomain unter einer Top-Level-Domain ist weltweit einzigartig und unter bestimmten Regeln frei wählbar.";
 		document.getElementById("domain_name_unicode").textContent = "Namen mit Sonderzeichen werden mittels Punycode-Transkription als ASCII-Strings gespeichert.";
-		document.getElementById("domain_information").textContent = "RDAP-Datenbankaktualisierung in Zulu-Zeit (koordinierte Weltzeit – UTC).";
+		document.getElementById("domain_lookup").textContent = "RDAP-Datenbankaktualisierung in Zulu-Zeit (koordinierte Weltzeit – UTC).";
 		document.getElementById("domain_last_cycle_control").textContent = proposedfield + "Suchmaschinen können nach Status und einer Validierung filtern, die nicht älter als ein Jahr ist.";
 		document.getElementById("registrar_role").textContent = "Ein Domain-Registrar kümmert sich um Domain-Reservierungen und IP-Adress-Routing.";
 		document.getElementById("registrar_web_id").textContent = "";
@@ -275,7 +275,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 4)	{
 		var proposedfield = 'PROPOSÉ - ';
 		var derivedfield = 'CONCEPTION - Données non publiques';
-		document.getElementById("title").textContent = "Modèle de données de domaine";
+		document.getElementById("title").textContent = "Modèle d'informations de domaine";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Détail";
 		document.getElementById("explanation").textContent = "Explication";		
@@ -289,7 +289,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_type").textContent = proposedfield + "all, isp (fournisseur d'accès Internet), br (registre du commerce), public, se (moteur de recherche)";
 		document.getElementById("domain_role").textContent = "Un domaine Web sous un domaine de premier niveau est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_name_unicode").textContent = "Les noms avec des caractères spéciaux sont stockés sous forme de chaînes ASCII à l'aide de la transcription Punycode.";
-		document.getElementById("domain_information").textContent = "Mise à jour de la base de données RDAP dans Heure zoulou (temps universel coordonné - UTC).";
+		document.getElementById("domain_lookup").textContent = "Mise à jour de la base de données RDAP dans Heure zoulou (temps universel coordonné - UTC).";
 		document.getElementById("domain_last_cycle_control").textContent = proposedfield + "Les moteurs de recherche peuvent filtrer par statut et par validation ne datant pas de plus d’un an.";
 		document.getElementById("registrar_role").textContent = "Un registraire de domaine s'occupe des réservations de domaine et du routage des adresses IP.";
 		document.getElementById("registrar_web_id").textContent = "";
@@ -362,9 +362,9 @@ if (@get_headers($rdap_url))	{ // the application to compose for zone data
 $html_text = '<body onload=SwitchTranslation('.$viewlanguage.')><div style="border-collapse:collapse; line-height:120%">
 <table style="font-family:Helvetica, Arial, sans-serif; font-size: 1rem">
 <tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th></tr>';
-$html_text .= '<tr style="font-size: .8rem"><td id="title" style="font-size: 1.4rem;color:blue;font-weight:bold"></b></td>
+$html_text .= '<tr style="font-size: .8rem"><td id="title" style="font-size: 1.3rem;color:blue;font-weight:bold"></b></td>
 <td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">    
-	<label for="domain">com/net/org/amsterdam/ch/de/fr/nl/politie/uk</label>
+	<label for="domain">biz/com/net/org/amsterdam/ch/de/fr/nl/politie/uk</label>
 	<input type="hidden" id="language" name="language" value='.$viewlanguage.'>	
 	<input type="text" style="width:90%" id="domain" name="domain" value='.$viewdomain.'></form></td><td>
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(0)">none</button> 
@@ -424,7 +424,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr style="vertical-align:top"><td>domain_status</td><td>'.$item->domain_status.'</td><td></td></tr>';
 	$html_text .= '<tr><td>domain_registration</td><td>'.$item->domain_registration.'</td><td></td></tr>';
 	$html_text .= '<tr><td>domain_expiration</td><td>'.$item->domain_expiration.'</td><td></td></tr>';
-	$html_text .= '<tr><td>domain_information</td><td>'.$item->domain_information.'</td><td id="domain_information"></td></tr>';
+	$html_text .= '<tr><td>domain_lookup</td><td>'.$item->domain_lookup.'</td><td id="domain_lookup"></td></tr>';
 	$html_text .= '<tr id="303" style="display:none"><td>domain_expiration_grace_until</td><td>'.$item->domain_expiration_grace_until.'</td><td></td></tr>';
 	$html_text .= '<tr id="304" style="display:none"><td>domain_last_changed</td><td>'.$item->domain_last_changed.'</td><td></td></tr>';
 	$html_text .= '<tr id="305" style="display:none"><td>domain_last_transferred</td><td>'.$item->domain_last_transferred.'</td><td></td></tr>';

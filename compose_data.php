@@ -1,6 +1,6 @@
 <?php
 //$_GET['domain'] = 'webhostingtech.nl';
-//$_GET['domain'] = 'icann.com';
+//$_GET['domain'] = 'example.biz';
 
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
@@ -37,10 +37,13 @@ switch ($topleveldomain) {
     	break;	
 	//case 'cc': // transparencia.cc
     //	$url = 'https://rdap.godaddy.com/v1/domain/';
-    //	break;	
+    //	break;
+	case 'biz':
+    	$url = 'https://rdap.nic.biz/domain/';
+    	break;	
 	case 'com':
     	$url = 'https://rdap.verisign.com/com/v1/domain/';
-    	break;
+    	break;	
 	case 'net':
     	$url = 'https://rdap.verisign.com/net/v1/domain/';
     	break;
@@ -59,9 +62,8 @@ switch ($topleveldomain) {
 	default:
    		die("No match with a top level domain.");
 }	
-$url = $url.$inputdomain;	
-$obj = json_decode(file_get_contents($url), true);
-	
+$url = $url.$inputdomain;
+$obj = json_decode(file_get_contents($url), true);		
 $rdap_conformance = $obj['rdapConformance'];
 $object_class_name = $obj['objectClassName'];
 $zone_notice_0_title = $obj['notices'][0]['title'];
@@ -111,8 +113,8 @@ $view_links_1_media = $obj['links'][1]['media'];
 $view_links_1_type = $obj['links'][1]['type'];
 	
 $status = '';
-$expiration = '(intended information)';	
-$last_changed = '(not available)';
+$expiration = '(required for gTLD)';	
+$last_changed = '';
 $last_transferred = '';	
 $expiration_grace_until = '';	
 $registrar_iana_id = $obj['entities'][0]['publicIds'][0]['identifier'];
@@ -150,23 +152,23 @@ $reseller_full_name = '';
 $reseller_street = '';
 $reseller_city = '';
 $reseller_postal_code = '';
-$reseller_country_code = '(intended information)';
+$reseller_country_code = '(required for gTLD)';
 $reseller_protected = 'name,phone,fax,email';
 $registrant_web_id = 'NL88COMM01234567890123456789012345';
 $registrant_full_name = '';
 $registrant_street = '';
 $registrant_city = '';
 $registrant_postal_code = '';
-$registrant_country_code = '(intended information)';	
+$registrant_country_code = '(required for gTLD)';	
 $registrant_protected = 'name,phone,fax,email,address';
 $admin_handle = '';
-$admin_country_code = '(intended information)';	
+$admin_country_code = '(required for gTLD)';	
 $admin_protected = 'web_id,full_name,name,phone,fax,address';
 $tech_handle = '';
-$tech_country_code = '(intended information)';
+$tech_country_code = '(required for gTLD)';
 $tech_protected = 'web_id,full_name,name,phone,fax,address';
 $billing_handle = '';
-$billing_country_code = '(intended information)';	
+$billing_country_code = '(required for gTLD)';	
 $billing_protected = 'web_id,full_name,name,phone,fax,address';		
 
 $server_name_1 = $obj['nameservers'][0]['ldhName'];
@@ -260,7 +262,7 @@ foreach($obj as $key1 => $value1) {
 					$expiration = $value2['eventDate'];
 				}
 				elseif ($value3 == 'last update of RDAP database')	{
-					$information = $value2['eventDate'];
+					$lookup = $value2['eventDate'];
 				}
 				elseif ($value3 == 'registrar expiration')	{
 					$expiration_grace_until = $value2['eventDate'];
@@ -377,7 +379,7 @@ foreach($obj as $key1 => $value1) {
 							}							
 						}
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value6 == 'lang')	{
-							if ($key2 == $entity_registraR) 		{
+							if ($key2 == $entity_registrar) 		{
 								if ($value6['pref'] == 1)	$registrar_language_pref_1 = $value5[3];
 								if ($value6['pref'] == 2)	$registrar_language_pref_2 = $value5[3];
 							}
@@ -408,16 +410,32 @@ foreach($obj as $key1 => $value1) {
 						}
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'adr' and $key6 == 3)	{
 							if ($key2 == $entity_registrar)	{
-								$registrar_street = $value6[2];
-								$registrar_city = $value6[3];
-								$registrar_postal_code = $value6[5];
-								$registrar_country_code = $value6[6];
+								if (!is_array($value6[2]))	{
+									$registrar_street = $value6[2];
+								}
+								if (!is_array($value6[3]))	{
+									$registrar_city = $value6[3];
+								}
+								if (!is_array($value6[5]))	{
+									$registrar_postal_code = $value6[5];
+								}
+								if (!is_array($value6[6]))	{
+									$registrar_country_code = $value6[6];
+								}	
 							}	
 							if ($key2 == $entity_reseller)	{
-								$reseller_street = $value6[2];
-								$reseller_city = $value6[3];
-								$reseller_postal_code = $value6[5];
-								$reseller_country_code = $value6[6];
+								if (!is_array($value6[2]))	{
+									$reseller_street = $value6[2];
+								}
+								if (!is_array($value6[3]))	{
+									$reseller_city = $value6[3];
+								}
+								if (!is_array($value6[5]))	{
+									$reseller_postal_code = $value6[5];
+								}
+								if (!is_array($value6[6]))	{
+									$reseller_country_code = $value6[6];
+								}	
 							}
 							if ($key2 == $entity_registrant)	{
 								$registrant_country_code = $value6[6];
@@ -626,9 +644,9 @@ $domain->appendChild($domain_registration);
 $domain_expiration = $doc->createElement("domain_expiration");
 $domain_expiration->appendChild($doc->createCDATASection($expiration));	
 $domain->appendChild($domain_expiration);
-$domain_information = $doc->createElement("domain_information");
-$domain_information->appendChild($doc->createCDATASection($information));	
-$domain->appendChild($domain_information);
+$domain_lookup = $doc->createElement("domain_lookup");
+$domain_lookup->appendChild($doc->createCDATASection($lookup));	
+$domain->appendChild($domain_lookup);
 	
 $domain_expiration_grace_until = $doc->createElement("domain_expiration_grace_until");
 $domain_expiration_grace_until->appendChild($doc->createCDATASection($expiration_grace_until));	
