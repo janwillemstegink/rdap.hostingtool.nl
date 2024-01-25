@@ -43,7 +43,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 45)	{ // abuse
 		var pre = '45';
-		var max = 2
+		var max = 1
 	}
 	else if (type == 50)	{ // reseller
 		var pre = '50';
@@ -167,8 +167,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "Een domeinhouder heeft tenminste de rechten van een abonnement op zijn domein.";
 		document.getElementById("registrant_web_id").textContent = 'Voor de Handelsregisters wordt gewerkt aan een WebID-identificatienummer.';
 		document.getElementById("registrant_full_name").textContent = "Domeininformatie werkt bij een bestaande, beoogde en zichtbare handelsnaam.";
-		document.getElementById("registrant_kind").textContent = "Het optionele houdertype is 'individual' of 'org'.";
-		document.getElementById("registrant_name").textContent = "Het publiekelijk weergeven van de persoonlijke naam van een .nl-houder zal niet langer werken.";
+		document.getElementById("registrant_kind").textContent = "Het optionele houdertype is leeg, 'individual' of 'org'.";
+		document.getElementById("registrant_name").textContent = "Een publieke persoonsnaam van een .nl-houder kan een probleem zijn in het RDAP-protocol.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
 		document.getElementById("admin_role").textContent = "Het administratief aanspreekpunt beantwoordt een verzoek en stuurt zo nodig door.";
 		document.getElementById("admin_web_id").textContent = "";
@@ -212,8 +212,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "A domain holder has at least the rights of a subscription to his domain.";
 		document.getElementById("registrant_web_id").textContent = 'A WebID identification number is being developed for the Business Registers.';
 		document.getElementById("registrant_full_name").textContent = "Domain information works with an existing, intended and visible trade name.";
-		document.getElementById("registrant_kind").textContent = "The optional holder type is 'individual' or 'org'.";
-		document.getElementById("registrant_name").textContent = "Publicly displaying the personal name of a .nl holder will no longer work.";
+		document.getElementById("registrant_kind").textContent = "The optional holder type is blank, 'individual' or 'org'.";
+		document.getElementById("registrant_name").textContent = "A public personal name of a .nl holder can be a problem in the RDAP protocol.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
 		document.getElementById("admin_role").textContent = "The administratively responsible desk answers a request, and forwards on if necessary.";
 		document.getElementById("admin_web_id").textContent = "";
@@ -256,9 +256,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_protected").textContent = derivedfield;
 		document.getElementById("registrant_role").textContent = "Ein Domaininhaber hat zumindest die Rechte eines Abonnements seiner Domain.";
 		document.getElementById("registrant_web_id").textContent = 'Für die Handelsregister wird eine WebID-Identifikationsnummer entwickelt.';
-		document.getElementById("registrant_full_name").textContent = "Domain-Informationen funktionieren mit einem bestehenden, beabsichtigten und sichtbaren Handelsnamen.";
-		document.getElementById("registrant_kind").textContent = "Der optionale Haltertyp ist 'individual' oder 'org'.";
-		document.getElementById("registrant_name").textContent = "Die öffentliche Anzeige des persönlichen Namens eines .nl-Inhabers wird nicht mehr funktionieren.";
+		document.getElementById("registrant_full_name").textContent = "Domäneninformationen funktionieren mit einem bestehenden, beabsichtigten und sichtbaren Handelsnamen.";
+		document.getElementById("registrant_kind").textContent = "Der optionale Haltertyp ist leer, 'individual' oder 'org'.";
+		document.getElementById("registrant_name").textContent = "Ein öffentlicher persönlicher Name eines .nl-Inhabers kann im RDAP-Protokoll ein Problem darstellen.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
 		document.getElementById("admin_role").textContent = "Die administrativ zuständige Stelle beantwortet eine Anfrage und leitet sie gegebenenfalls weiter.";
 		document.getElementById("admin_web_id").textContent = "";
@@ -301,8 +301,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "Un titulaire de domaine a au moins les droits d'un abonnement à son domaine.";
 		document.getElementById("registrant_web_id").textContent = "Un numéro d'identification WebID est en cours d'élaboration pour les Registres de Commerce.";
 		document.getElementById("registrant_full_name").textContent = "Les informations de domaine fonctionnent avec un nom commercial existant, prévu et visible.";
-		document.getElementById("registrant_kind").textContent = "Le type de titulaire facultatif est 'individual' ou 'org'.";
-		document.getElementById("registrant_name").textContent = "L’affichage public du nom personnel d’un détenteur de .nl ne fonctionnera plus.";
+		document.getElementById("registrant_kind").textContent = "Le type de titulaire facultatif est vide, 'individual' ou 'org'.";
+		document.getElementById("registrant_name").textContent = "Un nom personnel public d'un détenteur .nl peut poser un problème dans le protocole RDAP.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
 		document.getElementById("admin_role").textContent = "Le bureau administrativement responsable répond à une demande, et la transmet si nécessaire.";
 		document.getElementById("admin_web_id").textContent = "";
@@ -451,7 +451,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4016" style="display:none"><td>registrar_protected</td><td>'.$item->registrar->registrar_protected.'</td><td id="registrar_protected"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(45)">registrar abuse +/-</button></td><td></b></td><td id="registrar_abuse_role"></td></tr>';
 	$html_text .= '<tr id="451" style="display:none"><td>registrar_abuse_phone</td><td>'.$item->registrar->registrar_abuse_phone.'</td><td></td></tr>';
-	$html_text .= '<tr id="452" style="display:none"><td>registrar_abuse_email</td><td>'.$item->registrar->registrar_abuse_email.'</td><td></td></tr>';
+	$html_text .= '<tr><td>registrar_abuse_email</td><td>'.$item->registrar->registrar_abuse_email.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	//if (!empty($item->reseller->reseller_full_name))	{
 	//	if (strlen(trim($item->reseller->reseller_full_name)))	{
