@@ -8,7 +8,7 @@ Domain information all/public: https://rdap.hostingtool.nl/modeling_domain/
 
 Data check by email: https://rdap.hostingtool.nl/modeling_email/
 
-Listing by the Trade Register: https://rdap.hostingtool.nl/modeling_entities_domains/
+Listing by the Business Register: https://rdap.hostingtool.nl/modeling_entities_domains/
 
 Find background information on:
 
