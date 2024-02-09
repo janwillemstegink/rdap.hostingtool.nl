@@ -21,8 +21,8 @@ else	{
 
 function write_file($inputdomain)	{
 	
-$topleveldomain = mb_substr($inputdomain, strrpos($inputdomain, '.') + 1);	
-switch ($topleveldomain) {
+$zone_top_level_domain = mb_substr($inputdomain, strrpos($inputdomain, '.') + 1);	
+switch ($zone_top_level_domain) {
 	case 'nl':
     	$url = 'https://rdap.sidn.nl/domain/';
     	break;
@@ -50,6 +50,9 @@ switch ($topleveldomain) {
 	case 'org':
     	$url = 'https://rdap.publicinterestregistry.org/rdap/domain/';
 		break;
+	case 'ca':
+		$url = 'https://rdap.ca.fury.ca/rdap/domain/';
+		break;	
 	case 'uk':
     	$url = 'https://rdap.nominet.uk/uk/domain/';
     	break;	
@@ -82,7 +85,7 @@ $zone_notice_2_description_1 = $obj['notices'][2]['description'][1];
 $zone_notice_2_links_0_href = $obj['notices'][2]['links'][0]['href'];
 $zone_notice_2_links_0_type = $obj['notices'][2]['links'][0]['type'];
 	
-if ($topleveldomain == 'nl')	{
+if ($zone_top_level_domain == 'nl')	{
 	$zone_registry_web_id = '';
 	$zone_registry_full_name = 'SIDN B.V.';
 	$zone_menu = 'https://nl.sidn.nl';
@@ -115,7 +118,7 @@ $view_links_1_media = $obj['links'][1]['media'];
 $view_links_1_type = $obj['links'][1]['type'];
 	
 $status = '';
-$expiration = '(required for gTLD)';	
+$expiration = '(mandatory information in gTLD zones)';	
 $last_changed = '';
 $last_transferred = '';
 $last_cycle_control = '';	
@@ -155,22 +158,22 @@ $reseller_full_name = '';
 $reseller_street = '';
 $reseller_city = '';
 $reseller_postal_code = '';
-$reseller_country_code = '(required for gTLD)';
+$reseller_country_code = '(mandatory information in gTLD zones)';
 $reseller_protected = 'name,phone,fax,email';
 $registrant_full_name = '';
 $registrant_street = '';
 $registrant_city = '';
 $registrant_postal_code = '';
-$registrant_country_code = '(required for gTLD)';	
+$registrant_country_code = '(mandatory information in gTLD zones)';	
 $registrant_protected = 'name,phone,fax,email,address';
 $admin_handle = '';
-$admin_country_code = '(required for gTLD)';	
+$admin_country_code = '(mandatory information in gTLD zones)';	
 $admin_protected = 'web_id,full_name,name,phone,fax,address';
 $tech_handle = '';
-$tech_country_code = '(required for gTLD)';
+$tech_country_code = '(mandatory information in gTLD zones)';
 $tech_protected = 'web_id,full_name,name,phone,fax,address';
 $billing_handle = '';
-$billing_country_code = '(required for gTLD)';	
+$billing_country_code = '(mandatory information in gTLD zones)';	
 $billing_protected = 'web_id,full_name,name,phone,fax,address';		
 
 $server_name_1 = $obj['nameservers'][0]['ldhName'];
@@ -482,9 +485,13 @@ $domain->setAttribute("item", $inputdomain);
 $zone = $doc->createElement("zone");	
 $domain->appendChild($zone);
 	
+$domain_zone_top_level_domain = $doc->createElement("zone_top_level_domain");
+$domain_zone_top_level_domain->appendChild($doc->createCDATASection($zone_top_level_domain));	
+$zone->appendChild($domain_zone_top_level_domain);
+
 $domain_zone_registry_web_id = $doc->createElement("zone_registry_web_id");
 $domain_zone_registry_web_id->appendChild($doc->createCDATASection($zone_registry_web_id));	
-$zone->appendChild($domain_zone_registry_web_id);
+$zone->appendChild($domain_zone_registry_web_id);	
 
 $domain_zone_registry_full_name = $doc->createElement("zone_registry_full_name");
 $domain_zone_registry_full_name->appendChild($doc->createCDATASection($zone_registry_full_name));	
