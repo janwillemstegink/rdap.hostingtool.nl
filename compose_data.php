@@ -25,16 +25,7 @@ $zone_top_level_domain = mb_substr($inputdomain, strrpos($inputdomain, '.') + 1)
 switch ($zone_top_level_domain) {
 	case 'nl':
     	$url = 'https://rdap.sidn.nl/domain/';
-    	break;
-	case 'amsterdam':
-    	$url = 'https://rdap.nic.amsterdam/domain/';
-    	break;
-	case 'politie':
-    	$url = 'https://rdap.nic.politie/domain/';
-    	break;	
-	case 'ch':
-    	$url = 'https://rdap.nic.ch/domain/';	
-    	break;	
+    	break;		
 	//case 'cc': // transparencia.cc
     //	$url = 'https://rdap.godaddy.com/v1/domain/';
     //	break;
@@ -52,16 +43,28 @@ switch ($zone_top_level_domain) {
 		break;
 	case 'ca':
 		$url = 'https://rdap.ca.fury.ca/rdap/domain/';
-		break;	
-	case 'uk':
-    	$url = 'https://rdap.nominet.uk/uk/domain/';
-    	break;	
+		break;
+	case 'ch':
+    	$url = 'https://rdap.nic.ch/domain/';	
+    	break;		
 	case 'de':
     	$url = 'https://rdap.denic.de/domain/';
     	break;
 	case 'fr':
    		$url = 'https://rdap.nic.fr/domain/';
    		break;
+	//case 'it':
+   	//	$url = 'https://rdap.pubtest.nic.it/domain/';
+   	//	break;
+	case 'uk':
+    	$url = 'https://rdap.nominet.uk/uk/domain/';
+    	break;
+	case 'amsterdam':
+    	$url = 'https://rdap.nic.amsterdam/domain/';
+    	break;
+	case 'politie':
+    	$url = 'https://rdap.nic.politie/domain/';
+    	break;		
 	default:
    		die("No match with a top level domain.");
 }	
@@ -160,7 +163,7 @@ $reseller_city = '';
 $reseller_postal_code = '';
 $reseller_country_code = '(mandatory information in gTLD zones)';
 $reseller_protected = 'name,phone,fax,email';
-$registrant_full_name = '';
+$registrant_full_name = '(no name value)';
 $registrant_street = '';
 $registrant_city = '';
 $registrant_postal_code = '';
@@ -970,5 +973,5 @@ $domains->appendChild($domain);
 $doc->appendChild($domains);
 //return $doc->saveXML(NULL, LIBXML_NOEMPTYTAG);
 return $doc->saveXML();
-}	
+}
 ?>

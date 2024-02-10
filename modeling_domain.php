@@ -331,7 +331,7 @@ $developmentpath = '/home/admin/whois_file/';
 $zonefile = 'data_zones.xml';
 $domainfile = 'data_domains.xml';
 if (empty($_GET['domain']))	{
-	$viewdomain = 'webhostingtech.nl';
+	$viewdomain = 'hostingtool.nl';
 }
 else	{
 	$viewdomain = $_GET['domain'];
