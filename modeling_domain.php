@@ -69,6 +69,10 @@ function SwitchDisplay(type) {
 		var pre = '62';
 		var max = 24
 	}
+	else if (type == 70)	{ // raw data
+		var pre = '70';
+		var max = 1
+	}
 	else	{
 		return;	
 	}
@@ -601,8 +605,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	}
 	$html_text .= '<tr><td>name_servers_dnssec</td><td>'.$item->name_servers->name_servers_dnssec.'</td><td id="name_servers_dnssec"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td colspan="3">RAW DATA FROM DECODED JSON FORMAT:</tr>';
-	$html_text .= '<tr><td colspan="3">'.$item->raw_data.'</tr>';
+	$html_text .= '<tr><td colspan="3"><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(70)">raw input +/-</button></td></tr>';
+	$html_text .= '<tr><td id="701" style="display:none" colspan="3">'.$item->raw_data.'</tr>';
 }
 $html_text .= '</table></div></body></html>';
 echo $html_text;
