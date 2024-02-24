@@ -169,7 +169,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_web_id").textContent = "";
 		document.getElementById("reseller_protected").textContent = derivedfield;
 		document.getElementById("registrant_role").textContent = "Een domeinhouder heeft tenminste de rechten van een abonnement op zijn domein.";
-		document.getElementById("registrant_web_id").textContent = 'Voor de Handelsregisters wordt gewerkt aan een WebID-identificatienummer.';
+		document.getElementById("registrant_web_id").textContent = "Een webidentificatienummer in handelsregisters is in ontwikkeling.";
 		document.getElementById("registrant_full_name").textContent = "Domeininformatie werkt bij een bestaande, beoogde en zichtbare handelsnaam.";
 		document.getElementById("registrant_kind").textContent = "Het optionele houdertype is leeg, 'individual' of 'org'.";
 		document.getElementById("registrant_name").textContent = "Het veld 'full_name' kan een publieke persoonlijke naam bevatten in het RDAP-protocol.";
@@ -214,7 +214,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_web_id").textContent = "";
 		document.getElementById("reseller_protected").textContent = derivedfield;
 		document.getElementById("registrant_role").textContent = "A domain holder has at least the rights of a subscription to his domain.";
-		document.getElementById("registrant_web_id").textContent = "A WebID identification number is being developed for the Business Registers.";
+		document.getElementById("registrant_web_id").textContent = "A web identification number in commercial registers is under development.";
 		document.getElementById("registrant_full_name").textContent = "Domain information works with an existing, intended and visible trade name.";
 		document.getElementById("registrant_kind").textContent = "The optional holder type is blank, 'individual' or 'org'.";
 		document.getElementById("registrant_name").textContent = "The 'full_name' field can contain a public personal name in the RDAP protocol.";
@@ -259,7 +259,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_web_id").textContent = "";
 		document.getElementById("reseller_protected").textContent = derivedfield;
 		document.getElementById("registrant_role").textContent = "Ein Domaininhaber hat zumindest die Rechte eines Abonnements seiner Domain.";
-		document.getElementById("registrant_web_id").textContent = 'Für die Handelsregister wird eine WebID-Identifikationsnummer entwickelt.';
+		document.getElementById("registrant_web_id").textContent = "Eine Web-Identifikationsnummer in Handelsregistern ist in der Entwicklung.";
 		document.getElementById("registrant_full_name").textContent = "Domäneninformationen funktionieren mit einem bestehenden, beabsichtigten und sichtbaren Handelsnamen.";
 		document.getElementById("registrant_kind").textContent = "Der optionale Haltertyp ist leer, 'individual' oder 'org'.";
 		document.getElementById("registrant_name").textContent = "Das Feld 'full_name' kann einen öffentlichen persönlichen Namen im RDAP-Protokoll enthalten.";
@@ -303,7 +303,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_web_id").textContent = "";
 		document.getElementById("reseller_protected").textContent = derivedfield;
 		document.getElementById("registrant_role").textContent = "Un titulaire de domaine a au moins les droits d'un abonnement à son domaine.";
-		document.getElementById("registrant_web_id").textContent = "Un numéro d'identification WebID est en cours d'élaboration pour les Registres de Commerce.";
+		document.getElementById("registrant_web_id").textContent = "Un numéro d’identification web dans les registres du commerce est en cours d’élaboration.";
 		document.getElementById("registrant_full_name").textContent = "Les informations de domaine fonctionnent avec un nom commercial existant, prévu et visible.";
 		document.getElementById("registrant_kind").textContent = "Le type de titulaire facultatif est vide, 'individual' ou 'org'.";
 		document.getElementById("registrant_name").textContent = "Le champ 'full_name' peut contenir un nom personnel public dans le protocole RDAP.";
@@ -605,8 +605,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	}
 	$html_text .= '<tr><td>name_servers_dnssec</td><td>'.$item->name_servers->name_servers_dnssec.'</td><td id="name_servers_dnssec"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td colspan="3"><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(70)">raw input +/-</button></td></tr>';
-	$html_text .= '<tr><td id="701" style="display:none" colspan="3">'.$item->raw_data.'</tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(70)">raw input +/-</button></td><td></td><td></td></tr>';
+	$html_text .= '<tr id="701" style="display:none"><td colspan="3">'.$item->raw_data.'</td></tr>';
 }
 $html_text .= '</table></div></body></html>';
 echo $html_text;
