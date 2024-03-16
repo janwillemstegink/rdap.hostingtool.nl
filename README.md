@@ -4,7 +4,7 @@
 - The name and contact details of the holder matter for customer protection, manageable administrative workload and an 'In Control Statement' (ICS);
 - Legal structure for domain information can arise after narrowing down physical structure first.
 
-Domain information all/public: https://rdap.hostingtool.nl/modeling_domain/
+Domain information: https://rdap.hostingtool.nl/modeling_domain/
 
 Data check by email: https://rdap.hostingtool.nl/modeling_email/
 
