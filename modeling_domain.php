@@ -73,6 +73,22 @@ function SwitchDisplay(type) {
 		var pre = '70';
 		var max = 1
 	}
+	else if (type == 80)	{ // server header
+		var pre = '80';
+		var max = 1
+	}
+	else if (type == 81)	{ // server header www
+		var pre = '81';
+		var max = 1
+	}
+	else if (type == 90)	{ // transfer information
+		var pre = '90';
+		var max = 1
+	}
+	else if (type == 91)	{ // transfer information www
+		var pre = '91';
+		var max = 1
+	}
 	else	{
 		return;	
 	}
@@ -118,6 +134,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_last_cycle_control").textContent = proposedfield;
 		document.getElementById("registrar_role").textContent = "";
 		document.getElementById("registrar_web_id").textContent = "";
+		document.getElementById("registrar_iana_id").textContent = "";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("registrar_abuse_role").textContent = "";
 		document.getElementById("reseller_role").textContent = "";
@@ -161,6 +178,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_last_cycle_control").textContent = proposedfield + "Zoekmachines kunnen filteren op status en een validatie die niet ouder is dan een jaar.";
 		document.getElementById("registrar_role").textContent = "Een domain registrar verzorgt de reservering van domeinen en IP-adresroutering.";
 		document.getElementById("registrar_web_id").textContent = "";
+		document.getElementById("registrar_iana_id").textContent = "Met een gTLD-domein en ICANN-accreditatie voor één of meerdere generieke topleveldomeinen.";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("registrar_abuse_role").textContent = "Misbruikinformatie vergemakkelijkt het contact opnemen met de registrar door een derde partij.";
 		document.getElementById("reseller_role").textContent = "Een domain reseller heeft verantwoordelijkheid, afhankelijk van de overeenkomst en de voorschriften.";
@@ -169,7 +187,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "Een domeinhouder heeft tenminste de rechten van een abonnement op zijn domein.";
 		document.getElementById("registrant_web_id").textContent = "Een webidentificatienummer in handelsregisters is in ontwikkeling.";
 		document.getElementById("registrant_full_name").textContent = "Domeininformatie werkt bij een bestaande, beoogde en zichtbare handelsnaam.";
-		document.getElementById("registrant_kind").textContent = "Het optionele houdertype is leeg, 'individual' of 'org'.";
+		document.getElementById("registrant_kind").textContent = "Leeg, 'individual' of 'org'; een levenstestament kan een juridische lacune opvullen.";
 		document.getElementById("registrant_name").textContent = "Het veld 'full_name' kan een publieke persoonlijke naam bevatten in het RDAP-protocol.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
 		document.getElementById("admin_role").textContent = "Het administratief aanspreekpunt beantwoordt een verzoek en stuurt zo nodig door.";
@@ -205,6 +223,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_last_cycle_control").textContent = proposedfield + "Search engines can filter by status and a validation that is not older than one year.";
 		document.getElementById("registrar_role").textContent = "A domain registrar takes care of domain reservations and IP address routing.";
 		document.getElementById("registrar_web_id").textContent = "";
+		document.getElementById("registrar_iana_id").textContent = "With a gTLD domain and ICANN accreditation for one or more generic top-level domains.";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("registrar_abuse_role").textContent = "Abuse information facilitates contacting the registrar by a third party.";
 		document.getElementById("reseller_role").textContent = "A domain reseller has responsibility, depending on the agreement and the regulations.";
@@ -213,7 +232,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "A domain holder has at least the rights of a subscription to his domain.";
 		document.getElementById("registrant_web_id").textContent = "A web identification number in commercial registers is under development.";
 		document.getElementById("registrant_full_name").textContent = "Domain information works with an existing, intended and visible trade name.";
-		document.getElementById("registrant_kind").textContent = "The optional holder type is blank, 'individual' or 'org'.";
+		document.getElementById("registrant_kind").textContent = "Empty, 'individual' or 'org'; a living will can fill a legal gap.";
 		document.getElementById("registrant_name").textContent = "The 'full_name' field can contain a public personal name in the RDAP protocol.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
 		document.getElementById("admin_role").textContent = "The administratively responsible desk answers a request, and forwards on if necessary.";
@@ -249,6 +268,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_last_cycle_control").textContent = proposedfield + "Suchmaschinen können nach Status und einer Validierung filtern, die nicht älter als ein Jahr ist.";
 		document.getElementById("registrar_role").textContent = "Ein Domain-Registrar kümmert sich um Domain-Reservierungen und IP-Adress-Routing.";
 		document.getElementById("registrar_web_id").textContent = "";
+		document.getElementById("registrar_iana_id").textContent = "Mit einer gTLD-Domain und ICANN-Akkreditierung für eine oder mehrere generische Top-Level-Domains.";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("registrar_abuse_role").textContent = "Missbrauchsinformationen erleichtern die Kontaktaufnahme mit dem Registrar durch Dritte.";
 		document.getElementById("reseller_role").textContent = "Ein Domain-Reseller trägt die Verantwortung, abhängig von der Vereinbarung und den Vorschriften.";
@@ -257,7 +277,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "Ein Domaininhaber hat zumindest die Rechte eines Abonnements seiner Domain.";
 		document.getElementById("registrant_web_id").textContent = "Eine Web-Identifikationsnummer in Handelsregistern ist in der Entwicklung.";
 		document.getElementById("registrant_full_name").textContent = "Domäneninformationen funktionieren mit einem bestehenden, beabsichtigten und sichtbaren Handelsnamen.";
-		document.getElementById("registrant_kind").textContent = "Der optionale Haltertyp ist leer, 'individual' oder 'org'.";
+		document.getElementById("registrant_kind").textContent = "Leer, 'individual' oder 'org'; Eine Patientenverfügung kann eine rechtliche Lücke schließen.";
 		document.getElementById("registrant_name").textContent = "Das Feld 'full_name' kann einen öffentlichen persönlichen Namen im RDAP-Protokoll enthalten.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
 		document.getElementById("admin_role").textContent = "Die administrativ zuständige Stelle beantwortet eine Anfrage und leitet sie gegebenenfalls weiter.";
@@ -292,6 +312,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_last_cycle_control").textContent = proposedfield + "Les moteurs de recherche peuvent filtrer par statut et par validation ne datant pas de plus d’un an.";
 		document.getElementById("registrar_role").textContent = "Un registraire de domaine s'occupe des réservations de domaine et du routage des adresses IP.";
 		document.getElementById("registrar_web_id").textContent = "";
+		document.getElementById("registrar_iana_id").textContent = "Avec un domaine gTLD et une accréditation ICANN pour un ou plusieurs domaines génériques de premier niveau.";
 		document.getElementById("registrar_protected").textContent = derivedfield;
 		document.getElementById("registrar_abuse_role").textContent = "Les informations sur les abus facilitent la prise de contact avec le bureau d'enregistrement par un tiers.";
 		document.getElementById("reseller_role").textContent = "Un revendeur de domaine a la responsabilité, en fonction de l'accord et de la réglementation.";
@@ -300,7 +321,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "Un titulaire de domaine a au moins les droits d'un abonnement à son domaine.";
 		document.getElementById("registrant_web_id").textContent = "Un numéro d’identification web dans les registres du commerce est en cours d’élaboration.";
 		document.getElementById("registrant_full_name").textContent = "Les informations de domaine fonctionnent avec un nom commercial existant, prévu et visible.";
-		document.getElementById("registrant_kind").textContent = "Le type de titulaire facultatif est vide, 'individual' ou 'org'.";
+		document.getElementById("registrant_kind").textContent = "Vide, 'individual' ou 'org' ; un testament biologique peut combler un vide juridique.";
 		document.getElementById("registrant_name").textContent = "Le champ 'full_name' peut contenir un nom personnel public dans le protocole RDAP.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
 		document.getElementById("admin_role").textContent = "Le bureau administrativement responsable répond à une demande, et la transmet si nécessaire.";
@@ -371,7 +392,7 @@ $html_text .= '<tr style="font-size: .8rem"><td id="title" style="font-size: 1.3
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(2)">en_US</button> 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(3)">de_DE</button> 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(4)">fr_FR</button> 
-	issues: <a style="font-size: 0.9rem" href="https://github.com/janwillemstegink/rdap_view_model" target="_blank">github.com/janwillemstegink/rdap_view_model</a></td></tr>';
+	<a style="font-size: 0.9rem" href="https://github.com/janwillemstegink/rdap_view_model/issues" target="_blank">github.com/janwillemstegink/rdap_view_model/issues</a></td></tr>';
 foreach ($xml1->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
@@ -531,7 +552,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>registrar_full_name</td><td>'.$item->registrar->registrar_full_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="602" style="display:none"><td>registrar_kind</td><td>'.$item->registrar->registrar_kind.'</td><td></td></tr>';
 	$html_text .= '<tr id="603" style="display:none"><td>registrar_url</td><td>'.$item->registrar->registrar_url.'</td><td></td></tr>';
-	$html_text .= '<tr id="604" style="display:none"><td>registrar_iana_id</td><td>'.$item->registrar->registrar_iana_id.'</td><td></td></tr>';
+	$html_text .= '<tr id="604" style="display:none"><td>registrar_iana_id</td><td>'.$item->registrar->registrar_iana_id.'</td><td id="registrar_iana_id"></td></tr>';
 	$html_text .= '<tr id="605" style="display:none"><td>registrar_name</td><td>'.$item->registrar->registrar_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="606" style="display:none"><td>registrar_phone</td><td>'.$item->registrar->registrar_phone.'</td><td></td></tr>';
 	$html_text .= '<tr id="607" style="display:none"><td>registrar_fax</td><td>'.$item->registrar->registrar_fax.'</td><td></td></tr>';
@@ -599,8 +620,21 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	}
 	$html_text .= '<tr><td>name_servers_dnssec</td><td>'.$item->name_servers->name_servers_dnssec.'</td><td id="name_servers_dnssec"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(70)">raw input +/-</button></td><td></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(70)">raw data +/-</button></td></tr>';
 	$html_text .= '<tr id="701" style="display:none"><td colspan="3">'.$item->raw_data.'</td></tr>';
+	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(80)">server headers +/-</button></td></tr>';
+	$html_text .= '<tr id="801" style="display:none"><td colspan="3">'.$item->server_headers.'</td></tr>';
+	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(81)">server headers www +/-</button></td></tr>';
+	$html_text .= '<tr id="811" style="display:none"><td colspan="3">'.$item->server_headers_www.'</td></tr>';
+	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(90)">transfer information +/-</button></td></tr>';
+	$html_text .= '<tr id="901" style="display:none"><td colspan="3">'.$item->transfer_information.'</td></tr>';
+	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(91)">transfer information www +/-</button></td></tr>';
+	$html_text .= '<tr id="911" style="display:none"><td colspan="3">'.$item->transfer_information_www.'</td></tr>';
+	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 }
 $html_text .= '</table></div></body></html>';
 echo $html_text;
