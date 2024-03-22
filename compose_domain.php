@@ -1,6 +1,5 @@
 <?php
-//$_GET['domain'] = 'www.lifeinmotion.nl';
-//$_GET['domain'] = 'example.biz';
+//$_GET['domain'] = 'hostingtool.nl';
 
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{

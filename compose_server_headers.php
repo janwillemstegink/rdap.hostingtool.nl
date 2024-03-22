@@ -1,6 +1,5 @@
 <?php
-//$_GET['domain'] = 'www.lifeinmotion.nl';
-//$_GET['domain'] = 'example.biz';
+//$_GET['url'] = 'hostingtool.nl';
 
 if (!empty($_GET['url']))	{
 	if (strlen($_GET['url']))	{
@@ -61,8 +60,8 @@ foreach($arr_transfer_information_www as $key1 => $value1) {
 		$transfer_information_www .= "+". $key2 . ': ' . $value2 . '<br />';
 	}	
 }	
-curl_close($ch);	
-	
+curl_close($ch);
+
 $doc = new DOMDocument("1.0", "UTF-8");
 $doc->xmlStandalone = true;	
 $doc->formatOutput = true;		

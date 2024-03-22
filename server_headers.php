@@ -9,12 +9,8 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 ?><script>
 	
 function SwitchDisplay(type) {
-	if (type == 11)			{ // transfer information without www
+	if (type == 11)			{ // transfer information
 		var pre = '11';
-		var max = 1
-	}
-	else if (type == 12)	{ // transfer information with www
-		var pre = '12';
 		var max = 1
 	}
 	else if (type == 20)	{ // server header explanation
@@ -73,8 +69,8 @@ if (@get_headers($server_url))	{
 	$xml1 = simplexml_load_file($server_url, "SimpleXMLElement", LIBXML_NOCDATA) or die("An entered url could not be read.");
 }
 $html_text = '<body><div style="border-collapse:collapse; line-height:120%">
-<table style="font-family:Helvetica, Arial, sans-serif; font-size: 1rem">
-<tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th></tr>';
+<table style="font-family:Helvetica, Arial, sans-serif; font-size: 1rem; table-layout: fixed; width:1200px">
+<tr><th style="width:300px"></th><th style="width:300px"></th><th style="width:600px"></th></tr>';
 $html_text .= '<tr style="font-size: .8rem"><td style="font-size: 1.3rem;color:blue;font-weight:bold">Modeling Server Headers</td>
 <td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">    
 	<label for="url">Just enter a URL:</label>
@@ -83,16 +79,13 @@ $html_text .= '<tr style="font-size: .8rem"><td style="font-size: 1.3rem;color:b
 foreach ($xml1->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(11)">transfer information without www +/-</button></td></tr>';
-	$html_text .= '<tr id="111" style="display:none"><td colspan="3">'.$item->transfer_information.'</td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(11)">transfer information without www +/-</button></td><td></td><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(11)">transfer information with www +/-</button></td></tr>';
+	$html_text .= '<tr id="111" style="display:none"><td colspan="2">'.$item->transfer_information.'</td><td>'.$item->transfer_information_www.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(12)">transfer information with www +/-</button></td></tr>';
-	$html_text .= '<tr id="121" style="display:none"><td colspan="3">'.$item->transfer_information_www.'</td></tr>';
-	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(20)">server header explanation +/-</button></td></tr>';
-	$html_text .= '<tr id="201" style="display:table-row"><td colspan="3">For a security header to work, the RFC specification requires that the current URL has also been the first URL over HTTPS.</td></tr>';
-	$html_text .= '<tr id="202" style="display:table-row"><td colspan="3">A server header that is too short is a security weakness.';
-	$html_text .= '<tr id="203" style="display:table-row"><td colspan="3">First rewrite with the check mark in the control panel to HTTPS, set the security headers and then 301/302 redirection if applicable.</td></tr>';
+	$html_text .= '<tr><td colspan="2"><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(20)">server header explanation +/-</button></td><td></td></tr>';
+	$html_text .= '<tr id="201" style="display:table-row"><td colspan="3"><i>For a security header to work, the RFC specification requires that the current URL has also been the first URL over HTTPS.</i></td></tr>';
+	$html_text .= '<tr id="202" style="display:table-row"><td colspan="3"><i>A server header that is too short is a security weakness.</i></td></tr>';
+	$html_text .= '<tr id="203" style="display:table-row"><td colspan="3"><i>First rewrite with the check mark in the control panel to HTTPS, set the security headers and then 301/302 redirection if applicable.</i></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td colspan="2"><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(21)">server header without www +/-</button></td><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(21)">server header with www +/-</button></td></tr>';
 	$html_text .= '<tr id="211" style="display:table-row;vertical-align:top"><td colspan="2">'.$item->server_headers.'</td><td colspan="1">'.$item->server_headers_www.'</td></tr>';
