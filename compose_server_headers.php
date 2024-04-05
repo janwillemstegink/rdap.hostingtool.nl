@@ -20,11 +20,11 @@ else	{
 }
 
 function write_file($inputdomain)	{
-	
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://'.$inputdomain);
+
+$ch = curl_init();	
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HEADER, true);
+curl_setopt($ch, CURLOPT_HEADER, true);	
+curl_setopt($ch, CURLOPT_URL, 'https://'.$inputdomain);	
 $curl_server_headers = curl_exec($ch);
 $arr_server_headers = explode (",", $curl_server_headers);
 $server_headers = '';	
@@ -32,7 +32,7 @@ foreach($arr_server_headers as $key1 => $value1) {
 	$server_headers .= $key1 . ': ' . $value1 . '<br />';
     foreach($value1 as $key2 => $value2) {
 		$server_headers .= "+". $key2 . ': ' . $value2 . '<br />';
-		}
+	}
 }
 $arr_transfer_information = curl_getinfo($ch);
 $transfer_information = '';	
@@ -59,14 +59,18 @@ foreach($arr_transfer_information_www as $key1 => $value1) {
     foreach($value1 as $key2 => $value2) {
 		$transfer_information_www .= "+". $key2 . ': ' . $value2 . '<br />';
 	}	
-}	
-curl_close($ch);
-
+}
+curl_close($ch);		
 $security_txt_url = 'https://'.$inputdomain.'/.well-known/security.txt';
+$security_txt = nl2br(file_get_contents($security_txt_url));
+if (!strlen($security_txt))	{
+	$security_txt_url = '<a href="https://'.$inputdomain.'/.well-known/security.txt"  target="_blank">https://'.$inputdomain.'/.well-known/security.txt</a>';	
+}
 $security_txt_url_www = 'https://www.'.$inputdomain.'/.well-known/security.txt';
-$security_txt = nl2br(file_get_contents($security_txt_url));	
-$security_txt_www = nl2br(file_get_contents($security_txt_url_www));	
-	
+$security_txt_www = nl2br(file_get_contents($security_txt_url_www));
+if (!strlen($security_txt_www))	{
+	$security_txt_url_www = '<a href="https://www.'.$inputdomain.'/.well-known/security.txt" target="_blank">https://www.'.$inputdomain.'/.well-known/security.txt</a>';	
+}	
 $DNS_CNAME = '';
 $array = dns_get_record($inputdomain, DNS_CNAME);
 foreach($array as $key1 => $value1) {
@@ -81,7 +85,7 @@ if (!strlen($DNS_CNAME))	{
 	foreach($array as $key1 => $value1) {
 		foreach($value1 as $key2 => $value2) {
 			if ($key2 == 'ip') {
-				$DNS_CNAME .= $value2 . '<br />';
+				$DNS_CNAME .= $value2.' - rDNS: '.gethostbyaddr($value2) . '<br />';
 			}	
 		}
 	}
@@ -89,7 +93,7 @@ if (!strlen($DNS_CNAME))	{
 	foreach($array as $key1 => $value1) {
 		foreach($value1 as $key2 => $value2) {
 			if ($key2 == 'ipv6') {
-				$DNS_CNAME .= $value2 . '<br />';
+				$DNS_CNAME .= $value2.' - rDNS: '.gethostbyaddr($value2) . '<br />';
 			}	
 		}
 	}
@@ -108,7 +112,7 @@ if (!strlen($DNS_CNAME_www))	{
 	foreach($array as $key1 => $value1) {
 		foreach($value1 as $key2 => $value2) {
 			if ($key2 == 'ip') {
-				$DNS_CNAME_www .= $value2 . '<br />';
+				$DNS_CNAME_www .= $value2.' - rDNS: '.gethostbyaddr($value2) . '<br />';
 			}	
 		}
 	}
@@ -116,7 +120,7 @@ if (!strlen($DNS_CNAME_www))	{
 	foreach($array as $key1 => $value1) {
 		foreach($value1 as $key2 => $value2) {
 			if ($key2 == 'ipv6') {
-				$DNS_CNAME_www .= $value2 . '<br />';
+				$DNS_CNAME_www .= $value2.' - rDNS: '.gethostbyaddr($value2) . '<br />';
 			}	
 		}
 	}
