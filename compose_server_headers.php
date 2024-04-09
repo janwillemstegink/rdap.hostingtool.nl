@@ -1,15 +1,22 @@
 <?php
-//$_GET['url'] = 'dnsmadeeasy.com';
+//$_GET['url'] = 'https://www.dogshowentry.nl/Common/Login/';
+//$_GET['url'] = 'https://www.dogshowentry.nl:443';
 
 if (!empty($_GET['url']))	{
 	if (strlen($_GET['url']))	{
 		$domain = str_replace('http://','', trim($_GET['url']));
 		$domain = str_replace('https://','', $domain);
 		$domain = str_replace('www.','', $domain);
-		$domain = str_replace('/','', $domain);
+		$strpos = mb_strpos($domain, '/');
+		if ($strpos)	{
+			$domain = mb_substr($domain, 0, $strpos);
+		}
+		$strpos = mb_strpos($domain, ':');
+		if ($strpos)	{
+			$domain = mb_substr($domain, 0, $strpos);
+		}
 		echo write_file($domain);
 		die();
-
 	}
 	else	{	
 		die("No domain name is filled as input");	
@@ -283,9 +290,17 @@ $domain_security_txt = $doc->createElement("security_txt");
 $domain_security_txt->appendChild($doc->createCDATASection($security_txt));		
 $domain->appendChild($domain_security_txt);
 	
+$domain_security_txt_legacy = $doc->createElement("security_txt_legacy");
+$domain_security_txt_legacy->appendChild($doc->createCDATASection($security_txt_legacy));		
+$domain->appendChild($domain_security_txt_legacy);	
+	
 $domain_security_txt_www = $doc->createElement("security_txt_www");
 $domain_security_txt_www->appendChild($doc->createCDATASection($security_txt_www));		
-$domain->appendChild($domain_security_txt_www);	
+$domain->appendChild($domain_security_txt_www);
+	
+$domain_security_txt_www_legacy = $doc->createElement("security_txt_www_legacy");
+$domain_security_txt_www_legacy->appendChild($doc->createCDATASection($security_txt_www_legacy));		
+$domain->appendChild($domain_security_txt_www_legacy);	
 	
 $domain_server_headers = $doc->createElement("server_headers");
 $domain_server_headers->appendChild($doc->createCDATASection($server_headers));		

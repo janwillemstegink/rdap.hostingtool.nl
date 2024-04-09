@@ -6,10 +6,16 @@ if (!empty($_GET['domain']))	{
 		$domain = str_replace('http://','', trim($_GET['domain']));
 		$domain = str_replace('https://','', $domain);
 		$domain = str_replace('www.','', $domain);
-		$domain = str_replace('/','', $domain);
+		$strpos = mb_strpos($domain, '/');
+		if ($strpos)	{
+			$domain = mb_substr($domain, 0, $strpos);
+		}
+		$strpos = mb_strpos($domain, ':');
+		if ($strpos)	{
+			$domain = mb_substr($domain, 0, $strpos);
+		}
         echo write_file($domain);
 		die();
-
 	}
 	else	{	
 		die("No domain name is filled as input");	

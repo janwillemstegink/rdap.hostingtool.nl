@@ -182,7 +182,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tech_protected").textContent = derivedfield;
 		document.getElementById("billing_role").textContent = "Sommige domain registries houden gegevens bij om hun facturering uit te voeren.";
 		document.getElementById("billing_protected").textContent = derivedfield;
-		document.getElementById("name_servers_role").textContent = "Naam servers leiden naar IP-adressen van webservers van een URL.";
+		document.getElementById("name_servers_role").textContent = "Naamservers leiden naar IP-adressen van webservers van een URL.";
 		document.getElementById("name_servers_ip").textContent = "Een lijmrecord is vereist als de naamservers van de registrar niet worden gebruikt.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
 		
