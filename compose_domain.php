@@ -1,8 +1,10 @@
 <?php
 //$_GET['domain'] = 'hostingtool.nl';
+
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
 		$domain = trim($_GET['domain']);
+		$domain = mb_strtolower($domain);
 		$domain = str_replace('http://','', $domain);
 		$domain = str_replace('https://','', $domain);
 		$domain = str_replace('www.','', $domain);
