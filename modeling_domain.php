@@ -102,6 +102,7 @@ function SwitchTranslation(translation)	{
 		var proposedfield = '';
 		var derivedfield = '';
 		document.getElementById("title").textContent = "Model";
+		document.getElementById("instruction").textContent = "Paste a domain name and press Enter.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "";
@@ -146,6 +147,7 @@ function SwitchTranslation(translation)	{
 		var proposedfield = 'VOORGESTELD - ';
 		var derivedfield = 'ONTWERP - Niet-openbare gegevens';
 		document.getElementById("title").textContent = "Model voor domeininformatie";
+		document.getElementById("instruction").textContent = "Plak een domeinnaam en druk op Enter.";
 		document.getElementById("field").textContent = "Omschrijving";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Toelichting";
@@ -171,7 +173,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "Een domeinhouder heeft tenminste de rechten van een abonnement op zijn domein.";
 		document.getElementById("registrant_web_id").textContent = "Een webidentificatienummer in handelsregisters is in ontwikkeling.";
 		document.getElementById("registrant_full_name").textContent = "Domeininformatie werkt bij een bestaande, beoogde en zichtbare handelsnaam.";
-		document.getElementById("registrant_kind").textContent = "Leeg, 'individual' of 'org'; een levenstestament kan een juridische lacune opvullen.";
+		document.getElementById("registrant_kind").textContent = "Leeg, 'individual' of 'org'; een levenstestament kan een juridische lacune opvullen; suggestie: 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "Het veld 'full_name' kan een publieke persoonlijke naam bevatten in het RDAP-protocol.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
 		document.getElementById("admin_role").textContent = "Het administratief aanspreekpunt beantwoordt een verzoek en stuurt zo nodig door.";
@@ -191,6 +193,7 @@ function SwitchTranslation(translation)	{
 		var proposedfield = 'PROPOSED - ';
 		var derivedfield = 'DESIGN - Non-public data';
 		document.getElementById("title").textContent = "Model for Domain Information";
+		document.getElementById("instruction").textContent = "Paste a domain name and press Enter.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Explanation";		
@@ -216,7 +219,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "A domain holder has at least the rights of a subscription to his domain.";
 		document.getElementById("registrant_web_id").textContent = "A web identification number in commercial registers is under development.";
 		document.getElementById("registrant_full_name").textContent = "Domain information works with an existing, intended and visible trade name.";
-		document.getElementById("registrant_kind").textContent = "Empty, 'individual' or 'org'; a living will can fill a legal gap.";
+		document.getElementById("registrant_kind").textContent = "Empty, 'individual' or 'org'; a living will can fill a legal gap; suggestion: 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "The 'full_name' field can contain a public personal name in the RDAP protocol.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
 		document.getElementById("admin_role").textContent = "The administratively responsible desk answers a request, and forwards on if necessary.";
@@ -236,6 +239,7 @@ function SwitchTranslation(translation)	{
 		var proposedfield = 'VORGESCHLAGEN - ';
 		var derivedfield = 'DESIGN - Nicht öffentliche Daten';
 		document.getElementById("title").textContent = "Modell für Domäneninformationen";
+		document.getElementById("instruction").textContent = "Fügen Sie einen Domänennamen ein und drücken Sie die Eingabetaste.";
 		document.getElementById("field").textContent = "Beschreibung";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Erläuterung";		
@@ -261,7 +265,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "Ein Domaininhaber hat zumindest die Rechte eines Abonnements seiner Domain.";
 		document.getElementById("registrant_web_id").textContent = "Eine Web-Identifikationsnummer in Handelsregistern ist in der Entwicklung.";
 		document.getElementById("registrant_full_name").textContent = "Domäneninformationen funktionieren mit einem bestehenden, beabsichtigten und sichtbaren Handelsnamen.";
-		document.getElementById("registrant_kind").textContent = "Leer, 'individual' oder 'org'; Eine Patientenverfügung kann eine rechtliche Lücke schließen.";
+		document.getElementById("registrant_kind").textContent = "Leer, 'individual' oder 'org'; Eine Patientenverfügung kann eine rechtliche Lücke schließen; Anregung: 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "Das Feld 'full_name' kann einen öffentlichen persönlichen Namen im RDAP-Protokoll enthalten.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
 		document.getElementById("admin_role").textContent = "Die administrativ zuständige Stelle beantwortet eine Anfrage und leitet sie gegebenenfalls weiter.";
@@ -280,6 +284,7 @@ function SwitchTranslation(translation)	{
 		var proposedfield = 'PROPOSÉ - ';
 		var derivedfield = 'CONCEPTION - Données non publiques';
 		document.getElementById("title").textContent = "Modèle d'informations de domaine";
+		document.getElementById("instruction").textContent = "Collez un nom de domaine et appuyez sur Entrée.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Détail";
 		document.getElementById("explanation").textContent = "Explication";		
@@ -305,7 +310,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "Un titulaire de domaine a au moins les droits d'un abonnement à son domaine.";
 		document.getElementById("registrant_web_id").textContent = "Un numéro d’identification web dans les registres du commerce est en cours d’élaboration.";
 		document.getElementById("registrant_full_name").textContent = "Les informations de domaine fonctionnent avec un nom commercial existant, prévu et visible.";
-		document.getElementById("registrant_kind").textContent = "Vide, 'individual' ou 'org' ; un testament biologique peut combler un vide juridique.";
+		document.getElementById("registrant_kind").textContent = "Vide, 'individual' ou 'org' ; un testament biologique peut combler un vide juridique ; suggestion : 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "Le champ 'full_name' peut contenir un nom personnel public dans le protocole RDAP.";
 		document.getElementById("registrant_protected").textContent = derivedfield;
 		document.getElementById("admin_role").textContent = "Le bureau administrativement responsable répond à une demande, et la transmet si nécessaire.";
@@ -366,8 +371,9 @@ if (@get_headers($rdap_url))	{ // the application to compose for zone data
 $html_text = '<body onload=SwitchTranslation('.$viewlanguage.')><div style="border-collapse:collapse; line-height:120%">
 <table style="font-family:Helvetica, Arial, sans-serif; font-size: 1rem; table-layout: fixed; width:1375px">
 <tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th></tr>';
-$html_text .= '<tr style="font-size: .8rem"><td id="title" style="font-size: 1.3rem;color:blue;font-weight:bold"></td>
-<td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">
+
+$html_text .= '<tr style="font-size: .8rem"><td id="title" style="font-size: 1.3rem;color:blue;font-weight:bold"></td><td colspan="2" id="instruction"></td></tr>';
+$html_text .= '<tr style="font-size: .8rem"><td></td><td id="instruction"><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">
 	<input type="hidden" id="language" name="language" value='.$viewlanguage.'>	
 	<input type="text" style="width:90%" id="domain" name="domain" value='.$viewdomain.'></form>
 	<label for="domain">biz/com/net/org/ca/ch/de/fr/nl/uk/amsterdam/politie</label></td><td>
