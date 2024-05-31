@@ -364,7 +364,11 @@ if (empty($_GET["language"]))	{
 else	{
 	$viewlanguage = $_GET["language"];
 }
-$rdap_url = 'https://rdap.hostingtool.nl/compose_domain/index.php?domain='.$viewdomain;
+//$rdap_url = 'https://rdap.hostingtool.nl/compose_domain/index.php?domain='.$viewdomain;	
+$rdap_url = isset($_SERVER['HTTPS']) && strcasecmp('off', $_SERVER['HTTPS']) !== 0 ? "https" : "http";
+$rdap_url .= '://'. $_SERVER['HTTP_HOST'];
+$rdap_url .= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);	
+$rdap_url = dirname($rdap_url).'/compose_domain/index.php?domain='.$viewdomain;
 if (@get_headers($rdap_url))	{ // the application to compose for zone data
 	$xml1 = simplexml_load_file($rdap_url, "SimpleXMLElement", LIBXML_NOCDATA) or die("An entered domain could not be read.");
 }
