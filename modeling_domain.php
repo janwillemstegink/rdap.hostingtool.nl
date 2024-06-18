@@ -53,6 +53,10 @@ function SwitchDisplay(type) {
 		var pre = '43';
 		var max = 16
 	}
+	else if (type == 44)	{ // backup
+		var pre = '44';
+		var max = 15
+	}
 	else if (type == 50)	{ // reseller
 		var pre = '50';
 		var max = 14
@@ -139,6 +143,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tech_protected").textContent = derivedfield;
 		document.getElementById("billing_role").textContent = "";
 		document.getElementById("billing_protected").textContent = derivedfield;
+		document.getElementById("backup_role").textContent = "";
+		document.getElementById("backup_web_id").textContent = "";
+		document.getElementById("backup_protected").textContent = derivedfield;
 		document.getElementById("name_servers_role").textContent = "";
 		document.getElementById("name_servers_ip").textContent = "";
 		document.getElementById("name_servers_dnssec").textContent = "";
@@ -184,6 +191,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tech_protected").textContent = derivedfield;
 		document.getElementById("billing_role").textContent = "Sommige domain registries houden gegevens bij om hun facturering uit te voeren.";
 		document.getElementById("billing_protected").textContent = derivedfield;
+		document.getElementById("backup_role").textContent = proposedfield + "Een back-up contact heeft de noodzakelijke toegang bij vervanging.";
+		document.getElementById("backup_web_id").textContent = "";
+		document.getElementById("backup_protected").textContent = derivedfield;
 		document.getElementById("name_servers_role").textContent = "Naamservers leiden naar IP-adressen van webservers van een URL.";
 		document.getElementById("name_servers_ip").textContent = "Een lijmrecord is vereist als de naamservers van de registrar niet worden gebruikt.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
@@ -230,6 +240,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tech_protected").textContent = derivedfield;
 		document.getElementById("billing_role").textContent = "Some domain registries maintain records to perform their billing.";
 		document.getElementById("billing_protected").textContent = derivedfield;
+		document.getElementById("backup_role").textContent = proposedfield + "A backup contact has the necessary access in the event of replacement.";
+		document.getElementById("backup_web_id").textContent = "";
+		document.getElementById("backup_protected").textContent = derivedfield;		
 		document.getElementById("name_servers_role").textContent = "Name servers lead to IP addresses of web servers from a URL.";
 		document.getElementById("name_servers_ip").textContent = "A glue record is required if the registrar's name servers are not used.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
@@ -276,6 +289,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tech_protected").textContent = derivedfield;
 		document.getElementById("billing_role").textContent = "Einige Domänenregistrierungen führen Aufzeichnungen, um ihre Abrechnung durchzuführen.";
 		document.getElementById("billing_protected").textContent = derivedfield;
+		document.getElementById("backup_role").textContent = proposedfield + "Im Ersatzfall verfügt ein Backup-Kontakt über den nötigen Zugriff.";
+		document.getElementById("backup_web_id").textContent = "";
+		document.getElementById("backup_protected").textContent = derivedfield;
 		document.getElementById("name_servers_role").textContent = "Nameserver führen von einer URL zu IP-Adressen von Webservern.";
 		document.getElementById("name_servers_ip").textContent = "Ein Glue-Record ist erforderlich, wenn die Nameserver des Registrars nicht verwendet werden.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
@@ -321,6 +337,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tech_protected").textContent = derivedfield;
 		document.getElementById("billing_role").textContent = "Certains registres de domaine conservent des enregistrements pour effectuer leur facturation.";
 		document.getElementById("billing_protected").textContent = derivedfield;
+		document.getElementById("backup_role").textContent = proposedfield + "Un contact de secours dispose des accès nécessaires en cas de remplacement.";
+		document.getElementById("backup_web_id").textContent = "";
+		document.getElementById("backup_protected").textContent = derivedfield;		
 		document.getElementById("name_servers_role").textContent = "Les serveurs de noms mènent aux adresses IP des serveurs Web à partir d'une URL.";
 		document.getElementById("name_servers_ip").textContent = "Un enregistrement Glue est requis si les serveurs de noms du registraire ne sont pas utilisés.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
@@ -377,7 +396,7 @@ $html_text = '<body onload=SwitchTranslation('.$viewlanguage.')><div style="bord
 <tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th></tr>';
 
 $html_text .= '<tr style="font-size: .8rem"><td id="title" style="font-size: 1.3rem;color:blue;font-weight:bold"></td><td colspan="2" id="instruction"></td></tr>';
-$html_text .= '<tr style="font-size: .8rem"><td></td><td id="instruction"><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">
+$html_text .= '<tr style="font-size: .8rem"><td></td><td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">
 	<input type="hidden" id="language" name="language" value='.$viewlanguage.'>	
 	<input type="text" style="width:90%" id="domain" name="domain" value='.$viewdomain.'></form>
 	<label for="domain">biz/com/net/org/ca/ch/de/fr/nl/uk/amsterdam/politie</label></td><td>
@@ -517,6 +536,24 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4314" style="display:none"><td>billing_language_pref_1</td><td>'.$item->billing->billing_language_pref_1.'</td><td></td></tr>';
 	$html_text .= '<tr id="4315" style="display:none"><td>billing_language_pref_2</td><td>'.$item->billing->billing_language_pref_2.'</td><td></td></tr>';
 	$html_text .= '<tr id="4316" style="display:none"><td>billing_protected</td><td>'.$item->billing->billing_protected.'</td><td id="billing_protected"></td></tr>';
+	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(44)">backup +/-</button></td><td></td><td id="backup_role"></td></tr>';
+	$html_text .= '<tr id="441" style="display:none"><td>backup_handle</td><td>'.$item->backup->backup_handle.'</td><td></td></tr>';
+	$html_text .= '<tr id="442" style="display:none"><td>backup_web_id</td><td>'.$item->backup->backup_web_id.'</td><td id="backup_web_id"></td></tr>';
+	$html_text .= '<tr id="443" style="display:none"><td>backup_full_name</td><td>'.$item->backup->backup_full_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="444" style="display:none"><td>backup_kind</td><td>'.$item->backup->backup_kind.'</td><td></td></tr>';
+	$html_text .= '<tr id="445" style="display:none"><td>backup_name</td><td>'.$item->backup->backup_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="446" style="display:none"><td>backup_phone</td><td>'.$item->backup->backup_phone.'</td><td></td></tr>';
+	$html_text .= '<tr id="447" style="display:none"><td>backup_fax</td><td>'.$item->backup->backup_fax.'</td><td></td></tr>';
+	$html_text .= '<tr><td>backup_email</td><td>'.$item->backup->backup_email.'</td><td></td></tr>';
+	$html_text .= '<tr id="448" style="display:none"><td>backup_street</td><td>'.$item->backup->backup_street.'</td><td></td></tr>';
+	$html_text .= '<tr id="449" style="display:none"><td>backup_postal_code</td><td>'.$item->backup->backup_postal_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="4410" style="display:none"><td>backup_city</td><td>'.$item->backup->backup_city.'</td><td></td></tr>';
+	$html_text .= '<tr id="4411" style="display:none"><td>backup_state_province</td><td>'.$item->backup->backup_state_province.'</td><td></td></tr>';	
+	$html_text .= '<tr id="4412" style="display:none"><td>backup_country_code</td><td>'.$item->backup->backup_country_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="4413" style="display:none"><td>backup_language_pref_1</td><td>'.$item->backup->backup_language_pref_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="4414" style="display:none"><td>backup_language_pref_2</td><td>'.$item->backup->backup_language_pref_2.'</td><td></td></tr>';
+	$html_text .= '<tr id="4415" style="display:none"><td>backup_protected</td><td>'.$item->backup->backup_protected.'</td><td id="backup_protected"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	//if (!empty($item->reseller->reseller_full_name))	{
 	//	if (strlen(trim($item->reseller->reseller_full_name)))	{
