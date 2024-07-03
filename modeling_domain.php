@@ -177,7 +177,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_web_id").textContent = "";
 		document.getElementById("reseller_protected").textContent = derived;
 		document.getElementById("registrant_role").textContent = "Een domeinhouder heeft tenminste de rechten van een abonnement op zijn domein.";
-		document.getElementById("registrant_last_validated").textContent = proposed + "Zoekmachines kunnen filteren op status en een validatie die niet ouder is dan een jaar.";
+		document.getElementById("registrant_last_validated").textContent = proposed + "Entiteitsvalidatie vanuit een nationaal domeincontroleregister en voor zoekmachines.";
 		document.getElementById("registrant_web_id").textContent = "Een webidentificatienummer in handelsregisters is in ontwikkeling.";
 		document.getElementById("registrant_full_name").textContent = "Domeininformatie werkt bij een bestaande, beoogde en zichtbare handelsnaam.";
 		document.getElementById("registrant_kind").textContent = "Leeg, 'individual' of 'org'; een levenstestament kan een juridische lacune opvullen; suggestie: 'non-hidden individual'.";
@@ -226,7 +226,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_web_id").textContent = "";
 		document.getElementById("reseller_protected").textContent = derived;
 		document.getElementById("registrant_role").textContent = "A domain holder has at least the rights of a subscription to his domain.";
-		document.getElementById("registrant_last_validated").textContent = proposed + "Search engines can filter by status and a validation that is not older than one year.";
+		document.getElementById("registrant_last_validated").textContent = proposed + "Entity validation from a national domain control registry, and for search engines.";
 		document.getElementById("registrant_web_id").textContent = "A web identification number in commercial registers is under development.";
 		document.getElementById("registrant_full_name").textContent = "Domain information works with an existing, intended and visible trade name.";
 		document.getElementById("registrant_kind").textContent = "Empty, 'individual' or 'org'; a living will can fill a legal gap; suggestion: 'non-hidden individual'.";
@@ -275,7 +275,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_web_id").textContent = "";
 		document.getElementById("reseller_protected").textContent = derived;
 		document.getElementById("registrant_role").textContent = "Ein Domaininhaber hat zumindest die Rechte eines Abonnements seiner Domain.";
-		document.getElementById("registrant_last_validated").textContent = proposed + "Suchmaschinen können nach Status und einer Validierung filtern, die nicht älter als ein Jahr ist.";
+		document.getElementById("registrant_last_validated").textContent = proposed + "Entitätsvalidierung durch ein nationales Domänenkontrollregister und für Suchmaschinen.";
 		document.getElementById("registrant_web_id").textContent = "Eine Web-Identifikationsnummer in Handelsregistern ist in der Entwicklung.";
 		document.getElementById("registrant_full_name").textContent = "Domäneninformationen funktionieren mit einem bestehenden, beabsichtigten und sichtbaren Handelsnamen.";
 		document.getElementById("registrant_kind").textContent = "Leer, 'individual' oder 'org'; Eine Patientenverfügung kann eine rechtliche Lücke schließen; Anregung: 'non-hidden individual'.";
@@ -323,7 +323,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_web_id").textContent = "";
 		document.getElementById("reseller_protected").textContent = derived;
 		document.getElementById("registrant_role").textContent = "Un titulaire de domaine a au moins les droits d'un abonnement à son domaine.";
-		document.getElementById("registrant_last_validated").textContent = proposed + "Les moteurs de recherche peuvent filtrer par statut et par validation ne datant pas de plus d’un an.";
+		document.getElementById("registrant_last_validated").textContent = proposed + "Validation d'entité à partir d'un registre national de contrôle de domaine et pour les moteurs de recherche.";
 		document.getElementById("registrant_web_id").textContent = "Un numéro d’identification web dans les registres du commerce est en cours d’élaboration.";
 		document.getElementById("registrant_full_name").textContent = "Les informations de domaine fonctionnent avec un nom commercial existant, prévu et visible.";
 		document.getElementById("registrant_kind").textContent = "Vide, 'individual' ou 'org' ; un testament biologique peut combler un vide juridique ; suggestion : 'non-hidden individual'.";
