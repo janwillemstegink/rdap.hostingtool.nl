@@ -59,11 +59,11 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 50)	{ // reseller
 		var pre = '50';
-		var max = 14
+		var max = 16
 	}	
 	else if (type == 60)	{ // registrar
 		var pre = '60';
-		var max = 16
+		var max = 18
 	}
 	else if (type == 61)	{ // abuse
 		var pre = '61';
@@ -121,11 +121,13 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_name_unicode").textContent = "";
 		document.getElementById("domain_last_uploaded").textContent = "";
 		document.getElementById("registrar_role").textContent = "";
+		document.getElementById("registrar_last_validated").textContent = proposed;
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "";
 		document.getElementById("registrar_protected").textContent = derived;
 		document.getElementById("registrar_abuse_role").textContent = "";
 		document.getElementById("reseller_role").textContent = "";
+		document.getElementById("reseller_last_validated").textContent = proposed;
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_protected").textContent = derived;
 		document.getElementById("registrant_role").textContent = "";
@@ -171,11 +173,13 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_name_unicode").textContent = "Namen met speciale tekens worden opgeslagen als ASCII-tekenreeksen met behulp van Punycode-transcriptie.";
 		document.getElementById("domain_last_uploaded").textContent = "RDAP-database-update in Zulu-tijd (gecoördineerde universele tijd - UTC).";
 		document.getElementById("registrar_role").textContent = "Een domain registrar verzorgt de reservering van domeinen en IP-adresroutering.";
+		document.getElementById("registrar_last_validated").textContent = proposed;
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "Met een gTLD-domein en ICANN-accreditatie voor één of meerdere generieke topleveldomeinen.";
 		document.getElementById("registrar_protected").textContent = derived;
 		document.getElementById("registrar_abuse_role").textContent = "Misbruikinformatie vergemakkelijkt het contact opnemen met de registrar door een derde partij.";
 		document.getElementById("reseller_role").textContent = "Een domain reseller heeft verantwoordelijkheid, afhankelijk van de overeenkomst en de voorschriften.";
+		document.getElementById("reseller_last_validated").textContent = proposed;
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_protected").textContent = derived;
 		document.getElementById("registrant_role").textContent = "Een domeinhouder heeft tenminste de rechten van een abonnement op zijn domein.";
@@ -221,11 +225,13 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_name_unicode").textContent = "Names with special characters are stored as ASCII strings using Punycode transcription.";
 		document.getElementById("domain_last_uploaded").textContent = "RDAP database update in Zulu Time (coordinated universal time - UTC).";
 		document.getElementById("registrar_role").textContent = "A domain registrar takes care of domain reservations and IP address routing.";
+		document.getElementById("registrar_last_validated").textContent = proposed;
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "With a gTLD domain and ICANN accreditation for one or more generic top-level domains.";
 		document.getElementById("registrar_protected").textContent = derived;
 		document.getElementById("registrar_abuse_role").textContent = "Abuse information facilitates contacting the registrar by a third party.";
 		document.getElementById("reseller_role").textContent = "A domain reseller has responsibility, depending on the agreement and the regulations.";
+		document.getElementById("reseller_last_validated").textContent = proposed;
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_protected").textContent = derived;
 		document.getElementById("registrant_role").textContent = "A domain holder has at least the rights of a subscription to his domain.";
@@ -271,11 +277,13 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_name_unicode").textContent = "Namen mit Sonderzeichen werden mittels Punycode-Transkription als ASCII-Strings gespeichert.";
 		document.getElementById("domain_last_uploaded").textContent = "RDAP-Datenbankaktualisierung in Zulu-Zeit (koordinierte Weltzeit – UTC).";
 		document.getElementById("registrar_role").textContent = "Ein Domain-Registrar kümmert sich um Domain-Reservierungen und IP-Adress-Routing.";
+		document.getElementById("registrar_last_validated").textContent = proposed;
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "Mit einer gTLD-Domain und ICANN-Akkreditierung für eine oder mehrere generische Top-Level-Domains.";
 		document.getElementById("registrar_protected").textContent = derived;
 		document.getElementById("registrar_abuse_role").textContent = "Missbrauchsinformationen erleichtern die Kontaktaufnahme mit dem Registrar durch Dritte.";
 		document.getElementById("reseller_role").textContent = "Ein Domain-Reseller trägt die Verantwortung, abhängig von der Vereinbarung und den Vorschriften.";
+		document.getElementById("reseller_last_validated").textContent = proposed;
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_protected").textContent = derived;
 		document.getElementById("registrant_role").textContent = "Ein Domaininhaber hat zumindest die Rechte eines Abonnements seiner Domain.";
@@ -321,11 +329,13 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_name_unicode").textContent = "Les noms avec des caractères spéciaux sont stockés sous forme de chaînes ASCII à l'aide de la transcription Punycode.";
 		document.getElementById("domain_last_uploaded").textContent = "Mise à jour de la base de données RDAP dans Heure zoulou (temps universel coordonné - UTC).";
 		document.getElementById("registrar_role").textContent = "Un registraire de domaine s'occupe des réservations de domaine et du routage des adresses IP.";
+		document.getElementById("registrar_last_validated").textContent = proposed;
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "Avec un domaine gTLD et une accréditation ICANN pour un ou plusieurs domaines génériques de premier niveau.";
 		document.getElementById("registrar_protected").textContent = derived;
 		document.getElementById("registrar_abuse_role").textContent = "Les informations sur les abus facilitent la prise de contact avec le bureau d'enregistrement par un tiers.";
 		document.getElementById("reseller_role").textContent = "Un revendeur de domaine a la responsabilité, en fonction de l'accord et de la réglementation.";
+		document.getElementById("reseller_last_validated").textContent = proposed;
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_protected").textContent = derived;
 		document.getElementById("registrant_role").textContent = "Un titulaire de domaine a au moins les droits d'un abonnement à son domaine.";
@@ -560,45 +570,47 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	//if (!empty($item->reseller->reseller_full_name))	{
 	//	if (strlen(trim($item->reseller->reseller_full_name)))	{
-			$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(50)">reseller +/-</button></td><td></td><td id="reseller_role"></td></tr>';		
-			$html_text .= '<tr id="501" style="display:none"><td>reseller_handle</td><td>'.$item->reseller->reseller_handle.'</td><td></td></tr>';
-			$html_text .= '<tr><td>reseller_web_id</td><td>'.$item->reseller->reseller_web_id.'</td><td id="reseller_web_id"></td></tr>';
+			$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(50)">reseller +/-</button></td><td></td><td id="reseller_role"></td></tr>';
+			$html_text .= '<tr id="501" style="display:none"><td>reseller_last_validated</td><td>'.$item->reseller_last_validated.'</td><td id="reseller_last_validated"></td></tr>';
+			$html_text .= '<tr id="502" style="display:none"><td>reseller_handle</td><td>'.$item->reseller->reseller_handle.'</td><td></td></tr>';
+			$html_text .= '<tr id="503" style="display:none"><td>reseller_web_id</td><td>'.$item->reseller->reseller_web_id.'</td><td id="reseller_web_id"></td></tr>';
 			$html_text .= '<tr><td>reseller_full_name</td><td>'.$item->reseller->reseller_full_name.'</td><td></td></tr>';
-			$html_text .= '<tr id="502" style="display:none"><td>reseller_kind</td><td>'.$item->reseller->reseller_kind.'</td><td></td></tr>';
-			$html_text .= '<tr id="503" style="display:none"><td>reseller_name</td><td>'.$item->reseller->reseller_name.'</td><td></td></tr>';
-			$html_text .= '<tr id="504" style="display:none"><td>reseller_phone</td><td>'.$item->reseller->reseller_phone.'</td><td></td></tr>';
-			$html_text .= '<tr id="505" style="display:none"><td>reseller_fax</td><td>'.$item->reseller->reseller_fax.'</td><td></td></tr>';
-			$html_text .= '<tr id="506" style="display:none"><td>reseller_email</td><td>'.$item->reseller->reseller_email.'</td><td></td></tr>';			
-			$html_text .= '<tr id="507" style="display:none"><td>reseller_street</td><td>'.$item->reseller->reseller_street.'</td><td></td></tr>';
-			$html_text .= '<tr id="508" style="display:none"><td>reseller_postal_code</td><td>'.$item->reseller->reseller_postal_code.'</td><td></td></tr>';
-			$html_text .= '<tr id="509" style="display:none"><td>reseller_city</td><td>'.$item->reseller->reseller_city.'</td><td></td></tr>';
-			$html_text .= '<tr id="5010" style="display:none"><td>reseller_state_province</td><td>'.$item->reseller->reseller_state_province.'</td><td></td></tr>';			
-			$html_text .= '<tr id="5011" style="display:none"><td>reseller_country_code</td><td>'.$item->reseller->reseller_country_code.'</td><td></td></tr>';
-			$html_text .= '<tr id="5012" style="display:none"><td>reseller_language_pref_1</td><td>'.$item->reseller->reseller_language_pref_1.'</td><td></td></tr>';
-			$html_text .= '<tr id="5013" style="display:none"><td>reseller_language_pref_2</td><td>'.$item->reseller->reseller_language_pref_2.'</td><td></td></tr>';
-			$html_text .= '<tr id="5014" style="display:none"><td>reseller_protected</td><td>'.$item->reseller->reseller_protected.'</td><td id="reseller_protected"></td></tr>';		
+			$html_text .= '<tr id="504" style="display:none"><td>reseller_kind</td><td>'.$item->reseller->reseller_kind.'</td><td></td></tr>';
+			$html_text .= '<tr id="505" style="display:none"><td>reseller_name</td><td>'.$item->reseller->reseller_name.'</td><td></td></tr>';
+			$html_text .= '<tr id="506" style="display:none"><td>reseller_phone</td><td>'.$item->reseller->reseller_phone.'</td><td></td></tr>';
+			$html_text .= '<tr id="507" style="display:none"><td>reseller_fax</td><td>'.$item->reseller->reseller_fax.'</td><td></td></tr>';
+			$html_text .= '<tr id="508" style="display:none"><td>reseller_email</td><td>'.$item->reseller->reseller_email.'</td><td></td></tr>';			
+			$html_text .= '<tr id="509" style="display:none"><td>reseller_street</td><td>'.$item->reseller->reseller_street.'</td><td></td></tr>';
+			$html_text .= '<tr id="5010" style="display:none"><td>reseller_postal_code</td><td>'.$item->reseller->reseller_postal_code.'</td><td></td></tr>';
+			$html_text .= '<tr id="5011" style="display:none"><td>reseller_city</td><td>'.$item->reseller->reseller_city.'</td><td></td></tr>';
+			$html_text .= '<tr id="5012" style="display:none"><td>reseller_state_province</td><td>'.$item->reseller->reseller_state_province.'</td><td></td></tr>';			
+			$html_text .= '<tr id="5013" style="display:none"><td>reseller_country_code</td><td>'.$item->reseller->reseller_country_code.'</td><td></td></tr>';
+			$html_text .= '<tr id="5014" style="display:none"><td>reseller_language_pref_1</td><td>'.$item->reseller->reseller_language_pref_1.'</td><td></td></tr>';
+			$html_text .= '<tr id="5015" style="display:none"><td>reseller_language_pref_2</td><td>'.$item->reseller->reseller_language_pref_2.'</td><td></td></tr>';
+			$html_text .= '<tr id="5016" style="display:none"><td>reseller_protected</td><td>'.$item->reseller->reseller_protected.'</td><td id="reseller_protected"></td></tr>';		
 			$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	//	}	
 	//}
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(60)">registrar +/-</button></td><td></td><td id="registrar_role"></td></tr>';
-	$html_text .= '<tr id="601" style="display:none"><td>registrar_handle</td><td>'.$item->registrar->registrar_handle.'</td><td></td></tr>';
-	$html_text .= '<tr><td>registrar_web_id</td><td>'.$item->registrar->registrar_web_id.'</td><td id="registrar_web_id"></td></tr>';		
+	$html_text .= '<tr id="601" style="display:none"><td>registrar_last_validated</td><td>'.$item->registrar_last_validated.'</td><td id="registrar_last_validated"></td></tr>';
+	$html_text .= '<tr id="602" style="display:none"><td>registrar_handle</td><td>'.$item->registrar->registrar_handle.'</td><td></td></tr>';
+	$html_text .= '<tr id="603" style="display:none"><td>registrar_web_id</td><td>'.$item->registrar->registrar_web_id.'</td><td id="registrar_web_id"></td></tr>';		
 	$html_text .= '<tr><td>registrar_full_name</td><td>'.$item->registrar->registrar_full_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="602" style="display:none"><td>registrar_kind</td><td>'.$item->registrar->registrar_kind.'</td><td></td></tr>';
-	$html_text .= '<tr id="603" style="display:none"><td>registrar_url</td><td>'.$item->registrar->registrar_url.'</td><td></td></tr>';
-	$html_text .= '<tr id="604" style="display:none"><td>registrar_iana_id</td><td>'.$item->registrar->registrar_iana_id.'</td><td id="registrar_iana_id"></td></tr>';
-	$html_text .= '<tr id="605" style="display:none"><td>registrar_name</td><td>'.$item->registrar->registrar_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="606" style="display:none"><td>registrar_phone</td><td>'.$item->registrar->registrar_phone.'</td><td></td></tr>';
-	$html_text .= '<tr id="607" style="display:none"><td>registrar_fax</td><td>'.$item->registrar->registrar_fax.'</td><td></td></tr>';
-	$html_text .= '<tr id="608" style="display:none"><td>registrar_email</td><td>'.$item->registrar->registrar_email.'</td><td></td></tr>';
-	$html_text .= '<tr id="609" style="display:none"><td>registrar_street</td><td>'.$item->registrar->registrar_street.'</td><td></td></tr>';
-	$html_text .= '<tr id="6010" style="display:none"><td>registrar_postal_code</td><td>'.$item->registrar->registrar_postal_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="6011" style="display:none"><td>registrar_city</td><td>'.$item->registrar->registrar_city.'</td><td></td></tr>';
-	$html_text .= '<tr id="6012" style="display:none"><td>registrar_state_province</td><td>'.$item->registrar->registrar_state_province.'</td><td></td></tr>';	
-	$html_text .= '<tr id="6013" style="display:none"><td>registrar_country_code</td><td>'.$item->registrar->registrar_country_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="6014" style="display:none"><td>registrar_language_pref_1</td><td>'.$item->registrar->registrar_language_pref_1.'</td><td></td></tr>';
-	$html_text .= '<tr id="6015" style="display:none"><td>registrar_language_pref_2</td><td>'.$item->registrar->registrar_language_pref_2.'</td><td></td></tr>';
-	$html_text .= '<tr id="6016" style="display:none"><td>registrar_protected</td><td>'.$item->registrar->registrar_protected.'</td><td id="registrar_protected"></td></tr>';
+	$html_text .= '<tr id="604" style="display:none"><td>registrar_kind</td><td>'.$item->registrar->registrar_kind.'</td><td></td></tr>';
+	$html_text .= '<tr id="605" style="display:none"><td>registrar_url</td><td>'.$item->registrar->registrar_url.'</td><td></td></tr>';
+	$html_text .= '<tr id="606" style="display:none"><td>registrar_iana_id</td><td>'.$item->registrar->registrar_iana_id.'</td><td id="registrar_iana_id"></td></tr>';
+	$html_text .= '<tr id="607" style="display:none"><td>registrar_name</td><td>'.$item->registrar->registrar_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="608" style="display:none"><td>registrar_phone</td><td>'.$item->registrar->registrar_phone.'</td><td></td></tr>';
+	$html_text .= '<tr id="609" style="display:none"><td>registrar_fax</td><td>'.$item->registrar->registrar_fax.'</td><td></td></tr>';
+	$html_text .= '<tr id="6010" style="display:none"><td>registrar_email</td><td>'.$item->registrar->registrar_email.'</td><td></td></tr>';
+	$html_text .= '<tr id="6011" style="display:none"><td>registrar_street</td><td>'.$item->registrar->registrar_street.'</td><td></td></tr>';
+	$html_text .= '<tr id="6012" style="display:none"><td>registrar_postal_code</td><td>'.$item->registrar->registrar_postal_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="6013" style="display:none"><td>registrar_city</td><td>'.$item->registrar->registrar_city.'</td><td></td></tr>';
+	$html_text .= '<tr id="6014" style="display:none"><td>registrar_state_province</td><td>'.$item->registrar->registrar_state_province.'</td><td></td></tr>';	
+	$html_text .= '<tr id="6015" style="display:none"><td>registrar_country_code</td><td>'.$item->registrar->registrar_country_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="6016" style="display:none"><td>registrar_language_pref_1</td><td>'.$item->registrar->registrar_language_pref_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="6017" style="display:none"><td>registrar_language_pref_2</td><td>'.$item->registrar->registrar_language_pref_2.'</td><td></td></tr>';
+	$html_text .= '<tr id="6018" style="display:none"><td>registrar_protected</td><td>'.$item->registrar->registrar_protected.'</td><td id="registrar_protected"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(61)">registrar abuse +/-</button></td><td></td><td id="registrar_abuse_role"></td></tr>';
 	$html_text .= '<tr id="611" style="display:none"><td>registrar_abuse_phone</td><td>'.$item->registrar->registrar_abuse_phone.'</td><td></td></tr>';
 	$html_text .= '<tr><td>registrar_abuse_email</td><td>'.$item->registrar->registrar_abuse_email.'</td><td></td></tr>';
