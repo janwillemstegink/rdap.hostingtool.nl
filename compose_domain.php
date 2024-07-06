@@ -1,6 +1,5 @@
 <?php
 //$_GET['domain'] = 'hostingtool.nl';
-
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
 		$domain = trim($_GET['domain']);
@@ -138,9 +137,19 @@ $registrar_iana_id = $obj['entities'][0]['publicIds'][0]['identifier'];
 $handle = $obj['handle']; 	
 $name = $obj['ldhName'];
 $name_unicode = $obj['ldhName'];
-$name_servers_dnssec = '(not available)';	
-if ($obj['secureDNS']['delegationSigned'] === true)	{
+$name_servers_dnssec = '(not available)';
+$name_servers_dnssec_algorithm = '(not applicable)';
+if (empty($obj['secureDNS']['delegationSigned']))	{
+}	
+elseif ($obj['secureDNS']['delegationSigned'] === true)	{
 	$name_servers_dnssec = 'yes';
+	$algorithm = $obj['secureDNS']['dsData'][0]['algorithm'];
+	if (strlen($algorithm))	{
+		$name_servers_dnssec_algorithm = $algorithm;
+	}
+	else	{
+		$name_servers_dnssec_algorithm = '(not available)';
+	}	
 }
 elseif ($obj['secureDNS']['delegationSigned'] === false)	{
 	$name_servers_dnssec = 'no';	
@@ -970,7 +979,10 @@ $name_servers->appendChild($server_6);
 	
 $domain_name_servers_dnssec = $doc->createElement("name_servers_dnssec");
 $domain_name_servers_dnssec->appendChild($doc->createCDATASection($name_servers_dnssec));	
-$name_servers->appendChild($domain_name_servers_dnssec);	
+$name_servers->appendChild($domain_name_servers_dnssec);
+$domain_name_servers_dnssec_algorithm = $doc->createElement("name_servers_dnssec_algorithm");
+$domain_name_servers_dnssec_algorithm->appendChild($doc->createCDATASection($name_servers_dnssec_algorithm));	
+$name_servers->appendChild($domain_name_servers_dnssec_algorithm);	
 	
 $domain->appendChild($name_servers);
 		

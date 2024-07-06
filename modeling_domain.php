@@ -149,6 +149,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_role").textContent = "";
 		document.getElementById("name_servers_ip").textContent = "";
 		document.getElementById("name_servers_dnssec").textContent = "";
+		document.getElementById("name_servers_dnssec_algorithm").textContent = "";
 		document.getElementById("raw_data_next").textContent = proposed;
 	}
 	else if (translation == 1)	{
@@ -198,6 +199,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_role").textContent = "Naamservers leiden naar IP-adressen van webservers van een URL.";
 		document.getElementById("name_servers_ip").textContent = "Een lijmrecord is vereist als de naamservers van de registrar niet worden gebruikt.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
+		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
 		document.getElementById("raw_data_next").textContent = proposed + "Een volgend volwassen RDAP-formaat vraagt om unieke veldnamen, vaste veldvolgorde, zichtbaarheid en duidelijker 'non-public'.";		
 	}
 	else if (translation == 2)	{
@@ -247,6 +249,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_role").textContent = "Name servers lead to IP addresses of web servers from a URL.";
 		document.getElementById("name_servers_ip").textContent = "A glue record is required if the registrar's name servers are not used.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
+		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 		document.getElementById("raw_data_next").textContent = proposed + "A next mature RDAP format requires unique field names, fixed field order, visibility and a clearer 'non-public'.";
 	}
 	else if (translation == 3)	{
@@ -296,6 +299,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_role").textContent = "Nameserver führen von einer URL zu IP-Adressen von Webservern.";
 		document.getElementById("name_servers_ip").textContent = "Ein Glue-Record ist erforderlich, wenn die Nameserver des Registrars nicht verwendet werden.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
+		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 		document.getElementById("raw_data_next").textContent = proposed + "Ein nächstes ausgereiftes RDAP-Format erfordert eindeutige Feldnamen, eine feste Feldreihenfolge, Sichtbarkeit und ein klareres 'non-public'.";
 	}
 	else if (translation == 4)	{
@@ -345,6 +349,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_role").textContent = "Les serveurs de noms mènent aux adresses IP des serveurs Web à partir d'une URL.";
 		document.getElementById("name_servers_ip").textContent = "Un enregistrement Glue est requis si les serveurs de noms du registraire ne sont pas utilisés.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
+		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 		document.getElementById("raw_data_next").textContent = proposed + "Un prochain format RDAP mature nécessite des noms de champs uniques, un ordre des champs fixe, visibilité et un 'non-public' plus clair.";
 	}
 }	
@@ -648,6 +653,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 		}	
 	}
 	$html_text .= '<tr><td>name_servers_dnssec</td><td>'.$item->name_servers->name_servers_dnssec.'</td><td id="name_servers_dnssec"></td></tr>';
+	$html_text .= '<tr><td>name_servers_dnssec_algorithm</td><td>'.$item->name_servers->name_servers_dnssec_algorithm.'</td><td id="name_servers_dnssec_algorithm"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(70)">raw data +/-</button></td><td colspan="2" id="raw_data_next"></td></tr>';
 	$html_text .= '<tr id="701" style="display:none"><td colspan="3">'.$item->raw_data.'</td></tr>';
