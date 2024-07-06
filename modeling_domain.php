@@ -153,7 +153,7 @@ function SwitchTranslation(translation)	{
 	}
 	else if (translation == 1)	{
 		var proposed = 'VOORGESTELD - ';
-		var derived = 'ONTWERP - Niet-openbare gegevens';
+		var derived = proposed + 'Niet-openbare gegevens';
 		document.getElementById("title").textContent = "Model voor domeininformatie";
 		document.getElementById("instruction").textContent = "Plak een domeinnaam en druk op Enter.";
 		document.getElementById("field").textContent = "Omschrijving";
@@ -198,11 +198,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_role").textContent = "Naamservers leiden naar IP-adressen van webservers van een URL.";
 		document.getElementById("name_servers_ip").textContent = "Een lijmrecord is vereist als de naamservers van de registrar niet worden gebruikt.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
-		document.getElementById("raw_data_next").textContent = proposed + "Een volgend volwassen RDAP-formaat vraagt om unieke veldnamen, een vaste veldvolgorde en verplichte velden, zelfs als ze leeg zijn.";		
+		document.getElementById("raw_data_next").textContent = proposed + "Een volgend volwassen RDAP-formaat vraagt om unieke veldnamen, vaste veldvolgorde, zichtbaarheid en duidelijker 'non-public'.";		
 	}
 	else if (translation == 2)	{
 		var proposed = 'PROPOSED - ';
-		var derived = 'DESIGN - Non-public data';
+		var derived = proposed + 'Non-public data';
 		document.getElementById("title").textContent = "Model for Domain Information";
 		document.getElementById("instruction").textContent = "Paste a domain name and press Enter.";
 		document.getElementById("field").textContent = "Description";
@@ -247,11 +247,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_role").textContent = "Name servers lead to IP addresses of web servers from a URL.";
 		document.getElementById("name_servers_ip").textContent = "A glue record is required if the registrar's name servers are not used.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
-		document.getElementById("raw_data_next").textContent = proposed + "A next mature RDAP format requires unique field names, fixed field order, and fields that are mandatory even if empty.";
+		document.getElementById("raw_data_next").textContent = proposed + "A next mature RDAP format requires unique field names, fixed field order, visibility and a clearer 'non-public'.";
 	}
 	else if (translation == 3)	{
 		var proposed = 'VORGESCHLAGEN - ';
-		var derived = 'DESIGN - Nicht öffentliche Daten';
+		var derived = proposed + 'Nicht öffentliche Daten';
 		document.getElementById("title").textContent = "Modell für Domäneninformationen";
 		document.getElementById("instruction").textContent = "Fügen Sie einen Domänennamen ein und drücken Sie die Eingabetaste.";
 		document.getElementById("field").textContent = "Beschreibung";
@@ -296,11 +296,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_role").textContent = "Nameserver führen von einer URL zu IP-Adressen von Webservern.";
 		document.getElementById("name_servers_ip").textContent = "Ein Glue-Record ist erforderlich, wenn die Nameserver des Registrars nicht verwendet werden.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
-		document.getElementById("raw_data_next").textContent = proposed + "Ein nächstes ausgereiftes RDAP-Format erfordert eindeutige Feldnamen, eine feste Feldreihenfolge und Pflichtfelder, auch wenn sie leer sind.";
+		document.getElementById("raw_data_next").textContent = proposed + "Ein nächstes ausgereiftes RDAP-Format erfordert eindeutige Feldnamen, eine feste Feldreihenfolge, Sichtbarkeit und ein klareres 'non-public'.";
 	}
 	else if (translation == 4)	{
 		var proposed = 'PROPOSÉ - ';
-		var derived = 'CONCEPTION - Données non publiques';
+		var derived = proposed + 'Données non publiques';
 		document.getElementById("title").textContent = "Modèle d'informations de domaine";
 		document.getElementById("instruction").textContent = "Collez un nom de domaine et appuyez sur Entrée.";
 		document.getElementById("field").textContent = "Description";
@@ -345,7 +345,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_role").textContent = "Les serveurs de noms mènent aux adresses IP des serveurs Web à partir d'une URL.";
 		document.getElementById("name_servers_ip").textContent = "Un enregistrement Glue est requis si les serveurs de noms du registraire ne sont pas utilisés.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
-		document.getElementById("raw_data_next").textContent = proposed + "Un prochain format RDAP mature nécessite des noms de champs uniques, un ordre des champs fixe et des champs obligatoires même s'ils sont vides.";
+		document.getElementById("raw_data_next").textContent = proposed + "Un prochain format RDAP mature nécessite des noms de champs uniques, un ordre des champs fixe, visibilité et un 'non-public' plus clair.";
 	}
 }	
 </script><?php
