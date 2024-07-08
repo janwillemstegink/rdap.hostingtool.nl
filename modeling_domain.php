@@ -173,7 +173,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_menu").textContent = proposed + "Een vervolgkeuzemenu voor uitleg en details per zone via een subdomein van de registry.";
 		document.getElementById("zone_support").textContent = proposed + "Hulp vanuit de registry is mogelijk per e-mail.";
 		document.getElementById("zone_notices").textContent = "Het gebruik van domeingegevens is aan beperkingen onderhevig.";
-		document.getElementById("view_role").textContent = "Op web-ID indexeren kan in de tabel van de database op de geplande globale RDAP-servers.";
+		document.getElementById("view_role").textContent = "Het indexeren op web-ID kan in de tabel van de database op de geplande globale RDAP-servers.";
 		document.getElementById("domain_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
 		document.getElementById("domain_name_unicode").textContent = "Namen met speciale tekens worden opgeslagen als ASCII-tekenreeksen met behulp van Punycode-transcriptie.";
 		document.getElementById("events_role").textContent = "In het land van de daadwerkelijke gebruiker is validatie mogelijk met een nationaal domeincontroleregister.";
