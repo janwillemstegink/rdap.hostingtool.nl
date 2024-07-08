@@ -176,9 +176,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_role").textContent = "Op web-ID indexeren kan in de tabel van de database op de geplande globale RDAP-servers.";
 		document.getElementById("domain_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
 		document.getElementById("domain_name_unicode").textContent = "Namen met speciale tekens worden opgeslagen als ASCII-tekenreeksen met behulp van Punycode-transcriptie.";
-		document.getElementById("events_role").textContent = "Validatie met nationale domeincontroleregisters in het land van de daadwerkelijke gebruiker.";
+		document.getElementById("events_role").textContent = "In het land van de daadwerkelijke gebruiker is validatie mogelijk met een nationaal domeincontroleregister.";
 		document.getElementById("event_last_uploaded").textContent = "RDAP-database-update in Zulu-tijd (gecoördineerde universele tijd - UTC).";
-		document.getElementById("event_last_validated_registrant").textContent = proposed + "Op de lange termijn kan entiteitsvalidatie door zoekmachines worden gebruikt.";
+		document.getElementById("event_last_validated_registrant").textContent = proposed + "Op de lange termijn kan entiteitsvalidatie worden gebruikt voor zoekmachines.";
 		document.getElementById("event_last_validated_reseller").textContent = proposed;
 		document.getElementById("event_last_validated_registrar").textContent = proposed;
 		document.getElementById("registrar_role").textContent = "Een domain registrar verzorgt de reservering van domeinen en IP-adresroutering.";
@@ -229,9 +229,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_role").textContent = "Indexing by web ID can be done in the table of the database on the planned global RDAP servers.";	
 		document.getElementById("domain_role").textContent = "A web domain under a top-level domain is unique worldwide and can be freely chosen under certain rules.";
 		document.getElementById("domain_name_unicode").textContent = "Names with special characters are stored as ASCII strings using Punycode transcription.";
-		document.getElementById("events_role").textContent = "Validation with national domain control registries in the actual user's country.";
+		document.getElementById("events_role").textContent = "In the country of the actual user, validation is possible with a national domain control registry.";
 		document.getElementById("event_last_uploaded").textContent = "RDAP database update in Zulu Time (coordinated universal time - UTC).";
-		document.getElementById("event_last_validated_registrant").textContent = proposed + "In the long term, entity validation can be used by search engines.";
+		document.getElementById("event_last_validated_registrant").textContent = proposed + "In the long term, entity validation can be used for search engines.";
 		document.getElementById("event_last_validated_reseller").textContent = proposed;
 		document.getElementById("event_last_validated_registrar").textContent = proposed;
 		document.getElementById("registrar_role").textContent = "A domain registrar takes care of domain reservations and IP address routing.";
@@ -282,9 +282,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_role").textContent = "Die Indizierung nach Web-ID kann in der Tabelle der Datenbank auf den geplanten globalen RDAP-Servern erfolgen.";
 		document.getElementById("domain_role").textContent = "Eine Webdomain unter einer Top-Level-Domain ist weltweit einzigartig und unter bestimmten Regeln frei wählbar.";
 		document.getElementById("domain_name_unicode").textContent = "Namen mit Sonderzeichen werden mittels Punycode-Transkription als ASCII-Strings gespeichert.";
-		document.getElementById("events_role").textContent = "Validierung bei nationalen Domain-Kontrollregistern im Land des tatsächlichen Benutzers.";
+		document.getElementById("events_role").textContent = "Im Land des tatsächlichen Benutzers ist eine Validierung bei einem nationalen Domänenkontrollregister möglich.";
 		document.getElementById("event_last_uploaded").textContent = "RDAP-Datenbankaktualisierung in Zulu-Zeit (koordinierte Weltzeit – UTC).";
-		document.getElementById("event_last_validated_registrant").textContent = proposed + "Langfristig kann die Entity-Validierung von Suchmaschinen genutzt werden.";
+		document.getElementById("event_last_validated_registrant").textContent = proposed + "Langfristig kann die Entity-Validierung auch für Suchmaschinen genutzt werden.";
 		document.getElementById("event_last_validated_reseller").textContent = proposed;
 		document.getElementById("event_last_validated_registrar").textContent = proposed;
 		document.getElementById("registrar_role").textContent = "Ein Domain-Registrar kümmert sich um Domain-Reservierungen und IP-Adress-Routing.";
@@ -335,9 +335,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_role").textContent = "L'indexation par web ID peut se faire dans la table de la base de données sur les serveurs RDAP globaux prévus.";
 		document.getElementById("domain_role").textContent = "Un domaine Web sous un domaine de premier niveau est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_name_unicode").textContent = "Les noms avec des caractères spéciaux sont stockés sous forme de chaînes ASCII à l'aide de la transcription Punycode.";
-		document.getElementById("events_role").textContent = "Validation auprès des registres nationaux de contrôle de domaine dans le pays de l'utilisateur réel.";
+		document.getElementById("events_role").textContent = "Dans le pays de l'utilisateur réel, la validation est possible auprès d'un registre national de contrôle de domaine.";
 		document.getElementById("event_last_uploaded").textContent = "Mise à jour de la base de données RDAP dans Heure zoulou (temps universel coordonné - UTC).";
-		document.getElementById("event_last_validated_registrant").textContent = proposed + "À long terme, la validation d'entité peut être utilisée par les moteurs de recherche.";
+		document.getElementById("event_last_validated_registrant").textContent = proposed + "À long terme, la validation d'entité peut être utilisée pour les moteurs de recherche.";
 		document.getElementById("event_last_validated_reseller").textContent = proposed;
 		document.getElementById("event_last_validated_registrar").textContent = proposed;
 		document.getElementById("registrar_role").textContent = "Un registraire de domaine s'occupe des réservations de domaine et du routage des adresses IP.";
