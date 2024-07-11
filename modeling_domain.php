@@ -39,7 +39,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 31)	{ // events
 		var pre = '31';
-		var max = 5
+		var max = 6
 	}
 	else if (type == 40)	{ // registrant
 		var pre = '40';
@@ -125,7 +125,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_name_unicode").textContent = "";
 		document.getElementById("events_role").textContent = "";
 		document.getElementById("event_last_uploaded").textContent = "";
-		document.getElementById("event_last_verified").textContent = proposed;
+		document.getElementById("event_verification_requested").textContent = proposed;
+		document.getElementById("event_verification_retrieved").textContent = proposed;
 		document.getElementById("registrar_role").textContent = "";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "";
@@ -174,9 +175,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_role").textContent = "Zoeken op web-ID's kan werken met indexering in de databasetabel op de wereldwijde RDAP-servers.";
 		document.getElementById("domain_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
 		document.getElementById("domain_name_unicode").textContent = "Namen met speciale tekens worden opgeslagen als ASCII-tekenreeksen met behulp van Punycode-transcriptie.";
-		document.getElementById("events_role").textContent = "Voor een landelijk domeincontroleregister kan het land van de daadwerkelijke gebruiker bepalend zijn.";
+		document.getElementById("events_role").textContent = "Voor een nationaal domeincontrole register zal het land van de daadwerkelijke gebruiker bepalend zijn.";
 		document.getElementById("event_last_uploaded").textContent = "RDAP-database-update in Zulu-tijd (gecoördineerde universele tijd - UTC).";
-		document.getElementById("event_last_verified").textContent = proposed + "Op de lange termijn kan verificatie worden gebruikt door zoekmachines.";
+		document.getElementById("event_verification_requested").textContent = proposed + "Een nationaal domeincontrole register vraagt aan de registry om de autorisatie op te halen.";
+		document.getElementById("event_verification_retrieved").textContent = proposed + "Op de lange termijn kan verificatie worden gebruikt door zoekmachines.";
 		document.getElementById("registrar_role").textContent = "Een domain registrar verzorgt de reservering van domeinen en IP-adresroutering.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "Met een gTLD-domein en ICANN-accreditatie voor één of meerdere generieke topleveldomeinen.";
@@ -225,9 +227,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_role").textContent = "Web ID search can work with indexing in the database table on the global RDAP servers.";	
 		document.getElementById("domain_role").textContent = "A web domain under a top-level domain is unique worldwide and can be freely chosen under certain rules.";
 		document.getElementById("domain_name_unicode").textContent = "Names with special characters are stored as ASCII strings using Punycode transcription.";
-		document.getElementById("events_role").textContent = "For a national domain control register, the country of the actual user can be decisive.";
+		document.getElementById("events_role").textContent = "For a national domain control register, the country of the actual user will be decisive.";
 		document.getElementById("event_last_uploaded").textContent = "RDAP database update in Zulu Time (coordinated universal time - UTC).";
-		document.getElementById("event_last_verified").textContent = proposed + "In the long term, verification can be used by search engines.";
+		document.getElementById("event_verification_requested").textContent = proposed + "A national domain control registry asks the registry to retrieve the authorization.";
+		document.getElementById("event_verification_retrieved").textContent = proposed + "In the long term, verification can be used by search engines.";
 		document.getElementById("registrar_role").textContent = "A domain registrar takes care of domain reservations and IP address routing.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "With a gTLD domain and ICANN accreditation for one or more generic top-level domains.";
@@ -276,9 +279,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_role").textContent = "Die Web-ID-Suche kann mit der Indizierung in der Datenbanktabelle auf den globalen RDAP-Servern funktionieren.";
 		document.getElementById("domain_role").textContent = "Eine Webdomain unter einer Top-Level-Domain ist weltweit einzigartig und unter bestimmten Regeln frei wählbar.";
 		document.getElementById("domain_name_unicode").textContent = "Namen mit Sonderzeichen werden mittels Punycode-Transkription als ASCII-Strings gespeichert.";
-		document.getElementById("events_role").textContent = "Für ein nationales Domänenkontrollregister kann das Land des tatsächlichen Benutzers ausschlaggebend sein.";
+		document.getElementById("events_role").textContent = "Für ein nationales Domain-Kontrollregister ist das Land des tatsächlichen Nutzers entscheidend.";
 		document.getElementById("event_last_uploaded").textContent = "RDAP-Datenbankaktualisierung in Zulu-Zeit (koordinierte Weltzeit – UTC).";
-		document.getElementById("event_last_verified").textContent = proposed + "Langfristig kann die Überprüfung von Suchmaschinen genutzt werden.";
+		document.getElementById("event_verification_requested").textContent = proposed + "Ein nationales Domain-Kontrollregister bittet das Register, die Autorisierung abzurufen.";
+		document.getElementById("event_verification_retrieved").textContent = proposed + "Langfristig kann die Überprüfung von Suchmaschinen genutzt werden.";
 		document.getElementById("registrar_role").textContent = "Ein Domain-Registrar kümmert sich um Domain-Reservierungen und IP-Adress-Routing.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "Mit einer gTLD-Domain und ICANN-Akkreditierung für eine oder mehrere generische Top-Level-Domains.";
@@ -327,9 +331,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_role").textContent = "La recherche d'ID Web peut fonctionner avec l'indexation dans la table de base de données sur les serveurs RDAP mondiaux.";
 		document.getElementById("domain_role").textContent = "Un domaine Web sous un domaine de premier niveau est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_name_unicode").textContent = "Les noms avec des caractères spéciaux sont stockés sous forme de chaînes ASCII à l'aide de la transcription Punycode.";
-		document.getElementById("events_role").textContent = "Pour un registre national de contrôle de domaine, le pays de l'utilisateur réel peut être déterminant.";
+		document.getElementById("events_role").textContent = "Pour un registre national de contrôle de domaine, le pays de l'utilisateur réel sera déterminant.";
 		document.getElementById("event_last_uploaded").textContent = "Mise à jour de la base de données RDAP dans Heure zoulou (temps universel coordonné - UTC).";
-		document.getElementById("event_last_verified").textContent = proposed + "À long terme, la vérification peut être utilisée par les moteurs de recherche.";
+		document.getElementById("event_verification_requested").textContent = proposed + "Un registre national de contrôle de domaine demande au registre de récupérer l'autorisation.";
+		document.getElementById("event_verification_retrieved").textContent = proposed + "À long terme, la vérification peut être utilisée par les moteurs de recherche.";
 		document.getElementById("registrar_role").textContent = "Un registraire de domaine s'occupe des réservations de domaine et du routage des adresses IP.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "Avec un domaine gTLD et une accréditation ICANN pour un ou plusieurs domaines génériques de premier niveau.";
@@ -476,8 +481,9 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="312" style="display:none"><td>event_expiration_grace_until</td><td>'.$item->event_expiration_grace_until.'</td><td></td></tr>';
 	$html_text .= '<tr id="313" style="display:none"><td>event_last_transferred</td><td>'.$item->event_last_transferred.'</td><td></td></tr>';
 	$html_text .= '<tr><td>event_last_changed</td><td>'.$item->event_last_changed.'</td><td></td></tr>';
-	$html_text .= '<tr id="314" style="display:none"><td>event_last_verified</td><td>'.$item->event_last_verified.'</td><td id="event_last_verified"></td></tr>';
-	$html_text .= '<tr id="315" style="display:none"><td>event_last_uploaded</td><td>'.$item->event_last_uploaded.'</td><td id="event_last_uploaded"></td></tr>';
+	$html_text .= '<tr id="314" style="display:none"><td>event_verification_requested</td><td>'.$item->event_verification_requested.'</td><td id="event_verification_requested"></td></tr>';
+	$html_text .= '<tr id="315" style="display:none"><td>event_verification_retrieved</td><td>'.$item->event_verification_retrieved.'</td><td id="event_verification_retrieved"></td></tr>';
+	$html_text .= '<tr id="316" style="display:none"><td>event_last_uploaded</td><td>'.$item->event_last_uploaded.'</td><td id="event_last_uploaded"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(40)">registrant +/-</button></td><td></td><td id="registrant_role"></td></tr>';
 	$html_text .= '<tr id="401" style="display:none"><td>registrant_handle</td><td>'.$item->registrant->registrant_handle.'</td><td></td></tr>';
