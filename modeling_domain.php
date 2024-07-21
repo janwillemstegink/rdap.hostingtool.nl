@@ -188,8 +188,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_protected").textContent = derived;
 		document.getElementById("registrant_role").textContent = "Een domeinhouder heeft tenminste de rechten van een abonnement op zijn domein.";
-		document.getElementById("registrant_web_id").textContent = proposed + "Een webidentificatienummer in handelsregisters is in ontwikkeling.";
-		document.getElementById("registrant_full_name").textContent = "Domeininformatie werkt bij een bestaande, beoogde en zichtbare handelsnaam.";
+		document.getElementById("registrant_web_id").textContent = proposed + "Webidentificatienummer voor bedrijfsentiteiten en natuurlijke personen.";
+		document.getElementById("registrant_full_name").textContent = "Een bestaande (en zichtbare) naam van de gebruiker met de daadwerkelijke of de effectieve controle.";
 		document.getElementById("registrant_kind").textContent = "Leeg, 'individual' of 'org'; een levenstestament kan een juridische lacune opvullen; suggestie: 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "Het veld 'full_name' kan een publieke persoonlijke naam bevatten in het RDAP-protocol.";
 		document.getElementById("registrant_protected").textContent = derived;
@@ -240,8 +240,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_protected").textContent = derived;
 		document.getElementById("registrant_role").textContent = "A domain holder has at least the rights of a subscription to his domain.";
-		document.getElementById("registrant_web_id").textContent = proposed + "A web identification number in commercial registers is under development.";
-		document.getElementById("registrant_full_name").textContent = "Domain information works with an existing, intended and visible trade name.";
+		document.getElementById("registrant_web_id").textContent = proposed + "Web Identification number for business entities and natural persons.";
+		document.getElementById("registrant_full_name").textContent = "An existing (and visible) name of the user with actual or effective control.";
 		document.getElementById("registrant_kind").textContent = "Empty, 'individual' or 'org'; a living will can fill a legal gap; suggestion: 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "The 'full_name' field can contain a public personal name in the RDAP protocol.";
 		document.getElementById("registrant_protected").textContent = derived;
@@ -292,8 +292,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_protected").textContent = derived;
 		document.getElementById("registrant_role").textContent = "Ein Domaininhaber hat zumindest die Rechte eines Abonnements seiner Domain.";
-		document.getElementById("registrant_web_id").textContent = proposed + "Eine Web-Identifikationsnummer in Handelsregistern ist in der Entwicklung.";
-		document.getElementById("registrant_full_name").textContent = "Domäneninformationen funktionieren mit einem bestehenden, beabsichtigten und sichtbaren Handelsnamen.";
+		document.getElementById("registrant_web_id").textContent = proposed + "Web-Identifikationsnummer für Unternehmen und natürliche Personen.";
+		document.getElementById("registrant_full_name").textContent = "Ein vorhandener (und sichtbarer) Name des Benutzers mit tatsächlicher oder effektiver Kontrolle.";
 		document.getElementById("registrant_kind").textContent = "Leer, 'individual' oder 'org'; Eine Patientenverfügung kann eine rechtliche Lücke schließen; Anregung: 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "Das Feld 'full_name' kann einen öffentlichen persönlichen Namen im RDAP-Protokoll enthalten.";
 		document.getElementById("registrant_protected").textContent = derived;
@@ -344,8 +344,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_protected").textContent = derived;
 		document.getElementById("registrant_role").textContent = "Un titulaire de domaine a au moins les droits d'un abonnement à son domaine.";
-		document.getElementById("registrant_web_id").textContent = proposed + "Un numéro d’identification web dans les registres du commerce est en cours d’élaboration.";
-		document.getElementById("registrant_full_name").textContent = "Les informations de domaine fonctionnent avec un nom commercial existant, prévu et visible.";
+		document.getElementById("registrant_web_id").textContent = proposed + "Numéro d’identification Web pour les entités commerciales et les personnes physiques.";
+		document.getElementById("registrant_full_name").textContent = "Un nom existant (et visible) de l'utilisateur avec un contrôle réel ou effectif.";
 		document.getElementById("registrant_kind").textContent = "Vide, 'individual' ou 'org' ; un testament biologique peut combler un vide juridique ; suggestion : 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "Le champ 'full_name' peut contenir un nom personnel public dans le protocole RDAP.";
 		document.getElementById("registrant_protected").textContent = derived;
@@ -506,7 +506,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	if (strlen($item->admin->admin_email) and strlen($item->tech->tech_email) and !strcmp($item->admin->admin_email, $item->tech->tech_email))	{
 		//$segregationofduties = 'analyzed as no separation of duties';
 	}
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(41)">administrative +/-</button></td><td><i>'.$segregationofduties.'</i></td><td id="admin_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(41)">decision +/-</button></td><td><i>'.$segregationofduties.'</i></td><td id="admin_role"></td></tr>';
 	$html_text .= '<tr id="411" style="display:none"><td>admin_handle</td><td>'.$item->admin->admin_handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="412" style="display:none"><td>admin_web_id</td><td>'.$item->admin->admin_web_id.'</td><td id="admin_web_id"></td></tr>';
 	$html_text .= '<tr id="413" style="display:none"><td>admin_full_name</td><td>'.$item->admin->admin_full_name.'</td><td></td></tr>';
@@ -523,7 +523,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4113" style="display:none"><td>admin_language_pref_1</td><td>'.$item->admin->admin_language_pref_1.'</td><td></td></tr>';
 	$html_text .= '<tr id="4114" style="display:none"><td>admin_language_pref_2</td><td>'.$item->admin->admin_language_pref_2.'</td><td></td></tr>';
 	$html_text .= '<tr id="4115" style="display:none"><td>admin_protected</td><td>'.$item->admin->admin_protected.'</td><td id="admin_protected"></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(42)">technical / onsite +/-</button></td><td></td><td id="tech_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(42)">onsite +/-</button></td><td></td><td id="tech_role"></td></tr>';
 	$html_text .= '<tr id="421" style="display:none"><td>tech_handle</td><td>'.$item->tech->tech_handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="422" style="display:none"><td>tech_web_id</td><td>'.$item->tech->tech_web_id.'</td><td id="tech_web_id"></td></tr>';
 	$html_text .= '<tr id="423" style="display:none"><td>tech_full_name</td><td>'.$item->tech->tech_full_name.'</td><td></td></tr>';
