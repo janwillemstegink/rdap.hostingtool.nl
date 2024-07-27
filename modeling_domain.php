@@ -156,7 +156,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_ip").textContent = "";
 		document.getElementById("name_servers_dnssec").textContent = "";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "";
-		document.getElementById("raw_data_next").textContent = proposed;
+		document.getElementById("raw_data_next").textContent = "US/EU:";
 	}
 	else if (translation == 1)	{
 		var proposed = 'VOORGESTELD - ';
@@ -175,7 +175,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_role").textContent = "Zoeken op web-ID's kan werken met indexering in de databasetabel op de wereldwijde RDAP-servers.";
 		document.getElementById("domain_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
 		document.getElementById("domain_name_unicode").textContent = "Namen met speciale tekens worden opgeslagen als ASCII-tekenreeksen met behulp van Punycode-transcriptie.";
-		document.getElementById("events_role").textContent = proposed + "Nationale domeincontroleregisters gebaseerd op het land van de daadwerkelijke gebruiker.";
+		document.getElementById("events_role").textContent = proposed + "Landspecifieke domeincontroleregisters (DCR) op basis van de daadwerkelijke gebruiker.";
 		document.getElementById("event_last_uploaded").textContent = "RDAP-database-update in Zulu-tijd (gecoördineerde universele tijd - UTC).";
 		document.getElementById("event_verification_requested").textContent = proposed + "Bij een matchend web-ID ontvangt de registry een signaal.";
 		document.getElementById("event_verification_retrieved").textContent = proposed + "Op de lange termijn kan verificatie ook worden gebruikt door zoekmachines.";
@@ -208,7 +208,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_ip").textContent = "Een lijmrecord is vereist als de naamservers van de registrar niet worden gebruikt.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
-		document.getElementById("raw_data_next").textContent = proposed + "Een volgend volwassen RDAP-formaat vraagt om unieke veldnamen, vaste veldvolgorde, zichtbaarheid en duidelijker 'non-public'.";		
+		document.getElementById("raw_data_next").textContent = "US/EU: Een volgend volwassen RDAP-formaat vraagt om unieke veldnamen, vaste veldvolgorde, overzicht en passend 'non-public'.";		
 	}
 	else if (translation == 2)	{
 		var proposed = 'PROPOSED - ';
@@ -227,7 +227,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_role").textContent = "Web ID search can work with indexing in the database table on the global RDAP servers.";	
 		document.getElementById("domain_role").textContent = "A web domain under a top-level domain is unique worldwide and can be freely chosen under certain rules.";
 		document.getElementById("domain_name_unicode").textContent = "Names with special characters are stored as ASCII strings using Punycode transcription.";
-		document.getElementById("events_role").textContent = proposed + "National domain control registers based on the country of the actual user.";
+		document.getElementById("events_role").textContent = proposed + "Country-specific domain control registers, DCR, based on the actual user.";
 		document.getElementById("event_last_uploaded").textContent = "RDAP database update in Zulu Time (coordinated universal time - UTC).";
 		document.getElementById("event_verification_requested").textContent = proposed + "The registry receives a signal in case of a matching web ID.";
 		document.getElementById("event_verification_retrieved").textContent = proposed + "In the long term, verification can also be used by search engines.";
@@ -260,7 +260,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_ip").textContent = "A glue record is required if the registrar's name servers are not used.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
-		document.getElementById("raw_data_next").textContent = proposed + "A next mature RDAP format requires unique field names, fixed field order, visibility and a clearer 'non-public'.";
+		document.getElementById("raw_data_next").textContent ="US/EU: A next mature RDAP format requires unique field names, fixed field order, overview and appropriate 'non-public'.";
 	}
 	else if (translation == 3)	{
 		var proposed = 'VORGESCHLAGEN - ';
@@ -279,7 +279,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_role").textContent = "Die Web-ID-Suche kann mit der Indizierung in der Datenbanktabelle auf den globalen RDAP-Servern funktionieren.";
 		document.getElementById("domain_role").textContent = "Eine Webdomain unter einer Top-Level-Domain ist weltweit einzigartig und unter bestimmten Regeln frei wählbar.";
 		document.getElementById("domain_name_unicode").textContent = "Namen mit Sonderzeichen werden mittels Punycode-Transkription als ASCII-Strings gespeichert.";
-		document.getElementById("events_role").textContent = proposed + "Nationale Domänenkontrollregister basierend auf dem Land des tatsächlichen Benutzers.";
+		document.getElementById("events_role").textContent = proposed + "Länderspezifische Domänenkontrollregister (DCR), basierend auf dem tatsächlichen Benutzer.";
 		document.getElementById("event_last_uploaded").textContent = "RDAP-Datenbankaktualisierung in Zulu-Zeit (koordinierte Weltzeit – UTC).";
 		document.getElementById("event_verification_requested").textContent = proposed + "Bei einer übereinstimmenden Web-ID erhält die Registrierungsstelle ein Signal.";
 		document.getElementById("event_verification_retrieved").textContent = proposed + "Langfristig kann die Überprüfung auch von Suchmaschinen genutzt werden.";
@@ -312,7 +312,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_ip").textContent = "Ein Glue-Record ist erforderlich, wenn die Nameserver des Registrars nicht verwendet werden.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
-		document.getElementById("raw_data_next").textContent = proposed + "Ein nächstes ausgereiftes RDAP-Format erfordert eindeutige Feldnamen, eine feste Feldreihenfolge, Sichtbarkeit und ein klareres 'non-public'.";
+		document.getElementById("raw_data_next").textContent = "US/EU: Ein nächstes ausgereiftes RDAP-Format erfordert eindeutige Feldnamen, eine feste Feldreihenfolge, Übersicht und entsprechende 'non-public'.";
 	}
 	else if (translation == 4)	{
 		var proposed = 'PROPOSÉ - ';
@@ -331,7 +331,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_role").textContent = "La recherche d'ID Web peut fonctionner avec l'indexation dans la table de base de données sur les serveurs RDAP mondiaux.";
 		document.getElementById("domain_role").textContent = "Un domaine Web sous un domaine de premier niveau est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_name_unicode").textContent = "Les noms avec des caractères spéciaux sont stockés sous forme de chaînes ASCII à l'aide de la transcription Punycode.";
-		document.getElementById("events_role").textContent = proposed + "Registres de contrôle de domaine nationaux basés sur le pays de l'utilisateur réel.";
+		document.getElementById("events_role").textContent = proposed + "Registres de contrôle de domaine spécifiques à chaque pays, DCR, basés sur l'utilisateur réel.";
 		document.getElementById("event_last_uploaded").textContent = "Mise à jour de la base de données RDAP dans Heure zoulou (temps universel coordonné - UTC).";
 		document.getElementById("event_verification_requested").textContent = proposed + "Le registre reçoit un signal en cas d'identifiant Web correspondant.";
 		document.getElementById("event_verification_retrieved").textContent = proposed + "À long terme, la vérification peut également être utilisée par les moteurs de recherche.";
@@ -364,7 +364,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_ip").textContent = "Un enregistrement Glue est requis si les serveurs de noms du registraire ne sont pas utilisés.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
-		document.getElementById("raw_data_next").textContent = proposed + "Un prochain format RDAP mature nécessite des noms de champs uniques, un ordre des champs fixe, visibilité et un 'non-public' plus clair.";
+		document.getElementById("raw_data_next").textContent = "US/EU: Un prochain format RDAP mature nécessite des noms de champs uniques, un ordre des champs fixe, une vue d'ensemble et un 'non-public' approprié.";
 	}
 }	
 </script><?php
