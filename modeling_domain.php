@@ -506,7 +506,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	if (strlen($item->admin->admin_email) and strlen($item->tech->tech_email) and !strcmp($item->admin->admin_email, $item->tech->tech_email))	{
 		//$segregationofduties = 'analyzed as no separation of duties';
 	}
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(41)">decision +/-</button></td><td><i>'.$segregationofduties.'</i></td><td id="admin_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(41)">admin / decision +/-</button></td><td><i>'.$segregationofduties.'</i></td><td id="admin_role"></td></tr>';
 	$html_text .= '<tr id="411" style="display:none"><td>admin_handle</td><td>'.$item->admin->admin_handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="412" style="display:none"><td>admin_web_id</td><td>'.$item->admin->admin_web_id.'</td><td id="admin_web_id"></td></tr>';
 	$html_text .= '<tr id="413" style="display:none"><td>admin_full_name</td><td>'.$item->admin->admin_full_name.'</td><td></td></tr>';
@@ -523,7 +523,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4113" style="display:none"><td>admin_language_pref_1</td><td>'.$item->admin->admin_language_pref_1.'</td><td></td></tr>';
 	$html_text .= '<tr id="4114" style="display:none"><td>admin_language_pref_2</td><td>'.$item->admin->admin_language_pref_2.'</td><td></td></tr>';
 	$html_text .= '<tr id="4115" style="display:none"><td>admin_protected</td><td>'.$item->admin->admin_protected.'</td><td id="admin_protected"></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(42)">onsite +/-</button></td><td></td><td id="tech_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(42)">tech / onsite +/-</button></td><td></td><td id="tech_role"></td></tr>';
 	$html_text .= '<tr id="421" style="display:none"><td>tech_handle</td><td>'.$item->tech->tech_handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="422" style="display:none"><td>tech_web_id</td><td>'.$item->tech->tech_web_id.'</td><td id="tech_web_id"></td></tr>';
 	$html_text .= '<tr id="423" style="display:none"><td>tech_full_name</td><td>'.$item->tech->tech_full_name.'</td><td></td></tr>';
