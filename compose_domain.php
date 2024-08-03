@@ -6,7 +6,9 @@ if (!empty($_GET['domain']))	{
 		$domain = mb_strtolower($domain);
 		$domain = str_replace('http://','', $domain);
 		$domain = str_replace('https://','', $domain);
-		//$domain = str_replace('www.','', $domain);
+		if (substr_count($domain, '.') > 1)	{
+			$domain = str_replace('www.','', $domain);
+		}
 		$strpos = mb_strpos($domain, '/');
 		if ($strpos)	{
 			$domain = mb_substr($domain, 0, $strpos);
