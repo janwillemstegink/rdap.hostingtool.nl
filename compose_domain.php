@@ -294,7 +294,8 @@ foreach($obj as $key1 => $value1) {
 				elseif ($value3 == 'last update of RDAP database')	{
 					$last_uploaded = $value2['eventDate'];
 				}
-				elseif ($value3 == 'registrar expiration')	{
+				//elseif ($value3 == 'registrar expiration')	{
+				elseif ($value3 == 'deletion')	{
 					$expiration_grace_until = $value2['eventDate'];
 				}
 				elseif ($value3 == 'last changed')	{
