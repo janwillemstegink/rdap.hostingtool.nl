@@ -124,6 +124,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "";
 		document.getElementById("domain_name_unicode").textContent = "";
 		document.getElementById("events_role").textContent = proposed;
+		document.getElementById("event_expiration_grace_until").textContent = "";
 		document.getElementById("event_last_uploaded").textContent = "";
 		document.getElementById("event_verification_requested").textContent = proposed;
 		document.getElementById("event_verification_retrieved").textContent = proposed;
@@ -176,6 +177,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
 		document.getElementById("domain_name_unicode").textContent = "Namen met speciale tekens worden opgeslagen als ASCII-tekenreeksen met behulp van Punycode-transcriptie.";
 		document.getElementById("events_role").textContent = proposed + "Landspecifieke domeincontroleregisters (DCR) op basis van de daadwerkelijke gebruiker.";
+		document.getElementById("event_expiration_grace_until").textContent = "De 'deletion' in RDAP betreft een verwachte beëindigingsstatus in de administratieve geschiedenis.";
 		document.getElementById("event_last_uploaded").textContent = "RDAP-database-update in Zulu-tijd (gecoördineerde universele tijd - UTC).";
 		document.getElementById("event_verification_requested").textContent = proposed + "Bij een matchend web-ID ontvangt de registry een signaal.";
 		document.getElementById("event_verification_retrieved").textContent = proposed + "Op de lange termijn kan verificatie ook worden gebruikt door zoekmachines.";
@@ -228,6 +230,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "A web domain under a top-level domain is unique worldwide and can be freely chosen under certain rules.";
 		document.getElementById("domain_name_unicode").textContent = "Names with special characters are stored as ASCII strings using Punycode transcription.";
 		document.getElementById("events_role").textContent = proposed + "Country-specific domain control registers, DCR, based on the actual user.";
+		document.getElementById("event_expiration_grace_until").textContent = "The 'deletion' in RDAP concerns an expected termination status in the administrative history.";
 		document.getElementById("event_last_uploaded").textContent = "RDAP database update in Zulu Time (coordinated universal time - UTC).";
 		document.getElementById("event_verification_requested").textContent = proposed + "The registry receives a signal in case of a matching web ID.";
 		document.getElementById("event_verification_retrieved").textContent = proposed + "In the long term, verification can also be used by search engines.";
@@ -280,6 +283,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "Eine Webdomain unter einer Top-Level-Domain ist weltweit einzigartig und unter bestimmten Regeln frei wählbar.";
 		document.getElementById("domain_name_unicode").textContent = "Namen mit Sonderzeichen werden mittels Punycode-Transkription als ASCII-Strings gespeichert.";
 		document.getElementById("events_role").textContent = proposed + "Länderspezifische Domänenkontrollregister (DCR), basierend auf dem tatsächlichen Benutzer.";
+		document.getElementById("event_expiration_grace_until").textContent = "Bei der 'deletion' im RDAP handelt es sich um einen erwarteten Beendigungsstatus in der Verwaltungshistorie.";
 		document.getElementById("event_last_uploaded").textContent = "RDAP-Datenbankaktualisierung in Zulu-Zeit (koordinierte Weltzeit – UTC).";
 		document.getElementById("event_verification_requested").textContent = proposed + "Bei einer übereinstimmenden Web-ID erhält die Registrierungsstelle ein Signal.";
 		document.getElementById("event_verification_retrieved").textContent = proposed + "Langfristig kann die Überprüfung auch von Suchmaschinen genutzt werden.";
@@ -332,6 +336,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "Un domaine Web sous un domaine de premier niveau est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_name_unicode").textContent = "Les noms avec des caractères spéciaux sont stockés sous forme de chaînes ASCII à l'aide de la transcription Punycode.";
 		document.getElementById("events_role").textContent = proposed + "Registres de contrôle de domaine spécifiques à chaque pays, DCR, basés sur l'utilisateur réel.";
+		document.getElementById("event_expiration_grace_until").textContent = "La 'deletion' dans RDAP concerne un statut de résiliation attendu dans l'historique administratif.";
 		document.getElementById("event_last_uploaded").textContent = "Mise à jour de la base de données RDAP dans Heure zoulou (temps universel coordonné - UTC).";
 		document.getElementById("event_verification_requested").textContent = proposed + "Le registre reçoit un signal en cas d'identifiant Web correspondant.";
 		document.getElementById("event_verification_retrieved").textContent = proposed + "À long terme, la vérification peut également être utilisée par les moteurs de recherche.";
@@ -478,7 +483,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(31)">events +/-</button></td><td></td><td id="events_role"></td></tr>';
 	$html_text .= '<tr id="311" style="display:none;vertical-align:top"><td>event_registration</td><td>'.$item->event_registration.'</td><td></td></tr>';
 	$html_text .= '<tr><td>event_expiration</td><td>'.$item->event_expiration.'</td><td></td></tr>';
-	$html_text .= '<tr id="312" style="display:none"><td>event_expiration_grace_until</td><td>'.$item->event_expiration_grace_until.'</td><td></td></tr>';
+	$html_text .= '<tr id="312" style="display:none"><td>event_expiration_grace_until</td><td>'.$item->event_expiration_grace_until.'</td><td id="event_expiration_grace_until"></td></tr>';
 	$html_text .= '<tr id="313" style="display:none"><td>event_last_transferred</td><td>'.$item->event_last_transferred.'</td><td></td></tr>';
 	$html_text .= '<tr><td>event_last_changed</td><td>'.$item->event_last_changed.'</td><td></td></tr>';
 	$html_text .= '<tr id="314" style="display:none"><td>event_verification_requested</td><td>'.$item->event_verification_requested.'</td><td id="event_verification_requested"></td></tr>';
