@@ -126,7 +126,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_status").textContent = "";
 		document.getElementById("events_role").textContent = proposed;
 		document.getElementById("event_expiration").textContent = "";
-		document.getElementById("event_deletion").textContent = "";
+		document.getElementById("event_ending").textContent = "";
 		document.getElementById("event_last_uploaded").textContent = "";
 		document.getElementById("event_verification_requested").textContent = proposed;
 		document.getElementById("event_verification_retrieved").textContent = proposed;
@@ -181,7 +181,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_name_unicode").textContent = "Namen met speciale tekens worden opgeslagen als ASCII-tekenreeksen met behulp van Punycode-transcriptie.";
 		document.getElementById("events_role").textContent = proposed + "Landspecifieke domeincontroleregisters (DCR) op basis van de daadwerkelijke gebruiker.";
 		document.getElementById("event_expiration").textContent = "De vervaldatum geldt voor verlenging en voor een gerechtvaardigde of door de klant gekozen einddatum.";
-		document.getElementById("event_deletion").textContent = "Geplande verwijdering van domeininformatie. De domeinstatus kan heractivering toestaan.";
+		document.getElementById("event_ending").textContent = "Geplande beëindiging van domeininformatie. De domeinstatus kan reactivering toestaan.";
 		document.getElementById("event_last_uploaded").textContent = "RDAP-database-update in Zulu-tijd (gecoördineerde universele tijd - UTC).";
 		document.getElementById("event_verification_requested").textContent = proposed + "Bij een matchend web-ID ontvangt de registry een signaal.";
 		document.getElementById("event_verification_retrieved").textContent = proposed + "Op de lange termijn kan verificatie ook worden gebruikt door zoekmachines.";
@@ -236,7 +236,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_status").textContent = "Status 'redemption period' means reactivatable and 'pending delete' means non-reactivatable.";
 		document.getElementById("events_role").textContent = proposed + "Country-specific domain control registers, DCR, based on the actual user.";
 		document.getElementById("event_expiration").textContent = "The expiration date is for renewal and for a justified or a customer chosen end date.";
-		document.getElementById("event_deletion").textContent = "Scheduled deletion of domain information. The domain status may allow for reactivation.";
+		document.getElementById("event_ending").textContent = "Scheduled ending of domain information. The domain status may allow for reactivation.";
 		document.getElementById("event_last_uploaded").textContent = "RDAP database update in Zulu Time (coordinated universal time - UTC).";
 		document.getElementById("event_verification_requested").textContent = proposed + "The registry receives a signal in case of a matching web ID.";
 		document.getElementById("event_verification_retrieved").textContent = proposed + "In the long term, verification can also be used by search engines.";
@@ -291,7 +291,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_status").textContent = "Status 'redemption period' bedeutet reaktivierbar und 'pending delete' bedeutet nicht reaktivierbar.";
 		document.getElementById("events_role").textContent = proposed + "Länderspezifische Domänenkontrollregister (DCR), basierend auf dem tatsächlichen Benutzer.";
 		document.getElementById("event_expiration").textContent = "Das Ablaufdatum dient der Verlängerung und einem begründeten oder vom Kunden gewählten Enddatum.";
-		document.getElementById("event_deletion").textContent = "Geplante Löschung der Domäneninformationen. Der Domänenstatus lässt möglicherweise eine Reaktivierung zu.";
+		document.getElementById("event_ending").textContent = "Geplante Beendigung der Domain-Informationen. Der Domain-Status lässt ggf. eine Reaktivierung zu.";
 		document.getElementById("event_last_uploaded").textContent = "RDAP-Datenbankaktualisierung in Zulu-Zeit (koordinierte Weltzeit – UTC).";
 		document.getElementById("event_verification_requested").textContent = proposed + "Bei einer übereinstimmenden Web-ID erhält die Registrierungsstelle ein Signal.";
 		document.getElementById("event_verification_retrieved").textContent = proposed + "Langfristig kann die Überprüfung auch von Suchmaschinen genutzt werden.";
@@ -346,7 +346,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_status").textContent = "Le statut 'redemption period' signifie réactivable et 'pending delete' signifie non réactivable.";
 		document.getElementById("events_role").textContent = proposed + "Registres de contrôle de domaine spécifiques à chaque pays, DCR, basés sur l'utilisateur réel.";
 		document.getElementById("event_expiration").textContent = "La date d'expiration est destinée au renouvellement et à une date de fin justifiée ou choisie par le client.";
-		document.getElementById("event_deletion").textContent = "Suppression programmée des informations du domaine. Le statut du domaine peut permettre une réactivation.";
+		document.getElementById("event_ending").textContent = "Fin programmée des informations sur le domaine. Le statut du domaine peut permettre sa réactivation.";
 		document.getElementById("event_last_uploaded").textContent = "Mise à jour de la base de données RDAP dans Heure zoulou (temps universel coordonné - UTC).";
 		document.getElementById("event_verification_requested").textContent = proposed + "Le registre reçoit un signal en cas d'identifiant Web correspondant.";
 		document.getElementById("event_verification_retrieved").textContent = proposed + "À long terme, la vérification peut également être utilisée par les moteurs de recherche.";
@@ -493,11 +493,11 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(31)">events +/-</button></td><td></td><td id="events_role"></td></tr>';
 	$html_text .= '<tr id="311" style="display:none;vertical-align:top"><td>event_registration</td><td>'.$item->event_registration.'</td><td></td></tr>';
 	$html_text .= '<tr><td>event_expiration</td><td>'.$item->event_expiration.'</td><td id="event_expiration"></td></tr>';
-	if (strlen($item->event_deletion))	{
-		$html_text .= '<tr><td>event_deletion</td><td>'.$item->event_deletion.'</td><td id="event_deletion"></td></tr>';
+	if (strlen($item->event_ending))	{
+		$html_text .= '<tr><td>event_ending</td><td>'.$item->event_ending.'</td><td id="event_ending"></td></tr>';
 	}
 	else	{
-		$html_text .= '<tr id="312" style="display:none"><td>event_deletion</td><td>'.$item->event_deletion.'</td><td id="event_deletion"></td></tr>';
+		$html_text .= '<tr id="312" style="display:none"><td>event_ending</td><td>'.$item->event_ending.'</td><td id="event_ending"></td></tr>';
 	}
 	$html_text .= '<tr id="313" style="display:none"><td>event_last_transferred</td><td>'.$item->event_last_transferred.'</td><td></td></tr>';
 	$html_text .= '<tr><td>event_last_changed</td><td>'.$item->event_last_changed.'</td><td></td></tr>';

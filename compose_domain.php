@@ -133,7 +133,7 @@ $status = '';
 $expiration = '(public information in a gTLD zone)';	
 $last_changed = '';
 $last_transferred = '';
-$deletion = '';
+$ending = '';
 $registrar_iana_id = $obj['entities'][0]['publicIds'][0]['identifier'];	
 $handle = $obj['handle']; 	
 $name = $obj['ldhName'];
@@ -295,7 +295,7 @@ foreach($obj as $key1 => $value1) {
 					$last_uploaded = $value2['eventDate'];
 				}
 				elseif ($value3 == 'deletion')	{
-					$deletion = $value2['eventDate'];
+					$ending = $value2['eventDate'];
 				}
 				elseif ($value3 == 'last changed')	{
 					$last_changed = $value2['eventDate'];
@@ -678,9 +678,9 @@ $domain->appendChild($event_expiration);
 $event_last_uploaded = $doc->createElement("event_last_uploaded");
 $event_last_uploaded->appendChild($doc->createCDATASection($last_uploaded));	
 $domain->appendChild($event_last_uploaded);	
-$event_deletion = $doc->createElement("event_deletion");
-$event_deletion->appendChild($doc->createCDATASection($deletion));	
-$domain->appendChild($event_deletion);
+$event_ending = $doc->createElement("event_ending");
+$event_ending->appendChild($doc->createCDATASection($ending));	
+$domain->appendChild($event_ending);
 $event_last_changed = $doc->createElement("event_last_changed");
 $event_last_changed->appendChild($doc->createCDATASection($last_changed));	
 $domain->appendChild($event_last_changed);	
