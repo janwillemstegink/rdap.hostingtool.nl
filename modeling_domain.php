@@ -1,5 +1,5 @@
 <?php
-session_start();  // is needed with no Scriptcase PHP Generator
+session_start();  // is needed with no PHP Generator Scriptcase
 echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta charset="UTF-8" />
@@ -126,7 +126,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_status").textContent = "";
 		document.getElementById("events_role").textContent = proposed;
 		document.getElementById("event_expiration").textContent = "";
-		document.getElementById("event_ending").textContent = "";
+		document.getElementById("event_termination").textContent = "";
 		document.getElementById("event_last_uploaded").textContent = "";
 		document.getElementById("event_verification_requested").textContent = proposed;
 		document.getElementById("event_verification_retrieved").textContent = proposed;
@@ -143,6 +143,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_full_name").textContent = "";
 		document.getElementById("registrant_kind").textContent = "";
 		document.getElementById("registrant_name").textContent = "";
+		document.getElementById("registrant_country_code").textContent = "";
 		document.getElementById("registrant_protected").textContent = derived;
 		document.getElementById("admin_role").textContent = "";
 		document.getElementById("admin_web_id").textContent = proposed;
@@ -181,7 +182,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_name_unicode").textContent = "Namen met speciale tekens worden opgeslagen als ASCII-tekenreeksen met behulp van Punycode-transcriptie.";
 		document.getElementById("events_role").textContent = proposed + "Landspecifieke domeincontroleregisters (DCR) op basis van de daadwerkelijke gebruiker.";
 		document.getElementById("event_expiration").textContent = "De vervaldatum geldt voor verlenging en voor een gerechtvaardigde of door de klant gekozen einddatum.";
-		document.getElementById("event_ending").textContent = "Geplande beëindiging van domeininformatie. De domeinstatus kan reactivering toestaan.";
+		document.getElementById("event_termination").textContent = "Geplande beëindiging van domeininformatie. De domeinstatus kan reactivering toestaan.";
 		document.getElementById("event_last_uploaded").textContent = "RDAP-database-update in Zulu-tijd (gecoördineerde universele tijd - UTC).";
 		document.getElementById("event_verification_requested").textContent = proposed + "Bij een matchend web-ID ontvangt de registry een signaal.";
 		document.getElementById("event_verification_retrieved").textContent = proposed + "Op de lange termijn kan verificatie ook worden gebruikt door zoekmachines.";
@@ -195,9 +196,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_protected").textContent = derived;
 		document.getElementById("registrant_role").textContent = "Een domeinhouder heeft tenminste de rechten van een abonnement op zijn domein.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Webidentificatienummer voor bedrijfsentiteiten en natuurlijke personen.";
-		document.getElementById("registrant_full_name").textContent = "Een bestaande (en zichtbare) naam van de gebruiker met de daadwerkelijke of de effectieve controle.";
+		document.getElementById("registrant_full_name").textContent = "Een bestaande (zakelijk zichtbare) naam van de gebruiker met de daadwerkelijke of de effectieve controle.";
 		document.getElementById("registrant_kind").textContent = "Leeg, 'individual' of 'org'; een levenstestament kan een juridische lacune opvullen; suggestie: 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "Het veld 'full_name' kan een publieke persoonlijke naam bevatten in het RDAP-protocol.";
+		document.getElementById("registrant_country_code").textContent = "Een domein kan worden ingetrokken, bijvoorbeeld voor het Verenigd Koninkrijk als voormalig EU-lid.";
 		document.getElementById("registrant_protected").textContent = derived;
 		document.getElementById("admin_role").textContent = "Het administratief aanspreekpunt beantwoordt een verzoek en stuurt zo nodig door.";
 		document.getElementById("admin_web_id").textContent = proposed;
@@ -236,7 +238,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_status").textContent = "Status 'redemption period' means reactivatable and 'pending delete' means non-reactivatable.";
 		document.getElementById("events_role").textContent = proposed + "Country-specific domain control registers, DCR, based on the actual user.";
 		document.getElementById("event_expiration").textContent = "The expiration date is for renewal and for a justified or a customer chosen end date.";
-		document.getElementById("event_ending").textContent = "Scheduled ending of domain information. The domain status may allow for reactivation.";
+		document.getElementById("event_termination").textContent = "Scheduled termination of domain information. The domain status may allow for reactivation.";
 		document.getElementById("event_last_uploaded").textContent = "RDAP database update in Zulu Time (coordinated universal time - UTC).";
 		document.getElementById("event_verification_requested").textContent = proposed + "The registry receives a signal in case of a matching web ID.";
 		document.getElementById("event_verification_retrieved").textContent = proposed + "In the long term, verification can also be used by search engines.";
@@ -250,9 +252,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_protected").textContent = derived;
 		document.getElementById("registrant_role").textContent = "A domain holder has at least the rights of a subscription to his domain.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web Identification number for business entities and natural persons.";
-		document.getElementById("registrant_full_name").textContent = "An existing (and visible) name of the user with actual or effective control.";
+		document.getElementById("registrant_full_name").textContent = "An existing (business visible) name of the user with actual or effective control.";
 		document.getElementById("registrant_kind").textContent = "Empty, 'individual' or 'org'; a living will can fill a legal gap; suggestion: 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "The 'full_name' field can contain a public personal name in the RDAP protocol.";
+		document.getElementById("registrant_country_code").textContent = "A domain can be revoked, for example for the UK as former EU member.";
 		document.getElementById("registrant_protected").textContent = derived;
 		document.getElementById("admin_role").textContent = "The administratively responsible desk answers a request, and forwards on if necessary.";
 		document.getElementById("admin_web_id").textContent = proposed;
@@ -291,7 +294,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_status").textContent = "Status 'redemption period' bedeutet reaktivierbar und 'pending delete' bedeutet nicht reaktivierbar.";
 		document.getElementById("events_role").textContent = proposed + "Länderspezifische Domänenkontrollregister (DCR), basierend auf dem tatsächlichen Benutzer.";
 		document.getElementById("event_expiration").textContent = "Das Ablaufdatum dient der Verlängerung und einem begründeten oder vom Kunden gewählten Enddatum.";
-		document.getElementById("event_ending").textContent = "Geplante Beendigung der Domain-Informationen. Der Domain-Status lässt ggf. eine Reaktivierung zu.";
+		document.getElementById("event_termination").textContent = "Geplante Kündigung der Domäneninformationen. Der Domain-Status lässt ggf. eine Reaktivierung zu.";
 		document.getElementById("event_last_uploaded").textContent = "RDAP-Datenbankaktualisierung in Zulu-Zeit (koordinierte Weltzeit – UTC).";
 		document.getElementById("event_verification_requested").textContent = proposed + "Bei einer übereinstimmenden Web-ID erhält die Registrierungsstelle ein Signal.";
 		document.getElementById("event_verification_retrieved").textContent = proposed + "Langfristig kann die Überprüfung auch von Suchmaschinen genutzt werden.";
@@ -305,9 +308,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_protected").textContent = derived;
 		document.getElementById("registrant_role").textContent = "Ein Domaininhaber hat zumindest die Rechte eines Abonnements seiner Domain.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web-Identifikationsnummer für Unternehmen und natürliche Personen.";
-		document.getElementById("registrant_full_name").textContent = "Ein vorhandener (und sichtbarer) Name des Benutzers mit tatsächlicher oder effektiver Kontrolle.";
+		document.getElementById("registrant_full_name").textContent = "Ein bestehender (kommerziell sichtbarer) Name des Benutzers mit tatsächlicher oder effektiver Kontrolle.";
 		document.getElementById("registrant_kind").textContent = "Leer, 'individual' oder 'org'; Eine Patientenverfügung kann eine rechtliche Lücke schließen; Anregung: 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "Das Feld 'full_name' kann einen öffentlichen persönlichen Namen im RDAP-Protokoll enthalten.";
+		document.getElementById("registrant_country_code").textContent = "Eine Domain kann gesperrt werden, zum Beispiel für Großbritannien als ehemaliges EU-Mitglied.";
 		document.getElementById("registrant_protected").textContent = derived;
 		document.getElementById("admin_role").textContent = "Die administrativ zuständige Stelle beantwortet eine Anfrage und leitet sie gegebenenfalls weiter.";
 		document.getElementById("admin_web_id").textContent = proposed;
@@ -346,7 +350,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_status").textContent = "Le statut 'redemption period' signifie réactivable et 'pending delete' signifie non réactivable.";
 		document.getElementById("events_role").textContent = proposed + "Registres de contrôle de domaine spécifiques à chaque pays, DCR, basés sur l'utilisateur réel.";
 		document.getElementById("event_expiration").textContent = "La date d'expiration est destinée au renouvellement et à une date de fin justifiée ou choisie par le client.";
-		document.getElementById("event_ending").textContent = "Fin programmée des informations sur le domaine. Le statut du domaine peut permettre sa réactivation.";
+		document.getElementById("event_termination").textContent = "Résiliation programmée des informations du domaine. Le statut du domaine peut permettre sa réactivation.";
 		document.getElementById("event_last_uploaded").textContent = "Mise à jour de la base de données RDAP dans Heure zoulou (temps universel coordonné - UTC).";
 		document.getElementById("event_verification_requested").textContent = proposed + "Le registre reçoit un signal en cas d'identifiant Web correspondant.";
 		document.getElementById("event_verification_retrieved").textContent = proposed + "À long terme, la vérification peut également être utilisée par les moteurs de recherche.";
@@ -360,9 +364,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_protected").textContent = derived;
 		document.getElementById("registrant_role").textContent = "Un titulaire de domaine a au moins les droits d'un abonnement à son domaine.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Numéro d’identification Web pour les entités commerciales et les personnes physiques.";
-		document.getElementById("registrant_full_name").textContent = "Un nom existant (et visible) de l'utilisateur avec un contrôle réel ou effectif.";
+		document.getElementById("registrant_full_name").textContent = "Un nom existant (visible commercialement) de l'utilisateur avec un contrôle réel ou effectif.";
 		document.getElementById("registrant_kind").textContent = "Vide, 'individual' ou 'org' ; un testament biologique peut combler un vide juridique ; suggestion : 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "Le champ 'full_name' peut contenir un nom personnel public dans le protocole RDAP.";
+		document.getElementById("registrant_country_code").textContent = "Un domaine peut être révoqué, par exemple pour le Royaume-Uni en tant qu'ancien membre de l'UE.";
 		document.getElementById("registrant_protected").textContent = derived;
 		document.getElementById("admin_role").textContent = "Le bureau administrativement responsable répond à une demande, et la transmet si nécessaire.";
 		document.getElementById("admin_web_id").textContent = proposed;
@@ -493,11 +498,11 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(31)">events +/-</button></td><td></td><td id="events_role"></td></tr>';
 	$html_text .= '<tr id="311" style="display:none;vertical-align:top"><td>event_registration</td><td>'.$item->event_registration.'</td><td></td></tr>';
 	$html_text .= '<tr><td>event_expiration</td><td>'.$item->event_expiration.'</td><td id="event_expiration"></td></tr>';
-	if (strlen($item->event_ending))	{
-		$html_text .= '<tr><td>event_ending</td><td>'.$item->event_ending.'</td><td id="event_ending"></td></tr>';
+	if (strlen($item->event_termination))	{
+		$html_text .= '<tr><td>event_termination</td><td>'.$item->event_termination.'</td><td id="event_termination"></td></tr>';
 	}
 	else	{
-		$html_text .= '<tr id="312" style="display:none"><td>event_ending</td><td>'.$item->event_ending.'</td><td id="event_ending"></td></tr>';
+		$html_text .= '<tr id="312" style="display:none"><td>event_termination</td><td>'.$item->event_termination.'</td><td id="event_termination"></td></tr>';
 	}
 	$html_text .= '<tr id="313" style="display:none"><td>event_last_transferred</td><td>'.$item->event_last_transferred.'</td><td></td></tr>';
 	$html_text .= '<tr><td>event_last_changed</td><td>'.$item->event_last_changed.'</td><td></td></tr>';
@@ -518,7 +523,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="407" style="display:none"><td>registrant_postal_code</td><td>'.$item->registrant->registrant_postal_code.'</td><td></td></tr>';
 	$html_text .= '<tr id="408" style="display:none"><td>registrant_city</td><td>'.$item->registrant->registrant_city.'</td><td></td></tr>';
 	$html_text .= '<tr id="409" style="display:none"><td>registrant_state_province</td><td>'.$item->registrant->registrant_state_province.'</td><td></td></tr>';	
-	$html_text .= '<tr id="4010" style="display:none"><td>registrant_country_code</td><td>'.$item->registrant->registrant_country_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="4010" style="display:none"><td>registrant_country_code</td><td>'.$item->registrant->registrant_country_code.'</td><td id="registrant_country_code"></td></tr>';
 	$html_text .= '<tr id="4011" style="display:none"><td>registrant_language_pref_1</td><td>'.$item->registrant->registrant_language_pref_1.'</td><td></td></tr>';
 	$html_text .= '<tr id="4012" style="display:none"><td>registrant_language_pref_2</td><td>'.$item->registrant->registrant_language_pref_2.'</td><td></td></tr>';
 	$html_text .= '<tr id="4013" style="display:none"><td>registrant_protected</td><td>'.$item->registrant->registrant_protected.'</td><td id="registrant_protected"></td></tr>';
