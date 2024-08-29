@@ -178,7 +178,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_notices").textContent = "Het gebruik van domeingegevens is aan beperkingen onderhevig.";
 		document.getElementById("view_role").textContent = "Zoeken op web-ID's kan werken met indexering in de databasetabel op de wereldwijde RDAP-servers.";
 		document.getElementById("domain_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
-		document.getElementById("domain_status").textContent = "Refund or renewal grace period: 'redemption period', termination period: 'pending delete', to add: 'not registered'.";
+		document.getElementById("domain_status").textContent = "Deletion process grace period: 'redemption period', then deletion process termination period: 'pending delete'.";
 		document.getElementById("domain_name_unicode").textContent = "Namen met speciale tekens worden opgeslagen als ASCII-tekenreeksen met behulp van Punycode-transcriptie.";
 		document.getElementById("events_role").textContent = proposed + "Landspecifieke domeincontroleregisters (DCR) op basis van de daadwerkelijke gebruiker.";
 		document.getElementById("event_expiration").textContent = "De vervaldatum geldt voor verlenging en voor een gerechtvaardigde of door de klant gekozen einddatum.";
@@ -235,7 +235,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_role").textContent = "Web ID search can work with indexing in the database table on the global RDAP servers.";	
 		document.getElementById("domain_role").textContent = "A web domain under a top-level domain is unique worldwide and can be freely chosen under certain rules.";
 		document.getElementById("domain_name_unicode").textContent = "Names with special characters are stored as ASCII strings using Punycode transcription.";
-		document.getElementById("domain_status").textContent = "Refund or renewal grace period: 'redemption period', termination period: 'pending delete', to add: 'not registered'.";
+		document.getElementById("domain_status").textContent = "Deletion process grace period: 'redemption period', then deletion process termination period: 'pending delete'.";
 		document.getElementById("events_role").textContent = proposed + "Country-specific domain control registers, DCR, based on the actual user.";
 		document.getElementById("event_expiration").textContent = "The expiration date is for renewal and for a justified or a customer chosen end date.";
 		document.getElementById("event_termination").textContent = "Scheduled termination of domain information. The domain status may allow for reactivation.";
@@ -291,7 +291,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_role").textContent = "Die Web-ID-Suche kann mit der Indizierung in der Datenbanktabelle auf den globalen RDAP-Servern funktionieren.";
 		document.getElementById("domain_role").textContent = "Eine Webdomain unter einer Top-Level-Domain ist weltweit einzigartig und unter bestimmten Regeln frei wählbar.";
 		document.getElementById("domain_name_unicode").textContent = "Namen mit Sonderzeichen werden mittels Punycode-Transkription als ASCII-Strings gespeichert.";
-		document.getElementById("domain_status").textContent = "Refund or renewal grace period: 'redemption period', termination period: 'pending delete', to add: 'not registered'.";
+		document.getElementById("domain_status").textContent = "Deletion process grace period: 'redemption period', then deletion process termination period: 'pending delete'.";
 		document.getElementById("events_role").textContent = proposed + "Länderspezifische Domänenkontrollregister (DCR), basierend auf dem tatsächlichen Benutzer.";
 		document.getElementById("event_expiration").textContent = "Das Ablaufdatum dient der Verlängerung und einem begründeten oder vom Kunden gewählten Enddatum.";
 		document.getElementById("event_termination").textContent = "Geplante Kündigung der Domäneninformationen. Der Domain-Status lässt ggf. eine Reaktivierung zu.";
@@ -347,7 +347,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_role").textContent = "La recherche d'ID Web peut fonctionner avec l'indexation dans la table de base de données sur les serveurs RDAP mondiaux.";
 		document.getElementById("domain_role").textContent = "Un domaine Web sous un domaine de premier niveau est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_name_unicode").textContent = "Les noms avec des caractères spéciaux sont stockés sous forme de chaînes ASCII à l'aide de la transcription Punycode.";
-		document.getElementById("domain_status").textContent = "Refund or renewal grace period: 'redemption period', termination period: 'pending delete', to add: 'not registered'.";
+		document.getElementById("domain_status").textContent = "Deletion process grace period: 'redemption period', then deletion process termination period: 'pending delete'.";
 		document.getElementById("events_role").textContent = proposed + "Registres de contrôle de domaine spécifiques à chaque pays, DCR, basés sur l'utilisateur réel.";
 		document.getElementById("event_expiration").textContent = "La date d'expiration est destinée au renouvellement et à une date de fin justifiée ou choisie par le client.";
 		document.getElementById("event_termination").textContent = "Résiliation programmée des informations du domaine. Le statut du domaine peut permettre sa réactivation.";
