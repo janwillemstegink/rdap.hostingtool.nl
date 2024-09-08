@@ -133,7 +133,7 @@ $properties = '';
 $expiration = '(public information in a gTLD zone)';	
 $last_changed = '';
 $last_transferred = '';
-$termination = '';
+$deletion = '(not applicable)';
 $registrar_iana_id = $obj['entities'][0]['publicIds'][0]['identifier'];	
 $handle = $obj['handle']; 	
 $name = $obj['ldhName'];
@@ -295,7 +295,7 @@ foreach($obj as $key1 => $value1) {
 					$last_uploaded = $value2['eventDate'];
 				}
 				elseif ($value3 == 'deletion')	{
-					$termination = $value2['eventDate'];
+					$deletion = $value2['eventDate'];
 				}
 				elseif ($value3 == 'last changed')	{
 					$last_changed = $value2['eventDate'];
@@ -494,8 +494,21 @@ foreach($obj as $key1 => $value1) {
 			}
 		}
 	}
-}
-	
+}	
+if (str_contains($properties, 'redemption period') or str_contains($properties, 'pending delete'))	{
+	if ($admin_email == '(no email value)')	{
+		$admin_email = '(no email due to expected deletion)';		
+	}
+	if ($tech_email == '(no email value)')	{
+		$tech_email = '(no email due to expected deletion)';
+	}
+	if ($billing_email == '(no email value)')	{
+		$billing_email = '(no email due to expected deletion)';		
+	}		
+	if ($deletion == '(not applicable)')	{
+		$deletion = '(missing information)';	
+	}		
+}	
 $doc = new DOMDocument("1.0", "UTF-8");
 $doc->xmlStandalone = true;	
 $doc->formatOutput = true;		
@@ -678,9 +691,9 @@ $domain->appendChild($domain_event_expiration);
 $domain_event_last_uploaded = $doc->createElement("domain_event_last_uploaded");
 $domain_event_last_uploaded->appendChild($doc->createCDATASection($last_uploaded));	
 $domain->appendChild($domain_event_last_uploaded);	
-$domain_event_termination = $doc->createElement("domain_event_termination");
-$domain_event_termination->appendChild($doc->createCDATASection($termination));	
-$domain->appendChild($domain_event_termination);
+$domain_event_deletion = $doc->createElement("domain_event_deletion");
+$domain_event_deletion->appendChild($doc->createCDATASection($deletion));	
+$domain->appendChild($domain_event_deletion);
 $domain_event_last_changed = $doc->createElement("domain_event_last_changed");
 $domain_event_last_changed->appendChild($doc->createCDATASection($last_changed));	
 $domain->appendChild($domain_event_last_changed);	

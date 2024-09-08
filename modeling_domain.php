@@ -39,7 +39,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 31)	{ // events
 		var pre = '31';
-		var max = 6
+		var max = 5
 	}
 	else if (type == 40)	{ // registrant
 		var pre = '40';
@@ -126,7 +126,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_status_properties").textContent = "";
 		document.getElementById("events_role").textContent = proposed;
 		document.getElementById("domain_event_expiration").textContent = "";
-		document.getElementById("domain_event_termination").textContent = "";
+		document.getElementById("domain_event_deletion").textContent = "";
 		document.getElementById("domain_event_last_uploaded").textContent = "";
 		document.getElementById("domain_event_verification_requested").textContent = proposed;
 		document.getElementById("domain_event_verification_retrieved").textContent = proposed;
@@ -157,10 +157,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("emergency_web_id").textContent = proposed;
 		document.getElementById("emergency_protected").textContent = derived;
 		document.getElementById("name_servers_role").textContent = "";
-		document.getElementById("name_servers_ip").textContent = "";
+		//document.getElementById("name_servers_ip").textContent = "";
 		document.getElementById("name_servers_dnssec").textContent = "";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "";
-		document.getElementById("raw_data_next").textContent = "US/EU:";
+		document.getElementById("raw_data_next").textContent = "";
 	}
 	else if (translation == 1)	{
 		var proposed = 'VOORGESTELD - ';
@@ -169,7 +169,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("instruction").textContent = "Plak een domeinnaam en druk op Enter.";
 		document.getElementById("field").textContent = "Omschrijving";
 		document.getElementById("value").textContent = "Detail";
-		document.getElementById("explanation").textContent = "Toelichting - Een webdomein kent zijn eigen juridische dynamiek.";
+		document.getElementById("explanation").textContent = "Toelichting - 'Een webdomein kent zijn eigen juridische dynamiek.'";
 		document.getElementById("zone_role").textContent = "Een domeinzone is (door de ICANN) toegewezen aan een domain registry om domeinen te beheren.";
 		document.getElementById("zone_registry_web_id").textContent = proposed;
 		document.getElementById("zone_registry_full_name").textContent = proposed;
@@ -182,7 +182,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_name_unicode").textContent = "Namen met speciale tekens worden opgeslagen als ASCII-tekenreeksen met behulp van Punycode-transcriptie.";
 		document.getElementById("events_role").textContent = proposed + "Landspecifieke domeincontroleregisters (DCR) op basis van de daadwerkelijke gebruiker.";
 		document.getElementById("domain_event_expiration").textContent = "De vervaldatum geldt voor verlenging en voor een gerechtvaardigde of door de klant gekozen einddatum.";
-		document.getElementById("domain_event_termination").textContent = "Geplande beëindiging van domeininformatie. De domeineigenschappen kunnen reactivering toestaan.";
+		document.getElementById("domain_event_deletion").textContent = "Tijdstip van verwijdering, indien verwacht. De status kan informatie geven over mogelijke reactivering.";
 		document.getElementById("domain_event_last_uploaded").textContent = "RDAP-database-update in Zulu-tijd (gecoördineerde universele tijd - UTC).";
 		document.getElementById("domain_event_verification_requested").textContent = proposed + "Bij een matchend web-ID ontvangt de registry een signaal.";
 		document.getElementById("domain_event_verification_retrieved").textContent = proposed + "Op de lange termijn kan verificatie ook worden gebruikt door zoekmachines.";
@@ -212,8 +212,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("emergency_role").textContent = proposed + "Een verantwoordelijke persoon kan de benodigde toegang verlenen.";
 		document.getElementById("emergency_web_id").textContent = proposed;
 		document.getElementById("emergency_protected").textContent = derived;
-		document.getElementById("name_servers_role").textContent = "Naamservers leiden naar IP-adressen van webservers van een URL.";
-		document.getElementById("name_servers_ip").textContent = "Een lijmrecord is vereist als de naamservers van de registrar niet worden gebruikt.";
+		document.getElementById("name_servers_role").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
 		document.getElementById("raw_data_next").textContent = "US/EU: Een volgend volwassen RDAP-formaat vraagt om unieke veldnamen, vaste veldvolgorde, overzicht en passend 'non-public'.";		
@@ -225,7 +224,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("instruction").textContent = "Paste a domain name and press Enter.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
-		document.getElementById("explanation").textContent = "Explanation - A web domain has its own legal dynamics.";		
+		document.getElementById("explanation").textContent = "Explanation - 'A web domain has its own legal dynamics.'";		
 		document.getElementById("zone_role").textContent = "A domain zone is assigned (by ICANN) to a domain registry to manage domains.";
 		document.getElementById("zone_registry_web_id").textContent = proposed;
 		document.getElementById("zone_registry_full_name").textContent = proposed;
@@ -238,7 +237,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_status_properties").textContent = "The 'redemption period' informs about the grace period for reactivation. The 'pending delete' is valid until termination.";
 		document.getElementById("events_role").textContent = proposed + "Country-specific domain control registers, DCR, based on the actual user.";
 		document.getElementById("domain_event_expiration").textContent = "The expiration date is for renewal and for a justified or a customer chosen end date.";
-		document.getElementById("domain_event_termination").textContent = "Scheduled termination of domain information. The domain properties can allow reactivation.";
+		document.getElementById("domain_event_deletion").textContent = "Time of deletion if expected. The status can provide information about possible reactivation.";
 		document.getElementById("domain_event_last_uploaded").textContent = "RDAP database update in Zulu Time (coordinated universal time - UTC).";
 		document.getElementById("domain_event_verification_requested").textContent = proposed + "The registry receives a signal in case of a matching web ID.";
 		document.getElementById("domain_event_verification_retrieved").textContent = proposed + "In the long term, verification can also be used by search engines.";
@@ -268,11 +267,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("emergency_role").textContent = proposed + "A responsible person can provide the necessary access.";
 		document.getElementById("emergency_web_id").textContent = proposed;
 		document.getElementById("emergency_protected").textContent = derived;		
-		document.getElementById("name_servers_role").textContent = "Name servers lead to IP addresses of web servers from a URL.";
-		document.getElementById("name_servers_ip").textContent = "A glue record is required if the registrar's name servers are not used.";
+		document.getElementById("name_servers_role").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
-		document.getElementById("raw_data_next").textContent ="US/EU: A next mature RDAP format requires unique field names, fixed field order, overview and appropriate 'non-public'.";
+		document.getElementById("raw_data_next").textContent = "US/EU: A next mature RDAP format requires unique field names, fixed field order, overview and appropriate 'non-public'.";
 	}
 	else if (translation == 3)	{
 		var proposed = 'VORGESCHLAGEN - ';
@@ -281,7 +279,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("instruction").textContent = "Fügen Sie einen Domänennamen ein und drücken Sie die Eingabetaste.";
 		document.getElementById("field").textContent = "Beschreibung";
 		document.getElementById("value").textContent = "Detail";
-		document.getElementById("explanation").textContent = "Erläuterung - Eine Webdomäne hat ihre eigene rechtliche Dynamik.";		
+		document.getElementById("explanation").textContent = "Erläuterung - 'Eine Webdomäne hat ihre eigene rechtliche Dynamik.'";		
 		document.getElementById("zone_role").textContent = "Eine Domänenzone wird (von ICANN) einer Domänenregistrierungsstelle zugewiesen, um Domänen zu verwalten.";		
 		document.getElementById("zone_registry_web_id").textContent = proposed;
 		document.getElementById("zone_registry_full_name").textContent = proposed;
@@ -294,7 +292,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_status_properties").textContent = "Die 'redemption period' gibt Auskunft über die Nachfrist zur Reaktivierung. Bis zur Kündigung gilt die 'pending delete'.";
 		document.getElementById("events_role").textContent = proposed + "Länderspezifische Domänenkontrollregister (DCR), basierend auf dem tatsächlichen Benutzer.";
 		document.getElementById("domain_event_expiration").textContent = "Das Ablaufdatum dient der Verlängerung und einem begründeten oder vom Kunden gewählten Enddatum.";
-		document.getElementById("domain_event_termination").textContent = "Geplante Kündigung der Domäneninformationen. Die Domäneneigenschaften können eine Reaktivierung zulassen.";
+		document.getElementById("domain_event_deletion").textContent = "Zeitpunkt der Löschung, sofern erwartet. Der Status kann Aufschluss über eine mögliche Reaktivierung geben.";
 		document.getElementById("domain_event_last_uploaded").textContent = "RDAP-Datenbankaktualisierung in Zulu-Zeit (koordinierte Weltzeit – UTC).";
 		document.getElementById("domain_event_verification_requested").textContent = proposed + "Bei einer übereinstimmenden Web-ID erhält die Registrierungsstelle ein Signal.";
 		document.getElementById("domain_event_verification_retrieved").textContent = proposed + "Langfristig kann die Überprüfung auch von Suchmaschinen genutzt werden.";
@@ -324,8 +322,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("emergency_role").textContent = proposed + "Die erforderlichen Zugänge kann eine verantwortliche Person bereitstellen.";
 		document.getElementById("emergency_web_id").textContent = proposed;
 		document.getElementById("emergency_protected").textContent = derived;
-		document.getElementById("name_servers_role").textContent = "Nameserver führen von einer URL zu IP-Adressen von Webservern.";
-		document.getElementById("name_servers_ip").textContent = "Ein Glue-Record ist erforderlich, wenn die Nameserver des Registrars nicht verwendet werden.";
+		document.getElementById("name_servers_role").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 		document.getElementById("raw_data_next").textContent = "US/EU: Ein nächstes ausgereiftes RDAP-Format erfordert eindeutige Feldnamen, eine feste Feldreihenfolge, Übersicht und entsprechende 'non-public'.";
@@ -337,7 +334,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("instruction").textContent = "Collez un nom de domaine et appuyez sur Entrée.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Détail";
-		document.getElementById("explanation").textContent = "Explication - Un domaine web a sa propre dynamique juridique.";		
+		document.getElementById("explanation").textContent = "Explication - 'Un domaine web a sa propre dynamique juridique.'";		
 		document.getElementById("zone_role").textContent = "Une zone de domaine est attribuée (par l'ICANN) à un registre de domaine pour gérer les domaines.";
 		document.getElementById("zone_registry_web_id").textContent = proposed;
 		document.getElementById("zone_registry_full_name").textContent = proposed;
@@ -350,7 +347,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_status_properties").textContent = "Le 'redemption period' indique le délai de grâce pour la réactivation. La 'pending delete' s'applique jusqu'à la résiliation.";
 		document.getElementById("events_role").textContent = proposed + "Registres de contrôle de domaine spécifiques à chaque pays, DCR, basés sur l'utilisateur réel.";
 		document.getElementById("domain_event_expiration").textContent = "La date d'expiration est destinée au renouvellement et à une date de fin justifiée ou choisie par le client.";
-		document.getElementById("domain_event_termination").textContent = "Résiliation programmée des informations du domaine. Les propriétés du domaine peuvent permettre la réactivation.";
+		document.getElementById("domain_event_deletion").textContent = "Heure de suppression si prévue. Le statut peut fournir des informations sur une éventuelle réactivation.";
 		document.getElementById("domain_event_last_uploaded").textContent = "Mise à jour de la base de données RDAP dans Heure zoulou (temps universel coordonné - UTC).";
 		document.getElementById("domain_event_verification_requested").textContent = proposed + "Le registre reçoit un signal en cas d'identifiant Web correspondant.";
 		document.getElementById("domain_event_verification_retrieved").textContent = proposed + "À long terme, la vérification peut également être utilisée par les moteurs de recherche.";
@@ -380,8 +377,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("emergency_role").textContent = proposed + "Une personne responsable peut fournir l'accès nécessaire.";
 		document.getElementById("emergency_web_id").textContent = proposed;
 		document.getElementById("emergency_protected").textContent = derived;		
-		document.getElementById("name_servers_role").textContent = "Les serveurs de noms mènent aux adresses IP des serveurs Web à partir d'une URL.";
-		document.getElementById("name_servers_ip").textContent = "Un enregistrement Glue est requis si les serveurs de noms du registraire ne sont pas utilisés.";
+		document.getElementById("name_servers_role").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 		document.getElementById("raw_data_next").textContent = "US/EU: Un prochain format RDAP mature nécessite des noms de champs uniques, un ordre des champs fixe, une vue d'ensemble et un 'non-public' approprié.";
@@ -498,17 +494,12 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(31)">events +/-</button></td><td></td><td id="events_role"></td></tr>';
 	$html_text .= '<tr id="311" style="display:none;vertical-align:top"><td>domain_event_registration</td><td>'.$item->domain_event_registration.'</td><td></td></tr>';
 	$html_text .= '<tr><td>domain_event_expiration</td><td>'.$item->domain_event_expiration.'</td><td id="domain_event_expiration"></td></tr>';
-	if (strlen($item->domain_event_termination))	{
-		$html_text .= '<tr><td>domain_event_termination</td><td>'.$item->domain_event_termination.'</td><td id="domain_event_termination"></td></tr>';
-	}
-	else	{
-		$html_text .= '<tr id="312" style="display:none"><td>domain_event_termination</td><td>'.$item->domain_event_termination.'</td><td id="domain_event_termination"></td></tr>';
-	}
-	$html_text .= '<tr id="313" style="display:none"><td>domain_event_last_transferred</td><td>'.$item->domain_event_last_transferred.'</td><td></td></tr>';
-	$html_text .= '<tr><td>domain_event_last_changed</td><td>'.$item->domain_event_last_changed.'</td><td></td></tr>';
+	$html_text .= '<tr><td>domain_event_deletion</td><td>'.$item->domain_event_deletion.'</td><td id="domain_event_deletion"></td></tr>';
+	$html_text .= '<tr id="312" style="display:none"><td>domain_event_last_transferred</td><td>'.$item->domain_event_last_transferred.'</td><td></td></tr>';
+	$html_text .= '<tr id="313" style="display:none"><td>domain_event_last_changed</td><td>'.$item->domain_event_last_changed.'</td><td></td></tr>';
 	$html_text .= '<tr id="314" style="display:none"><td>domain_event_verification_requested</td><td>'.$item->domain_event_verification_requested.'</td><td id="domain_event_verification_requested"></td></tr>';
 	$html_text .= '<tr id="315" style="display:none"><td>domain_event_verification_retrieved</td><td>'.$item->domain_event_verification_retrieved.'</td><td id="domain_event_verification_retrieved"></td></tr>';
-	$html_text .= '<tr id="316" style="display:none"><td>domain_event_last_uploaded</td><td>'.$item->domain_event_last_uploaded.'</td><td id="domain_event_last_uploaded"></td></tr>';
+	$html_text .= '<tr id="318" style="display:none"><td>domain_event_last_uploaded</td><td>'.$item->domain_event_last_uploaded.'</td><td id="domain_event_last_uploaded"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(40)">registrant +/-</button></td><td></td><td id="registrant_role"></td></tr>';
 	$html_text .= '<tr id="401" style="display:none"><td>registrant_handle</td><td>'.$item->registrant->registrant_handle.'</td><td></td></tr>';
@@ -527,11 +518,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4011" style="display:none"><td>registrant_language_pref_1</td><td>'.$item->registrant->registrant_language_pref_1.'</td><td></td></tr>';
 	$html_text .= '<tr id="4012" style="display:none"><td>registrant_language_pref_2</td><td>'.$item->registrant->registrant_language_pref_2.'</td><td></td></tr>';
 	$html_text .= '<tr id="4013" style="display:none"><td>registrant_protected</td><td>'.$item->registrant->registrant_protected.'</td><td id="registrant_protected"></td></tr>';
-	$segregationofduties = '';
-	if (strlen($item->admin->admin_email) and strlen($item->tech->tech_email) and !strcmp($item->admin->admin_email, $item->tech->tech_email))	{
-		//$segregationofduties = 'analyzed as no separation of duties';
-	}
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(41)">admin / decision +/-</button></td><td><i>'.$segregationofduties.'</i></td><td id="admin_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(41)">admin / decision +/-</button></td><td></td><td id="admin_role"></td></tr>';
 	$html_text .= '<tr id="411" style="display:none"><td>admin_handle</td><td>'.$item->admin->admin_handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="412" style="display:none"><td>admin_web_id</td><td>'.$item->admin->admin_web_id.'</td><td id="admin_web_id"></td></tr>';
 	$html_text .= '<tr id="413" style="display:none"><td>admin_full_name</td><td>'.$item->admin->admin_full_name.'</td><td></td></tr>';
@@ -650,7 +637,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 		if (strlen(trim($item->name_servers->server_1->server_name_1)))	{
 			$html_text .= '<tr id="621" style="display:none"><td>server_name_1</td><td>'.$item->name_servers->server_1->server_name_1.'</td><td></td></tr>';
 			$html_text .= '<tr id="622" style="display:none"><td>server_name_unicode_1</td><td>'.$item->name_servers->server_1->server_name_unicode_1.'</td><td></td></tr>';
-			$html_text .= '<tr id="623" style="display:none"><td>server_ipv4_1</td><td>'.$item->name_servers->server_1->server_ipv4_1.'</td><td id="name_servers_ip"></td></tr>';
+			$html_text .= '<tr id="623" style="display:none"><td>server_ipv4_1</td><td>'.$item->name_servers->server_1->server_ipv4_1.'</td><td></td></tr>';
 			$html_text .= '<tr id="624" style="display:none"><td>server_ipv6_1</td><td>'.$item->name_servers->server_1->server_ipv6_1.'</td><td></td></tr>';
 		}	
 	}
@@ -697,7 +684,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>name_servers_dnssec</td><td>'.$item->name_servers->name_servers_dnssec.'</td><td id="name_servers_dnssec"></td></tr>';
 	$html_text .= '<tr><td>name_servers_dnssec_algorithm</td><td>'.$item->name_servers->name_servers_dnssec_algorithm.'</td><td id="name_servers_dnssec_algorithm"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(70)">raw data +/-</button></td><td colspan="2" id="raw_data_next"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(70)">raw data +/-</button></td><td id="raw_data_next" colspan="2"></td></tr>';
 	$html_text .= '<tr id="701" style="display:none"><td colspan="3">'.$item->raw_data.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 }
