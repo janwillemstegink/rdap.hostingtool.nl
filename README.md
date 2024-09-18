@@ -8,8 +8,6 @@ Domain information: https://rdap.hostingtool.nl/modeling_domain/
 
 Data check by email: https://rdap.hostingtool.nl/modeling_email/
 
-Listing by the Business Register: https://rdap.hostingtool.nl/modeling_entities_domains/
-
 Find background information on:
 
 https://webhostingtech.nl/nl-zone-clearer-whois/
