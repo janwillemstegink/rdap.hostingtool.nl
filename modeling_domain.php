@@ -39,7 +39,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 31)	{ // events
 		var pre = '31';
-		var max = 5
+		var max = 6
 	}
 	else if (type == 40)	{ // registrant
 		var pre = '40';
@@ -497,7 +497,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="313" style="display:none"><td>domain_event_last_changed</td><td>'.$item->domain_event_last_changed.'</td><td></td></tr>';
 	$html_text .= '<tr id="314" style="display:none"><td>domain_event_verification_requested</td><td>'.$item->domain_event_verification_requested.'</td><td id="domain_event_verification_requested"></td></tr>';
 	$html_text .= '<tr id="315" style="display:none"><td>domain_event_verification_retrieved</td><td>'.$item->domain_event_verification_retrieved.'</td><td id="domain_event_verification_retrieved"></td></tr>';
-	$html_text .= '<tr id="318" style="display:none"><td>domain_event_last_uploaded</td><td>'.$item->domain_event_last_uploaded.'</td><td id="domain_event_last_uploaded"></td></tr>';
+	$html_text .= '<tr id="316" style="display:none"><td>domain_event_last_uploaded</td><td>'.$item->domain_event_last_uploaded.'</td><td id="domain_event_last_uploaded"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(40)">registrant +/-</button></td><td></td><td id="registrant_role"></td></tr>';
 	$html_text .= '<tr id="401" style="display:none"><td>registrant_handle</td><td>'.$item->registrant->registrant_handle.'</td><td></td></tr>';
