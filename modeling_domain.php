@@ -129,7 +129,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_event_deletion").textContent = "";
 		document.getElementById("domain_event_last_uploaded").textContent = "";
 		document.getElementById("domain_event_verification_requested").textContent = proposed;
-		document.getElementById("domain_event_verification_retrieved").textContent = proposed;
+		document.getElementById("domain_event_verification_recorded").textContent = proposed;
 		document.getElementById("registrar_role").textContent = "";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "";
@@ -184,7 +184,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_event_deletion").textContent = "Geplande datum/tijd voor het verwijderen van het object.";
 		document.getElementById("domain_event_last_uploaded").textContent = "RDAP-database-update in Zulu-tijd (gecoördineerde universele tijd - UTC).";
 		document.getElementById("domain_event_verification_requested").textContent = proposed + "Bij een matchend web-ID ontvangt de registry een signaal.";
-		document.getElementById("domain_event_verification_retrieved").textContent = proposed + "Op de lange termijn kan verificatie ook worden gebruikt door zoekmachines.";
+		document.getElementById("domain_event_verification_recorded").textContent = proposed + "Op de lange termijn kan verificatie ook worden gebruikt door zoekmachines.";
 		document.getElementById("registrar_role").textContent = "Een domain registrar verzorgt de reservering van domeinen en IP-adresroutering.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "Met een gTLD-domein en ICANN-accreditatie voor één of meerdere generieke topleveldomeinen.";
@@ -239,7 +239,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_event_deletion").textContent = "Scheduled date/time for removal of the object.";
 		document.getElementById("domain_event_last_uploaded").textContent = "RDAP database update in Zulu Time (coordinated universal time - UTC).";
 		document.getElementById("domain_event_verification_requested").textContent = proposed + "The registry receives a signal in case of a matching web ID.";
-		document.getElementById("domain_event_verification_retrieved").textContent = proposed + "In the long term, verification can also be used by search engines.";
+		document.getElementById("domain_event_verification_recorded").textContent = proposed + "In the long term, verification can also be used by search engines.";
 		document.getElementById("registrar_role").textContent = "A domain registrar takes care of domain reservations and IP address routing.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "With a gTLD domain and ICANN accreditation for one or more generic top-level domains.";
@@ -294,7 +294,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_event_deletion").textContent = "Geplantes Datum/Uhrzeit für die Entfernung des Objekts.";
 		document.getElementById("domain_event_last_uploaded").textContent = "RDAP-Datenbankaktualisierung in Zulu-Zeit (koordinierte Weltzeit – UTC).";
 		document.getElementById("domain_event_verification_requested").textContent = proposed + "Bei einer übereinstimmenden Web-ID erhält die Registrierungsstelle ein Signal.";
-		document.getElementById("domain_event_verification_retrieved").textContent = proposed + "Langfristig kann die Überprüfung auch von Suchmaschinen genutzt werden.";
+		document.getElementById("domain_event_verification_recorded").textContent = proposed + "Langfristig kann die Überprüfung auch von Suchmaschinen genutzt werden.";
 		document.getElementById("registrar_role").textContent = "Ein Domain-Registrar kümmert sich um Domain-Reservierungen und IP-Adress-Routing.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "Mit einer gTLD-Domain und ICANN-Akkreditierung für eine oder mehrere generische Top-Level-Domains.";
@@ -349,7 +349,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_event_deletion").textContent = "Date/heure prévue pour la suppression de l'objet.";
 		document.getElementById("domain_event_last_uploaded").textContent = "Mise à jour de la base de données RDAP dans Heure zoulou (temps universel coordonné - UTC).";
 		document.getElementById("domain_event_verification_requested").textContent = proposed + "Le registre reçoit un signal en cas d'identifiant Web correspondant.";
-		document.getElementById("domain_event_verification_retrieved").textContent = proposed + "À long terme, la vérification peut également être utilisée par les moteurs de recherche.";
+		document.getElementById("domain_event_verification_recorded").textContent = proposed + "À long terme, la vérification peut également être utilisée par les moteurs de recherche.";
 		document.getElementById("registrar_role").textContent = "Un registraire de domaine s'occupe des réservations de domaine et du routage des adresses IP.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "Avec un domaine gTLD et une accréditation ICANN pour un ou plusieurs domaines génériques de premier niveau.";
@@ -496,7 +496,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="312" style="display:none"><td>domain_event_last_transferred</td><td>'.$item->domain_event_last_transferred.'</td><td></td></tr>';
 	$html_text .= '<tr id="313" style="display:none"><td>domain_event_last_changed</td><td>'.$item->domain_event_last_changed.'</td><td></td></tr>';
 	$html_text .= '<tr id="314" style="display:none"><td>domain_event_verification_requested</td><td>'.$item->domain_event_verification_requested.'</td><td id="domain_event_verification_requested"></td></tr>';
-	$html_text .= '<tr id="315" style="display:none"><td>domain_event_verification_retrieved</td><td>'.$item->domain_event_verification_retrieved.'</td><td id="domain_event_verification_retrieved"></td></tr>';
+	$html_text .= '<tr id="315" style="display:none"><td>domain_event_verification_recorded</td><td>'.$item->domain_event_verification_recorded.'</td><td id="domain_event_verification_recorded"></td></tr>';
 	$html_text .= '<tr id="316" style="display:none"><td>domain_event_last_uploaded</td><td>'.$item->domain_event_last_uploaded.'</td><td id="domain_event_last_uploaded"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(40)">registrant +/-</button></td><td></td><td id="registrant_role"></td></tr>';
