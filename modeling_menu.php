@@ -37,6 +37,8 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("common_law").textContent = "Gewoonterecht";
 		document.getElementById("pricing").textContent = "Prijsinformatie";
 		document.getElementById("authorities").textContent = "Gerelateerde instanties";
+		document.getElementById("knowledge").textContent = "Kennis hyperlinks";
+		document.getElementById("tools").textContent = "Algemene hulpmiddelen";
 	}
 	else if (inputlanguage == 2)	{
 		document.getElementById("title").textContent = "Model for a zone menu";
@@ -50,6 +52,8 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("common_law").textContent = "Common law";
 		document.getElementById("pricing").textContent = "Pricing information";
 		document.getElementById("authorities").textContent = "Related authorities";
+		document.getElementById("knowledge").textContent = "Knowledge hyperlinks";
+		document.getElementById("tools").textContent = "Common tools";
 	}
 	else if (inputlanguage == 3)	{
 		document.getElementById("title").textContent = "Modell für ein Zonenmenü";
@@ -63,6 +67,8 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("common_law").textContent = "Gewohnheitsrecht";
 		document.getElementById("pricing").textContent = "Preisinformationen";
 		document.getElementById("authorities").textContent = "Zugehörige Behörden";
+		document.getElementById("knowledge").textContent = "Wissens-Hyperlinks";
+		document.getElementById("tools").textContent = "Gemeinsame Werkzeuge";
 	}
 	else if (inputlanguage == 4)	{
 		document.getElementById("title").textContent = "Modèle de menu de zone";
@@ -76,6 +82,8 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("common_law").textContent = "Loi commune";
 		document.getElementById("pricing").textContent = "Information sur les prix";
 		document.getElementById("authorities").textContent = "Autorités connexes";
+		document.getElementById("knowledge").textContent = "Liens hypertexte de connaissances";
+		document.getElementById("tools").textContent = "Outils communs";
 	}
 }	
 </script><?php
@@ -101,6 +109,8 @@ $html_text .= '<tr><td id="judicial_law" style="font-weight:bold"></td><td>...hy
 $html_text .= '<tr><td id="common_law" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
 $html_text .= '<tr><td id="pricing" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
 $html_text .= '<tr><td id="authorities" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
+$html_text .= '<tr><td id="knowledge" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
+$html_text .= '<tr><td id="tools" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
 $html_text .= '</table></div></body></html>';
 echo $html_text;
 
