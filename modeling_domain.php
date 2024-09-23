@@ -290,7 +290,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_name_unicode").textContent = "Namen mit Sonderzeichen werden mittels Punycode-Transkription als ASCII-Strings gespeichert.";
 		document.getElementById("domain_status_properties").textContent = "Die 'redemption period' ist die Karenzzeit zur Reaktivierung. Die 'pending delete' dauert bis zur Entfernung.";
 		document.getElementById("events_role").textContent = proposed + "Länderspezifische Domänenkontrollregister (DCR), basierend auf dem tatsächlichen Benutzer.";
-		document.getElementById("domain_event_expiration").textContent = "Enddatum/-zeit des Objektes für die periodische Überprüfung bzw. die Einstellung der Veröffentlichung.";
+		document.getElementById("domain_event_expiration").textContent = "Enddatum/-zeit des Objektes für die periodische Überprüfung oder das Stoppen der Veröffentlichung.";
 		document.getElementById("domain_event_deletion").textContent = "Geplantes Datum/Uhrzeit für die Entfernung des Objekts und, falls wirksam, gefolgt von der Verfügbarkeit.";
 		document.getElementById("domain_event_last_uploaded").textContent = "RDAP-Datenbankaktualisierung in Zulu-Zeit (koordinierte Weltzeit – UTC).";
 		document.getElementById("domain_event_verification_requested").textContent = proposed + "Bei einer übereinstimmenden Web-ID erhält die Registrierungsstelle ein Signal.";
