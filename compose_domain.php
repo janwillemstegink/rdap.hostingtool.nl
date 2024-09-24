@@ -130,7 +130,7 @@ $view_links_1_media = $obj['links'][1]['media'];
 $view_links_1_type = $obj['links'][1]['type'];
 	
 $properties = '';
-$expiration = '(public information in a gTLD zone)';	
+$expiration = '(non-public)';	
 $last_changed = '';
 $last_transferred = '';
 $deletion = '(not applicable)';
@@ -165,7 +165,7 @@ $registrant_name = '';
 $registrar_kind = '';
 $reseller_kind = '';
 $registrant_kind = '';
-$registrar_country_code = '(public information in a gTLD zone)';
+$registrar_country_code = '(non-public)';
 $registrar_language_pref_1 = '';
 $registrar_language_pref_2 = '';
 $reseller_language_pref_1 = '';
@@ -180,25 +180,25 @@ $reseller_full_name = '';
 $reseller_street = '';
 $reseller_city = '';
 $reseller_postal_code = '';
-$reseller_country_code = '(public information in a gTLD zone)';
+$reseller_country_code = '(non-public)';
 $reseller_protected = 'name,phone,fax,email';
-$registrant_full_name = '(no holder name value)';
+$registrant_full_name = '(non-public)';
 $registrant_street = '';
 $registrant_city = '';
 $registrant_postal_code = '';
-$registrant_country_code = '(public information in a gTLD zone)';	
+$registrant_country_code = '(non-public)';	
 $registrant_protected = 'name,phone,fax,email,address';
 $admin_handle = '';
-$admin_email = '(no email value)';
-$admin_country_code = '(public information in a gTLD zone)';	
+$admin_email = '(non-public)';
+$admin_country_code = '(non-public)';	
 $admin_protected = 'web_id,full_name,name,phone,fax,address';
 $tech_handle = '';
-$tech_email	= '(no email value)';
-$tech_country_code = '(public information in a gTLD zone)';
+$tech_email	= '(non-public)';
+$tech_country_code = '(non-public)';
 $tech_protected = 'web_id,full_name,name,phone,fax,address';
 $billing_handle = '';
-$billing_email = '(no email value)';	
-$billing_country_code = '(public information in a gTLD zone)';	
+$billing_email = '(non-public)';	
+$billing_country_code = '(non-public)';	
 $billing_protected = 'web_id,full_name,name,phone,fax,address';
 
 $server_name_1 = $obj['nameservers'][0]['ldhName'];
@@ -496,17 +496,20 @@ foreach($obj as $key1 => $value1) {
 	}
 }	
 if (str_contains($properties, 'redemption period') or str_contains($properties, 'pending delete'))	{
-	if ($admin_email == '(no email value)')	{
-		$admin_email = '(no email due to expected deletion)';		
+	if ($registrant_full_name == '(non-public)')	{
+		$registrant_full_name = '(no full name due to scheduled deletion)';
+	}	
+	if ($admin_email == '(non-public)')	{
+		$admin_email = '(no email due to scheduled deletion)';		
 	}
-	if ($tech_email == '(no email value)')	{
-		$tech_email = '(no email due to expected deletion)';
+	if ($tech_email == '(non-public)')	{
+		$tech_email = '(no email due to scheduled deletion)';
 	}
-	if ($billing_email == '(no email value)')	{
-		$billing_email = '(no email due to expected deletion)';		
+	if ($billing_email == '(non-public)')	{
+		$billing_email = '(no email due to scheduled deletion)';		
 	}		
 	if ($deletion == '(not applicable)')	{
-		$deletion = '(necessary information)';	
+		$deletion = '(no date/time specified for re-registration)';	
 	}		
 }	
 $doc = new DOMDocument("1.0", "UTF-8");

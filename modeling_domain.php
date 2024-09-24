@@ -181,7 +181,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_name_unicode").textContent = "Namen met speciale tekens worden opgeslagen als ASCII-tekenreeksen met behulp van Punycode-transcriptie.";
 		document.getElementById("events_role").textContent = proposed + "Landspecifieke domeincontroleregisters (DCR) op basis van de daadwerkelijke gebruiker.";
 		document.getElementById("domain_event_expiration").textContent = "Einddatum/-tijd van het object voor periodieke verificatie of stopzetting van de publicatie.";
-		document.getElementById("domain_event_deletion").textContent = "Geplande datum/tijd voor verwijdering van het object. Na verwijdering is registratie mogelijk.";
+		document.getElementById("domain_event_deletion").textContent = "Geplande datum/tijd voor verwijdering van het object. Na verwijdering is herregistratie mogelijk.";
 		document.getElementById("domain_event_last_uploaded").textContent = "RDAP-database-update in Zulu-tijd (gecoördineerde universele tijd - UTC).";
 		document.getElementById("domain_event_verification_requested").textContent = proposed + "Bij een matchend web-ID ontvangt de registry een signaal.";
 		document.getElementById("domain_event_verification_recorded").textContent = proposed + "Op de lange termijn kan verificatie ook worden gebruikt door zoekmachines.";
@@ -236,7 +236,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_status_properties").textContent = "During the 'redemption period' recovery is permitted. The 'pending delete' lasts until removal.";
 		document.getElementById("events_role").textContent = proposed + "Country-specific domain control registers, DCR, based on the actual user.";
 		document.getElementById("domain_event_expiration").textContent = "End date/time of the object for periodic verification or discontinuation of publication.";
-		document.getElementById("domain_event_deletion").textContent = "Scheduled date/time for object removal. After deletion, registration is possible.";
+		document.getElementById("domain_event_deletion").textContent = "Scheduled date/time for object removal. After deletion, re-registration is possible.";
 		document.getElementById("domain_event_last_uploaded").textContent = "RDAP database update in Zulu Time (coordinated universal time - UTC).";
 		document.getElementById("domain_event_verification_requested").textContent = proposed + "The registry receives a signal in case of a matching web ID.";
 		document.getElementById("domain_event_verification_recorded").textContent = proposed + "In the long term, verification can also be used by search engines.";
@@ -291,7 +291,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_status_properties").textContent = "Während der 'redemption period' ist eine Wiederherstellung zulässig. Die 'pending delete' dauert bis zur Entfernung.";
 		document.getElementById("events_role").textContent = proposed + "Länderspezifische Domänenkontrollregister (DCR), basierend auf dem tatsächlichen Benutzer.";
 		document.getElementById("domain_event_expiration").textContent = "Enddatum/-zeit des Objektes für die periodische Überprüfung bzw. Einstellung der Veröffentlichung.";
-		document.getElementById("domain_event_deletion").textContent = "Geplantes Datum/Uhrzeit für die Objektentfernung. Nach der Löschung ist eine Registrierung möglich.";
+		document.getElementById("domain_event_deletion").textContent = "Geplantes Datum/Uhrzeit für die Objektentfernung. Nach der Löschung ist eine erneute Registrierung möglich.";
 		document.getElementById("domain_event_last_uploaded").textContent = "RDAP-Datenbankaktualisierung in Zulu-Zeit (koordinierte Weltzeit – UTC).";
 		document.getElementById("domain_event_verification_requested").textContent = proposed + "Bei einer übereinstimmenden Web-ID erhält die Registrierungsstelle ein Signal.";
 		document.getElementById("domain_event_verification_recorded").textContent = proposed + "Langfristig kann die Überprüfung auch von Suchmaschinen genutzt werden.";
@@ -346,7 +346,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_status_properties").textContent = "Pendant la 'redemption period', la récupération est autorisée. La 'pending delete' dure jusqu'à la suppression.";
 		document.getElementById("events_role").textContent = proposed + "Registres de contrôle de domaine spécifiques à chaque pays, DCR, basés sur l'utilisateur réel.";
 		document.getElementById("domain_event_expiration").textContent = "Date/heure de fin de l'objet pour vérification périodique ou arrêt de publication.";
-		document.getElementById("domain_event_deletion").textContent = "Date/heure prévue pour le retrait de l'objet. Après suppression, l'inscription est possible.";
+		document.getElementById("domain_event_deletion").textContent = "Date/heure prévue pour le retrait de l'objet. Après suppression, une réinscription est possible.";
 		document.getElementById("domain_event_last_uploaded").textContent = "Mise à jour de la base de données RDAP dans Heure zoulou (temps universel coordonné - UTC).";
 		document.getElementById("domain_event_verification_requested").textContent = proposed + "Le registre reçoit un signal en cas d'identifiant Web correspondant.";
 		document.getElementById("domain_event_verification_recorded").textContent = proposed + "À long terme, la vérification peut également être utilisée par les moteurs de recherche.";
