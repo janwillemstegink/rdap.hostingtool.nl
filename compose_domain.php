@@ -506,7 +506,7 @@ if (str_contains($properties, 'redemption period') or str_contains($properties, 
 		$billing_email = '(no email due to expected deletion)';		
 	}		
 	if ($deletion == '(not applicable)')	{
-		$deletion = '(missing information)';	
+		$deletion = '(necessary information)';	
 	}		
 }	
 $doc = new DOMDocument("1.0", "UTF-8");

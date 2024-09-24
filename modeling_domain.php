@@ -177,7 +177,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_notices").textContent = "Het gebruik van domeingegevens is aan beperkingen onderhevig.";
 		document.getElementById("view_role").textContent = "Zoeken op web-ID's kan werken met indexering in de databasetabel op de wereldwijde RDAP-servers.";
 		document.getElementById("domain_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
-		document.getElementById("domain_status_properties").textContent = "Herstel is mogelijk tijdens de 'redemption period'. De 'pending delete' duurt tot verwijdering.";
+		document.getElementById("domain_status_properties").textContent = "Tijdens de 'redemption period' is herstel toegestaan. De 'pending delete' duurt tot verwijdering.";
 		document.getElementById("domain_name_unicode").textContent = "Namen met speciale tekens worden opgeslagen als ASCII-tekenreeksen met behulp van Punycode-transcriptie.";
 		document.getElementById("events_role").textContent = proposed + "Landspecifieke domeincontroleregisters (DCR) op basis van de daadwerkelijke gebruiker.";
 		document.getElementById("domain_event_expiration").textContent = "Einddatum/-tijd van het object voor periodieke verificatie of stopzetting van de publicatie.";
@@ -214,7 +214,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_role").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
-		document.getElementById("raw_data_next").textContent = "US/EU: Een volgend volwassen RDAP-formaat vraagt om unieke veldnamen, vaste veldvolgorde, overzicht en passend 'non-public'.";		
+		document.getElementById("raw_data_next").textContent = "US/EU: Een volgend volwassen RDAP-formaat vraagt om unieke veldnamen, vaste veldvolgorde, leesbaarheid en passend 'non-public'.";		
 	}
 	else if (translation == 2)	{
 		var proposed = 'PROPOSED - ';
@@ -233,7 +233,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_role").textContent = "Web ID search can work with indexing in the database table on the global RDAP servers.";	
 		document.getElementById("domain_role").textContent = "A web domain under a top-level domain is unique worldwide and can be freely chosen under certain rules.";
 		document.getElementById("domain_name_unicode").textContent = "Names with special characters are stored as ASCII strings using Punycode transcription.";
-		document.getElementById("domain_status_properties").textContent = "Recovery is possible during the 'redemption period'. The 'pending delete' lasts until removal.";
+		document.getElementById("domain_status_properties").textContent = "During the 'redemption period' recovery is permitted. The 'pending delete' lasts until removal.";
 		document.getElementById("events_role").textContent = proposed + "Country-specific domain control registers, DCR, based on the actual user.";
 		document.getElementById("domain_event_expiration").textContent = "End date/time of the object for periodic verification or discontinuation of publication.";
 		document.getElementById("domain_event_deletion").textContent = "Scheduled date/time for object removal. After deletion, registration is possible.";
@@ -269,7 +269,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_role").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
-		document.getElementById("raw_data_next").textContent = "US/EU: A next mature RDAP format requires unique field names, fixed field order, overview and appropriate 'non-public'.";
+		document.getElementById("raw_data_next").textContent = "US/EU: A next mature RDAP format requires unique field names, fixed field order, readability and appropriate 'non-public'.";
 	}
 	else if (translation == 3)	{
 		var proposed = 'VORGESCHLAGEN - ';
@@ -288,7 +288,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_role").textContent = "Die Web-ID-Suche kann mit der Indizierung in der Datenbanktabelle auf den globalen RDAP-Servern funktionieren.";
 		document.getElementById("domain_role").textContent = "Eine Webdomain unter einer Top-Level-Domain ist weltweit einzigartig und unter bestimmten Regeln frei wählbar.";
 		document.getElementById("domain_name_unicode").textContent = "Namen mit Sonderzeichen werden mittels Punycode-Transkription als ASCII-Strings gespeichert.";
-		document.getElementById("domain_status_properties").textContent = "Eine Rückgewinnung ist während der 'redemption period' möglich. Die 'pending delete' dauert bis zur Entfernung.";
+		document.getElementById("domain_status_properties").textContent = "Während der 'redemption period' ist eine Wiederherstellung zulässig. Die 'pending delete' dauert bis zur Entfernung.";
 		document.getElementById("events_role").textContent = proposed + "Länderspezifische Domänenkontrollregister (DCR), basierend auf dem tatsächlichen Benutzer.";
 		document.getElementById("domain_event_expiration").textContent = "Enddatum/-zeit des Objektes für die periodische Überprüfung bzw. Einstellung der Veröffentlichung.";
 		document.getElementById("domain_event_deletion").textContent = "Geplantes Datum/Uhrzeit für die Objektentfernung. Nach der Löschung ist eine Registrierung möglich.";
@@ -324,7 +324,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_role").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
-		document.getElementById("raw_data_next").textContent = "US/EU: Ein nächstes ausgereiftes RDAP-Format erfordert eindeutige Feldnamen, eine feste Feldreihenfolge, Übersicht und entsprechende 'non-public'.";
+		document.getElementById("raw_data_next").textContent = "US/EU: Ein nächstes ausgereiftes RDAP-Format erfordert eindeutige Feldnamen, eine feste Feldreihenfolge, Lesbarkeit und entsprechende 'non-public'.";
 	}
 	else if (translation == 4)	{
 		var proposed = 'PROPOSÉ - ';
@@ -343,7 +343,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("view_role").textContent = "La recherche d'ID Web peut fonctionner avec l'indexation dans la table de base de données sur les serveurs RDAP mondiaux.";
 		document.getElementById("domain_role").textContent = "Un domaine Web sous un domaine de premier niveau est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_name_unicode").textContent = "Les noms avec des caractères spéciaux sont stockés sous forme de chaînes ASCII à l'aide de la transcription Punycode.";
-		document.getElementById("domain_status_properties").textContent = "La récupération est possible pendant la 'redemption period'. La 'pending delete' dure jusqu'à la suppression.";
+		document.getElementById("domain_status_properties").textContent = "Pendant la 'redemption period', la récupération est autorisée. La 'pending delete' dure jusqu'à la suppression.";
 		document.getElementById("events_role").textContent = proposed + "Registres de contrôle de domaine spécifiques à chaque pays, DCR, basés sur l'utilisateur réel.";
 		document.getElementById("domain_event_expiration").textContent = "Date/heure de fin de l'objet pour vérification périodique ou arrêt de publication.";
 		document.getElementById("domain_event_deletion").textContent = "Date/heure prévue pour le retrait de l'objet. Après suppression, l'inscription est possible.";
@@ -379,7 +379,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_role").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
-		document.getElementById("raw_data_next").textContent = "US/EU: Un prochain format RDAP mature nécessite des noms de champs uniques, un ordre des champs fixe, une vue d'ensemble et un 'non-public' approprié.";
+		document.getElementById("raw_data_next").textContent = "US/EU: Un prochain format RDAP mature nécessite des noms de champs uniques, un ordre des champs fixe, une lisibilité et un 'non-public' approprié.";
 	}
 }	
 </script><?php
