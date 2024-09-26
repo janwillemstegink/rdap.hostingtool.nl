@@ -282,25 +282,25 @@ foreach($obj as $key1 => $value1) {
 	foreach($value1 as $key2 => $value2) {
 		if ($key1 == 'status')	{			
 			$properties .= $value2.'<br />';
-		}
+		}	
 		foreach($value2 as $key3 => $value3) {
 			if ($key1 == 'events')	{
-				if ($value3 == 'registration')	{
+				if ($key3 == 'eventAction' and $value3 == 'registration')	{
 					$registration = $value2['eventDate'];
 				}
-				elseif ($value3 == 'expiration')	{
+				elseif ($key3 == 'eventAction' and $value3 == 'expiration')	{
 					$expiration = $value2['eventDate'];
 				}
-				elseif ($value3 == 'last update of RDAP database')	{
+				elseif ($key3 == 'eventAction' and $value3 == 'last update of RDAP database')	{
 					$last_uploaded = $value2['eventDate'];
 				}
-				elseif ($value3 == 'deletion')	{
+				elseif ($key3 == 'eventAction' and $value3 == 'deletion')	{
 					$deletion = $value2['eventDate'];
 				}
-				elseif ($value3 == 'last changed')	{
+				elseif ($key3 == 'eventAction' and $value3 == 'last changed')	{
 					$last_changed = $value2['eventDate'];
 				}
-				elseif ($value3 == 'transfer')	{
+				elseif ($key3 == 'eventAction' and $value3 == 'transfer')	{
 					$last_transferred = $value2['eventDate'];
 				}				
 			}
@@ -509,7 +509,7 @@ if (str_contains($properties, 'redemption period') or str_contains($properties, 
 		$billing_email = '(no email due to scheduled deletion)';		
 	}		
 	if ($deletion == '(not applicable)')	{
-		$deletion = '(no date/time specified for re-registration)';	
+		$deletion = '(no date/time provided for re-registration)';	
 	}		
 }	
 $doc = new DOMDocument("1.0", "UTF-8");
