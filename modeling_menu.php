@@ -36,6 +36,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("judicial_law").textContent = "Rechtersrecht";
 		document.getElementById("common_law").textContent = "Gewoonterecht";
 		document.getElementById("pricing").textContent = "Prijsinformatie";
+		document.getElementById("rdap").textContent = "Whois- en RDAP-informatie";	
 		document.getElementById("authorities").textContent = "Gerelateerde instanties";
 		document.getElementById("knowledge").textContent = "Kennis hyperlinks";
 		document.getElementById("tools").textContent = "Algemene hulpmiddelen";
@@ -51,6 +52,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("judicial_law").textContent = "Judicial law";
 		document.getElementById("common_law").textContent = "Common law";
 		document.getElementById("pricing").textContent = "Pricing information";
+		document.getElementById("rdap").textContent = "Whois and RDAP information";
 		document.getElementById("authorities").textContent = "Related authorities";
 		document.getElementById("knowledge").textContent = "Knowledge hyperlinks";
 		document.getElementById("tools").textContent = "Common tools";
@@ -66,6 +68,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("judicial_law").textContent = "Gerichtsrecht";
 		document.getElementById("common_law").textContent = "Gewohnheitsrecht";
 		document.getElementById("pricing").textContent = "Preisinformationen";
+		document.getElementById("rdap").textContent = "Whois- und RDAP-Informationen";
 		document.getElementById("authorities").textContent = "Zugehörige Behörden";
 		document.getElementById("knowledge").textContent = "Wissens-Hyperlinks";
 		document.getElementById("tools").textContent = "Gemeinsame Werkzeuge";
@@ -81,6 +84,7 @@ function SwitchTranslation(inputlanguage)	{
 		document.getElementById("judicial_law").textContent = "Droit judiciaire";
 		document.getElementById("common_law").textContent = "Loi commune";
 		document.getElementById("pricing").textContent = "Information sur les prix";
+		document.getElementById("rdap").textContent = "Informations Whois et RDAP";
 		document.getElementById("authorities").textContent = "Autorités connexes";
 		document.getElementById("knowledge").textContent = "Liens hypertexte de connaissances";
 		document.getElementById("tools").textContent = "Outils communs";
@@ -108,6 +112,7 @@ $html_text .= '<tr><td id="statutory_law" style="font-weight:bold"></td><td>...h
 $html_text .= '<tr><td id="judicial_law" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
 $html_text .= '<tr><td id="common_law" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
 $html_text .= '<tr><td id="pricing" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
+$html_text .= '<tr><td id="rdap" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
 $html_text .= '<tr><td id="authorities" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
 $html_text .= '<tr><td id="knowledge" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
 $html_text .= '<tr><td id="tools" style="font-weight:bold"></td><td>...hyperlink...</td></tr>';
