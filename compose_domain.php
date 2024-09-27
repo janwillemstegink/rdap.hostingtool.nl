@@ -32,53 +32,76 @@ else	{
 function write_file($inputdomain)	{
 	
 $zone_top_level_domain = mb_substr($inputdomain, strrpos($inputdomain, '.') + 1);	
-switch ($zone_top_level_domain) {
-	case 'nl':
-    	$url = 'https://rdap.sidn.nl/domain/';
-    	break;		
-	//case 'cc': // transparencia.cc
-    //	$url = 'https://rdap.godaddy.com/v1/domain/';
-    //	break;
-	case 'biz':
-    	$url = 'https://rdap.nic.biz/domain/';
-    	break;	
-	case 'com':
-    	$url = 'https://rdap.verisign.com/com/v1/domain/';
-    	break;	
-	case 'net':
-    	$url = 'https://rdap.verisign.com/net/v1/domain/';
-    	break;
-	case 'org':
-    	$url = 'https://rdap.publicinterestregistry.org/rdap/domain/';
-		break;
-	case 'ca':
-		$url = 'https://rdap.ca.fury.ca/rdap/domain/';
-		break;
-	case 'ch':
-    	$url = 'https://rdap.nic.ch/domain/';	
-    	break;		
-	case 'de':
-    	$url = 'https://rdap.denic.de/domain/';
-    	break;
-	case 'fr':
-   		$url = 'https://rdap.nic.fr/domain/';
-   		break;
-	//case 'it':
-   	//	$url = 'https://rdap.pubtest.nic.it/domain/';
-   	//	break;
-	case 'uk':
-    	$url = 'https://rdap.nominet.uk/uk/domain/';
-    	break;
-	case 'amsterdam':
-    	$url = 'https://rdap.nic.amsterdam/domain/';
-    	break;
-	case 'politie':
-    	$url = 'https://rdap.nic.politie/domain/';
-    	break;		
-	default:
-   		die("No match with a top level domain.");
+
+$rdap = json_decode(file_get_contents('https://data.iana.org/rdap/dns.json'), true);		
+$url = '';	
+$temp_tld = '';
+$matched = false;
+foreach($rdap as $key1 => $value1) {
+    foreach($value1 as $key2 => $value2) {
+		foreach($value2 as $key3 => $value3) {
+			foreach($value3 as $key4 => $value4) {
+				if ($key3 == 0 and !$matched)	{
+					$temp_tld = $value4;
+				}
+				if ($key3 == 1 and $zone_top_level_domain == $temp_tld and !$matched)	{
+					$url = $value4;
+					$matched = true;
+				}
+			}
+		}
+	}
+}
+//die($temp_tld . ' - ' . $url);	
+if (!$matched)	{	
+	switch ($zone_top_level_domain) {
+		case 'nl':
+    		$url = 'https://rdap.sidn.nl/';
+    		break;		
+		//case 'cc': // transparencia.cc
+    	//	$url = 'https://rdap.godaddy.com/v1/';
+    	//	break;
+		case 'biz':
+    		$url = 'https://rdap.nic.biz/';
+    		break;	
+		case 'com':
+    		$url = 'https://rdap.verisign.com/com/v1/';
+    		break;	
+		case 'net':
+    		$url = 'https://rdap.verisign.com/net/v1/';
+    		break;
+		case 'org':
+    		$url = 'https://rdap.publicinterestregistry.org/rdap/';
+			break;
+		case 'ca':
+			$url = 'https://rdap.ca.fury.ca/rdap/';
+			break;
+		case 'ch':
+    		$url = 'https://rdap.nic.ch/';	
+    		break;		
+		case 'de':
+    		$url = 'https://rdap.denic.de/';
+    		break;
+		case 'fr':
+   			$url = 'https://rdap.nic.fr/';
+   			break;
+		//case 'it':
+   		//	$url = 'https://rdap.pubtest.nic.it/';
+   		//	break;
+		case 'uk':
+    		$url = 'https://rdap.nominet.uk/uk/';
+    		break;
+		case 'amsterdam':
+    		$url = 'https://rdap.nic.amsterdam/';
+    		break;
+		case 'politie':
+    		$url = 'https://rdap.nic.politie/';
+    		break;	
+		default:
+   			die("No match with a top level domain.");
+	}
 }	
-$url = $url.$inputdomain;
+$url .= 'domain/'.$inputdomain;
 $obj = json_decode(file_get_contents($url), true);		
 $rdap_conformance = $obj['rdapConformance'];
 $object_class_name = $obj['objectClassName'];
