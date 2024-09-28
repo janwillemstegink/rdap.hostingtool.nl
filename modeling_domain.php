@@ -157,6 +157,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("emergency_web_id").textContent = proposed;
 		document.getElementById("emergency_protected").textContent = derived;
 		document.getElementById("name_servers_role").textContent = "";
+		document.getElementById("br_zone").textContent = "";
 		document.getElementById("name_servers_dnssec").textContent = "";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "";
 		document.getElementById("raw_data_next").textContent = "";
@@ -212,6 +213,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("emergency_web_id").textContent = proposed;
 		document.getElementById("emergency_protected").textContent = derived;
 		document.getElementById("name_servers_role").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
+		document.getElementById("br_zone").textContent = "Zone .br: De RDAP-gegevens zijn aangepast met naamservervalidatie.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
 		document.getElementById("raw_data_next").textContent = "US/EU: Een volgend volwassen RDAP-formaat vraagt om unieke veldnamen, vaste veldvolgorde, leesbaarheid en passend 'non-public'.";		
@@ -267,6 +269,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("emergency_web_id").textContent = proposed;
 		document.getElementById("emergency_protected").textContent = derived;		
 		document.getElementById("name_servers_role").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
+		document.getElementById("br_zone").textContent = "Zone .br: The RDAP data has been modified with name server validation.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 		document.getElementById("raw_data_next").textContent = "US/EU: A next mature RDAP format requires unique field names, fixed field order, readability and appropriate 'non-public'.";
@@ -322,6 +325,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("emergency_web_id").textContent = proposed;
 		document.getElementById("emergency_protected").textContent = derived;
 		document.getElementById("name_servers_role").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
+		document.getElementById("br_zone").textContent = "Zone .br: Die RDAP-Daten wurden mit der Nameserver-Validierung angepasst.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 		document.getElementById("raw_data_next").textContent = "US/EU: Ein nächstes ausgereiftes RDAP-Format erfordert eindeutige Feldnamen, eine feste Feldreihenfolge, Lesbarkeit und entsprechende 'non-public'.";
@@ -329,6 +333,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 4)	{
 		var proposed = 'PROPOSÉ - ';
 		var derived = proposed + 'Données non publiques';
+		var adjustment = 'Ajustement';
 		document.getElementById("title").textContent = "Modèle d'informations de domaine";
 		document.getElementById("instruction").textContent = "Collez un nom de domaine et appuyez sur Entrée.";
 		document.getElementById("field").textContent = "Description";
@@ -377,6 +382,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("emergency_web_id").textContent = proposed;
 		document.getElementById("emergency_protected").textContent = derived;		
 		document.getElementById("name_servers_role").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
+		document.getElementById("br_zone").textContent = "Zone .br: Les données RDAP ont été ajustées avec la validation du serveur de noms.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 		document.getElementById("raw_data_next").textContent = "US/EU: Un prochain format RDAP mature nécessite des noms de champs uniques, un ordre des champs fixe, une lisibilité et un 'non-public' approprié.";
@@ -635,7 +641,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 		if (strlen(trim($item->name_servers->server_1->server_name_1)))	{
 			$html_text .= '<tr id="621" style="display:none"><td>server_name_1</td><td>'.$item->name_servers->server_1->server_name_1.'</td><td></td></tr>';
 			$html_text .= '<tr id="622" style="display:none"><td>server_name_unicode_1</td><td>'.$item->name_servers->server_1->server_name_unicode_1.'</td><td></td></tr>';
-			$html_text .= '<tr id="623" style="display:none"><td>server_delegation_check_1</td><td>'.$item->name_servers->server_1->server_delegation_check_1.'</td><td></td></tr>';
+			$html_text .= '<tr id="623" style="display:none"><td>server_delegation_check_1</td><td>'.$item->name_servers->server_1->server_delegation_check_1.'</td><td id="br_zone"></td></tr>';
 			$html_text .= '<tr id="624" style="display:none"><td>server_status_1</td><td>'.$item->name_servers->server_1->server_status_1.'</td><td></td></tr>';
 			$html_text .= '<tr id="625" style="display:none"><td>server_delegation_check_last_correct_1</td><td>'.$item->name_servers->server_1->server_delegation_check_last_correct_1.'</td><td></td></tr>';
 			$html_text .= '<tr id="626" style="display:none"><td>server_ipv4_1</td><td>'.$item->name_servers->server_1->server_ipv4_1.'</td><td></td></tr>';
