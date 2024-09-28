@@ -156,7 +156,7 @@ $properties = '';
 $expiration = '(non-public)';	
 $last_changed = '';
 $last_transferred = '';
-$deletion = '(not applicable)';
+$deletion = '(no deletion)';
 $registrar_iana_id = $obj['entities'][0]['publicIds'][0]['identifier'];	
 $handle = $obj['handle']; 	
 $name = $obj['ldhName'];
@@ -653,7 +653,7 @@ if (str_contains($properties, 'redemption period') or str_contains($properties, 
 	if ($billing_email == '(non-public)')	{
 		$billing_email = '(no email due to scheduled deletion)';		
 	}		
-	if ($deletion == '(not applicable)')	{
+	if ($deletion == '(no deletion)')	{
 		$deletion = '(no date/time provided for re-registration)';	
 	}		
 }
