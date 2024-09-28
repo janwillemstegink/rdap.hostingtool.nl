@@ -1,5 +1,5 @@
 <?php
-//$_GET['domain'] = 'hostingtool.nl';
+//$_GET['domain'] = 'registro.br';
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
 		$domain = trim($_GET['domain']);
@@ -52,7 +52,7 @@ foreach($rdap as $key1 => $value1) {
 		}
 	}
 }
-//die($temp_tld . ' - ' . $url);	
+
 if (!$matched)	{	
 	switch ($zone_top_level_domain) {
 		case 'nl':
@@ -247,7 +247,25 @@ $server_ipv6_4 = $obj['nameservers'][3]['ipAddresses']['v6'][0];
 $server_ipv4_5 = $obj['nameservers'][4]['ipAddresses']['v4'][0];
 $server_ipv6_5 = $obj['nameservers'][4]['ipAddresses']['v6'][0];
 $server_ipv4_6 = $obj['nameservers'][5]['ipAddresses']['v4'][0];
-$server_ipv6_6 = $obj['nameservers'][5]['ipAddresses']['v6'][0];	
+$server_ipv6_6 = $obj['nameservers'][5]['ipAddresses']['v6'][0];
+$server_delegation_check_1 = '';	
+$server_delegation_check_2 = '';
+$server_delegation_check_3 = '';
+$server_delegation_check_4 = '';
+$server_delegation_check_5 = '';
+$server_delegation_check_6 = '';
+$server_status_1 = '';
+$server_status_2 = '';
+$server_status_3 = '';
+$server_status_4 = '';
+$server_status_5 = '';
+$server_status_6 = '';	
+$server_delegation_check_last_correct_1 = '';
+$server_delegation_check_last_correct_2 = '';
+$server_delegation_check_last_correct_3 = '';
+$server_delegation_check_last_correct_4 = '';
+$server_delegation_check_last_correct_5 = '';
+$server_delegation_check_last_correct_6 = '';	
 	
 $registrar_abuse_email = '(no point of contact)';
 $entity_registrar = -1;	
@@ -257,7 +275,8 @@ $entity_registrant = -1;
 $entity_admin = -1;
 $entity_tech = -1;
 	
-$raw_data = '';	
+$raw_data = '';
+	
 foreach($obj as $key1 => $value1) {
 	$raw_data .= $key1 . ': ' . $value1 . '<br />';
     foreach($value1 as $key2 => $value2) {
@@ -326,7 +345,7 @@ foreach($obj as $key1 => $value1) {
 				elseif ($key3 == 'eventAction' and $value3 == 'transfer')	{
 					$last_transferred = $value2['eventDate'];
 				}				
-			}
+			}			
 			if ($key1 == 'entities' and $key3 == 'handle')	{
 				if ($key2 == $entity_registrar)	{
 					$registrar_handle = $value3;
@@ -346,9 +365,112 @@ foreach($obj as $key1 => $value1) {
 			}
 			foreach($value3 as $key4 => $value4) {
 				foreach($value4 as $key5 => $value5) {
+					if ($key1 == 'nameservers')	{
+						if ($key2 == 0)	{
+							if ($key3 == 'events')	{
+								if ($key4 == 0)	{	
+									if ($key5 == 'eventAction' and $value5 == 'delegation check')	{
+										$server_delegation_check_1 = $value4['eventDate'];
+									}
+									if ($key5 == 'status')	{
+										$server_status_1 = $value5[0];	
+									}
+								}	
+								elseif ($key4 == 1)	{	
+									if ($key5 == 'eventAction' and $value5 == 'last correct delegation check')	{
+										$server_delegation_check_last_correct_1 = $value4['eventDate'];
+									}	
+								}		
+							}	
+						}
+						elseif ($key2 == 1)	{
+							if ($key3 == 'events')	{
+								if ($key4 == 0)	{	
+									if ($key5 == 'eventAction' and $value5 == 'delegation check')	{
+										$server_delegation_check_2 = $value4['eventDate'];
+									}
+									if ($key5 == 'status')	{
+										$server_status_2 = $value5[0];	
+									}
+								}	
+								elseif ($key4 == 1)	{	
+									if ($key5 == 'eventAction' and $value5 == 'last correct delegation check')	{
+										$server_delegation_check_last_correct_2 = $value4['eventDate'];
+									}	
+								}		
+							}	
+						}
+						elseif ($key2 == 2)	{
+							if ($key3 == 'events')	{
+								if ($key4 == 0)	{	
+									if ($key5 == 'eventAction' and $value5 == 'delegation check')	{
+										$server_delegation_check_3 = $value4['eventDate'];
+									}
+									if ($key5 == 'status')	{
+										$server_status_3 = $value5[0];	
+									}
+								}	
+								elseif ($key4 == 1)	{	
+									if ($key5 == 'eventAction' and $value5 == 'last correct delegation check')	{
+										$server_delegation_check_last_correct_3 = $value4['eventDate'];
+									}	
+								}		
+							}	
+						}
+						elseif ($key2 == 3)	{
+							if ($key3 == 'events')	{
+								if ($key4 == 0)	{	
+									if ($key5 == 'eventAction' and $value5 == 'delegation check')	{
+										$server_delegation_check_4 = $value4['eventDate'];
+									}
+									if ($key5 == 'status')	{
+										$server_status_4 = $value5[0];	
+									}
+								}	
+								elseif ($key4 == 1)	{	
+									if ($key5 == 'eventAction' and $value5 == 'last correct delegation check')	{
+										$server_delegation_check_last_correct_4 = $value4['eventDate'];
+									}	
+								}		
+							}	
+						}
+						elseif ($key2 == 4)	{
+							if ($key3 == 'events')	{
+								if ($key4 == 0)	{	
+									if ($key5 == 'eventAction' and $value5 == 'delegation check')	{
+										$server_delegation_check_5 = $value4['eventDate'];
+									}
+									if ($key5 == 'status')	{
+										$server_status_5 = $value5[0];	
+									}
+								}	
+								elseif ($key4 == 1)	{	
+									if ($key5 == 'eventAction' and $value5 == 'last correct delegation check')	{
+										$server_delegation_check_last_correct_5 = $value4['eventDate'];
+									}	
+								}		
+							}	
+						}
+						elseif ($key2 == 5)	{
+							if ($key3 == 'events')	{
+								if ($key4 == 0)	{	
+									if ($key5 == 'eventAction' and $value5 == 'delegation check')	{
+										$server_delegation_check_6 = $value4['eventDate'];
+									}
+									if ($key5 == 'status')	{
+										$server_status_6 = $value5[0];	
+									}
+								}	
+								elseif ($key4 == 1)	{	
+									if ($key5 == 'eventAction' and $value5 == 'last correct delegation check')	{
+										$server_delegation_check_last_correct_6 = $value4['eventDate'];
+									}	
+								}		
+							}	
+						}
+					}
 					foreach($value5 as $key6 => $value6) {
 						if ($key1 == 'entities' and $key3 == 'handle')	{
-							die($value3.'_'.$value4.'_'.$value5.'_'.$value6);
 							if ($key2 == $entity_registrar)	{
 								$registrar_handle = $value4['value'];
 							}
@@ -534,7 +656,8 @@ if (str_contains($properties, 'redemption period') or str_contains($properties, 
 	if ($deletion == '(not applicable)')	{
 		$deletion = '(no date/time provided for re-registration)';	
 	}		
-}	
+}
+//die($server_delegation_check_1);
 $doc = new DOMDocument("1.0", "UTF-8");
 $doc->xmlStandalone = true;	
 $doc->formatOutput = true;		
@@ -711,21 +834,21 @@ $domain->appendChild($domain_status_properties);
 $domain_event_registration = $doc->createElement("domain_event_registration");
 $domain_event_registration->appendChild($doc->createCDATASection($registration));	
 $domain->appendChild($domain_event_registration);
-$domain_event_expiration = $doc->createElement("domain_event_expiration");
-$domain_event_expiration->appendChild($doc->createCDATASection($expiration));	
-$domain->appendChild($domain_event_expiration);
-$domain_event_last_uploaded = $doc->createElement("domain_event_last_uploaded");
-$domain_event_last_uploaded->appendChild($doc->createCDATASection($last_uploaded));	
-$domain->appendChild($domain_event_last_uploaded);	
-$domain_event_deletion = $doc->createElement("domain_event_deletion");
-$domain_event_deletion->appendChild($doc->createCDATASection($deletion));	
-$domain->appendChild($domain_event_deletion);
+$domain_event_last_transferred = $doc->createElement("domain_event_last_transferred");
+$domain_event_last_transferred->appendChild($doc->createCDATASection($last_transferred));	
+$domain->appendChild($domain_event_last_transferred);
 $domain_event_last_changed = $doc->createElement("domain_event_last_changed");
 $domain_event_last_changed->appendChild($doc->createCDATASection($last_changed));	
 $domain->appendChild($domain_event_last_changed);	
-$domain_event_last_transferred = $doc->createElement("domain_event_last_transferred");
-$domain_event_last_transferred->appendChild($doc->createCDATASection($last_transferred));	
-$domain->appendChild($domain_event_last_transferred);		
+$domain_event_expiration = $doc->createElement("domain_event_expiration");
+$domain_event_expiration->appendChild($doc->createCDATASection($expiration));	
+$domain->appendChild($domain_event_expiration);
+$domain_event_deletion = $doc->createElement("domain_event_deletion");
+$domain_event_deletion->appendChild($doc->createCDATASection($deletion));	
+$domain->appendChild($domain_event_deletion);	
+$domain_event_last_uploaded = $doc->createElement("domain_event_last_uploaded");
+$domain_event_last_uploaded->appendChild($doc->createCDATASection($last_uploaded));	
+$domain->appendChild($domain_event_last_uploaded);				
 
 $registrar = $doc->createElement("registrar");
 $domain->appendChild($registrar);
@@ -926,8 +1049,17 @@ $domain_server_name_1 = $doc->createElement("server_name_1");
 $domain_server_name_1->appendChild($doc->createCDATASection($server_name_1));		
 $server_1->appendChild($domain_server_name_1);
 $domain_server_name_unicode_1 = $doc->createElement("server_name_unicode_1");
-$domain_server_name_unicode_1->appendChild($doc->createCDATASection($server_name_unicode_1));		
-$server_1->appendChild($domain_server_name_unicode_1);
+$domain_server_name_unicode_1->appendChild($doc->createCDATASection($server_name_unicode_1));
+$server_1->appendChild($domain_server_name_unicode_1);	
+$domain_server_delegation_check_1 = $doc->createElement("server_delegation_check_1");
+$domain_server_delegation_check_1->appendChild($doc->createCDATASection($server_delegation_check_1));		
+$server_1->appendChild($domain_server_delegation_check_1);
+$domain_server_status_1 = $doc->createElement("server_status_1");
+$domain_server_status_1->appendChild($doc->createCDATASection($server_status_1));		
+$server_1->appendChild($domain_server_status_1);		
+$domain_server_delegation_check_last_correct_1 = $doc->createElement("server_delegation_check_last_correct_1");
+$domain_server_delegation_check_last_correct_1->appendChild($doc->createCDATASection($server_delegation_check_last_correct_1));		
+$server_1->appendChild($domain_server_delegation_check_last_correct_1);	
 $domain_server_ipv4_1 = $doc->createElement("server_ipv4_1");
 $domain_server_ipv4_1->appendChild($doc->createCDATASection($server_ipv4_1));		
 $server_1->appendChild($domain_server_ipv4_1);
@@ -944,6 +1076,15 @@ $server_2->appendChild($domain_server_name_2);
 $domain_server_name_unicode_2 = $doc->createElement("server_name_unicode_2");
 $domain_server_name_unicode_2->appendChild($doc->createCDATASection($server_name_unicode_2));		
 $server_2->appendChild($domain_server_name_unicode_2);
+$domain_server_delegation_check_2 = $doc->createElement("server_delegation_check_2");
+$domain_server_delegation_check_2->appendChild($doc->createCDATASection($server_delegation_check_2));		
+$server_2->appendChild($domain_server_delegation_check_2);
+$domain_server_status_2 = $doc->createElement("server_status_2");
+$domain_server_status_2->appendChild($doc->createCDATASection($server_status_2));		
+$server_2->appendChild($domain_server_status_2);		
+$domain_server_delegation_check_last_correct_2 = $doc->createElement("server_delegation_check_last_correct_2");
+$domain_server_delegation_check_last_correct_2->appendChild($doc->createCDATASection($server_delegation_check_last_correct_2));		
+$server_2->appendChild($domain_server_delegation_check_last_correct_2);	
 $domain_server_ipv4_2 = $doc->createElement("server_ipv4_2");
 $domain_server_ipv4_2->appendChild($doc->createCDATASection($server_ipv4_2));		
 $server_2->appendChild($domain_server_ipv4_2);
@@ -960,6 +1101,15 @@ $server_3->appendChild($domain_server_name_3);
 $domain_server_name_unicode_3 = $doc->createElement("server_name_unicode_3");
 $domain_server_name_unicode_3->appendChild($doc->createCDATASection($server_name_unicode_3));		
 $server_3->appendChild($domain_server_name_unicode_3);
+$domain_server_delegation_check_3 = $doc->createElement("server_delegation_check_3");
+$domain_server_delegation_check_3->appendChild($doc->createCDATASection($server_delegation_check_3));		
+$server_3->appendChild($domain_server_delegation_check_3);
+$domain_server_status_3 = $doc->createElement("server_status_3");
+$domain_server_status_3->appendChild($doc->createCDATASection($server_status_3));		
+$server_3->appendChild($domain_server_status_3);		
+$domain_server_delegation_check_last_correct_3 = $doc->createElement("server_delegation_check_last_correct_3");
+$domain_server_delegation_check_last_correct_3->appendChild($doc->createCDATASection($server_delegation_check_last_correct_3));		
+$server_3->appendChild($domain_server_delegation_check_last_correct_3);	
 $domain_server_ipv4_3 = $doc->createElement("server_ipv4_3");
 $domain_server_ipv4_3->appendChild($doc->createCDATASection($server_ipv4_3));		
 $server_3->appendChild($domain_server_ipv4_3);
@@ -967,6 +1117,7 @@ $domain_server_ipv6_3 = $doc->createElement("server_ipv6_3");
 $domain_server_ipv6_3->appendChild($doc->createCDATASection($server_ipv6_3));		
 $server_3->appendChild($domain_server_ipv6_3);		
 $name_servers->appendChild($server_3);
+	
 $server_4 = $doc->createElement("server_4");
 $name_servers->appendChild($server_4);	
 $domain_server_name_4 = $doc->createElement("server_name_4");
@@ -975,6 +1126,15 @@ $server_4->appendChild($domain_server_name_4);
 $domain_server_name_unicode_4 = $doc->createElement("server_name_unicode_4");
 $domain_server_name_unicode_4->appendChild($doc->createCDATASection($server_name_unicode_4));		
 $server_4->appendChild($domain_server_name_unicode_4);
+$domain_server_delegation_check_4 = $doc->createElement("server_delegation_check_4");
+$domain_server_delegation_check_4->appendChild($doc->createCDATASection($server_delegation_check_4));		
+$server_4->appendChild($domain_server_delegation_check_4);
+$domain_server_status_4 = $doc->createElement("server_status_4");
+$domain_server_status_4->appendChild($doc->createCDATASection($server_status_4));		
+$server_4->appendChild($domain_server_status_4);		
+$domain_server_delegation_check_last_correct_4 = $doc->createElement("server_delegation_check_last_correct_4");
+$domain_server_delegation_check_last_correct_4->appendChild($doc->createCDATASection($server_delegation_check_last_correct_4));		
+$server_4->appendChild($domain_server_delegation_check_last_correct_4);	
 $domain_server_ipv4_4 = $doc->createElement("server_ipv4_4");
 $domain_server_ipv4_4->appendChild($doc->createCDATASection($server_ipv4_4));		
 $server_4->appendChild($domain_server_ipv4_4);
@@ -982,6 +1142,7 @@ $domain_server_ipv6_4 = $doc->createElement("server_ipv6_4");
 $domain_server_ipv6_4->appendChild($doc->createCDATASection($server_ipv6_4));		
 $server_4->appendChild($domain_server_ipv6_4);		
 $name_servers->appendChild($server_4);
+	
 $server_5 = $doc->createElement("server_5");
 $name_servers->appendChild($server_5);	
 $domain_server_name_5 = $doc->createElement("server_name_5");
@@ -990,9 +1151,18 @@ $server_5->appendChild($domain_server_name_5);
 $domain_server_name_unicode_5 = $doc->createElement("server_name_unicode_5");
 $domain_server_name_unicode_5->appendChild($doc->createCDATASection($server_name_unicode_5));		
 $server_5->appendChild($domain_server_name_unicode_5);
-$domain_server_ipv5_5 = $doc->createElement("server_ipv5_5");
-$domain_server_ipv5_5->appendChild($doc->createCDATASection($server_ipv5_5));		
-$server_5->appendChild($domain_server_ipv5_5);
+$domain_server_delegation_check_5 = $doc->createElement("server_delegation_check_5");
+$domain_server_delegation_check_5->appendChild($doc->createCDATASection($server_delegation_check_5));		
+$server_5->appendChild($domain_server_delegation_check_5);
+$domain_server_status_5 = $doc->createElement("server_status_5");
+$domain_server_status_5->appendChild($doc->createCDATASection($server_status_5));		
+$server_5->appendChild($domain_server_status_5);		
+$domain_server_delegation_check_last_correct_5 = $doc->createElement("server_delegation_check_last_correct_5");
+$domain_server_delegation_check_last_correct_5->appendChild($doc->createCDATASection($server_delegation_check_last_correct_5));		
+$server_5->appendChild($domain_server_delegation_check_last_correct_5);	
+$domain_server_ipv4_5 = $doc->createElement("server_ipv4_5");
+$domain_server_ipv4_5->appendChild($doc->createCDATASection($server_ipv4_5));		
+$server_5->appendChild($domain_server_ipv4_5);
 $domain_server_ipv6_5 = $doc->createElement("server_ipv6_5");
 $domain_server_ipv6_5->appendChild($doc->createCDATASection($server_ipv6_5));		
 $server_5->appendChild($domain_server_ipv6_5);		
@@ -1005,9 +1175,18 @@ $server_6->appendChild($domain_server_name_6);
 $domain_server_name_unicode_6 = $doc->createElement("server_name_unicode_6");
 $domain_server_name_unicode_6->appendChild($doc->createCDATASection($server_name_unicode_6));		
 $server_6->appendChild($domain_server_name_unicode_6);
-$domain_server_ipv6_6 = $doc->createElement("server_ipv6_6");
-$domain_server_ipv6_6->appendChild($doc->createCDATASection($server_ipv6_6));		
-$server_6->appendChild($domain_server_ipv6_6);
+$domain_server_delegation_check_6 = $doc->createElement("server_delegation_check_6");
+$domain_server_delegation_check_6->appendChild($doc->createCDATASection($server_delegation_check_6));		
+$server_6->appendChild($domain_server_delegation_check_6);
+$domain_server_status_6 = $doc->createElement("server_status_6");
+$domain_server_status_6->appendChild($doc->createCDATASection($server_status_6));		
+$server_6->appendChild($domain_server_status_6);		
+$domain_server_delegation_check_last_correct_6 = $doc->createElement("server_delegation_check_last_correct_6");
+$domain_server_delegation_check_last_correct_6->appendChild($doc->createCDATASection($server_delegation_check_last_correct_6));		
+$server_6->appendChild($domain_server_delegation_check_last_correct_6);
+$domain_server_ipv4_6 = $doc->createElement("server_ipv4_6");
+$domain_server_ipv4_6->appendChild($doc->createCDATASection($server_ipv4_6));		
+$server_6->appendChild($domain_server_ipv4_6);
 $domain_server_ipv6_6 = $doc->createElement("server_ipv6_6");
 $domain_server_ipv6_6->appendChild($doc->createCDATASection($server_ipv6_6));		
 $server_6->appendChild($domain_server_ipv6_6);		
