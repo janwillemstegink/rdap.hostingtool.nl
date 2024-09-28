@@ -216,7 +216,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("br_zone").textContent = "Zone .br: De RDAP-gegevens zijn aangepast met naamservervalidatie.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
-		document.getElementById("raw_data_next").textContent = "US/EU: Een volgend volwassen RDAP-formaat vraagt om unieke veldnamen, vaste veldvolgorde, leesbaarheid en passend 'non-public'.";		
+		document.getElementById("raw_data_next").textContent = "VS/EU kunnen een vaste veldvolgorde, een standaardwaarde van 'non-public' en unieke veldnamen voor weergave kiezen.";	
 	}
 	else if (translation == 2)	{
 		var proposed = 'PROPOSED - ';
@@ -272,7 +272,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("br_zone").textContent = "Zone .br: The RDAP data has been modified with name server validation.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
-		document.getElementById("raw_data_next").textContent = "US/EU: A next mature RDAP format requires unique field names, fixed field order, readability and appropriate 'non-public'.";
+		document.getElementById("raw_data_next").textContent = "US/EU can choose fixed field order, a default value of 'non-public', and unique field names for display.";
 	}
 	else if (translation == 3)	{
 		var proposed = 'VORGESCHLAGEN - ';
@@ -328,7 +328,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("br_zone").textContent = "Zone .br: Die RDAP-Daten wurden mit der Nameserver-Validierung angepasst.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
-		document.getElementById("raw_data_next").textContent = "US/EU: Ein nächstes ausgereiftes RDAP-Format erfordert eindeutige Feldnamen, eine feste Feldreihenfolge, Lesbarkeit und entsprechende 'non-public'.";
+		document.getElementById("raw_data_next").textContent = "Die USA/EU können eine feste Feldreihenfolge, einen Standardwert 'non-public' und eindeutige Feldnamen für die Anzeige wählen.";
 	}
 	else if (translation == 4)	{
 		var proposed = 'PROPOSÉ - ';
@@ -385,7 +385,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("br_zone").textContent = "Zone .br: Les données RDAP ont été ajustées avec la validation du serveur de noms.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
-		document.getElementById("raw_data_next").textContent = "US/EU: Un prochain format RDAP mature nécessite des noms de champs uniques, un ordre des champs fixe, une lisibilité et un 'non-public' approprié.";
+		document.getElementById("raw_data_next").textContent = "Les États-Unis et l'UE peuvent choisir un ordre de champ fixe, une valeur par défaut 'non-public' et des noms de champ uniques pour l'affichage.";
 	}
 }	
 </script><?php
