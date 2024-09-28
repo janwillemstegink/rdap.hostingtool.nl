@@ -156,10 +156,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("emergency_role").textContent = "";
 		document.getElementById("emergency_web_id").textContent = proposed;
 		document.getElementById("emergency_protected").textContent = derived;
-		document.getElementById("name_servers_role").textContent = "";
-		document.getElementById("br_zone").textContent = "";
 		document.getElementById("name_servers_dnssec").textContent = "";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "";
+		document.getElementById("name_servers_ip").textContent = "";
+		document.getElementById("br_zone").textContent = "";
 		document.getElementById("raw_data_next").textContent = "";
 	}
 	else if (translation == 1)	{
@@ -212,10 +212,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("emergency_role").textContent = proposed + "Een verantwoordelijke persoon kan de benodigde toegang verlenen.";
 		document.getElementById("emergency_web_id").textContent = proposed;
 		document.getElementById("emergency_protected").textContent = derived;
-		document.getElementById("name_servers_role").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
-		document.getElementById("br_zone").textContent = "Zone .br: De RDAP-gegevens zijn aangepast met naamservervalidatie.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
+		document.getElementById("name_servers_ip").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
+		document.getElementById("br_zone").textContent = "Zone .br: De RDAP-gegevens zijn aangepast met nameservervalidatie.";
+
 		document.getElementById("raw_data_next").textContent = "VS/EU kunnen een vaste veldvolgorde, een standaardwaarde van 'non-public' en unieke veldnamen voor weergave kiezen.";	
 	}
 	else if (translation == 2)	{
@@ -267,11 +268,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("billing_protected").textContent = derived;
 		document.getElementById("emergency_role").textContent = proposed + "A responsible person can provide the necessary access.";
 		document.getElementById("emergency_web_id").textContent = proposed;
-		document.getElementById("emergency_protected").textContent = derived;		
-		document.getElementById("name_servers_role").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
-		document.getElementById("br_zone").textContent = "Zone .br: The RDAP data has been modified with name server validation.";
+		document.getElementById("emergency_protected").textContent = derived;
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
+		document.getElementById("name_servers_ip").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
+		document.getElementById("br_zone").textContent = "Zone .br: The RDAP data has been modified with name server validation.";
 		document.getElementById("raw_data_next").textContent = "US/EU can choose fixed field order, a default value of 'non-public', and unique field names for display.";
 	}
 	else if (translation == 3)	{
@@ -324,10 +325,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("emergency_role").textContent = proposed + "Die erforderlichen Zugänge kann eine verantwortliche Person bereitstellen.";
 		document.getElementById("emergency_web_id").textContent = proposed;
 		document.getElementById("emergency_protected").textContent = derived;
-		document.getElementById("name_servers_role").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
-		document.getElementById("br_zone").textContent = "Zone .br: Die RDAP-Daten wurden mit der Nameserver-Validierung angepasst.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
+		document.getElementById("name_servers_ip").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
+		document.getElementById("br_zone").textContent = "Zone .br: Die RDAP-Daten wurden mit der Nameserver-Validierung angepasst.";
 		document.getElementById("raw_data_next").textContent = "Die USA/EU können eine feste Feldreihenfolge, einen Standardwert 'non-public' und eindeutige Feldnamen für die Anzeige wählen.";
 	}
 	else if (translation == 4)	{
@@ -380,11 +381,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("billing_protected").textContent = derived;
 		document.getElementById("emergency_role").textContent = proposed + "Une personne responsable peut fournir l'accès nécessaire.";
 		document.getElementById("emergency_web_id").textContent = proposed;
-		document.getElementById("emergency_protected").textContent = derived;		
-		document.getElementById("name_servers_role").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
-		document.getElementById("br_zone").textContent = "Zone .br: Les données RDAP ont été ajustées avec la validation du serveur de noms.";
+		document.getElementById("emergency_protected").textContent = derived;
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
+		document.getElementById("name_servers_ip").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
+		document.getElementById("br_zone").textContent = "Zone .br: Les données RDAP ont été ajustées avec la validation du serveur de noms.";
 		document.getElementById("raw_data_next").textContent = "Les États-Unis et l'UE peuvent choisir un ordre de champ fixe, une valeur par défaut 'non-public' et des noms de champ uniques pour l'affichage.";
 	}
 }	
@@ -494,7 +495,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(30)">domain +/-</button></td><td><b>'.$item->domain_name.'</b></td><td id="domain_role"></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>domain_handle</td><td>'.$item->domain_handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="302" style="display:none"><td>domain_name_unicode</td><td>'.$item->domain_name_unicode.'</td><td id="domain_name_unicode"></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(31)">events / status +/-</button></td><td></td><td id="events_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(31)">events + status +/-</button></td><td></td><td id="events_role"></td></tr>';
 	$html_text .= '<tr id="311" style="display:none;vertical-align:top"><td>domain_event_registration</td><td>'.$item->domain_event_registration.'</td><td></td></tr>';
 	$html_text .= '<tr id="312" style="display:none"><td>domain_event_verification_requested</td><td>'.$item->domain_event_verification_requested.'</td><td id="domain_event_verification_requested"></td></tr>';
 	$html_text .= '<tr id="313" style="display:none"><td>domain_event_verification_recorded</td><td>'.$item->domain_event_verification_recorded.'</td><td id="domain_event_verification_recorded"></td></tr>';
@@ -636,75 +637,75 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="611" style="display:none"><td>registrar_abuse_phone</td><td>'.$item->registrar->registrar_abuse_phone.'</td><td></td></tr>';
 	$html_text .= '<tr><td>registrar_abuse_email</td><td>'.$item->registrar->registrar_abuse_email.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(62)">name servers +/-</button></td><td></td><td id="name_servers_role"></td></tr>';
-	if (!empty($item->name_servers->server_1->server_name_1))	{
-		if (strlen(trim($item->name_servers->server_1->server_name_1)))	{
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(62)">name servers +/-</button></td><td></td><td></td></tr>';
+	$html_text .= '<tr><td>name_servers_dnssec</td><td>'.$item->name_servers->name_servers_dnssec.'</td><td id="name_servers_dnssec"></td></tr>';
+	$html_text .= '<tr><td>name_servers_dnssec_algorithm</td><td>'.$item->name_servers->name_servers_dnssec_algorithm.'</td><td id="name_servers_dnssec_algorithm"></td></tr>';
+	//if (!empty($item->name_servers->server_1->server_name_1))	{
+	//	if (strlen(trim($item->name_servers->server_1->server_name_1)))	{
 			$html_text .= '<tr id="621" style="display:none"><td>server_name_1</td><td>'.$item->name_servers->server_1->server_name_1.'</td><td></td></tr>';
 			$html_text .= '<tr id="622" style="display:none"><td>server_name_unicode_1</td><td>'.$item->name_servers->server_1->server_name_unicode_1.'</td><td></td></tr>';
-			$html_text .= '<tr id="623" style="display:none"><td>server_delegation_check_1</td><td>'.$item->name_servers->server_1->server_delegation_check_1.'</td><td id="br_zone"></td></tr>';
-			$html_text .= '<tr id="624" style="display:none"><td>server_status_1</td><td>'.$item->name_servers->server_1->server_status_1.'</td><td></td></tr>';
-			$html_text .= '<tr id="625" style="display:none"><td>server_delegation_check_last_correct_1</td><td>'.$item->name_servers->server_1->server_delegation_check_last_correct_1.'</td><td></td></tr>';
-			$html_text .= '<tr id="626" style="display:none"><td>server_ipv4_1</td><td>'.$item->name_servers->server_1->server_ipv4_1.'</td><td></td></tr>';
-			$html_text .= '<tr id="627" style="display:none"><td>server_ipv6_1</td><td>'.$item->name_servers->server_1->server_ipv6_1.'</td><td></td></tr>';
-		}	
-	}
+			$html_text .= '<tr id="623" style="display:none"><td>server_ipv4_1</td><td>'.$item->name_servers->server_1->server_ipv4_1.'</td><td id="name_servers_ip"></td></tr>';
+			$html_text .= '<tr id="624" style="display:none"><td>server_ipv6_1</td><td>'.$item->name_servers->server_1->server_ipv6_1.'</td><td></td></tr>';
+			$html_text .= '<tr id="625" style="display:none"><td>server_delegation_check_1</td><td>'.$item->name_servers->server_1->server_delegation_check_1.'</td><td id="br_zone"></td></tr>';
+			$html_text .= '<tr id="626" style="display:none"><td>server_status_1</td><td>'.$item->name_servers->server_1->server_status_1.'</td><td></td></tr>';
+			$html_text .= '<tr id="627" style="display:none"><td>server_delegation_check_last_correct_1</td><td>'.$item->name_servers->server_1->server_delegation_check_last_correct_1.'</td><td></td></tr>';	
+	//	}	
+	//}
 	if (!empty($item->name_servers->server_1->server_name_1))	{		
 		if (strlen(trim($item->name_servers->server_1->server_name_1)))	{
 			$html_text .= '<tr id="628" style="display:none"><td>server_name_2</td><td>'.$item->name_servers->server_2->server_name_2.'</td><td></td></tr>';
-			$html_text .= '<tr id="629" style="display:none"><td>server_name_unicode_2</td><td>'.$item->name_servers->server_2->server_name_unicode_2.'</td><td></td></tr>';
-			$html_text .= '<tr id="6210" style="display:none"><td>server_delegation_check_2</td><td>'.$item->name_servers->server_2->server_delegation_check_2.'</td><td></td></tr>';
-			$html_text .= '<tr id="6211" style="display:none"><td>server_status_2</td><td>'.$item->name_servers->server_2->server_status_2.'</td><td></td></tr>';
-			$html_text .= '<tr id="6212" style="display:none"><td>server_delegation_check_last_correct_2</td><td>'.$item->name_servers->server_2->server_delegation_check_last_correct_2.'</td><td></td></tr>';			
-			$html_text .= '<tr id="6213" style="display:none"><td>server_ipv4_2</td><td>'.$item->name_servers->server_2->server_ipv4_2.'</td><td></td></tr>';
-			$html_text .= '<tr id="6214" style="display:none"><td>server_ipv6_2</td><td>'.$item->name_servers->server_2->server_ipv6_2.'</td><td></td></tr>';
+			$html_text .= '<tr id="629" style="display:none"><td>server_name_unicode_2</td><td>'.$item->name_servers->server_2->server_name_unicode_2.'</td><td></td></tr>';		
+			$html_text .= '<tr id="6210" style="display:none"><td>server_ipv4_2</td><td>'.$item->name_servers->server_2->server_ipv4_2.'</td><td></td></tr>';
+			$html_text .= '<tr id="6211" style="display:none"><td>server_ipv6_2</td><td>'.$item->name_servers->server_2->server_ipv6_2.'</td><td></td></tr>';
+			$html_text .= '<tr id="6212" style="display:none"><td>server_delegation_check_2</td><td>'.$item->name_servers->server_2->server_delegation_check_2.'</td><td></td></tr>';
+			$html_text .= '<tr id="6213" style="display:none"><td>server_status_2</td><td>'.$item->name_servers->server_2->server_status_2.'</td><td></td></tr>';
+			$html_text .= '<tr id="6214" style="display:none"><td>server_delegation_check_last_correct_2</td><td>'.$item->name_servers->server_2->server_delegation_check_last_correct_2.'</td><td></td></tr>';
 		}	
 	}
 	if (!empty($item->name_servers->server_3->server_name_3))	{
 		if (strlen(trim($item->name_servers->server_3->server_name_3)))	{
 			$html_text .= '<tr id="6215" style="display:none"><td>server_name_3</td><td>'.$item->name_servers->server_3->server_name_3.'</td><td></td></tr>';
 			$html_text .= '<tr id="6216" style="display:none"><td>server_name_unicode_3</td><td>'.$item->name_servers->server_3->server_name_unicode_3.'</td><td></td></tr>';
-			$html_text .= '<tr id="6217" style="display:none"><td>server_delegation_check_3</td><td>'.$item->name_servers->server_3->server_delegation_check_3.'</td><td></td></tr>';
-			$html_text .= '<tr id="6218" style="display:none"><td>server_status_3</td><td>'.$item->name_servers->server_3->server_status_3.'</td><td></td></tr>';
-			$html_text .= '<tr id="6219" style="display:none"><td>server_delegation_check_last_correct_3</td><td>'.$item->name_servers->server_3->server_delegation_check_last_correct_3.'</td><td></td></tr>';			
-			$html_text .= '<tr id="6220" style="display:none"><td>server_ipv4_3</td><td>'.$item->name_servers->server_3->server_ipv4_3.'</td><td></td></tr>';
-			$html_text .= '<tr id="6221" style="display:none"><td>server_ipv6_3</td><td>'.$item->name_servers->server_3->server_ipv6_3.'</td><td></td></tr>';
+			$html_text .= '<tr id="6217" style="display:none"><td>server_ipv4_3</td><td>'.$item->name_servers->server_3->server_ipv4_3.'</td><td></td></tr>';
+			$html_text .= '<tr id="6218" style="display:none"><td>server_ipv6_3</td><td>'.$item->name_servers->server_3->server_ipv6_3.'</td><td></td></tr>';
+			$html_text .= '<tr id="6219" style="display:none"><td>server_delegation_check_3</td><td>'.$item->name_servers->server_3->server_delegation_check_3.'</td><td></td></tr>';
+			$html_text .= '<tr id="6220" style="display:none"><td>server_status_3</td><td>'.$item->name_servers->server_3->server_status_3.'</td><td></td></tr>';
+			$html_text .= '<tr id="6221" style="display:none"><td>server_delegation_check_last_correct_3</td><td>'.$item->name_servers->server_3->server_delegation_check_last_correct_3.'</td><td></td></tr>';				
 		}	
 	}
 	if (!empty($item->name_servers->server_4->server_name_4))	{	
 		if (strlen(trim($item->name_servers->server_4->server_name_4)))	{
 			$html_text .= '<tr id="6222" style="display:none"><td>server_name_4</td><td>'.$item->name_servers->server_4->server_name_4.'</td><td></td></tr>';
-			$html_text .= '<tr id="6223" style="display:none"><td>server_name_unicode_4</td><td>'.$item->name_servers->server_4->server_name_unicode_4.'</td><td></td></tr>';
-			$html_text .= '<tr id="6224" style="display:none"><td>server_delegation_check_4</td><td>'.$item->name_servers->server_4->server_delegation_check_4.'</td><td></td></tr>';
-			$html_text .= '<tr id="6225" style="display:none"><td>server_status_4</td><td>'.$item->name_servers->server_4->server_status_4.'</td><td></td></tr>';
-			$html_text .= '<tr id="6226" style="display:none"><td>server_delegation_check_last_correct_4</td><td>'.$item->name_servers->server_4->server_delegation_check_last_correct_4.'</td><td></td></tr>';			
-			$html_text .= '<tr id="6227" style="display:none"><td>server_ipv4_4</td><td>'.$item->name_servers->server_4->server_ipv4_4.'</td><td></td></tr>';
-			$html_text .= '<tr id="6228" style="display:none"><td>server_ipv6_4</td><td>'.$item->name_servers->server_4->server_ipv6_4.'</td><td></td></tr>';
+			$html_text .= '<tr id="6223" style="display:none"><td>server_name_unicode_4</td><td>'.$item->name_servers->server_4->server_name_unicode_4.'</td><td></td></tr>';			
+			$html_text .= '<tr id="6224" style="display:none"><td>server_ipv4_4</td><td>'.$item->name_servers->server_4->server_ipv4_4.'</td><td></td></tr>';
+			$html_text .= '<tr id="6225" style="display:none"><td>server_ipv6_4</td><td>'.$item->name_servers->server_4->server_ipv6_4.'</td><td></td></tr>';
+			$html_text .= '<tr id="6226" style="display:none"><td>server_delegation_check_4</td><td>'.$item->name_servers->server_4->server_delegation_check_4.'</td><td></td></tr>';
+			$html_text .= '<tr id="6227" style="display:none"><td>server_status_4</td><td>'.$item->name_servers->server_4->server_status_4.'</td><td></td></tr>';
+			$html_text .= '<tr id="6228" style="display:none"><td>server_delegation_check_last_correct_4</td><td>'.$item->name_servers->server_4->server_delegation_check_last_correct_4.'</td><td></td></tr>';
 		}	
 	}
 	if (!empty($item->name_servers->server_5->server_name_5))	{		
 		if (strlen(trim($item->name_servers->server_5->server_name_5)))	{
 			$html_text .= '<tr id="6229" style="display:none"><td>server_name_5</td><td>'.$item->name_servers->server_5->server_name_5.'</td><td></td></tr>';
-			$html_text .= '<tr id="6230" style="display:none"><td>server_name_unicode_5</td><td>'.$item->name_servers->server_5->server_name_unicode_5.'</td><td></td></tr>';
-			$html_text .= '<tr id="6231" style="display:none"><td>server_delegation_check_5</td><td>'.$item->name_servers->server_5->server_delegation_check_5.'</td><td></td></tr>';
-			$html_text .= '<tr id="6232" style="display:none"><td>server_status_5</td><td>'.$item->name_servers->server_5->server_status_5.'</td><td></td></tr>';
-			$html_text .= '<tr id="6233" style="display:none"><td>server_delegation_check_last_correct_5</td><td>'.$item->name_servers->server_5->server_delegation_check_last_correct_5.'</td><td></td></tr>';			
-			$html_text .= '<tr id="6234" style="display:none"><td>server_ipv4_5</td><td>'.$item->name_servers->server_5->server_ipv4_5.'</td><td></td></tr>';
-			$html_text .= '<tr id="6235" style="display:none"><td>server_ipv6_5</td><td>'.$item->name_servers->server_5->server_ipv6_5.'</td><td></td></tr>';
+			$html_text .= '<tr id="6230" style="display:none"><td>server_name_unicode_5</td><td>'.$item->name_servers->server_5->server_name_unicode_5.'</td><td></td></tr>';		
+			$html_text .= '<tr id="6231" style="display:none"><td>server_ipv4_5</td><td>'.$item->name_servers->server_5->server_ipv4_5.'</td><td></td></tr>';
+			$html_text .= '<tr id="6232" style="display:none"><td>server_ipv6_5</td><td>'.$item->name_servers->server_5->server_ipv6_5.'</td><td></td></tr>';
+			$html_text .= '<tr id="6233" style="display:none"><td>server_delegation_check_5</td><td>'.$item->name_servers->server_5->server_delegation_check_5.'</td><td></td></tr>';
+			$html_text .= '<tr id="6234" style="display:none"><td>server_status_5</td><td>'.$item->name_servers->server_5->server_status_5.'</td><td></td></tr>';
+			$html_text .= '<tr id="6235" style="display:none"><td>server_delegation_check_last_correct_5</td><td>'.$item->name_servers->server_5->server_delegation_check_last_correct_5.'</td><td></td></tr>';	
 		}	
 	}
 	if (!empty($item->name_servers->server_6->server_name_6))	{
 		if (strlen(trim($item->name_servers->server_6->server_name_6)))	{
 			$html_text .= '<tr id="6236" style="display:none"><td>server_name_6</td><td>'.$item->name_servers->server_6->server_name_6.'</td><td></td></tr>';
-			$html_text .= '<tr id="6237" style="display:none"><td>server_name_unicode_6</td><td>'.$item->name_servers->server_6->server_name_unicode_6.'</td><td></td></tr>';
-			$html_text .= '<tr id="6238" style="display:none"><td>server_delegation_check_6</td><td>'.$item->name_servers->server_6->server_delegation_check_6.'</td><td></td></tr>';
-			$html_text .= '<tr id="6239" style="display:none"><td>server_status_6</td><td>'.$item->name_servers->server_6->server_status_6.'</td><td></td></tr>';
-			$html_text .= '<tr id="6240" style="display:none"><td>server_delegation_check_last_correct_6</td><td>'.$item->name_servers->server_6->server_delegation_check_last_correct_6.'</td><td></td></tr>';			
-			$html_text .= '<tr id="6241" style="display:none"><td>server_ipv4_6</td><td>'.$item->name_servers->server_6->server_ipv4_6.'</td><td></td></tr>';
-			$html_text .= '<tr id="6242" style="display:none"><td>server_ipv6_6</td><td>'.$item->name_servers->server_6->server_ipv6_6.'</td><td></td></tr>';
+			$html_text .= '<tr id="6237" style="display:none"><td>server_name_unicode_6</td><td>'.$item->name_servers->server_6->server_name_unicode_6.'</td><td></td></tr>';		
+			$html_text .= '<tr id="6238" style="display:none"><td>server_ipv4_6</td><td>'.$item->name_servers->server_6->server_ipv4_6.'</td><td></td></tr>';
+			$html_text .= '<tr id="6239" style="display:none"><td>server_ipv6_6</td><td>'.$item->name_servers->server_6->server_ipv6_6.'</td><td></td></tr>';
+			$html_text .= '<tr id="6240" style="display:none"><td>server_delegation_check_6</td><td>'.$item->name_servers->server_6->server_delegation_check_6.'</td><td></td></tr>';
+			$html_text .= '<tr id="6241" style="display:none"><td>server_status_6</td><td>'.$item->name_servers->server_6->server_status_6.'</td><td></td></tr>';
+			$html_text .= '<tr id="6242" style="display:none"><td>server_delegation_check_last_correct_6</td><td>'.$item->name_servers->server_6->server_delegation_check_last_correct_6.'</td><td></td></tr>';	
 		}	
 	}
-	$html_text .= '<tr><td>name_servers_dnssec</td><td>'.$item->name_servers->name_servers_dnssec.'</td><td id="name_servers_dnssec"></td></tr>';
-	$html_text .= '<tr><td>name_servers_dnssec_algorithm</td><td>'.$item->name_servers->name_servers_dnssec_algorithm.'</td><td id="name_servers_dnssec_algorithm"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(70)">raw data +/-</button></td><td id="raw_data_next" colspan="2"></td></tr>';
 	$html_text .= '<tr id="701" style="display:none"><td colspan="3">'.$item->raw_data.'</td></tr>';
