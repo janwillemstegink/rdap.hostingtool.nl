@@ -152,11 +152,11 @@ $view_links_1_title = $obj['links'][1]['title'];
 $view_links_1_media = $obj['links'][1]['media'];
 $view_links_1_type = $obj['links'][1]['type'];
 	
-$properties = '';
+$status_values = '';
 $expiration = '(non-public)';	
 $last_changed = '';
 $last_transferred = '';
-$deletion = '(no deletion)';
+$deletion = '(no deletion applicable)';
 $registrar_iana_id = $obj['entities'][0]['publicIds'][0]['identifier'];	
 $handle = $obj['handle']; 	
 $name = $obj['ldhName'];
@@ -323,7 +323,7 @@ $raw_data = str_replace('Array','', $raw_data);
 foreach($obj as $key1 => $value1) {
 	foreach($value1 as $key2 => $value2) {
 		if ($key1 == 'status')	{			
-			$properties .= $value2.'<br />';
+			$status_values .= $value2.'<br />';
 		}	
 		foreach($value2 as $key3 => $value3) {
 			if ($key1 == 'events')	{
@@ -640,10 +640,7 @@ foreach($obj as $key1 => $value1) {
 		}
 	}
 }	
-if (str_contains($properties, 'redemption period') or str_contains($properties, 'pending delete'))	{
-	if ($registrant_full_name == '(non-public)')	{
-		$registrant_full_name = '(no full name due to scheduled deletion)';
-	}	
+if (str_contains($status_values, 'redemption period') or str_contains($status_values, 'pending delete'))	{	
 	if ($admin_email == '(non-public)')	{
 		$admin_email = '(no email due to scheduled deletion)';		
 	}
@@ -653,8 +650,8 @@ if (str_contains($properties, 'redemption period') or str_contains($properties, 
 	if ($billing_email == '(non-public)')	{
 		$billing_email = '(no email due to scheduled deletion)';		
 	}		
-	if ($deletion == '(no deletion)')	{
-		$deletion = '(no date/time provided for re-registration)';	
+	if ($deletion == '(no deletion applicable)')	{
+		$deletion = '(no date/time has been provided)';	
 	}		
 }
 //die($server_delegation_check_1);
@@ -828,9 +825,9 @@ $domain->appendChild($domain_name);
 $domain_name_unicode = $doc->createElement("domain_name_unicode");
 $domain_name_unicode->appendChild($doc->createCDATASection($name_unicode));	
 $domain->appendChild($domain_name_unicode);
-$domain_status_properties = $doc->createElement("domain_status_properties");
-$domain_status_properties->appendChild($doc->createCDATASection($properties));	
-$domain->appendChild($domain_status_properties);	
+$domain_status_values = $doc->createElement("domain_status_values");
+$domain_status_values->appendChild($doc->createCDATASection($status_values));	
+$domain->appendChild($domain_status_values);	
 $domain_event_registration = $doc->createElement("domain_event_registration");
 $domain_event_registration->appendChild($doc->createCDATASection($registration));	
 $domain->appendChild($domain_event_registration);
