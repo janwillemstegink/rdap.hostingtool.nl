@@ -642,13 +642,13 @@ foreach($obj as $key1 => $value1) {
 }	
 if (str_contains($status_values, 'redemption period') or str_contains($status_values, 'pending delete'))	{	
 	if ($admin_email == '(non-public)')	{
-		$admin_email = '(no email due to scheduled deletion)';		
+		$admin_email = '(scheduled deletion)';		
 	}
 	if ($tech_email == '(non-public)')	{
-		$tech_email = '(no email due to scheduled deletion)';
+		$tech_email = '(scheduled deletion)';
 	}
 	if ($billing_email == '(non-public)')	{
-		$billing_email = '(no email due to scheduled deletion)';		
+		$billing_email = '(scheduled deletion)';		
 	}		
 	if ($deletion == '(no deletion applicable)')	{
 		$deletion = '(no date/time has been provided)';	

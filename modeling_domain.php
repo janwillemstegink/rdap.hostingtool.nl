@@ -495,7 +495,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(30)">domain +/-</button></td><td><b>'.$item->domain_name.'</b></td><td id="domain_role"></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>domain_handle</td><td>'.$item->domain_handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="302" style="display:none"><td>domain_name_unicode</td><td>'.$item->domain_name_unicode.'</td><td id="domain_name_unicode"></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(31)">events & status values +/-</button></td><td></td><td id="events_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(31)">status & events +/-</button></td><td></td><td id="events_role"></td></tr>';
+	$html_text .= '<tr><td>domain_status_values</td><td><b>'.$item->domain_status_values.'</b></td><td id="domain_status_values"></td></tr>';
 	$html_text .= '<tr id="311" style="display:none;vertical-align:top"><td>domain_event_registration</td><td>'.$item->domain_event_registration.'</td><td></td></tr>';
 	$html_text .= '<tr id="312" style="display:none"><td>domain_event_verification_requested</td><td>'.$item->domain_event_verification_requested.'</td><td id="domain_event_verification_requested"></td></tr>';
 	$html_text .= '<tr id="313" style="display:none"><td>domain_event_verification_recorded</td><td>'.$item->domain_event_verification_recorded.'</td><td id="domain_event_verification_recorded"></td></tr>';
@@ -504,7 +505,6 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>domain_event_expiration</td><td>'.$item->domain_event_expiration.'</td><td id="domain_event_expiration"></td></tr>';
 	$html_text .= '<tr><td>domain_event_deletion</td><td>'.$item->domain_event_deletion.'</td><td id="domain_event_deletion"></td></tr>';
 	$html_text .= '<tr id="316" style="display:none"><td>domain_event_last_uploaded</td><td>'.$item->domain_event_last_uploaded.'</td><td id="domain_event_last_uploaded"></td></tr>';
-	$html_text .= '<tr><td>domain_status_values</td><td><b>'.$item->domain_status_values.'</b></td><td id="domain_status_values"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(40)">registrant +/-</button></td><td></td><td id="registrant_role"></td></tr>';
 	$html_text .= '<tr id="401" style="display:none"><td>registrant_handle</td><td>'.$item->registrant->registrant_handle.'</td><td></td></tr>';
