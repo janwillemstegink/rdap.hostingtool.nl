@@ -820,41 +820,41 @@ $domain_view_links_1_type->appendChild($doc->createCDATASection($view_links_1_ty
 $view->appendChild($domain_view_links_1_type);	
 $domain->appendChild($view);
 	
-$main = $doc->createElement("main");
-$domain->appendChild($main);
+$general = $doc->createElement("general");
+$domain->appendChild($general);
 	
 $domain_handle = $doc->createElement("domain_handle");
 $domain_handle->appendChild($doc->createCDATASection($handle));	
-$main->appendChild($domain_handle);	
+$general->appendChild($domain_handle);	
 	
 $domain_name = $doc->createElement("domain_name");
 $domain_name->appendChild($doc->createCDATASection($name));	
-$main->appendChild($domain_name);
+$general->appendChild($domain_name);
 $domain_name_unicode = $doc->createElement("domain_name_unicode");
 $domain_name_unicode->appendChild($doc->createCDATASection($name_unicode));	
-$main->appendChild($domain_name_unicode);
+$general->appendChild($domain_name_unicode);
 $domain_status_values = $doc->createElement("domain_status_values");
 $domain_status_values->appendChild($doc->createCDATASection($status_values));	
-$main->appendChild($domain_status_values);	
+$general->appendChild($domain_status_values);	
 $domain_event_registration = $doc->createElement("domain_event_registration");
 $domain_event_registration->appendChild($doc->createCDATASection($registration));	
-$main->appendChild($domain_event_registration);
+$general->appendChild($domain_event_registration);
 $domain_event_last_transferred = $doc->createElement("domain_event_last_transferred");
 $domain_event_last_transferred->appendChild($doc->createCDATASection($last_transferred));	
-$main->appendChild($domain_event_last_transferred);
+$general->appendChild($domain_event_last_transferred);
 $domain_event_last_changed = $doc->createElement("domain_event_last_changed");
 $domain_event_last_changed->appendChild($doc->createCDATASection($last_changed));	
-$main->appendChild($domain_event_last_changed);	
+$general->appendChild($domain_event_last_changed);	
 $domain_event_expiration = $doc->createElement("domain_event_expiration");
 $domain_event_expiration->appendChild($doc->createCDATASection($expiration));	
-$main->appendChild($domain_event_expiration);
+$general->appendChild($domain_event_expiration);
 $domain_event_deletion = $doc->createElement("domain_event_deletion");
 $domain_event_deletion->appendChild($doc->createCDATASection($deletion));	
-$main->appendChild($domain_event_deletion);	
+$general->appendChild($domain_event_deletion);	
 $domain_event_last_uploaded = $doc->createElement("domain_event_last_uploaded");
 $domain_event_last_uploaded->appendChild($doc->createCDATASection($last_uploaded));	
-$main->appendChild($domain_event_last_uploaded);
-$domain->appendChild($main);	
+$general->appendChild($domain_event_last_uploaded);
+$domain->appendChild($general);	
 
 $registrar = $doc->createElement("registrar");
 $domain->appendChild($registrar);
