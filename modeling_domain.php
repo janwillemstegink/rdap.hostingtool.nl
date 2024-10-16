@@ -1,5 +1,5 @@
 <?php
-session_start();  // is needed with no PHP Generator Scriptcase
+session_start();  // is needed with no Scriptcase PHP Generator
 echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta charset="UTF-8" />
@@ -195,10 +195,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_iana_id").textContent = "Met een gTLD-domein en ICANN-accreditatie voor één of meerdere generieke topleveldomeinen.";
 		document.getElementById("registrar_protected").textContent = derived;
 		document.getElementById("registrar_abuse_role").textContent = "Misbruikinformatie vergemakkelijkt het contact opnemen met de registrar door een derde partij.";
-		document.getElementById("reseller_role").textContent = "Een domain reseller heeft verantwoordelijkheid, afhankelijk van de overeenkomst en de voorschriften.";
+		document.getElementById("reseller_role").textContent = "De domeinreseller is als tweede verantwoordelijk, afhankelijk van de overeenkomst en de regelgeving.";
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_protected").textContent = derived;
-		document.getElementById("registrant_role").textContent = "Een domeinhouder heeft tenminste de rechten van een abonnement op zijn domein.";
+		document.getElementById("registrant_role").textContent = "Een domeinhouder is primair verantwoordelijk en heeft het abonnement op zijn domein.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Webidentificatienummer voor bedrijfsentiteiten en natuurlijke personen.";
 		document.getElementById("registrant_full_name").textContent = "Een bestaande (zakelijk zichtbare) naam van de gebruiker met de daadwerkelijke of de effectieve controle.";
 		document.getElementById("registrant_kind").textContent = "Leeg, 'individual' of 'org'; een levenstestament kan een juridische lacune opvullen; suggestie: 'non-hidden individual'.";
@@ -252,10 +252,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_iana_id").textContent = "With a gTLD domain and ICANN accreditation for one or more generic top-level domains.";
 		document.getElementById("registrar_protected").textContent = derived;
 		document.getElementById("registrar_abuse_role").textContent = "Abuse information facilitates contacting the registrar by a third party.";
-		document.getElementById("reseller_role").textContent = "A domain reseller has responsibility, depending on the agreement and the regulations.";
+		document.getElementById("reseller_role").textContent = "The domain reseller is secondly responsible, depending on the agreement and regulations.";
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_protected").textContent = derived;
-		document.getElementById("registrant_role").textContent = "A domain holder has at least the rights of a subscription to his domain.";
+		document.getElementById("registrant_role").textContent = "A domain owner is primarily responsible and has the subscription to his domain.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web Identification number for business entities and natural persons.";
 		document.getElementById("registrant_full_name").textContent = "An existing (business visible) name of the user with actual or effective control.";
 		document.getElementById("registrant_kind").textContent = "Empty, 'individual' or 'org'; a living will can fill a legal gap; suggestion: 'non-hidden individual'.";
@@ -308,10 +308,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_iana_id").textContent = "Mit einer gTLD-Domain und ICANN-Akkreditierung für eine oder mehrere generische Top-Level-Domains.";
 		document.getElementById("registrar_protected").textContent = derived;
 		document.getElementById("registrar_abuse_role").textContent = "Missbrauchsinformationen erleichtern die Kontaktaufnahme mit dem Registrar durch Dritte.";
-		document.getElementById("reseller_role").textContent = "Ein Domain-Reseller trägt die Verantwortung, abhängig von der Vereinbarung und den Vorschriften.";
+		document.getElementById("reseller_role").textContent = "Je nach Vereinbarung und Regelungen ist der Domain-Reseller in zweiter Linie verantwortlich.";
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_protected").textContent = derived;
-		document.getElementById("registrant_role").textContent = "Ein Domaininhaber hat zumindest die Rechte eines Abonnements seiner Domain.";
+		document.getElementById("registrant_role").textContent = "Der Domaininhaber ist hauptverantwortlich und hat das Abonnement für seine Domain.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web-Identifikationsnummer für Unternehmen und natürliche Personen.";
 		document.getElementById("registrant_full_name").textContent = "Ein bestehender (kommerziell sichtbarer) Name des Benutzers mit tatsächlicher oder effektiver Kontrolle.";
 		document.getElementById("registrant_kind").textContent = "Leer, 'individual' oder 'org'; Eine Patientenverfügung kann eine rechtliche Lücke schließen; Anregung: 'non-hidden individual'.";
@@ -365,10 +365,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_iana_id").textContent = "Avec un domaine gTLD et une accréditation ICANN pour un ou plusieurs domaines génériques de premier niveau.";
 		document.getElementById("registrar_protected").textContent = derived;
 		document.getElementById("registrar_abuse_role").textContent = "Les informations sur les abus facilitent la prise de contact avec le bureau d'enregistrement par un tiers.";
-		document.getElementById("reseller_role").textContent = "Un revendeur de domaine a la responsabilité, en fonction de l'accord et de la réglementation.";
+		document.getElementById("reseller_role").textContent = "Le revendeur de domaine est le deuxième responsable, en fonction de l'accord et des réglementations.";
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_protected").textContent = derived;
-		document.getElementById("registrant_role").textContent = "Un titulaire de domaine a au moins les droits d'un abonnement à son domaine.";
+		document.getElementById("registrant_role").textContent = "Le propriétaire d'un domaine est le premier responsable et titulaire de l'abonnement à son domaine.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Numéro d’identification Web pour les entités commerciales et les personnes physiques.";
 		document.getElementById("registrant_full_name").textContent = "Un nom existant (visible commercialement) de l'utilisateur avec un contrôle réel ou effectif.";
 		document.getElementById("registrant_kind").textContent = "Vide, 'individual' ou 'org' ; un testament biologique peut combler un vide juridique ; suggestion : 'non-hidden individual'.";
