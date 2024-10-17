@@ -3,6 +3,12 @@
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
 		$domain = trim($_GET['domain']);
+		$batch = false;
+		if (!empty($_GET['batch']))	{
+			if (trim($_GET['batch'] == '1'))	{
+				$batch = true;
+			}
+		}
 		$domain = mb_strtolower($domain);
 		$domain = str_replace('http://','', $domain);
 		$domain = str_replace('https://','', $domain);
@@ -18,7 +24,7 @@ if (!empty($_GET['domain']))	{
 			$domain = mb_substr($domain, 0, $strpos);
 		}
 		$domain = urlencode($domain);
-        echo write_file($domain);
+        echo write_file($domain, $batch);
 		die();
 	}
 	else	{	
@@ -29,14 +35,16 @@ else	{
 	die("No domain name variable as input");
 }
 
-function write_file($inputdomain)	{
-	
-$command = escapeshellcmd("python3.9 /home/admin/get_domain_data.py");
-//$raw_whois_data = shell_exec($command . " " . $inputdomain . " 2>&1");
-$raw_whois_data = nl2br(shell_exec($command . " " . $inputdomain));
-
+function write_file($inputdomain, $inputbatch)	{	
+if ($inputbatch)	{
+	$raw_whois_data = '';
+}
+else	{
+	$command = escapeshellcmd("python3.9 /home/admin/get_domain_data.py");
+	//$raw_whois_data = shell_exec($command . " " . $inputdomain . " 2>&1");
+	$raw_whois_data = nl2br(shell_exec($command . " " . $inputdomain));
+}
 $zone_top_level_domain = mb_substr($inputdomain, strrpos($inputdomain, '.') + 1);	
-
 $rdap = json_decode(file_get_contents('https://data.iana.org/rdap/dns.json'), true);		
 $url = '';	
 $temp_tld = '';
@@ -183,7 +191,6 @@ elseif ($obj['secureDNS']['delegationSigned'] === true)	{
 elseif ($obj['secureDNS']['delegationSigned'] === false)	{
 	$name_servers_dnssec = 'no';	
 }
-$registrar_protected = 'name,phone,fax,email';
 $registrar_handle = '';
 $registrant_handle = '';
 $admin_handle = '';	
@@ -193,7 +200,12 @@ $registrant_name = '';
 $registrar_kind = '';
 $reseller_kind = '';
 $registrant_kind = '';
-$registrar_country_code = '(non-public)';
+$registrar_full_name = '';
+$registrar_street = '';
+$registrar_city = '';
+$registrar_postal_code = '';
+$registrar_country_code = '(non-public)';	
+$registrar_protected = 'name,phone,fax,email';
 $registrar_language_pref_1 = '';
 $registrar_language_pref_2 = '';
 $reseller_language_pref_1 = '';
@@ -646,19 +658,13 @@ foreach($obj as $key1 => $value1) {
 	}
 }	
 if (str_contains($status_values, 'redemption period') or str_contains($status_values, 'pending delete'))	{	
-	//if ($admin_email == '(non-public)')	{
-	//	$admin_email = '(scheduled deletion)';		
-	//}
-	//if ($tech_email == '(non-public)')	{
-	//	$tech_email = '(scheduled deletion)';
-	//}
-	//if ($billing_email == '(non-public)')	{
-	//	$billing_email = '(scheduled deletion)';		
-	//}		
 	if ($deletion == '(no deletion applicable)')	{
 		$deletion = '(no date/time has been provided)';	
 	}		
 }
+if ($inputbatch)	{
+	$raw_rdap_data = '';
+}	
 $doc = new DOMDocument("1.0", "UTF-8");
 $doc->xmlStandalone = true;	
 $doc->formatOutput = true;		
