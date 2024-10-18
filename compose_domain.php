@@ -35,7 +35,8 @@ else	{
 	die("No domain name variable as input");
 }
 
-function write_file($inputdomain, $inputbatch)	{	
+function write_file($inputdomain, $inputbatch)	{
+	
 if ($inputbatch)	{
 	$raw_whois_data = '';
 }
@@ -44,76 +45,75 @@ else	{
 	//$raw_whois_data = shell_exec($command . " " . $inputdomain . " 2>&1");
 	$raw_whois_data = nl2br(shell_exec($command . " " . $inputdomain));
 }
-$zone_top_level_domain = mb_substr($inputdomain, strrpos($inputdomain, '.') + 1);	
-$rdap = json_decode(file_get_contents('https://data.iana.org/rdap/dns.json'), true);		
+	
+$zone_top_level_domain = mb_substr($inputdomain, strrpos($inputdomain, '.') + 1);
+
 $url = '';	
-$temp_tld = '';
-$matched = false;
-foreach($rdap as $key1 => $value1) {
-    foreach($value1 as $key2 => $value2) {
-		foreach($value2 as $key3 => $value3) {
-			foreach($value3 as $key4 => $value4) {
-				if ($key3 == 0 and !$matched)	{
-					$temp_tld = $value4;
-				}
-				if ($key3 == 1 and $zone_top_level_domain == $temp_tld and !$matched)	{
-					$url = $value4;
-					$matched = true;
+switch ($zone_top_level_domain) {
+	case 'nl':
+   		$url = 'https://rdap.sidn.nl/';
+   		break;		
+	//case 'cc': // transparencia.cc
+   	//	$url = 'https://rdap.godaddy.com/v1/';
+   	//	break;
+	case 'biz':
+   		$url = 'https://rdap.nic.biz/';
+   		break;	
+	case 'com':
+   		$url = 'https://rdap.verisign.com/com/v1/';
+   		break;	
+	case 'net':
+   		$url = 'https://rdap.verisign.com/net/v1/';
+   		break;
+	case 'org':
+   		$url = 'https://rdap.publicinterestregistry.org/rdap/';
+		break;
+	case 'ca':
+		$url = 'https://rdap.ca.fury.ca/rdap/';
+		break;
+	case 'ch':
+   		$url = 'https://rdap.nic.ch/';	
+   		break;		
+	case 'de':
+   		$url = 'https://rdap.denic.de/';
+   		break;
+	case 'fr':
+		$url = 'https://rdap.nic.fr/';
+		break;
+	//case 'it':
+	//	$url = 'https://rdap.pubtest.nic.it/';
+   	//	break;
+	case 'uk':
+    	$url = 'https://rdap.nominet.uk/uk/';
+    	break;
+	case 'amsterdam':
+    	$url = 'https://rdap.nic.amsterdam/';
+    	break;
+	case 'politie':
+    	$url = 'https://rdap.nic.politie/';
+    	break;	
+	default:
+   		//die("No match with a top level domain.");
+}
+
+if (!strlen($url))	{	
+	$rdap = json_decode(file_get_contents('https://data.iana.org/rdap/dns.json'), true);			
+	$temp_tld = '';
+	foreach($rdap as $key1 => $value1) {
+    	foreach($value1 as $key2 => $value2) {
+			foreach($value2 as $key3 => $value3) {
+				foreach($value3 as $key4 => $value4) {
+					if ($key3 == 0 and !$matched)	{
+						$temp_tld = $value4;
+					}
+					if ($key3 == 1 and $zone_top_level_domain == $temp_tld and !$matched)	{
+						$url = $value4;
+					}	
 				}
 			}
 		}
 	}
-}
-
-if (!$matched)	{	
-	switch ($zone_top_level_domain) {
-		case 'nl':
-    		$url = 'https://rdap.sidn.nl/';
-    		break;		
-		//case 'cc': // transparencia.cc
-    	//	$url = 'https://rdap.godaddy.com/v1/';
-    	//	break;
-		case 'biz':
-    		$url = 'https://rdap.nic.biz/';
-    		break;	
-		case 'com':
-    		$url = 'https://rdap.verisign.com/com/v1/';
-    		break;	
-		case 'net':
-    		$url = 'https://rdap.verisign.com/net/v1/';
-    		break;
-		case 'org':
-    		$url = 'https://rdap.publicinterestregistry.org/rdap/';
-			break;
-		case 'ca':
-			$url = 'https://rdap.ca.fury.ca/rdap/';
-			break;
-		case 'ch':
-    		$url = 'https://rdap.nic.ch/';	
-    		break;		
-		case 'de':
-    		$url = 'https://rdap.denic.de/';
-    		break;
-		case 'fr':
-   			$url = 'https://rdap.nic.fr/';
-   			break;
-		//case 'it':
-   		//	$url = 'https://rdap.pubtest.nic.it/';
-   		//	break;
-		case 'uk':
-    		$url = 'https://rdap.nominet.uk/uk/';
-    		break;
-		case 'amsterdam':
-    		$url = 'https://rdap.nic.amsterdam/';
-    		break;
-		case 'politie':
-    		$url = 'https://rdap.nic.politie/';
-    		break;	
-		default:
-   			//die("No match with a top level domain.");
-	}
-}
-	
+}	
 $url .= 'domain/'.$inputdomain;
 $obj = json_decode(file_get_contents($url), true);		
 $rdap_conformance = $obj['rdapConformance'];
@@ -340,7 +340,7 @@ $raw_rdap_data = str_replace('Array','', $raw_rdap_data);
 foreach($obj as $key1 => $value1) {
 	foreach($value1 as $key2 => $value2) {
 		if ($key1 == 'status')	{			
-			$status_values .= $value2.'<br />';
+			$status_values .= $value2.'; <br />';
 		}	
 		foreach($value2 as $key3 => $value3) {
 			if ($key1 == 'events')	{
