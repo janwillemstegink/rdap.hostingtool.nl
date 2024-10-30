@@ -169,7 +169,7 @@ $status_values = '';
 $expiration = '(non-public)';	
 $last_changed = '';
 $last_transferred = '';
-$deletion = '(no deletion applicable)';
+$deletion = '(deletion is not applicable)';
 $registrar_iana_id = $obj['entities'][0]['publicIds'][0]['identifier'];	
 $handle = $obj['handle']; 	
 $name = $obj['ldhName'];
@@ -339,8 +339,11 @@ foreach($obj as $key1 => $value1) {
 $raw_rdap_data = str_replace('Array','', $raw_rdap_data);	
 foreach($obj as $key1 => $value1) {
 	foreach($value1 as $key2 => $value2) {
-		if ($key1 == 'status')	{			
-			$status_values .= $value2.'; <br />';
+		if ($key1 == 'status')	{
+			if (strlen($status_values))	{
+				$status_values .= ', <br />';				
+			}	
+			$status_values .= $value2;
 		}	
 		foreach($value2 as $key3 => $value3) {
 			if ($key1 == 'events')	{
@@ -658,8 +661,8 @@ foreach($obj as $key1 => $value1) {
 	}
 }	
 if (str_contains($status_values, 'redemption period') or str_contains($status_values, 'pending delete'))	{	
-	if ($deletion == '(no deletion applicable)')	{
-		$deletion = '(no date/time has been provided)';	
+	if ($deletion == '(deletion is not applicable)')	{
+		$deletion = '(no date/time specified)';	
 	}		
 }
 if ($inputbatch)	{
