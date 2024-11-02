@@ -191,6 +191,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_event_deletion").textContent = "Geplande datum/tijd voor verwijdering van het object. Na verwijdering is herregistratie mogelijk.";
 		document.getElementById("domain_event_last_uploaded").textContent = "RDAP-database-update in Zoeloe-tijd (gecoördineerde universele tijd - UTC).";
 		document.getElementById("registrar_role").textContent = "De domeinregistrar is verantwoordelijk voor domeinreserveringen en IP-adresroutering.";
+		document.getElementById("registrar_recover").textContent = "Tijdens de 'redemption period' is herstel ook mogelijk bij een andere domeinregistrar.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "Met een gTLD-domein en ICANN-accreditatie voor één of meerdere generieke topleveldomeinen.";
 		document.getElementById("registrar_protected").textContent = derived;
@@ -248,6 +249,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_event_deletion").textContent = "Scheduled date/time for object removal. After deletion, re-registration is possible.";
 		document.getElementById("domain_event_last_uploaded").textContent = "RDAP database update in Zulu time (coordinated universal time - UTC).";
 		document.getElementById("registrar_role").textContent = "The domain registrar is responsible for domain reservations and IP address routing.";
+		document.getElementById("registrar_recover").textContent = "During the 'redemption period', recovery is also possible at another domain registrar.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "With a gTLD domain and ICANN accreditation for one or more generic top-level domains.";
 		document.getElementById("registrar_protected").textContent = derived;
@@ -304,6 +306,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_event_deletion").textContent = "Geplantes Datum/Uhrzeit für die Objektentfernung. Nach der Löschung ist eine erneute Registrierung möglich.";
 		document.getElementById("domain_event_last_uploaded").textContent = "RDAP-Datenbankaktualisierung in Zulu-Zeit (koordinierte Weltzeit – UTC).";
 		document.getElementById("registrar_role").textContent = "Der Domänenregistrar ist für die Domänenreservierung und das IP-Adressrouting verantwortlich.";
+		document.getElementById("registrar_recover").textContent = "Während der 'redemption period' ist eine Rückforderung auch bei einem anderen Domänenregistrar möglich.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "Mit einer gTLD-Domain und ICANN-Akkreditierung für eine oder mehrere generische Top-Level-Domains.";
 		document.getElementById("registrar_protected").textContent = derived;
@@ -361,6 +364,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_event_deletion").textContent = "Date/heure prévue pour le retrait de l'objet. Après suppression, une réinscription est possible.";
 		document.getElementById("domain_event_last_uploaded").textContent = "Mise à jour de la base de données RDAP en heure zoulou (temps universel coordonné - UTC).";
 		document.getElementById("registrar_role").textContent = "Le registraire de domaine est responsable des réservations de domaines et du routage des adresses IP.";
+		document.getElementById("registrar_recover").textContent = "Pendant la 'redemption period', la récupération est également possible auprès d'un autre registraire de domaine.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "Avec un domaine gTLD et une accréditation ICANN pour un ou plusieurs domaines génériques de premier niveau.";
 		document.getElementById("registrar_protected").textContent = derived;
@@ -621,7 +625,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(60)">registrar +/-</button></td><td></td><td id="registrar_role"></td></tr>';
 	$html_text .= '<tr id="601" style="display:none"><td>registrar_handle</td><td>'.$item->registrar->registrar_handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="602" style="display:none"><td>registrar_web_id</td><td>'.$item->registrar->registrar_web_id.'</td><td id="registrar_web_id"></td></tr>';		
-	$html_text .= '<tr><td>registrar_full_name</td><td>'.$item->registrar->registrar_full_name.'</td><td></td></tr>';
+	$html_text .= '<tr><td>registrar_full_name</td><td>'.$item->registrar->registrar_full_name.'</td><td id="registrar_recover"></td></tr>';
 	$html_text .= '<tr id="603" style="display:none"><td>registrar_kind</td><td>'.$item->registrar->registrar_kind.'</td><td></td></tr>';
 	$html_text .= '<tr id="604" style="display:none"><td>registrar_url</td><td>'.$item->registrar->registrar_url.'</td><td></td></tr>';
 	$html_text .= '<tr id="605" style="display:none"><td>registrar_iana_id</td><td>'.$item->registrar->registrar_iana_id.'</td><td id="registrar_iana_id"></td></tr>';
