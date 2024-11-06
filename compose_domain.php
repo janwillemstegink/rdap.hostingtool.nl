@@ -1,5 +1,6 @@
 <?php
 //$_GET['domain'] = 'hostingtool.nl';
+
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
 		$domain = trim($_GET['domain']);
@@ -137,7 +138,7 @@ $zone_notice_2_links_0_type = $obj['notices'][2]['links'][0]['type'];
 if ($zone_top_level_domain == 'nl')	{
 	$zone_registry_web_id = '';
 	$zone_registry_full_name = 'SIDN B.V.';
-	$zone_menu = 'https://nl.sidn.nl';
+	$zone_menu = 'https://menu.sidn.nl';
 	$zone_support = 'support@sidn.nl';
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
 }
