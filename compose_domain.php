@@ -660,7 +660,12 @@ foreach($obj as $key1 => $value1) {
 			}
 		}
 	}
-}	
+}
+if (str_contains($status_values, 'locked'))	{	
+	if ($expiration == '(non-public)')	{
+		$expiration = '(expiration is not applicable)';	
+	}		
+}
 if (str_contains($status_values, 'redemption period') or str_contains($status_values, 'pending delete'))	{	
 	if ($deletion == '(deletion is not applicable)')	{
 		$deletion = '(no date/time specified)';	
