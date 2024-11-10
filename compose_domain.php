@@ -1,5 +1,5 @@
 <?php
-//$_GET['domain'] = 'hostingtool.nl';
+//$_GET['domain'] = 'france.fr';
 
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
@@ -166,37 +166,42 @@ $view_links_1_title = $obj['links'][1]['title'];
 $view_links_1_media = $obj['links'][1]['media'];
 $view_links_1_type = $obj['links'][1]['type'];
 	
-$status_values = '';
+$status_values = '';	
 $registration = '(non-public)';
 $last_transferred = '';			
 $last_changed = '';
 $expiration = '(non-public)';	
 $deletion = '(deletion is not applicable)';
-$extensions_values = '';	
+$extensions_values = '';
+$remark_values = '';	
 $registrant_status_values = '';
 $registrant_registration = '';
 $registrant_last_transferred = '';	
 $registrant_last_changed = '';
 $registrant_expiration = '';	
 $registrant_deletion = '';
+$registrant_remark_values = '';		
 $reseller_status_values = '';
 $reseller_registration = '';
 $reseller_last_transferred = '';	
 $reseller_last_changed = '';
 $reseller_expiration = '';	
 $reseller_deletion = '';
-$registrar_status_values = '';
+$reseller_remark_values = '';		
+$registrar_status_values = '';	
 $registrar_registration = '';
 $registrar_last_transferred = '';	
 $registrar_last_changed = '';
 $registrar_expiration = '';	
 $registrar_deletion = '';
+$registrar_remark_values = '';	
 $sponsor_status_values = '';
 $sponsor_registration = '';
 $sponsor_last_transferred = '';	
 $sponsor_last_changed = '';
 $sponsor_expiration = '';	
-$sponsor_deletion = '';	
+$sponsor_deletion = '';
+$sponsor_remark_values = '';	
 		
 $registrar_iana_id = $obj['entities'][0]['publicIds'][0]['identifier'];	
 $handle = $obj['handle']; 	
@@ -219,55 +224,63 @@ elseif ($obj['secureDNS']['delegationSigned'] === true)	{
 elseif ($obj['secureDNS']['delegationSigned'] === false)	{
 	$name_servers_dnssec = 'no';	
 }
-$registrar_handle = '';
 $registrant_handle = '';
-$admin_handle = '';	
-$registrar_name = '';
-$reseller_name = '';
-$registrant_name = '';
-$registrar_kind = '';
-$reseller_kind = '';
+$registrant_full_name = '(non-public)';
+$registrant_name = '';	
+$registrant_street = '';
+$registrant_city = '';
+$registrant_postal_code = '';
+$registrant_country_code = '(non-public)';	
+$registrant_protected = 'name,phone,fax,email,address';
+$registrant_language_pref_1 = '';
+$registrant_language_pref_2 = '';	
+$admin_handle = '';
+$admin_email = '(non-public)';
+$admin_country_code = '(non-public)';	
+$admin_protected = 'web_id,full_name,name,phone,fax,address';
+$admin_language_pref_1 = '';
+$admin_language_pref_2 = '';	
+$tech_handle = '';
+$tech_email	= '(non-public)';
+$tech_country_code = '(non-public)';
+$tech_protected = 'web_id,full_name,name,phone,fax,address';
+$tech_language_pref_1 = '';
+$tech_language_pref_2 = '';	
+$billing_handle = '';
+$billing_email = '';	
+$billing_country_code = '';	
+$billing_protected = 'web_id,full_name,name,phone,fax,address';
+$reseller_handle = '';
+$reseller_kind = '';	
+$reseller_full_name = '';
+$reseller_name = '';	
+$reseller_street = '';
+$reseller_city = '';
+$reseller_postal_code = '';
+$reseller_country_code = '';
+$reseller_protected = 'name,phone,fax,email';
+$reseller_language_pref_1 = '';
+$reseller_language_pref_2 = '';	
+$registrar_handle = '';
 $registrant_kind = '';
 $registrar_full_name = '';
+$registrar_name = '';	
 $registrar_street = '';
 $registrar_city = '';
 $registrar_postal_code = '';
 $registrar_country_code = '(non-public)';	
 $registrar_protected = 'name,phone,fax,email';
 $registrar_language_pref_1 = '';
-$registrar_language_pref_2 = '';
-$reseller_language_pref_1 = '';
-$reseller_language_pref_2 = '';
-$registrant_language_pref_1 = '';
-$registrant_language_pref_2 = '';
-$admin_language_pref_1 = '';
-$admin_language_pref_2 = '';
-$tech_language_pref_1 = '';
-$tech_language_pref_2 = '';
-$reseller_full_name = '';
-$reseller_street = '';
-$reseller_city = '';
-$reseller_postal_code = '';
-$reseller_country_code = '(non-public)';
-$reseller_protected = 'name,phone,fax,email';
-$registrant_full_name = '(non-public)';
-$registrant_street = '';
-$registrant_city = '';
-$registrant_postal_code = '';
-$registrant_country_code = '(non-public)';	
-$registrant_protected = 'name,phone,fax,email,address';
-$admin_handle = '';
-$admin_email = '(non-public)';
-$admin_country_code = '(non-public)';	
-$admin_protected = 'web_id,full_name,name,phone,fax,address';
-$tech_handle = '';
-$tech_email	= '(non-public)';
-$tech_country_code = '(non-public)';
-$tech_protected = 'web_id,full_name,name,phone,fax,address';
-$billing_handle = '';
-$billing_email = '(non-public)';	
-$billing_country_code = '(non-public)';	
-$billing_protected = 'web_id,full_name,name,phone,fax,address';
+$registrar_language_pref_2 = '';	
+$sponsor_handle = '';
+$sponsor_kind = '';
+$sponsor_full_name = '';
+$sponsor_name = '';
+$sponsor_street = '';
+$sponsor_city = '';
+$sponsor_postal_code = '';
+$sponsor_country_code = '';
+$sponsor_protected = 'name,phone,fax,email';
 
 $server_name_1 = $obj['nameservers'][0]['ldhName'];
 $server_name_2 = $obj['nameservers'][1]['ldhName'];
@@ -426,7 +439,22 @@ foreach($obj as $key1 => $value1) {
 					$sponsor_handle = $value3;
 				}
 			}
-			foreach($value3 as $key4 => $value4) {				
+			if ($key1 == 'remarks')	{
+				if (strlen($remark_values))	{
+					$remark_values .= '<br />';				
+				}
+				if (!is_array($value3))	{
+					$remark_values .= $key3 . ': ' . $value3;
+				}
+				else	{
+					$remark_values .= $key3;
+				}	
+			}				
+			foreach($value3 as $key4 => $value4) {
+				if ($key1 == 'remarks')	{
+					$remark_values .= '<br />' . $value4 . ';';	
+					die($remark_values);
+				}
 				if ($key2 == $entity_registrant and $key3 == 'status')	{
 					if (strlen($registrant_status_values))	{
 						$registrant_status_values .= ', <br />';				
@@ -452,6 +480,46 @@ foreach($obj as $key1 => $value1) {
 					$sponsor_status_values .= $value4;
 				}				
 				foreach($value4 as $key5 => $value5) {
+					if ($key2 == $entity_registrant and $key3 == 'events')	{
+						if ($key5 == 'eventAction' and $value5 == 'registration')	{
+							$registrant_registration = $value4['eventDate'];
+						}
+						elseif ($key5 == 'eventAction' and $value5 == 'transfer')	{
+							$registrant_last_transferred = $value4['eventDate'];
+						}
+						elseif ($key5 == 'eventAction' and $value5 == 'last changed')	{
+							$registrant_last_changed = $value4['eventDate'];
+						}				
+						elseif ($key5 == 'eventAction' and $value5 == 'expiration')	{
+							$registrant_expiration = $valu42['eventDate'];
+						}
+						elseif ($key5 == 'eventAction' and $value5 == 'deletion')	{
+							$registrant_deletion = $value4['eventDate'];
+						}
+						elseif ($key5 == 'eventAction' and $value5 == 'last update of RDAP database')	{
+							$registrant_last_uploaded = $value4['eventDate'];				
+						}
+					}
+					if ($key2 == $entity_reseller and $key3 == 'events')	{
+						if ($key5 == 'eventAction' and $value5 == 'registration')	{
+							$reseller_registration = $value4['eventDate'];
+						}
+						elseif ($key5 == 'eventAction' and $value5 == 'transfer')	{
+							$reseller_last_transferred = $value4['eventDate'];
+						}
+						elseif ($key5 == 'eventAction' and $value5 == 'last changed')	{
+							$reseller_last_changed = $value4['eventDate'];
+						}				
+						elseif ($key5 == 'eventAction' and $value5 == 'expiration')	{
+							$reseller_expiration = $valu42['eventDate'];
+						}
+						elseif ($key5 == 'eventAction' and $value5 == 'deletion')	{
+							$reseller_deletion = $value4['eventDate'];
+						}
+						elseif ($key5 == 'eventAction' and $value5 == 'last update of RDAP database')	{
+							$reseller_last_uploaded = $value4['eventDate'];				
+						}
+					}					
 					if ($key2 == $entity_registrar and $key3 == 'events')	{
 						if ($key5 == 'eventAction' and $value5 == 'registration')	{
 							$registrar_registration = $value4['eventDate'];
@@ -471,7 +539,27 @@ foreach($obj as $key1 => $value1) {
 						elseif ($key5 == 'eventAction' and $value5 == 'last update of RDAP database')	{
 							$registrar_last_uploaded = $value4['eventDate'];				
 						}
-					}					
+					}
+					if ($key2 == $entity_sponsor and $key3 == 'events')	{
+						if ($key5 == 'eventAction' and $value5 == 'registration')	{
+							$sponsor_registration = $value4['eventDate'];
+						}
+						elseif ($key5 == 'eventAction' and $value5 == 'transfer')	{
+							$sponsor_last_transferred = $value4['eventDate'];
+						}
+						elseif ($key5 == 'eventAction' and $value5 == 'last changed')	{
+							$sponsor_last_changed = $value4['eventDate'];
+						}				
+						elseif ($key5 == 'eventAction' and $value5 == 'expiration')	{
+							$sponsor_expiration = $valu42['eventDate'];
+						}
+						elseif ($key5 == 'eventAction' and $value5 == 'deletion')	{
+							$sponsor_deletion = $value4['eventDate'];
+						}
+						elseif ($key5 == 'eventAction' and $value5 == 'last update of RDAP database')	{
+							$sponsor_last_uploaded = $value4['eventDate'];				
+						}
+					}
 					if ($key1 == 'nameservers')	{
 						if ($key2 == 0)	{
 							if ($key3 == 'events')	{
@@ -574,6 +662,50 @@ foreach($obj as $key1 => $value1) {
 									}	
 								}		
 							}	
+						}
+					}
+					if ($key2 == $entity_registrant and $key3 == 'remarks')	{
+						if (strlen($registrant_remark_values))	{
+							$registrant_remark_values .= '<br />';				
+						}
+						if (!is_array($value5))	{
+							$registrant_remark_values .= $key5 . ': ' . $value5;
+						}
+						else	{
+							$registrant_remark_values .= $key5;
+						}	
+					}
+					if ($key2 == $entity_reseller and $key3 == 'remarks')	{
+						if (strlen($reseller_remark_values))	{
+							$reseller_remark_values .= '<br />';				
+						}
+						if (!is_array($value5))	{
+							$reseller_remark_values .= $key5 . ': ' . $value5;
+						}
+						else	{
+							$reseller_remark_values .= $key5;
+						}	
+					}
+					if ($key2 == $entity_registrar and $key3 == 'remarks')	{
+						if (strlen($registrar_remark_values))	{
+							$registrar_remark_values .= '<br />';				
+						}
+						if (!is_array($value5))	{
+							$registrar_remark_values .= $key5 . ': ' . $value5;
+						}
+						else	{
+							$registrar_remark_values .= $key5;
+						}
+					}
+					if ($key2 == $entity_sponsor and $key3 == 'remarks')	{
+						if (strlen($sponsor_remark_values))	{
+							$sponsor_remark_values .= '<br />';				
+						}
+						if (!is_array($value5))	{
+							$sponsor_remark_values .= $key5 . ': ' . $value5;
+						}
+						else	{					
+							$sponsor_remark_values .= $key5;
 						}
 					}
 					foreach($value5 as $key6 => $value6) {
@@ -760,9 +892,21 @@ foreach($obj as $key1 => $value1) {
 								if (!is_array($value6[6]))	{
 									$sponsor_country_code = $value6[6];
 								}	
-							}							
+							}
+						}	
+						if ($key2 == $entity_registrant and $key3 == 'remarks')	{
+							$registrant_remark_values .= '<br />' . $value6 . ';';		
 						}
-						foreach($value6 as $key7 => $value7) {
+						if ($key2 == $entity_reseller and $key3 == 'remarks')	{
+							$reseller_remark_values .= '<br />' . $value6 . ';';	
+						}
+						if ($key2 == $entity_registrar and $key3 == 'remarks')	{
+							$registrar_remark_values .= '<br />' . $value6 . ';';	
+						}
+						if ($key2 == $entity_sponsor and $key3 == 'remarks')	{
+							$sponsor_remark_values .= '<br />' . $value6 . ';';	
+						}
+						foreach($value6 as $key7 => $value7)	{							
 							foreach($value7 as $key8 => $value8) {
 								if ($key1 == 'entities' and $key2 == $entity_registrar and $key3 == 'entities' and $key4 == $entity_abuse and $key5 == 'vcardArray' and $key6 == 1)	{
 									if ($value8 == 'tel')	{
@@ -792,7 +936,7 @@ if (str_contains($status_values, 'redemption period') or str_contains($status_va
 }
 if ($inputbatch)	{
 	$raw_rdap_data = '';
-}	
+}
 $doc = new DOMDocument("1.0", "UTF-8");
 $doc->xmlStandalone = true;	
 $doc->formatOutput = true;		
@@ -953,7 +1097,7 @@ $domain_view_links_1_type = $doc->createElement("view_links_1_type");
 $domain_view_links_1_type->appendChild($doc->createCDATASection($view_links_1_type));	
 $view->appendChild($domain_view_links_1_type);	
 $domain->appendChild($view);
-	
+		
 $details = $doc->createElement("details");
 $domain->appendChild($details);
 	
@@ -966,10 +1110,10 @@ $domain_name->appendChild($doc->createCDATASection($name));
 $details->appendChild($domain_name);
 $domain_name_unicode = $doc->createElement("domain_name_unicode");
 $domain_name_unicode->appendChild($doc->createCDATASection($name_unicode));	
-$details->appendChild($domain_name_unicode);
+$details->appendChild($domain_name_unicode);	
 $domain_status_values = $doc->createElement("domain_status_values");
 $domain_status_values->appendChild($doc->createCDATASection($status_values));	
-$details->appendChild($domain_status_values);	
+$details->appendChild($domain_status_values);			
 $domain_event_registration = $doc->createElement("domain_event_registration");
 $domain_event_registration->appendChild($doc->createCDATASection($registration));	
 $details->appendChild($domain_event_registration);
@@ -988,9 +1132,12 @@ $details->appendChild($domain_event_deletion);
 $domain_event_last_uploaded = $doc->createElement("domain_event_last_uploaded");
 $domain_event_last_uploaded->appendChild($doc->createCDATASection($last_uploaded));	
 $details->appendChild($domain_event_last_uploaded);	
-$domain_extensions_values = $doc->createElement("extensions_values");
+$domain_extensions_values = $doc->createElement("domain_extensions_values");
 $domain_extensions_values->appendChild($doc->createCDATASection($extensions_values));	
-$details->appendChild($domain_extensions_values);	
+$details->appendChild($domain_extensions_values);
+$domain_remark_values = $doc->createElement("domain_remark_values");
+$domain_remark_values->appendChild($doc->createCDATASection($remark_values));	
+$details->appendChild($domain_remark_values);	
 $domain->appendChild($details);	
 	
 $registrant = $doc->createElement("registrant");
@@ -1024,7 +1171,7 @@ $domain_registrant_protected->appendChild($doc->createCDATASection($registrant_p
 $registrant->appendChild($domain_registrant_protected);
 $domain_registrant_status_values = $doc->createElement("registrant_status_values");
 $domain_registrant_status_values->appendChild($doc->createCDATASection($registrant_status_values));	
-$registrant->appendChild($domain_registrant_status_values);	
+$registrant->appendChild($domain_registrant_status_values);
 $domain_registrant_event_registration = $doc->createElement("registrant_event_registration");
 $domain_registrant_event_registration->appendChild($doc->createCDATASection($registrant_registration));	
 $registrant->appendChild($domain_registrant_event_registration);
@@ -1042,7 +1189,10 @@ $domain_registrant_event_deletion->appendChild($doc->createCDATASection($registr
 $registrant->appendChild($domain_registrant_event_deletion);	
 $domain_registrant_event_last_uploaded = $doc->createElement("registrant_event_last_uploaded");
 $domain_registrant_event_last_uploaded->appendChild($doc->createCDATASection($registrant_last_uploaded));	
-$registrant->appendChild($domain_registrant_event_last_uploaded);	
+$registrant->appendChild($domain_registrant_event_last_uploaded);
+$domain_registrant_remark_values = $doc->createElement("registrant_remark_values");
+$domain_registrant_remark_values->appendChild($doc->createCDATASection($registrant_remark_values));	
+$registrant->appendChild($domain_registrant_remark_values);		
 $domain->appendChild($registrant);
 	
 $admin = $doc->createElement("admin");
@@ -1157,7 +1307,7 @@ $domain_reseller_protected->appendChild($doc->createCDATASection($reseller_prote
 $reseller->appendChild($domain_reseller_protected);
 $domain_reseller_status_values = $doc->createElement("reseller_status_values");
 $domain_reseller_status_values->appendChild($doc->createCDATASection($reseller_status_values));	
-$reseller->appendChild($domain_reseller_status_values);	
+$reseller->appendChild($domain_reseller_status_values);
 $domain_reseller_event_registration = $doc->createElement("reseller_event_registration");
 $domain_reseller_event_registration->appendChild($doc->createCDATASection($reseller_registration));	
 $reseller->appendChild($domain_reseller_event_registration);
@@ -1175,7 +1325,10 @@ $domain_reseller_event_deletion->appendChild($doc->createCDATASection($reseller_
 $reseller->appendChild($domain_reseller_event_deletion);	
 $domain_reseller_event_last_uploaded = $doc->createElement("reseller_event_last_uploaded");
 $domain_reseller_event_last_uploaded->appendChild($doc->createCDATASection($reseller_last_uploaded));	
-$reseller->appendChild($domain_reseller_event_last_uploaded);	
+$reseller->appendChild($domain_reseller_event_last_uploaded);
+$domain_reseller_remark_values = $doc->createElement("reseller_remark_values");
+$domain_reseller_remark_values->appendChild($doc->createCDATASection($reseller_remark_values));	
+$reseller->appendChild($domain_reseller_remark_values);		
 $domain->appendChild($reseller);	
 	
 $registrar = $doc->createElement("registrar");
@@ -1235,15 +1388,17 @@ $domain_registrar_event_deletion = $doc->createElement("registrar_event_deletion
 $domain_registrar_event_deletion->appendChild($doc->createCDATASection($registrar_deletion));	
 $registrar->appendChild($domain_registrar_event_deletion);	
 $domain_registrar_event_last_uploaded = $doc->createElement("registrar_event_last_uploaded");
-$domain_registrar_event_last_uploaded->appendChild($doc->createCDATASection($registrar_last_uploaded));	
+$domain_registrar_event_last_uploaded->appendChild($doc->createCDATASection($registrar_last_uploaded));
 $registrar->appendChild($domain_registrar_event_last_uploaded);	
-	
+$domain_registrar_remark_values = $doc->createElement("registrar_remark_values");
+$domain_registrar_remark_values->appendChild($doc->createCDATASection($registrar_remark_values));	
+$registrar->appendChild($domain_registrar_remark_values);	
 $domain_registrar_abuse_email = $doc->createElement("registrar_abuse_email");
 $domain_registrar_abuse_email->appendChild($doc->createCDATASection($registrar_abuse_email));	
 $registrar->appendChild($domain_registrar_abuse_email);
 $domain_registrar_abuse_phone = $doc->createElement("registrar_abuse_phone");
 $domain_registrar_abuse_phone->appendChild($doc->createCDATASection($registrar_abuse_phone));	
-$registrar->appendChild($domain_registrar_abuse_phone);		
+$registrar->appendChild($domain_registrar_abuse_phone);	
 $domain->appendChild($registrar);
 	
 $sponsor = $doc->createElement("sponsor");
@@ -1286,7 +1441,7 @@ $domain_sponsor_protected->appendChild($doc->createCDATASection($sponsor_protect
 $sponsor->appendChild($domain_sponsor_protected);
 $domain_sponsor_status_values = $doc->createElement("sponsor_status_values");
 $domain_sponsor_status_values->appendChild($doc->createCDATASection($sponsor_status_values));	
-$sponsor->appendChild($domain_sponsor_status_values);	
+$sponsor->appendChild($domain_sponsor_status_values);
 $domain_sponsor_event_registration = $doc->createElement("sponsor_event_registration");
 $domain_sponsor_event_registration->appendChild($doc->createCDATASection($sponsor_registration));	
 $sponsor->appendChild($domain_sponsor_event_registration);
@@ -1305,6 +1460,9 @@ $sponsor->appendChild($domain_sponsor_event_deletion);
 $domain_sponsor_event_last_uploaded = $doc->createElement("sponsor_event_last_uploaded");
 $domain_sponsor_event_last_uploaded->appendChild($doc->createCDATASection($sponsor_last_uploaded));	
 $sponsor->appendChild($domain_sponsor_event_last_uploaded);
+$domain_sponsor_remark_values = $doc->createElement("sponsor_remark_values");
+$domain_sponsor_remark_values->appendChild($doc->createCDATASection($sponsor_remark_values));	
+$sponsor->appendChild($domain_sponsor_remark_values);	
 $domain->appendChild($sponsor);	
 	
 $name_servers = $doc->createElement("name_servers");
