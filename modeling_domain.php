@@ -5,7 +5,7 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 <meta charset="UTF-8" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
 <meta name="robots" content="index" />
-<title>Web Domain Insight Tool</title>';
+<title>Domain Data</title>';
 ?><script>
 	
 function SwitchDisplay(type) {
@@ -39,7 +39,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 40)	{ // registrant
 		var pre = '40';
-		var max = 26
+		var max = 25
 	}
 	else if (type == 41)	{ // admin
 		var pre = '41';
@@ -113,7 +113,7 @@ function SwitchTranslation(translation)	{
 	if (translation == 0)	{		
 		var proposed = '';
 		var derived = '';
-		document.getElementById("title").textContent = "Web Domain Analysis Tool";
+		document.getElementById("title").textContent = "Domain Data";
 		document.getElementById("instruction").textContent = "Paste a domain name and press Enter.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
@@ -175,7 +175,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 1)	{
 		var proposed = 'VOORGESTELD - ';
 		var derived = proposed + 'Niet-openbare gegevens';
-		document.getElementById("title").textContent = "Analysetool voor webdomeinen";
+		document.getElementById("title").textContent = "Domeingegevens";
 		document.getElementById("instruction").textContent = "Plak een domeinnaam en druk op Enter.";
 		document.getElementById("field").textContent = "Omschrijving";
 		document.getElementById("value").textContent = "Detail";
@@ -200,8 +200,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_name").textContent = "In het RDAP-protocol kan een persoonlijke naam zichtbaar zijn in het veld 'full_name'.";
 		document.getElementById("registrant_country_code").textContent = "Een domein kan worden ingetrokken, bijvoorbeeld nadat het Verenigd Koninkrijk de EU heeft verlaten.";
 		document.getElementById("registrant_protected").textContent = derived;
-		document.getElementById("registrant_verification").textContent = "Web-ID-zoekopdrachten kunnen worden uitgevoerd op wereldwijde RDAP-servers.";
-		document.getElementById("registrant_event_verification_requested").textContent = proposed + "Met Web ID-indexering kan een overeenkomende (natuurlijke) entiteit de ID valideren.";
+		document.getElementById("registrant_verification").textContent = "Gepland: Web-ID-zoekopdrachten kunnen worden uitgevoerd op wereldwijde RDAP-servers.";
+		document.getElementById("registrant_event_verification_requested").textContent = proposed + "Met Web ID-indexering kan een overeenkomende (natuurlijke) entiteit domeinen valideren.";
 		document.getElementById("registrant_event_verification_recorded").textContent = proposed + "Op de lange termijn kan verificatie ook worden gebruikt door zoekmachines.";
 		document.getElementById("admin_role").textContent = "Het administratief aanspreekpunt beantwoordt een verzoek en stuurt zo nodig door.";
 		document.getElementById("admin_web_id").textContent = proposed;
@@ -227,18 +227,18 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_event_verification_requested").textContent = proposed;
 		document.getElementById("registrar_event_verification_recorded").textContent = proposed;		
 		document.getElementById("registrar_abuse_role").textContent = "Misbruikinformatie vergemakkelijkt het contact opnemen met de registrar door een derde partij.";
-		document.getElementById("sponsor_role").textContent = "De entiteit die verantwoordelijk is voor het beheer van de domeinregistratie.";
+		document.getElementById("sponsor_role").textContent = "In het geval van een sponsor is deze entiteit verantwoordelijk voor het beheer van de domeinregistratie.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
 		document.getElementById("br_zone").textContent = "Zone .br: De RDAP-gegevens zijn aangepast met nameservervalidatie.";
 
-		document.getElementById("raw_data_next").textContent = "VS/EU kunnen een vaste veldvolgorde, een standaardwaarde van 'non-public' en unieke veldnamen voor weergave kiezen.";	
+		document.getElementById("raw_data_next").textContent = "Deze tool werkt met een vaste veldvolgorde, de standaardwaarde 'non-public' en unieke veldnamen voor weergave.";	
 	}
 	else if (translation == 2)	{
 		var proposed = 'PROPOSED - ';
 		var derived = proposed + 'Non-public data';
-		document.getElementById("title").textContent = "Web Domain Analysis Tool";
+		document.getElementById("title").textContent = "Domain Data";
 		document.getElementById("instruction").textContent = "Paste a domain name and press Enter.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
@@ -263,8 +263,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_name").textContent = "In the RDAP protocol, a personal name may be visible in the 'full_name' field.";
 		document.getElementById("registrant_country_code").textContent = "A domain can be revoked, for example after the UK left the EU.";
 		document.getElementById("registrant_protected").textContent = derived;
-		document.getElementById("registrant_verification").textContent = "Web ID searches can be performed on global RDAP servers.";	
-		document.getElementById("registrant_event_verification_requested").textContent = proposed + "With Web ID indexing, a matching (natural) entity can validate it.";
+		document.getElementById("registrant_verification").textContent = "Planned: Web ID searches can be performed on global RDAP servers.";	
+		document.getElementById("registrant_event_verification_requested").textContent = proposed + "With Web ID indexing, a matching (natural) entity can validate domains.";
 		document.getElementById("registrant_event_verification_recorded").textContent = proposed + "In the long term, verification can also be used by search engines.";	
 		document.getElementById("admin_role").textContent = "The administratively responsible desk answers a request, and forwards on if necessary.";
 		document.getElementById("admin_web_id").textContent = proposed;
@@ -290,17 +290,17 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_event_verification_requested").textContent = proposed;
 		document.getElementById("registrar_event_verification_recorded").textContent = proposed;		
 		document.getElementById("registrar_abuse_role").textContent = "Abuse information facilitates contacting the registrar by a third party.";
-		document.getElementById("sponsor_role").textContent = "The entity responsible for managing the domain's registration.";
+		document.getElementById("sponsor_role").textContent = "In the case of a sponsor, this entity is responsible for managing the domain registration.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
 		document.getElementById("br_zone").textContent = "Zone .br: The RDAP data has been modified with name server validation.";
-		document.getElementById("raw_data_next").textContent = "US/EU can choose fixed field order, a default value of 'non-public', and unique field names for display.";
+		document.getElementById("raw_data_next").textContent = "This tool works with a fixed field order, the default value 'non-public', and unique field names for display.";
 	}
 	else if (translation == 3)	{
 		var proposed = 'VORGESCHLAGEN - ';
 		var derived = proposed + 'Nicht öffentliche Daten';
-		document.getElementById("title").textContent = "Web-Domain-Analysetool";
+		document.getElementById("title").textContent = "Domänendaten";
 		document.getElementById("instruction").textContent = "Fügen Sie einen Domänennamen ein und drücken Sie die Eingabetaste.";
 		document.getElementById("field").textContent = "Beschreibung";
 		document.getElementById("value").textContent = "Detail";
@@ -325,8 +325,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_name").textContent = "Im RDAP-Protokoll kann im Feld 'full_name' ein Personenname sichtbar sein.";
 		document.getElementById("registrant_country_code").textContent = "Eine Domain kann beispielsweise nach dem Austritt Großbritanniens aus der EU widerrufen werden.";
 		document.getElementById("registrant_protected").textContent = derived;
-		document.getElementById("registrant_verification").textContent = "Web-ID-Suchen können auf globalen RDAP-Servern durchgeführt werden.";
-		document.getElementById("registrant_event_verification_requested").textContent = proposed + "Mit der Web-ID-Indizierung kann eine übereinstimmende (natürliche) Entität dies validieren.";
+		document.getElementById("registrant_verification").textContent = "Geplant: Web-ID-Suchen können auf globalen RDAP-Servern durchgeführt werden.";
+		document.getElementById("registrant_event_verification_requested").textContent = proposed + "Mit der Web-ID-Indizierung kann eine übereinstimmende (natürliche) Entität Domänen validieren.";
 		document.getElementById("registrant_event_verification_recorded").textContent = proposed + "Langfristig kann die Überprüfung auch von Suchmaschinen genutzt werden.";
 		document.getElementById("admin_role").textContent = "Die administrativ zuständige Stelle beantwortet eine Anfrage und leitet sie gegebenenfalls weiter.";
 		document.getElementById("admin_web_id").textContent = proposed;
@@ -352,18 +352,18 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_event_verification_requested").textContent = proposed;
 		document.getElementById("registrar_event_verification_recorded").textContent = proposed;		
 		document.getElementById("registrar_abuse_role").textContent = "Missbrauchsinformationen erleichtern die Kontaktaufnahme mit dem Registrar durch Dritte.";
-		document.getElementById("sponsor_role").textContent = "Die für die Verwaltung der Domänenregistrierung verantwortliche Stelle.";
+		document.getElementById("sponsor_role").textContent = "Im Falle eines Sponsors ist diese Entität für die Verwaltung der Domänenregistrierung verantwortlich.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 		document.getElementById("name_servers_ip").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
 		document.getElementById("br_zone").textContent = "Zone .br: Die RDAP-Daten wurden mit der Nameserver-Validierung angepasst.";
-		document.getElementById("raw_data_next").textContent = "Die USA/EU können eine feste Feldreihenfolge, einen Standardwert 'non-public' und eindeutige Feldnamen für die Anzeige wählen.";
+		document.getElementById("raw_data_next").textContent = "Dieses Tool arbeitet mit einer festen Feldreihenfolge, dem Standardwert 'non-public' und eindeutigen Feldnamen für die Anzeige.";
 	}
 	else if (translation == 4)	{
 		var proposed = 'PROPOSÉ - ';
 		var derived = proposed + 'Données non publiques';
 		var adjustment = 'Ajustement';
-		document.getElementById("title").textContent = "Outil d'analyse de domaine Web";
+		document.getElementById("title").textContent = "Données du domaine";
 		document.getElementById("instruction").textContent = "Collez un nom de domaine et appuyez sur Entrée.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Détail";
@@ -388,8 +388,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_name").textContent = "Dans le protocole RDAP, un nom personnel peut être visible dans le champ 'full_name'.";
 		document.getElementById("registrant_country_code").textContent = "Un domaine peut être révoqué, par exemple après que le Royaume-Uni ait quitté l'UE.";
 		document.getElementById("registrant_protected").textContent = derived;
-		document.getElementById("registrant_verification").textContent = "Les recherches d’identifiant Web peuvent être effectuées sur des serveurs RDAP mondiaux.";
-		document.getElementById("registrant_event_verification_requested").textContent = proposed + "Avec l'indexation des identifiants Web, une entité correspondante (naturelle) peut le valider.";
+		document.getElementById("registrant_verification").textContent = "Prévu : Les recherches d’identifiant Web peuvent être effectuées sur des serveurs RDAP mondiaux.";
+		document.getElementById("registrant_event_verification_requested").textContent = proposed + "Avec l’indexation des identifiants Web, une entité correspondante (naturelle) peut valider les domaines.";
 		document.getElementById("registrant_event_verification_recorded").textContent = proposed + "À long terme, la vérification peut également être utilisée par les moteurs de recherche.";
 		document.getElementById("admin_role").textContent = "Le bureau administrativement responsable répond à une demande, et la transmet si nécessaire.";
 		document.getElementById("admin_web_id").textContent = proposed;
@@ -415,12 +415,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_event_verification_requested").textContent = proposed;
 		document.getElementById("registrar_event_verification_recorded").textContent = proposed;		
 		document.getElementById("registrar_abuse_role").textContent = "Les informations sur les abus facilitent la prise de contact avec le bureau d'enregistrement par un tiers.";
-		document.getElementById("sponsor_role").textContent = "L'entité responsable de la gestion de l'enregistrement du domaine.";
+		document.getElementById("sponsor_role").textContent = "Dans le cas d'un sponsor, cette entité est responsable de la gestion de l'enregistrement du domaine.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 		document.getElementById("name_servers_ip").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
 		document.getElementById("br_zone").textContent = "Zone .br: Les données RDAP ont été ajustées avec la validation du serveur de noms.";
-		document.getElementById("raw_data_next").textContent = "Les États-Unis et l'UE peuvent choisir un ordre de champ fixe, une valeur par défaut 'non-public' et des noms de champ uniques pour l'affichage.";
+		document.getElementById("raw_data_next").textContent = "Cet outil fonctionne avec un ordre de champs fixe, la valeur par défaut 'non-public' et des noms de champs uniques pour l'affichage.";
 	}
 }	
 </script><?php
@@ -482,7 +482,7 @@ $html_text .= '<tr style="font-size: .8rem"><td></td><td><form action='.htmlenti
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(2)">en_US</button> 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(3)">de_DE</button> 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(4)">fr_FR</button> 
-	<a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_email" target="_blank">modeling_email</a> - <a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_menu" target="_blank">modeling_menu</a> - <a style="font-size: 0.9rem" href="https://github.com/janwillemstegink/rdap_view_model/issues" target="_blank">issues on GitHub</a> - <a style="font-size: 0.9rem" href="https://janwillemstegink.nl/" target="_blank">janwillemstegink.nl</a></td></tr>';
+	<a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_email" target="_blank">modeling email</a> - <a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_menu" target="_blank">modeling menu</a> - <a style="font-size: 0.9rem" href="https://github.com/janwillemstegink/rdap.hostingtool.nl/issues" target="_blank">issues on GitHub</a> - <a style="font-size: 0.9rem" href="https://janwillemstegink.nl/" target="_blank">janwillemstegink.nl</a></td></tr>';
 foreach ($xml1->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
@@ -563,10 +563,10 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4020" style="display:none"><td>registrant_event_expiration</td><td>'.$item->registrant->registrant_event_expiration.'</td><td></td></tr>';
 	$html_text .= '<tr id="4021" style="display:none"><td>registrant_event_deletion</td><td>'.$item->registrant->registrant_event_deletion.'</td><td id="registrant_event_deletion"></td></tr>';
 	$html_text .= '<tr id="4022" style="display:none"><td>registrant_event_last_uploaded</td><td>'.$item->registrant->registrant_event_last_uploaded.'</td><td id="registrant_event_last_uploaded"></td></tr>';
-	$html_text .= '<tr id="4023" style="display:none"><td></td><td></td><td style="font-weight:bold" id="registrant_verification"></td></tr>';
+	$html_text .= '<tr id="4023" style="display:none"><td></td><td></td><td id="registrant_verification"></td></tr>';
 	$html_text .= '<tr id="4024" style="display:none"><td>registrant_event_verification_requested</td><td>'.$item->registrant->registrant_event_verification_requested.'</td><td id="registrant_event_verification_requested"></td></tr>';
-	$html_text .= '<tr id="4025" style="display:none"><td>registrant_event_verification_recorded</td><td>'.$item->registrant->registrant_event_verification_recorded.'</td><td id="registrant_event_verification_recorded"></td></tr>';
-	$html_text .= '<tr id="4026" style="display:none;vertical-align:top"><td>registrant_remark_values</td><td>'.$item->registrant->registrant_remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr><td>registrant_event_verification_recorded</td><td>'.$item->registrant->registrant_event_verification_recorded.'</td><td id="registrant_event_verification_recorded"></td></tr>';
+	$html_text .= '<tr id="4025" style="display:none;vertical-align:top"><td>registrant_remark_values</td><td>'.$item->registrant->registrant_remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(41)">Admin / Decision +/-</button></td><td></td><td id="admin_role"></td></tr>';
 	$html_text .= '<tr id="411" style="display:none"><td>admin_handle</td><td>'.$item->admin->admin_handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="412" style="display:none"><td>admin_web_id</td><td>'.$item->admin->admin_web_id.'</td><td id="admin_web_id"></td></tr>';

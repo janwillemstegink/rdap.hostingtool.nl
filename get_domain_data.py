@@ -1,5 +1,5 @@
 import sys
-import whois
+import whois #whois-python also installed
 
 if len(sys.argv) > 1:
     received_parameter = sys.argv[1]    
