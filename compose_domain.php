@@ -167,10 +167,10 @@ $view_links_1_media = $obj['links'][1]['media'];
 $view_links_1_type = $obj['links'][1]['type'];
 	
 $status_values = '';	
-$registration = '(non-public)';
+$registration = '(hidden)';
 $last_transferred = '';			
 $last_changed = '';
-$expiration = '(non-public)';	
+$expiration = '(hidden)';	
 $deletion = '(deletion is not applicable)';
 $extensions_values = '';
 $remark_values = '';	
@@ -225,24 +225,24 @@ elseif ($obj['secureDNS']['delegationSigned'] === false)	{
 	$name_servers_dnssec = 'no';	
 }
 $registrant_handle = '';
-$registrant_full_name = '(non-public)';
+$registrant_full_name = '(hidden)';
 $registrant_name = '';	
 $registrant_street = '';
 $registrant_city = '';
 $registrant_postal_code = '';
-$registrant_country_code = '(non-public)';	
+$registrant_country_code = '(hidden)';	
 $registrant_protected = 'name,phone,fax,email,address';
 $registrant_language_pref_1 = '';
 $registrant_language_pref_2 = '';	
 $admin_handle = '';
-$admin_email = '(non-public)';
-$admin_country_code = '(non-public)';	
+$admin_email = '(hidden)';
+$admin_country_code = '(hidden)';	
 $admin_protected = 'web_id,full_name,name,phone,fax,address';
 $admin_language_pref_1 = '';
 $admin_language_pref_2 = '';	
 $tech_handle = '';
-$tech_email	= '(non-public)';
-$tech_country_code = '(non-public)';
+$tech_email	= '(hidden)';
+$tech_country_code = '(hidden)';
 $tech_protected = 'web_id,full_name,name,phone,fax,address';
 $tech_language_pref_1 = '';
 $tech_language_pref_2 = '';	
@@ -268,7 +268,7 @@ $registrar_name = '';
 $registrar_street = '';
 $registrar_city = '';
 $registrar_postal_code = '';
-$registrar_country_code = '(non-public)';	
+$registrar_country_code = '(hidden)';	
 $registrar_protected = 'name,phone,fax,email';
 $registrar_language_pref_1 = '';
 $registrar_language_pref_2 = '';	
@@ -925,7 +925,7 @@ foreach($obj as $key1 => $value1) {
 	}
 }
 if (str_contains($status_values, 'locked'))	{	
-	if ($expiration == '(non-public)')	{
+	if ($expiration == '(hidden)')	{
 		$expiration = '(expiration is not applicable)';	
 	}		
 }
