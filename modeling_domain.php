@@ -25,11 +25,11 @@ function SwitchDisplay(type) {
 		var pre = '13';
 		var max = 5
 	}
-	else if (type == 20)	{ // view 0
+	else if (type == 20)	{ // links 0
 		var pre = '20';
 		var max = 7
 	}
-	else if (type == 21)	{ // view 1
+	else if (type == 21)	{ // links 1
 		var pre = '21';
 		var max = 7
 	}
@@ -515,21 +515,21 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="133" style="display:none;vertical-align:top"><td>zone_notice_2_description_1</td><td>'.$item->zone->zone_notice_2_description_1.'</td><td></td></tr>';
 	$html_text .= '<tr id="134" style="display:none;vertical-align:top"><td>zone_notice_2_links_0_href</td><td>'.$item->zone->zone_notice_2_links_0_href.'</td><td></td></tr>';
 	$html_text .= '<tr id="135" style="display:none;vertical-align:top"><td>zone_notice_2_links_0_type</td><td>'.$item->zone->zone_notice_2_links_0_type.'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(20)">View0 +/-</button> <button style="cursor:pointer;font-size:1.0rem" onclick="SwitchDisplay(21)">View1 +/-</button></td><td></td><td></td></tr>';
-	$html_text .= '<tr id="201" style="display:none;vertical-align:top"><td>view_links_0_value</td><td>'.$item->view->view_links_0_value.'</td><td></td></tr>';
-	$html_text .= '<tr id="202" style="display:none;vertical-align:top"><td>view_links_0_related</td><td>'.$item->view->view_links_0_related.'</td><td></td></tr>';
-	$html_text .= '<tr id="203" style="display:none;vertical-align:top"><td>view_links_0_href</td><td>'.$item->view->view_links_0_href.'</td><td></td></tr>';
-	$html_text .= '<tr id="204" style="display:none;vertical-align:top"><td>view_links_0_href_lang</td><td>'.$item->view->view_links_0_href_lang.'</td><td></td></tr>';
-	$html_text .= '<tr id="205" style="display:none;vertical-align:top"><td>view_links_0_title</td><td>'.$item->view->view_links_0_title.'</td><td></td></tr>';
-	$html_text .= '<tr id="206" style="display:none;vertical-align:top"><td>view_links_0_media</td><td>'.$item->view->view_links_0_media.'</td><td></td></tr>';
-	$html_text .= '<tr id="207" style="display:none;vertical-align:top"><td>view_links_0_type</td><td>'.$item->view->view_links_0_type.'</td><td></td></tr>';
-	$html_text .= '<tr id="211" style="display:none;vertical-align:top"><td>view_links_1_value</td><td>'.$item->view->view_links_1_value.'</td><td></td></tr>';
-	$html_text .= '<tr id="212" style="display:none;vertical-align:top"><td>view_links_1_related</td><td>'.$item->view->view_links_1_related.'</td><td></td></tr>';
-	$html_text .= '<tr id="213" style="display:none;vertical-align:top"><td>view_links_1_href</td><td>'.$item->view->view_links_1_href.'</td><td></td></tr>';
-	$html_text .= '<tr id="214" style="display:none;vertical-align:top"><td>view_links_1_href_lang</td><td>'.$item->view->view_links_1_href_lang.'</td><td></td></tr>';
-	$html_text .= '<tr id="215" style="display:none;vertical-align:top"><td>view_links_1_title</td><td>'.$item->view->view_links_1_title.'</td><td></td></tr>';
-	$html_text .= '<tr id="216" style="display:none;vertical-align:top"><td>view_links_1_media</td><td>'.$item->view->view_links_1_media.'</td><td></td></tr>';
-	$html_text .= '<tr id="217" style="display:none;vertical-align:top"><td>view_links_1_type</td><td>'.$item->view->view_links_1_type.'</td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(20)">Links0 +/-</button> <button style="cursor:pointer;font-size:1.0rem" onclick="SwitchDisplay(21)">Links1 +/-</button></td><td></td><td></td></tr>';
+	$html_text .= '<tr id="201" style="display:none;vertical-align:top"><td>links_0_value</td><td>'.$item->view->links_0_value.'</td><td></td></tr>';
+	$html_text .= '<tr id="202" style="display:none;vertical-align:top"><td>links_0_related</td><td>'.$item->view->links_0_related.'</td><td></td></tr>';
+	$html_text .= '<tr id="203" style="display:none;vertical-align:top"><td>links_0_href</td><td>'.$item->view->links_0_href.'</td><td></td></tr>';
+	$html_text .= '<tr id="204" style="display:none;vertical-align:top"><td>links_0_href_lang</td><td>'.$item->view->links_0_href_lang.'</td><td></td></tr>';
+	$html_text .= '<tr id="205" style="display:none;vertical-align:top"><td>links_0_title</td><td>'.$item->view->links_0_title.'</td><td></td></tr>';
+	$html_text .= '<tr id="206" style="display:none;vertical-align:top"><td>links_0_media</td><td>'.$item->view->links_0_media.'</td><td></td></tr>';
+	$html_text .= '<tr id="207" style="display:none;vertical-align:top"><td>links_0_type</td><td>'.$item->view->links_0_type.'</td><td></td></tr>';
+	$html_text .= '<tr id="211" style="display:none;vertical-align:top"><td>links_1_value</td><td>'.$item->view->links_1_value.'</td><td></td></tr>';
+	$html_text .= '<tr id="212" style="display:none;vertical-align:top"><td>links_1_related</td><td>'.$item->view->links_1_related.'</td><td></td></tr>';
+	$html_text .= '<tr id="213" style="display:none;vertical-align:top"><td>links_1_href</td><td>'.$item->view->links_1_href.'</td><td></td></tr>';
+	$html_text .= '<tr id="214" style="display:none;vertical-align:top"><td>links_1_href_lang</td><td>'.$item->view->links_1_href_lang.'</td><td></td></tr>';
+	$html_text .= '<tr id="215" style="display:none;vertical-align:top"><td>links_1_title</td><td>'.$item->view->links_1_title.'</td><td></td></tr>';
+	$html_text .= '<tr id="216" style="display:none;vertical-align:top"><td>links_1_media</td><td>'.$item->view->links_1_media.'</td><td></td></tr>';
+	$html_text .= '<tr id="217" style="display:none;vertical-align:top"><td>links_1_type</td><td>'.$item->view->links_1_type.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(30)">Domain +/-</button></td><td><b>'.$item->details->domain_name.'</b></td><td id="domain_role"></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>domain_handle</td><td>'.$item->details->domain_handle.'</td><td></td></tr>';

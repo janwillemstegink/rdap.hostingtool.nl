@@ -150,21 +150,21 @@ else	{
 	$registrant_web_id = '';
 }
 $zone_registry_language = $obj['lang'];	
-$view_links_0_value = $obj['links'][0]['value'];
-$view_links_0_related = $obj['links'][0]['rel'];
-$view_links_0_href = $obj['links'][0]['href'];
-$view_links_0_href_lang = $obj['links'][0]['hreflang'];
-$view_links_0_title = $obj['links'][0]['title'];
-$view_links_0_media = $obj['links'][0]['media'];
-$view_links_0_type = $obj['links'][0]['type'];
+$links_0_value = $obj['links'][0]['value'];
+$links_0_related = $obj['links'][0]['rel'];
+$links_0_href = $obj['links'][0]['href'];
+$links_0_href_lang = $obj['links'][0]['hreflang'];
+$links_0_title = $obj['links'][0]['title'];
+$links_0_media = $obj['links'][0]['media'];
+$links_0_type = $obj['links'][0]['type'];
 	
-$view_links_1_value = $obj['links'][1]['value'];
-$view_links_1_related = $obj['links'][1]['rel'];
-$view_links_1_href = $obj['links'][1]['href'];
-$view_links_href_lang_1 = $obj['links'][1]['hreflang'];
-$view_links_1_title = $obj['links'][1]['title'];
-$view_links_1_media = $obj['links'][1]['media'];
-$view_links_1_type = $obj['links'][1]['type'];
+$links_1_value = $obj['links'][1]['value'];
+$links_1_related = $obj['links'][1]['rel'];
+$links_1_href = $obj['links'][1]['href'];
+$links_href_lang_1 = $obj['links'][1]['hreflang'];
+$links_1_title = $obj['links'][1]['title'];
+$links_1_media = $obj['links'][1]['media'];
+$links_1_type = $obj['links'][1]['type'];
 	
 $status_values = '';	
 $registration = '(hidden)';
@@ -1041,61 +1041,61 @@ $domain->appendChild($zone);
 $view = $doc->createElement("view");
 $domain->appendChild($view);
 
-$domain_view_links_0_value = $doc->createElement("view_links_0_value");
-$domain_view_links_0_value->appendChild($doc->createCDATASection($view_links_0_value));	
-$view->appendChild($domain_view_links_0_value);
+$domain_links_0_value = $doc->createElement("links_0_value");
+$domain_links_0_value->appendChild($doc->createCDATASection($links_0_value));	
+$view->appendChild($domain_links_0_value);
 	
-$domain_view_links_0_related = $doc->createElement("view_links_0_related");
-$domain_view_links_0_related->appendChild($doc->createCDATASection($view_links_0_related));	
-$view->appendChild($domain_view_links_0_related);
+$domain_links_0_related = $doc->createElement("links_0_related");
+$domain_links_0_related->appendChild($doc->createCDATASection($links_0_related));	
+$view->appendChild($domain_links_0_related);
 	
-$domain_view_links_0_href = $doc->createElement("view_links_0_href");
-$domain_view_links_0_href->appendChild($doc->createCDATASection($view_links_0_href));	
-$view->appendChild($domain_view_links_0_href);
+$domain_links_0_href = $doc->createElement("links_0_href");
+$domain_links_0_href->appendChild($doc->createCDATASection($links_0_href));	
+$view->appendChild($domain_links_0_href);
 	
-$domain_view_links_0_href_lang = $doc->createElement("view_links_0_href_lang");
-$domain_view_links_0_href_lang->appendChild($doc->createCDATASection($view_links_0_href_lang));	
-$view->appendChild($domain_view_links_0_href_lang);
+$domain_links_0_href_lang = $doc->createElement("links_0_href_lang");
+$domain_links_0_href_lang->appendChild($doc->createCDATASection($links_0_href_lang));	
+$view->appendChild($domain_links_0_href_lang);
 	
-$domain_view_links_0_title = $doc->createElement("view_links_0_title");
-$domain_view_links_0_title->appendChild($doc->createCDATASection($view_links_0_title));	
-$view->appendChild($domain_view_links_0_title);	
+$domain_links_0_title = $doc->createElement("links_0_title");
+$domain_links_0_title->appendChild($doc->createCDATASection($links_0_title));	
+$view->appendChild($domain_links_0_title);	
 	
-$domain_view_links_0_media = $doc->createElement("view_links_0_media");
-$domain_view_links_0_media->appendChild($doc->createCDATASection($view_links_0_media));	
-$view->appendChild($domain_view_links_0_media);
+$domain_links_0_media = $doc->createElement("links_0_media");
+$domain_links_0_media->appendChild($doc->createCDATASection($links_0_media));	
+$view->appendChild($domain_links_0_media);
 
-$domain_view_links_0_type = $doc->createElement("view_links_0_type");
-$domain_view_links_0_type->appendChild($doc->createCDATASection($view_links_0_type));	
-$view->appendChild($domain_view_links_0_type);
+$domain_links_0_type = $doc->createElement("links_0_type");
+$domain_links_0_type->appendChild($doc->createCDATASection($links_0_type));	
+$view->appendChild($domain_links_0_type);
 	
-$domain_view_links_1_value = $doc->createElement("view_links_1_value");
-$domain_view_links_1_value->appendChild($doc->createCDATASection($view_links_1_value));	
-$view->appendChild($domain_view_links_1_value);
+$domain_links_1_value = $doc->createElement("links_1_value");
+$domain_links_1_value->appendChild($doc->createCDATASection($links_1_value));	
+$view->appendChild($domain_links_1_value);
 	
-$domain_view_links_1_related = $doc->createElement("view_links_1_related");
-$domain_view_links_1_related->appendChild($doc->createCDATASection($view_links_1_related));	
-$view->appendChild($domain_view_links_1_related);
+$domain_links_1_related = $doc->createElement("links_1_related");
+$domain_links_1_related->appendChild($doc->createCDATASection($links_1_related));	
+$view->appendChild($domain_links_1_related);
 	
-$domain_view_links_1_href = $doc->createElement("view_links_1_href");
-$domain_view_links_1_href->appendChild($doc->createCDATASection($view_links_1_href));	
-$view->appendChild($domain_view_links_1_href);
+$domain_links_1_href = $doc->createElement("links_1_href");
+$domain_links_1_href->appendChild($doc->createCDATASection($links_1_href));	
+$view->appendChild($domain_links_1_href);
 	
-$domain_view_links_href_lang_1 = $doc->createElement("view_links_href_lang_1");
-$domain_view_links_href_lang_1->appendChild($doc->createCDATASection($view_links_href_lang_1));	
-$view->appendChild($domain_view_links_href_lang_1);
+$domain_links_href_lang_1 = $doc->createElement("links_href_lang_1");
+$domain_links_href_lang_1->appendChild($doc->createCDATASection($links_href_lang_1));	
+$view->appendChild($domain_links_href_lang_1);
 	
-$domain_view_links_1_title = $doc->createElement("view_links_1_title");
-$domain_view_links_1_title->appendChild($doc->createCDATASection($view_links_1_title));	
-$view->appendChild($domain_view_links_1_title);	
+$domain_links_1_title = $doc->createElement("links_1_title");
+$domain_links_1_title->appendChild($doc->createCDATASection($links_1_title));	
+$view->appendChild($domain_links_1_title);	
 	
-$domain_view_links_1_media = $doc->createElement("view_links_1_media");
-$domain_view_links_1_media->appendChild($doc->createCDATASection($view_links_1_media));	
-$view->appendChild($domain_view_links_1_media);
+$domain_links_1_media = $doc->createElement("links_1_media");
+$domain_links_1_media->appendChild($doc->createCDATASection($links_1_media));	
+$view->appendChild($domain_links_1_media);
 
-$domain_view_links_1_type = $doc->createElement("view_links_1_type");
-$domain_view_links_1_type->appendChild($doc->createCDATASection($view_links_1_type));	
-$view->appendChild($domain_view_links_1_type);	
+$domain_links_1_type = $doc->createElement("links_1_type");
+$domain_links_1_type->appendChild($doc->createCDATASection($links_1_type));	
+$view->appendChild($domain_links_1_type);	
 $domain->appendChild($view);
 		
 $details = $doc->createElement("details");
