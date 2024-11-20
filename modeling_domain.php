@@ -39,7 +39,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 40)	{ // registrant
 		var pre = '40';
-		var max = 25
+		var max = 26
 	}
 	else if (type == 41)	{ // admin
 		var pre = '41';
@@ -114,6 +114,7 @@ function SwitchTranslation(translation)	{
 		var proposed = '';
 		var derived = '';
 		document.getElementById("title").textContent = "Domain Data";
+		document.getElementById("subtitle").textContent = "(modeled data)";
 		document.getElementById("instruction").textContent = "Paste a domain name and press Enter.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
@@ -176,6 +177,7 @@ function SwitchTranslation(translation)	{
 		var proposed = 'VOORGESTELD - ';
 		var derived = proposed + 'Niet-openbare gegevens';
 		document.getElementById("title").textContent = "Domeingegevens";
+		document.getElementById("subtitle").textContent = "(gemodelleerde data)";
 		document.getElementById("instruction").textContent = "Plak een domeinnaam en druk op Enter.";
 		document.getElementById("field").textContent = "Omschrijving";
 		document.getElementById("value").textContent = "Detail";
@@ -188,21 +190,21 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_notices").textContent = "Het gebruik van domeingegevens is aan beperkingen onderhevig.";
 		document.getElementById("domain_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
 		document.getElementById("domain_name_unicode").textContent = "Namen met speciale tekens worden opgeslagen als ASCII-tekenreeksen met behulp van Punycode-transcriptie.";
-		document.getElementById("domain_status_values").textContent = "De 'redemption period' staat herstel toe. De 'pending delete' past bij een deletion-fase.";
-		document.getElementById("domain_event_expiration").textContent = "Datum/tijd van periodieke verlenging of beëindiging.";
-		document.getElementById("domain_event_deletion").textContent = "Datum/tijd waarop een volledige verwijdering is gepland. Vaak is herstel een optie.";
-		document.getElementById("domain_event_last_uploaded").textContent = "Datum/tijd van de RDAP-database-update in Zoeloe-tijd (Coordinated Universal Time - UTC).";
-		document.getElementById("domain_extensions_values").textContent = "'Eligibility': Hoe een domein voldoet aan een TLD-specifieke vereiste.";
+		document.getElementById("domain_status_values").textContent = "De 'redemption period' staat herstel toe. In de laatste fase geldt 'pending delete'.";
+		document.getElementById("domain_event_expiration").textContent = "Datum en tijdstip van periodieke verlenging of stopzetting van de publicatie.";
+		document.getElementById("domain_event_deletion").textContent = "Datum en tijdstip waarop een volledige verwijdering is gepland. Vaak is herstel een optie.";
+		document.getElementById("domain_event_last_uploaded").textContent = "Datum en tijdstip van de RDAP-database-update in Zoeloe-tijd (Coordinated Universal Time - UTC).";
+		document.getElementById("domain_extensions_values").textContent = "'Eligibility': Hoe een domein voldoet aan een specifieke vereiste in een topleveldomeinzone.";
 		document.getElementById("registrant_role").textContent = "De domeinhouder is primair verantwoordelijk en heeft het abonnement op zijn domein.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Webidentificatienummer voor bedrijfsentiteiten en natuurlijke personen.";
-		document.getElementById("registrant_full_name").textContent = "Een bestaande (zakelijk zichtbare) naam van de gebruiker met de daadwerkelijke of de effectieve controle.";
+		document.getElementById("registrant_full_name").textContent = "De domeingebruiker die daadwerkelijke of effectieve controle heeft.";
 		document.getElementById("registrant_kind").textContent = "Leeg, 'individual' of 'org'; een levenstestament kan een juridische lacune opvullen; suggestie: 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "In het RDAP-protocol kan een persoonlijke naam zichtbaar zijn in het veld 'full_name'.";
 		document.getElementById("registrant_country_code").textContent = "Een domein kan worden ingetrokken, bijvoorbeeld nadat het Verenigd Koninkrijk de EU heeft verlaten.";
 		document.getElementById("registrant_protected").textContent = derived;
 		document.getElementById("registrant_verification").textContent = "Gepland: Web-ID-zoekopdrachten kunnen worden uitgevoerd op wereldwijde RDAP-servers.";
 		document.getElementById("registrant_event_verification_requested").textContent = proposed + "Met Web ID-indexering kan een overeenkomende (natuurlijke) entiteit domeinen valideren.";
-		document.getElementById("registrant_event_verification_recorded").textContent = proposed + "Op de lange termijn kan verificatie ook worden gebruikt door zoekmachines.";
+		document.getElementById("registrant_event_verification_recorded").textContent = proposed + "Op de lange termijn kunnen zoekmachines verificatie van een domeinhouder zichtbaar maken.";
 		document.getElementById("admin_role").textContent = "Het administratief aanspreekpunt beantwoordt een verzoek en stuurt zo nodig door.";
 		document.getElementById("admin_web_id").textContent = proposed;
 		document.getElementById("admin_protected").textContent = derived;
@@ -233,12 +235,13 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_ip").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
 		document.getElementById("br_zone").textContent = "Zone .br: De RDAP-gegevens zijn aangepast met nameservervalidatie.";
 
-		document.getElementById("raw_data_next").textContent = "Deze tool werkt met een op verantwoordelijkheid gebaseerde veldvolgorde, de standaardwaarde 'hidden' en unieke veldnamen voor weergave.";	
+		document.getElementById("raw_data_next").textContent = "Deze tool heeft een op verantwoordelijkheid gebaseerde veldvolgorde, de standaardwaarde 'hidden' en unieke veldnamen voor weergave.";	
 	}
 	else if (translation == 2)	{
 		var proposed = 'PROPOSED - ';
 		var derived = proposed + 'hidden data';
 		document.getElementById("title").textContent = "Domain Data";
+		document.getElementById("subtitle").textContent = "(modeled data)";
 		document.getElementById("instruction").textContent = "Paste a domain name and press Enter.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
@@ -251,21 +254,21 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_notices").textContent = "The use of domain data is subject to restrictions.";
 		document.getElementById("domain_role").textContent = "A web domain under a top-level domain is unique worldwide and can be freely chosen under certain rules.";
 		document.getElementById("domain_name_unicode").textContent = "Names with special characters are stored as ASCII strings using Punycode transcription.";
-		document.getElementById("domain_status_values").textContent = "The 'redemption period' allows recovery. The 'pending delete' fits a deletion phase.";
-		document.getElementById("domain_event_expiration").textContent = "Date/time of periodic renewal or termination.";
-		document.getElementById("domain_event_deletion").textContent = "Date/time a full deletion is scheduled. Often recovery is an option.";
-		document.getElementById("domain_event_last_uploaded").textContent = "Date/time of RDAP database update in Zulu time (Coordinated Universal Time - UTC).";
-		document.getElementById("domain_extensions_values").textContent = "'Eligibility': How a domain meets a TLD-specific requirement.";
+		document.getElementById("domain_status_values").textContent = "The 'redemption period' allows recovery. In the final phase, 'pending delete' applies.";
+		document.getElementById("domain_event_expiration").textContent = "Date and time of periodic renewal or discontinuation of publication.";
+		document.getElementById("domain_event_deletion").textContent = "Date and time a full deletion is scheduled. Often recovery is an option.";
+		document.getElementById("domain_event_last_uploaded").textContent = "Date and time of RDAP database update in Zulu time (Coordinated Universal Time - UTC).";
+		document.getElementById("domain_extensions_values").textContent = "'Eligibility': How a domain fulfills a specific requirement in a top-level domain zone.";
 		document.getElementById("registrant_role").textContent = "The domain owner is primarily responsible and has the subscription to his domain.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web Identification number for business entities and natural persons.";
-		document.getElementById("registrant_full_name").textContent = "An existing (business visible) name of the user with actual or effective control.";
+		document.getElementById("registrant_full_name").textContent = "The domain user who has actual or effective control.";
 		document.getElementById("registrant_kind").textContent = "Empty, 'individual' or 'org'; a living will can fill a legal gap; suggestion: 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "In the RDAP protocol, a personal name may be visible in the 'full_name' field.";
 		document.getElementById("registrant_country_code").textContent = "A domain can be revoked, for example after the UK left the EU.";
 		document.getElementById("registrant_protected").textContent = derived;
 		document.getElementById("registrant_verification").textContent = "Planned: Web ID searches can be performed on global RDAP servers.";	
 		document.getElementById("registrant_event_verification_requested").textContent = proposed + "With Web ID indexing, a matching (natural) entity can validate domains.";
-		document.getElementById("registrant_event_verification_recorded").textContent = proposed + "In the long term, verification can also be used by search engines.";	
+		document.getElementById("registrant_event_verification_recorded").textContent = proposed + "In the long run, search engines may make verification of a domain owner visible.";	
 		document.getElementById("admin_role").textContent = "The administratively responsible desk answers a request, and forwards on if necessary.";
 		document.getElementById("admin_web_id").textContent = proposed;
 		document.getElementById("admin_protected").textContent = derived;
@@ -295,12 +298,13 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
 		document.getElementById("br_zone").textContent = "Zone .br: The RDAP data has been modified with name server validation.";
-		document.getElementById("raw_data_next").textContent = "This tool works with a responsibility-based field ordering, the default value 'hidden', and unique field names for display.";
+		document.getElementById("raw_data_next").textContent = "This tool has a responsibility-based field ordering, the default value 'hidden', and unique field names for display.";
 	}
 	else if (translation == 3)	{
 		var proposed = 'VORGESCHLAGEN - ';
 		var derived = proposed + 'Nicht öffentliche Daten';
 		document.getElementById("title").textContent = "Domänendaten";
+		document.getElementById("subtitle").textContent = "(modellierte Daten)";
 		document.getElementById("instruction").textContent = "Fügen Sie einen Domänennamen ein und drücken Sie die Eingabetaste.";
 		document.getElementById("field").textContent = "Beschreibung";
 		document.getElementById("value").textContent = "Detail";
@@ -313,21 +317,21 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_notices").textContent = "Die Nutzung der Domaindaten unterliegt Einschränkungen.";
 		document.getElementById("domain_role").textContent = "Eine Webdomain unter einer Top-Level-Domain ist weltweit einzigartig und unter bestimmten Regeln frei wählbar.";
 		document.getElementById("domain_name_unicode").textContent = "Namen mit Sonderzeichen werden mittels Punycode-Transkription als ASCII-Strings gespeichert.";
-		document.getElementById("domain_status_values").textContent = "Die 'redemption period' ermöglicht die Wiederherstellung. Die 'pending delete' passt in eine Löschphase.";
-		document.getElementById("domain_event_expiration").textContent = "Datum/Uhrzeit der periodischen Verlängerung oder Kündigung.";
-		document.getElementById("domain_event_deletion").textContent = "Datum/Uhrzeit für die vollständige Löschung geplant. Oft ist eine Wiederherstellung möglich.";
-		document.getElementById("domain_event_last_uploaded").textContent = "Datum/Uhrzeit der RDAP-Datenbankaktualisierung in Zulu-Zeit (Koordinierte Weltzeit – UTC).";
-		document.getElementById("domain_extensions_values").textContent = "'Eligibility': Wie eine Domäne eine TLD-spezifische Anforderung erfüllt.";
+		document.getElementById("domain_status_values").textContent = "Die 'redemption period' ermöglicht die Wiederherstellung. In der letzten Phase gilt die 'pending delete'.";
+		document.getElementById("domain_event_expiration").textContent = "Datum und Uhrzeit der periodischen Erneuerung oder Einstellung der Veröffentlichung.";
+		document.getElementById("domain_event_deletion").textContent = "Datum und Uhrzeit für die vollständige Löschung geplant. Oft ist eine Wiederherstellung möglich.";
+		document.getElementById("domain_event_last_uploaded").textContent = "Datum und Uhrzeit der RDAP-Datenbankaktualisierung in Zulu-Zeit (Koordinierte Weltzeit – UTC).";
+		document.getElementById("domain_extensions_values").textContent = "'Eligibility': Wie eine Domäne eine bestimmte Anforderung in einer Top-Level-Domänenzone erfüllt.";
 		document.getElementById("registrant_role").textContent = "Der Domaininhaber ist hauptverantwortlich und hat das Abonnement für seine Domain.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web-Identifikationsnummer für Unternehmen und natürliche Personen.";
-		document.getElementById("registrant_full_name").textContent = "Ein bestehender (kommerziell sichtbarer) Name des Benutzers mit tatsächlicher oder effektiver Kontrolle.";
+		document.getElementById("registrant_full_name").textContent = "Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat.";
 		document.getElementById("registrant_kind").textContent = "Leer, 'individual' oder 'org'; Eine Patientenverfügung kann eine rechtliche Lücke schließen; Anregung: 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "Im RDAP-Protokoll kann im Feld 'full_name' ein Personenname sichtbar sein.";
 		document.getElementById("registrant_country_code").textContent = "Eine Domain kann beispielsweise nach dem Austritt Großbritanniens aus der EU widerrufen werden.";
 		document.getElementById("registrant_protected").textContent = derived;
 		document.getElementById("registrant_verification").textContent = "Geplant: Web-ID-Suchen können auf globalen RDAP-Servern durchgeführt werden.";
 		document.getElementById("registrant_event_verification_requested").textContent = proposed + "Mit der Web-ID-Indizierung kann eine übereinstimmende (natürliche) Entität Domänen validieren.";
-		document.getElementById("registrant_event_verification_recorded").textContent = proposed + "Langfristig kann die Überprüfung auch von Suchmaschinen genutzt werden.";
+		document.getElementById("registrant_event_verification_recorded").textContent = proposed + "Langfristig können Suchmaschinen die Verifizierung eines Domaininhabers sichtbar machen.";
 		document.getElementById("admin_role").textContent = "Die administrativ zuständige Stelle beantwortet eine Anfrage und leitet sie gegebenenfalls weiter.";
 		document.getElementById("admin_web_id").textContent = proposed;
 		document.getElementById("admin_protected").textContent = derived;
@@ -357,13 +361,14 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 		document.getElementById("name_servers_ip").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
 		document.getElementById("br_zone").textContent = "Zone .br: Die RDAP-Daten wurden mit der Nameserver-Validierung angepasst.";
-		document.getElementById("raw_data_next").textContent = "Dieses Tool arbeitet mit einer verantwortungsbasierten Feldreihenfolge, dem Standardwert 'hidden' und eindeutigen Feldnamen für die Anzeige.";
+		document.getElementById("raw_data_next").textContent = "Dieses Tool verfügt über eine verantwortungsbasierte Feldreihenfolge, dem Standardwert 'hidden' und eindeutigen Feldnamen für die Anzeige.";
 	}
 	else if (translation == 4)	{
 		var proposed = 'PROPOSÉ - ';
 		var derived = proposed + 'Données non publiques';
 		var adjustment = 'Ajustement';
 		document.getElementById("title").textContent = "Données du domaine";
+		document.getElementById("subtitle").textContent = "(données modélisées)";
 		document.getElementById("instruction").textContent = "Collez un nom de domaine et appuyez sur Entrée.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Détail";
@@ -376,21 +381,21 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_notices").textContent = "L'utilisation des données de domaine est soumise à des restrictions.";
 		document.getElementById("domain_role").textContent = "Un domaine Web sous un domaine de premier niveau est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_name_unicode").textContent = "Les noms avec des caractères spéciaux sont stockés sous forme de chaînes ASCII à l'aide de la transcription Punycode.";
-		document.getElementById("domain_status_values").textContent = "La 'redemption period' permet la récupération. La 'pending delete' correspond à une phase de suppression.";
-		document.getElementById("domain_event_expiration").textContent = "Date/heure de renouvellement périodique ou de résiliation.";
-		document.getElementById("domain_event_deletion").textContent = "Date/heure à laquelle une suppression complète est prévue. La récupération est souvent une option.";
-		document.getElementById("domain_event_last_uploaded").textContent = "Date/heure de mise à jour de la base de données RDAP en heure Zulu (temps universel coordonné - UTC).";
-		document.getElementById("domain_extensions_values").textContent = "'Eligibility' : Comment un domaine répond à une exigence spécifique au TLD.";
+		document.getElementById("domain_status_values").textContent = "La 'redemption period' permet la récupération. La 'pending delete' s'applique dans la phase finale.";
+		document.getElementById("domain_event_expiration").textContent = "Date et heure du renouvellement périodique ou de l'arrêt de la publication.";
+		document.getElementById("domain_event_deletion").textContent = "Date et heure à laquelle une suppression complète est prévue. La récupération est souvent une option.";
+		document.getElementById("domain_event_last_uploaded").textContent = "Date et heure de mise à jour de la base de données RDAP en heure Zulu (temps universel coordonné - UTC).";
+		document.getElementById("domain_extensions_values").textContent = "'Eligibility' : comment un domaine répond à une exigence spécifique dans une zone de domaine de premier niveau.";
 		document.getElementById("registrant_role").textContent = "Le propriétaire d'un domaine est le premier responsable et titulaire de l'abonnement à son domaine.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Numéro d’identification Web pour les entités commerciales et les personnes physiques.";
-		document.getElementById("registrant_full_name").textContent = "Un nom existant (visible commercialement) de l'utilisateur avec un contrôle réel ou effectif.";
+		document.getElementById("registrant_full_name").textContent = "L'utilisateur du domaine qui a un contrôle réel ou effectif.";
 		document.getElementById("registrant_kind").textContent = "Vide, 'individual' ou 'org' ; un testament biologique peut combler un vide juridique ; suggestion : 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "Dans le protocole RDAP, un nom personnel peut être visible dans le champ 'full_name'.";
 		document.getElementById("registrant_country_code").textContent = "Un domaine peut être révoqué, par exemple après que le Royaume-Uni ait quitté l'UE.";
 		document.getElementById("registrant_protected").textContent = derived;
 		document.getElementById("registrant_verification").textContent = "Prévu : Les recherches d’identifiant Web peuvent être effectuées sur des serveurs RDAP mondiaux.";
 		document.getElementById("registrant_event_verification_requested").textContent = proposed + "Avec l’indexation des identifiants Web, une entité correspondante (naturelle) peut valider les domaines.";
-		document.getElementById("registrant_event_verification_recorded").textContent = proposed + "À long terme, la vérification peut également être utilisée par les moteurs de recherche.";
+		document.getElementById("registrant_event_verification_recorded").textContent = proposed + "À long terme, les moteurs de recherche peuvent rendre visible la vérification d’un titulaire de domaine.";
 		document.getElementById("admin_role").textContent = "Le bureau administrativement responsable répond à une demande, et la transmet si nécessaire.";
 		document.getElementById("admin_web_id").textContent = proposed;
 		document.getElementById("admin_protected").textContent = derived;
@@ -420,7 +425,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 		document.getElementById("name_servers_ip").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
 		document.getElementById("br_zone").textContent = "Zone .br: Les données RDAP ont été ajustées avec la validation du serveur de noms.";
-		document.getElementById("raw_data_next").textContent = "Cet outil fonctionne avec un ordre de champ basé sur la responsabilité, la valeur par défaut 'hidden' et des noms de champ uniques pour l'affichage.";
+		document.getElementById("raw_data_next").textContent = "Cet outil a un ordre des champs basé sur la responsabilité, la valeur par défaut 'hidden' et des noms de champ uniques pour l'affichage.";
 	}
 }	
 </script><?php
@@ -473,7 +478,7 @@ $html_text = '<body onload=SwitchTranslation('.$viewlanguage.')><div style="bord
 <tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th></tr>';
 
 $html_text .= '<tr style="font-size: .8rem"><td id="title" style="font-size: 1.3rem;color:blue;font-weight:bold"></td><td colspan="2" id="instruction"></td></tr>';
-$html_text .= '<tr style="font-size: .8rem"><td></td><td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">
+$html_text .= '<tr style="font-size: .8rem"><td id="subtitle" style="font-size: 1.0rem;color:blue;font-weight:bold"></td><td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">
 	<input type="hidden" id="language" name="language" value='.$viewlanguage.'>	
 	<input type="text" style="width:90%" id="domain" name="domain" value='.$viewdomain.'></form>
 	<label for="domain">biz/com/net/org/ca/ch/de/fr/nl/uk/amsterdam/politie</label></td><td>
@@ -565,8 +570,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4022" style="display:none"><td>registrant_event_last_uploaded</td><td>'.$item->registrant->registrant_event_last_uploaded.'</td><td id="registrant_event_last_uploaded"></td></tr>';
 	$html_text .= '<tr id="4023" style="display:none"><td></td><td></td><td id="registrant_verification"></td></tr>';
 	$html_text .= '<tr id="4024" style="display:none"><td>registrant_event_verification_requested</td><td>'.$item->registrant->registrant_event_verification_requested.'</td><td id="registrant_event_verification_requested"></td></tr>';
-	$html_text .= '<tr><td>registrant_event_verification_recorded</td><td>'.$item->registrant->registrant_event_verification_recorded.'</td><td id="registrant_event_verification_recorded"></td></tr>';
-	$html_text .= '<tr id="4025" style="display:none;vertical-align:top"><td>registrant_remark_values</td><td>'.$item->registrant->registrant_remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="4025" style="display:none"><td>registrant_event_verification_recorded</td><td>'.$item->registrant->registrant_event_verification_recorded.'</td><td id="registrant_event_verification_recorded"></td></tr>';
+	$html_text .= '<tr id="4026" style="display:none;vertical-align:top"><td>registrant_remark_values</td><td>'.$item->registrant->registrant_remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(41)">Admin / Decision +/-</button></td><td></td><td id="admin_role"></td></tr>';
 	$html_text .= '<tr id="411" style="display:none"><td>admin_handle</td><td>'.$item->admin->admin_handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="412" style="display:none"><td>admin_web_id</td><td>'.$item->admin->admin_web_id.'</td><td id="admin_web_id"></td></tr>';

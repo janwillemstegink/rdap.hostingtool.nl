@@ -1,5 +1,5 @@
 <?php
-//$_GET['domain'] = 'france.fr';
+//$_GET['domain'] = 'hostingtool.nl';
 
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
@@ -98,7 +98,7 @@ switch ($zone_top_level_domain) {
 }
 
 if (!strlen($url))	{	
-	$rdap = json_decode(file_get_contents('https://data.iana.org/rdap/dns.json'), true);			
+	$rdap = json_decode(file_get_contents('https://data.iana.org/rdap/dns.json'), true);
 	$temp_tld = '';
 	foreach($rdap as $key1 => $value1) {
     	foreach($value1 as $key2 => $value2) {
@@ -116,7 +116,7 @@ if (!strlen($url))	{
 	}
 }	
 $url .= 'domain/'.$inputdomain;
-$obj = json_decode(file_get_contents($url), true);		
+$obj = json_decode(file_get_contents($url), true);
 $rdap_conformance = $obj['rdapConformance'];
 $object_class_name = $obj['objectClassName'];
 $zone_notice_0_title = $obj['notices'][0]['title'];
@@ -1627,7 +1627,7 @@ $name_servers->appendChild($domain_name_servers_dnssec_algorithm);
 $domain->appendChild($name_servers);
 		
 $domain_raw_rdap_data = $doc->createElement("raw_rdap_data");	
-$domain_raw_rdap_data->appendChild($doc->createCDATASection($raw_rdap_data));		
+$domain_raw_rdap_data->appendChild($doc->createCDATASection($raw_rdap_data));
 $domain->appendChild($domain_raw_rdap_data);
 	
 $domain_raw_whois_data = $doc->createElement("raw_whois_data");	
