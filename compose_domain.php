@@ -119,21 +119,21 @@ $url .= 'domain/'.$inputdomain;
 $obj = json_decode(file_get_contents($url), true);
 $rdap_conformance = $obj['rdapConformance'];
 $object_class_name = $obj['objectClassName'];
-$zone_notice_0_title = $obj['notices'][0]['title'];
-$zone_notice_0_description_0 = $obj['notices'][0]['description'][0];	
-$zone_notice_0_description_1 = $obj['notices'][0]['description'][1];
-$zone_notice_0_links_0_href = $obj['notices'][0]['links'][0]['href'];
-$zone_notice_0_links_0_type = $obj['notices'][0]['links'][0]['type'];
-$zone_notice_1_title = $obj['notices'][1]['title'];
-$zone_notice_1_description_0 = $obj['notices'][1]['description'][0];
-$zone_notice_1_description_1 = $obj['notices'][1]['description'][1];
-$zone_notice_1_links_0_href = $obj['notices'][1]['links'][0]['href'];
-$zone_notice_1_links_0_type = $obj['notices'][1]['links'][0]['type'];	
-$zone_notice_2_title = $obj['notices'][2]['title'];	
-$zone_notice_2_description_0 = $obj['notices'][2]['description'][0];
-$zone_notice_2_description_1 = $obj['notices'][2]['description'][1];
-$zone_notice_2_links_0_href = $obj['notices'][2]['links'][0]['href'];
-$zone_notice_2_links_0_type = $obj['notices'][2]['links'][0]['type'];
+$notice_0_title = $obj['notices'][0]['title'];
+$notice_0_description_0 = $obj['notices'][0]['description'][0];	
+$notice_0_description_1 = $obj['notices'][0]['description'][1];
+$notice_0_links_0_href = $obj['notices'][0]['links'][0]['href'];
+$notice_0_links_0_type = $obj['notices'][0]['links'][0]['type'];
+$notice_1_title = $obj['notices'][1]['title'];
+$notice_1_description_0 = $obj['notices'][1]['description'][0];
+$notice_1_description_1 = $obj['notices'][1]['description'][1];
+$notice_1_links_0_href = $obj['notices'][1]['links'][0]['href'];
+$notice_1_links_0_type = $obj['notices'][1]['links'][0]['type'];	
+$notice_2_title = $obj['notices'][2]['title'];	
+$notice_2_description_0 = $obj['notices'][2]['description'][0];
+$notice_2_description_1 = $obj['notices'][2]['description'][1];
+$notice_2_links_0_href = $obj['notices'][2]['links'][0]['href'];
+$notice_2_links_0_type = $obj['notices'][2]['links'][0]['type'];
 	
 if ($zone_top_level_domain == 'nl')	{
 	$zone_registry_web_id = '';
@@ -976,65 +976,65 @@ $domain_zone_support = $doc->createElement("zone_support");
 $domain_zone_support->appendChild($doc->createCDATASection($zone_support));	
 $zone->appendChild($domain_zone_support);	
 	
-$domain_zone_notice_0_title = $doc->createElement("zone_notice_0_title");
-$domain_zone_notice_0_title->appendChild($doc->createCDATASection($zone_notice_0_title));	
-$zone->appendChild($domain_zone_notice_0_title);	
+$domain_notice_0_title = $doc->createElement("notice_0_title");
+$domain_notice_0_title->appendChild($doc->createCDATASection($notice_0_title));	
+$zone->appendChild($domain_notice_0_title);	
 	
-$domain_zone_notice_0_description_0 = $doc->createElement("zone_notice_0_description_0");
-$domain_zone_notice_0_description_0->appendChild($doc->createCDATASection($zone_notice_0_description_0));	
-$zone->appendChild($domain_zone_notice_0_description_0);
+$domain_notice_0_description_0 = $doc->createElement("notice_0_description_0");
+$domain_notice_0_description_0->appendChild($doc->createCDATASection($notice_0_description_0));	
+$zone->appendChild($domain_notice_0_description_0);
 	
-$domain_zone_notice_0_description_1 = $doc->createElement("zone_notice_0_description_1");
-$domain_zone_notice_0_description_1->appendChild($doc->createCDATASection($zone_notice_0_description_1));		
-$zone->appendChild($domain_zone_notice_0_description_1);
+$domain_notice_0_description_1 = $doc->createElement("notice_0_description_1");
+$domain_notice_0_description_1->appendChild($doc->createCDATASection($notice_0_description_1));		
+$zone->appendChild($domain_notice_0_description_1);
 	
-$domain_zone_notice_0_links_0_href = $doc->createElement("zone_notice_0_links_0_href");
-$domain_zone_notice_0_links_0_href->appendChild($doc->createCDATASection($zone_notice_0_links_0_href));	
-$zone->appendChild($domain_zone_notice_0_links_0_href);
+$domain_notice_0_links_0_href = $doc->createElement("notice_0_links_0_href");
+$domain_notice_0_links_0_href->appendChild($doc->createCDATASection($notice_0_links_0_href));	
+$zone->appendChild($domain_notice_0_links_0_href);
 	
-$domain_zone_notice_0_links_0_type = $doc->createElement("zone_notice_0_links_0_type");
-$domain_zone_notice_0_links_0_type->appendChild($doc->createCDATASection($zone_notice_0_links_0_type));	
-$zone->appendChild($domain_zone_notice_0_links_0_type);	
+$domain_notice_0_links_0_type = $doc->createElement("notice_0_links_0_type");
+$domain_notice_0_links_0_type->appendChild($doc->createCDATASection($notice_0_links_0_type));	
+$zone->appendChild($domain_notice_0_links_0_type);	
 	
-$domain_zone_notice_1_title = $doc->createElement("zone_notice_1_title");
-$domain_zone_notice_1_title->appendChild($doc->createCDATASection($zone_notice_1_title));	
-$zone->appendChild($domain_zone_notice_1_title);	
+$domain_notice_1_title = $doc->createElement("notice_1_title");
+$domain_notice_1_title->appendChild($doc->createCDATASection($notice_1_title));	
+$zone->appendChild($domain_notice_1_title);	
 
-$domain_zone_notice_1_description_0 = $doc->createElement("zone_notice_1_description_0");
-$domain_zone_notice_1_description_0->appendChild($doc->createCDATASection($zone_notice_1_description_0));	
-$zone->appendChild($domain_zone_notice_1_description_0);
+$domain_notice_1_description_0 = $doc->createElement("notice_1_description_0");
+$domain_notice_1_description_0->appendChild($doc->createCDATASection($notice_1_description_0));	
+$zone->appendChild($domain_notice_1_description_0);
 	
-$domain_zone_notice_1_description_1 = $doc->createElement("zone_notice_1_description_1");
-$domain_zone_notice_1_description_1->appendChild($doc->createCDATASection($zone_notice_1_description_1));		
-$zone->appendChild($domain_zone_notice_1_description_1);
+$domain_notice_1_description_1 = $doc->createElement("notice_1_description_1");
+$domain_notice_1_description_1->appendChild($doc->createCDATASection($notice_1_description_1));		
+$zone->appendChild($domain_notice_1_description_1);
 	
-$domain_zone_notice_1_links_0_href = $doc->createElement("zone_notice_1_links_0_href");
-$domain_zone_notice_1_links_0_href->appendChild($doc->createCDATASection($zone_notice_1_links_0_href));	
-$zone->appendChild($domain_zone_notice_1_links_0_href);
+$domain_notice_1_links_0_href = $doc->createElement("notice_1_links_0_href");
+$domain_notice_1_links_0_href->appendChild($doc->createCDATASection($notice_1_links_0_href));	
+$zone->appendChild($domain_notice_1_links_0_href);
 	
-$domain_zone_notice_1_links_0_type = $doc->createElement("zone_notice_1_links_0_type");
-$domain_zone_notice_1_links_0_type->appendChild($doc->createCDATASection($zone_notice_1_links_0_type));	
-$zone->appendChild($domain_zone_notice_1_links_0_type);	
+$domain_notice_1_links_0_type = $doc->createElement("notice_1_links_0_type");
+$domain_notice_1_links_0_type->appendChild($doc->createCDATASection($notice_1_links_0_type));	
+$zone->appendChild($domain_notice_1_links_0_type);	
 	
-$domain_zone_notice_2_title = $doc->createElement("zone_notice_2_title");
-$domain_zone_notice_2_title->appendChild($doc->createCDATASection($zone_notice_2_title));	
-$zone->appendChild($domain_zone_notice_2_title);
+$domain_notice_2_title = $doc->createElement("notice_2_title");
+$domain_notice_2_title->appendChild($doc->createCDATASection($notice_2_title));	
+$zone->appendChild($domain_notice_2_title);
 	
-$domain_zone_notice_2_description_0 = $doc->createElement("zone_notice_2_description_0");
-$domain_zone_notice_2_description_0->appendChild($doc->createCDATASection($zone_notice_2_description_0));	
-$zone->appendChild($domain_zone_notice_2_description_0);
+$domain_notice_2_description_0 = $doc->createElement("notice_2_description_0");
+$domain_notice_2_description_0->appendChild($doc->createCDATASection($notice_2_description_0));	
+$zone->appendChild($domain_notice_2_description_0);
 	
-$domain_zone_notice_2_description_1 = $doc->createElement("zone_notice_2_description_1");
-$domain_zone_notice_2_description_1->appendChild($doc->createCDATASection($zone_notice_2_description_1));	
-$zone->appendChild($domain_zone_notice_2_description_1);
+$domain_notice_2_description_1 = $doc->createElement("notice_2_description_1");
+$domain_notice_2_description_1->appendChild($doc->createCDATASection($notice_2_description_1));	
+$zone->appendChild($domain_notice_2_description_1);
 	
-$domain_zone_notice_2_links_0_href = $doc->createElement("zone_notice_2_links_0_href");
-$domain_zone_notice_2_links_0_href->appendChild($doc->createCDATASection($zone_notice_2_links_0_href));	
-$zone->appendChild($domain_zone_notice_2_links_0_href);
+$domain_notice_2_links_0_href = $doc->createElement("notice_2_links_0_href");
+$domain_notice_2_links_0_href->appendChild($doc->createCDATASection($notice_2_links_0_href));	
+$zone->appendChild($domain_notice_2_links_0_href);
 	
-$domain_zone_notice_2_links_0_type = $doc->createElement("zone_notice_2_links_0_type");
-$domain_zone_notice_2_links_0_type->appendChild($doc->createCDATASection($zone_notice_2_links_0_type));	
-$zone->appendChild($domain_zone_notice_2_links_0_type);	
+$domain_notice_2_links_0_type = $doc->createElement("notice_2_links_0_type");
+$domain_notice_2_links_0_type->appendChild($doc->createCDATASection($notice_2_links_0_type));	
+$zone->appendChild($domain_notice_2_links_0_type);	
 	
 $domain->appendChild($zone);	
 

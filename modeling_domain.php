@@ -39,7 +39,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 40)	{ // registrant
 		var pre = '40';
-		var max = 26
+		var max = 25
 	}
 	else if (type == 41)	{ // admin
 		var pre = '41';
@@ -55,7 +55,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 44)	{ // emergency
 		var pre = '44';
-		var max = 15
+		var max = 16
 	}
 	else if (type == 50)	{ // reseller
 		var pre = '50';
@@ -124,7 +124,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_registry_full_name").textContent = proposed;
 		document.getElementById("zone_menu").textContent = proposed;
 		document.getElementById("zone_support").textContent = proposed;
-		document.getElementById("zone_notices").textContent = "";
+		document.getElementById("notices").textContent = "";
 		document.getElementById("domain_role").textContent = "";
 		document.getElementById("domain_name_unicode").textContent = "";
 		document.getElementById("domain_status_values").textContent = "";
@@ -187,10 +187,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_registry_full_name").textContent = proposed;
 		document.getElementById("zone_menu").textContent = proposed + "Een vervolgkeuzemenu voor uitleg en details per zone via een subdomein van de registry.";
 		document.getElementById("zone_support").textContent = proposed + "Hulp vanuit de registry is mogelijk per e-mail.";
-		document.getElementById("zone_notices").textContent = "Het gebruik van domeingegevens is aan beperkingen onderhevig.";
+		document.getElementById("notices").textContent = "Het gebruik van domeingegevens is aan beperkingen onderhevig.";
 		document.getElementById("domain_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
 		document.getElementById("domain_name_unicode").textContent = "Namen met speciale tekens worden opgeslagen als ASCII-tekenreeksen met behulp van Punycode-transcriptie.";
-		document.getElementById("domain_status_values").textContent = "De 'redemption period' staat herstel toe. In de laatste fase geldt 'pending delete'.";
+		document.getElementById("domain_status_values").textContent = "De waarde 'redemption period' staat herstel toe. De waarde 'pending delete' is van toepassing in de laatste fase.";
 		document.getElementById("domain_event_expiration").textContent = "Datum en tijdstip van periodieke verlenging of stopzetting van de publicatie.";
 		document.getElementById("domain_event_deletion").textContent = "Datum en tijdstip waarop een volledige verwijdering is gepland. Vaak is herstel een optie.";
 		document.getElementById("domain_event_last_uploaded").textContent = "Datum en tijdstip van de RDAP-database-update in Zoeloe-tijd (Coordinated Universal Time - UTC).";
@@ -200,7 +200,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_full_name").textContent = "De domeingebruiker die daadwerkelijke of effectieve controle heeft.";
 		document.getElementById("registrant_kind").textContent = "Leeg, 'individual' of 'org'; een levenstestament kan een juridische lacune opvullen; suggestie: 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "In het RDAP-protocol kan een persoonlijke naam zichtbaar zijn in het veld 'full_name'.";
-		document.getElementById("registrant_country_code").textContent = "Een domein kan worden ingetrokken, bijvoorbeeld nadat het Verenigd Koninkrijk de EU heeft verlaten.";
+		document.getElementById("registrant_country_code").textContent = "Een domein kan worden ingetrokken, bijvoorbeeld doordat het Verenigd Koninkrijk de EU heeft verlaten.";
 		document.getElementById("registrant_protected").textContent = derived;
 		document.getElementById("registrant_verification").textContent = "Gepland: Web-ID-zoekopdrachten kunnen worden uitgevoerd op wereldwijde RDAP-servers.";
 		document.getElementById("registrant_event_verification_requested").textContent = proposed + "Met Web ID-indexering kan een overeenkomende (natuurlijke) entiteit domeinen valideren.";
@@ -222,9 +222,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_requested").textContent = proposed;
 		document.getElementById("reseller_event_verification_recorded").textContent = proposed;
 		document.getElementById("registrar_role").textContent = "De domeinregistrar is verantwoordelijk voor domeinreserveringen en IP-adresroutering.";
-		document.getElementById("registrar_recover").textContent = "Tijdens de 'redemption period' is herstel ook mogelijk bij een andere domeinregistrar.";
+		document.getElementById("registrar_recover").textContent = "Herstel binnen de 'redemption period' is ook bij een andere domeinregistrar mogelijk.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_iana_id").textContent = "Met gTLD-domeinen en ICANN-accreditatie voor één of meerdere generieke topleveldomeinen.";
+		document.getElementById("registrar_iana_id").textContent = "In het geval van ICANN-accreditatie, voor één of meer generieke topleveldomeinen.";
 		document.getElementById("registrar_protected").textContent = derived;
 		document.getElementById("registrar_event_verification_requested").textContent = proposed;
 		document.getElementById("registrar_event_verification_recorded").textContent = proposed;		
@@ -235,7 +235,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_ip").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
 		document.getElementById("br_zone").textContent = "Zone .br: De RDAP-gegevens zijn aangepast met nameservervalidatie.";
 
-		document.getElementById("raw_data_next").textContent = "Deze tool heeft een op verantwoordelijkheid gebaseerde veldvolgorde, de standaardwaarde 'hidden' en unieke veldnamen voor weergave.";	
+		document.getElementById("raw_data_next").textContent = "Deze tool toont een op verantwoordelijkheid gebaseerde veldvolgorde, de standaardwaarde 'hidden' en unieke veldnamen voor weergave.";	
 	}
 	else if (translation == 2)	{
 		var proposed = 'PROPOSED - ';
@@ -251,10 +251,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_registry_full_name").textContent = proposed;
 		document.getElementById("zone_menu").textContent = proposed + "A drop-down menu for explanations and details per zone via a subdomain of the registry.";
 		document.getElementById("zone_support").textContent = proposed + "Help from the registry is possible by e-mail.";
-		document.getElementById("zone_notices").textContent = "The use of domain data is subject to restrictions.";
+		document.getElementById("notices").textContent = "The use of domain data is subject to restrictions.";
 		document.getElementById("domain_role").textContent = "A web domain under a top-level domain is unique worldwide and can be freely chosen under certain rules.";
 		document.getElementById("domain_name_unicode").textContent = "Names with special characters are stored as ASCII strings using Punycode transcription.";
-		document.getElementById("domain_status_values").textContent = "The 'redemption period' allows recovery. In the final phase, 'pending delete' applies.";
+		document.getElementById("domain_status_values").textContent = "The 'redemption period' value allows recovery. The 'pending delete' value applies in the final phase.";
 		document.getElementById("domain_event_expiration").textContent = "Date and time of periodic renewal or discontinuation of publication.";
 		document.getElementById("domain_event_deletion").textContent = "Date and time a full deletion is scheduled. Often recovery is an option.";
 		document.getElementById("domain_event_last_uploaded").textContent = "Date and time of RDAP database update in Zulu time (Coordinated Universal Time - UTC).";
@@ -264,7 +264,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_full_name").textContent = "The domain user who has actual or effective control.";
 		document.getElementById("registrant_kind").textContent = "Empty, 'individual' or 'org'; a living will can fill a legal gap; suggestion: 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "In the RDAP protocol, a personal name may be visible in the 'full_name' field.";
-		document.getElementById("registrant_country_code").textContent = "A domain can be revoked, for example after the UK left the EU.";
+		document.getElementById("registrant_country_code").textContent = "A domain can be revoked, for example because the United Kingdom has left the EU.";
 		document.getElementById("registrant_protected").textContent = derived;
 		document.getElementById("registrant_verification").textContent = "Planned: Web ID searches can be performed on global RDAP servers.";	
 		document.getElementById("registrant_event_verification_requested").textContent = proposed + "With Web ID indexing, a matching (natural) entity can validate domains.";
@@ -286,9 +286,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_requested").textContent = proposed;
 		document.getElementById("reseller_event_verification_recorded").textContent = proposed;		
 		document.getElementById("registrar_role").textContent = "The domain registrar is responsible for domain reservations and IP address routing.";
-		document.getElementById("registrar_recover").textContent = "During the 'redemption period', recovery is also possible at another domain registrar.";
+		document.getElementById("registrar_recover").textContent = "Recovery within the 'redemption period' is also possible with another domain registrar.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_iana_id").textContent = "With gTLD domains and ICANN accreditation for one or more generic top-level domains.";
+		document.getElementById("registrar_iana_id").textContent = "In case of ICANN accreditation, for one or more generic top-level domains.";
 		document.getElementById("registrar_protected").textContent = derived;
 		document.getElementById("registrar_event_verification_requested").textContent = proposed;
 		document.getElementById("registrar_event_verification_recorded").textContent = proposed;		
@@ -298,7 +298,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
 		document.getElementById("br_zone").textContent = "Zone .br: The RDAP data has been modified with name server validation.";
-		document.getElementById("raw_data_next").textContent = "This tool has a responsibility-based field ordering, the default value 'hidden', and unique field names for display.";
+		document.getElementById("raw_data_next").textContent = "This tool shows a responsibility based field order, the default value 'hidden', and unique field names for display.";
 	}
 	else if (translation == 3)	{
 		var proposed = 'VORGESCHLAGEN - ';
@@ -314,10 +314,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_registry_full_name").textContent = proposed;
 		document.getElementById("zone_menu").textContent = proposed + "Ein Dropdown-Menü für Erläuterungen und Details pro Zone über eine Subdomain der Registry.";
 		document.getElementById("zone_support").textContent = proposed + "Hilfe aus der Registry ist per E-Mail möglich.";
-		document.getElementById("zone_notices").textContent = "Die Nutzung der Domaindaten unterliegt Einschränkungen.";
+		document.getElementById("notices").textContent = "Die Nutzung der Domaindaten unterliegt Einschränkungen.";
 		document.getElementById("domain_role").textContent = "Eine Webdomain unter einer Top-Level-Domain ist weltweit einzigartig und unter bestimmten Regeln frei wählbar.";
 		document.getElementById("domain_name_unicode").textContent = "Namen mit Sonderzeichen werden mittels Punycode-Transkription als ASCII-Strings gespeichert.";
-		document.getElementById("domain_status_values").textContent = "Die 'redemption period' ermöglicht die Wiederherstellung. In der letzten Phase gilt die 'pending delete'.";
+		document.getElementById("domain_status_values").textContent = "Der Wert 'redemption period' ermöglicht die Wiederherstellung. Der Wert 'pending delete' gilt in der Endphase.";
 		document.getElementById("domain_event_expiration").textContent = "Datum und Uhrzeit der periodischen Erneuerung oder Einstellung der Veröffentlichung.";
 		document.getElementById("domain_event_deletion").textContent = "Datum und Uhrzeit für die vollständige Löschung geplant. Oft ist eine Wiederherstellung möglich.";
 		document.getElementById("domain_event_last_uploaded").textContent = "Datum und Uhrzeit der RDAP-Datenbankaktualisierung in Zulu-Zeit (Koordinierte Weltzeit – UTC).";
@@ -327,7 +327,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_full_name").textContent = "Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat.";
 		document.getElementById("registrant_kind").textContent = "Leer, 'individual' oder 'org'; Eine Patientenverfügung kann eine rechtliche Lücke schließen; Anregung: 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "Im RDAP-Protokoll kann im Feld 'full_name' ein Personenname sichtbar sein.";
-		document.getElementById("registrant_country_code").textContent = "Eine Domain kann beispielsweise nach dem Austritt Großbritanniens aus der EU widerrufen werden.";
+		document.getElementById("registrant_country_code").textContent = "Eine Domain kann widerrufen werden, beispielsweise weil das Vereinigte Königreich die EU verlassen hat.";
 		document.getElementById("registrant_protected").textContent = derived;
 		document.getElementById("registrant_verification").textContent = "Geplant: Web-ID-Suchen können auf globalen RDAP-Servern durchgeführt werden.";
 		document.getElementById("registrant_event_verification_requested").textContent = proposed + "Mit der Web-ID-Indizierung kann eine übereinstimmende (natürliche) Entität Domänen validieren.";
@@ -349,9 +349,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_requested").textContent = proposed;
 		document.getElementById("reseller_event_verification_recorded").textContent = proposed;		
 		document.getElementById("registrar_role").textContent = "Der Domänenregistrar ist für die Domänenreservierung und das IP-Adressrouting verantwortlich.";
-		document.getElementById("registrar_recover").textContent = "Während der 'redemption period' ist eine Rückforderung auch bei einem anderen Domänenregistrar möglich.";
+		document.getElementById("registrar_recover").textContent = "Eine Wiederherstellung innerhalb der 'redemption period' ist auch bei einem anderen Domain-Registrar möglich.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_iana_id").textContent = "Mit gTLD-Domains und ICANN-Akkreditierung für eine oder mehrere generische Top-Level-Domains.";
+		document.getElementById("registrar_iana_id").textContent = "Im Falle einer ICANN-Akkreditierung für eine oder mehrere generische Top-Level-Domains.";
 		document.getElementById("registrar_protected").textContent = derived;
 		document.getElementById("registrar_event_verification_requested").textContent = proposed;
 		document.getElementById("registrar_event_verification_recorded").textContent = proposed;		
@@ -361,7 +361,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 		document.getElementById("name_servers_ip").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
 		document.getElementById("br_zone").textContent = "Zone .br: Die RDAP-Daten wurden mit der Nameserver-Validierung angepasst.";
-		document.getElementById("raw_data_next").textContent = "Dieses Tool verfügt über eine verantwortungsbasierte Feldreihenfolge, dem Standardwert 'hidden' und eindeutigen Feldnamen für die Anzeige.";
+		document.getElementById("raw_data_next").textContent = "Dieses Tool zeigt eine verantwortungsbasierte Feldreihenfolge an, dem Standardwert 'hidden' und eindeutigen Feldnamen für die Anzeige.";
 	}
 	else if (translation == 4)	{
 		var proposed = 'PROPOSÉ - ';
@@ -378,10 +378,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_registry_full_name").textContent = proposed;
 		document.getElementById("zone_menu").textContent = proposed + "Un menu déroulant pour des explications et des détails par zone via un sous-domaine du registre.";
 		document.getElementById("zone_support").textContent = proposed + "L'aide du registre est possible par e-mail.";
-		document.getElementById("zone_notices").textContent = "L'utilisation des données de domaine est soumise à des restrictions.";
+		document.getElementById("notices").textContent = "L'utilisation des données de domaine est soumise à des restrictions.";
 		document.getElementById("domain_role").textContent = "Un domaine Web sous un domaine de premier niveau est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_name_unicode").textContent = "Les noms avec des caractères spéciaux sont stockés sous forme de chaînes ASCII à l'aide de la transcription Punycode.";
-		document.getElementById("domain_status_values").textContent = "La 'redemption period' permet la récupération. La 'pending delete' s'applique dans la phase finale.";
+		document.getElementById("domain_status_values").textContent = "La valeur 'redemption period' permet la récupération. La valeur 'pending delete' s'applique dans la phase finale.";
 		document.getElementById("domain_event_expiration").textContent = "Date et heure du renouvellement périodique ou de l'arrêt de la publication.";
 		document.getElementById("domain_event_deletion").textContent = "Date et heure à laquelle une suppression complète est prévue. La récupération est souvent une option.";
 		document.getElementById("domain_event_last_uploaded").textContent = "Date et heure de mise à jour de la base de données RDAP en heure Zulu (temps universel coordonné - UTC).";
@@ -391,7 +391,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_full_name").textContent = "L'utilisateur du domaine qui a un contrôle réel ou effectif.";
 		document.getElementById("registrant_kind").textContent = "Vide, 'individual' ou 'org' ; un testament biologique peut combler un vide juridique ; suggestion : 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "Dans le protocole RDAP, un nom personnel peut être visible dans le champ 'full_name'.";
-		document.getElementById("registrant_country_code").textContent = "Un domaine peut être révoqué, par exemple après que le Royaume-Uni ait quitté l'UE.";
+		document.getElementById("registrant_country_code").textContent = "Un domaine peut être révoqué, par exemple parce que le Royaume-Uni a quitté l'UE.";
 		document.getElementById("registrant_protected").textContent = derived;
 		document.getElementById("registrant_verification").textContent = "Prévu : Les recherches d’identifiant Web peuvent être effectuées sur des serveurs RDAP mondiaux.";
 		document.getElementById("registrant_event_verification_requested").textContent = proposed + "Avec l’indexation des identifiants Web, une entité correspondante (naturelle) peut valider les domaines.";
@@ -413,9 +413,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_requested").textContent = proposed;
 		document.getElementById("reseller_event_verification_recorded").textContent = proposed;		
 		document.getElementById("registrar_role").textContent = "Le registraire de domaine est responsable des réservations de domaines et du routage des adresses IP.";
-		document.getElementById("registrar_recover").textContent = "Pendant la 'redemption period', la récupération est également possible auprès d'un autre registraire de domaine.";
+		document.getElementById("registrar_recover").textContent = "La récupération pendant la 'redemption period' est également possible auprès d'un autre registraire de domaine.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_iana_id").textContent = "Avec des domaines gTLD et une accréditation ICANN pour un ou plusieurs domaines génériques de premier niveau.";
+		document.getElementById("registrar_iana_id").textContent = "En cas d'accréditation ICANN, pour un ou plusieurs domaines génériques de premier niveau.";
 		document.getElementById("registrar_protected").textContent = derived;
 		document.getElementById("registrar_event_verification_requested").textContent = proposed;
 		document.getElementById("registrar_event_verification_recorded").textContent = proposed;		
@@ -425,7 +425,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 		document.getElementById("name_servers_ip").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
 		document.getElementById("br_zone").textContent = "Zone .br: Les données RDAP ont été ajustées avec la validation du serveur de noms.";
-		document.getElementById("raw_data_next").textContent = "Cet outil a un ordre des champs basé sur la responsabilité, la valeur par défaut 'hidden' et des noms de champ uniques pour l'affichage.";
+		document.getElementById("raw_data_next").textContent = "Cet outil affiche un ordre de champ basé sur la responsabilité, la valeur par défaut 'hidden' et des noms de champ uniques pour l'affichage.";
 	}
 }	
 </script><?php
@@ -499,22 +499,22 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="103" style="display:none"><td>zone_registry_language</td><td>'.$item->zone->zone_registry_language.'</td><td></td></tr>';
 	$html_text .= '<tr id="104" style="display:none"><td>zone_menu</td><td>'.$item->zone->zone_menu.'</td><td id="zone_menu"></td></tr>';
 	$html_text .= '<tr id="105" style="display:none"><td>zone_support</td><td>'.$item->zone->zone_support.'</td><td id="zone_support"></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(11)">Notice0 +/-</button> <button style="cursor:pointer;font-size:1.0rem" onclick="SwitchDisplay(12)">Notice1 +/-</button> <button style="cursor:pointer;font-size:1.0rem" onclick="SwitchDisplay(13)">Notice2 +/-</button></td><td></td><td id="zone_notices"></td></tr>';
-	$html_text .= '<tr id="111" style="display:none;vertical-align:top"><td>zone_notice_0_title</td><td>'.$item->zone->zone_notice_0_title.'</td><td></td></tr>';
-	$html_text .= '<tr id="112" style="display:none;vertical-align:top"><td>zone_notice_0_description_0</td><td>'.$item->zone->zone_notice_0_description_0.'</td><td></td></tr>';
-	$html_text .= '<tr id="113" style="display:none;vertical-align:top"><td>zone_notice_0_description_1</td><td>'.$item->zone->zone_notice_0_description_1.'</td><td></td></tr>';
-	$html_text .= '<tr id="114" style="display:none;vertical-align:top"><td>zone_notice_0_links_0_href</td><td>'.$item->zone->zone_notice_0_links_0_href.'</td><td></td></tr>';
-	$html_text .= '<tr id="115" style="display:none;vertical-align:top"><td>zone_notice_0_links_0_type</td><td>'.$item->zone->zone_notice_0_links_0_type.'</td><td></td></tr>';
-	$html_text .= '<tr id="121" style="display:none;vertical-align:top"><td>zone_notice_1_title</td><td>'.$item->zone->zone_notice_1_title.'</td><td></td></tr>';
-	$html_text .= '<tr id="122" style="display:none;vertical-align:top"><td>zone_notice_1_description_0</td><td>'.$item->zone->zone_notice_1_description_0.'</td><td></td></tr>';
-	$html_text .= '<tr id="123" style="display:none;vertical-align:top"><td>zone_notice_1_description_1</td><td>'.$item->zone->zone_notice_1_description_1.'</td><td></td></tr>';
-	$html_text .= '<tr id="124" style="display:none;vertical-align:top"><td>zone_notice_1_links_0_href</td><td>'.$item->zone->zone_notice_1_links_0_href.'</td><td></td></tr>';
-	$html_text .= '<tr id="125" style="display:none;vertical-align:top"><td>zone_notice_1_links_0_type</td><td>'.$item->zone->zone_notice_1_links_0_type.'</td><td></td></tr>';
-	$html_text .= '<tr id="131" style="display:none;vertical-align:top"><td>zone_notice_2_title</td><td>'.$item->zone->zone_notice_2_title.'</td><td></td></tr>';
-	$html_text .= '<tr id="132" style="display:none;vertical-align:top"><td>zone_notice_2_description_0</td><td>'.$item->zone->zone_notice_2_description_0.'</td><td></td></tr>';
-	$html_text .= '<tr id="133" style="display:none;vertical-align:top"><td>zone_notice_2_description_1</td><td>'.$item->zone->zone_notice_2_description_1.'</td><td></td></tr>';
-	$html_text .= '<tr id="134" style="display:none;vertical-align:top"><td>zone_notice_2_links_0_href</td><td>'.$item->zone->zone_notice_2_links_0_href.'</td><td></td></tr>';
-	$html_text .= '<tr id="135" style="display:none;vertical-align:top"><td>zone_notice_2_links_0_type</td><td>'.$item->zone->zone_notice_2_links_0_type.'</td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(11)">Notice0 +/-</button> <button style="cursor:pointer;font-size:1.0rem" onclick="SwitchDisplay(12)">Notice1 +/-</button> <button style="cursor:pointer;font-size:1.0rem" onclick="SwitchDisplay(13)">Notice2 +/-</button></td><td></td><td id="notices"></td></tr>';
+	$html_text .= '<tr id="111" style="display:none;vertical-align:top"><td>notice_0_title</td><td>'.$item->zone->notice_0_title.'</td><td></td></tr>';
+	$html_text .= '<tr id="112" style="display:none;vertical-align:top"><td>notice_0_description_0</td><td>'.$item->zone->notice_0_description_0.'</td><td></td></tr>';
+	$html_text .= '<tr id="113" style="display:none;vertical-align:top"><td>notice_0_description_1</td><td>'.$item->zone->notice_0_description_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="114" style="display:none;vertical-align:top"><td>notice_0_links_0_href</td><td>'.$item->zone->notice_0_links_0_href.'</td><td></td></tr>';
+	$html_text .= '<tr id="115" style="display:none;vertical-align:top"><td>notice_0_links_0_type</td><td>'.$item->zone->notice_0_links_0_type.'</td><td></td></tr>';
+	$html_text .= '<tr id="121" style="display:none;vertical-align:top"><td>notice_1_title</td><td>'.$item->zone->notice_1_title.'</td><td></td></tr>';
+	$html_text .= '<tr id="122" style="display:none;vertical-align:top"><td>notice_1_description_0</td><td>'.$item->zone->notice_1_description_0.'</td><td></td></tr>';
+	$html_text .= '<tr id="123" style="display:none;vertical-align:top"><td>notice_1_description_1</td><td>'.$item->zone->notice_1_description_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="124" style="display:none;vertical-align:top"><td>notice_1_links_0_href</td><td>'.$item->zone->notice_1_links_0_href.'</td><td></td></tr>';
+	$html_text .= '<tr id="125" style="display:none;vertical-align:top"><td>notice_1_links_0_type</td><td>'.$item->zone->notice_1_links_0_type.'</td><td></td></tr>';
+	$html_text .= '<tr id="131" style="display:none;vertical-align:top"><td>notice_2_title</td><td>'.$item->zone->notice_2_title.'</td><td></td></tr>';
+	$html_text .= '<tr id="132" style="display:none;vertical-align:top"><td>notice_2_description_0</td><td>'.$item->zone->notice_2_description_0.'</td><td></td></tr>';
+	$html_text .= '<tr id="133" style="display:none;vertical-align:top"><td>notice_2_description_1</td><td>'.$item->zone->notice_2_description_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="134" style="display:none;vertical-align:top"><td>notice_2_links_0_href</td><td>'.$item->zone->notice_2_links_0_href.'</td><td></td></tr>';
+	$html_text .= '<tr id="135" style="display:none;vertical-align:top"><td>notice_2_links_0_type</td><td>'.$item->zone->notice_2_links_0_type.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(20)">Links0 +/-</button> <button style="cursor:pointer;font-size:1.0rem" onclick="SwitchDisplay(21)">Links1 +/-</button></td><td></td><td></td></tr>';
 	$html_text .= '<tr id="201" style="display:none;vertical-align:top"><td>links_0_value</td><td>'.$item->view->links_0_value.'</td><td></td></tr>';
 	$html_text .= '<tr id="202" style="display:none;vertical-align:top"><td>links_0_related</td><td>'.$item->view->links_0_related.'</td><td></td></tr>';
@@ -557,21 +557,21 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="409" style="display:none"><td>registrant_postal_code</td><td>'.$item->registrant->registrant_postal_code.'</td><td></td></tr>';
 	$html_text .= '<tr id="4010" style="display:none"><td>registrant_city</td><td>'.$item->registrant->registrant_city.'</td><td></td></tr>';
 	$html_text .= '<tr id="4011" style="display:none"><td>registrant_state_province</td><td>'.$item->registrant->registrant_state_province.'</td><td></td></tr>';	
-	$html_text .= '<tr id="4012" style="display:none"><td>registrant_country_code</td><td>'.$item->registrant->registrant_country_code.'</td><td id="registrant_country_code"></td></tr>';
-	$html_text .= '<tr id="4013" style="display:none"><td>registrant_language_pref_1</td><td>'.$item->registrant->registrant_language_pref_1.'</td><td></td></tr>';
-	$html_text .= '<tr id="4014" style="display:none"><td>registrant_language_pref_2</td><td>'.$item->registrant->registrant_language_pref_2.'</td><td></td></tr>';
-	$html_text .= '<tr id="4015" style="display:none"><td>registrant_protected</td><td>'.$item->registrant->registrant_protected.'</td><td id="registrant_protected"></td></tr>';
-	$html_text .= '<tr id="4016" style="display:none;vertical-align:top"><td>registrant_status_values</td><td>'.$item->registrant->registrant_status_values.'</td><td></td></tr>';
-	$html_text .= '<tr id="4017" style="display:none"><td>registrant_event_registration</td><td>'.$item->registrant->registrant_event_registration.'</td><td></td></tr>';
-	$html_text .= '<tr id="4018" style="display:none"><td>registrant_event_last_transferred</td><td>'.$item->registrant->registrant_event_last_transferred.'</td><td></td></tr>';
-	$html_text .= '<tr id="4019" style="display:none"><td>registrant_event_last_changed</td><td>'.$item->registrant->registrant_event_last_changed.'</td><td></td></tr>';
-	$html_text .= '<tr id="4020" style="display:none"><td>registrant_event_expiration</td><td>'.$item->registrant->registrant_event_expiration.'</td><td></td></tr>';
-	$html_text .= '<tr id="4021" style="display:none"><td>registrant_event_deletion</td><td>'.$item->registrant->registrant_event_deletion.'</td><td id="registrant_event_deletion"></td></tr>';
-	$html_text .= '<tr id="4022" style="display:none"><td>registrant_event_last_uploaded</td><td>'.$item->registrant->registrant_event_last_uploaded.'</td><td id="registrant_event_last_uploaded"></td></tr>';
-	$html_text .= '<tr id="4023" style="display:none"><td></td><td></td><td id="registrant_verification"></td></tr>';
-	$html_text .= '<tr id="4024" style="display:none"><td>registrant_event_verification_requested</td><td>'.$item->registrant->registrant_event_verification_requested.'</td><td id="registrant_event_verification_requested"></td></tr>';
-	$html_text .= '<tr id="4025" style="display:none"><td>registrant_event_verification_recorded</td><td>'.$item->registrant->registrant_event_verification_recorded.'</td><td id="registrant_event_verification_recorded"></td></tr>';
-	$html_text .= '<tr id="4026" style="display:none;vertical-align:top"><td>registrant_remark_values</td><td>'.$item->registrant->registrant_remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr><td>registrant_country_code</td><td>'.$item->registrant->registrant_country_code.'</td><td id="registrant_country_code"></td></tr>';
+	$html_text .= '<tr id="4012" style="display:none"><td>registrant_language_pref_1</td><td>'.$item->registrant->registrant_language_pref_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="4013" style="display:none"><td>registrant_language_pref_2</td><td>'.$item->registrant->registrant_language_pref_2.'</td><td></td></tr>';
+	$html_text .= '<tr id="4014" style="display:none"><td>registrant_protected</td><td>'.$item->registrant->registrant_protected.'</td><td id="registrant_protected"></td></tr>';
+	$html_text .= '<tr id="4015" style="display:none;vertical-align:top"><td>registrant_status_values</td><td>'.$item->registrant->registrant_status_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="4016" style="display:none"><td>registrant_event_registration</td><td>'.$item->registrant->registrant_event_registration.'</td><td></td></tr>';
+	$html_text .= '<tr id="4017" style="display:none"><td>registrant_event_last_transferred</td><td>'.$item->registrant->registrant_event_last_transferred.'</td><td></td></tr>';
+	$html_text .= '<tr id="4018" style="display:none"><td>registrant_event_last_changed</td><td>'.$item->registrant->registrant_event_last_changed.'</td><td></td></tr>';
+	$html_text .= '<tr id="4019" style="display:none"><td>registrant_event_expiration</td><td>'.$item->registrant->registrant_event_expiration.'</td><td></td></tr>';
+	$html_text .= '<tr id="4020" style="display:none"><td>registrant_event_deletion</td><td>'.$item->registrant->registrant_event_deletion.'</td><td id="registrant_event_deletion"></td></tr>';
+	$html_text .= '<tr id="4021" style="display:none"><td>registrant_event_last_uploaded</td><td>'.$item->registrant->registrant_event_last_uploaded.'</td><td id="registrant_event_last_uploaded"></td></tr>';
+	$html_text .= '<tr id="4022" style="display:none"><td></td><td></td><td id="registrant_verification"></td></tr>';
+	$html_text .= '<tr id="4023" style="display:none"><td>registrant_event_verification_requested</td><td>'.$item->registrant->registrant_event_verification_requested.'</td><td id="registrant_event_verification_requested"></td></tr>';
+	$html_text .= '<tr id="4024" style="display:none"><td>registrant_event_verification_recorded</td><td>'.$item->registrant->registrant_event_verification_recorded.'</td><td id="registrant_event_verification_recorded"></td></tr>';
+	$html_text .= '<tr id="4025" style="display:none;vertical-align:top"><td>registrant_remark_values</td><td>'.$item->registrant->registrant_remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(41)">Admin / Decision +/-</button></td><td></td><td id="admin_role"></td></tr>';
 	$html_text .= '<tr id="411" style="display:none"><td>admin_handle</td><td>'.$item->admin->admin_handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="412" style="display:none"><td>admin_web_id</td><td>'.$item->admin->admin_web_id.'</td><td id="admin_web_id"></td></tr>';
@@ -631,15 +631,15 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="445" style="display:none"><td>emergency_name</td><td>'.$item->emergency->emergency_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="446" style="display:none"><td>emergency_phone</td><td>'.$item->emergency->emergency_phone.'</td><td></td></tr>';
 	$html_text .= '<tr id="447" style="display:none"><td>emergency_fax</td><td>'.$item->emergency->emergency_fax.'</td><td></td></tr>';
-	$html_text .= '<tr><td>emergency_email</td><td>'.$item->emergency->emergency_email.'</td><td></td></tr>';
-	$html_text .= '<tr id="448" style="display:none"><td>emergency_street</td><td>'.$item->emergency->emergency_street.'</td><td></td></tr>';
-	$html_text .= '<tr id="449" style="display:none"><td>emergency_postal_code</td><td>'.$item->emergency->emergency_postal_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="4410" style="display:none"><td>emergency_city</td><td>'.$item->emergency->emergency_city.'</td><td></td></tr>';
-	$html_text .= '<tr id="4411" style="display:none"><td>emergency_state_province</td><td>'.$item->emergency->emergency_state_province.'</td><td></td></tr>';	
-	$html_text .= '<tr id="4412" style="display:none"><td>emergency_country_code</td><td>'.$item->emergency->emergency_country_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="4413" style="display:none"><td>emergency_language_pref_1</td><td>'.$item->emergency->emergency_language_pref_1.'</td><td></td></tr>';
-	$html_text .= '<tr id="4414" style="display:none"><td>emergency_language_pref_2</td><td>'.$item->emergency->emergency_language_pref_2.'</td><td></td></tr>';
-	$html_text .= '<tr id="4415" style="display:none"><td>emergency_protected</td><td>'.$item->emergency->emergency_protected.'</td><td id="emergency_protected"></td></tr>';
+	$html_text .= '<tr id="448" style="display:none"><td>emergency_email</td><td>'.$item->emergency->emergency_email.'</td><td></td></tr>';
+	$html_text .= '<tr id="449" style="display:none"><td>emergency_street</td><td>'.$item->emergency->emergency_street.'</td><td></td></tr>';
+	$html_text .= '<tr id="4410" style="display:none"><td>emergency_postal_code</td><td>'.$item->emergency->emergency_postal_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="4411" style="display:none"><td>emergency_city</td><td>'.$item->emergency->emergency_city.'</td><td></td></tr>';
+	$html_text .= '<tr id="4412" style="display:none"><td>emergency_state_province</td><td>'.$item->emergency->emergency_state_province.'</td><td></td></tr>';	
+	$html_text .= '<tr id="4413" style="display:none"><td>emergency_country_code</td><td>'.$item->emergency->emergency_country_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="4414" style="display:none"><td>emergency_language_pref_1</td><td>'.$item->emergency->emergency_language_pref_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="4415" style="display:none"><td>emergency_language_pref_2</td><td>'.$item->emergency->emergency_language_pref_2.'</td><td></td></tr>';
+	$html_text .= '<tr id="4416" style="display:none"><td>emergency_protected</td><td>'.$item->emergency->emergency_protected.'</td><td id="emergency_protected"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(50)">Reseller +/-</button></td><td></td><td id="reseller_role"></td></tr>';
 	$html_text .= '<tr id="501" style="display:none"><td>reseller_handle</td><td>'.$item->reseller->reseller_handle.'</td><td></td></tr>';
