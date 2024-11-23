@@ -140,7 +140,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_name").textContent = "";
 		document.getElementById("registrant_country_code").textContent = "";
 		document.getElementById("registrant_protected").textContent = derived;
-		document.getElementById("registrant_verification").textContent = "";
 		document.getElementById("registrant_event_verification_received").textContent = proposed;
 		document.getElementById("registrant_event_verification_set").textContent = proposed;
 		document.getElementById("admin_role").textContent = "";
