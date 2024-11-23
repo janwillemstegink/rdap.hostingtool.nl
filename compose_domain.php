@@ -167,11 +167,11 @@ $links_1_media = $obj['links'][1]['media'];
 $links_1_type = $obj['links'][1]['type'];
 	
 $status_values = '';	
-$registration = '(hidden)';
+$registration = '(without date-time)';
 $last_transferred = '';			
 $last_changed = '';
-$expiration = '(hidden)';	
-$deletion = '(deletion is not applicable)';
+$expiration = '(without date-time)';	
+$deletion = '(not applicable)';
 $extensions_values = '';
 $remark_values = '';	
 $registrant_status_values = '';
@@ -926,12 +926,12 @@ foreach($obj as $key1 => $value1) {
 }
 if (str_contains($status_values, 'locked'))	{	
 	if ($expiration == '(hidden)')	{
-		$expiration = '(expiration is not applicable)';	
+		$expiration = '(not applicable)';	
 	}		
 }
 if (str_contains($status_values, 'redemption period') or str_contains($status_values, 'pending delete'))	{	
-	if ($deletion == '(deletion is not applicable)')	{
-		$deletion = '(no date/time specified)';	
+	if ($deletion == '(not applicable)')	{
+		$deletion = '(without date-time)';	
 	}		
 }
 if ($inputbatch)	{

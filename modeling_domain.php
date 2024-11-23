@@ -182,7 +182,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("instruction").textContent = "Plak een domeinnaam en druk op Enter.";
 		document.getElementById("field").textContent = "Omschrijving";
 		document.getElementById("value").textContent = "Detail";
-		document.getElementById("explanation").textContent = "Toelichting - 'Een webdomein kent zijn eigen juridische dynamiek.'";
+		document.getElementById("explanation").textContent = "Webdomeinen toegelicht";
 		document.getElementById("zone_role").textContent = "Een domeinzone is door de ICANN toegewezen aan een domain registry om domeinen te beheren.";
 		document.getElementById("zone_registry_web_id").textContent = proposed;
 		document.getElementById("zone_registry_full_name").textContent = proposed;
@@ -246,7 +246,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("instruction").textContent = "Paste a domain name and press Enter.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
-		document.getElementById("explanation").textContent = "Explanation - 'A web domain has its own legal dynamics.'";		
+		document.getElementById("explanation").textContent = "Web domains explained";		
 		document.getElementById("zone_role").textContent = "A domain zone is assigned by ICANN to a domain registry to manage domains.";
 		document.getElementById("zone_registry_web_id").textContent = proposed;
 		document.getElementById("zone_registry_full_name").textContent = proposed;
@@ -309,7 +309,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("instruction").textContent = "Fügen Sie einen Domänennamen ein und drücken Sie die Eingabetaste.";
 		document.getElementById("field").textContent = "Beschreibung";
 		document.getElementById("value").textContent = "Detail";
-		document.getElementById("explanation").textContent = "Erläuterung - 'Eine Webdomäne hat ihre eigene rechtliche Dynamik.'";		
+		document.getElementById("explanation").textContent = "Webdomänen erklärt";		
 		document.getElementById("zone_role").textContent = "Eine Domänenzone wird von ICANN einer Domänenregistrierungsstelle zugewiesen, um Domänen zu verwalten.";		
 		document.getElementById("zone_registry_web_id").textContent = proposed;
 		document.getElementById("zone_registry_full_name").textContent = proposed;
@@ -373,7 +373,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("instruction").textContent = "Collez un nom de domaine et appuyez sur Entrée.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Détail";
-		document.getElementById("explanation").textContent = "Explication - 'Un domaine web a sa propre dynamique juridique.'";		
+		document.getElementById("explanation").textContent = "Domaines Web expliqués";		
 		document.getElementById("zone_role").textContent = "Une zone de domaine est attribuée par l'ICANN à un registre de domaine pour gérer les domaines.";
 		document.getElementById("zone_registry_web_id").textContent = proposed;
 		document.getElementById("zone_registry_full_name").textContent = proposed;
