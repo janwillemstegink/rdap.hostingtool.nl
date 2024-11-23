@@ -198,7 +198,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_extensions_values").textContent = "'Eligibility': Hoe een domein voldoet aan een specifieke vereiste in een topleveldomeinzone.";
 		document.getElementById("registrant_role").textContent = "De domeinhouder is primair verantwoordelijk en heeft het abonnement op zijn domein.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Webidentificatienummer voor bedrijfsentiteiten en natuurlijke personen.";
-		document.getElementById("registrant_full_name").textContent = "Wettelijk mogelijk: De domeingebruiker die daadwerkelijke of effectieve controle heeft.";
+		document.getElementById("registrant_full_name").textContent = "Voor jurisdictie in een land: De domeingebruiker die de daadwerkelijke of effectieve controle heeft.";
 		document.getElementById("registrant_kind").textContent = "Leeg, 'individual' of 'org'; een levenstestament kan een juridische lacune opvullen; suggestie: 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "In het RDAP-protocol kan een persoonlijke naam zichtbaar zijn in het veld 'full_name', zie cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "Een domein kan worden ingetrokken, bijvoorbeeld doordat het Verenigd Koninkrijk de EU heeft verlaten.";
@@ -262,7 +262,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_extensions_values").textContent = "'Eligibility': How a domain fulfills a specific requirement in a top-level domain zone.";
 		document.getElementById("registrant_role").textContent = "The domain owner is primarily responsible and has the subscription to his domain.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web Identification number for business entities and natural persons.";
-		document.getElementById("registrant_full_name").textContent = "Legally possible: The domain user who has actual or effective control.";
+		document.getElementById("registrant_full_name").textContent = "For jurisdiction in a country: The domain user who has the actual or effective control.";
 		document.getElementById("registrant_kind").textContent = "Empty, 'individual' or 'org'; a living will can fill a legal gap; suggestion: 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "In the RDAP protocol, a personal name may be visible in the 'full_name' field, see cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "A domain can be revoked, for example because the United Kingdom has left the EU.";
@@ -325,7 +325,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_extensions_values").textContent = "'Eligibility': Wie eine Domäne eine bestimmte Anforderung in einer Top-Level-Domänenzone erfüllt.";
 		document.getElementById("registrant_role").textContent = "Der Domaininhaber ist hauptverantwortlich und hat das Abonnement für seine Domain.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web-Identifikationsnummer für Unternehmen und natürliche Personen.";
-		document.getElementById("registrant_full_name").textContent = "Rechtlich möglich: Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat.";
+		document.getElementById("registrant_full_name").textContent = "Für die Gerichtsbarkeit in einem Land: Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat.";
 		document.getElementById("registrant_kind").textContent = "Leer, 'individual' oder 'org'; Eine Patientenverfügung kann eine rechtliche Lücke schließen; Anregung: 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "Im RDAP-Protokoll kann im Feld 'full_name' ein Personenname sichtbar sein, siehe cira.ca";
 		document.getElementById("registrant_country_code").textContent = "Eine Domain kann widerrufen werden, beispielsweise weil das Vereinigte Königreich die EU verlassen hat.";
@@ -389,7 +389,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_extensions_values").textContent = "'Eligibility' : comment un domaine répond à une exigence spécifique dans une zone de domaine de premier niveau.";
 		document.getElementById("registrant_role").textContent = "Le propriétaire d'un domaine est le premier responsable et titulaire de l'abonnement à son domaine.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Numéro d’identification Web pour les entités commerciales et les personnes physiques.";
-		document.getElementById("registrant_full_name").textContent = "Légalement possible : L'utilisateur du domaine qui a un contrôle réel ou effectif.";
+		document.getElementById("registrant_full_name").textContent = "Pour la juridiction d'un pays : L'utilisateur du domaine qui a le contrôle réel ou effectif.";
 		document.getElementById("registrant_kind").textContent = "Vide, 'individual' ou 'org' ; un testament biologique peut combler un vide juridique ; suggestion : 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "Dans le protocole RDAP, un nom personnel peut être visible dans le champ 'full_name', voir cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "Un domaine peut être révoqué, par exemple parce que le Royaume-Uni a quitté l'UE.";
