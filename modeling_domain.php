@@ -176,7 +176,7 @@ function SwitchTranslation(translation)	{
 	}
 	else if (translation == 1)	{
 		var proposed = 'VOORGESTELD - ';
-		var derived = proposed + 'Niet-openbare gegevens';
+		var derived = proposed + 'beschermde gegevens';
 		document.getElementById("title").textContent = "Domeingegevens";
 		document.getElementById("subtitle").textContent = "(gemodelleerde data)";
 		document.getElementById("instruction").textContent = "Plak een domeinnaam en druk op Enter.";
@@ -241,7 +241,7 @@ function SwitchTranslation(translation)	{
 	}
 	else if (translation == 2)	{
 		var proposed = 'PROPOSED - ';
-		var derived = proposed + 'hidden data';
+		var derived = proposed + 'protected data';
 		document.getElementById("title").textContent = "Domain Data";
 		document.getElementById("subtitle").textContent = "(modeled data)";
 		document.getElementById("instruction").textContent = "Paste a domain name and press Enter.";
@@ -305,7 +305,7 @@ function SwitchTranslation(translation)	{
 	}
 	else if (translation == 3)	{
 		var proposed = 'VORGESCHLAGEN - ';
-		var derived = proposed + 'Nicht öffentliche Daten';
+		var derived = proposed + 'geschützte Daten';
 		document.getElementById("title").textContent = "Domänendaten";
 		document.getElementById("subtitle").textContent = "(modellierte Daten)";
 		document.getElementById("instruction").textContent = "Fügen Sie einen Domänennamen ein und drücken Sie die Eingabetaste.";
@@ -369,7 +369,7 @@ function SwitchTranslation(translation)	{
 	}
 	else if (translation == 4)	{
 		var proposed = 'PROPOSÉ - ';
-		var derived = proposed + 'Données non publiques';
+		var derived = proposed + 'données protégées';
 		var adjustment = 'Ajustement';
 		document.getElementById("title").textContent = "Données du domaine";
 		document.getElementById("subtitle").textContent = "(données modélisées)";
