@@ -35,7 +35,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 30)	{ // domain
 		var pre = '30';
-		var max = 9
+		var max = 10
 	}
 	else if (type == 40)	{ // registrant
 		var pre = '40';
@@ -130,6 +130,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_name_unicode").textContent = "";
 		document.getElementById("domain_status_values").textContent = "";
 		document.getElementById("domain_event_expiration").textContent = "";
+		document.getElementById("domain_event_recovery_until").textContent = proposed;
 		document.getElementById("domain_event_deletion").textContent = "";
 		document.getElementById("domain_event_last_uploaded").textContent = "";
 		document.getElementById("domain_extensions_values").textContent = "";
@@ -193,6 +194,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_name_unicode").textContent = "Namen met speciale tekens worden opgeslagen als ASCII-tekenreeksen met behulp van Punycode-transcriptie.";
 		document.getElementById("domain_status_values").textContent = "De waarde 'redemption period' staat herstel toe. De waarde 'pending delete' is van toepassing in de laatste fase.";
 		document.getElementById("domain_event_expiration").textContent = "Datum en tijdstip van periodieke verlenging of stopzetting van de publicatie.";
+		document.getElementById("domain_event_recovery_until").textContent = proposed + "Datum en tijdstip tot wanneer herstel nog mogelijk is.";		
 		document.getElementById("domain_event_deletion").textContent = "Datum en tijdstip waarop een volledige verwijdering is gepland. Vaak is herstel een optie.";
 		document.getElementById("domain_event_last_uploaded").textContent = "Datum en tijdstip van de RDAP-database-update in Zoeloe-tijd (Coordinated Universal Time - UTC).";
 		document.getElementById("domain_extensions_values").textContent = "'Eligibility': Hoe een domein voldoet aan een specifieke vereiste in een topleveldomeinzone.";
@@ -245,7 +247,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("instruction").textContent = "Paste a domain name and press Enter.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
-		document.getElementById("explanation").textContent = "Web domains explained";		
+		document.getElementById("explanation").textContent = "Web Domains Explained";		
 		document.getElementById("zone_role").textContent = "A domain zone is assigned by ICANN to a domain registry to manage domains.";
 		document.getElementById("zone_registry_web_id").textContent = proposed;
 		document.getElementById("zone_registry_full_name").textContent = proposed;
@@ -257,6 +259,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_name_unicode").textContent = "Names with special characters are stored as ASCII strings using Punycode transcription.";
 		document.getElementById("domain_status_values").textContent = "The 'redemption period' value allows recovery. The 'pending delete' value applies in the final phase.";
 		document.getElementById("domain_event_expiration").textContent = "Date and time of periodic renewal or discontinuation of publication.";
+		document.getElementById("domain_event_recovery_until").textContent = proposed + "Date and time until which recovery is still possible.";
 		document.getElementById("domain_event_deletion").textContent = "Date and time a full deletion is scheduled. Often recovery is an option.";
 		document.getElementById("domain_event_last_uploaded").textContent = "Date and time of RDAP database update in Zulu time (Coordinated Universal Time - UTC).";
 		document.getElementById("domain_extensions_values").textContent = "'Eligibility': How a domain fulfills a specific requirement in a top-level domain zone.";
@@ -320,6 +323,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_name_unicode").textContent = "Namen mit Sonderzeichen werden mittels Punycode-Transkription als ASCII-Strings gespeichert.";
 		document.getElementById("domain_status_values").textContent = "Der Wert 'redemption period' ermöglicht die Wiederherstellung. Der Wert 'pending delete' gilt in der Endphase.";
 		document.getElementById("domain_event_expiration").textContent = "Datum und Uhrzeit der periodischen Erneuerung oder Einstellung der Veröffentlichung.";
+		document.getElementById("domain_event_recovery_until").textContent = proposed + "Datum und Uhrzeit, bis zu denen eine Wiederherstellung noch möglich ist.";
 		document.getElementById("domain_event_deletion").textContent = "Datum und Uhrzeit für die vollständige Löschung geplant. Oft ist eine Wiederherstellung möglich.";
 		document.getElementById("domain_event_last_uploaded").textContent = "Datum und Uhrzeit der RDAP-Datenbankaktualisierung in Zulu-Zeit (Koordinierte Weltzeit – UTC).";
 		document.getElementById("domain_extensions_values").textContent = "'Eligibility': Wie eine Domäne eine bestimmte Anforderung in einer Top-Level-Domänenzone erfüllt.";
@@ -384,6 +388,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_name_unicode").textContent = "Les noms avec des caractères spéciaux sont stockés sous forme de chaînes ASCII à l'aide de la transcription Punycode.";
 		document.getElementById("domain_status_values").textContent = "La valeur 'redemption period' permet la récupération. La valeur 'pending delete' s'applique dans la phase finale.";
 		document.getElementById("domain_event_expiration").textContent = "Date et heure du renouvellement périodique ou de l'arrêt de la publication.";
+		document.getElementById("domain_event_recovery_until").textContent = proposed + "Date et heure jusqu'à laquelle la récupération est encore possible.";
 		document.getElementById("domain_event_deletion").textContent = "Date et heure à laquelle une suppression complète est prévue. La récupération est souvent une option.";
 		document.getElementById("domain_event_last_uploaded").textContent = "Date et heure de mise à jour de la base de données RDAP en heure Zulu (temps universel coordonné - UTC).";
 		document.getElementById("domain_extensions_values").textContent = "'Eligibility' : comment un domaine répond à une exigence spécifique dans une zone de domaine de premier niveau.";
@@ -539,10 +544,11 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="304" style="display:none"><td>domain_event_last_transferred</td><td>'.$item->details->domain_event_last_transferred.'</td><td></td></tr>';
 	$html_text .= '<tr id="305" style="display:none"><td>domain_event_last_changed</td><td>'.$item->details->domain_event_last_changed.'</td><td></td></tr>';
 	$html_text .= '<tr><td>domain_event_expiration</td><td>'.$item->details->domain_event_expiration.'</td><td id="domain_event_expiration"></td></tr>';
-	$html_text .= '<tr id="306" style="display:none"><td>domain_event_deletion</td><td>'.$item->details->domain_event_deletion.'</td><td id="domain_event_deletion"></td></tr>';
-	$html_text .= '<tr id="307" style="display:none"><td>domain_event_last_uploaded</td><td>'.$item->details->domain_event_last_uploaded.'</td><td id="domain_event_last_uploaded"></td></tr>';
-	$html_text .= '<tr id="308" style="display:none;vertical-align:top"><td>domain_extensions_values</td><td><b>'.$item->details->domain_extensions_values.'</b></td><td id="domain_extensions_values"></td></tr>';
-	$html_text .= '<tr id="309" style="display:none;vertical-align:top"><td>domain_remark_values</td><td>'.$item->details->domain_remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="306" style="display:none"><td>domain_event_recovery_until</td><td>'.$item->details->domain_event_recovery_until.'</td><td id="domain_event_recovery_until"></td></tr>';
+	$html_text .= '<tr id="307" style="display:none"><td>domain_event_deletion</td><td>'.$item->details->domain_event_deletion.'</td><td id="domain_event_deletion"></td></tr>';
+	$html_text .= '<tr id="308" style="display:none"><td>domain_event_last_uploaded</td><td>'.$item->details->domain_event_last_uploaded.'</td><td id="domain_event_last_uploaded"></td></tr>';
+	$html_text .= '<tr id="309" style="display:none;vertical-align:top"><td>domain_extensions_values</td><td><b>'.$item->details->domain_extensions_values.'</b></td><td id="domain_extensions_values"></td></tr>';
+	$html_text .= '<tr id="3010" style="display:none;vertical-align:top"><td>domain_remark_values</td><td>'.$item->details->domain_remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(40)">Registrant +/-</button></td><td></td><td id="registrant_role"></td></tr>';
 	$html_text .= '<tr id="401" style="display:none"><td>registrant_handle</td><td>'.$item->registrant->registrant_handle.'</td><td></td></tr>';

@@ -171,7 +171,7 @@ $registration = '(without date-time)';
 $last_transferred = '';			
 $last_changed = '';
 $expiration = '(without date-time)';	
-$deletion = '(not applicable)';
+$deletion = '';
 $extensions_values = '';
 $remark_values = '';	
 $registrant_status_values = '';
@@ -930,7 +930,7 @@ if (str_contains($status_values, 'locked'))	{
 	}		
 }
 if (str_contains($status_values, 'redemption period') or str_contains($status_values, 'pending delete'))	{	
-	if ($deletion == '(not applicable)')	{
+	if (!strlen($deletion))	{
 		$deletion = '(without date-time)';	
 	}		
 }
