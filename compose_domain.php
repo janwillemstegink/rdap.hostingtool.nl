@@ -226,6 +226,7 @@ elseif ($obj['secureDNS']['delegationSigned'] === false)	{
 }
 $registrant_handle = '';
 $registrant_full_name = '(hidden)';
+$registrant_kind = '';
 $registrant_name = '';	
 $registrant_street = '';
 $registrant_city = '';
@@ -262,7 +263,7 @@ $reseller_protected = 'name,phone,fax,email';
 $reseller_language_pref_1 = '';
 $reseller_language_pref_2 = '';	
 $registrar_handle = '';
-$registrant_kind = '';
+$registrar_kind = '';
 $registrar_full_name = '';
 $registrar_name = '';	
 $registrar_street = '';
