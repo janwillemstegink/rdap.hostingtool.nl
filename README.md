@@ -6,11 +6,11 @@
 
 Domain information modeling: https://rdap.hostingtool.nl/modeling_domain/
 
-Data check by email modeling: https://rdap.hostingtool.nl/modeling_email/
+Data by email modeling: https://rdap.hostingtool.nl/modeling_email/
 
 Menu information modeling: https://rdap.hostingtool.nl/modeling_menu/
 
-Domain management tool: https://www.domaincontrolregister.org/tool/control_login/
+Domain inspection tool: https://www.domaincontrolregister.org/tool/control_login/
 
 Find background information on:
 
