@@ -5,8 +5,11 @@
 - Legal structure for domain information can arise after narrowing down physical structure first.
 
 Domain information modeling: https://rdap.hostingtool.nl/modeling_domain/
+
 Data check by email modeling: https://rdap.hostingtool.nl/modeling_email/
+
 Menu information modeling: https://rdap.hostingtool.nl/modeling_menu/
+
 Domain management tool: https://www.domaincontrolregister.org/tool/control_login/
 
 Find background information on:
