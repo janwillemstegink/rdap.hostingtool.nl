@@ -450,115 +450,116 @@ foreach($obj as $key1 => $value1) {
 				else	{
 					$remark_values .= $key3;
 				}	
-			}				
+			}
 			foreach($value3 as $key4 => $value4) {
-				if ($key1 == 'remarks')	{
-					$remark_values .= '<br />' . $value4 . ';';	
-					die($remark_values);
-				}
-				if ($key2 == $entity_registrant and $key3 == 'status')	{
-					if (strlen($registrant_status_values))	{
-						$registrant_status_values .= ', <br />';				
-					}	
-					$registrant_status_values .= $value4;
-				}
-				if ($key2 == $entity_reseller and $key3 == 'status')	{
-					if (strlen($reseller_status_values))	{
-						$reseller_status_values .= ', <br />';				
-					}	
-					$reseller_status_values .= $value4;
-				}
-				if ($key2 == $entity_registrar and $key3 == 'status')	{
-					if (strlen($registrar_status_values))	{
-						$registrar_status_values .= ', <br />';				
-					}	
-					$registrar_status_values .= $value4;
-				}
-				if ($key2 == $entity_sponsor and $key3 == 'status')	{
-					if (strlen($sponsor_status_values))	{
-						$sponsor_status_values .= ', <br />';				
-					}	
-					$sponsor_status_values .= $value4;
-				}				
+				if ($key1 == 'entities')	{
+					if ($key2 == $entity_registrant and $key3 == 'status')	{
+						if (strlen($registrant_status_values))	{
+							$registrant_status_values .= ', <br />';				
+						}
+						$registrant_status_values .= $value4;
+						//$registrant_status_values .= $key1.'#'.$value1.'#'.$key2.'#'.$value2.'#'.$key3.'#'.$value3.'#'.$key4.'#'.$value4;
+					}
+					if ($key2 == $entity_reseller and $key3 == 'status')	{
+						if (strlen($reseller_status_values))	{
+							$reseller_status_values .= ', <br />';				
+						}	
+						$reseller_status_values .= $value4;
+					}
+					if ($key2 == $entity_registrar and $key3 == 'status')	{
+						if (strlen($registrar_status_values))	{
+							$registrar_status_values .= ', <br />';				
+						}	
+						$registrar_status_values .= $value4;
+					}
+					if ($key2 == $entity_sponsor and $key3 == 'status')	{
+						if (strlen($sponsor_status_values))	{
+							$sponsor_status_values .= ', <br />';				
+						}	
+						$sponsor_status_values .= $value4;
+					}
+				}	
 				foreach($value4 as $key5 => $value5) {
-					if ($key2 == $entity_registrant and $key3 == 'events')	{
-						if ($key5 == 'eventAction' and $value5 == 'registration')	{
-							$registrant_registration = $value4['eventDate'];
+					if ($key1 == 'entities')	{
+						if ($key2 == $entity_registrant and $key3 == 'events')	{
+							if ($key5 == 'eventAction' and $value5 == 'registration')	{
+								$registrant_registration = $value4['eventDate'];
+							}
+							elseif ($key5 == 'eventAction' and $value5 == 'transfer')	{
+								$registrant_last_transferred = $value4['eventDate'];
+							}
+							elseif ($key5 == 'eventAction' and $value5 == 'last changed')	{
+								$registrant_last_changed = $value4['eventDate'];
+							}				
+							elseif ($key5 == 'eventAction' and $value5 == 'expiration')	{
+								$registrant_expiration = $valu42['eventDate'];
+							}
+							elseif ($key5 == 'eventAction' and $value5 == 'deletion')	{
+								$registrant_deletion = $value4['eventDate'];
+							}
+							elseif ($key5 == 'eventAction' and $value5 == 'last update of RDAP database')	{
+								$registrant_last_uploaded = $value4['eventDate'];				
+							}
 						}
-						elseif ($key5 == 'eventAction' and $value5 == 'transfer')	{
-							$registrant_last_transferred = $value4['eventDate'];
-						}
-						elseif ($key5 == 'eventAction' and $value5 == 'last changed')	{
-							$registrant_last_changed = $value4['eventDate'];
+						if ($key2 == $entity_reseller and $key3 == 'events')	{
+							if ($key5 == 'eventAction' and $value5 == 'registration')	{
+								$reseller_registration = $value4['eventDate'];
+							}
+							elseif ($key5 == 'eventAction' and $value5 == 'transfer')	{
+								$reseller_last_transferred = $value4['eventDate'];
+							}
+							elseif ($key5 == 'eventAction' and $value5 == 'last changed')	{
+								$reseller_last_changed = $value4['eventDate'];
+							}				
+							elseif ($key5 == 'eventAction' and $value5 == 'expiration')	{
+								$reseller_expiration = $valu42['eventDate'];
+							}
+							elseif ($key5 == 'eventAction' and $value5 == 'deletion')	{
+								$reseller_deletion = $value4['eventDate'];
+							}
+							elseif ($key5 == 'eventAction' and $value5 == 'last update of RDAP database')	{
+								$reseller_last_uploaded = $value4['eventDate'];				
+							}
 						}				
-						elseif ($key5 == 'eventAction' and $value5 == 'expiration')	{
-							$registrant_expiration = $valu42['eventDate'];
+						if ($key2 == $entity_registrar and $key3 == 'events')	{
+							if ($key5 == 'eventAction' and $value5 == 'registration')	{
+								$registrar_registration = $value4['eventDate'];
+							}
+							elseif ($key5 == 'eventAction' and $value5 == 'transfer')	{
+								$registrar_last_transferred = $value4['eventDate'];
+							}
+							elseif ($key5 == 'eventAction' and $value5 == 'last changed')	{
+								$registrar_last_changed = $value4['eventDate'];
+							}				
+							elseif ($key5 == 'eventAction' and $value5 == 'expiration')	{
+								$registrar_expiration = $valu42['eventDate'];
+							}
+							elseif ($key5 == 'eventAction' and $value5 == 'deletion')	{
+								$registrar_deletion = $value4['eventDate'];
+							}
+							elseif ($key5 == 'eventAction' and $value5 == 'last update of RDAP database')	{
+								$registrar_last_uploaded = $value4['eventDate'];				
+							}
 						}
-						elseif ($key5 == 'eventAction' and $value5 == 'deletion')	{
-							$registrant_deletion = $value4['eventDate'];
-						}
-						elseif ($key5 == 'eventAction' and $value5 == 'last update of RDAP database')	{
-							$registrant_last_uploaded = $value4['eventDate'];				
-						}
-					}
-					if ($key2 == $entity_reseller and $key3 == 'events')	{
-						if ($key5 == 'eventAction' and $value5 == 'registration')	{
-							$reseller_registration = $value4['eventDate'];
-						}
-						elseif ($key5 == 'eventAction' and $value5 == 'transfer')	{
-							$reseller_last_transferred = $value4['eventDate'];
-						}
-						elseif ($key5 == 'eventAction' and $value5 == 'last changed')	{
-							$reseller_last_changed = $value4['eventDate'];
-						}				
-						elseif ($key5 == 'eventAction' and $value5 == 'expiration')	{
-							$reseller_expiration = $valu42['eventDate'];
-						}
-						elseif ($key5 == 'eventAction' and $value5 == 'deletion')	{
-							$reseller_deletion = $value4['eventDate'];
-						}
-						elseif ($key5 == 'eventAction' and $value5 == 'last update of RDAP database')	{
-							$reseller_last_uploaded = $value4['eventDate'];				
-						}
-					}					
-					if ($key2 == $entity_registrar and $key3 == 'events')	{
-						if ($key5 == 'eventAction' and $value5 == 'registration')	{
-							$registrar_registration = $value4['eventDate'];
-						}
-						elseif ($key5 == 'eventAction' and $value5 == 'transfer')	{
-							$registrar_last_transferred = $value4['eventDate'];
-						}
-						elseif ($key5 == 'eventAction' and $value5 == 'last changed')	{
-							$registrar_last_changed = $value4['eventDate'];
-						}				
-						elseif ($key5 == 'eventAction' and $value5 == 'expiration')	{
-							$registrar_expiration = $valu42['eventDate'];
-						}
-						elseif ($key5 == 'eventAction' and $value5 == 'deletion')	{
-							$registrar_deletion = $value4['eventDate'];
-						}
-						elseif ($key5 == 'eventAction' and $value5 == 'last update of RDAP database')	{
-							$registrar_last_uploaded = $value4['eventDate'];				
-						}
-					}
-					if ($key2 == $entity_sponsor and $key3 == 'events')	{
-						if ($key5 == 'eventAction' and $value5 == 'registration')	{
-							$sponsor_registration = $value4['eventDate'];
-						}
-						elseif ($key5 == 'eventAction' and $value5 == 'transfer')	{
-							$sponsor_last_transferred = $value4['eventDate'];
-						}
-						elseif ($key5 == 'eventAction' and $value5 == 'last changed')	{
-							$sponsor_last_changed = $value4['eventDate'];
-						}				
-						elseif ($key5 == 'eventAction' and $value5 == 'expiration')	{
-							$sponsor_expiration = $valu42['eventDate'];
-						}
-						elseif ($key5 == 'eventAction' and $value5 == 'deletion')	{
-							$sponsor_deletion = $value4['eventDate'];
-						}
-						elseif ($key5 == 'eventAction' and $value5 == 'last update of RDAP database')	{
-							$sponsor_last_uploaded = $value4['eventDate'];				
+						if ($key2 == $entity_sponsor and $key3 == 'events')	{
+							if ($key5 == 'eventAction' and $value5 == 'registration')	{
+								$sponsor_registration = $value4['eventDate'];
+							}
+							elseif ($key5 == 'eventAction' and $value5 == 'transfer')	{
+								$sponsor_last_transferred = $value4['eventDate'];
+							}
+							elseif ($key5 == 'eventAction' and $value5 == 'last changed')	{
+								$sponsor_last_changed = $value4['eventDate'];
+							}				
+							elseif ($key5 == 'eventAction' and $value5 == 'expiration')	{
+								$sponsor_expiration = $valu42['eventDate'];
+							}
+							elseif ($key5 == 'eventAction' and $value5 == 'deletion')	{
+								$sponsor_deletion = $value4['eventDate'];
+							}
+							elseif ($key5 == 'eventAction' and $value5 == 'last update of RDAP database')	{
+								$sponsor_last_uploaded = $value4['eventDate'];				
+							}
 						}
 					}
 					if ($key1 == 'nameservers')	{
@@ -665,49 +666,51 @@ foreach($obj as $key1 => $value1) {
 							}	
 						}
 					}
-					if ($key2 == $entity_registrant and $key3 == 'remarks')	{
-						if (strlen($registrant_remark_values))	{
-							$registrant_remark_values .= '<br />';				
+					if ($key1 == 'entities')	{
+						if ($key2 == $entity_registrant and $key3 == 'remarks')	{
+							if (strlen($registrant_remark_values))	{
+								$registrant_remark_values .= '<br />';				
+							}
+							if (!is_array($value5))	{
+								$registrant_remark_values .= $key5 . ': ' . $value5;
+							}
+							else	{
+								$registrant_remark_values .= $key5;
+							}	
 						}
-						if (!is_array($value5))	{
-							$registrant_remark_values .= $key5 . ': ' . $value5;
+						if ($key2 == $entity_reseller and $key3 == 'remarks')	{
+							if (strlen($reseller_remark_values))	{
+								$reseller_remark_values .= '<br />';				
+							}
+							if (!is_array($value5))	{
+								$reseller_remark_values .= $key5 . ': ' . $value5;
+							}
+							else	{
+								$reseller_remark_values .= $key5;
+							}	
 						}
-						else	{
-							$registrant_remark_values .= $key5;
+						if ($key2 == $entity_registrar and $key3 == 'remarks')	{
+							if (strlen($registrar_remark_values))	{
+								$registrar_remark_values .= '<br />';				
+							}
+							if (!is_array($value5))	{
+								$registrar_remark_values .= $key5 . ': ' . $value5;
+							}
+							else	{
+								$registrar_remark_values .= $key5;
+							}
+						}
+						if ($key2 == $entity_sponsor and $key3 == 'remarks')	{
+							if (strlen($sponsor_remark_values))	{
+								$sponsor_remark_values .= '<br />';				
+							}
+							if (!is_array($value5))	{
+								$sponsor_remark_values .= $key5 . ': ' . $value5;
+							}
+							else	{					
+								$sponsor_remark_values .= $key5;
+							}
 						}	
-					}
-					if ($key2 == $entity_reseller and $key3 == 'remarks')	{
-						if (strlen($reseller_remark_values))	{
-							$reseller_remark_values .= '<br />';				
-						}
-						if (!is_array($value5))	{
-							$reseller_remark_values .= $key5 . ': ' . $value5;
-						}
-						else	{
-							$reseller_remark_values .= $key5;
-						}	
-					}
-					if ($key2 == $entity_registrar and $key3 == 'remarks')	{
-						if (strlen($registrar_remark_values))	{
-							$registrar_remark_values .= '<br />';				
-						}
-						if (!is_array($value5))	{
-							$registrar_remark_values .= $key5 . ': ' . $value5;
-						}
-						else	{
-							$registrar_remark_values .= $key5;
-						}
-					}
-					if ($key2 == $entity_sponsor and $key3 == 'remarks')	{
-						if (strlen($sponsor_remark_values))	{
-							$sponsor_remark_values .= '<br />';				
-						}
-						if (!is_array($value5))	{
-							$sponsor_remark_values .= $key5 . ': ' . $value5;
-						}
-						else	{					
-							$sponsor_remark_values .= $key5;
-						}
 					}
 					foreach($value5 as $key6 => $value6) {
 						if ($key1 == 'entities' and $key3 == 'handle')	{

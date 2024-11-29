@@ -205,8 +205,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_name").textContent = "In het RDAP-protocol kan een persoonlijke naam zichtbaar zijn in het veld 'full_name', zie cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "Een domein kan worden ingetrokken, bijvoorbeeld doordat het Verenigd Koninkrijk de EU heeft verlaten.";
 		document.getElementById("registrant_protected").textContent = derived;
-		document.getElementById("registrant_event_verification_received").textContent = proposed + "Met behulp van web-ID-indexering is verificatie van houderschap, of beëindiging, mogelijk.";
-		document.getElementById("registrant_event_verification_set").textContent = proposed + "Op de lange termijn kunnen zoekmachines verificatie van een domeinhouder zichtbaar maken.";
+		document.getElementById("registrant_event_verification_received").textContent = proposed + "De gebruiker kan akkoord gaan bij een matchend web-ID; leeg is intrekken.";
+		document.getElementById("registrant_event_verification_set").textContent = proposed + "Vervolgens controleert de registry via de RDAP-server de legitimiteit ervan in dat land.";
 		document.getElementById("admin_role").textContent = "Het administratief aanspreekpunt beantwoordt een verzoek en stuurt zo nodig door.";
 		document.getElementById("admin_web_id").textContent = proposed;
 		document.getElementById("admin_protected").textContent = derived;
@@ -238,7 +238,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("br_zone").textContent = "Zone .br: De RDAP-gegevens zijn aangepast met nameservervalidatie.";
 
 		document.getElementById("raw_data_next").textContent = "Deze tool toont een op verantwoordelijkheid gebaseerde veldvolgorde, de standaardwaarde 'hidden' en unieke veldnamen voor weergave.";	
-	}
+	et }
 	else if (translation == 2)	{
 		var proposed = 'PROPOSED - ';
 		var derived = proposed + 'protected data';
@@ -270,8 +270,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_name").textContent = "In the RDAP protocol, a personal name may be visible in the 'full_name' field, see cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "A domain can be revoked, for example because the United Kingdom has left the EU.";
 		document.getElementById("registrant_protected").textContent = derived;
-		document.getElementById("registrant_event_verification_received").textContent = proposed + "Indexing web identifiers helps verify ownership or termination.";
-		document.getElementById("registrant_event_verification_set").textContent = proposed + "In the long run, search engines may make verification of a domain owner visible.";	
+		document.getElementById("registrant_event_verification_received").textContent = proposed + "User can agree with a matching web ID; empty is revoke.";
+		document.getElementById("registrant_event_verification_set").textContent = proposed + "The registry then checks its legitimacy in that country via the RDAP server.";	
 		document.getElementById("admin_role").textContent = "The administratively responsible desk answers a request, and forwards on if necessary.";
 		document.getElementById("admin_web_id").textContent = proposed;
 		document.getElementById("admin_protected").textContent = derived;
@@ -334,8 +334,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_name").textContent = "Im RDAP-Protokoll kann im Feld 'full_name' ein Personenname sichtbar sein, siehe cira.ca";
 		document.getElementById("registrant_country_code").textContent = "Eine Domain kann widerrufen werden, beispielsweise weil das Vereinigte Königreich die EU verlassen hat.";
 		document.getElementById("registrant_protected").textContent = derived;
-		document.getElementById("registrant_event_verification_received").textContent = proposed + "Die Indizierung von Web-IDs hilft bei der Überprüfung des Besitzes oder der Kündigung.";
-		document.getElementById("registrant_event_verification_set").textContent = proposed + "Langfristig können Suchmaschinen die Verifizierung eines Domaininhabers sichtbar machen.";
+		document.getElementById("registrant_event_verification_received").textContent = proposed + "Der Nutzer kann einer passenden Web-ID zustimmen; Leer wird zurückgezogen.";
+		document.getElementById("registrant_event_verification_set").textContent = proposed + "Anschließend überprüft die Registry über den RDAP-Server seine Legitimität in diesem Land.";
 		document.getElementById("admin_role").textContent = "Die administrativ zuständige Stelle beantwortet eine Anfrage und leitet sie gegebenenfalls weiter.";
 		document.getElementById("admin_web_id").textContent = proposed;
 		document.getElementById("admin_protected").textContent = derived;
@@ -399,8 +399,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_name").textContent = "Dans le protocole RDAP, un nom personnel peut être visible dans le champ 'full_name', voir cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "Un domaine peut être révoqué, par exemple parce que le Royaume-Uni a quitté l'UE.";
 		document.getElementById("registrant_protected").textContent = derived;
-		document.getElementById("registrant_event_verification_received").textContent = proposed + "L'indexation des identifiants Web permet de vérifier la propriété ou la résiliation.";
-		document.getElementById("registrant_event_verification_set").textContent = proposed + "À long terme, les moteurs de recherche peuvent rendre visible la vérification d’un titulaire de domaine.";
+		document.getElementById("registrant_event_verification_received").textContent = proposed + "L'utilisateur peut accepter un identifiant Web correspondant ; Le vide est retiré.";
+		document.getElementById("registrant_event_verification_set").textContent = proposed + "Le registre vérifie ensuite sa légitimité dans ce pays via le serveur RDAP.";
 		document.getElementById("admin_role").textContent = "Le bureau administrativement responsable répond à une demande, et la transmet si nécessaire.";
 		document.getElementById("admin_web_id").textContent = proposed;
 		document.getElementById("admin_protected").textContent = derived;
@@ -474,7 +474,7 @@ else	{
 $rdap_url = isset($_SERVER['HTTPS']) && strcasecmp('off', $_SERVER['HTTPS']) !== 0 ? "https" : "http";
 $rdap_url .= '://'. $_SERVER['HTTP_HOST'];
 $rdap_url .= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);	
-$rdap_url = dirname($rdap_url).'/compose_domain/index.php?domain='.$viewdomain;
+$rdap_url = dirname($rdap_url).'/compose_domain/index.php?batch=0&domain='.$viewdomain;
 if (@get_headers($rdap_url))	{ // the application to compose for zone data
 	$xml1 = simplexml_load_file($rdap_url, "SimpleXMLElement", LIBXML_NOCDATA) or die("An entered domain could not be read.");
 }
