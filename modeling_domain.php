@@ -465,12 +465,19 @@ if (empty($_GET["language"]))	{
 else	{
 	$viewlanguage = $_GET["language"];
 }
-$rdap_url = isset($_SERVER['HTTPS']) && strcasecmp('off', $_SERVER['HTTPS']) !== 0 ? "https" : "http";
-$rdap_url .= '://'. $_SERVER['HTTP_HOST'];
-$rdap_url .= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);	
-$rdap_url = dirname($rdap_url).'/compose_domain/index.php?batch=0&domain='.$viewdomain;
+$server_url = isset($_SERVER['HTTPS']) && strcasecmp('off', $_SERVER['HTTPS']) !== 0 ? "https" : "http";
+$server_url .= '://'. $_SERVER['HTTP_HOST'];
+$server_url .= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);	
+$server_url = dirname($server_url);
+$rdap_url = $server_url.'/compose_domain/index.php?batch=0&domain='.$viewdomain;
 if (@get_headers($rdap_url))	{ // the application to compose for zone data
 	$xml1 = simplexml_load_file($rdap_url, "SimpleXMLElement", LIBXML_NOCDATA) or die("An entered domain could not be read.");
+}
+if	(is_null($xml1))	{
+	$display_message = str_replace("'", "\'", "A result could not be retrieved.");	
+	echo "<script>alert('$display_message');</script>";
+	$reopen = $server_url.'/modeling_domain/index.php?batch=0&domain=hostingtool.nl';
+	sc_redir($reopen);
 }
 $html_text = '<body onload=SwitchTranslation('.$viewlanguage.')><div style="border-collapse:collapse; line-height:120%">
 <table style="font-family:Helvetica, Arial, sans-serif; font-size: 1rem; table-layout: fixed; width:1375px">
