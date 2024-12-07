@@ -138,10 +138,38 @@ $notice_2_links_0_type = $obj['notices'][2]['links'][0]['type'];
 if ($zone_top_level_domain == 'nl')	{
 	$zone_registry_web_id = '';
 	$zone_registry_full_name = 'SIDN B.V.';
-	$zone_menu = 'https://menu.sidn.nl';
+	$zone_menu = 'https://regmenu.sidn.nl';
 	$zone_support = 'support@sidn.nl';
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
 }
+elseif ($zone_top_level_domain == 'frl')	{
+	$zone_registry_web_id = '';
+	$zone_registry_full_name = 'FRLregistry B.V.';
+	$zone_menu = 'https://regmenu.registreer.frl';
+	$zone_support = 'support@registreer.frl';
+	$registrant_web_id = 'NL88COMM01234567890123456789012345';
+}
+elseif ($zone_top_level_domain == 'com' or $zone_top_level_domain == 'net')	{
+	$zone_registry_web_id = '';
+	$zone_registry_full_name = 'VeriSign, Inc.';
+	$zone_menu = 'https://regmenu.verisign.com/';
+	$zone_support = 'info@verisign-grs.com';
+	$registrant_web_id = '';
+}
+elseif ($zone_top_level_domain == 'org')	{
+	$zone_registry_web_id = '';
+	$zone_registry_full_name = 'Public Interest Registry (PIR)';
+	$zone_menu = 'https://regmenu.pir.org';
+	$zone_support = 'ops@pir.org';
+	$registrant_web_id = '';
+}
+elseif ($zone_top_level_domain == 'ca')	{
+	$zone_registry_web_id = '';
+	$zone_registry_full_name = 'Canadian Internet Registration Authority (CIRA)';
+	$zone_menu = 'https://regmenu.cira.ca';
+	$zone_support = 'info@cira.ca';
+	$registrant_web_id = '';
+}	
 else	{
 	$zone_registry_web_id = '';
 	$zone_registry_full_name = '';
@@ -149,7 +177,12 @@ else	{
 	$zone_support = '';
 	$registrant_web_id = '';
 }
-$zone_registry_language = $obj['lang'];	
+if (strlen($obj['lang']))	{
+	$zone_registry_language = $obj['lang'];	
+}
+else	{
+	$zone_registry_language = '(hidden)';	
+}	
 $links_0_value = $obj['links'][0]['value'];
 $links_0_related = $obj['links'][0]['rel'];
 $links_0_href = $obj['links'][0]['href'];

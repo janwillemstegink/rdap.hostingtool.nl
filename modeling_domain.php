@@ -201,7 +201,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_full_name").textContent = "De domeingebruiker die de daadwerkelijke of effectieve controle heeft voor domeinrecht in het land van vestiging.";
 		document.getElementById("registrant_kind").textContent = "Leeg, 'individual' of 'org'; een levenstestament kan een juridische lacune opvullen; suggestie: 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "In het RDAP-protocol kan een persoonlijke naam zichtbaar zijn in het veld 'full_name', zie cira.ca.";
-		document.getElementById("registrant_country_code").textContent = "Een domein kan worden ingetrokken, bijvoorbeeld doordat het Verenigd Koninkrijk de EU heeft verlaten.";
+		document.getElementById("registrant_country_code").textContent = "De ISO-2-landcode-indexering werkt, bijvoorbeeld voor het Verenigd Koninkrijk, dat de EU heeft verlaten.";
 		document.getElementById("registrant_protected").textContent = proposed + "Zonespecifieke verborgen gegevens variëren afhankelijk van het gebruik van een adres.";
 		document.getElementById("registrant_event_verification_received").textContent = proposed + "De gebruiker kan akkoord gaan bij een matchend web-ID; leeg is intrekken.";
 		document.getElementById("registrant_event_verification_set").textContent = proposed + "Vervolgens controleert de registry via de RDAP-server de legitimiteit ervan in dat land.";
@@ -265,7 +265,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_full_name").textContent = "The domain user who has the actual or effective control for domain rights in the country of establishment.";
 		document.getElementById("registrant_kind").textContent = "Empty, 'individual' or 'org'; a living will can fill a legal gap; suggestion: 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "In the RDAP protocol, a personal name may be visible in the 'full_name' field, see cira.ca.";
-		document.getElementById("registrant_country_code").textContent = "A domain can be revoked, for example because the United Kingdom has left the EU.";
+		document.getElementById("registrant_country_code").textContent = "ISO-2 country code indexing works, as for the United Kingdom, which has left the EU.";
 		document.getElementById("registrant_protected").textContent = proposed + "Zone Specific hidden data varies depending on the use of an address.";
 		document.getElementById("registrant_event_verification_received").textContent = proposed + "User can agree with a matching web ID; empty is revoke.";
 		document.getElementById("registrant_event_verification_set").textContent = proposed + "The registry then checks its legitimacy in that country via the RDAP server.";	
@@ -328,7 +328,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_full_name").textContent = "Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat für Domainrechte im Wohnsitzland.";
 		document.getElementById("registrant_kind").textContent = "Leer, 'individual' oder 'org'; Eine Patientenverfügung kann eine rechtliche Lücke schließen; Anregung: 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "Im RDAP-Protokoll kann im Feld 'full_name' ein Personenname sichtbar sein, siehe cira.ca";
-		document.getElementById("registrant_country_code").textContent = "Eine Domain kann widerrufen werden, beispielsweise weil das Vereinigte Königreich die EU verlassen hat.";
+		document.getElementById("registrant_country_code").textContent = "Die Indizierung mit dem ISO-2-Ländercode funktioniert, wie für das Vereinigte Königreich, das die EU verlassen hat.";
 		document.getElementById("registrant_protected").textContent = proposed + "Zonenspezifische versteckte Daten variieren je nach Verwendung einer Adresse.";
 		document.getElementById("registrant_event_verification_received").textContent = proposed + "Der Nutzer kann einer passenden Web-ID zustimmen; Leer wird zurückgezogen.";
 		document.getElementById("registrant_event_verification_set").textContent = proposed + "Anschließend überprüft die Registry über den RDAP-Server seine Legitimität in diesem Land.";
@@ -391,7 +391,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_full_name").textContent = "L'utilisateur du domaine qui a le contrôle réel ou effectif pour les droits de domaine dans le pays de résidence.";
 		document.getElementById("registrant_kind").textContent = "Vide, 'individual' ou 'org' ; un testament biologique peut combler un vide juridique ; suggestion : 'non-hidden individual'.";
 		document.getElementById("registrant_name").textContent = "Dans le protocole RDAP, un nom personnel peut être visible dans le champ 'full_name', voir cira.ca.";
-		document.getElementById("registrant_country_code").textContent = "Un domaine peut être révoqué, par exemple parce que le Royaume-Uni a quitté l'UE.";
+		document.getElementById("registrant_country_code").textContent = "L'indexation des codes pays ISO-2 fonctionne, comme pour le Royaume-Uni, qui a quitté l'UE.";
 		document.getElementById("registrant_protected").textContent = proposed + "Les données cachées spécifiques à la zone varient en fonction de l'utilisation d'une adresse.";
 		document.getElementById("registrant_event_verification_received").textContent = proposed + "L'utilisateur peut accepter un identifiant Web correspondant ; Le vide est retiré.";
 		document.getElementById("registrant_event_verification_set").textContent = proposed + "Le registre vérifie ensuite sa légitimité dans ce pays via le serveur RDAP.";
@@ -499,7 +499,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td id="value"><td id="explanation"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(10)">Zone Information +/-</button></td><td>'.$item->zone->zone_top_level_domain.'</td><td id="zone_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(10)">Zone Information +/-</button></td><td><b>'.$item->zone->zone_top_level_domain.'</b></td><td id="zone_role"></td></tr>';
 	$html_text .= '<tr id="101" style="display:none"><td>zone_registry_web_id</td><td>'.$item->zone->zone_registry_web_id.'</td><td id="zone_registry_web_id"></td></tr>';
 	$html_text .= '<tr id="102" style="display:none"><td>zone_registry_full_name</td><td>'.$item->zone->zone_registry_full_name.'</td><td id="zone_registry_full_name"></td></tr>';
 	$html_text .= '<tr id="103" style="display:none"><td>zone_registry_language</td><td>'.$item->zone->zone_registry_language.'</td><td></td></tr>';
