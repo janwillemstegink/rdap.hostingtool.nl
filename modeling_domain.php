@@ -25,12 +25,24 @@ function SwitchDisplay(type) {
 		var pre = '13';
 		var max = 5
 	}
+	else if (type == 14)	{ // notice 3
+		var pre = '14';
+		var max = 5
+	}
 	else if (type == 20)	{ // links 0
 		var pre = '20';
 		var max = 7
 	}
 	else if (type == 21)	{ // links 1
 		var pre = '21';
+		var max = 7
+	}
+	else if (type == 22)	{ // links 2
+		var pre = '22';
+		var max = 7
+	}
+	else if (type == 23)	{ // links 3
+		var pre = '23';
 		var max = 7
 	}
 	else if (type == 30)	{ // domain
@@ -487,7 +499,7 @@ $html_text .= '<tr style="font-size: .8rem"><td id="title" style="font-size: 1.3
 $html_text .= '<tr style="font-size: .8rem"><td id="subtitle" style="font-size: 1.0rem;color:blue;font-weight:bold"></td><td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">
 	<input type="hidden" id="language" name="language" value='.$viewlanguage.'>	
 	<input type="text" style="width:90%" id="domain" name="domain" value='.$viewdomain.'></form>
-	<label for="domain">biz/com/net/org/ca/ch/de/fr/nl/uk/amsterdam/politie</label></td><td>
+	<label for="domain">biz/com/net/org/ca/ch/de/fr/nl/frl/uk/amsterdam/politie</label></td><td>
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(0)">None</button> 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(1)">nl_NL</button> 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(2)">en_US</button> 
@@ -505,7 +517,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="103" style="display:none"><td>zone_registry_language</td><td>'.$item->zone->zone_registry_language.'</td><td></td></tr>';
 	$html_text .= '<tr id="104" style="display:none"><td>zone_menu</td><td>'.$item->zone->zone_menu.'</td><td id="zone_menu"></td></tr>';
 	$html_text .= '<tr id="105" style="display:none"><td>zone_support</td><td>'.$item->zone->zone_support.'</td><td id="zone_support"></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(11)">Notice0 +/-</button> <button style="cursor:pointer;font-size:1.0rem" onclick="SwitchDisplay(12)">Notice1 +/-</button> <button style="cursor:pointer;font-size:1.0rem" onclick="SwitchDisplay(13)">Notice2 +/-</button></td><td></td><td id="notices"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.8rem" onclick="SwitchDisplay(11)">Notice0 +/-</button> <button style="cursor:pointer;font-size:.8rem" onclick="SwitchDisplay(12)">Notice1 +/-</button> <button style="cursor:pointer;font-size:.8rem" onclick="SwitchDisplay(13)">Notice2 +/-</button> <button style="cursor:pointer;font-size:.8rem" onclick="SwitchDisplay(14)">Notice3 +/-</button></td><td></td><td id="notices"></td></tr>';
 	$html_text .= '<tr id="111" style="display:none;vertical-align:top"><td>notice_0_title</td><td>'.$item->zone->notice_0_title.'</td><td></td></tr>';
 	$html_text .= '<tr id="112" style="display:none;vertical-align:top"><td>notice_0_description_0</td><td>'.$item->zone->notice_0_description_0.'</td><td></td></tr>';
 	$html_text .= '<tr id="113" style="display:none;vertical-align:top"><td>notice_0_description_1</td><td>'.$item->zone->notice_0_description_1.'</td><td></td></tr>';
@@ -521,7 +533,12 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="133" style="display:none;vertical-align:top"><td>notice_2_description_1</td><td>'.$item->zone->notice_2_description_1.'</td><td></td></tr>';
 	$html_text .= '<tr id="134" style="display:none;vertical-align:top"><td>notice_2_links_0_href</td><td>'.$item->zone->notice_2_links_0_href.'</td><td></td></tr>';
 	$html_text .= '<tr id="135" style="display:none;vertical-align:top"><td>notice_2_links_0_type</td><td>'.$item->zone->notice_2_links_0_type.'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(20)">Links0 +/-</button> <button style="cursor:pointer;font-size:1.0rem" onclick="SwitchDisplay(21)">Links1 +/-</button></td><td></td><td id="links"></td></tr>';
+	$html_text .= '<tr id="141" style="display:none;vertical-align:top"><td>notice_3_title</td><td>'.$item->zone->notice_3_title.'</td><td></td></tr>';
+	$html_text .= '<tr id="142" style="display:none;vertical-align:top"><td>notice_3_description_0</td><td>'.$item->zone->notice_3_description_0.'</td><td></td></tr>';
+	$html_text .= '<tr id="143" style="display:none;vertical-align:top"><td>notice_3_description_1</td><td>'.$item->zone->notice_3_description_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="144" style="display:none;vertical-align:top"><td>notice_3_links_0_href</td><td>'.$item->zone->notice_3_links_0_href.'</td><td></td></tr>';
+	$html_text .= '<tr id="145" style="display:none;vertical-align:top"><td>notice_3_links_0_type</td><td>'.$item->zone->notice_3_links_0_type.'</td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.8rem" onclick="SwitchDisplay(20)">Links0 +/-</button> <button style="cursor:pointer;font-size:.8rem" onclick="SwitchDisplay(21)">Links1 +/-</button> <button style="cursor:pointer;font-size:.8rem" onclick="SwitchDisplay(22)">Links2 +/-</button> <button style="cursor:pointer;font-size:.8rem" onclick="SwitchDisplay(23)">Links3 +/-</button></td><td></td><td id="links"></td></tr>';
 	$html_text .= '<tr id="201" style="display:none;vertical-align:top"><td>links_0_value</td><td>'.$item->view->links_0_value.'</td><td></td></tr>';
 	$html_text .= '<tr id="202" style="display:none;vertical-align:top"><td>links_0_related</td><td>'.$item->view->links_0_related.'</td><td></td></tr>';
 	$html_text .= '<tr id="203" style="display:none;vertical-align:top"><td>links_0_href</td><td>'.$item->view->links_0_href.'</td><td></td></tr>';
@@ -536,6 +553,20 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="215" style="display:none;vertical-align:top"><td>links_1_title</td><td>'.$item->view->links_1_title.'</td><td></td></tr>';
 	$html_text .= '<tr id="216" style="display:none;vertical-align:top"><td>links_1_media</td><td>'.$item->view->links_1_media.'</td><td></td></tr>';
 	$html_text .= '<tr id="217" style="display:none;vertical-align:top"><td>links_1_type</td><td>'.$item->view->links_1_type.'</td><td></td></tr>';
+	$html_text .= '<tr id="221" style="display:none;vertical-align:top"><td>links_2_value</td><td>'.$item->view->links_2_value.'</td><td></td></tr>';
+	$html_text .= '<tr id="222" style="display:none;vertical-align:top"><td>links_2_related</td><td>'.$item->view->links_2_related.'</td><td></td></tr>';
+	$html_text .= '<tr id="223" style="display:none;vertical-align:top"><td>links_2_href</td><td>'.$item->view->links_2_href.'</td><td></td></tr>';
+	$html_text .= '<tr id="224" style="display:none;vertical-align:top"><td>links_2_href_lang</td><td>'.$item->view->links_2_href_lang.'</td><td></td></tr>';
+	$html_text .= '<tr id="225" style="display:none;vertical-align:top"><td>links_2_title</td><td>'.$item->view->links_2_title.'</td><td></td></tr>';
+	$html_text .= '<tr id="226" style="display:none;vertical-align:top"><td>links_2_media</td><td>'.$item->view->links_2_media.'</td><td></td></tr>';
+	$html_text .= '<tr id="227" style="display:none;vertical-align:top"><td>links_2_type</td><td>'.$item->view->links_2_type.'</td><td></td></tr>';
+	$html_text .= '<tr id="231" style="display:none;vertical-align:top"><td>links_3_value</td><td>'.$item->view->links_3_value.'</td><td></td></tr>';
+	$html_text .= '<tr id="232" style="display:none;vertical-align:top"><td>links_3_related</td><td>'.$item->view->links_3_related.'</td><td></td></tr>';
+	$html_text .= '<tr id="233" style="display:none;vertical-align:top"><td>links_3_href</td><td>'.$item->view->links_3_href.'</td><td></td></tr>';
+	$html_text .= '<tr id="234" style="display:none;vertical-align:top"><td>links_3_href_lang</td><td>'.$item->view->links_3_href_lang.'</td><td></td></tr>';
+	$html_text .= '<tr id="235" style="display:none;vertical-align:top"><td>links_3_title</td><td>'.$item->view->links_3_title.'</td><td></td></tr>';
+	$html_text .= '<tr id="236" style="display:none;vertical-align:top"><td>links_3_media</td><td>'.$item->view->links_3_media.'</td><td></td></tr>';
+	$html_text .= '<tr id="237" style="display:none;vertical-align:top"><td>links_3_type</td><td>'.$item->view->links_3_type.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(30)">Domain +/-</button></td><td><b>'.$item->details->domain_name.'</b></td><td id="domain_role"></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>domain_handle</td><td>'.$item->details->domain_handle.'</td><td></td></tr>';

@@ -92,6 +92,9 @@ switch ($zone_top_level_domain) {
     	break;
 	case 'politie':
     	$url = 'https://rdap.nic.politie/';
+    	break;
+	case 'frl':
+    	$url = 'https://rdap.centralnic.com/frl/';
     	break;	
 	default:
    		//die("No match with a top level domain.");
@@ -134,6 +137,11 @@ $notice_2_description_0 = $obj['notices'][2]['description'][0];
 $notice_2_description_1 = $obj['notices'][2]['description'][1];
 $notice_2_links_0_href = $obj['notices'][2]['links'][0]['href'];
 $notice_2_links_0_type = $obj['notices'][2]['links'][0]['type'];
+$notice_3_title = $obj['notices'][3]['title'];	
+$notice_3_description_0 = $obj['notices'][3]['description'][0];
+$notice_3_description_1 = $obj['notices'][3]['description'][1];
+$notice_3_links_0_href = $obj['notices'][3]['links'][0]['href'];
+$notice_3_links_0_type = $obj['notices'][3]['links'][0]['type'];	
 	
 if ($zone_top_level_domain == 'nl')	{
 	$zone_registry_web_id = '';
@@ -145,7 +153,7 @@ if ($zone_top_level_domain == 'nl')	{
 elseif ($zone_top_level_domain == 'frl')	{
 	$zone_registry_web_id = '';
 	$zone_registry_full_name = 'FRLregistry B.V.';
-	$zone_menu = 'https://regmenu.registreer.frl';
+	$zone_menu = 'https://regmenu.nic.frl';
 	$zone_support = 'support@registreer.frl';
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
 }
@@ -194,10 +202,26 @@ $links_0_type = $obj['links'][0]['type'];
 $links_1_value = $obj['links'][1]['value'];
 $links_1_related = $obj['links'][1]['rel'];
 $links_1_href = $obj['links'][1]['href'];
-$links_href_lang_1 = $obj['links'][1]['hreflang'];
+$links_1_href_lang_1 = $obj['links'][1]['hreflang'];
 $links_1_title = $obj['links'][1]['title'];
 $links_1_media = $obj['links'][1]['media'];
 $links_1_type = $obj['links'][1]['type'];
+	
+$links_2_value = $obj['links'][2]['value'];
+$links_2_related = $obj['links'][2]['rel'];
+$links_2_href = $obj['links'][2]['href'];
+$links_2_href_lang = $obj['links'][2]['hreflang'];
+$links_2_title = $obj['links'][2]['title'];
+$links_2_media = $obj['links'][2]['media'];
+$links_2_type = $obj['links'][2]['type'];
+	
+$links_3_value = $obj['links'][3]['value'];
+$links_3_related = $obj['links'][3]['rel'];
+$links_3_href = $obj['links'][3]['href'];
+$links_3_href_lang_1 = $obj['links'][3]['hreflang'];
+$links_3_title = $obj['links'][3]['title'];
+$links_3_media = $obj['links'][3]['media'];
+$links_3_type = $obj['links'][3]['type'];	
 	
 $status_values = '';	
 $registration = '(without date-time)';
@@ -1071,7 +1095,27 @@ $zone->appendChild($domain_notice_2_links_0_href);
 	
 $domain_notice_2_links_0_type = $doc->createElement("notice_2_links_0_type");
 $domain_notice_2_links_0_type->appendChild($doc->createCDATASection($notice_2_links_0_type));	
-$zone->appendChild($domain_notice_2_links_0_type);	
+$zone->appendChild($domain_notice_2_links_0_type);
+	
+$domain_notice_3_title = $doc->createElement("notice_3_title");
+$domain_notice_3_title->appendChild($doc->createCDATASection($notice_3_title));	
+$zone->appendChild($domain_notice_3_title);
+	
+$domain_notice_3_description_0 = $doc->createElement("notice_3_description_0");
+$domain_notice_3_description_0->appendChild($doc->createCDATASection($notice_3_description_0));	
+$zone->appendChild($domain_notice_3_description_0);
+	
+$domain_notice_3_description_1 = $doc->createElement("notice_3_description_1");
+$domain_notice_3_description_1->appendChild($doc->createCDATASection($notice_3_description_1));	
+$zone->appendChild($domain_notice_3_description_1);
+	
+$domain_notice_3_links_0_href = $doc->createElement("notice_3_links_0_href");
+$domain_notice_3_links_0_href->appendChild($doc->createCDATASection($notice_3_links_0_href));	
+$zone->appendChild($domain_notice_3_links_0_href);
+	
+$domain_notice_3_links_0_type = $doc->createElement("notice_3_links_0_type");
+$domain_notice_3_links_0_type->appendChild($doc->createCDATASection($notice_3_links_0_type));	
+$zone->appendChild($domain_notice_3_links_0_type);	
 	
 $domain->appendChild($zone);	
 
@@ -1132,7 +1176,63 @@ $view->appendChild($domain_links_1_media);
 
 $domain_links_1_type = $doc->createElement("links_1_type");
 $domain_links_1_type->appendChild($doc->createCDATASection($links_1_type));	
-$view->appendChild($domain_links_1_type);	
+$view->appendChild($domain_links_1_type);
+	
+$domain_links_2_value = $doc->createElement("links_2_value");
+$domain_links_2_value->appendChild($doc->createCDATASection($links_2_value));	
+$view->appendChild($domain_links_2_value);
+	
+$domain_links_2_related = $doc->createElement("links_2_related");
+$domain_links_2_related->appendChild($doc->createCDATASection($links_2_related));	
+$view->appendChild($domain_links_2_related);
+	
+$domain_links_2_href = $doc->createElement("links_2_href");
+$domain_links_2_href->appendChild($doc->createCDATASection($links_2_href));	
+$view->appendChild($domain_links_2_href);
+	
+$domain_links_href_lang_2 = $doc->createElement("links_href_lang_2");
+$domain_links_href_lang_2->appendChild($doc->createCDATASection($links_href_lang_2));	
+$view->appendChild($domain_links_href_lang_2);
+	
+$domain_links_2_title = $doc->createElement("links_2_title");
+$domain_links_2_title->appendChild($doc->createCDATASection($links_2_title));	
+$view->appendChild($domain_links_2_title);	
+	
+$domain_links_2_media = $doc->createElement("links_2_media");
+$domain_links_2_media->appendChild($doc->createCDATASection($links_2_media));	
+$view->appendChild($domain_links_2_media);
+
+$domain_links_2_type = $doc->createElement("links_2_type");
+$domain_links_2_type->appendChild($doc->createCDATASection($links_2_type));	
+$view->appendChild($domain_links_2_type);
+	
+$domain_links_3_value = $doc->createElement("links_3_value");
+$domain_links_3_value->appendChild($doc->createCDATASection($links_3_value));	
+$view->appendChild($domain_links_3_value);
+	
+$domain_links_3_related = $doc->createElement("links_3_related");
+$domain_links_3_related->appendChild($doc->createCDATASection($links_3_related));	
+$view->appendChild($domain_links_3_related);
+	
+$domain_links_3_href = $doc->createElement("links_3_href");
+$domain_links_3_href->appendChild($doc->createCDATASection($links_3_href));	
+$view->appendChild($domain_links_3_href);
+	
+$domain_links_href_lang_3 = $doc->createElement("links_href_lang_3");
+$domain_links_href_lang_3->appendChild($doc->createCDATASection($links_href_lang_3));	
+$view->appendChild($domain_links_href_lang_3);
+	
+$domain_links_3_title = $doc->createElement("links_3_title");
+$domain_links_3_title->appendChild($doc->createCDATASection($links_3_title));	
+$view->appendChild($domain_links_3_title);	
+	
+$domain_links_3_media = $doc->createElement("links_3_media");
+$domain_links_3_media->appendChild($doc->createCDATASection($links_3_media));	
+$view->appendChild($domain_links_3_media);
+
+$domain_links_3_type = $doc->createElement("links_3_type");
+$domain_links_3_type->appendChild($doc->createCDATASection($links_3_type));	
+$view->appendChild($domain_links_3_type);	
 $domain->appendChild($view);
 		
 $details = $doc->createElement("details");
