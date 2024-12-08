@@ -171,6 +171,13 @@ elseif ($zone_top_level_domain == 'org')	{
 	$zone_support = 'ops@pir.org';
 	$registrant_web_id = '';
 }
+elseif ($zone_top_level_domain == 'uk')	{
+	$zone_registry_web_id = '';
+	$zone_registry_full_name = 'Nominet UK';
+	$zone_menu = 'https://regmenu.nominet.uk';
+	$zone_support = 'nominet@nominet.uk';
+	$registrant_web_id = '';
+}		
 elseif ($zone_top_level_domain == 'ca')	{
 	$zone_registry_web_id = '';
 	$zone_registry_full_name = 'Canadian Internet Registration Authority (CIRA)';
