@@ -100,7 +100,8 @@ switch ($zone_top_level_domain) {
    		//die("No match with a top level domain.");
 }
 
-if (!strlen($url))	{	
+if (!strlen($url))	{
+	$matched = false;
 	$rdap = json_decode(file_get_contents('https://data.iana.org/rdap/dns.json'), true);
 	$temp_tld = '';
 	foreach($rdap as $key1 => $value1) {
@@ -112,6 +113,7 @@ if (!strlen($url))	{
 					}
 					if ($key3 == 1 and $zone_top_level_domain == $temp_tld and !$matched)	{
 						$url = $value4;
+						$matched = true;
 					}	
 				}
 			}
@@ -146,6 +148,7 @@ $notice_3_links_0_type = $obj['notices'][3]['links'][0]['type'];
 if ($zone_top_level_domain == 'nl')	{
 	$zone_registry_web_id = '';
 	$zone_registry_full_name = 'SIDN B.V.';
+	$zone_registry_website = 'https://www.sidn.nl';
 	$zone_menu = 'https://regmenu.sidn.nl';
 	$zone_support = 'support@sidn.nl';
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
@@ -153,6 +156,7 @@ if ($zone_top_level_domain == 'nl')	{
 elseif ($zone_top_level_domain == 'frl')	{
 	$zone_registry_web_id = '';
 	$zone_registry_full_name = 'FRLregistry B.V.';
+	$zone_registry_website = 'https://nic.frl';
 	$zone_menu = 'https://regmenu.nic.frl';
 	$zone_support = 'support@registreer.frl';
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
@@ -160,13 +164,15 @@ elseif ($zone_top_level_domain == 'frl')	{
 elseif ($zone_top_level_domain == 'com' or $zone_top_level_domain == 'net')	{
 	$zone_registry_web_id = '';
 	$zone_registry_full_name = 'VeriSign, Inc.';
-	$zone_menu = 'https://regmenu.verisign.com/';
+	$zone_registry_website = 'https://www.verisign.com/';
+	$zone_menu = 'https://regmenu.verisign.com';
 	$zone_support = 'info@verisign-grs.com';
 	$registrant_web_id = '';
 }
 elseif ($zone_top_level_domain == 'org')	{
 	$zone_registry_web_id = '';
 	$zone_registry_full_name = 'Public Interest Registry (PIR)';
+	$zone_registry_website = 'https://pir.org';
 	$zone_menu = 'https://regmenu.pir.org';
 	$zone_support = 'ops@pir.org';
 	$registrant_web_id = '';
@@ -174,6 +180,7 @@ elseif ($zone_top_level_domain == 'org')	{
 elseif ($zone_top_level_domain == 'uk')	{
 	$zone_registry_web_id = '';
 	$zone_registry_full_name = 'Nominet UK';
+	$zone_registry_website = 'https://www.nominet.uk';
 	$zone_menu = 'https://regmenu.nominet.uk';
 	$zone_support = 'nominet@nominet.uk';
 	$registrant_web_id = '';
@@ -181,6 +188,7 @@ elseif ($zone_top_level_domain == 'uk')	{
 elseif ($zone_top_level_domain == 'ca')	{
 	$zone_registry_web_id = '';
 	$zone_registry_full_name = 'Canadian Internet Registration Authority (CIRA)';
+	$zone_registry_website = 'https://www.cira.ca';
 	$zone_menu = 'https://regmenu.cira.ca';
 	$zone_support = 'info@cira.ca';
 	$registrant_web_id = '';
@@ -188,6 +196,7 @@ elseif ($zone_top_level_domain == 'ca')	{
 else	{
 	$zone_registry_web_id = '';
 	$zone_registry_full_name = '';
+	$zone_registry_website = '';
 	$zone_menu = '';
 	$zone_support = '';
 	$registrant_web_id = '';
@@ -1035,6 +1044,10 @@ $zone->appendChild($domain_zone_registry_full_name);
 $domain_zone_registry_language = $doc->createElement("zone_registry_language");
 $domain_zone_registry_language->appendChild($doc->createCDATASection($zone_registry_language));	
 $zone->appendChild($domain_zone_registry_language);	
+	
+$domain_zone_registry_website = $doc->createElement("zone_registry_website");
+$domain_zone_registry_website->appendChild($doc->createCDATASection($zone_registry_website));	
+$zone->appendChild($domain_zone_registry_website);	
 	
 $domain_zone_menu = $doc->createElement("zone_menu");
 $domain_zone_menu->appendChild($doc->createCDATASection($zone_menu));	
