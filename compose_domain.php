@@ -1,5 +1,6 @@
 <?php
 //$_GET['domain'] = 'hostingtool.nl';
+//$_GET['domain'] = 'münchen.de';
 
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
@@ -279,7 +280,7 @@ $sponsor_remark_values = '';
 $registrar_iana_id = $obj['entities'][0]['publicIds'][0]['identifier'];	
 $handle = $obj['handle']; 	
 $name = $obj['ldhName'];
-$name_unicode = $obj['ldhName'];
+$name_unicode = $obj['unicodeName'];
 $name_servers_dnssec = '(not available)';
 $name_servers_dnssec_algorithm = '(not applicable)';
 if (empty($obj['secureDNS']['delegationSigned']))	{
@@ -1014,6 +1015,7 @@ if (str_contains($status_values, 'redemption period') or str_contains($status_va
 if ($inputbatch)	{
 	$raw_rdap_data = '';
 }
+	
 $doc = new DOMDocument("1.0", "UTF-8");
 $doc->xmlStandalone = true;	
 $doc->formatOutput = true;		
