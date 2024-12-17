@@ -47,7 +47,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 30)	{ // domain
 		var pre = '30';
-		var max = 10
+		var max = 11
 	}
 	else if (type == 40)	{ // registrant
 		var pre = '40';
@@ -139,7 +139,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("notices").textContent = "";
 		document.getElementById("links").textContent = "";
 		document.getElementById("domain_role").textContent = "";
-		document.getElementById("domain_name").textContent = "";
+		document.getElementById("domain_name_ascii").textContent = "";
+		document.getElementById("domain_name_unicode").textContent = "";
 		document.getElementById("domain_status_values").textContent = "";
 		document.getElementById("domain_event_expiration").textContent = "";
 		document.getElementById("domain_event_recovery_until").textContent = proposed;
@@ -203,7 +204,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("notices").textContent = "Het gebruik van domeingegevens is aan beperkingen onderhevig.";
 		document.getElementById("links").textContent = "Gepland: Web-ID-zoekopdrachten kunnen worden uitgevoerd op wereldwijde RDAP-servers.";
 		document.getElementById("domain_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
-		document.getElementById("domain_name").textContent = "Namen met speciale tekens worden opgeslagen als ASCII-tekenreeksen met behulp van Punycode-transcriptie.";
+		document.getElementById("domain_name_ascii").textContent = "Namen met speciale tekens in ASCII-tekenreeksen gebruiken Punycode-transcriptie.";
+		document.getElementById("domain_name_unicode").textContent = "In het RDAP-protocol is de domeinnaam in Unicode optioneel, maar de informatie wordt duidelijker.";
 		document.getElementById("domain_status_values").textContent = "De waarde 'redemption period' is info over herstel. De waarde 'pending delete' is van toepassing in de laatste fase.";
 		document.getElementById("domain_event_expiration").textContent = "Datum en tijdstip van periodieke verlenging of stopzetting van de publicatie.";
 		document.getElementById("domain_event_recovery_until").textContent = proposed + "Datum en tijdstip tot wanneer herstel nog mogelijk is.";		
@@ -268,7 +270,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("notices").textContent = "The use of domain data is subject to restrictions.";
 		document.getElementById("links").textContent = "Planned: Web ID searches can be performed on global RDAP servers.";
 		document.getElementById("domain_role").textContent = "A web domain under a top-level domain is unique worldwide and can be freely chosen under certain rules.";
-		document.getElementById("domain_name").textContent = "Names with special characters are stored as ASCII strings using Punycode transcription.";
+		document.getElementById("domain_name_ascii").textContent = "Names containing special characters in ASCII strings use Punycode transcription.";
+		document.getElementById("domain_name_unicode").textContent = "In the RDAP protocol, the domain name in Unicode is optional, but the information becomes clearer.";
 		document.getElementById("domain_status_values").textContent = "The 'redemption period' value is info about recovery. The 'pending delete' value applies in the final phase.";
 		document.getElementById("domain_event_expiration").textContent = "Date and time of periodic renewal or discontinuation of publication.";
 		document.getElementById("domain_event_recovery_until").textContent = proposed + "Date and time until which recovery is still possible.";
@@ -332,7 +335,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("notices").textContent = "Die Nutzung der Domaindaten unterliegt Einschränkungen.";
 		document.getElementById("links").textContent = "Geplant: Web-ID-Suchen können auf globalen RDAP-Servern durchgeführt werden.";
 		document.getElementById("domain_role").textContent = "Eine Webdomain unter einer Top-Level-Domain ist weltweit einzigartig und unter bestimmten Regeln frei wählbar.";
-		document.getElementById("domain_name").textContent = "Namen mit Sonderzeichen werden mittels Punycode-Transkription als ASCII-Strings gespeichert.";
+		document.getElementById("domain_name_ascii").textContent = "Namen, die Sonderzeichen in ASCII-Zeichenfolgen enthalten, verwenden die Punycode-Transkription.";
+		document.getElementById("domain_name_unicode").textContent = "Im RDAP-Protokoll ist der Domänenname in Unicode optional, die Information wird aber klarer.";
 		document.getElementById("domain_status_values").textContent = "Der Wert 'redemption period' ist Info zur Wiederherstellung. Der Wert 'pending delete' gilt in der Endphase.";
 		document.getElementById("domain_event_expiration").textContent = "Datum und Uhrzeit der periodischen Erneuerung oder Einstellung der Veröffentlichung.";
 		document.getElementById("domain_event_recovery_until").textContent = proposed + "Datum und Uhrzeit, bis zu denen eine Wiederherstellung noch möglich ist.";
@@ -396,7 +400,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("notices").textContent = "L'utilisation des données de domaine est soumise à des restrictions.";
 		document.getElementById("links").textContent = "Prévu : Les recherches d’identifiant Web peuvent être effectuées sur des serveurs RDAP mondiaux.";
 		document.getElementById("domain_role").textContent = "Un domaine Web sous un domaine de premier niveau est unique au monde et peut être choisi librement selon certaines règles.";
-		document.getElementById("domain_name").textContent = "Les noms avec des caractères spéciaux sont stockés sous forme de chaînes ASCII à l'aide de la transcription Punycode.";
+		document.getElementById("domain_name_ascii").textContent = "Les noms contenant des caractères spéciaux dans les chaînes ASCII utilisent la transcription Punycode.";
+		document.getElementById("domain_name_unicode").textContent = "Dans le protocole RDAP, le nom de domaine en Unicode est facultatif, mais l'information devient plus claire.";
 		document.getElementById("domain_status_values").textContent = "La valeur 'redemption period' est infos de récupération. La valeur 'pending delete' s'applique dans la phase finale.";
 		document.getElementById("domain_event_expiration").textContent = "Date et heure du renouvellement périodique ou de l'arrêt de la publication.";
 		document.getElementById("domain_event_recovery_until").textContent = proposed + "Date et heure jusqu'à laquelle la récupération est encore possible.";
@@ -576,18 +581,18 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(30)">Domain +/-</button></td><td><b>'.$viewdomain.'</b></td><td id="domain_role"></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>domain_handle</td><td>'.$item->details->domain_handle.'</td><td></td></tr>';
-	$html_text .= '<tr id="302" style="display:none"><td>domain_name</td><td>'.$item->details->domain_name.'</td><td id="domain_name"></td></tr>';
-	$html_text .= '<tr><td>domain_name_unicode</td><td>'.$item->details->domain_name_unicode.'</td><td></td></tr>';
+	$html_text .= '<tr id="302" style="display:none"><td>domain_name_ascii</td><td>'.$item->details->domain_name_ascii.'</td><td id="domain_name_ascii"></td></tr>';
+	$html_text .= '<tr id="303" style="display:none"><td>domain_name_unicode</td><td>'.$item->details->domain_name_unicode.'</td><td id="domain_name_unicode"></td></tr>';
 	$html_text .= '<tr style="vertical-align:top"><td>domain_status_values</td><td><b>'.$item->details->domain_status_values.'</b></td><td id="domain_status_values"></td></tr>';
-	$html_text .= '<tr id="303" style="display:none"><td>domain_event_registration</td><td>'.$item->details->domain_event_registration.'</td><td></td></tr>';
-	$html_text .= '<tr id="304" style="display:none"><td>domain_event_last_transferred</td><td>'.$item->details->domain_event_last_transferred.'</td><td></td></tr>';
-	$html_text .= '<tr id="305" style="display:none"><td>domain_event_last_changed</td><td>'.$item->details->domain_event_last_changed.'</td><td></td></tr>';
+	$html_text .= '<tr id="304" style="display:none"><td>domain_event_registration</td><td>'.$item->details->domain_event_registration.'</td><td></td></tr>';
+	$html_text .= '<tr id="305" style="display:none"><td>domain_event_last_transferred</td><td>'.$item->details->domain_event_last_transferred.'</td><td></td></tr>';
+	$html_text .= '<tr id="306" style="display:none"><td>domain_event_last_changed</td><td>'.$item->details->domain_event_last_changed.'</td><td></td></tr>';
 	$html_text .= '<tr><td>domain_event_expiration</td><td>'.$item->details->domain_event_expiration.'</td><td id="domain_event_expiration"></td></tr>';
-	$html_text .= '<tr id="306" style="display:none"><td>domain_event_recovery_until</td><td>'.$item->details->domain_event_recovery_until.'</td><td id="domain_event_recovery_until"></td></tr>';
-	$html_text .= '<tr id="307" style="display:none"><td>domain_event_deletion</td><td>'.$item->details->domain_event_deletion.'</td><td id="domain_event_deletion"></td></tr>';
-	$html_text .= '<tr id="308" style="display:none"><td>domain_event_last_uploaded</td><td>'.$item->details->domain_event_last_uploaded.'</td><td id="domain_event_last_uploaded"></td></tr>';
-	$html_text .= '<tr id="309" style="display:none;vertical-align:top"><td>domain_extensions_values</td><td><b>'.$item->details->domain_extensions_values.'</b></td><td id="domain_extensions_values"></td></tr>';
-	$html_text .= '<tr id="3010" style="display:none;vertical-align:top"><td>domain_remark_values</td><td>'.$item->details->domain_remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="307" style="display:none"><td>domain_event_recovery_until</td><td>'.$item->details->domain_event_recovery_until.'</td><td id="domain_event_recovery_until"></td></tr>';
+	$html_text .= '<tr id="308" style="display:none"><td>domain_event_deletion</td><td>'.$item->details->domain_event_deletion.'</td><td id="domain_event_deletion"></td></tr>';
+	$html_text .= '<tr id="309" style="display:none"><td>domain_event_last_uploaded</td><td>'.$item->details->domain_event_last_uploaded.'</td><td id="domain_event_last_uploaded"></td></tr>';
+	$html_text .= '<tr id="3010" style="display:none;vertical-align:top"><td>domain_extensions_values</td><td><b>'.$item->details->domain_extensions_values.'</b></td><td id="domain_extensions_values"></td></tr>';
+	$html_text .= '<tr id="3011" style="display:none;vertical-align:top"><td>domain_remark_values</td><td>'.$item->details->domain_remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(40)">Registrant +/-</button></td><td></td><td id="registrant_role"></td></tr>';
 	$html_text .= '<tr id="401" style="display:none"><td>registrant_handle</td><td>'.$item->registrant->registrant_handle.'</td><td></td></tr>';

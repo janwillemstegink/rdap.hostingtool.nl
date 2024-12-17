@@ -279,7 +279,7 @@ $sponsor_remark_values = '';
 		
 $registrar_iana_id = $obj['entities'][0]['publicIds'][0]['identifier'];	
 $handle = $obj['handle']; 	
-$name = $obj['ldhName'];
+$name_ascii = $obj['ldhName'];
 $name_unicode = $obj['unicodeName'];
 $name_servers_dnssec = '(not available)';
 $name_servers_dnssec_algorithm = '(not applicable)';
@@ -1264,9 +1264,9 @@ $domain_handle = $doc->createElement("domain_handle");
 $domain_handle->appendChild($doc->createCDATASection($handle));	
 $details->appendChild($domain_handle);	
 	
-$domain_name = $doc->createElement("domain_name");
-$domain_name->appendChild($doc->createCDATASection($name));	
-$details->appendChild($domain_name);
+$domain_name_ascii = $doc->createElement("domain_name_ascii");
+$domain_name_ascii->appendChild($doc->createCDATASection($name_ascii));	
+$details->appendChild($domain_name_ascii);
 $domain_name_unicode = $doc->createElement("domain_name_unicode");
 $domain_name_unicode->appendChild($doc->createCDATASection($name_unicode));	
 $details->appendChild($domain_name_unicode);	
