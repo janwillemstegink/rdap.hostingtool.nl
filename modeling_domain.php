@@ -205,7 +205,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("links").textContent = "Gepland: Web-ID-zoekopdrachten kunnen worden uitgevoerd op wereldwijde RDAP-servers.";
 		document.getElementById("domain_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
 		document.getElementById("domain_name_ascii").textContent = "Namen met speciale tekens in ASCII-tekenreeksen gebruiken Punycode-transcriptie.";
-		document.getElementById("domain_name_unicode").textContent = "In het RDAP-protocol is de domeinnaam in Unicode optioneel, maar de informatie wordt duidelijker.";
+		document.getElementById("domain_name_unicode").textContent = "In het RDAP-protocol is de domeinnaam in Unicode optioneel, maar het is wel duidelijke informatie.";
 		document.getElementById("domain_status_values").textContent = "De waarde 'redemption period' is info over herstel. De waarde 'pending delete' is van toepassing in de laatste fase.";
 		document.getElementById("domain_event_expiration").textContent = "Datum en tijdstip van periodieke verlenging of stopzetting van de publicatie.";
 		document.getElementById("domain_event_recovery_until").textContent = proposed + "Datum en tijdstip tot wanneer herstel nog mogelijk is.";		
@@ -271,7 +271,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("links").textContent = "Planned: Web ID searches can be performed on global RDAP servers.";
 		document.getElementById("domain_role").textContent = "A web domain under a top-level domain is unique worldwide and can be freely chosen under certain rules.";
 		document.getElementById("domain_name_ascii").textContent = "Names containing special characters in ASCII strings use Punycode transcription.";
-		document.getElementById("domain_name_unicode").textContent = "In the RDAP protocol, the domain name in Unicode is optional, but the information becomes clearer.";
+		document.getElementById("domain_name_unicode").textContent = "In the RDAP protocol, the domain name in Unicode is optional, but it is clear information.";
 		document.getElementById("domain_status_values").textContent = "The 'redemption period' value is info about recovery. The 'pending delete' value applies in the final phase.";
 		document.getElementById("domain_event_expiration").textContent = "Date and time of periodic renewal or discontinuation of publication.";
 		document.getElementById("domain_event_recovery_until").textContent = proposed + "Date and time until which recovery is still possible.";
@@ -336,7 +336,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("links").textContent = "Geplant: Web-ID-Suchen können auf globalen RDAP-Servern durchgeführt werden.";
 		document.getElementById("domain_role").textContent = "Eine Webdomain unter einer Top-Level-Domain ist weltweit einzigartig und unter bestimmten Regeln frei wählbar.";
 		document.getElementById("domain_name_ascii").textContent = "Namen, die Sonderzeichen in ASCII-Zeichenfolgen enthalten, verwenden die Punycode-Transkription.";
-		document.getElementById("domain_name_unicode").textContent = "Im RDAP-Protokoll ist der Domänenname in Unicode optional, die Information wird aber klarer.";
+		document.getElementById("domain_name_unicode").textContent = "Im RDAP-Protokoll ist der Domänenname in Unicode optional, stellt jedoch eine eindeutige Information dar.";
 		document.getElementById("domain_status_values").textContent = "Der Wert 'redemption period' ist Info zur Wiederherstellung. Der Wert 'pending delete' gilt in der Endphase.";
 		document.getElementById("domain_event_expiration").textContent = "Datum und Uhrzeit der periodischen Erneuerung oder Einstellung der Veröffentlichung.";
 		document.getElementById("domain_event_recovery_until").textContent = proposed + "Datum und Uhrzeit, bis zu denen eine Wiederherstellung noch möglich ist.";
@@ -401,7 +401,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("links").textContent = "Prévu : Les recherches d’identifiant Web peuvent être effectuées sur des serveurs RDAP mondiaux.";
 		document.getElementById("domain_role").textContent = "Un domaine Web sous un domaine de premier niveau est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_name_ascii").textContent = "Les noms contenant des caractères spéciaux dans les chaînes ASCII utilisent la transcription Punycode.";
-		document.getElementById("domain_name_unicode").textContent = "Dans le protocole RDAP, le nom de domaine en Unicode est facultatif, mais l'information devient plus claire.";
+		document.getElementById("domain_name_unicode").textContent = "Dans le protocole RDAP, le nom de domaine en Unicode est facultatif, mais il s'agit d'une information claire.";
 		document.getElementById("domain_status_values").textContent = "La valeur 'redemption period' est infos de récupération. La valeur 'pending delete' s'applique dans la phase finale.";
 		document.getElementById("domain_event_expiration").textContent = "Date et heure du renouvellement périodique ou de l'arrêt de la publication.";
 		document.getElementById("domain_event_recovery_until").textContent = proposed + "Date et heure jusqu'à laquelle la récupération est encore possible.";
