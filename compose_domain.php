@@ -261,13 +261,14 @@ $reseller_last_transferred = '';
 $reseller_last_changed = '';
 $reseller_expiration = '';	
 $reseller_deletion = '';
-$reseller_remark_values = '';		
+$reseller_remark_values = '';	
 $registrar_status_values = '';	
 $registrar_registration = '';
 $registrar_last_transferred = '';	
 $registrar_last_changed = '';
 $registrar_expiration = '';	
 $registrar_deletion = '';
+$registrar_iana_id = '';		
 $registrar_remark_values = '';	
 $sponsor_status_values = '';
 $sponsor_registration = '';
@@ -275,9 +276,7 @@ $sponsor_last_transferred = '';
 $sponsor_last_changed = '';
 $sponsor_expiration = '';	
 $sponsor_deletion = '';
-$sponsor_remark_values = '';	
-		
-$registrar_iana_id = $obj['entities'][0]['publicIds'][0]['identifier'];	
+$sponsor_remark_values = '';
 $handle = $obj['handle']; 	
 $name_ascii = $obj['ldhName'];
 $name_unicode = $obj['unicodeName'];
@@ -613,6 +612,11 @@ foreach($obj as $key1 => $value1) {
 							}
 							elseif ($key5 == 'eventAction' and $value5 == 'last update of RDAP database')	{
 								$registrar_last_uploaded = $value4['eventDate'];				
+							}
+						}
+						if ($key2 == $entity_registrar and $key3 == 'publicIds')	{
+							if ($key5 == 'type' and $value5 == 'IANA Registrar ID')	{
+								$registrar_iana_id = $value4['identifier'];
 							}
 						}
 						if ($key2 == $entity_sponsor and $key3 == 'events')	{
