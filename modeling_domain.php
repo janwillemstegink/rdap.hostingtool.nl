@@ -199,7 +199,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_registry_web_id").textContent = proposed;
 		document.getElementById("zone_registry_full_name").textContent = proposed;
 		document.getElementById("zone_registry_website").textContent = proposed;
-		document.getElementById("zone_menu").textContent = proposed + "Een vervolgkeuzemenu voor uitleg en details per zone via een subdomein van de registry.";
+		document.getElementById("zone_menu").textContent = proposed + "Een vervolgkeuzemenu met uitleg en details, bijvoorbeeld via een subdomein van de registry.";
 		document.getElementById("zone_support").textContent = proposed + "Hulp vanuit de registry is mogelijk per e-mail.";
 		document.getElementById("notices").textContent = "Het gebruik van domeingegevens is aan beperkingen onderhevig.";
 		document.getElementById("links").textContent = "Gepland: Web-ID-zoekopdrachten kunnen worden uitgevoerd op wereldwijde RDAP-servers.";
@@ -240,7 +240,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_role").textContent = "De domeinregistrar is verantwoordelijk voor domeinreserveringen en IP-adresroutering.";
 		document.getElementById("registrar_recover").textContent = "Herstel binnen de 'redemption period' is ook bij een andere domeinregistrar mogelijk.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_iana_id").textContent = "In het geval van ICANN-accreditatie, voor één of meer generieke topleveldomeinen.";
+		document.getElementById("registrar_iana_id").textContent = "In het geval van ICANN-accreditatie, voor één of meer generieke topleveldomeinen. En moet juist zijn.";
 		document.getElementById("registrar_protected").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
@@ -265,7 +265,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_registry_web_id").textContent = proposed;
 		document.getElementById("zone_registry_full_name").textContent = proposed;
 		document.getElementById("zone_registry_website").textContent = proposed;
-		document.getElementById("zone_menu").textContent = proposed + "A drop-down menu for explanations and details per zone via a subdomain of the registry.";
+		document.getElementById("zone_menu").textContent = proposed + "A drop-down menu with explanations and details, for example via a subdomain of the registry.";
 		document.getElementById("zone_support").textContent = proposed + "Help from the registry is possible by e-mail.";
 		document.getElementById("notices").textContent = "The use of domain data is subject to restrictions.";
 		document.getElementById("links").textContent = "Planned: Web ID searches can be performed on global RDAP servers.";
@@ -306,7 +306,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_role").textContent = "The domain registrar is responsible for domain reservations and IP address routing.";
 		document.getElementById("registrar_recover").textContent = "Recovery within the 'redemption period' is also possible with another domain registrar.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_iana_id").textContent = "In case of ICANN accreditation, for one or more generic top-level domains.";
+		document.getElementById("registrar_iana_id").textContent = "In case of ICANN accreditation, for one or more generic top-level domains. And must be correct.";
 		document.getElementById("registrar_protected").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
@@ -330,7 +330,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_registry_web_id").textContent = proposed;
 		document.getElementById("zone_registry_full_name").textContent = proposed;
 		document.getElementById("zone_registry_website").textContent = proposed;
-		document.getElementById("zone_menu").textContent = proposed + "Ein Dropdown-Menü für Erläuterungen und Details pro Zone über eine Subdomain der Registry.";
+		document.getElementById("zone_menu").textContent = proposed + "Ein Dropdown-Menü mit Erläuterungen und Details, z. B. über eine Subdomain der Registry.";
 		document.getElementById("zone_support").textContent = proposed + "Hilfe aus der Registry ist per E-Mail möglich.";
 		document.getElementById("notices").textContent = "Die Nutzung der Domaindaten unterliegt Einschränkungen.";
 		document.getElementById("links").textContent = "Geplant: Web-ID-Suchen können auf globalen RDAP-Servern durchgeführt werden.";
@@ -371,7 +371,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_role").textContent = "Der Domänenregistrar ist für die Domänenreservierung und das IP-Adressrouting verantwortlich.";
 		document.getElementById("registrar_recover").textContent = "Eine Wiederherstellung innerhalb der 'redemption period' ist auch bei einem anderen Domain-Registrar möglich.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_iana_id").textContent = "Im Falle einer ICANN-Akkreditierung für eine oder mehrere generische Top-Level-Domains.";
+		document.getElementById("registrar_iana_id").textContent = "Im Falle einer ICANN-Akkreditierung für eine oder mehrere generische Top-Level-Domains. Und muss korrekt sein.";
 		document.getElementById("registrar_protected").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
@@ -395,7 +395,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_registry_web_id").textContent = proposed;
 		document.getElementById("zone_registry_full_name").textContent = proposed;
 		document.getElementById("zone_registry_website").textContent = proposed;
-		document.getElementById("zone_menu").textContent = proposed + "Un menu déroulant pour des explications et des détails par zone via un sous-domaine du registre.";
+		document.getElementById("zone_menu").textContent = proposed + "Un menu déroulant avec explication et détails, par exemple via un sous-domaine du registre.";
 		document.getElementById("zone_support").textContent = proposed + "L'aide du registre est possible par e-mail.";
 		document.getElementById("notices").textContent = "L'utilisation des données de domaine est soumise à des restrictions.";
 		document.getElementById("links").textContent = "Prévu : Les recherches d’identifiant Web peuvent être effectuées sur des serveurs RDAP mondiaux.";
@@ -436,7 +436,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_role").textContent = "Le registraire de domaine est responsable des réservations de domaines et du routage des adresses IP.";
 		document.getElementById("registrar_recover").textContent = "La récupération pendant la 'redemption period' est également possible auprès d'un autre registraire de domaine.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_iana_id").textContent = "En cas d'accréditation ICANN, pour un ou plusieurs domaines génériques de premier niveau.";
+		document.getElementById("registrar_iana_id").textContent = "En cas d'accréditation ICANN, pour un ou plusieurs domaines génériques de premier niveau. Et doit être correct.";
 		document.getElementById("registrar_protected").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
