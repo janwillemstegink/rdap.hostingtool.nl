@@ -976,6 +976,26 @@ foreach($obj as $key1 => $value1) {
 								$sponsor_email .= $value5[3].'<br />';
 							}							
 						}
+						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value6 == 'tel')	{
+							if ($key2 == $entity_registrant)	{
+								$registrant_tel .= implode(",",$value5[1]) . ': ' . $value5[3] . '<br />';
+							}
+							if ($key2 == $entity_admin)	{
+								$admin_tel .= implode(",",$value5[1]) . ': ' . $value5[3] . '<br />';
+							}
+							if ($key2 == $entity_tech)	{
+								$tech_tel .= implode(",",$value5[1]) . ': ' . $value5[3] . '<br />';
+							}	
+							if ($key2 == $entity_reseller)	{
+								$reseller_tel .= implode(",",$value5[1]) . ': ' . $value5[3] . '<br />';
+							}
+							if ($key2 == $entity_registrar)	{
+								$registrar_tel .= implode(",",$value5[1]) . ': ' . $value5[3] . '<br />';
+							}
+							if ($key2 == $entity_sponsor)	{
+								$sponsor_tel .= implode(",",$value5[1]) . ': ' . $value5[3] . '<br />';
+							}							
+						}
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'adr' and $key6 == 3)	{
 							if ($key2 == $entity_registrant)	{
 								$registrant_country_code = $value6[6];
