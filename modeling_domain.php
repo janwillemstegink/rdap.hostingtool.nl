@@ -219,8 +219,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_name").textContent = "In het RDAP-protocol kan een persoonlijke naam zichtbaar zijn in het veld 'full_name', zie cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "De ISO-2-landcode-indexering werkt, bijvoorbeeld voor het Verenigd Koninkrijk, dat de EU heeft verlaten.";
 		document.getElementById("registrant_protected").textContent = proposed + "Zonespecifieke verborgen gegevens variëren afhankelijk van het gebruik van een adres.";
-		document.getElementById("registrant_event_verification_received").textContent = proposed + "De gebruiker kan akkoord gaan bij een matchend web-ID; leeg is intrekken.";
-		document.getElementById("registrant_event_verification_set").textContent = proposed + "Vervolgens controleert de registry via de RDAP-server de legitimiteit ervan in dat land.";
+		document.getElementById("registrant_event_verification_received").textContent = proposed + "De verantwoordelijke persoon kan een identieke web-ID aanklikken; leeg is intrekking.";
+		document.getElementById("registrant_event_verification_set").textContent = proposed + "Vervolgens controleert het register de gegevens bij de landspecifieke webdomeindienst.";
 		document.getElementById("admin_role").textContent = "Het administratief aanspreekpunt beantwoordt een verzoek en stuurt zo nodig door.";
 		document.getElementById("admin_web_id").textContent = proposed;
 		document.getElementById("admin_protected").textContent = proposed;
@@ -285,8 +285,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_name").textContent = "In the RDAP protocol, a personal name may be visible in the 'full_name' field, see cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "ISO-2 country code indexing works, as for the United Kingdom, which has left the EU.";
 		document.getElementById("registrant_protected").textContent = proposed + "Zone Specific hidden data varies depending on the use of an address.";
-		document.getElementById("registrant_event_verification_received").textContent = proposed + "User can agree with a matching web ID; empty is revoke.";
-		document.getElementById("registrant_event_verification_set").textContent = proposed + "The registry then checks its legitimacy in that country via the RDAP server.";	
+		document.getElementById("registrant_event_verification_received").textContent = proposed + "The responsible person can click on an identical web ID; empty is revocation.";
+		document.getElementById("registrant_event_verification_set").textContent = proposed + "The registry then checks the data with the country-specific web domain service.";	
 		document.getElementById("admin_role").textContent = "The administratively responsible desk answers a request, and forwards on if necessary.";
 		document.getElementById("admin_web_id").textContent = proposed;
 		document.getElementById("admin_protected").textContent = proposed;
@@ -350,8 +350,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_name").textContent = "Im RDAP-Protokoll kann im Feld 'full_name' ein Personenname sichtbar sein, siehe cira.ca";
 		document.getElementById("registrant_country_code").textContent = "Die Indizierung mit dem ISO-2-Ländercode funktioniert, wie für das Vereinigte Königreich, das die EU verlassen hat.";
 		document.getElementById("registrant_protected").textContent = proposed + "Zonenspezifische versteckte Daten variieren je nach Verwendung einer Adresse.";
-		document.getElementById("registrant_event_verification_received").textContent = proposed + "Der Nutzer kann einer passenden Web-ID zustimmen; Leer wird zurückgezogen.";
-		document.getElementById("registrant_event_verification_set").textContent = proposed + "Anschließend überprüft die Registry über den RDAP-Server seine Legitimität in diesem Land.";
+		document.getElementById("registrant_event_verification_received").textContent = proposed + "Der Verantwortliche kann auf eine identische Web-ID klicken; leer ist Rückzug.";
+		document.getElementById("registrant_event_verification_set").textContent = proposed + "Anschließend gleicht die Registry die Daten beim länderspezifischen Webdomain-Dienst ab.";
 		document.getElementById("admin_role").textContent = "Die administrativ zuständige Stelle beantwortet eine Anfrage und leitet sie gegebenenfalls weiter.";
 		document.getElementById("admin_web_id").textContent = proposed;
 		document.getElementById("admin_protected").textContent = proposed;
@@ -415,8 +415,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_name").textContent = "Dans le protocole RDAP, un nom personnel peut être visible dans le champ 'full_name', voir cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "L'indexation des codes pays ISO-2 fonctionne, comme pour le Royaume-Uni, qui a quitté l'UE.";
 		document.getElementById("registrant_protected").textContent = proposed + "Les données cachées spécifiques à la zone varient en fonction de l'utilisation d'une adresse.";
-		document.getElementById("registrant_event_verification_received").textContent = proposed + "L'utilisateur peut accepter un identifiant Web correspondant ; Le vide est retiré.";
-		document.getElementById("registrant_event_verification_set").textContent = proposed + "Le registre vérifie ensuite sa légitimité dans ce pays via le serveur RDAP.";
+		document.getElementById("registrant_event_verification_received").textContent = proposed + "La personne responsable peut cliquer sur un identifiant Web identique ; le vide est le retrait.";
+		document.getElementById("registrant_event_verification_set").textContent = proposed + "Le registre vérifie ensuite les données avec le service de domaine Web spécifique au pays.";
 		document.getElementById("admin_role").textContent = "Le bureau administrativement responsable répond à une demande, et la transmet si nécessaire.";
 		document.getElementById("admin_web_id").textContent = proposed;
 		document.getElementById("admin_protected").textContent = proposed;
