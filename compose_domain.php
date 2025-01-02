@@ -978,22 +978,22 @@ foreach($obj as $key1 => $value1) {
 						}
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value6 == 'tel')	{
 							if ($key2 == $entity_registrant)	{
-								$registrant_tel .= implode(",",$value5[1]) . ': ' . $value5[3] . '<br />';
+								$registrant_tel .= implode(",",$value5[1]) . ' ' . $value5[3] . '<br />';
 							}
 							if ($key2 == $entity_admin)	{
-								$admin_tel .= implode(",",$value5[1]) . ': ' . $value5[3] . '<br />';
+								$admin_tel .= implode(",",$value5[1]) . ' ' . $value5[3] . '<br />';
 							}
 							if ($key2 == $entity_tech)	{
-								$tech_tel .= implode(",",$value5[1]) . ': ' . $value5[3] . '<br />';
+								$tech_tel .= implode(",",$value5[1]) . ' ' . $value5[3] . '<br />';
 							}	
 							if ($key2 == $entity_reseller)	{
-								$reseller_tel .= implode(",",$value5[1]) . ': ' . $value5[3] . '<br />';
+								$reseller_tel .= implode(",",$value5[1]) . ' ' . $value5[3] . '<br />';
 							}
 							if ($key2 == $entity_registrar)	{
-								$registrar_tel .= implode(",",$value5[1]) . ': ' . $value5[3] . '<br />';
+								$registrar_tel .= implode(",",$value5[1]) . ' ' . $value5[3] . '<br />';
 							}
 							if ($key2 == $entity_sponsor)	{
-								$sponsor_tel .= implode(",",$value5[1]) . ': ' . $value5[3] . '<br />';
+								$sponsor_tel .= implode(",",$value5[1]) . ' ' . $value5[3] . '<br />';
 							}							
 						}
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'adr' and $key6 == 3)	{
@@ -1069,7 +1069,7 @@ foreach($obj as $key1 => $value1) {
 										$registrar_abuse_email = $value7[3];
 									}
 									elseif ($value8 == 'tel')	{
-										$registrar_abuse_tel = $value7[3];									
+										$registrar_abuse_tel = implode(",",$value7[1]) . ' ' . $value7[3];							
 									}
 								}
 								//echo 'k4: '.$key4. ' v4: '.$value4.' k5: '.$key5.' v5: '.$value5.' k6: '.$key6.' v6: '.$value6.' k7: '.$key7.' value73: '.$value7[3].'<br />';
