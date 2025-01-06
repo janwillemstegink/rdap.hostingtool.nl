@@ -215,7 +215,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "De domeinhouder is primair verantwoordelijk en heeft het abonnement op zijn domein.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Webidentificatienummer voor bedrijfsentiteiten en natuurlijke personen.";
 		document.getElementById("registrant_full_name").textContent = "De domeingebruiker die de daadwerkelijke of effectieve controle heeft voor domeinrecht in het land van vestiging.";
-		document.getElementById("registrant_kind").textContent = "Leeg, 'individual' of 'org'; een levenstestament kan een juridische lacune opvullen; suggestie: 'non-hidden individual'.";
+		document.getElementById("registrant_kind").textContent = "Leeg / 'org' / 'individual' (relevant: levenstestament, testament en digitale executeur)";
 		document.getElementById("registrant_name").textContent = "In het RDAP-protocol kan een persoonlijke naam zichtbaar zijn in het veld 'full_name', zie cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "De ISO-2-landcode-indexering werkt, bijvoorbeeld voor het Verenigd Koninkrijk, dat de EU heeft verlaten.";
 		document.getElementById("registrant_protected").textContent = proposed + "Zonespecifieke verborgen gegevens variëren afhankelijk van het gebruik van een adres.";
@@ -281,7 +281,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "The domain owner is primarily responsible and has the subscription to his domain.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web Identification number for business entities and natural persons.";
 		document.getElementById("registrant_full_name").textContent = "The domain user who has the actual or effective control for domain rights in the country of establishment.";
-		document.getElementById("registrant_kind").textContent = "Empty, 'individual' or 'org'; a living will can fill a legal gap; suggestion: 'non-hidden individual'.";
+		document.getElementById("registrant_kind").textContent = "Empty / 'org' / 'individual' (relevant: living will, will and digital executor)";
 		document.getElementById("registrant_name").textContent = "In the RDAP protocol, a personal name may be visible in the 'full_name' field, see cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "ISO-2 country code indexing works, as for the United Kingdom, which has left the EU.";
 		document.getElementById("registrant_protected").textContent = proposed + "Zone Specific hidden data varies depending on the use of an address.";
@@ -346,7 +346,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "Der Domaininhaber ist hauptverantwortlich und hat das Abonnement für seine Domain.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web-Identifikationsnummer für Unternehmen und natürliche Personen.";
 		document.getElementById("registrant_full_name").textContent = "Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat für Domainrechte im Wohnsitzland.";
-		document.getElementById("registrant_kind").textContent = "Leer, 'individual' oder 'org'; Eine Patientenverfügung kann eine rechtliche Lücke schließen; Anregung: 'non-hidden individual'.";
+		document.getElementById("registrant_kind").textContent = "Leer / 'org' / 'individual' (relevant: Patientenverfügung, Testament und Testamentsvollstrecker)";
 		document.getElementById("registrant_name").textContent = "Im RDAP-Protokoll kann im Feld 'full_name' ein Personenname sichtbar sein, siehe cira.ca";
 		document.getElementById("registrant_country_code").textContent = "Die Indizierung mit dem ISO-2-Ländercode funktioniert, wie für das Vereinigte Königreich, das die EU verlassen hat.";
 		document.getElementById("registrant_protected").textContent = proposed + "Zonenspezifische versteckte Daten variieren je nach Verwendung einer Adresse.";
@@ -411,7 +411,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "Le propriétaire d'un domaine est le premier responsable et titulaire de l'abonnement à son domaine.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Numéro d’identification Web pour les entités commerciales et les personnes physiques.";
 		document.getElementById("registrant_full_name").textContent = "L'utilisateur du domaine qui a le contrôle réel ou effectif pour les droits de domaine dans le pays de résidence.";
-		document.getElementById("registrant_kind").textContent = "Vide, 'individual' ou 'org' ; un testament biologique peut combler un vide juridique ; suggestion : 'non-hidden individual'.";
+		document.getElementById("registrant_kind").textContent = "Vide / 'org' / 'individual' (pertinent : testament de vie, testament et exécuteur testamentaire numérique)";
 		document.getElementById("registrant_name").textContent = "Dans le protocole RDAP, un nom personnel peut être visible dans le champ 'full_name', voir cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "L'indexation des codes pays ISO-2 fonctionne, comme pour le Royaume-Uni, qui a quitté l'UE.";
 		document.getElementById("registrant_protected").textContent = proposed + "Les données cachées spécifiques à la zone varient en fonction de l'utilisation d'une adresse.";

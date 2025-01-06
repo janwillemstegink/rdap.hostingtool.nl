@@ -207,7 +207,7 @@ if (strlen($obj['lang']))	{
 	$zone_registry_language = $obj['lang'];	
 }
 else	{
-	$zone_registry_language = '(hidden)';	
+	$zone_registry_language = '(not available)';	
 }	
 $links_0_value = $obj['links'][0]['value'];
 $links_0_related = $obj['links'][0]['rel'];
