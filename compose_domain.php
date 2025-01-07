@@ -258,6 +258,7 @@ $registrant_email = '';
 $registrant_tel = '';	
 $registrant_street = '';
 $registrant_city = '';
+$registrant_state_province = '';
 $registrant_postal_code = '';
 $registrant_country_code = '(hidden)';	
 $registrant_protected = 'name,email,tel,address';
@@ -266,20 +267,26 @@ $registrant_language_pref_2 = '';
 $admin_handle = '';
 $admin_email = '';
 $admin_tel = '';
+$admin_state_province = '';
+$admin_postal_code = '';	
 $admin_country_code = '(hidden)';	
 $admin_protected = 'web_id,full_name,name,tel,address';
 $admin_language_pref_1 = '';
 $admin_language_pref_2 = '';	
 $tech_handle = '';
 $tech_email	= '';
-$tech_tel = '';	
+$tech_tel = '';
+$tech_state_province = '';
+$tech_postal_code = '';	
 $tech_country_code = '(hidden)';
 $tech_protected = 'web_id,full_name,name,tel,address';
 $tech_language_pref_1 = '';
 $tech_language_pref_2 = '';	
 $billing_handle = '';
 $billing_email = '';
-$billing_tel = '';	
+$billing_tel = '';
+$billing_state_province = '';	
+$billing_postal_code = '';	
 $billing_country_code = '';	
 $billing_protected = 'web_id,full_name,name,tel,address';
 $reseller_handle = '';
@@ -290,6 +297,7 @@ $reseller_email = '';
 $reseller_tel = '';	
 $reseller_street = '';
 $reseller_city = '';
+$reseller_state_province = '';	
 $reseller_postal_code = '';
 $reseller_country_code = '';
 $reseller_protected = 'name,email,tel';
@@ -303,6 +311,7 @@ $registrar_email = '';
 $registrar_tel = '';
 $registrar_street = '';
 $registrar_city = '';
+$registrar_state_province = '';	
 $registrar_postal_code = '';
 $registrar_country_code = '(hidden)';	
 $registrar_protected = 'name,email,tel';
@@ -316,6 +325,7 @@ $sponsor_email = '';
 $sponsor_tel = '';
 $sponsor_street = '';
 $sponsor_city = '';
+$sponsor_state_province = '';	
 $sponsor_postal_code = '';
 $sponsor_country_code = '';
 $sponsor_protected = 'name,email,tel';
@@ -949,55 +959,40 @@ foreach($obj as $key1 => $value1) {
 						}
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'adr' and $key6 == 3)	{
 							if ($key2 == $entity_registrant)	{
-								$registrant_country_code = $value6[6];
+								$registrant_state_province = (is_array($value6[4])) ? implode(",",$value6[4]) : $value6[4];
+								$registrant_postal_code = (is_array($value6[5])) ? implode(",",$value6[5]) : $value6[5];
+								$registrant_country_code = (is_array($value6[6])) ? implode(",",$value6[6]) : $value6[6];
 							}
 							if ($key2 == $entity_admin)	{
-								$admin_country_code = $value6[6];
+								$admin_state_province = (is_array($value6[4])) ? implode(",",$value6[4]) : $value6[4];
+								$admin_postal_code = (is_array($value6[5])) ? implode(",",$value6[5]) : $value6[5];
+								$admin_country_code = (is_array($value6[6])) ? implode(",",$value6[6]) : $value6[6];
 							}	
 							if ($key2 == $entity_tech)	{
-								$tech_country_code = $value6[6];
+								$tech_state_province = (is_array($value6[4])) ? implode(",",$value6[4]) : $value6[4];
+								$tech_postal_code = (is_array($value6[5])) ? implode(",",$value6[5]) : $value6[5];
+								$tech_country_code = (is_array($value6[6])) ? implode(",",$value6[6]) : $value6[6];
 							}							
 							if ($key2 == $entity_reseller)	{
-								if (!is_array($value6[2]))	{
-									$reseller_street = $value6[2];
-								}
-								if (!is_array($value6[3]))	{
-									$reseller_city = $value6[3];
-								}
-								if (!is_array($value6[5]))	{
-									$reseller_postal_code = $value6[5];
-								}
-								if (!is_array($value6[6]))	{
-									$reseller_country_code = $value6[6];
-								}	
+								$reseller_street = (is_array($value6[2])) ? implode(",",$value6[2]) : $value6[2];
+								$reseller_city = (is_array($value6[3])) ? implode(",",$value6[3]) : $value6[3];
+								$reseller_state_province = (is_array($value6[4])) ? implode(",",$value6[4]) : $value6[4];
+								$reseller_postal_code = (is_array($value6[5])) ? implode(",",$value6[5]) : $value6[5];
+								$reseller_country_code = (is_array($value6[6])) ? implode(",",$value6[6]) : $value6[6];
 							}
 							if ($key2 == $entity_registrar)	{
-								if (!is_array($value6[2]))	{
-									$registrar_street = $value6[2];
-								}
-								if (!is_array($value6[3]))	{
-									$registrar_city = $value6[3];
-								}
-								if (!is_array($value6[5]))	{
-									$registrar_postal_code = $value6[5];
-								}
-								if (!is_array($value6[6]))	{
-									$registrar_country_code = $value6[6];
-								}	
+								$registrar_street = (is_array($value6[2])) ? implode(",",$value6[2]) : $value6[2];
+								$registrar_city = (is_array($value6[3])) ? implode(",",$value6[3]) : $value6[3];
+								$registrar_state_province = (is_array($value6[4])) ? implode(",",$value6[4]) : $value6[4];
+								$registrar_postal_code = (is_array($value6[5])) ? implode(",",$value6[5]) : $value6[5];
+								$registrar_country_code = (is_array($value6[6])) ? implode(",",$value6[6]) : $value6[6];	
 							}
 							if ($key2 == $entity_sponsor)	{
-								if (!is_array($value6[2]))	{
-									$sponsor_street = $value6[2];
-								}
-								if (!is_array($value6[3]))	{
-									$sponsor_city = $value6[3];
-								}
-								if (!is_array($value6[5]))	{
-									$sponsor_postal_code = $value6[5];
-								}
-								if (!is_array($value6[6]))	{
-									$sponsor_country_code = $value6[6];
-								}	
+								$sponsor_street = (is_array($value6[2])) ? implode(",",$value6[2]) : $value6[2];
+								$sponsor_city = (is_array($value6[3])) ? implode(",",$value6[3]) : $value6[3];
+								$sponsor_state_province = (is_array($value6[4])) ? implode(",",$value6[4]) : $value6[4];
+								$sponsor_postal_code = (is_array($value6[5])) ? implode(",",$value6[5]) : $value6[5];
+								$sponsor_country_code = (is_array($value6[6])) ? implode(",",$value6[6]) : $value6[6];
 							}
 						}	
 						if ($key2 == $entity_registrant and $key3 == 'remarks')	{
@@ -1376,6 +1371,12 @@ $registrant->appendChild($domain_registrant_email);
 $domain_registrant_tel = $doc->createElement("registrant_tel");
 $domain_registrant_tel->appendChild($doc->createCDATASection($registrant_tel));	
 $registrant->appendChild($domain_registrant_tel);
+$domain_registrant_state_province = $doc->createElement("registrant_state_province");
+$domain_registrant_state_province->appendChild($doc->createCDATASection($registrant_state_province));
+$registrant->appendChild($domain_registrant_state_province);
+$domain_registrant_postal_code = $doc->createElement("registrant_postal_code");
+$domain_registrant_postal_code->appendChild($doc->createCDATASection($registrant_postal_code));
+$registrant->appendChild($domain_registrant_postal_code);	
 $domain_registrant_country_code = $doc->createElement("registrant_country_code");
 $domain_registrant_country_code->appendChild($doc->createCDATASection($registrant_country_code));
 $registrant->appendChild($domain_registrant_country_code);		
@@ -1427,7 +1428,13 @@ $domain_admin_email->appendChild($doc->createCDATASection($admin_email));
 $admin->appendChild($domain_admin_email);	
 $domain_admin_tel = $doc->createElement("admin_tel");
 $domain_admin_tel->appendChild($doc->createCDATASection($admin_tel));	
-$admin->appendChild($domain_admin_tel);	
+$admin->appendChild($domain_admin_tel);
+$domain_admin_state_province = $doc->createElement("admin_state_province");
+$domain_admin_state_province->appendChild($doc->createCDATASection($admin_state_province));
+$admin->appendChild($domain_admin_state_province);
+$domain_admin_postal_code = $doc->createElement("admin_postal_code");
+$domain_admin_postal_code->appendChild($doc->createCDATASection($admin_postal_code));
+$admin->appendChild($domain_admin_postal_code);	
 $domain_admin_country_code = $doc->createElement("admin_country_code");
 $domain_admin_country_code->appendChild($doc->createCDATASection($admin_country_code));
 $admin->appendChild($domain_admin_country_code);	
@@ -1456,6 +1463,12 @@ $tech->appendChild($domain_tech_email);
 $domain_tech_tel = $doc->createElement("tech_tel");
 $domain_tech_tel->appendChild($doc->createCDATASection($tech_tel));	
 $tech->appendChild($domain_tech_tel);
+$domain_tech_state_province = $doc->createElement("tech_state_province");
+$domain_tech_state_province->appendChild($doc->createCDATASection($tech_state_province));
+$tech->appendChild($domain_tech_state_province);
+$domain_tech_postal_code = $doc->createElement("tech_postal_code");
+$domain_tech_postal_code->appendChild($doc->createCDATASection($tech_postal_code));
+$tech->appendChild($domain_tech_postal_code);	
 $domain_tech_country_code = $doc->createElement("tech_country_code");
 $domain_tech_country_code->appendChild($doc->createCDATASection($tech_country_code));
 $tech->appendChild($domain_tech_country_code);	
@@ -1524,8 +1537,11 @@ $reseller->appendChild($domain_reseller_street);
 $domain_reseller_city = $doc->createElement("reseller_city");
 $domain_reseller_city->appendChild($doc->createCDATASection($reseller_city));	
 $reseller->appendChild($domain_reseller_city);
+$domain_reseller_state_province = $doc->createElement("reseller_state_province");
+$domain_reseller_state_province->appendChild($doc->createCDATASection($reseller_state_province));
+$reseller->appendChild($domain_reseller_state_province);
 $domain_reseller_postal_code = $doc->createElement("reseller_postal_code");
-$domain_reseller_postal_code->appendChild($doc->createCDATASection($reseller_postal_code));	
+$domain_reseller_postal_code->appendChild($doc->createCDATASection($reseller_postal_code));
 $reseller->appendChild($domain_reseller_postal_code);
 $domain_reseller_country_code = $doc->createElement("reseller_country_code");
 $domain_reseller_country_code->appendChild($doc->createCDATASection($reseller_country_code));	
@@ -1594,8 +1610,11 @@ $registrar->appendChild($domain_registrar_street);
 $domain_registrar_city = $doc->createElement("registrar_city");
 $domain_registrar_city->appendChild($doc->createCDATASection($registrar_city));	
 $registrar->appendChild($domain_registrar_city);
+$domain_registrar_state_province = $doc->createElement("registrar_state_province");
+$domain_registrar_state_province->appendChild($doc->createCDATASection($registrar_state_province));
+$registrar->appendChild($domain_registrar_state_province);
 $domain_registrar_postal_code = $doc->createElement("registrar_postal_code");
-$domain_registrar_postal_code->appendChild($doc->createCDATASection($registrar_postal_code));	
+$domain_registrar_postal_code->appendChild($doc->createCDATASection($registrar_postal_code));
 $registrar->appendChild($domain_registrar_postal_code);
 $domain_registrar_country_code = $doc->createElement("registrar_country_code");
 $domain_registrar_country_code->appendChild($doc->createCDATASection($registrar_country_code));	
@@ -1667,8 +1686,11 @@ $sponsor->appendChild($domain_sponsor_street);
 $domain_sponsor_city = $doc->createElement("sponsor_city");
 $domain_sponsor_city->appendChild($doc->createCDATASection($sponsor_city));	
 $sponsor->appendChild($domain_sponsor_city);
+$domain_sponsor_state_province = $doc->createElement("sponsor_state_province");
+$domain_sponsor_state_province->appendChild($doc->createCDATASection($sponsor_state_province));
+$sponsor->appendChild($domain_sponsor_state_province);
 $domain_sponsor_postal_code = $doc->createElement("sponsor_postal_code");
-$domain_sponsor_postal_code->appendChild($doc->createCDATASection($sponsor_postal_code));	
+$domain_sponsor_postal_code->appendChild($doc->createCDATASection($sponsor_postal_code));
 $sponsor->appendChild($domain_sponsor_postal_code);
 $domain_sponsor_country_code = $doc->createElement("sponsor_country_code");
 $domain_sponsor_country_code->appendChild($doc->createCDATASection($sponsor_country_code));	
