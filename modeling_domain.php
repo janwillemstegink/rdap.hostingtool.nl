@@ -11,7 +11,7 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 function SwitchDisplay(type) {
 	if (type == 10)			{ // zone
 		var pre = '10';
-		var max = 6
+		var max = 8
 	}
 	else if (type == 11)	{ // notice 0
 		var pre = '11';
@@ -131,6 +131,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "";
 		document.getElementById("zone_role").textContent = "";
+		document.getElementById("zone_holder_web_id").textContent = proposed;
+		document.getElementById("zone_holder_full_name").textContent = proposed;
 		document.getElementById("zone_registry_web_id").textContent = proposed;
 		document.getElementById("zone_registry_full_name").textContent = proposed;
 		document.getElementById("zone_registry_website").textContent = proposed;
@@ -196,6 +198,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Webdomeinen toegelicht";
 		document.getElementById("zone_role").textContent = "Een domeinzone is door de ICANN toegewezen aan een domain registry om domeinen te beheren.";
+		document.getElementById("zone_holder_web_id").textContent = proposed;
+		document.getElementById("zone_holder_full_name").textContent = proposed;
 		document.getElementById("zone_registry_web_id").textContent = proposed;
 		document.getElementById("zone_registry_full_name").textContent = proposed;
 		document.getElementById("zone_registry_website").textContent = proposed;
@@ -262,6 +266,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Web Domains Explained";		
 		document.getElementById("zone_role").textContent = "A domain zone is assigned by ICANN to a domain registry to manage domains.";
+		document.getElementById("zone_holder_web_id").textContent = proposed;
+		document.getElementById("zone_holder_full_name").textContent = proposed;		
 		document.getElementById("zone_registry_web_id").textContent = proposed;
 		document.getElementById("zone_registry_full_name").textContent = proposed;
 		document.getElementById("zone_registry_website").textContent = proposed;
@@ -326,7 +332,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("field").textContent = "Beschreibung";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Webdomänen erklärt";		
-		document.getElementById("zone_role").textContent = "Eine Domänenzone wird von ICANN einer Domänenregistrierungsstelle zugewiesen, um Domänen zu verwalten.";		
+		document.getElementById("zone_role").textContent = "Eine Domänenzone wird von ICANN einer Domänenregistrierungsstelle zugewiesen, um Domänen zu verwalten.";	
+		document.getElementById("zone_holder_web_id").textContent = proposed;
+		document.getElementById("zone_holder_full_name").textContent = proposed;		
 		document.getElementById("zone_registry_web_id").textContent = proposed;
 		document.getElementById("zone_registry_full_name").textContent = proposed;
 		document.getElementById("zone_registry_website").textContent = proposed;
@@ -392,6 +400,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("value").textContent = "Détail";
 		document.getElementById("explanation").textContent = "Domaines Web expliqués";		
 		document.getElementById("zone_role").textContent = "Une zone de domaine est attribuée par l'ICANN à un registre de domaine pour gérer les domaines.";
+		document.getElementById("zone_holder_web_id").textContent = proposed;
+		document.getElementById("zone_holder_full_name").textContent = proposed;		
 		document.getElementById("zone_registry_web_id").textContent = proposed;
 		document.getElementById("zone_registry_full_name").textContent = proposed;
 		document.getElementById("zone_registry_website").textContent = proposed;
@@ -522,12 +532,14 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td id="value"><td id="explanation"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(10)">Zone Information +/-</button></td><td><b>'.$item->zone->zone_top_level_domain.'</b></td><td id="zone_role"></td></tr>';
-	$html_text .= '<tr id="101" style="display:none"><td>zone_registry_web_id</td><td>'.$item->zone->zone_registry_web_id.'</td><td id="zone_registry_web_id"></td></tr>';
-	$html_text .= '<tr id="102" style="display:none"><td>zone_registry_full_name</td><td>'.$item->zone->zone_registry_full_name.'</td><td id="zone_registry_full_name"></td></tr>';
-	$html_text .= '<tr id="103" style="display:none"><td>zone_registry_language</td><td>'.$item->zone->zone_registry_language.'</td><td></td></tr>';
-	$html_text .= '<tr id="104" style="display:none"><td>zone_registry_website</td><td>'.$item->zone->zone_registry_website.'</td><td id="zone_registry_website"></td></tr>';
-	$html_text .= '<tr id="105" style="display:none"><td>zone_menu</td><td>'.$item->zone->zone_menu.'</td><td id="zone_menu"></td></tr>';
-	$html_text .= '<tr id="106" style="display:none"><td>zone_support</td><td>'.$item->zone->zone_support.'</td><td id="zone_support"></td></tr>';
+	$html_text .= '<tr id="101" style="display:none"><td>zone_holder_web_id</td><td>'.$item->zone->zone_holder_web_id.'</td><td id="zone_holder_web_id"></td></tr>';
+	$html_text .= '<tr id="102" style="display:none"><td>zone_holder_full_name</td><td>'.$item->zone->zone_holder_full_name.'</td><td id="zone_holder_full_name"></td></tr>';
+	$html_text .= '<tr id="103" style="display:none"><td>zone_registry_web_id</td><td>'.$item->zone->zone_registry_web_id.'</td><td id="zone_registry_web_id"></td></tr>';
+	$html_text .= '<tr id="104" style="display:none"><td>zone_registry_full_name</td><td>'.$item->zone->zone_registry_full_name.'</td><td id="zone_registry_full_name"></td></tr>';
+	$html_text .= '<tr id="105" style="display:none"><td>zone_registry_language</td><td>'.$item->zone->zone_registry_language.'</td><td></td></tr>';
+	$html_text .= '<tr id="106" style="display:none"><td>zone_registry_website</td><td>'.$item->zone->zone_registry_website.'</td><td id="zone_registry_website"></td></tr>';
+	$html_text .= '<tr id="107" style="display:none"><td>zone_menu</td><td>'.$item->zone->zone_menu.'</td><td id="zone_menu"></td></tr>';
+	$html_text .= '<tr id="108" style="display:none"><td>zone_support</td><td>'.$item->zone->zone_support.'</td><td id="zone_support"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(11)">Notice0 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(12)">Notice1 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(13)">Notice2 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(14)">Notice3 +/-</button></td><td></td><td id="notices"></td></tr>';
 	$html_text .= '<tr id="111" style="display:none;vertical-align:top"><td>notice_0_title</td><td>'.$item->zone->notice_0_title.'</td><td></td></tr>';
 	$html_text .= '<tr id="112" style="display:none;vertical-align:top"><td>notice_0_description_0</td><td>'.$item->zone->notice_0_description_0.'</td><td></td></tr>';
