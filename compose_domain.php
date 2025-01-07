@@ -148,81 +148,18 @@ $notice_3_links_0_href = $obj['notices'][3]['links'][0]['href'];
 $notice_3_links_0_type = $obj['notices'][3]['links'][0]['type'];	
 	
 if ($zone_top_level_domain == 'nl')	{
-	$zone_holder_web_id = '';
-	$zone_holder_full_name = 'Stichting Internet Domeinregistratie Nederland';
-	$zone_registry_web_id = '';
-	$zone_registry_full_name = 'SIDN B.V.';
-	$zone_registry_website = 'https://www.sidn.nl';
-	$zone_menu = 'https://regmenu.sidn.nl';
-	$zone_support = 'support@sidn.nl';
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
 }
-elseif ($zone_top_level_domain == 'frl')	{
-	$zone_holder_web_id = '';
-	$zone_holder_full_name = 'FRLregistry B.V.';
-	$zone_registry_web_id = '';
-	$zone_registry_full_name = 'FRLregistry B.V.';
-	$zone_registry_website = 'https://nic.frl';
-	$zone_menu = 'https://regmenu.nic.frl';
-	$zone_support = 'support@registreer.frl';
-	$registrant_web_id = 'NL88COMM01234567890123456789012345';
-}
-elseif ($zone_top_level_domain == 'com' or $zone_top_level_domain == 'net')	{
-	$zone_holder_web_id = '';
-	$zone_holder_full_name = 'ICANN';
-	$zone_registry_web_id = '';
-	$zone_registry_full_name = 'VeriSign, Inc.';
-	$zone_registry_website = 'https://www.verisign.com/';
-	$zone_menu = 'https://regmenu.verisign.com';
-	$zone_support = 'info@verisign-grs.com';
-	$registrant_web_id = '';
-}
-elseif ($zone_top_level_domain == 'org')	{
-	$zone_holder_web_id = '';
-	$zone_holder_full_name = 'Public Interest Registry (PIR)';
-	$zone_registry_web_id = '';
-	$zone_registry_full_name = 'Public Interest Registry (PIR)';
-	$zone_registry_website = 'https://pir.org';
-	$zone_menu = 'https://regmenu.pir.org';
-	$zone_support = 'ops@pir.org';
-	$registrant_web_id = '';
-}
-elseif ($zone_top_level_domain == 'uk')	{
-	$zone_holder_web_id = '';
-	$zone_holder_full_name = 'Nominet UK';
-	$zone_registry_web_id = '';
-	$zone_registry_full_name = 'Nominet UK';
-	$zone_registry_website = 'https://www.nominet.uk';
-	$zone_menu = 'https://regmenu.nominet.uk';
-	$zone_support = 'nominet@nominet.uk';
-	$registrant_web_id = '';
-}		
-elseif ($zone_top_level_domain == 'ca')	{
-	$zone_holder_web_id = '';
-	$zone_holder_full_name = 'Canadian Internet Registration Authority (CIRA)';
-	$zone_registry_web_id = '';
-	$zone_registry_full_name = 'Canadian Internet Registration Authority (CIRA)';
-	$zone_registry_website = 'https://www.cira.ca';
-	$zone_menu = 'https://regmenu.cira.ca';
-	$zone_support = 'info@cira.ca';
-	$registrant_web_id = '';
-}	
 else	{
-	$zone_holder_web_id = '';
-	$zone_holder_full_name = '';
-	$zone_registry_web_id = '';
-	$zone_registry_full_name = '';
-	$zone_registry_website = '';
-	$zone_menu = '';
-	$zone_support = '';
 	$registrant_web_id = '';
 }
 if (strlen($obj['lang']))	{
-	$zone_registry_language = $obj['lang'];	
+	$zone_language = $obj['lang'];	
 }
 else	{
-	$zone_registry_language = '(not available)';	
-}	
+	$zone_language = '(not available)';	
+}
+$zone_delegation = 'https://www.iana.org/domains/root/db/'.$zone_top_level_domain.'.html';	
 $links_0_value = $obj['links'][0]['value'];
 $links_0_related = $obj['links'][0]['rel'];
 $links_0_href = $obj['links'][0]['href'];
@@ -1168,37 +1105,13 @@ $domain_zone_top_level_domain = $doc->createElement("zone_top_level_domain");
 $domain_zone_top_level_domain->appendChild($doc->createCDATASection($zone_top_level_domain));	
 $zone->appendChild($domain_zone_top_level_domain);
 
-$domain_zone_holder_web_id = $doc->createElement("zone_holder_web_id");
-$domain_zone_holder_web_id->appendChild($doc->createCDATASection($zone_holder_web_id));	
-$zone->appendChild($domain_zone_holder_web_id);	
-
-$domain_zone_holder_full_name = $doc->createElement("zone_holder_full_name");
-$domain_zone_holder_full_name->appendChild($doc->createCDATASection($zone_holder_full_name));	
-$zone->appendChild($domain_zone_holder_full_name);	
-
-$domain_zone_registry_web_id = $doc->createElement("zone_registry_web_id");
-$domain_zone_registry_web_id->appendChild($doc->createCDATASection($zone_registry_web_id));	
-$zone->appendChild($domain_zone_registry_web_id);	
-
-$domain_zone_registry_full_name = $doc->createElement("zone_registry_full_name");
-$domain_zone_registry_full_name->appendChild($doc->createCDATASection($zone_registry_full_name));	
-$zone->appendChild($domain_zone_registry_full_name);
+$domain_zone_language = $doc->createElement("zone_language");
+$domain_zone_language->appendChild($doc->createCDATASection($zone_language));	
+$zone->appendChild($domain_zone_language);	
 	
-$domain_zone_registry_language = $doc->createElement("zone_registry_language");
-$domain_zone_registry_language->appendChild($doc->createCDATASection($zone_registry_language));	
-$zone->appendChild($domain_zone_registry_language);	
-	
-$domain_zone_registry_website = $doc->createElement("zone_registry_website");
-$domain_zone_registry_website->appendChild($doc->createCDATASection($zone_registry_website));	
-$zone->appendChild($domain_zone_registry_website);	
-	
-$domain_zone_menu = $doc->createElement("zone_menu");
-$domain_zone_menu->appendChild($doc->createCDATASection($zone_menu));	
-$zone->appendChild($domain_zone_menu);	
-	
-$domain_zone_support = $doc->createElement("zone_support");
-$domain_zone_support->appendChild($doc->createCDATASection($zone_support));	
-$zone->appendChild($domain_zone_support);	
+$domain_zone_delegation = $doc->createElement("zone_delegation");
+$domain_zone_delegation->appendChild($doc->createCDATASection($zone_delegation));	
+$zone->appendChild($domain_zone_delegation);		
 	
 $domain_notice_0_title = $doc->createElement("notice_0_title");
 $domain_notice_0_title->appendChild($doc->createCDATASection($notice_0_title));	
