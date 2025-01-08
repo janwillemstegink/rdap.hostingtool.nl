@@ -212,7 +212,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_kind").textContent = "Leeg / 'org' / 'individual' (Voor continuïteit: levenstestament + testament + digitale executeur)";
 		document.getElementById("registrant_name").textContent = "In het RDAP-protocol kan een persoonlijke naam zichtbaar zijn in het veld 'full_name', zie cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "De ISO-2-landcode-indexering werkt, bijvoorbeeld voor het Verenigd Koninkrijk, dat de EU heeft verlaten.";
-		document.getElementById("registrant_protected").textContent = proposed + "Zonespecifieke verborgen gegevens variëren afhankelijk van het gebruik van een adres.";
+		document.getElementById("registrant_protected").textContent = proposed + "Het zone-specifiek verbergen van adresvelden varieert afhankelijk van de rol.";
 		document.getElementById("registrant_event_verification_received").textContent = proposed + "De verantwoordelijke persoon kan een identieke web-ID aanklikken; leeg is intrekking.";
 		document.getElementById("registrant_event_verification_set").textContent = proposed + "Vervolgens controleert het register de gegevens bij de landspecifieke webdomeindienst.";
 		document.getElementById("admin_role").textContent = "Het administratief aanspreekpunt beantwoordt een verzoek en stuurt zo nodig door.";
@@ -275,7 +275,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_kind").textContent = "Empty / 'org' / 'individual' (For continuity: Living Will + Will + Digital Executor)";
 		document.getElementById("registrant_name").textContent = "In the RDAP protocol, a personal name may be visible in the 'full_name' field, see cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "ISO-2 country code indexing works, as for the United Kingdom, which has left the EU.";
-		document.getElementById("registrant_protected").textContent = proposed + "Zone Specific hidden data varies depending on the use of an address.";
+		document.getElementById("registrant_protected").textContent = proposed + "Zone Specific hiding of address fields vary depending on the role.";
 		document.getElementById("registrant_event_verification_received").textContent = proposed + "The responsible person can click on an identical web ID; empty is revocation.";
 		document.getElementById("registrant_event_verification_set").textContent = proposed + "The registry then checks the data with the country-specific web domain service.";	
 		document.getElementById("admin_role").textContent = "The administratively responsible desk answers a request, and forwards on if necessary.";
@@ -337,7 +337,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_kind").textContent = "Leer / 'org' / 'individual' (Für Kontinuität: Patientenverfügung + Testament + digitaler Testamentsvollstrecker)";
 		document.getElementById("registrant_name").textContent = "Im RDAP-Protokoll kann im Feld 'full_name' ein Personenname sichtbar sein, siehe cira.ca";
 		document.getElementById("registrant_country_code").textContent = "Die Indizierung mit dem ISO-2-Ländercode funktioniert, wie für das Vereinigte Königreich, das die EU verlassen hat.";
-		document.getElementById("registrant_protected").textContent = proposed + "Zonenspezifische versteckte Daten variieren je nach Verwendung einer Adresse.";
+		document.getElementById("registrant_protected").textContent = proposed + "Zonenspezifisches Ausblenden von Adressfeldern variiert je nach Rolle.";
 		document.getElementById("registrant_event_verification_received").textContent = proposed + "Der Verantwortliche kann auf eine identische Web-ID klicken; leer ist Rückzug.";
 		document.getElementById("registrant_event_verification_set").textContent = proposed + "Anschließend gleicht die Registry die Daten beim länderspezifischen Webdomain-Dienst ab.";
 		document.getElementById("admin_role").textContent = "Die administrativ zuständige Stelle beantwortet eine Anfrage und leitet sie gegebenenfalls weiter.";
@@ -399,7 +399,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_kind").textContent = "Vide / 'org' / 'individual' (Pour la continuité : testament biologique + testament + exécuteur testamentaire numérique)";
 		document.getElementById("registrant_name").textContent = "Dans le protocole RDAP, un nom personnel peut être visible dans le champ 'full_name', voir cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "L'indexation des codes pays ISO-2 fonctionne, comme pour le Royaume-Uni, qui a quitté l'UE.";
-		document.getElementById("registrant_protected").textContent = proposed + "Les données cachées spécifiques à la zone varient en fonction de l'utilisation d'une adresse.";
+		document.getElementById("registrant_protected").textContent = proposed + "Le masquage spécifique des champs d'adresse varie en fonction du rôle.";
 		document.getElementById("registrant_event_verification_received").textContent = proposed + "La personne responsable peut cliquer sur un identifiant Web identique ; le vide est le retrait.";
 		document.getElementById("registrant_event_verification_set").textContent = proposed + "Le registre vérifie ensuite les données avec le service de domaine Web spécifique au pays.";
 		document.getElementById("admin_role").textContent = "Le bureau administrativement responsable répond à une demande, et la transmet si nécessaire.";
