@@ -209,6 +209,8 @@ $registrant_last_changed = null;
 $registrant_expiration = null;	
 $registrant_deletion = null;
 $registrant_remark_values = '';		
+$admin_remark_values = '';	
+$technical_remark_values = '';	
 $reseller_status_values = '';
 $reseller_registration = null;
 $reseller_last_transferred = null;	
@@ -278,18 +280,18 @@ $admin_country = '';
 $admin_protected = 'web_id,full_name,name,tel,address';
 $admin_language_pref_1 = '';
 $admin_language_pref_2 = '';	
-$tech_handle = '';
-$tech_email	= '';
-$tech_tel = '';
-$tech_country_code = '';	
-$tech_street = '';
-$tech_city = '';	
-$tech_state_province = '';
-$tech_postal_code = '';	
-$tech_country = '';
-$tech_protected = 'web_id,full_name,name,tel,address';
-$tech_language_pref_1 = '';
-$tech_language_pref_2 = '';	
+$technical_handle = '';
+$technical_email	= '';
+$technical_tel = '';
+$technical_country_code = '';	
+$technical_street = '';
+$technical_city = '';	
+$technical_state_province = '';
+$technical_postal_code = '';	
+$technical_country = '';
+$technical_protected = 'web_id,full_name,name,tel,address';
+$technical_language_pref_1 = '';
+$technical_language_pref_2 = '';	
 $billing_handle = '';
 $billing_email = '';
 $billing_tel = '';
@@ -391,7 +393,7 @@ $registrar_abuse_email = '(no point of contact)';
 
 $entity_registrant = -1;
 $entity_admin = -1;
-$entity_tech = -1;
+$entity_technical = -1;
 $entity_billing = -1;	
 $entity_reseller = -1;		
 $entity_registrar = -1;
@@ -422,7 +424,7 @@ foreach($obj as $key1 => $value1) {
 					$entity_admin = $key2;
 				}
 				elseif ($value4 == 'technical')	{
-					$entity_tech = $key2;
+					$entity_technical = $key2;
 				}
 				elseif ($value4 == 'billing')	{
 					$entity_billing = $key2;
@@ -523,8 +525,8 @@ foreach($obj as $key1 => $value1) {
 				if ($key2 == $entity_admin)	{
 					$admin_handle = $value3;
 				}
-				if ($key2 == $entity_tech)	{
-					$tech_handle = $value3;
+				if ($key2 == $entity_technical)	{
+					$technical_handle = $value3;
 				}
 				if ($key2 == $entity_reseller)	{
 					$reseller_handle = $value3;
@@ -779,6 +781,39 @@ foreach($obj as $key1 => $value1) {
 								$registrant_remark_values .= $key5;
 							}	
 						}
+						if ($key2 == $entity_admin and $key3 == 'remarks')	{
+							if (strlen($admin_remark_values))	{
+								$admin_remark_values .= '<br />';				
+							}
+							if (!is_array($value5))	{
+								$admin_remark_values .= $key5 . ': ' . $value5;
+							}
+							else	{
+								$admin_remark_values .= $key5;
+							}	
+						}
+						if ($key2 == $entity_technical and $key3 == 'remarks')	{
+							if (strlen($technical_remark_values))	{
+								$technical_remark_values .= '<br />';				
+							}
+							if (!is_array($value5))	{
+								$technical_remark_values .= $key5 . ': ' . $value5;
+							}
+							else	{
+								$technical_remark_values .= $key5;
+							}	
+						}
+						if ($key2 == $entity_billing and $key3 == 'remarks')	{
+							if (strlen($billing_remark_values))	{
+								$billing_remark_values .= '<br />';				
+							}
+							if (!is_array($value5))	{
+								$billing_remark_values .= $key5 . ': ' . $value5;
+							}
+							else	{
+								$billing_remark_values .= $key5;
+							}	
+						}
 						if ($key2 == $entity_reseller and $key3 == 'remarks')	{
 							if (strlen($reseller_remark_values))	{
 								$reseller_remark_values .= '<br />';				
@@ -821,8 +856,8 @@ foreach($obj as $key1 => $value1) {
 							if ($key2 == $entity_admin)	{
 								$admin_handle = $value4['value'];
 							}
-							if ($key2 == $entity_tech)	{
-								$tech_handle = $value4['value'];
+							if ($key2 == $entity_technical)	{
+								$technical_handle = $value4['value'];
 							}
 							if ($key2 == $entity_billing)	{
 								$billing_handle = $value4['value'];
@@ -844,8 +879,8 @@ foreach($obj as $key1 => $value1) {
 							if ($key2 == $entity_admin)	{
 								$admin_full_name = $value5[3];
 							}
-							if ($key2 == $entity_tech)	{
-								$tech_full_name = $value5[3];
+							if ($key2 == $entity_technical)	{
+								$technical_full_name = $value5[3];
 							}
 							if ($key2 == $entity_billing)	{
 								$billing_full_name = $value5[3];
@@ -873,10 +908,10 @@ foreach($obj as $key1 => $value1) {
 									$admin_name .= ', '. $value5[3][1];
 								}
 							}
-							if ($key2 == $entity_tech)	{
-								$tech_name = $value5[3][0];	
+							if ($key2 == $entity_technical)	{
+								$technical_name = $value5[3][0];	
 								if (strlen($value5[3][1]))	{
-									$tech_name .= ', '. $value5[3][1];
+									$technical_name .= ', '. $value5[3][1];
 								}
 							}
 							if ($key2 == $entity_billing)	{
@@ -911,8 +946,8 @@ foreach($obj as $key1 => $value1) {
 							if ($key2 == $entity_admin)	{
 								$admin_kind = $value5[3];
 							}
-							if ($key2 == $entity_tech)	{
-								$tech_kind = $value5[3];
+							if ($key2 == $entity_technical)	{
+								$technical_kind = $value5[3];
 							}
 							if ($key2 == $entity_billing)	{
 								$biiling_kind = $value5[3];
@@ -936,9 +971,9 @@ foreach($obj as $key1 => $value1) {
 								if ($value6['pref'] == 1)	$admin_language_pref_1 = $value5[3];
 								if ($value6['pref'] == 2)	$admin_language_pref_2 = $value5[3];
 							}
-							if ($ky2 == $entity_tech)	{
-								if ($value6['pref'] == 1)	$tech_language_pref_1 = $value5[3];
-								if ($value6['pref'] == 2)	$tech_language_pref_2 = $value5[3];
+							if ($ky2 == $entity_technical)	{
+								if ($value6['pref'] == 1)	$technical_language_pref_1 = $value5[3];
+								if ($value6['pref'] == 2)	$technical_language_pref_2 = $value5[3];
 							}
 							if ($key2 == $entity_billing) 		{
 								if ($value6['pref'] == 1)	$billing_language_pref_1 = $value5[3];
@@ -964,8 +999,8 @@ foreach($obj as $key1 => $value1) {
 							if ($key2 == $entity_admin)	{
 								$admin_email .= $value5[3].'<br />';
 							}
-							if ($key2 == $entity_tech)	{
-								$tech_email .= $value5[3].'<br />';
+							if ($key2 == $entity_technical)	{
+								$technical_email .= $value5[3].'<br />';
 							}
 							if ($key2 == $entity_billing)	{
 								$billing_email .= $value5[3].'<br />';
@@ -987,8 +1022,8 @@ foreach($obj as $key1 => $value1) {
 							if ($key2 == $entity_admin)	{
 								$admin_tel .= implode(",",$value5[1]) . ' ' . $value5[3] . '<br />';
 							}
-							if ($key2 == $entity_tech)	{
-								$tech_tel .= implode(",",$value5[1]) . ' ' . $value5[3] . '<br />';
+							if ($key2 == $entity_technical)	{
+								$technical_tel .= implode(",",$value5[1]) . ' ' . $value5[3] . '<br />';
 							}
 							if ($key2 == $entity_billing)	{
 								$biiling_tel .= implode(",",$value5[1]) . ' ' . $value5[3] . '<br />';
@@ -1015,8 +1050,8 @@ foreach($obj as $key1 => $value1) {
 							if ($key2 == $entity_admin)	{
 								$admin_country_code = $value6['cc'];
 							}	
-							if ($key2 == $entity_tech)	{
-								$tech_country_code = $value6['cc'];
+							if ($key2 == $entity_technical)	{
+								$technical_country_code = $value6['cc'];
 							}
 							if ($key2 == $entity_billing)	{
 								$billing_country_code = $value6['cc'];
@@ -1046,12 +1081,12 @@ foreach($obj as $key1 => $value1) {
 								$admin_postal_code = (is_array($value6[5])) ? implode(",",$value6[5]) : $value6[5];
 								$admin_country = (is_array($value6[6])) ? implode(",",$value6[6]) : $value6[6];
 							}	
-							if ($key2 == $entity_tech)	{
-								$tech_street = (is_array($value6[2])) ? implode(",",$value6[2]) : $value6[2];
-								$tech_city = (is_array($value6[3])) ? implode(",",$value6[3]) : $value6[3];
-								$tech_state_province = (is_array($value6[4])) ? implode(",",$value6[4]) : $value6[4];
-								$tech_postal_code = (is_array($value6[5])) ? implode(",",$value6[5]) : $value6[5];
-								$tech_country = (is_array($value6[6])) ? implode(",",$value6[6]) : $value6[6];
+							if ($key2 == $entity_technical)	{
+								$technical_street = (is_array($value6[2])) ? implode(",",$value6[2]) : $value6[2];
+								$technical_city = (is_array($value6[3])) ? implode(",",$value6[3]) : $value6[3];
+								$technical_state_province = (is_array($value6[4])) ? implode(",",$value6[4]) : $value6[4];
+								$technical_postal_code = (is_array($value6[5])) ? implode(",",$value6[5]) : $value6[5];
+								$technical_country = (is_array($value6[6])) ? implode(",",$value6[6]) : $value6[6];
 							}
 							if ($key2 == $entity_billing)	{
 								$billing_street = (is_array($value6[2])) ? implode(",",$value6[2]) : $value6[2];
@@ -1114,7 +1149,7 @@ foreach($obj as $key1 => $value1) {
 										$admin_email .= $value7[3].'<br />';
 									}
 									if ($key4 == $entity_key4_tech)	{
-										$tech_email .= $value7[3].'<br />';
+										$technical_email .= $value7[3].'<br />';
 									}
 									if ($key4 == $entity_key4_reseller)	{
 										$reseller_email .= $value7[3].'<br />';
@@ -1134,7 +1169,7 @@ foreach($obj as $key1 => $value1) {
 										$admin_tel .= implode(",",$value7[1]) . ': ' . $value7[3] . '<br />';
 									}
 									if ($key4 == $entity_key4_tech)	{
-										$tech_tel .= implode(",",$value7[1]) . ': ' . $value7[3] . '<br />';
+										$technical_tel .= implode(",",$value7[1]) . ': ' . $value7[3] . '<br />';
 									}	
 									if ($key4 == $entity_key4_reseller)	{
 										$reseller_tel .= implode(",",$value7[1]) . ': ' . $value7[3] . '<br />';
@@ -1557,57 +1592,63 @@ $domain_admin_language_pref_2->appendChild($doc->createCDATASection($admin_langu
 $admin->appendChild($domain_admin_language_pref_2);	
 $domain_admin_protected = $doc->createElement("admin_protected");	
 $domain_admin_protected->appendChild($doc->createCDATASection($admin_protected));	
-$admin->appendChild($domain_admin_protected);		
+$admin->appendChild($domain_admin_protected);
+$domain_admin_remark_values = $doc->createElement("admin_remark_values");
+$domain_admin_remark_values->appendChild($doc->createCDATASection($admin_remark_values));	
+$admin->appendChild($domain_admin_remark_values);	
 $domain->appendChild($admin);	
 	
-$tech = $doc->createElement("tech");
-$domain->appendChild($tech);
-$domain_tech_handle = $doc->createElement("tech_handle");
-$domain_tech_handle->appendChild($doc->createCDATASection($tech_handle));	
-$tech->appendChild($domain_tech_handle);	
-$domain_tech_full_name = $doc->createElement("tech_full_name");
-$domain_tech_full_name->appendChild($doc->createCDATASection($tech_full_name));	
-$tech->appendChild($domain_tech_full_name);
-$domain_tech_kind = $doc->createElement("tech_kind");
-$domain_tech_kind->appendChild($doc->createCDATASection($tech_kind));	
-$tech->appendChild($domain_tech_kind);	
-$domain_tech_name = $doc->createElement("tech_name");
-$domain_tech_name->appendChild($doc->createCDATASection($tech_name));	
-$tech->appendChild($domain_tech_name);	
-$domain_tech_email = $doc->createElement("tech_email");
-$domain_tech_email->appendChild($doc->createCDATASection($tech_email));	
-$tech->appendChild($domain_tech_email);	
-$domain_tech_tel = $doc->createElement("tech_tel");
-$domain_tech_tel->appendChild($doc->createCDATASection($tech_tel));	
-$tech->appendChild($domain_tech_tel);
-$domain_tech_country_code = $doc->createElement("tech_country_code");
-$domain_tech_country_code->appendChild($doc->createCDATASection($tech_country_code));
-$tech->appendChild($domain_tech_country_code);	
-$domain_tech_street = $doc->createElement("tech_street");
-$domain_tech_street->appendChild($doc->createCDATASection($tech_street));	
-$tech->appendChild($domain_tech_street);
-$domain_tech_city = $doc->createElement("tech_city");
-$domain_tech_city->appendChild($doc->createCDATASection($tech_city));	
-$tech->appendChild($domain_tech_city);	
-$domain_tech_state_province = $doc->createElement("tech_state_province");
-$domain_tech_state_province->appendChild($doc->createCDATASection($tech_state_province));
-$tech->appendChild($domain_tech_state_province);
-$domain_tech_postal_code = $doc->createElement("tech_postal_code");
-$domain_tech_postal_code->appendChild($doc->createCDATASection($tech_postal_code));
-$tech->appendChild($domain_tech_postal_code);	
-$domain_tech_country = $doc->createElement("tech_country");
-$domain_tech_country->appendChild($doc->createCDATASection($tech_country));
-$tech->appendChild($domain_tech_country);	
-$domain_tech_language_pref_1 = $doc->createElement("tech_language_pref_1");
-$domain_tech_language_pref_1->appendChild($doc->createCDATASection($tech_language_pref_1));	
-$tech->appendChild($domain_tech_language_pref_1);
-$domain_tech_language_pref_2 = $doc->createElement("tech_language_pref_2");
-$domain_tech_language_pref_2->appendChild($doc->createCDATASection($tech_language_pref_2));	
-$tech->appendChild($domain_tech_language_pref_2);	
-$domain_tech_protected = $doc->createElement("tech_protected");	
-$domain_tech_protected->appendChild($doc->createCDATASection($tech_protected));	
-$tech->appendChild($domain_tech_protected);		
-$domain->appendChild($tech);
+$technical = $doc->createElement("technical");
+$domain->appendChild($technical);
+$domain_technical_handle = $doc->createElement("technical_handle");
+$domain_technical_handle->appendChild($doc->createCDATASection($technical_handle));	
+$technical->appendChild($domain_technical_handle);	
+$domain_technical_full_name = $doc->createElement("technical_full_name");
+$domain_technical_full_name->appendChild($doc->createCDATASection($technical_full_name));	
+$technical->appendChild($domain_technical_full_name);
+$domain_technical_kind = $doc->createElement("technical_kind");
+$domain_technical_kind->appendChild($doc->createCDATASection($technical_kind));	
+$technical->appendChild($domain_technical_kind);	
+$domain_technical_name = $doc->createElement("technical_name");
+$domain_technical_name->appendChild($doc->createCDATASection($technical_name));	
+$technical->appendChild($domain_technical_name);	
+$domain_technical_email = $doc->createElement("technical_email");
+$domain_technical_email->appendChild($doc->createCDATASection($technical_email));	
+$technical->appendChild($domain_technical_email);	
+$domain_technical_tel = $doc->createElement("technical_tel");
+$domain_technical_tel->appendChild($doc->createCDATASection($technical_tel));	
+$technical->appendChild($domain_technical_tel);
+$domain_technical_country_code = $doc->createElement("technical_country_code");
+$domain_technical_country_code->appendChild($doc->createCDATASection($technical_country_code));
+$technical->appendChild($domain_technical_country_code);	
+$domain_technical_street = $doc->createElement("technical_street");
+$domain_technical_street->appendChild($doc->createCDATASection($technical_street));	
+$technical->appendChild($domain_technical_street);
+$domain_technical_city = $doc->createElement("technical_city");
+$domain_technical_city->appendChild($doc->createCDATASection($technical_city));	
+$technical->appendChild($domain_technical_city);	
+$domain_technical_state_province = $doc->createElement("technical_state_province");
+$domain_technical_state_province->appendChild($doc->createCDATASection($technical_state_province));
+$technical->appendChild($domain_technical_state_province);
+$domain_technical_postal_code = $doc->createElement("technical_postal_code");
+$domain_technical_postal_code->appendChild($doc->createCDATASection($technical_postal_code));
+$technical->appendChild($domain_technical_postal_code);	
+$domain_technical_country = $doc->createElement("technical_country");
+$domain_technical_country->appendChild($doc->createCDATASection($technical_country));
+$technical->appendChild($domain_technical_country);	
+$domain_technical_language_pref_1 = $doc->createElement("technical_language_pref_1");
+$domain_technical_language_pref_1->appendChild($doc->createCDATASection($technical_language_pref_1));	
+$technical->appendChild($domain_technical_language_pref_1);
+$domain_technical_language_pref_2 = $doc->createElement("technical_language_pref_2");
+$domain_technical_language_pref_2->appendChild($doc->createCDATASection($technical_language_pref_2));	
+$technical->appendChild($domain_technical_language_pref_2);	
+$domain_technical_protected = $doc->createElement("technical_protected");	
+$domain_technical_protected->appendChild($doc->createCDATASection($technical_protected));	
+$technical->appendChild($domain_technical_protected);
+$domain_technical_remark_values = $doc->createElement("technical_remark_values");
+$domain_technical_remark_values->appendChild($doc->createCDATASection($technical_remark_values));	
+$technical->appendChild($domain_technical_remark_values);
+$domain->appendChild($technical);
 	
 $billing = $doc->createElement("billing");
 $domain->appendChild($billing);
@@ -1655,7 +1696,10 @@ $domain_billing_language_pref_2->appendChild($doc->createCDATASection($billing_l
 $billing->appendChild($domain_billing_language_pref_2);	
 $domain_billing_protected = $doc->createElement("billing_protected");	
 $domain_billing_protected->appendChild($doc->createCDATASection($billing_protected));	
-$billing->appendChild($domain_billing_protected);		
+$billing->appendChild($domain_billing_protected);
+$domain_billing_remark_values = $doc->createElement("billing_remark_values");
+$domain_billing_remark_values->appendChild($doc->createCDATASection($billing_remark_values));	
+$billing->appendChild($domain_billing_remark_values);	
 $domain->appendChild($billing);	
 
 $reseller = $doc->createElement("reseller");

@@ -55,19 +55,19 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 41)	{ // admin
 		var pre = '41';
-		var max = 15
+		var max = 16
 	}
-	else if (type == 42)	{ // tech
+	else if (type == 42)	{ // technical
 		var pre = '42';
-		var max = 15
+		var max = 16
 	}
 	else if (type == 43)	{ // billing
 		var pre = '43';
-		var max = 16
+		var max = 17
 	}
 	else if (type == 44)	{ // emergency
 		var pre = '44';
-		var max = 16
+		var max = 17
 	}
 	else if (type == 50)	{ // reseller
 		var pre = '50';
@@ -156,9 +156,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("admin_role").textContent = "";
 		document.getElementById("admin_web_id").textContent = proposed;
 		document.getElementById("admin_protected").textContent = proposed;
-		document.getElementById("tech_role").textContent = "";
-		document.getElementById("tech_web_id").textContent = proposed;
-		document.getElementById("tech_protected").textContent = proposed;
+		document.getElementById("technical_role").textContent = "";
+		document.getElementById("technical_web_id").textContent = proposed;
+		document.getElementById("technical_protected").textContent = proposed;
 		document.getElementById("billing_role").textContent = "";
 		document.getElementById("billing_protected").textContent = proposed;
 		document.getElementById("emergency_role").textContent = "";
@@ -218,9 +218,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("admin_role").textContent = "Het administratief aanspreekpunt beantwoordt een verzoek en stuurt zo nodig door.";
 		document.getElementById("admin_web_id").textContent = proposed;
 		document.getElementById("admin_protected").textContent = proposed;
-		document.getElementById("tech_role").textContent = "Een technisch contact reageert om een gemelde storing op te lossen.";
-		document.getElementById("tech_web_id").textContent = proposed;
-		document.getElementById("tech_protected").textContent = proposed;
+		document.getElementById("technical_role").textContent = "Een technisch contact reageert om een gemelde storing op te lossen.";
+		document.getElementById("technical_web_id").textContent = proposed;
+		document.getElementById("technical_protected").textContent = proposed;
 		document.getElementById("billing_role").textContent = "Sommige domain registries houden gegevens bij om hun facturering uit te voeren.";
 		document.getElementById("billing_protected").textContent = proposed;
 		document.getElementById("emergency_role").textContent = proposed + "Een verantwoordelijke persoon kan de benodigde toegang verlenen.";
@@ -281,9 +281,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("admin_role").textContent = "The administratively responsible desk answers a request, and forwards on if necessary.";
 		document.getElementById("admin_web_id").textContent = proposed;
 		document.getElementById("admin_protected").textContent = proposed;
-		document.getElementById("tech_role").textContent = "A technical contact responds to resolve a reported malfunction.";
-		document.getElementById("tech_web_id").textContent = proposed;
-		document.getElementById("tech_protected").textContent = proposed;
+		document.getElementById("technical_role").textContent = "A technical contact responds to resolve a reported malfunction.";
+		document.getElementById("technical_web_id").textContent = proposed;
+		document.getElementById("technical_protected").textContent = proposed;
 		document.getElementById("billing_role").textContent = "Some domain registries maintain records to perform their billing.";
 		document.getElementById("billing_protected").textContent = proposed;
 		document.getElementById("emergency_role").textContent = proposed + "A responsible person can provide the necessary access.";
@@ -343,9 +343,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("admin_role").textContent = "Die administrativ zuständige Stelle beantwortet eine Anfrage und leitet sie gegebenenfalls weiter.";
 		document.getElementById("admin_web_id").textContent = proposed;
 		document.getElementById("admin_protected").textContent = proposed;
-		document.getElementById("tech_role").textContent = "Ein technischer Kontakt reagiert, um eine gemeldete Störung zu beheben.";
-		document.getElementById("tech_web_id").textContent = proposed;
-		document.getElementById("tech_protected").textContent = proposed;
+		document.getElementById("technical_role").textContent = "Ein technischer Kontakt reagiert, um eine gemeldete Störung zu beheben.";
+		document.getElementById("technical_web_id").textContent = proposed;
+		document.getElementById("technical_protected").textContent = proposed;
 		document.getElementById("billing_role").textContent = "Einige Domänenregistrierungen führen Aufzeichnungen, um ihre Abrechnung durchzuführen.";
 		document.getElementById("billing_protected").textContent = proposed;
 		document.getElementById("emergency_role").textContent = proposed + "Die erforderlichen Zugänge kann eine verantwortliche Person bereitstellen.";
@@ -405,9 +405,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("admin_role").textContent = "Le bureau administrativement responsable répond à une demande, et la transmet si nécessaire.";
 		document.getElementById("admin_web_id").textContent = proposed;
 		document.getElementById("admin_protected").textContent = proposed;
-		document.getElementById("tech_role").textContent = "Un contact technique répond pour résoudre un dysfonctionnement signalé.";
-		document.getElementById("tech_web_id").textContent = proposed;
-		document.getElementById("tech_protected").textContent = proposed;
+		document.getElementById("technical_role").textContent = "Un contact technique répond pour résoudre un dysfonctionnement signalé.";
+		document.getElementById("technical_web_id").textContent = proposed;
+		document.getElementById("technical_protected").textContent = proposed;
 		document.getElementById("billing_role").textContent = "Certains registres de domaine conservent des enregistrements pour effectuer leur facturation.";
 		document.getElementById("billing_protected").textContent = proposed;
 		document.getElementById("emergency_role").textContent = proposed + "Une personne responsable peut fournir l'accès nécessaire.";
@@ -603,7 +603,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4021" style="display:none"><td>registrant_event_verification_received</td><td>'.$item->registrant->registrant_event_verification_received.'</td><td id="registrant_event_verification_received"></td></tr>';
 	$html_text .= '<tr id="4022" style="display:none"><td>registrant_event_verification_set</td><td>'.$item->registrant->registrant_event_verification_set.'</td><td id="registrant_event_verification_set"></td></tr>';
 	$html_text .= '<tr id="4023" style="display:none;vertical-align:top"><td>registrant_remark_values</td><td>'.$item->registrant->registrant_remark_values.'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(41)">Admin / Decision +/-</button></td><td></td><td id="admin_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(41)">Administrative / Decision +/-</button></td><td></td><td id="admin_role"></td></tr>';
 	$html_text .= '<tr id="411" style="display:none"><td>admin_handle</td><td>'.$item->admin->admin_handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="412" style="display:none"><td>admin_web_id</td><td>'.$item->admin->admin_web_id.'</td><td id="admin_web_id"></td></tr>';
 	$html_text .= '<tr id="413" style="display:none"><td>admin_full_name</td><td>'.$item->admin->admin_full_name.'</td><td></td></tr>';
@@ -620,23 +620,25 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4113" style="display:none"><td>admin_language_pref_1</td><td>'.$item->admin->admin_language_pref_1.'</td><td></td></tr>';
 	$html_text .= '<tr id="4114" style="display:none"><td>admin_language_pref_2</td><td>'.$item->admin->admin_language_pref_2.'</td><td></td></tr>';
 	$html_text .= '<tr id="4115" style="display:none"><td>admin_protected</td><td>'.$item->admin->admin_protected.'</td><td id="admin_protected"></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(42)">Tech / Onsite +/-</button></td><td></td><td id="tech_role"></td></tr>';
-	$html_text .= '<tr id="421" style="display:none"><td>tech_handle</td><td>'.$item->tech->tech_handle.'</td><td></td></tr>';
-	$html_text .= '<tr id="422" style="display:none"><td>tech_web_id</td><td>'.$item->tech->tech_web_id.'</td><td id="tech_web_id"></td></tr>';
-	$html_text .= '<tr id="423" style="display:none"><td>tech_full_name</td><td>'.$item->tech->tech_full_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="424" style="display:none"><td>tech_kind</td><td>'.$item->tech->tech_kind.'</td><td></td></tr>';
-	$html_text .= '<tr id="425" style="display:none"><td>tech_name</td><td>'.$item->tech->tech_name.'</td><td></td></tr>';
-	$html_text .= '<tr><td>tech_email</td><td>'.$item->tech->tech_email.'</td><td></td></tr>';
-	$html_text .= '<tr id="426" style="display:none"><td>tech_tel</td><td>'.$item->tech->tech_tel.'</td><td></td></tr>';
-	$html_text .= '<tr id="427" style="display:none"><td>tech_country_code</td><td>'.$item->tech->tech_country_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="428" style="display:none"><td>tech_street</td><td>'.$item->tech->tech_street.'</td><td></td></tr>';
-	$html_text .= '<tr id="429" style="display:none"><td>tech_city</td><td>'.$item->tech->tech_city.'</td><td></td></tr>';
-	$html_text .= '<tr id="4210" style="display:none"><td>tech_state_province</td><td>'.$item->tech->tech_state_province.'</td><td></td></tr>';
-	$html_text .= '<tr id="4211" style="display:none"><td>tech_postal_code</td><td>'.$item->tech->tech_postal_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="4212" style="display:none"><td>tech_country</td><td>'.$item->tech->tech_country.'</td><td></td></tr>';
-	$html_text .= '<tr id="4213" style="display:none"><td>tech_language_pref_1</td><td>'.$item->tech->tech_language_pref_1.'</td><td></td></tr>';
-	$html_text .= '<tr id="4214" style="display:none"><td>tech_language_pref_2</td><td>'.$item->tech->tech_language_pref_2.'</td><td></td></tr>';
-	$html_text .= '<tr id="4215" style="display:none"><td>tech_protected</td><td>'.$item->tech->tech_protected.'</td><td id="tech_protected"></td></tr>';
+	$html_text .= '<tr id="4116" style="display:none;vertical-align:top"><td>admin_remark_values</td><td>'.$item->admin->admin_remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(42)">Technical / Onsite +/-</button></td><td></td><td id="technical_role"></td></tr>';
+	$html_text .= '<tr id="421" style="display:none"><td>technical_handle</td><td>'.$item->technical->technical_handle.'</td><td></td></tr>';
+	$html_text .= '<tr id="422" style="display:none"><td>technical_web_id</td><td>'.$item->technical->technical_web_id.'</td><td id="technical_web_id"></td></tr>';
+	$html_text .= '<tr id="423" style="display:none"><td>technical_full_name</td><td>'.$item->technical->technical_full_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="424" style="display:none"><td>technical_kind</td><td>'.$item->technical->technical_kind.'</td><td></td></tr>';
+	$html_text .= '<tr id="425" style="display:none"><td>technical_name</td><td>'.$item->technical->technical_name.'</td><td></td></tr>';
+	$html_text .= '<tr><td>technical_email</td><td>'.$item->technical->technical_email.'</td><td></td></tr>';
+	$html_text .= '<tr id="426" style="display:none"><td>technical_tel</td><td>'.$item->technical->technical_tel.'</td><td></td></tr>';
+	$html_text .= '<tr id="427" style="display:none"><td>technical_country_code</td><td>'.$item->technical->technical_country_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="428" style="display:none"><td>technical_street</td><td>'.$item->technical->technical_street.'</td><td></td></tr>';
+	$html_text .= '<tr id="429" style="display:none"><td>technical_city</td><td>'.$item->technical->technical_city.'</td><td></td></tr>';
+	$html_text .= '<tr id="4210" style="display:none"><td>technical_state_province</td><td>'.$item->technical->technical_state_province.'</td><td></td></tr>';
+	$html_text .= '<tr id="4211" style="display:none"><td>technical_postal_code</td><td>'.$item->technical->technical_postal_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="4212" style="display:none"><td>technical_country</td><td>'.$item->technical->technical_country.'</td><td></td></tr>';
+	$html_text .= '<tr id="4213" style="display:none"><td>technical_language_pref_1</td><td>'.$item->technical->technical_language_pref_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="4214" style="display:none"><td>technical_language_pref_2</td><td>'.$item->technical->technical_language_pref_2.'</td><td></td></tr>';
+	$html_text .= '<tr id="4215" style="display:none"><td>technical_protected</td><td>'.$item->technical->technical_protected.'</td><td id="technical_protected"></td></tr>';
+	$html_text .= '<tr id="4216" style="display:none;vertical-align:top"><td>technical_remark_values</td><td>'.$item->technical->technical_remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(43)">Billing +/-</button></td><td></td><td id="billing_role"></td></tr>';
 	$html_text .= '<tr id="431" style="display:none"><td>billing_handle</td><td>'.$item->billing->billing_handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="432" style="display:none"><td>billing_web_id</td><td>'.$item->billing->billing_web_id.'</td><td></td></tr>';
@@ -654,6 +656,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4314" style="display:none"><td>billing_language_pref_1</td><td>'.$item->billing->billing_language_pref_1.'</td><td></td></tr>';
 	$html_text .= '<tr id="4315" style="display:none"><td>billing_language_pref_2</td><td>'.$item->billing->billing_language_pref_2.'</td><td></td></tr>';
 	$html_text .= '<tr id="4316" style="display:none"><td>billing_protected</td><td>'.$item->billing->billing_protected.'</td><td id="billing_protected"></td></tr>';
+	$html_text .= '<tr id="4317" style="display:none;vertical-align:top"><td>billing_remark_values</td><td>'.$item->billing->billing_remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(44)">Emergency +/-</button></td><td></td><td id="emergency_role"></td></tr>';
 	$html_text .= '<tr id="441" style="display:none"><td>emergency_handle</td><td>'.$item->emergency->emergency_handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="442" style="display:none"><td>emergency_web_id</td><td>'.$item->emergency->emergency_web_id.'</td><td id="emergency_web_id"></td></tr>';
@@ -671,6 +674,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4414" style="display:none"><td>emergency_language_pref_1</td><td>'.$item->emergency->emergency_language_pref_1.'</td><td></td></tr>';
 	$html_text .= '<tr id="4415" style="display:none"><td>emergency_language_pref_2</td><td>'.$item->emergency->emergency_language_pref_2.'</td><td></td></tr>';
 	$html_text .= '<tr id="4416" style="display:none"><td>emergency_protected</td><td>'.$item->emergency->emergency_protected.'</td><td id="emergency_protected"></td></tr>';
+	$html_text .= '<tr id="4417" style="display:none;vertical-align:top"><td>emergency_remark_values</td><td>'.$item->emergency->emergency_remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(50)">Reseller +/-</button></td><td></td><td id="reseller_role"></td></tr>';
 	$html_text .= '<tr id="501" style="display:none"><td>reseller_handle</td><td>'.$item->reseller->reseller_handle.'</td><td></td></tr>';
