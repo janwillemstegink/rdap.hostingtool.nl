@@ -44,9 +44,9 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>registrant_full_name</td><td>'.$item->registrant->registrant_full_name.'</td></tr>';
 	$html_text .= '<tr><td>registrant_kind</td><td>'.$item->registrant->registrant_kind.'</td></tr>';
 	$html_text .= '<tr><td>registrant_name</td><td>'.$item->registrant->registrant_name.'</td></tr>';
+	$html_text .= '<tr><td>registrant_email</td><td>'.$item->registrant->registrant_email.'</td></tr>';
 	$html_text .= '<tr><td>registrant_tel</td><td>'.$item->registrant->registrant_tel.'</td></tr>';
 	$html_text .= '<tr><td>registrant_country_code</td><td>'.$item->registrant->registrant_country_code.'</td></tr>';
-	$html_text .= '<tr><td>registrant_email</td><td>'.$item->registrant->registrant_email.'</td></tr>';
 	$html_text .= '<tr><td>registrant_street</td><td>'.$item->registrant->registrant_street.'</td></tr>';
 	$html_text .= '<tr><td>registrant_postal_code</td><td>'.$item->registrant->registrant_postal_code.'</td></tr>';
 	$html_text .= '<tr><td>registrant_city</td><td>'.$item->registrant->registrant_city.'</td></tr>';
@@ -59,9 +59,9 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>admin_full_name</td><td>'.$item->admin->admin_full_name.'</td></tr>';
 	$html_text .= '<tr><td>admin_kind</td><td>'.$item->admin->admin_kind.'</td></tr>';
 	$html_text .= '<tr><td>admin_name</td><td>'.$item->admin->admin_name.'</td></tr>';
+	$html_text .= '<tr><td>admin_email</td><td>'.$item->admin->admin_email.'</td></tr>';
 	$html_text .= '<tr><td>admin_tel</td><td>'.$item->admin->admin_tel.'</td></tr>';
 	$html_text .= '<tr><td>admin_country_code</td><td>'.$item->admin->admin_country_code.'</td></tr>';
-	$html_text .= '<tr><td>admin_email</td><td>'.$item->admin->admin_email.'</td></tr>';
 	$html_text .= '<tr><td>admin_street</td><td>'.$item->admin->admin_street.'</td></tr>';
 	$html_text .= '<tr><td>admin_postal_code</td><td>'.$item->admin->admin_postal_code.'</td></tr>';
 	$html_text .= '<tr><td>admin_city</td><td>'.$item->admin->admin_city.'</td></tr>';
@@ -74,9 +74,9 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>billing_full_name</td><td>'.$item->billing->billing_full_name.'</td></tr>';
 	$html_text .= '<tr><td>billing_kind</td><td>'.$item->billing->billing_kind.'</td></tr>';
 	$html_text .= '<tr><td>billing_name</td><td>'.$item->billing->billing_name.'</td></tr>';
+	$html_text .= '<tr><td>billing_email</td><td>'.$item->billing->billing_email.'</td></tr>';
 	$html_text .= '<tr><td>billing_tel</td><td>'.$item->billing->billing_tel.'</td></tr>';
 	$html_text .= '<tr><td>billing_country_code</td><td>'.$item->billing->billing_country_code.'</td></tr>';
-	$html_text .= '<tr><td>billing_email</td><td>'.$item->billing->billing_email.'</td></tr>';
 	$html_text .= '<tr><td>billing_street</td><td>'.$item->billing->billing_street.'</td></tr>';
 	$html_text .= '<tr><td>billing_postal_code</td><td>'.$item->billing->billing_postal_code.'</td></tr>';
 	$html_text .= '<tr><td>billing_city</td><td>'.$item->billing->billing_city.'</td></tr>';
