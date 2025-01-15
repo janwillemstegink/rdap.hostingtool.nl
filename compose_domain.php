@@ -48,7 +48,7 @@ if ($inputbatch)	{
 else	{
 	$command = escapeshellcmd("python3.9 /home/admin/get_domain_data.py");
 	//$raw_whois_data = shell_exec($command . " " . $inputdomain . " 2>&1");
-	$raw_whois_data = nl2br(shell_exec($command . " " . $inputdomain));
+	$raw_whois_data = nl2br(htmlspecialchars(shell_exec($command . " " . $inputdomain)));
 }
 	
 $zone_top_level_domain = mb_substr($inputdomain, strrpos($inputdomain, '.') + 1);
@@ -411,13 +411,13 @@ $entity_key4_sponsor = -1;
 $raw_rdap_data = '';
 	
 foreach($obj as $key1 => $value1) {
-	$raw_rdap_data .= $key1 . ': ' . $value1 . '<br />';
+	$raw_rdap_data .= $key1 . ': ' . $value1 . "\r\n";
     foreach($value1 as $key2 => $value2) {
-		$raw_rdap_data .= "+". $key2 . ': ' . $value2 . '<br />';
+		$raw_rdap_data .= "+". $key2 . ': ' . $value2 . "\r\n";
 		foreach($value2 as $key3 => $value3) {
-			$raw_rdap_data .= "++" . $key3 . ': ' . $value3 . '<br />';
+			$raw_rdap_data .= "++" . $key3 . ': ' . $value3 . "\r\n";
 			foreach($value3 as $key4 => $value4) {
-				$raw_rdap_data .= "+++" . $key4 . ': ' . $value4 . '<br />';
+				$raw_rdap_data .= "+++" . $key4 . ': ' . $value4 . "\r\n";
 				if ($value4 == 'registrant')	{
 					$entity_registrant = $key2;
 				}
@@ -440,9 +440,9 @@ foreach($obj as $key1 => $value1) {
 					$entity_sponsor = $key2;
 				}
 				foreach($value4 as $key5 => $value5) {
-					$raw_rdap_data .= "++++" . $key5 . ': ' . $value5 . '<br />';
+					$raw_rdap_data .= "++++" . $key5 . ': ' . $value5 . "\r\n";
 					foreach($value5 as $key6 => $value6) {
-						$raw_rdap_data .= "+++++" . $key6 . ': ' . $value6 . '<br />';
+						$raw_rdap_data .= "+++++" . $key6 . ': ' . $value6 . "\r\n";
 						if ($value6 == 'registrant')	{
 							$entity_key4_registrant = $key4;
 						}
@@ -468,11 +468,11 @@ foreach($obj as $key1 => $value1) {
 							$entity_key4_abuse = $key4;
 						}
 						foreach($value6 as $key7 => $value7) {
-							$raw_rdap_data .= "++++++" . $key7 . ': ' . $value7 . '<br />';
+							$raw_rdap_data .= "++++++" . $key7 . ': ' . $value7 . "\r\n";
 							foreach($value7 as $key8 => $value8) {
-								$raw_rdap_data .= "+++++++" . $key8 . ': ' . $value8 . '<br />';
+								$raw_rdap_data .= "+++++++" . $key8 . ': ' . $value8 . "\r\n";
 								foreach($value8 as $key9 => $value9) {
-									$raw_rdap_data .= "++++++++" . $key9 . ': ' . $value9 . '<br />';	
+									$raw_rdap_data .= "++++++++" . $key9 . ': ' . $value9 . "\r\n";	
 								}
 							}
 						}	
@@ -482,6 +482,7 @@ foreach($obj as $key1 => $value1) {
 		}
 	}
 }
+$raw_rdap_data = nl2br(htmlspecialchars($raw_rdap_data));	
 $raw_rdap_data = str_replace(' Array','', $raw_rdap_data);
 foreach($obj as $key1 => $value1) {
 	foreach($value1 as $key2 => $value2) {
