@@ -3,6 +3,7 @@
 //$_GET['domain'] = 'münchen.de';
 //$_GET['domain'] = 'example.tel';
 //$_GET['domain'] = 'nic.frl';
+//$_GET['domain'] = 'example.ovh';
 
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
@@ -1017,25 +1018,25 @@ foreach($obj as $key1 => $value1) {
 						}
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value6 == 'tel')	{
 							if ($key2 == $entity_registrant)	{
-								$registrant_tel .= implode(",",$value5[1]) . ' ' . $value5[3] . '<br />';
+								$registrant_tel .= implode("<br />",$value5[1]) . ' ' . $value5[3] . '<br />';
 							}
 							if ($key2 == $entity_admin)	{
-								$admin_tel .= implode(",",$value5[1]) . ' ' . $value5[3] . '<br />';
+								$admin_tel .= implode("<br />",$value5[1]) . ' ' . $value5[3] . '<br />';
 							}
 							if ($key2 == $entity_technical)	{
-								$technical_tel .= implode(",",$value5[1]) . ' ' . $value5[3] . '<br />';
+								$technical_tel .= implode("<br />",$value5[1]) . ' ' . $value5[3] . '<br />';
 							}
 							if ($key2 == $entity_billing)	{
-								$biiling_tel .= implode(",",$value5[1]) . ' ' . $value5[3] . '<br />';
+								$biiling_tel .= implode("<br />",$value5[1]) . ' ' . $value5[3] . '<br />';
 							}							
 							if ($key2 == $entity_reseller)	{
-								$reseller_tel .= implode(",",$value5[1]) . ' ' . $value5[3] . '<br />';
+								$reseller_tel .= implode("<br />",$value5[1]) . ' ' . $value5[3] . '<br />';
 							}
 							if ($key2 == $entity_registrar)	{
-								$registrar_tel .= implode(",",$value5[1]) . ' ' . $value5[3] . '<br />';
+								$registrar_tel .= implode("<br />",$value5[1]) . ' ' . $value5[3] . '<br />';
 							}
 							if ($key2 == $entity_sponsor)	{
-								$sponsor_tel .= implode(",",$value5[1]) . ' ' . $value5[3] . '<br />';
+								$sponsor_tel .= implode("<br />",$value5[1]) . ' ' . $value5[3] . '<br />';
 							}
 						}
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'adr' and $key6 == 1)	{
@@ -1068,53 +1069,53 @@ foreach($obj as $key1 => $value1) {
 						}
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'adr' and $key6 == 3)	{
 							if ($key2 == $entity_registrant)	{
-								$registrant_street = (is_array($value6[2])) ? implode(",",$value6[2]) : $value6[2];
-								$registrant_city = (is_array($value6[3])) ? implode(",",$value6[3]) : $value6[3];
-								$registrant_state_province = (is_array($value6[4])) ? implode(",",$value6[4]) : $value6[4];
-								$registrant_postal_code = (is_array($value6[5])) ? implode(",",$value6[5]) : $value6[5];
-								$registrant_country_name = (is_array($value6[6])) ? implode(",",$value6[6]) : $value6[6];
+								$registrant_street = (is_array($value6[2])) ? implode("<br />",$value6[2]) : $value6[2];
+								$registrant_city = (is_array($value6[3])) ? implode("<br />",$value6[3]) : $value6[3];
+								$registrant_state_province = (is_array($value6[4])) ? implode("<br />",$value6[4]) : $value6[4];
+								$registrant_postal_code = (is_array($value6[5])) ? implode("<br />",$value6[5]) : $value6[5];
+								$registrant_country_name = (is_array($value6[6])) ? implode("<br />",$value6[6]) : $value6[6];
 							}
 							if ($key2 == $entity_admin)	{
-								$admin_street = (is_array($value6[2])) ? implode(",",$value6[2]) : $value6[2];
-								$admin_city = (is_array($value6[3])) ? implode(",",$value6[3]) : $value6[3];
-								$admin_state_province = (is_array($value6[4])) ? implode(",",$value6[4]) : $value6[4];
-								$admin_postal_code = (is_array($value6[5])) ? implode(",",$value6[5]) : $value6[5];
-								$admin_country_name = (is_array($value6[6])) ? implode(",",$value6[6]) : $value6[6];
+								$admin_street = (is_array($value6[2])) ? implode("<br />",$value6[2]) : $value6[2];
+								$admin_city = (is_array($value6[3])) ? implode("<br />",$value6[3]) : $value6[3];
+								$admin_state_province = (is_array($value6[4])) ? implode("<br />",$value6[4]) : $value6[4];
+								$admin_postal_code = (is_array($value6[5])) ? implode("<br />",$value6[5]) : $value6[5];
+								$admin_country_name = (is_array($value6[6])) ? implode("<br />",$value6[6]) : $value6[6];
 							}	
 							if ($key2 == $entity_technical)	{
-								$technical_street = (is_array($value6[2])) ? implode(",",$value6[2]) : $value6[2];
-								$technical_city = (is_array($value6[3])) ? implode(",",$value6[3]) : $value6[3];
-								$technical_state_province = (is_array($value6[4])) ? implode(",",$value6[4]) : $value6[4];
-								$technical_postal_code = (is_array($value6[5])) ? implode(",",$value6[5]) : $value6[5];
-								$technical_country_name = (is_array($value6[6])) ? implode(",",$value6[6]) : $value6[6];
+								$technical_street = (is_array($value6[2])) ? implode("<br />",$value6[2]) : $value6[2];
+								$technical_city = (is_array($value6[3])) ? implode("<br />",$value6[3]) : $value6[3];
+								$technical_state_province = (is_array($value6[4])) ? implode("<br />",$value6[4]) : $value6[4];
+								$technical_postal_code = (is_array($value6[5])) ? implode("<br />",$value6[5]) : $value6[5];
+								$technical_country_name = (is_array($value6[6])) ? implode("<br />",$value6[6]) : $value6[6];
 							}
 							if ($key2 == $entity_billing)	{
-								$billing_street = (is_array($value6[2])) ? implode(",",$value6[2]) : $value6[2];
-								$billing_city = (is_array($value6[3])) ? implode(",",$value6[3]) : $value6[3];
-								$billing_state_province = (is_array($value6[4])) ? implode(",",$value6[4]) : $value6[4];
-								$billing_postal_code = (is_array($value6[5])) ? implode(",",$value6[5]) : $value6[5];
-								$billing_country_name = (is_array($value6[6])) ? implode(",",$value6[6]) : $value6[6];
+								$billing_street = (is_array($value6[2])) ? implode("<br />",$value6[2]) : $value6[2];
+								$billing_city = (is_array($value6[3])) ? implode("<br />",$value6[3]) : $value6[3];
+								$billing_state_province = (is_array($value6[4])) ? implode("<br />",$value6[4]) : $value6[4];
+								$billing_postal_code = (is_array($value6[5])) ? implode("<br />",$value6[5]) : $value6[5];
+								$billing_country_name = (is_array($value6[6])) ? implode("<br />",$value6[6]) : $value6[6];
 							}
 							if ($key2 == $entity_reseller)	{
-								$reseller_street = (is_array($value6[2])) ? implode(",",$value6[2]) : $value6[2];
-								$reseller_city = (is_array($value6[3])) ? implode(",",$value6[3]) : $value6[3];
-								$reseller_state_province = (is_array($value6[4])) ? implode(",",$value6[4]) : $value6[4];
-								$reseller_postal_code = (is_array($value6[5])) ? implode(",",$value6[5]) : $value6[5];
-								$reseller_country_name = (is_array($value6[6])) ? implode(",",$value6[6]) : $value6[6];
+								$reseller_street = (is_array($value6[2])) ? implode("<br />",$value6[2]) : $value6[2];
+								$reseller_city = (is_array($value6[3])) ? implode("<br />",$value6[3]) : $value6[3];
+								$reseller_state_province = (is_array($value6[4])) ? implode("<br />",$value6[4]) : $value6[4];
+								$reseller_postal_code = (is_array($value6[5])) ? implode("<br />",$value6[5]) : $value6[5];
+								$reseller_country_name = (is_array($value6[6])) ? implode("<br />",$value6[6]) : $value6[6];
 							}
 							if ($key2 == $entity_registrar)	{
-								$registrar_street = (is_array($value6[2])) ? implode(",",$value6[2]) : $value6[2];
-								$registrar_city = (is_array($value6[3])) ? implode(",",$value6[3]) : $value6[3];
-								$registrar_state_province = (is_array($value6[4])) ? implode(",",$value6[4]) : $value6[4];
-								$registrar_postal_code = (is_array($value6[5])) ? implode(",",$value6[5]) : $value6[5];
-								$registrar_country_name = (is_array($value6[6])) ? implode(",",$value6[6]) : $value6[6];	
+								$registrar_street = (is_array($value6[2])) ? implode("<br />",$value6[2]) : $value6[2];
+								$registrar_city = (is_array($value6[3])) ? implode("<br />",$value6[3]) : $value6[3];
+								$registrar_state_province = (is_array($value6[4])) ? implode("<br />",$value6[4]) : $value6[4];
+								$registrar_postal_code = (is_array($value6[5])) ? implode("<br />",$value6[5]) : $value6[5];
+								$registrar_country_name = (is_array($value6[6])) ? implode("<br />",$value6[6]) : $value6[6];	
 							}
 							if ($key2 == $entity_sponsor)	{
-								$sponsor_street = (is_array($value6[2])) ? implode(",",$value6[2]) : $value6[2];
-								$sponsor_city = (is_array($value6[3])) ? implode(",",$value6[3]) : $value6[3];
-								$sponsor_state_province = (is_array($value6[4])) ? implode(",",$value6[4]) : $value6[4];
-								$sponsor_postal_code = (is_array($value6[5])) ? implode(",",$value6[5]) : $value6[5];
-								$sponsor_country_name = (is_array($value6[6])) ? implode(",",$value6[6]) : $value6[6];
+								$sponsor_street = (is_array($value6[2])) ? implode("<br />",$value6[2]) : $value6[2];
+								$sponsor_city = (is_array($value6[3])) ? implode("<br />",$value6[3]) : $value6[3];
+								$sponsor_state_province = (is_array($value6[4])) ? implode("<br />",$value6[4]) : $value6[4];
+								$sponsor_postal_code = (is_array($value6[5])) ? implode("<br />",$value6[5]) : $value6[5];
+								$sponsor_country_name = (is_array($value6[6])) ? implode("<br />",$value6[6]) : $value6[6];
 							}
 						}	
 						if ($key2 == $entity_registrant and $key3 == 'remarks')	{
@@ -1137,7 +1138,7 @@ foreach($obj as $key1 => $value1) {
 										$registrar_abuse_email = $value7[3];
 									}
 									elseif ($value8 == 'tel')	{
-										$registrar_abuse_tel = implode(",",$value7[1]) . ' ' . $value7[3];							
+										$registrar_abuse_tel = implode("<br />",$value7[1]) . ' ' . $value7[3];							
 									}
 								}
 								//echo 'k4: '.$key4. ' v4: '.$value4.' k5: '.$key5.' v5: '.$value5.' k6: '.$key6.' v6: '.$value6.' k7: '.$key7.' value73: '.$value7[3].'<br />';
@@ -1163,22 +1164,22 @@ foreach($obj as $key1 => $value1) {
 								}
 								if ($key1 == 'entities' and $key5 == 'vcardArray' and $value8 == 'tel')	{
 									if ($key4 == $entity_key4_registrant)	{
-										$registrant_tel .= implode(",",$value7[1]) . ': ' . $value7[3] . '<br />';
+										$registrant_tel .= implode("<br />",$value7[1]) . ': ' . $value7[3] . '<br />';
 									}
 									if ($key4 == $entity_key4_admin)	{
-										$admin_tel .= implode(",",$value7[1]) . ': ' . $value7[3] . '<br />';
+										$admin_tel .= implode("<br />",$value7[1]) . ': ' . $value7[3] . '<br />';
 									}
 									if ($key4 == $entity_key4_tech)	{
-										$technical_tel .= implode(",",$value7[1]) . ': ' . $value7[3] . '<br />';
+										$technical_tel .= implode("<br />",$value7[1]) . ': ' . $value7[3] . '<br />';
 									}	
 									if ($key4 == $entity_key4_reseller)	{
-										$reseller_tel .= implode(",",$value7[1]) . ': ' . $value7[3] . '<br />';
+										$reseller_tel .= implode("<br />",$value7[1]) . ': ' . $value7[3] . '<br />';
 									}
 									if ($key4 == $entity_key4_registrar)	{
-										$registrar_tel .= implode(",",$value7[1]) . ': ' . $value7[3] . '<br />';
+										$registrar_tel .= implode("<br />",$value7[1]) . ': ' . $value7[3] . '<br />';
 									}
 									if ($key4 == $entity_key4_sponsor)	{
-										$sponsor_tel .= implode(",",$value7[1]) . ': ' . $value7[3] . '<br />';
+										$sponsor_tel .= implode("<br />",$value7[1]) . ': ' . $value7[3] . '<br />';
 									}							
 								}
 							}	
