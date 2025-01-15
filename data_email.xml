@@ -18,7 +18,7 @@
 			<registrant_city>Arnhem</registrant_city>
 			<registrant_state_province>Gelderland</registrant_state_province>
 			<registrant_country_name>Nederland</registrant_country_name>
-			<registrant_protected>name,tel,email,address</registrant_protected>
+			<registrant_shielded>name,tel,email,address</registrant_shielded>
 		</registrant>
 		<admin>
 			<admin_handle>STE135418-TRAIP</admin_handle>
@@ -34,7 +34,7 @@
 			<admin_city>Arnhem</admin_city>
 			<admin_state_province>Gelderland</admin_state_province>			
 			<admin_country_name>Nederland</admin_country_name>
-			<admin_protected>web_id,full_name,name,tel,address</admin_protected>
+			<admin_shielded>web_id,full_name,name,tel,address</admin_shielded>
 		</admin>
 		<billing>
 			<billing_handle></billing_handle>
@@ -50,7 +50,7 @@
 			<billing_city>Arnhem</billing_city>
 			<billing_state_province>Gelderland</billing_state_province>
 			<billing_country_name>Nederland</billing_country_name>
-			<billing_protected>web_id,full_name,name,tel,email,address</billing_protected>
+			<billing_shielded>web_id,full_name,name,tel,email,address</billing_shielded>
 		</billing>
 	</domain>
 </domains>
