@@ -411,13 +411,13 @@ $entity_key4_sponsor = -1;
 $raw_rdap_data = '';
 	
 foreach($obj as $key1 => $value1) {
-	$raw_rdap_data .= $key1 . ': ' . $value1 . "\r\n";
+	$raw_rdap_data .= $key1 . ': ' . $value1 . "\n";
     foreach($value1 as $key2 => $value2) {
-		$raw_rdap_data .= "+". $key2 . ': ' . $value2 . "\r\n";
+		$raw_rdap_data .= "+". $key2 . ': ' . $value2 . "\n";
 		foreach($value2 as $key3 => $value3) {
-			$raw_rdap_data .= "++" . $key3 . ': ' . $value3 . "\r\n";
+			$raw_rdap_data .= "++" . $key3 . ': ' . $value3 . "\n";
 			foreach($value3 as $key4 => $value4) {
-				$raw_rdap_data .= "+++" . $key4 . ': ' . $value4 . "\r\n";
+				$raw_rdap_data .= "+++" . $key4 . ': ' . $value4 . "\n";
 				if ($value4 == 'registrant')	{
 					$entity_registrant = $key2;
 				}
@@ -440,9 +440,9 @@ foreach($obj as $key1 => $value1) {
 					$entity_sponsor = $key2;
 				}
 				foreach($value4 as $key5 => $value5) {
-					$raw_rdap_data .= "++++" . $key5 . ': ' . $value5 . "\r\n";
+					$raw_rdap_data .= "++++" . $key5 . ': ' . $value5 . "\n";
 					foreach($value5 as $key6 => $value6) {
-						$raw_rdap_data .= "+++++" . $key6 . ': ' . $value6 . "\r\n";
+						$raw_rdap_data .= "+++++" . $key6 . ': ' . $value6 . "\n";
 						if ($value6 == 'registrant')	{
 							$entity_key4_registrant = $key4;
 						}
@@ -468,11 +468,11 @@ foreach($obj as $key1 => $value1) {
 							$entity_key4_abuse = $key4;
 						}
 						foreach($value6 as $key7 => $value7) {
-							$raw_rdap_data .= "++++++" . $key7 . ': ' . $value7 . "\r\n";
+							$raw_rdap_data .= "++++++" . $key7 . ': ' . $value7 . "\n";
 							foreach($value7 as $key8 => $value8) {
-								$raw_rdap_data .= "+++++++" . $key8 . ': ' . $value8 . "\r\n";
+								$raw_rdap_data .= "+++++++" . $key8 . ': ' . $value8 . "\n";
 								foreach($value8 as $key9 => $value9) {
-									$raw_rdap_data .= "++++++++" . $key9 . ': ' . $value9 . "\r\n";	
+									$raw_rdap_data .= "++++++++" . $key9 . ': ' . $value9 . "\n";	
 								}
 							}
 						}	
