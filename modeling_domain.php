@@ -255,7 +255,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_ip").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
 		document.getElementById("br_zone").textContent = "Zone .br: De RDAP-gegevens zijn aangepast met nameservervalidatie.";
 
-		document.getElementById("raw_data_next").textContent = "Deze tool toont een op verantwoordelijkheid gebaseerde veldvolgorde, de standaardwaarde 'hidden' en unieke veldnamen voor weergave.";	
+		document.getElementById("raw_data_next").textContent = "Deze tool toont een op verantwoordelijkheid gebaseerde veldvolgorde, de standaardwaarde 'not set' en unieke veldnamen voor weergave.";	
 	et }
 	else if (translation == 2)	{
 		var proposed = 'PROPOSED - ';
@@ -322,7 +322,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
 		document.getElementById("br_zone").textContent = "Zone .br: The RDAP data has been modified with name server validation.";
-		document.getElementById("raw_data_next").textContent = "This tool shows a responsibility based field order, the default value 'hidden', and unique field names for display.";
+		document.getElementById("raw_data_next").textContent = "This tool shows a responsibility based field order, the default value 'not set', and unique field names for display.";
 	}
 	else if (translation == 3)	{
 		var proposed = 'VORGESCHLAGEN - ';
@@ -389,7 +389,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 		document.getElementById("name_servers_ip").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
 		document.getElementById("br_zone").textContent = "Zone .br: Die RDAP-Daten wurden mit der Nameserver-Validierung angepasst.";
-		document.getElementById("raw_data_next").textContent = "Dieses Tool zeigt eine verantwortungsbasierte Feldreihenfolge an, dem Standardwert 'hidden' und eindeutigen Feldnamen für die Anzeige.";
+		document.getElementById("raw_data_next").textContent = "Dieses Tool zeigt eine verantwortungsbasierte Feldreihenfolge an, dem Standardwert 'not set' und eindeutigen Feldnamen für die Anzeige.";
 	}
 	else if (translation == 4)	{
 		var proposed = 'PROPOSÉ - ';
@@ -456,7 +456,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 		document.getElementById("name_servers_ip").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
 		document.getElementById("br_zone").textContent = "Zone .br: Les données RDAP ont été ajustées avec la validation du serveur de noms.";
-		document.getElementById("raw_data_next").textContent = "Cet outil affiche un ordre de champ basé sur la responsabilité, la valeur par défaut 'hidden' et des noms de champ uniques pour l'affichage.";
+		document.getElementById("raw_data_next").textContent = "Cet outil affiche un ordre de champ basé sur la responsabilité, la valeur par défaut 'not set' et des noms de champ uniques pour l'affichage.";
 	}
 }	
 </script><?php

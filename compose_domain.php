@@ -262,12 +262,12 @@ elseif ($obj['secureDNS']['delegationSigned'] === false)	{
 	$name_servers_dnssec = 'no';	
 }
 $registrant_handle = '';
-$registrant_full_name = '(hidden)';
+$registrant_full_name = 'not set';
 $registrant_kind = '';
 $registrant_name = '';
 $registrant_email = '';	
 $registrant_tel = '';
-$registrant_country_code = '(hidden)';
+$registrant_country_code = 'not set';
 $registrant_street = '';
 $registrant_city = '';
 $registrant_state_province = '';
@@ -1194,16 +1194,6 @@ foreach($obj as $key1 => $value1) {
 		}
 	}
 }	
-if (str_contains($status_values, 'locked'))	{	
-	if ($expiration == '(hidden)')	{
-		$expiration = '(not applicable)';	
-	}		
-}
-if (str_contains($status_values, 'redemption period') or str_contains($status_values, 'pending delete'))	{	
-	if (!strlen($deletion))	{
-		$deletion = '(without date-time)';	
-	}		
-}
 if ($inputbatch)	{
 	$raw_rdap_data = '';
 }
