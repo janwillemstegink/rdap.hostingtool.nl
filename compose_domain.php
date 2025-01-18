@@ -40,11 +40,11 @@ else	{
 	die("No domain name variable as input");
 }
 
-function detect_country_code($CC, $cc)	{	
-	$output = '';
-	if (strlen($CC))	$output = $CC.' (CC must be cc)';
-	if (strlen($cc))	$output = $cc;
-	return $output;
+function detect_country_code($inputdefault, $inputCC, $inputcc)	{	
+	$outputcc = $inputdefault;
+	if (strlen($inputCC))	$outputcc = $inputCC.' (CC must be cc)';
+	if (strlen($inputcc))	$outputcc = $inputcc;
+	return $outputcc;
 }
 
 function write_file($inputdomain, $inputbatch)	{
@@ -277,6 +277,9 @@ $registrant_shielded = 'name,email,tel,address';
 $registrant_language_pref_1 = '';
 $registrant_language_pref_2 = '';	
 $admin_handle = '';
+$admin_full_name = '';
+$admin_kind = '';
+$admin_name = '';	
 $admin_email = '';
 $admin_tel = '';
 $admin_country_code = '';	
@@ -289,6 +292,9 @@ $admin_shielded = 'web_id,full_name,name,tel,address';
 $admin_language_pref_1 = '';
 $admin_language_pref_2 = '';	
 $technical_handle = '';
+$technical_full_name = '';
+$technical_kind = '';
+$technical_name = '';	
 $technical_email	= '';
 $technical_tel = '';
 $technical_country_code = '';	
@@ -301,6 +307,9 @@ $technical_shielded = 'web_id,full_name,name,tel,address';
 $technical_language_pref_1 = '';
 $technical_language_pref_2 = '';	
 $billing_handle = '';
+$billing_full_name = '';
+$billing_kind = '';
+$billing_name = '';		
 $billing_email = '';
 $billing_tel = '';
 $billing_country_code = '';	
@@ -1048,27 +1057,26 @@ foreach($obj as $key1 => $value1) {
 							}
 						}
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'adr' and $key6 == 1)	{
-							$country_code = detect_country_code($value6['CC'], $value6['cc']);
 							if ($key2 == $entity_registrant)	{
-								$registrant_country_code = $country_code;
+								$registrant_country_code = detect_country_code($registrant_country_code, $value6['CC'], $value6['cc']);
 							}
 							if ($key2 == $entity_admin)	{
-								$admin_country_code = $country_code;
+								$admin_country_code = detect_country_code($admin_country_code, $value6['CC'], $value6['cc']);
 							}	
 							if ($key2 == $entity_technical)	{
-								$technical_country_code = $country_code;
+								$technical_country_code = detect_country_code($technical_country_code, $value6['CC'], $value6['cc']);
 							}
 							if ($key2 == $entity_billing)	{
-								$billing_country_code = $country_code;
+								$billing_country_code = detect_country_code($billing_country_code, $value6['CC'], $value6['cc']);
 							}
 							if ($key2 == $entity_reseller)	{
-								$reseller_country_code = $country_code;
+								$reseller_country_code = detect_country_code($reseller_country_code, $value6['CC'], $value6['cc']);
 							}
 							if ($key2 == $entity_registrar)	{
-								$registrar_country_code = $country_code;
+								$registrar_country_code = detect_country_code($registrar_country_code, $value6['CC'], $value6['cc']);
 							}
 							if ($key2 == $entity_sponsor)	{
-								$sponsor_country_code = $country_code;
+								$sponsor_country_code = detect_country_code($sponsor_country_code, $value6['CC'], $value6['cc']);
 							}
 						}
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'adr' and $key6 == 3)	{
