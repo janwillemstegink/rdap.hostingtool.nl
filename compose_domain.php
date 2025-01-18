@@ -40,6 +40,13 @@ else	{
 	die("No domain name variable as input");
 }
 
+function detect_country_code($CC, $cc)	{	
+	$output = '';
+	if (strlen($CC))	$output = $CC.' (CC must be cc)';
+	if (strlen($cc))	$output = $cc;
+	return $output;
+}
+
 function write_file($inputdomain, $inputbatch)	{
 	
 if ($inputbatch)	{
@@ -1041,31 +1048,27 @@ foreach($obj as $key1 => $value1) {
 							}
 						}
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'adr' and $key6 == 1)	{
+							$country_code = detect_country_code($value6['CC'], $value6['cc']);
 							if ($key2 == $entity_registrant)	{
-								if (strlen($value6['CC']))	{
-									$registrant_country_code = $value6['CC'] . ' (field index CC must be cc)';
-								}
-								if (strlen($value6['cc']))	{
-									$registrant_country_code = $value6['cc'];
-								}
+								$registrant_country_code = $country_code;
 							}
 							if ($key2 == $entity_admin)	{
-								$admin_country_code = $value6['cc'];
+								$admin_country_code = $country_code;
 							}	
 							if ($key2 == $entity_technical)	{
-								$technical_country_code = $value6['cc'];
+								$technical_country_code = $country_code;
 							}
 							if ($key2 == $entity_billing)	{
-								$billing_country_code = $value6['cc'];
+								$billing_country_code = $country_code;
 							}
 							if ($key2 == $entity_reseller)	{
-								$reseller_country_code = $value6['cc'];
+								$reseller_country_code = $country_code;
 							}
 							if ($key2 == $entity_registrar)	{
-								$registrar_country_code = $value6['cc'];	
+								$registrar_country_code = $country_code;
 							}
 							if ($key2 == $entity_sponsor)	{
-								$sponsor_country_code = $value6['cc'];
+								$sponsor_country_code = $country_code;
 							}
 						}
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'adr' and $key6 == 3)	{
