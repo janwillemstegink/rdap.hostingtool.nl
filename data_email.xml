@@ -20,22 +20,22 @@
 			<registrant_country_name>Nederland</registrant_country_name>
 			<registrant_shielded>name,tel,email,address</registrant_shielded>
 		</registrant>
-		<admin>
-			<admin_handle>STE135418-TRAIP</admin_handle>
-			<admin_web_id>NL88COMM01234567890123456789012345</admin_web_id>
-			<admin_full_name><![CDATA[Stegink Hosting & E-mail]]></admin_full_name>
-			<admin_kind>org</admin_kind>
-			<admin_name>Jan Willem Stegink</admin_name>
-			<admin_email>admindesk@janwillemstegink.nl</admin_email>
-			<admin_tel>voice +31.264453916</admin_tel>
-			<admin_country_code>NL</admin_country_code>
-			<admin_street>Dr. Schaepmanlaan 44</admin_street>
-			<admin_postal_code>6823 AS</admin_postal_code>
-			<admin_city>Arnhem</admin_city>
-			<admin_state_province>Gelderland</admin_state_province>			
-			<admin_country_name>Nederland</admin_country_name>
-			<admin_shielded>web_id,full_name,name,tel,address</admin_shielded>
-		</admin>
+		<administrative>
+			<administrative_handle>STE135418-TRAIP</administrative_handle>
+			<administrative_web_id>NL88COMM01234567890123456789012345</administrative_web_id>
+			<administrative_full_name><![CDATA[Stegink Hosting & E-mail]]></administrative_full_name>
+			<administrative_kind>org</administrative_kind>
+			<administrative_name>Jan Willem Stegink</administrative_name>
+			<administrative_email>admindesk@janwillemstegink.nl</administrative_email>
+			<administrative_tel>voice +31.264453916</administrative_tel>
+			<administrative_country_code>NL</administrative_country_code>
+			<administrative_street>Dr. Schaepmanlaan 44</administrative_street>
+			<administrative_postal_code>6823 AS</administrative_postal_code>
+			<administrative_city>Arnhem</administrative_city>
+			<administrative_state_province>Gelderland</administrative_state_province>			
+			<administrative_country_name>Nederland</administrative_country_name>
+			<administrative_shielded>web_id,full_name,name,tel,address</administrative_shielded>
+		</administrative>
 		<billing>
 			<billing_handle></billing_handle>
 			<billing_web_id>NL88COMM01234567890123456789012345</billing_web_id>
