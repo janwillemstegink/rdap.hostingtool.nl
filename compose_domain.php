@@ -216,8 +216,11 @@ $registrant_last_transferred = null;
 $registrant_last_changed = null;
 $registrant_expiration = null;	
 $registrant_deletion = null;
+$registrant_properties = '';		
 $registrant_remark_values = '';		
-$administrative_remark_values = '';	
+$administrative_properties = '';	
+$administrative_remark_values = '';
+$technical_properties = '';	
 $technical_remark_values = '';	
 $reseller_status_values = '';
 $reseller_registration = null;
@@ -225,7 +228,8 @@ $reseller_last_transferred = null;
 $reseller_last_changed = null;
 $reseller_expiration = null;	
 $reseller_deletion = null;
-$reseller_remark_values = '';	
+$reseller_properties = '';	
+$reseller_remark_values = '';		
 $registrar_status_values = '';	
 $registrar_registration = null;
 $registrar_last_transferred = null;	
@@ -233,13 +237,15 @@ $registrar_last_changed = null;
 $registrar_expiration = null;	
 $registrar_deletion = null;
 $registrar_iana_id = '';		
-$registrar_remark_values = '';	
+$registrar_properties = '';	
+$registrar_remark_values = '';		
 $sponsor_status_values = '';
 $sponsor_registration = null;
 $sponsor_last_transferred = null;	
 $sponsor_last_changed = null;
 $sponsor_expiration = null;	
 $sponsor_deletion = null;
+$sponsor_properties = '';
 $sponsor_remark_values = '';
 $handle = $obj['handle']; 	
 $name_ascii = $obj['ldhName'];
@@ -501,20 +507,25 @@ foreach($obj as $key1 => $value1) {
 $raw_rdap_data = nl2br(htmlspecialchars($raw_rdap_data));	
 $raw_rdap_data = str_replace(' Array','', $raw_rdap_data);
 foreach($obj as $key1 => $value1) {
+	if ($key1 == 'status')	{	
+		$status_values .= (is_array($value1)) ? implode("<br />", $value1) : $value1;
+	}
+	if ($key1 == 'extensions')	{	
+		$extensions_values .= (is_array($value1)) ? implode("<br />", $value1) : $value1;
+	}
 	foreach($value1 as $key2 => $value2) {
-		if ($key1 == 'status')	{
-			if (strlen($status_values))	{
-				$status_values .= ', <br />';				
-			}	
-			$status_values .= $value2;
-		}
-		if ($key1 == 'extensions')	{
-			if (strlen($extensions_values))	{
-				$extensions_values .= ', <br />';				
-			}	
-			$extensions_values .= $value2;
-		}
 		foreach($value2 as $key3 => $value3) {
+			if ($key1 == 'remarks')	{
+				if (strlen($remark_values))	{
+					$remark_values .= '<br />';				
+				}
+				if (!is_array($value3))	{
+					$remark_values .= $key3 . ': ' . $value3;
+				}
+				else	{
+					$remark_values .= $value3;
+				}				
+			}
 			if ($key1 == 'events')	{
 				if ($key3 == 'eventAction' and $value3 == 'registration')	{
 					$registration = $value2['eventDate'];
@@ -536,65 +547,69 @@ foreach($obj as $key1 => $value1) {
 				}
 					
 			}			
-			if ($key1 == 'entities' and $key3 == 'handle')	{
-				if ($key2 == $entity_registrant)	{
-					$registrant_handle = $value3;
-				}				
-				if ($key2 == $entity_administrative)	{
-					$administrative_handle = $value3;
+			if ($key1 == 'entities')	{
+				if ($key3 == 'handle')	{
+					if ($key2 == $entity_registrant)	{
+						$registrant_handle = $value3;
+					}				
+					if ($key2 == $entity_administrative)	{
+						$administrative_handle = $value3;
+					}
+					if ($key2 == $entity_technical)	{
+						$technical_handle = $value3;
+					}
+					if ($key2 == $entity_reseller)	{
+						$reseller_handle = $value3;
+					}
+					if ($key2 == $entity_registrar)	{
+						$registrar_handle = $value3;
+					}
+					if ($key2 == $entity_sponsor)	{
+						$sponsor_handle = $value3;
+					}	
 				}
-				if ($key2 == $entity_technical)	{
-					$technical_handle = $value3;
-				}
-				if ($key2 == $entity_reseller)	{
-					$reseller_handle = $value3;
-				}
-				if ($key2 == $entity_registrar)	{
-					$registrar_handle = $value3;
-				}
-				if ($key2 == $entity_sponsor)	{
-					$sponsor_handle = $value3;
-				}
-			}
-			if ($key1 == 'remarks')	{
-				if (strlen($remark_values))	{
-					$remark_values .= '<br />';				
-				}
-				if (!is_array($value3))	{
-					$remark_values .= $key3 . ': ' . $value3;
-				}
-				else	{
-					$remark_values .= $key3;
-				}	
-			}
-			foreach($value3 as $key4 => $value4) {
-				if ($key1 == 'entities')	{
-					if ($key2 == $entity_registrant and $key3 == 'status')	{
-						if (strlen($registrant_status_values))	{
-							$registrant_status_values .= ', <br />';				
-						}
-						$registrant_status_values .= $value4;
+				if ($key3 == 'status')	{
+					if ($key2 == $entity_registrant)	{
+						$registrant_status_values .= (is_array($value3)) ? implode("<br />", $value3) : $value3;
 						//$registrant_status_values .= $key1.'#'.$value1.'#'.$key2.'#'.$value2.'#'.$key3.'#'.$value3.'#'.$key4.'#'.$value4;
 					}
-					if ($key2 == $entity_reseller and $key3 == 'status')	{
-						if (strlen($reseller_status_values))	{
-							$reseller_status_values .= ', <br />';				
-						}	
-						$reseller_status_values .= $value4;
+					if ($key2 == $entity_reseller)	{
+						$reseller_status_values .= (is_array($value3)) ? implode("<br />", $value3) : $value3;
 					}
-					if ($key2 == $entity_registrar and $key3 == 'status')	{
-						if (strlen($registrar_status_values))	{
-							$registrar_status_values .= ', <br />';				
-						}	
-						$registrar_status_values .= $value4;
+					if ($key2 == $entity_registrar)	{
+						$registrar_status_values .= (is_array($value3)) ? implode("<br />", $value3) : $value3;
 					}
-					if ($key2 == $entity_sponsor and $key3 == 'status')	{
-						if (strlen($sponsor_status_values))	{
-							$sponsor_status_values .= ', <br />';				
-						}	
-						$sponsor_status_values .= $value4;
+					if ($key2 == $entity_sponsor)	{
+						$sponsor_status_values .= (is_array($value3)) ? implode("<br />", $value3) : $value3;
 					}
-				}	
+				}
+			}	
+			foreach($value3 as $key4 => $value4) {
+				if ($key1 == 'entities')	{
+					if ($key3 == 'properties' and $key4 == 'contact-uri')	{
+						if ($key2 == $entity_registrant)	{
+							$registrant_properties .= $key4 . ":<br />" . (is_array($value4)) ? implode("<br />", $value4) : $value4;
+						}
+						if ($key2 == $entity_administrative)	{
+							$administrative_properties .= $key4 . ":<br />" . (is_array($value4)) ? implode("<br />", $value4) : $value4;
+						}
+						if ($key2 == $entity_technical)	{
+							$technical_properties .= $key4 . ":<br />" . (is_array($value4)) ? implode("<br />", $value4) : $value4;
+						}
+						if ($key2 == $entity_billing)	{
+							$billing_properties .= $key4 . ":<br />" . (is_array($value4)) ? implode("<br />", $value4) : $value4;
+						}							
+						if ($key2 == $entity_reseller)	{
+							$reseller_properties .= $key4 . ":<br />" . (is_array($value4)) ? implode("<br />", $value4) : $value4;
+						}
+						if ($key2 == $entity_registrar)	{
+							$registrar_properties .= $key4 . ":<br />" . (is_array($value4)) ? implode("<br />", $value4) : $value4;
+						}
+						if ($key2 == $entity_sponsor)	{
+							$sponsor_properties .= $key4 . ":<br />" . (is_array($value4)) ? implode("<br />", $value4) : $value4;
+						}	
+					}
+				}
 				foreach($value4 as $key5 => $value5) {
 					if ($key1 == 'entities')	{
 						if ($key2 == $entity_registrant and $key3 == 'events')	{
@@ -681,6 +696,48 @@ foreach($obj as $key1 => $value1) {
 							elseif ($key5 == 'eventAction' and $value5 == 'last update of RDAP database')	{
 								$sponsor_last_uploaded = $value4['eventDate'];				
 							}
+						}
+						if ($key2 == $entity_registrant and $key3 == 'remarks')	{
+							if (strlen($registrant_remark_values))	{
+								$registrant_remark_values .= '<br />';				
+							}
+							$registrant_remark_values .= (is_array($value5)) ? $key5.': '.$value5 : $value5;	
+						}
+						if ($key2 == $entity_administrative and $key3 == 'remarks')	{
+							if (strlen($administrative_remark_values))	{
+								$administrative_remark_values .= '<br />';				
+							}
+							$administrative_remark_values .= (is_array($value5)) ? $key5.': '.$value5 : $value5;	
+						}
+						if ($key2 == $entity_technical and $key3 == 'remarks')	{
+							if (strlen($technical_remark_values))	{
+								$technical_remark_values .= '<br />';				
+							}
+							$technical_remark_values .= (is_array($value5)) ? $key5.': '.$value5 : $value5;
+						}
+						if ($key2 == $entity_billing and $key3 == 'remarks')	{
+							if (strlen($billing_remark_values))	{
+								$billing_remark_values .= '<br />';				
+							}
+							$billing_remark_values .= (is_array($value5)) ? $key5.': '.$value5 : $value5;	
+						}
+						if ($key2 == $entity_reseller and $key3 == 'remarks')	{
+							if (strlen($reseller_remark_values))	{
+								$reseller_remark_values .= '<br />';				
+							}
+							$reseller_remark_values .= (is_array($value5)) ? $key5.': '.$value5 : $value5;
+						}
+						if ($key2 == $entity_registrar and $key3 == 'remarks')	{
+							if (strlen($registrar_remark_values))	{
+								$registrar_remark_values .= '<br />';				
+							}
+							$registrar_remark_values .= (is_array($value5)) ? $key5.': '.$value5 : $value5;
+						}
+						if ($key2 == $entity_sponsor and $key3 == 'remarks')	{
+							if (strlen($sponsor_remark_values))	{
+								$sponsor_remark_values .= '<br />';				
+							}
+							$sponsor_remark_values .= (is_array($value5)) ? $key5.': '.$value5 : $value5;
 						}
 					}
 					if ($key1 == 'nameservers')	{
@@ -788,83 +845,7 @@ foreach($obj as $key1 => $value1) {
 						}
 					}
 					if ($key1 == 'entities')	{
-						if ($key2 == $entity_registrant and $key3 == 'remarks')	{
-							if (strlen($registrant_remark_values))	{
-								$registrant_remark_values .= '<br />';				
-							}
-							if (!is_array($value5))	{
-								$registrant_remark_values .= $key5 . ': ' . $value5;
-							}
-							else	{
-								$registrant_remark_values .= $key5;
-							}	
-						}
-						if ($key2 == $entity_administrative and $key3 == 'remarks')	{
-							if (strlen($administrative_remark_values))	{
-								$administrative_remark_values .= '<br />';				
-							}
-							if (!is_array($value5))	{
-								$administrative_remark_values .= $key5 . ': ' . $value5;
-							}
-							else	{
-								$administrative_remark_values .= $key5;
-							}	
-						}
-						if ($key2 == $entity_technical and $key3 == 'remarks')	{
-							if (strlen($technical_remark_values))	{
-								$technical_remark_values .= '<br />';				
-							}
-							if (!is_array($value5))	{
-								$technical_remark_values .= $key5 . ': ' . $value5;
-							}
-							else	{
-								$technical_remark_values .= $key5;
-							}	
-						}
-						if ($key2 == $entity_billing and $key3 == 'remarks')	{
-							if (strlen($billing_remark_values))	{
-								$billing_remark_values .= '<br />';				
-							}
-							if (!is_array($value5))	{
-								$billing_remark_values .= $key5 . ': ' . $value5;
-							}
-							else	{
-								$billing_remark_values .= $key5;
-							}	
-						}
-						if ($key2 == $entity_reseller and $key3 == 'remarks')	{
-							if (strlen($reseller_remark_values))	{
-								$reseller_remark_values .= '<br />';				
-							}
-							if (!is_array($value5))	{
-								$reseller_remark_values .= $key5 . ': ' . $value5;
-							}
-							else	{
-								$reseller_remark_values .= $key5;
-							}	
-						}
-						if ($key2 == $entity_registrar and $key3 == 'remarks')	{
-							if (strlen($registrar_remark_values))	{
-								$registrar_remark_values .= '<br />';				
-							}
-							if (!is_array($value5))	{
-								$registrar_remark_values .= $key5 . ': ' . $value5;
-							}
-							else	{
-								$registrar_remark_values .= $key5;
-							}
-						}
-						if ($key2 == $entity_sponsor and $key3 == 'remarks')	{
-							if (strlen($sponsor_remark_values))	{
-								$sponsor_remark_values .= '<br />';				
-							}
-							if (!is_array($value5))	{
-								$sponsor_remark_values .= $key5 . ': ' . $value5;
-							}
-							else	{					
-								$sponsor_remark_values .= $key5;
-							}
-						}	
+
 					}
 					foreach($value5 as $key6 => $value6) {
 						if ($key1 == 'entities' and $key3 == 'handle')	{
@@ -889,7 +870,7 @@ foreach($obj as $key1 => $value1) {
 							if ($key2 == $entity_sponsor)	{
 								$sponsor_handle = $value4['value'];
 							}
-						}
+						}												
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value6 == 'fn')	{
 							if ($key2 == $entity_registrant)	{
 								$registrant_full_name = $value5[3];
@@ -1044,7 +1025,7 @@ foreach($obj as $key1 => $value1) {
 								$technical_tel .= implode("<br />",$value5[1]) . ' ' . $value5[3] . '<br />';
 							}
 							if ($key2 == $entity_billing)	{
-								$biiling_tel .= implode("<br />",$value5[1]) . ' ' . $value5[3] . '<br />';
+								$billing_tel .= implode("<br />",$value5[1]) . ' ' . $value5[3] . '<br />';
 							}							
 							if ($key2 == $entity_reseller)	{
 								$reseller_tel .= implode("<br />",$value5[1]) . ' ' . $value5[3] . '<br />';
@@ -1197,7 +1178,7 @@ foreach($obj as $key1 => $value1) {
 							}	
 						}	
 					}					
-				}	
+				}
 			}
 		}
 	}
@@ -1544,6 +1525,9 @@ $registrant->appendChild($domain_registrant_event_deletion);
 $domain_registrant_event_last_uploaded = $doc->createElement("registrant_event_last_uploaded");
 $domain_registrant_event_last_uploaded->appendChild($doc->createCDATASection($registrant_last_uploaded));	
 $registrant->appendChild($domain_registrant_event_last_uploaded);
+$domain_registrant_properties = $doc->createElement("registrant_properties");
+$domain_registrant_properties->appendChild($doc->createCDATASection($registrant_properties));	
+$registrant->appendChild($domain_registrant_properties);
 $domain_registrant_remark_values = $doc->createElement("registrant_remark_values");
 $domain_registrant_remark_values->appendChild($doc->createCDATASection($registrant_remark_values));	
 $registrant->appendChild($domain_registrant_remark_values);		
@@ -1591,11 +1575,14 @@ $domain_administrative_language_pref_1 = $doc->createElement("administrative_lan
 $domain_administrative_language_pref_1->appendChild($doc->createCDATASection($administrative_language_pref_1));	
 $administrative->appendChild($domain_administrative_language_pref_1);
 $domain_administrative_language_pref_2 = $doc->createElement("administrative_language_pref_2");
-$domain_administrative_language_pref_2->appendChild($doc->createCDATASection($administrative_language_pref_2));	
+$domain_administrative_language_pref_2->appendChild($doc->createCDATASection($administrative_language_pref_2));
 $administrative->appendChild($domain_administrative_language_pref_2);	
 $domain_administrative_shielded = $doc->createElement("administrative_shielded");	
 $domain_administrative_shielded->appendChild($doc->createCDATASection($administrative_shielded));	
 $administrative->appendChild($domain_administrative_shielded);
+$domain_administrative_properties = $doc->createElement("administrative_properties");
+$domain_administrative_properties->appendChild($doc->createCDATASection($administrative_properties));	
+$administrative->appendChild($domain_administrative_properties);	
 $domain_administrative_remark_values = $doc->createElement("administrative_remark_values");
 $domain_administrative_remark_values->appendChild($doc->createCDATASection($administrative_remark_values));	
 $administrative->appendChild($domain_administrative_remark_values);	
@@ -1648,6 +1635,9 @@ $technical->appendChild($domain_technical_language_pref_2);
 $domain_technical_shielded = $doc->createElement("technical_shielded");	
 $domain_technical_shielded->appendChild($doc->createCDATASection($technical_shielded));	
 $technical->appendChild($domain_technical_shielded);
+$domain_technical_properties = $doc->createElement("technical_properties");
+$domain_technical_properties->appendChild($doc->createCDATASection($technical_properties));	
+$technical->appendChild($domain_technical_properties);	
 $domain_technical_remark_values = $doc->createElement("technical_remark_values");
 $domain_technical_remark_values->appendChild($doc->createCDATASection($technical_remark_values));	
 $technical->appendChild($domain_technical_remark_values);
@@ -1700,6 +1690,9 @@ $billing->appendChild($domain_billing_language_pref_2);
 $domain_billing_shielded = $doc->createElement("billing_shielded");	
 $domain_billing_shielded->appendChild($doc->createCDATASection($billing_shielded));	
 $billing->appendChild($domain_billing_shielded);
+$domain_billing_properties = $doc->createElement("billing_properties");
+$domain_billing_properties->appendChild($doc->createCDATASection($billing_properties));	
+$billing->appendChild($domain_billing_properties);
 $domain_billing_remark_values = $doc->createElement("billing_remark_values");
 $domain_billing_remark_values->appendChild($doc->createCDATASection($billing_remark_values));	
 $billing->appendChild($domain_billing_remark_values);	
@@ -1773,6 +1766,9 @@ $reseller->appendChild($domain_reseller_event_deletion);
 $domain_reseller_event_last_uploaded = $doc->createElement("reseller_event_last_uploaded");
 $domain_reseller_event_last_uploaded->appendChild($doc->createCDATASection($reseller_last_uploaded));	
 $reseller->appendChild($domain_reseller_event_last_uploaded);
+$domain_reseller_properties = $doc->createElement("reseller_properties");
+$domain_reseller_properties->appendChild($doc->createCDATASection($reseller_properties));	
+$reseller->appendChild($domain_reseller_properties);
 $domain_reseller_remark_values = $doc->createElement("reseller_remark_values");
 $domain_reseller_remark_values->appendChild($doc->createCDATASection($reseller_remark_values));	
 $reseller->appendChild($domain_reseller_remark_values);		
@@ -1849,6 +1845,9 @@ $registrar->appendChild($domain_registrar_event_deletion);
 $domain_registrar_event_last_uploaded = $doc->createElement("registrar_event_last_uploaded");
 $domain_registrar_event_last_uploaded->appendChild($doc->createCDATASection($registrar_last_uploaded));
 $registrar->appendChild($domain_registrar_event_last_uploaded);	
+$domain_registrar_properties = $doc->createElement("registrar_properties");
+$domain_registrar_properties->appendChild($doc->createCDATASection($registrar_properties));	
+$registrar->appendChild($domain_registrar_properties);
 $domain_registrar_remark_values = $doc->createElement("registrar_remark_values");
 $domain_registrar_remark_values->appendChild($doc->createCDATASection($registrar_remark_values));	
 $registrar->appendChild($domain_registrar_remark_values);	
@@ -1925,6 +1924,9 @@ $sponsor->appendChild($domain_sponsor_event_deletion);
 $domain_sponsor_event_last_uploaded = $doc->createElement("sponsor_event_last_uploaded");
 $domain_sponsor_event_last_uploaded->appendChild($doc->createCDATASection($sponsor_last_uploaded));	
 $sponsor->appendChild($domain_sponsor_event_last_uploaded);
+$domain_sponsor_properties = $doc->createElement("sponsor_properties");
+$domain_sponsor_properties->appendChild($doc->createCDATASection($sponsor_properties));	
+$sponsor->appendChild($domain_sponsor_properties);
 $domain_sponsor_remark_values = $doc->createElement("sponsor_remark_values");
 $domain_sponsor_remark_values->appendChild($doc->createCDATASection($sponsor_remark_values));	
 $sponsor->appendChild($domain_sponsor_remark_values);	

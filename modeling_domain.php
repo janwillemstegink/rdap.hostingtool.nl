@@ -51,31 +51,31 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 40)	{ // registrant
 		var pre = '40';
-		var max = 23
+		var max = 24
 	}
 	else if (type == 41)	{ // administrative
 		var pre = '41';
-		var max = 16
+		var max = 17
 	}
 	else if (type == 42)	{ // technical
 		var pre = '42';
-		var max = 16
+		var max = 17
 	}
 	else if (type == 43)	{ // billing
 		var pre = '43';
-		var max = 17
+		var max = 18
 	}
 	else if (type == 44)	{ // emergency
 		var pre = '44';
-		var max = 17
+		var max = 18
 	}
 	else if (type == 50)	{ // reseller
 		var pre = '50';
-		var max = 25
+		var max = 26
 	}	
 	else if (type == 60)	{ // registrar
 		var pre = '60';
-		var max = 27
+		var max = 28
 	}
 	else if (type == 61)	{ // abuse
 		var pre = '61';
@@ -83,7 +83,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 62)	{ // sponsor
 		var pre = '62';
-		var max = 27
+		var max = 28
 	}
 	else if (type == 63)	{ // name servers
 		var pre = '63';
@@ -627,7 +627,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4020" style="display:none"><td>registrant_event_last_uploaded</td><td>'.$item->registrant->registrant_event_last_uploaded.'</td><td id="registrant_event_last_uploaded"></td></tr>';
 	$html_text .= '<tr id="4021" style="display:none"><td>registrant_event_verification_received</td><td>'.$item->registrant->registrant_event_verification_received.'</td><td id="registrant_event_verification_received"></td></tr>';
 	$html_text .= '<tr id="4022" style="display:none"><td>registrant_event_verification_set</td><td>'.$item->registrant->registrant_event_verification_set.'</td><td id="registrant_event_verification_set"></td></tr>';
-	$html_text .= '<tr id="4023" style="display:none;vertical-align:top"><td>registrant_remark_values</td><td>'.$item->registrant->registrant_remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="4023" style="display:none;vertical-align:top"><td>registrant_properties</td><td>'.$item->registrant->registrant_properties.'</td><td></td></tr>';
+	$html_text .= '<tr id="4024" style="display:none;vertical-align:top"><td>registrant_remark_values</td><td>'.$item->registrant->registrant_remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(41)">Administrative / Decision +/-</button></td><td></td><td id="administrative_role"></td></tr>';
 	$html_text .= '<tr id="411" style="display:none"><td>administrative_handle</td><td>'.$item->administrative->administrative_handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="412" style="display:none"><td>administrative_web_id</td><td>'.$item->administrative->administrative_web_id.'</td><td id="administrative_web_id"></td></tr>';
@@ -645,7 +646,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4113" style="display:none"><td>administrative_language_pref_1</td><td>'.$item->administrative->administrative_language_pref_1.'</td><td></td></tr>';
 	$html_text .= '<tr id="4114" style="display:none"><td>administrative_language_pref_2</td><td>'.$item->administrative->administrative_language_pref_2.'</td><td></td></tr>';
 	$html_text .= '<tr id="4115" style="display:none"><td>administrative_shielded</td><td>'.$item->administrative->administrative_shielded.'</td><td id="administrative_shielded"></td></tr>';
-	$html_text .= '<tr id="4116" style="display:none;vertical-align:top"><td>administrative_remark_values</td><td>'.$item->administrative->administrative_remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="4116" style="display:none;vertical-align:top"><td>administrative_properties</td><td>'.$item->administrative->administrative_properties.'</td><td></td></tr>';
+	$html_text .= '<tr id="4117" style="display:none;vertical-align:top"><td>administrative_remark_values</td><td>'.$item->administrative->administrative_remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(42)">Technical / Onsite +/-</button></td><td></td><td id="technical_role"></td></tr>';
 	$html_text .= '<tr id="421" style="display:none"><td>technical_handle</td><td>'.$item->technical->technical_handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="422" style="display:none"><td>technical_web_id</td><td>'.$item->technical->technical_web_id.'</td><td id="technical_web_id"></td></tr>';
@@ -663,7 +665,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4213" style="display:none"><td>technical_language_pref_1</td><td>'.$item->technical->technical_language_pref_1.'</td><td></td></tr>';
 	$html_text .= '<tr id="4214" style="display:none"><td>technical_language_pref_2</td><td>'.$item->technical->technical_language_pref_2.'</td><td></td></tr>';
 	$html_text .= '<tr id="4215" style="display:none"><td>technical_shielded</td><td>'.$item->technical->technical_shielded.'</td><td id="technical_shielded"></td></tr>';
-	$html_text .= '<tr id="4216" style="display:none;vertical-align:top"><td>technical_remark_values</td><td>'.$item->technical->technical_remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="4216" style="display:none;vertical-align:top"><td>technical_properties</td><td>'.$item->technical->technical_properties.'</td><td></td></tr>';
+	$html_text .= '<tr id="4217" style="display:none;vertical-align:top"><td>technical_remark_values</td><td>'.$item->technical->technical_remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(43)">Billing +/-</button></td><td></td><td id="billing_role"></td></tr>';
 	$html_text .= '<tr id="431" style="display:none"><td>billing_handle</td><td>'.$item->billing->billing_handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="432" style="display:none"><td>billing_web_id</td><td>'.$item->billing->billing_web_id.'</td><td></td></tr>';
@@ -681,7 +684,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4314" style="display:none"><td>billing_language_pref_1</td><td>'.$item->billing->billing_language_pref_1.'</td><td></td></tr>';
 	$html_text .= '<tr id="4315" style="display:none"><td>billing_language_pref_2</td><td>'.$item->billing->billing_language_pref_2.'</td><td></td></tr>';
 	$html_text .= '<tr id="4316" style="display:none"><td>billing_shielded</td><td>'.$item->billing->billing_shielded.'</td><td id="billing_shielded"></td></tr>';
-	$html_text .= '<tr id="4317" style="display:none;vertical-align:top"><td>billing_remark_values</td><td>'.$item->billing->billing_remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="4317" style="display:none;vertical-align:top"><td>billing_properties</td><td>'.$item->billing->billing_properties.'</td><td></td></tr>';	
+	$html_text .= '<tr id="4318" style="display:none;vertical-align:top"><td>billing_remark_values</td><td>'.$item->billing->billing_remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(44)">Emergency +/-</button></td><td></td><td id="emergency_role"></td></tr>';
 	$html_text .= '<tr id="441" style="display:none"><td>emergency_handle</td><td>'.$item->emergency->emergency_handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="442" style="display:none"><td>emergency_web_id</td><td>'.$item->emergency->emergency_web_id.'</td><td id="emergency_web_id"></td></tr>';
@@ -699,7 +703,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4414" style="display:none"><td>emergency_language_pref_1</td><td>'.$item->emergency->emergency_language_pref_1.'</td><td></td></tr>';
 	$html_text .= '<tr id="4415" style="display:none"><td>emergency_language_pref_2</td><td>'.$item->emergency->emergency_language_pref_2.'</td><td></td></tr>';
 	$html_text .= '<tr id="4416" style="display:none"><td>emergency_shielded</td><td>'.$item->emergency->emergency_shielded.'</td><td id="emergency_shielded"></td></tr>';
-	$html_text .= '<tr id="4417" style="display:none;vertical-align:top"><td>emergency_remark_values</td><td>'.$item->emergency->emergency_remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="4417" style="display:none;vertical-align:top"><td>emergency_properties</td><td>'.$item->emergency->emergency_properties.'</td><td></td></tr>';
+	$html_text .= '<tr id="4418" style="display:none;vertical-align:top"><td>emergency_remark_values</td><td>'.$item->emergency->emergency_remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(50)">Reseller +/-</button></td><td></td><td id="reseller_role"></td></tr>';
 	$html_text .= '<tr id="501" style="display:none"><td>reseller_handle</td><td>'.$item->reseller->reseller_handle.'</td><td></td></tr>';
@@ -727,7 +732,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="5022" style="display:none"><td>reseller_event_last_uploaded</td><td>'.$item->reseller->reseller_event_last_uploaded.'</td><td></td></tr>';
 	$html_text .= '<tr id="5023" style="display:none"><td>reseller_event_verification_received</td><td>'.$item->reseller->reseller_event_verification_received.'</td><td id="reseller_event_verification_received"></td></tr>';
 	$html_text .= '<tr id="5024" style="display:none"><td>reseller_event_verification_set</td><td>'.$item->reseller->reseller_event_verification_set.'</td><td id="reseller_event_verification_set"></td></tr>';
-	$html_text .= '<tr id="5025" style="display:none;vertical-align:top"><td>reseller_remark_values</td><td>'.$item->reseller->reseller_remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="5025" style="display:none;vertical-align:top"><td>reseller_properties</td><td>'.$item->reseller->reseller_properties.'</td><td></td></tr>';
+	$html_text .= '<tr id="5026" style="display:none;vertical-align:top"><td>reseller_remark_values</td><td>'.$item->reseller->reseller_remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(60)">Registrar +/-</button></td><td></td><td id="registrar_role"></td></tr>';
 	$html_text .= '<tr id="601" style="display:none"><td>registrar_handle</td><td>'.$item->registrar->registrar_handle.'</td><td></td></tr>';
@@ -757,7 +763,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="6024" style="display:none"><td>registrar_event_last_uploaded</td><td>'.$item->registrar->registrar_event_last_uploaded.'</td><td></td></tr>';
 	$html_text .= '<tr id="6025" style="display:none"><td>registrar_event_verification_received</td><td>'.$item->registrar->registrar_event_verification_received.'</td><td id="registrar_event_verification_received"></td></tr>';
 	$html_text .= '<tr id="6026" style="display:none"><td>registrar_event_verification_set</td><td>'.$item->registrar->registrar_event_verification_set.'</td><td id="registrar_event_verification_set"></td></tr>';
-	$html_text .= '<tr id="6027" style="display:none;vertical-align:top"><td>registrar_remark_values</td><td>'.$item->registrar->registrar_remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="6027" style="display:none;vertical-align:top"><td>registrar_properties</td><td>'.$item->registrar->registrar_properties.'</td><td></td></tr>';
+	$html_text .= '<tr id="6028" style="display:none;vertical-align:top"><td>registrar_remark_values</td><td>'.$item->registrar->registrar_remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(61)">Registrar Abuse +/-</button></td><td></td><td id="registrar_abuse_role"></td></tr>';
 	$html_text .= '<tr><td>registrar_abuse_email</td><td>'.$item->registrar->registrar_abuse_email.'</td><td></td></tr>';
 	$html_text .= '<tr id="611" style="display:none"><td>registrar_abuse_tel</td><td>'.$item->registrar->registrar_abuse_tel.'</td><td></td></tr>';
@@ -789,7 +796,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="6224" style="display:none"><td>sponsor_event_last_uploaded</td><td>'.$item->sponsor->sponsor_event_last_uploaded.'</td><td></td></tr>';
 	$html_text .= '<tr id="6225" style="display:none"><td>sponsor_event_verification_received</td><td>'.$item->sponsor->sponsor_event_verification_received.'</td><td id="sponsor_event_verification_received"></td></tr>';
 	$html_text .= '<tr id="6226" style="display:none"><td>sponsor_event_verification_set</td><td>'.$item->sponsor->sponsor_event_verification_set.'</td><td id="sponsor_event_verification_set"></td></tr>';
-	$html_text .= '<tr id="6227" style="display:none;vertical-align:top"><td>sponsor_remark_values</td><td>'.$item->sponsor->sponsor_remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="6227" style="display:none;vertical-align:top"><td>sponsor_properties</td><td>'.$item->sponsor->sponsor_properties.'</td><td></td></tr>';
+	$html_text .= '<tr id="6228" style="display:none;vertical-align:top"><td>sponsor_remark_values</td><td>'.$item->sponsor->sponsor_remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(63)">Name Servers +/-</button></td><td></td><td></td></tr>';
 	//if (!empty($item->name_servers->server_1->server_name_1))	{
