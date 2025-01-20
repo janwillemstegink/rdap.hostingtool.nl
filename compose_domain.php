@@ -244,8 +244,8 @@ $sponsor_remark_values = '';
 $handle = $obj['handle']; 	
 $name_ascii = $obj['ldhName'];
 $name_unicode = $obj['unicodeName'];
-$name_servers_dnssec = '(not available)';
-$name_servers_dnssec_algorithm = '(not applicable)';
+$name_servers_dnssec = 'Not Available';
+$name_servers_dnssec_algorithm = 'Not Applicable';
 if (empty($obj['secureDNS']['delegationSigned']))	{
 }	
 elseif ($obj['secureDNS']['delegationSigned'] === true)	{
@@ -255,7 +255,7 @@ elseif ($obj['secureDNS']['delegationSigned'] === true)	{
 		$name_servers_dnssec_algorithm = $algorithm;
 	}
 	else	{
-		$name_servers_dnssec_algorithm = '(not available)';
+		$name_servers_dnssec_algorithm = 'Not Available';
 	}	
 }
 elseif ($obj['secureDNS']['delegationSigned'] === false)	{
@@ -406,7 +406,7 @@ $server_delegation_check_last_correct_4 = '';
 $server_delegation_check_last_correct_5 = '';
 $server_delegation_check_last_correct_6 = '';	
 	
-$registrar_abuse_email = '(no point of contact)';
+$registrar_abuse_email = 'No Point of Contact';
 
 $entity_registrant = -1;
 $entity_administrative = -1;
