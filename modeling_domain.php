@@ -53,7 +53,7 @@ function SwitchDisplay(type) {
 		var pre = '40';
 		var max = 23
 	}
-	else if (type == 41)	{ // admin
+	else if (type == 41)	{ // administrative
 		var pre = '41';
 		var max = 16
 	}
@@ -158,9 +158,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_shielded").textContent = proposed;
 		document.getElementById("registrant_event_verification_received").textContent = proposed;
 		document.getElementById("registrant_event_verification_set").textContent = proposed;
-		document.getElementById("admin_role").textContent = "";
-		document.getElementById("admin_web_id").textContent = proposed;
-		document.getElementById("admin_shielded").textContent = proposed;
+		document.getElementById("administrative_role").textContent = "";
+		document.getElementById("administrative_web_id").textContent = proposed;
+		document.getElementById("administrative_shielded").textContent = proposed;
 		document.getElementById("technical_role").textContent = "";
 		document.getElementById("technical_web_id").textContent = proposed;
 		document.getElementById("technical_shielded").textContent = proposed;
@@ -225,9 +225,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_shielded").textContent = proposed + "Informatieafscherming is zonespecifiek en verschilt per rol.";
 		document.getElementById("registrant_event_verification_received").textContent = proposed + "De verantwoordelijke persoon kan een identieke web-ID aanklikken; leeg is intrekking.";
 		document.getElementById("registrant_event_verification_set").textContent = proposed + "Vervolgens controleert het register de gegevens bij de landspecifieke webdomeindienst.";
-		document.getElementById("admin_role").textContent = "Het administratief aanspreekpunt beantwoordt een verzoek en stuurt zo nodig door.";
-		document.getElementById("admin_web_id").textContent = proposed;
-		document.getElementById("admin_shielded").textContent = proposed;
+		document.getElementById("administrative_role").textContent = "Het administratief aanspreekpunt beantwoordt een verzoek en stuurt zo nodig door.";
+		document.getElementById("administrative_web_id").textContent = proposed;
+		document.getElementById("administrative_shielded").textContent = proposed;
 		document.getElementById("technical_role").textContent = "Een technisch contact reageert om een gemelde storing op te lossen.";
 		document.getElementById("technical_web_id").textContent = proposed;
 		document.getElementById("technical_shielded").textContent = proposed;
@@ -255,7 +255,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_ip").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
 		document.getElementById("br_zone").textContent = "Zone .br: De RDAP-gegevens zijn aangepast met nameservervalidatie.";
 
-		document.getElementById("raw_data_next").textContent = "De volgorde van technische en functionele leesbaarheid is gebaseerd op verantwoordelijkheid. Waarde 'not set' geeft ontbrekende tekst aan.";	
+		document.getElementById("raw_data_next").textContent = "De volgorde van technische en functionele leesbaarheid is gebaseerd op verantwoordelijkheid. 'None Specified' is een term van deze tool.";	
 	et }
 	else if (translation == 2)	{
 		var proposed = 'PROPOSED - ';
@@ -293,9 +293,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_shielded").textContent = proposed + "Information shielding is zone-specific and varies by role.";
 		document.getElementById("registrant_event_verification_received").textContent = proposed + "The responsible person can click on an identical web ID; empty is revocation.";
 		document.getElementById("registrant_event_verification_set").textContent = proposed + "The registry then checks the data with the country-specific web domain service.";	
-		document.getElementById("admin_role").textContent = "The administratively responsible desk answers a request, and forwards on if necessary.";
-		document.getElementById("admin_web_id").textContent = proposed;
-		document.getElementById("admin_shielded").textContent = proposed;
+		document.getElementById("administrative_role").textContent = "The administratively responsible desk answers a request, and forwards on if necessary.";
+		document.getElementById("administrative_web_id").textContent = proposed;
+		document.getElementById("administrative_shielded").textContent = proposed;
 		document.getElementById("technical_role").textContent = "A technical contact responds to resolve a reported malfunction.";
 		document.getElementById("technical_web_id").textContent = proposed;
 		document.getElementById("technical_shielded").textContent = proposed;
@@ -322,7 +322,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
 		document.getElementById("br_zone").textContent = "Zone .br: The RDAP data has been modified with name server validation.";
-		document.getElementById("raw_data_next").textContent = "The order of technical and functional readability is based on responsibility. Value 'not set' indicates missing text.";
+		document.getElementById("raw_data_next").textContent = "The order of technical and functional readability is based on responsibility. 'None Specified' is a term of this tool.";
 	}
 	else if (translation == 3)	{
 		var proposed = 'VORGESCHLAGEN - ';
@@ -360,9 +360,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_shielded").textContent = proposed + "Der Informationsschutz ist zonenspezifisch und variiert je nach Rolle.";
 		document.getElementById("registrant_event_verification_received").textContent = proposed + "Der Verantwortliche kann auf eine identische Web-ID klicken; leer ist Rückzug.";
 		document.getElementById("registrant_event_verification_set").textContent = proposed + "Anschließend gleicht die Registry die Daten beim länderspezifischen Webdomain-Dienst ab.";
-		document.getElementById("admin_role").textContent = "Die administrativ zuständige Stelle beantwortet eine Anfrage und leitet sie gegebenenfalls weiter.";
-		document.getElementById("admin_web_id").textContent = proposed;
-		document.getElementById("admin_shielded").textContent = proposed;
+		document.getElementById("administrative_role").textContent = "Die administrativ zuständige Stelle beantwortet eine Anfrage und leitet sie gegebenenfalls weiter.";
+		document.getElementById("administrative_web_id").textContent = proposed;
+		document.getElementById("administrative_shielded").textContent = proposed;
 		document.getElementById("technical_role").textContent = "Ein technischer Kontakt reagiert, um eine gemeldete Störung zu beheben.";
 		document.getElementById("technical_web_id").textContent = proposed;
 		document.getElementById("technical_shielded").textContent = proposed;
@@ -389,7 +389,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 		document.getElementById("name_servers_ip").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
 		document.getElementById("br_zone").textContent = "Zone .br: Die RDAP-Daten wurden mit der Nameserver-Validierung angepasst.";
-		document.getElementById("raw_data_next").textContent = "Die Reihenfolge der technischen und funktionalen Lesbarkeit erfolgt nach Verantwortung. Der Wert 'not set' weist auf fehlenden Text hin.";
+		document.getElementById("raw_data_next").textContent = "Die Reihenfolge der technischen und funktionalen Lesbarkeit erfolgt nach Verantwortung. 'None Specified' ist ein Begriff dieses Tools.";
 	}
 	else if (translation == 4)	{
 		var proposed = 'PROPOSÉ - ';
@@ -427,9 +427,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_shielded").textContent = proposed + "Le blindage des informations est spécifique à chaque zone et varie selon le rôle.";
 		document.getElementById("registrant_event_verification_received").textContent = proposed + "La personne responsable peut cliquer sur un identifiant Web identique ; le vide est le retrait.";
 		document.getElementById("registrant_event_verification_set").textContent = proposed + "Le registre vérifie ensuite les données avec le service de domaine Web spécifique au pays.";
-		document.getElementById("admin_role").textContent = "Le bureau administrativement responsable répond à une demande, et la transmet si nécessaire.";
-		document.getElementById("admin_web_id").textContent = proposed;
-		document.getElementById("admin_shielded").textContent = proposed;
+		document.getElementById("administrative_role").textContent = "Le bureau administrativement responsable répond à une demande, et la transmet si nécessaire.";
+		document.getElementById("administrative_web_id").textContent = proposed;
+		document.getElementById("administrative_shielded").textContent = proposed;
 		document.getElementById("technical_role").textContent = "Un contact technique répond pour résoudre un dysfonctionnement signalé.";
 		document.getElementById("technical_web_id").textContent = proposed;
 		document.getElementById("technical_shielded").textContent = proposed;
@@ -456,7 +456,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 		document.getElementById("name_servers_ip").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
 		document.getElementById("br_zone").textContent = "Zone .br: Les données RDAP ont été ajustées avec la validation du serveur de noms.";
-		document.getElementById("raw_data_next").textContent = "L'ordre de lisibilité technique et fonctionnelle est basé sur la responsabilité. La valeur 'not set' indique un texte manquant.";
+		document.getElementById("raw_data_next").textContent = "L'ordre de lisibilité technique et fonctionnelle est basé sur la responsabilité. 'None Specified' est un terme de cet outil.";
 	}
 }	
 </script><?php
@@ -628,24 +628,24 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4021" style="display:none"><td>registrant_event_verification_received</td><td>'.$item->registrant->registrant_event_verification_received.'</td><td id="registrant_event_verification_received"></td></tr>';
 	$html_text .= '<tr id="4022" style="display:none"><td>registrant_event_verification_set</td><td>'.$item->registrant->registrant_event_verification_set.'</td><td id="registrant_event_verification_set"></td></tr>';
 	$html_text .= '<tr id="4023" style="display:none;vertical-align:top"><td>registrant_remark_values</td><td>'.$item->registrant->registrant_remark_values.'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(41)">Administrative / Decision +/-</button></td><td></td><td id="admin_role"></td></tr>';
-	$html_text .= '<tr id="411" style="display:none"><td>admin_handle</td><td>'.$item->admin->admin_handle.'</td><td></td></tr>';
-	$html_text .= '<tr id="412" style="display:none"><td>admin_web_id</td><td>'.$item->admin->admin_web_id.'</td><td id="admin_web_id"></td></tr>';
-	$html_text .= '<tr id="413" style="display:none"><td>admin_full_name</td><td>'.$item->admin->admin_full_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="414" style="display:none"><td>admin_kind</td><td>'.$item->admin->admin_kind.'</td><td></td></tr>';
-	$html_text .= '<tr id="415" style="display:none"><td>admin_name</td><td>'.$item->admin->admin_name.'</td><td></td></tr>';
-	$html_text .= '<tr><td>admin_email</td><td>'.$item->admin->admin_email.'</td><td></td></tr>';
-	$html_text .= '<tr id="416" style="display:none"><td>admin_tel</td><td>'.$item->admin->admin_tel.'</td><td></td></tr>';
-	$html_text .= '<tr id="417" style="display:none"><td>admin_country_code</td><td>'.$item->admin->admin_country_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="418" style="display:none"><td>admin_street</td><td>'.$item->admin->admin_street.'</td><td></td></tr>';
-	$html_text .= '<tr id="419" style="display:none"><td>admin_city</td><td>'.$item->admin->admin_city.'</td><td></td></tr>';
-	$html_text .= '<tr id="4110" style="display:none"><td>admin_state_province</td><td>'.$item->admin->admin_state_province.'</td><td></td></tr>';
-	$html_text .= '<tr id="4111" style="display:none"><td>admin_postal_code</td><td>'.$item->admin->admin_postal_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="4112" style="display:none"><td>admin_country_name</td><td>'.$item->admin->admin_country_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="4113" style="display:none"><td>admin_language_pref_1</td><td>'.$item->admin->admin_language_pref_1.'</td><td></td></tr>';
-	$html_text .= '<tr id="4114" style="display:none"><td>admin_language_pref_2</td><td>'.$item->admin->admin_language_pref_2.'</td><td></td></tr>';
-	$html_text .= '<tr id="4115" style="display:none"><td>admin_shielded</td><td>'.$item->admin->admin_shielded.'</td><td id="admin_shielded"></td></tr>';
-	$html_text .= '<tr id="4116" style="display:none;vertical-align:top"><td>admin_remark_values</td><td>'.$item->admin->admin_remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(41)">Administrative / Decision +/-</button></td><td></td><td id="administrative_role"></td></tr>';
+	$html_text .= '<tr id="411" style="display:none"><td>administrative_handle</td><td>'.$item->administrative->administrative_handle.'</td><td></td></tr>';
+	$html_text .= '<tr id="412" style="display:none"><td>administrative_web_id</td><td>'.$item->administrative->administrative_web_id.'</td><td id="administrative_web_id"></td></tr>';
+	$html_text .= '<tr id="413" style="display:none"><td>administrative_full_name</td><td>'.$item->administrative->administrative_full_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="414" style="display:none"><td>administrative_kind</td><td>'.$item->administrative->administrative_kind.'</td><td></td></tr>';
+	$html_text .= '<tr id="415" style="display:none"><td>administrative_name</td><td>'.$item->administrative->administrative_name.'</td><td></td></tr>';
+	$html_text .= '<tr><td>administrative_email</td><td>'.$item->administrative->administrative_email.'</td><td></td></tr>';
+	$html_text .= '<tr id="416" style="display:none"><td>administrative_tel</td><td>'.$item->administrative->administrative_tel.'</td><td></td></tr>';
+	$html_text .= '<tr id="417" style="display:none"><td>administrative_country_code</td><td>'.$item->administrative->administrative_country_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="418" style="display:none"><td>administrative_street</td><td>'.$item->administrative->administrative_street.'</td><td></td></tr>';
+	$html_text .= '<tr id="419" style="display:none"><td>administrative_city</td><td>'.$item->administrative->administrative_city.'</td><td></td></tr>';
+	$html_text .= '<tr id="4110" style="display:none"><td>administrative_state_province</td><td>'.$item->administrative->administrative_state_province.'</td><td></td></tr>';
+	$html_text .= '<tr id="4111" style="display:none"><td>administrative_postal_code</td><td>'.$item->administrative->administrative_postal_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="4112" style="display:none"><td>administrative_country_name</td><td>'.$item->administrative->administrative_country_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="4113" style="display:none"><td>administrative_language_pref_1</td><td>'.$item->administrative->administrative_language_pref_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="4114" style="display:none"><td>administrative_language_pref_2</td><td>'.$item->administrative->administrative_language_pref_2.'</td><td></td></tr>';
+	$html_text .= '<tr id="4115" style="display:none"><td>administrative_shielded</td><td>'.$item->administrative->administrative_shielded.'</td><td id="administrative_shielded"></td></tr>';
+	$html_text .= '<tr id="4116" style="display:none;vertical-align:top"><td>administrative_remark_values</td><td>'.$item->administrative->administrative_remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(42)">Technical / Onsite +/-</button></td><td></td><td id="technical_role"></td></tr>';
 	$html_text .= '<tr id="421" style="display:none"><td>technical_handle</td><td>'.$item->technical->technical_handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="422" style="display:none"><td>technical_web_id</td><td>'.$item->technical->technical_web_id.'</td><td id="technical_web_id"></td></tr>';
