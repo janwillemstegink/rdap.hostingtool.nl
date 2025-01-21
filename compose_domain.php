@@ -271,7 +271,7 @@ elseif ($obj['secureDNS']['delegationSigned'] === false)	{
 	$name_servers_dnssec = 'no';	
 }
 $registrant_handle = '';
-$registrant_full_name = 'None Specified';
+$registrant_full_name = '';
 $registrant_kind = '';
 $registrant_name = '';
 $registrant_email = '';	
@@ -991,7 +991,7 @@ foreach($obj as $key1 => $value1) {
 								$sponsor_kind = $value5[3];
 							}							
 						}
-						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'org' and $value6 == 'org')	{
+						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'org' and $value6 == 'org')	{ //$value5[1]['type'].': '.
 							if ($key2 == $entity_registrant)	{
 								$registrant_organization = $value5[3];
 							}

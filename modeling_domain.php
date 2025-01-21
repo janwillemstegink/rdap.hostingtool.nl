@@ -51,7 +51,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 40)	{ // registrant
 		var pre = '40';
-		var max = 25
+		var max = 24
 	}
 	else if (type == 41)	{ // administrative
 		var pre = '41';
@@ -615,21 +615,21 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="408" style="display:none"><td>registrant_state_province</td><td>'.$item->registrant->registrant_state_province.'</td><td></td></tr>';
 	$html_text .= '<tr id="409" style="display:none"><td>registrant_postal_code</td><td>'.$item->registrant->registrant_postal_code.'</td><td id="registrant_postal_code"></td></tr>';
 	$html_text .= '<tr id="4010" style="display:none"><td>registrant_country_name</td><td>'.$item->registrant->registrant_country_name.'</td><td id="registrant_country_name"></td></tr>';
-	$html_text .= '<tr id="4011" style="display:none"><td>registrant_organization</td><td>'.$item->registrant->registrant_organization.'</td><td></td></tr>';
-	$html_text .= '<tr id="4012" style="display:none"><td>registrant_language_pref_1</td><td>'.$item->registrant->registrant_language_pref_1.'</td><td></td></tr>';
-	$html_text .= '<tr id="4013" style="display:none"><td>registrant_language_pref_2</td><td>'.$item->registrant->registrant_language_pref_2.'</td><td></td></tr>';
-	$html_text .= '<tr id="4014" style="display:none"><td>registrant_shielded</td><td>'.$item->registrant->registrant_shielded.'</td><td id="registrant_shielded"></td></tr>';
-	$html_text .= '<tr id="4015" style="display:none;vertical-align:top"><td>registrant_status_values</td><td>'.$item->registrant->registrant_status_values.'</td><td></td></tr>';
-	$html_text .= '<tr id="4016" style="display:none"><td>registrant_event_registration</td><td>'.$item->registrant->registrant_event_registration.'</td><td></td></tr>';
-	$html_text .= '<tr id="4017" style="display:none"><td>registrant_event_last_transferred</td><td>'.$item->registrant->registrant_event_last_transferred.'</td><td></td></tr>';
-	$html_text .= '<tr id="4018" style="display:none"><td>registrant_event_last_changed</td><td>'.$item->registrant->registrant_event_last_changed.'</td><td></td></tr>';
-	$html_text .= '<tr id="4019" style="display:none"><td>registrant_event_expiration</td><td>'.$item->registrant->registrant_event_expiration.'</td><td></td></tr>';
-	$html_text .= '<tr id="4020" style="display:none"><td>registrant_event_deletion</td><td>'.$item->registrant->registrant_event_deletion.'</td><td id="registrant_event_deletion"></td></tr>';
-	$html_text .= '<tr id="4021" style="display:none"><td>registrant_event_last_uploaded</td><td>'.$item->registrant->registrant_event_last_uploaded.'</td><td id="registrant_event_last_uploaded"></td></tr>';
-	$html_text .= '<tr id="4022" style="display:none"><td>registrant_event_verification_received</td><td>'.$item->registrant->registrant_event_verification_received.'</td><td id="registrant_event_verification_received"></td></tr>';
-	$html_text .= '<tr id="4023" style="display:none"><td>registrant_event_verification_set</td><td>'.$item->registrant->registrant_event_verification_set.'</td><td id="registrant_event_verification_set"></td></tr>';
-	$html_text .= '<tr id="4024" style="display:none;vertical-align:top"><td>registrant_properties</td><td>'.$item->registrant->registrant_properties.'</td><td></td></tr>';
-	$html_text .= '<tr id="4025" style="display:none;vertical-align:top"><td>registrant_remark_values</td><td>'.$item->registrant->registrant_remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr><td>registrant_organization</td><td>'.$item->registrant->registrant_organization.'</td><td></td></tr>';
+	$html_text .= '<tr id="4011" style="display:none"><td>registrant_language_pref_1</td><td>'.$item->registrant->registrant_language_pref_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="4012" style="display:none"><td>registrant_language_pref_2</td><td>'.$item->registrant->registrant_language_pref_2.'</td><td></td></tr>';
+	$html_text .= '<tr id="4013" style="display:none"><td>registrant_shielded</td><td>'.$item->registrant->registrant_shielded.'</td><td id="registrant_shielded"></td></tr>';
+	$html_text .= '<tr id="4014" style="display:none;vertical-align:top"><td>registrant_status_values</td><td>'.$item->registrant->registrant_status_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="4015" style="display:none"><td>registrant_event_registration</td><td>'.$item->registrant->registrant_event_registration.'</td><td></td></tr>';
+	$html_text .= '<tr id="4016" style="display:none"><td>registrant_event_last_transferred</td><td>'.$item->registrant->registrant_event_last_transferred.'</td><td></td></tr>';
+	$html_text .= '<tr id="4017" style="display:none"><td>registrant_event_last_changed</td><td>'.$item->registrant->registrant_event_last_changed.'</td><td></td></tr>';
+	$html_text .= '<tr id="4018" style="display:none"><td>registrant_event_expiration</td><td>'.$item->registrant->registrant_event_expiration.'</td><td></td></tr>';
+	$html_text .= '<tr id="4019" style="display:none"><td>registrant_event_deletion</td><td>'.$item->registrant->registrant_event_deletion.'</td><td id="registrant_event_deletion"></td></tr>';
+	$html_text .= '<tr id="4020" style="display:none"><td>registrant_event_last_uploaded</td><td>'.$item->registrant->registrant_event_last_uploaded.'</td><td id="registrant_event_last_uploaded"></td></tr>';
+	$html_text .= '<tr id="4021" style="display:none"><td>registrant_event_verification_received</td><td>'.$item->registrant->registrant_event_verification_received.'</td><td id="registrant_event_verification_received"></td></tr>';
+	$html_text .= '<tr id="4022" style="display:none"><td>registrant_event_verification_set</td><td>'.$item->registrant->registrant_event_verification_set.'</td><td id="registrant_event_verification_set"></td></tr>';
+	$html_text .= '<tr id="4023" style="display:none;vertical-align:top"><td>registrant_properties</td><td>'.$item->registrant->registrant_properties.'</td><td></td></tr>';
+	$html_text .= '<tr id="4024" style="display:none;vertical-align:top"><td>registrant_remark_values</td><td>'.$item->registrant->registrant_remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(41)">Administrative / Decision +/-</button></td><td></td><td id="administrative_role"></td></tr>';
 	$html_text .= '<tr id="411" style="display:none"><td>administrative_handle</td><td>'.$item->administrative->administrative_handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="412" style="display:none"><td>administrative_web_id</td><td>'.$item->administrative->administrative_web_id.'</td><td id="administrative_web_id"></td></tr>';
