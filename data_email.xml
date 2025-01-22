@@ -18,6 +18,7 @@
 			<registrant_city>Arnhem</registrant_city>
 			<registrant_state_province>Gelderland</registrant_state_province>
 			<registrant_country_name>Nederland</registrant_country_name>
+			<registrant_organization></registrant_organization>
 			<registrant_shielded>name,tel,email,address</registrant_shielded>
 		</registrant>
 		<administrative>
@@ -34,6 +35,7 @@
 			<administrative_city>Arnhem</administrative_city>
 			<administrative_state_province>Gelderland</administrative_state_province>			
 			<administrative_country_name>Nederland</administrative_country_name>
+			<administrative_organization></administrative_organization>
 			<administrative_shielded>web_id,full_name,name,tel,address</administrative_shielded>
 		</administrative>
 		<billing>
@@ -50,6 +52,7 @@
 			<billing_city>Arnhem</billing_city>
 			<billing_state_province>Gelderland</billing_state_province>
 			<billing_country_name>Nederland</billing_country_name>
+			<billing_organization></billing_organization>
 			<billing_shielded>web_id,full_name,name,tel,email,address</billing_shielded>
 		</billing>
 	</domain>

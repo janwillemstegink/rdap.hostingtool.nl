@@ -52,6 +52,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>registrant_city</td><td>'.$item->registrant->registrant_city.'</td></tr>';
 	$html_text .= '<tr><td>registrant_state_province</td><td>'.$item->registrant->registrant_state_province.'</td></tr>';	
 	$html_text .= '<tr><td>registrant_country_name</td><td>'.$item->registrant->registrant_country_name.'</td></tr>';
+	$html_text .= '<tr><td>registrant_organization</td><td>'.$item->registrant->registrant_organization.'</td></tr>';
 	$html_text .= '<tr><td>registrant_shielded</td><td>'.$item->registrant->registrant_shielded.'</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Administratieve contactpersoon / Administrative contact:</td></tr>';
 	$html_text .= '<tr><td>administrative_handle</td><td>'.$item->administrative->administrative_handle.'</td></tr>';
@@ -67,6 +68,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>administrative_city</td><td>'.$item->administrative->administrative_city.'</td></tr>';
 	$html_text .= '<tr><td>administrative_state_province</td><td>'.$item->administrative->administrative_state_province.'</td></tr>';
 	$html_text .= '<tr><td>administrative_country_name</td><td>'.$item->administrative->administrative_country_name.'</td></tr>';
+	$html_text .= '<tr><td>administrative_organization</td><td>'.$item->administrative->administrative_organization.'</td></tr>';
 	$html_text .= '<tr><td>administrative_shielded</td><td>'.$item->administrative->administrative_shielded.'</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Facturering (indien de registry dit onderhoudt) / Billing (if the registry maintains this):</td></tr>';
 	$html_text .= '<tr><td>billing_handle</td><td>'.$item->billing->billing_handle.'</td></tr>';
@@ -82,6 +84,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>billing_city</td><td>'.$item->billing->billing_city.'</td></tr>';
 	$html_text .= '<tr><td>billing_state_province</td><td>'.$item->billing->billing_state_province.'</td></tr>';
 	$html_text .= '<tr><td>billing_country_name</td><td>'.$item->billing->billing_country_name.'</td></tr>';
+	$html_text .= '<tr><td>billing_organization</td><td>'.$item->billing->billing_organization.'</td></tr>';
 	$html_text .= '<tr><td>billing_shielded</td><td>'.$item->billing->billing_shielded.'</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Is er iets mis? Het bedrijf dat deze domeinnaam beheert is: team.blue nl B.V., of de reseller: TransIP.</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2">Als u als registrant via hun menu wijzigingen kunt aanbrengen, dan bent u primair verantwoordelijk.</td></tr>';
