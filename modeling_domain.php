@@ -79,7 +79,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 61)	{ // abuse
 		var pre = '61';
-		var max = 1
+		var max = 3
 	}
 	else if (type == 62)	{ // sponsor
 		var pre = '62';
@@ -615,7 +615,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="408" style="display:none"><td>registrant_state_province</td><td>'.$item->registrant->registrant_state_province.'</td><td></td></tr>';
 	$html_text .= '<tr id="409" style="display:none"><td>registrant_postal_code</td><td>'.$item->registrant->registrant_postal_code.'</td><td id="registrant_postal_code"></td></tr>';
 	$html_text .= '<tr id="4010" style="display:none"><td>registrant_country_name</td><td>'.$item->registrant->registrant_country_name.'</td><td id="registrant_country_name"></td></tr>';
-	$html_text .= '<tr><td>registrant_organization</td><td>'.$item->registrant->registrant_organization.'</td><td></td></tr>';
+	$html_text .= '<tr><td>registrant_organization</td><td><b>'.$item->registrant->registrant_organization.'</b></td><td></td></tr>';
 	$html_text .= '<tr id="4011" style="display:none"><td>registrant_language_pref_1</td><td>'.$item->registrant->registrant_language_pref_1.'</td><td></td></tr>';
 	$html_text .= '<tr id="4012" style="display:none"><td>registrant_language_pref_2</td><td>'.$item->registrant->registrant_language_pref_2.'</td><td></td></tr>';
 	$html_text .= '<tr id="4013" style="display:none"><td>registrant_shielded</td><td>'.$item->registrant->registrant_shielded.'</td><td id="registrant_shielded"></td></tr>';
@@ -773,8 +773,9 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="6028" style="display:none;vertical-align:top"><td>registrar_properties</td><td>'.$item->registrar->registrar_properties.'</td><td></td></tr>';
 	$html_text .= '<tr id="6029" style="display:none;vertical-align:top"><td>registrar_remark_values</td><td>'.$item->registrar->registrar_remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(61)">Registrar Abuse +/-</button></td><td></td><td id="registrar_abuse_role"></td></tr>';
-	$html_text .= '<tr><td>registrar_abuse_email</td><td>'.$item->registrar->registrar_abuse_email.'</td><td></td></tr>';
-	$html_text .= '<tr id="611" style="display:none"><td>registrar_abuse_tel</td><td>'.$item->registrar->registrar_abuse_tel.'</td><td></td></tr>';
+	$html_text .= '<tr id="611" style="display:none"><td>registrar_abuse_full_name</td><td>'.$item->registrar->registrar_abuse_full_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="612" style="display:none"><td>registrar_abuse_email</td><td>'.$item->registrar->registrar_abuse_email.'</td><td></td></tr>';
+	$html_text .= '<tr id="613" style="display:none"><td>registrar_abuse_tel</td><td>'.$item->registrar->registrar_abuse_tel.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(62)">Sponsor +/-</button></td><td></td><td id="sponsor_role"></td></tr>';
 	$html_text .= '<tr id="621" style="display:none"><td>sponsor_handle</td><td>'.$item->sponsor->sponsor_handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="622" style="display:none"><td>sponsor_web_id</td><td>'.$item->sponsor->sponsor_web_id.'</td><td id="sponsor_web_id"></td></tr>';		
