@@ -2128,14 +2128,18 @@ $domain_name_servers_dnssec_algorithm->appendChild($doc->createCDATASection($nam
 $name_servers->appendChild($domain_name_servers_dnssec_algorithm);	
 	
 $domain->appendChild($name_servers);
-		
+	
+$domain_raw_whois_data = $doc->createElement("raw_whois_data");	
+$domain_raw_whois_data->appendChild($doc->createCDATASection($raw_whois_data));		
+$domain->appendChild($domain_raw_whois_data);
+	
 $domain_raw_rdap_data = $doc->createElement("raw_rdap_data");	
 $domain_raw_rdap_data->appendChild($doc->createCDATASection($raw_rdap_data));
 $domain->appendChild($domain_raw_rdap_data);
 	
-$domain_raw_whois_data = $doc->createElement("raw_whois_data");	
-$domain_raw_whois_data->appendChild($doc->createCDATASection($raw_whois_data));		
-$domain->appendChild($domain_raw_whois_data);	
+$domain_rdap_url = $doc->createElement("rdap_url");	
+$domain_rdap_url->appendChild($doc->createCDATASection($url));		
+$domain->appendChild($domain_rdap_url);	
 	
 $domains->appendChild($domain);
 $doc->appendChild($domains);
