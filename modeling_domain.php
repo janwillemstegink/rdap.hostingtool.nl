@@ -71,11 +71,11 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 50)	{ // reseller
 		var pre = '50';
-		var max = 27
+		var max = 26
 	}	
 	else if (type == 60)	{ // registrar
 		var pre = '60';
-		var max = 29
+		var max = 28
 	}
 	else if (type == 61)	{ // abuse
 		var pre = '61';
@@ -83,7 +83,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 62)	{ // sponsor
 		var pre = '62';
-		var max = 29
+		var max = 30
 	}
 	else if (type == 63)	{ // name servers
 		var pre = '63';
@@ -155,6 +155,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_city").textContent = address;
 		document.getElementById("registrant_postal_code").textContent = address;
 		document.getElementById("registrant_country_name").textContent = "";
+		document.getElementById("registrant_organization").textContent = "";
 		document.getElementById("registrant_shielded").textContent = proposed;
 		document.getElementById("registrant_event_verification_received").textContent = proposed;
 		document.getElementById("registrant_event_verification_set").textContent = proposed;
@@ -175,7 +176,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_received").textContent = proposed;
 		document.getElementById("reseller_event_verification_set").textContent = proposed;
 		document.getElementById("registrar_role").textContent = "";
-		document.getElementById("registrar_recover").textContent = "";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "";
 		document.getElementById("registrar_shielded").textContent = proposed;
@@ -212,16 +212,16 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_event_deletion").textContent = "Datum en tijdstip gepland voor volledige verwijdering. Er kan een laatste verwijderingsfase zijn.";
 		document.getElementById("domain_event_last_uploaded").textContent = "Datum en tijdstip van de RDAP-database-update in Zoeloe-tijd (Coordinated Universal Time - UTC).";
 		document.getElementById("domain_extensions_values").textContent = "'Eligibility': Hoe een domein voldoet aan een specifieke vereiste in een topleveldomeinzone.";
-		document.getElementById("registrant_role").textContent = "De domeinhouder is primair verantwoordelijk en heeft het abonnement op zijn domein.";
+		document.getElementById("registrant_role").textContent = "De domeingebruiker die de daadwerkelijke of effectieve controle heeft voor domeinrecht in het land van vestiging.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Webidentificatienummer voor bedrijfsentiteiten en natuurlijke personen.";
-		document.getElementById("registrant_full_name").textContent = "De domeingebruiker die de daadwerkelijke of effectieve controle heeft voor domeinrecht in het land van vestiging.";
+		document.getElementById("registrant_full_name").textContent = "De naam van een persoon of rol die primair verantwoordelijk is voor het domeinabonnement.";
 		document.getElementById("registrant_kind").textContent = "Leeg / 'org' / 'individual' (Voor continuïteit: levenstestament + testament + digitale executeur)";
 		document.getElementById("registrant_name").textContent = "In het RDAP-protocol kan een persoonlijke naam zichtbaar zijn in het veld 'full_name', zie cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "De ISO-2-landcode-indexering werkt, bijvoorbeeld voor het Verenigd Koninkrijk, dat de EU heeft verlaten.";
 		document.getElementById("registrant_street").textContent = address;
 		document.getElementById("registrant_city").textContent = address;
 		document.getElementById("registrant_postal_code").textContent = address;
-		document.getElementById("registrant_country_name").textContent = "De landnaam is beperkt tot registrar informatie in de zogenaamde 'registrar RDAP-query'.";
+		document.getElementById("registrant_organization").textContent = "De naam van een organisatie die primair verantwoordelijk is voor het domeinabonnement.";
 		document.getElementById("registrant_shielded").textContent = proposed + "Informatieafscherming is zonespecifiek en verschilt per rol.";
 		document.getElementById("registrant_event_verification_received").textContent = proposed + "De verantwoordelijke persoon kan een identieke web-ID aanklikken; leeg is intrekking.";
 		document.getElementById("registrant_event_verification_set").textContent = proposed + "Vervolgens controleert het register de gegevens bij de landspecifieke webdomeindienst.";
@@ -242,7 +242,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_received").textContent = proposed;
 		document.getElementById("reseller_event_verification_set").textContent = proposed;
 		document.getElementById("registrar_role").textContent = "De domeinregistrar is verantwoordelijk voor domeinreserveringen en IP-adresroutering.";
-		document.getElementById("registrar_recover").textContent = "Herstel binnen de 'redemption period' is ook bij een andere domeinregistrar mogelijk.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "In het geval van ICANN-accreditatie, voor één of meer generieke topleveldomeinen. En moet juist zijn.";
 		document.getElementById("registrar_shielded").textContent = proposed;
@@ -279,9 +278,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_event_deletion").textContent = "Date and time scheduled for complete deletion. A final deletion phase may exist.";
 		document.getElementById("domain_event_last_uploaded").textContent = "Date and time of RDAP database update in Zulu time (Coordinated Universal Time - UTC).";
 		document.getElementById("domain_extensions_values").textContent = "'Eligibility': How a domain fulfills a specific requirement in a top-level domain zone.";
-		document.getElementById("registrant_role").textContent = "The domain owner is primarily responsible and has the subscription to his domain.";
+		document.getElementById("registrant_role").textContent = "The domain user who has the actual or effective control for domain rights in the country of establishment.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web Identification number for business entities and natural persons.";
-		document.getElementById("registrant_full_name").textContent = "The domain user who has the actual or effective control for domain rights in the country of establishment.";
+		document.getElementById("registrant_full_name").textContent = "The name of a person or role primarily responsible for the domain subscription.";
 		document.getElementById("registrant_kind").textContent = "Empty / 'org' / 'individual' (For continuity: Living Will + Will + Digital Executor)";
 		document.getElementById("registrant_name").textContent = "In the RDAP protocol, a personal name may be visible in the 'full_name' field, see cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "ISO-2 country code indexing works, as for the United Kingdom, which has left the EU.";
@@ -289,6 +288,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_city").textContent = address;
 		document.getElementById("registrant_postal_code").textContent = address;		
 		document.getElementById("registrant_country_name").textContent = "The country name is limited to registrar information in the so-called 'registrar RDAP query'.";
+		document.getElementById("registrant_organization").textContent = "The name of an organization primarily responsible for the domain subscription.";
 		document.getElementById("registrant_shielded").textContent = proposed + "Information shielding is zone-specific and varies by role.";
 		document.getElementById("registrant_event_verification_received").textContent = proposed + "The responsible person can click on an identical web ID; empty is revocation.";
 		document.getElementById("registrant_event_verification_set").textContent = proposed + "The registry then checks the data with the country-specific web domain service.";	
@@ -309,7 +309,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_received").textContent = proposed;
 		document.getElementById("reseller_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_role").textContent = "The domain registrar is responsible for domain reservations and IP address routing.";
-		document.getElementById("registrar_recover").textContent = "Recovery within the 'redemption period' is also possible with another domain registrar.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "In case of ICANN accreditation, for one or more generic top-level domains. And must be correct.";
 		document.getElementById("registrar_shielded").textContent = proposed;
@@ -346,9 +345,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_event_deletion").textContent = "Datum und Uhrzeit für die vollständige Löschung geplant. Es kann eine abschließende Löschphase geben.";
 		document.getElementById("domain_event_last_uploaded").textContent = "Datum und Uhrzeit der RDAP-Datenbankaktualisierung in Zulu-Zeit (Koordinierte Weltzeit – UTC).";
 		document.getElementById("domain_extensions_values").textContent = "'Eligibility': Wie eine Domäne eine bestimmte Anforderung in einer Top-Level-Domänenzone erfüllt.";
-		document.getElementById("registrant_role").textContent = "Der Domaininhaber ist hauptverantwortlich und hat das Abonnement für seine Domain.";
+		document.getElementById("registrant_role").textContent = "Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat für Domainrechte im Wohnsitzland.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web-Identifikationsnummer für Unternehmen und natürliche Personen.";
-		document.getElementById("registrant_full_name").textContent = "Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat für Domainrechte im Wohnsitzland.";
+		document.getElementById("registrant_full_name").textContent = "Der Name einer Person oder Rolle, die hauptsächlich für das Domänenabonnement verantwortlich ist.";
 		document.getElementById("registrant_kind").textContent = "Leer / 'org' / 'individual' (Für Kontinuität: Patientenverfügung + Testament + digitaler Testamentsvollstrecker)";
 		document.getElementById("registrant_name").textContent = "Im RDAP-Protokoll kann im Feld 'full_name' ein Personenname sichtbar sein, siehe cira.ca";
 		document.getElementById("registrant_country_code").textContent = "Die Indizierung mit dem ISO-2-Ländercode funktioniert, wie für das Vereinigte Königreich, das die EU verlassen hat.";
@@ -356,6 +355,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_city").textContent = address;
 		document.getElementById("registrant_postal_code").textContent = address;		
 		document.getElementById("registrant_country_name").textContent = "Der Ländername beschränkt sich bei der sogenannten 'registrar RDAP-query' auf die Registrar-Informationen.";
+		document.getElementById("registrant_organization").textContent = "Der Name einer Organisation, die hauptsächlich für das Domänenabonnement verantwortlich ist.";
 		document.getElementById("registrant_shielded").textContent = proposed + "Der Informationsschutz ist zonenspezifisch und variiert je nach Rolle.";
 		document.getElementById("registrant_event_verification_received").textContent = proposed + "Der Verantwortliche kann auf eine identische Web-ID klicken; leer ist Rückzug.";
 		document.getElementById("registrant_event_verification_set").textContent = proposed + "Anschließend gleicht die Registry die Daten beim länderspezifischen Webdomain-Dienst ab.";
@@ -376,7 +376,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_received").textContent = proposed;
 		document.getElementById("reseller_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_role").textContent = "Der Domänenregistrar ist für die Domänenreservierung und das IP-Adressrouting verantwortlich.";
-		document.getElementById("registrar_recover").textContent = "Eine Wiederherstellung innerhalb der 'redemption period' ist auch bei einem anderen Domain-Registrar möglich.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "Im Falle einer ICANN-Akkreditierung für eine oder mehrere generische Top-Level-Domains. Und muss korrekt sein.";
 		document.getElementById("registrar_shielded").textContent = proposed;
@@ -413,9 +412,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_event_deletion").textContent = "Date et heure prévues pour la suppression complète. Une phase de suppression finale peut exister.";
 		document.getElementById("domain_event_last_uploaded").textContent = "Date et heure de mise à jour de la base de données RDAP en heure Zulu (temps universel coordonné - UTC).";
 		document.getElementById("domain_extensions_values").textContent = "'Eligibility' : comment un domaine répond à une exigence spécifique dans une zone de domaine de premier niveau.";
-		document.getElementById("registrant_role").textContent = "Le propriétaire d'un domaine est le premier responsable et titulaire de l'abonnement à son domaine.";
+		document.getElementById("registrant_role").textContent = "L'utilisateur du domaine qui a le contrôle réel ou effectif pour les droits de domaine dans le pays de résidence.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Numéro d’identification Web pour les entités commerciales et les personnes physiques.";
-		document.getElementById("registrant_full_name").textContent = "L'utilisateur du domaine qui a le contrôle réel ou effectif pour les droits de domaine dans le pays de résidence.";
+		document.getElementById("registrant_full_name").textContent = "Le nom d'une personne ou d'un rôle principalement responsable de l'abonnement au domaine.";
 		document.getElementById("registrant_kind").textContent = "Vide / 'org' / 'individual' (Pour la continuité : testament biologique + testament + exécuteur testamentaire numérique)";
 		document.getElementById("registrant_name").textContent = "Dans le protocole RDAP, un nom personnel peut être visible dans le champ 'full_name', voir cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "L'indexation des codes pays ISO-2 fonctionne, comme pour le Royaume-Uni, qui a quitté l'UE.";
@@ -423,6 +422,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_city").textContent = address;
 		document.getElementById("registrant_postal_code").textContent = address;
 		document.getElementById("registrant_country_name").textContent = "Le nom du pays est limité aux informations du bureau d'enregistrement dans la 'registrar RDAP-query'.";
+		document.getElementById("registrant_organization").textContent = "Le nom d’une organisation principalement responsable de l’abonnement au domaine.";
 		document.getElementById("registrant_shielded").textContent = proposed + "Le blindage des informations est spécifique à chaque zone et varie selon le rôle.";
 		document.getElementById("registrant_event_verification_received").textContent = proposed + "La personne responsable peut cliquer sur un identifiant Web identique ; le vide est le retrait.";
 		document.getElementById("registrant_event_verification_set").textContent = proposed + "Le registre vérifie ensuite les données avec le service de domaine Web spécifique au pays.";
@@ -443,7 +443,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_received").textContent = proposed;
 		document.getElementById("reseller_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_role").textContent = "Le registraire de domaine est responsable des réservations de domaines et du routage des adresses IP.";
-		document.getElementById("registrar_recover").textContent = "La récupération pendant la 'redemption period' est également possible auprès d'un autre registraire de domaine.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "En cas d'accréditation ICANN, pour un ou plusieurs domaines génériques de premier niveau. Et doit être correct.";
 		document.getElementById("registrar_shielded").textContent = proposed;
@@ -614,7 +613,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="408" style="display:none"><td>registrant_state_province</td><td>'.$item->registrant->state_province.'</td><td></td></tr>';
 	$html_text .= '<tr id="409" style="display:none"><td>registrant_postal_code</td><td>'.$item->registrant->postal_code.'</td><td id="registrant_postal_code"></td></tr>';
 	$html_text .= '<tr id="4010" style="display:none"><td>registrant_country_name</td><td>'.$item->registrant->country_name.'</td><td id="registrant_country_name"></td></tr>';
-	$html_text .= '<tr><td>registrant_organization</td><td><b>'.$item->registrant->organization.'</b></td><td></td></tr>';
+	$html_text .= '<tr><td>registrant_organization</td><td><b>'.$item->registrant->organization.'</b></td><td id="registrant_organization"></td></tr>';
 	$html_text .= '<tr id="4011" style="display:none"><td>registrant_language_pref_1</td><td>'.$item->registrant->language_pref_1.'</td><td></td></tr>';
 	$html_text .= '<tr id="4012" style="display:none"><td>registrant_language_pref_2</td><td>'.$item->registrant->language_pref_2.'</td><td></td></tr>';
 	$html_text .= '<tr id="4013" style="display:none"><td>registrant_shielded</td><td>'.$item->registrant->shielded.'</td><td id="registrant_shielded"></td></tr>';
@@ -724,26 +723,26 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="5010" style="display:none"><td>reseller_state_province</td><td>'.$item->reseller->state_province.'</td><td></td></tr>';
 	$html_text .= '<tr id="5011" style="display:none"><td>reseller_postal_code</td><td>'.$item->reseller->postal_code.'</td><td></td></tr>';
 	$html_text .= '<tr id="5012" style="display:none"><td>reseller_country_name</td><td>'.$item->reseller->country_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="5013" style="display:none"><td>reseller_organization</td><td>'.$item->reseller->organization.'</td><td></td></tr>';
-	$html_text .= '<tr id="5014" style="display:none"><td>reseller_language_pref_1</td><td>'.$item->reseller->language_pref_1.'</td><td></td></tr>';
-	$html_text .= '<tr id="5015" style="display:none"><td>reseller_language_pref_2</td><td>'.$item->reseller->language_pref_2.'</td><td></td></tr>';
-	$html_text .= '<tr id="5016" style="display:none"><td>reseller_shielded</td><td>'.$item->reseller->shielded.'</td><td id="reseller_shielded"></td></tr>';
-	$html_text .= '<tr id="5017" style="display:none;vertical-align:top"><td>reseller_status_values</td><td>'.$item->reseller->status_values.'</td><td></td></tr>';
-	$html_text .= '<tr id="5018" style="display:none"><td>reseller_event_registration</td><td>'.$item->reseller->event_registration.'</td><td></td></tr>';
-	$html_text .= '<tr id="5019" style="display:none"><td>reseller_event_last_transferred</td><td>'.$item->reseller->event_last_transferred.'</td><td></td></tr>';
-	$html_text .= '<tr id="5020" style="display:none"><td>reseller_event_last_changed</td><td>'.$item->reseller->event_last_changed.'</td><td></td></tr>';
-	$html_text .= '<tr id="5021" style="display:none"><td>reseller_event_expiration</td><td>'.$item->reseller->event_expiration.'</td><td></td></tr>';
-	$html_text .= '<tr id="5022" style="display:none"><td>reseller_event_deletion</td><td>'.$item->reseller->event_deletion.'</td><td></td></tr>';
-	$html_text .= '<tr id="5023" style="display:none"><td>reseller_event_last_uploaded</td><td>'.$item->reseller->event_last_uploaded.'</td><td></td></tr>';
-	$html_text .= '<tr id="5024" style="display:none"><td>reseller_event_verification_received</td><td>'.$item->reseller->event_verification_received.'</td><td id="reseller_event_verification_received"></td></tr>';
-	$html_text .= '<tr id="5025" style="display:none"><td>reseller_event_verification_set</td><td>'.$item->reseller->event_verification_set.'</td><td id="reseller_event_verification_set"></td></tr>';
-	$html_text .= '<tr id="5026" style="display:none;vertical-align:top"><td>reseller_properties</td><td>'.$item->reseller->properties.'</td><td></td></tr>';
-	$html_text .= '<tr id="5027" style="display:none;vertical-align:top"><td>reseller_remark_values</td><td>'.$item->reseller->remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr><td>reseller_organization</td><td>'.$item->reseller->organization.'</td><td></td></tr>';
+	$html_text .= '<tr id="5013" style="display:none"><td>reseller_language_pref_1</td><td>'.$item->reseller->language_pref_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="5014" style="display:none"><td>reseller_language_pref_2</td><td>'.$item->reseller->language_pref_2.'</td><td></td></tr>';
+	$html_text .= '<tr id="5015" style="display:none"><td>reseller_shielded</td><td>'.$item->reseller->shielded.'</td><td id="reseller_shielded"></td></tr>';
+	$html_text .= '<tr id="5016" style="display:none;vertical-align:top"><td>reseller_status_values</td><td>'.$item->reseller->status_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="5017" style="display:none"><td>reseller_event_registration</td><td>'.$item->reseller->event_registration.'</td><td></td></tr>';
+	$html_text .= '<tr id="5018" style="display:none"><td>reseller_event_last_transferred</td><td>'.$item->reseller->event_last_transferred.'</td><td></td></tr>';
+	$html_text .= '<tr id="5019" style="display:none"><td>reseller_event_last_changed</td><td>'.$item->reseller->event_last_changed.'</td><td></td></tr>';
+	$html_text .= '<tr id="5020" style="display:none"><td>reseller_event_expiration</td><td>'.$item->reseller->event_expiration.'</td><td></td></tr>';
+	$html_text .= '<tr id="5021" style="display:none"><td>reseller_event_deletion</td><td>'.$item->reseller->event_deletion.'</td><td></td></tr>';
+	$html_text .= '<tr id="5022" style="display:none"><td>reseller_event_last_uploaded</td><td>'.$item->reseller->event_last_uploaded.'</td><td></td></tr>';
+	$html_text .= '<tr id="5023" style="display:none"><td>reseller_event_verification_received</td><td>'.$item->reseller->event_verification_received.'</td><td id="reseller_event_verification_received"></td></tr>';
+	$html_text .= '<tr id="5024" style="display:none"><td>reseller_event_verification_set</td><td>'.$item->reseller->event_verification_set.'</td><td id="reseller_event_verification_set"></td></tr>';
+	$html_text .= '<tr id="5025" style="display:none;vertical-align:top"><td>reseller_properties</td><td>'.$item->reseller->properties.'</td><td></td></tr>';
+	$html_text .= '<tr id="5026" style="display:none;vertical-align:top"><td>reseller_remark_values</td><td>'.$item->reseller->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(60)">Registrar +/-</button></td><td></td><td id="registrar_role"></td></tr>';
 	$html_text .= '<tr id="601" style="display:none"><td>registrar_handle</td><td>'.$item->registrar->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="602" style="display:none"><td>registrar_web_id</td><td>'.$item->registrar->web_id.'</td><td id="registrar_web_id"></td></tr>';		
-	$html_text .= '<tr><td>registrar_full_name</td><td>'.$item->registrar->full_name.'</td><td id="registrar_recover"></td></tr>';
+	$html_text .= '<tr><td>registrar_full_name</td><td>'.$item->registrar->full_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="603" style="display:none"><td>registrar_kind</td><td>'.$item->registrar->kind.'</td><td></td></tr>';
 	$html_text .= '<tr id="604" style="display:none"><td>registrar_url</td><td>'.$item->registrar->url.'</td><td></td></tr>';
 	$html_text .= '<tr id="605" style="display:none"><td>registrar_iana_id</td><td>'.$item->registrar->iana_id.'</td><td id="registrar_iana_id"></td></tr>';
@@ -756,21 +755,21 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="6012" style="display:none"><td>registrar_state_province</td><td>'.$item->registrar->state_province.'</td><td></td></tr>';
 	$html_text .= '<tr id="6013" style="display:none"><td>registrar_postal_code</td><td>'.$item->registrar->postal_code.'</td><td></td></tr>';
 	$html_text .= '<tr id="6014" style="display:none"><td>registrar_country_name</td><td>'.$item->registrar->country_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="6015" style="display:none"><td>registrar_organization</td><td>'.$item->registrar->organization.'</td><td></td></tr>';
-	$html_text .= '<tr id="6016" style="display:none"><td>registrar_language_pref_1</td><td>'.$item->registrar->language_pref_1.'</td><td></td></tr>';
-	$html_text .= '<tr id="6017" style="display:none"><td>registrar_language_pref_2</td><td>'.$item->registrar->language_pref_2.'</td><td></td></tr>';
-	$html_text .= '<tr id="6018" style="display:none"><td>registrar_shielded</td><td>'.$item->registrar->shielded.'</td><td id="registrar_shielded"></td></tr>';
-	$html_text .= '<tr id="6019" style="display:none;vertical-align:top"><td>registrar_status_values</td><td>'.$item->registrar->status_values.'</td><td></td></tr>';
-	$html_text .= '<tr id="6020" style="display:none"><td>registrar_event_registration</td><td>'.$item->registrar->event_registration.'</td><td></td></tr>';
-	$html_text .= '<tr id="6021" style="display:none"><td>registrar_event_last_transferred</td><td>'.$item->registrar->event_last_transferred.'</td><td></td></tr>';
-	$html_text .= '<tr id="6022" style="display:none"><td>registrar_event_last_changed</td><td>'.$item->registrar->event_last_changed.'</td><td></td></tr>';
-	$html_text .= '<tr id="6023" style="display:none"><td>registrar_event_expiration</td><td>'.$item->registrar->event_expiration.'</td><td></td></tr>';
-	$html_text .= '<tr id="6024" style="display:none"><td>registrar_event_deletion</td><td>'.$item->registrar->event_deletion.'</td><td></td></tr>';
-	$html_text .= '<tr id="6025" style="display:none"><td>registrar_event_last_uploaded</td><td>'.$item->registrar->event_last_uploaded.'</td><td></td></tr>';
-	$html_text .= '<tr id="6026" style="display:none"><td>registrar_event_verification_received</td><td>'.$item->registrar->event_verification_received.'</td><td id="registrar_event_verification_received"></td></tr>';
-	$html_text .= '<tr id="6027" style="display:none"><td>registrar_event_verification_set</td><td>'.$item->registrar->event_verification_set.'</td><td id="registrar_event_verification_set"></td></tr>';
-	$html_text .= '<tr id="6028" style="display:none;vertical-align:top"><td>registrar_properties</td><td>'.$item->registrar->properties.'</td><td></td></tr>';
-	$html_text .= '<tr id="6029" style="display:none;vertical-align:top"><td>registrar_remark_values</td><td>'.$item->registrar->remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr><td>registrar_organization</td><td>'.$item->registrar->organization.'</td><td></td></tr>';
+	$html_text .= '<tr id="6015" style="display:none"><td>registrar_language_pref_1</td><td>'.$item->registrar->language_pref_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="6016" style="display:none"><td>registrar_language_pref_2</td><td>'.$item->registrar->language_pref_2.'</td><td></td></tr>';
+	$html_text .= '<tr id="6017" style="display:none"><td>registrar_shielded</td><td>'.$item->registrar->shielded.'</td><td id="registrar_shielded"></td></tr>';
+	$html_text .= '<tr id="6018" style="display:none;vertical-align:top"><td>registrar_status_values</td><td>'.$item->registrar->status_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="6019" style="display:none"><td>registrar_event_registration</td><td>'.$item->registrar->event_registration.'</td><td></td></tr>';
+	$html_text .= '<tr id="6020" style="display:none"><td>registrar_event_last_transferred</td><td>'.$item->registrar->event_last_transferred.'</td><td></td></tr>';
+	$html_text .= '<tr id="6021" style="display:none"><td>registrar_event_last_changed</td><td>'.$item->registrar->event_last_changed.'</td><td></td></tr>';
+	$html_text .= '<tr id="6022" style="display:none"><td>registrar_event_expiration</td><td>'.$item->registrar->event_expiration.'</td><td></td></tr>';
+	$html_text .= '<tr id="6023" style="display:none"><td>registrar_event_deletion</td><td>'.$item->registrar->event_deletion.'</td><td></td></tr>';
+	$html_text .= '<tr id="6024" style="display:none"><td>registrar_event_last_uploaded</td><td>'.$item->registrar->event_last_uploaded.'</td><td></td></tr>';
+	$html_text .= '<tr id="6025" style="display:none"><td>registrar_event_verification_received</td><td>'.$item->registrar->event_verification_received.'</td><td id="registrar_event_verification_received"></td></tr>';
+	$html_text .= '<tr id="6026" style="display:none"><td>registrar_event_verification_set</td><td>'.$item->registrar->event_verification_set.'</td><td id="registrar_event_verification_set"></td></tr>';
+	$html_text .= '<tr id="6027" style="display:none;vertical-align:top"><td>registrar_properties</td><td>'.$item->registrar->properties.'</td><td></td></tr>';
+	$html_text .= '<tr id="6028" style="display:none;vertical-align:top"><td>registrar_remark_values</td><td>'.$item->registrar->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(61)">Registrar Abuse +/-</button></td><td></td><td id="registrar_abuse_role"></td></tr>';
 	$html_text .= '<tr id="611" style="display:none"><td>registrar_abuse_full_name</td><td>'.$item->registrar->abuse_full_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="612" style="display:none"><td>registrar_abuse_email</td><td>'.$item->registrar->abuse_email.'</td><td></td></tr>';
@@ -778,34 +777,34 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(62)">Sponsor +/-</button></td><td></td><td id="sponsor_role"></td></tr>';
 	$html_text .= '<tr id="621" style="display:none"><td>sponsor_handle</td><td>'.$item->sponsor->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="622" style="display:none"><td>sponsor_web_id</td><td>'.$item->sponsor->web_id.'</td><td id="sponsor_web_id"></td></tr>';		
-	$html_text .= '<tr><td>sponsor_full_name</td><td>'.$item->sponsor->full_name.'</td><td id="sponsor_recover"></td></tr>';
-	$html_text .= '<tr id="623" style="display:none"><td>sponsor_kind</td><td>'.$item->sponsor->kind.'</td><td></td></tr>';
-	$html_text .= '<tr id="624" style="display:none"><td>sponsor_url</td><td>'.$item->sponsor->url.'</td><td></td></tr>';
-	$html_text .= '<tr id="625" style="display:none"><td>sponsor_iana_id</td><td>'.$item->sponsor->iana_id.'</td><td></td></tr>';
-	$html_text .= '<tr id="626" style="display:none"><td>sponsor_name</td><td>'.$item->sponsor->name.'</td><td></td></tr>';
-	$html_text .= '<tr id="627" style="display:none"><td>sponsor_email</td><td>'.$item->sponsor->email.'</td><td></td></tr>';
-	$html_text .= '<tr id="628" style="display:none"><td>sponsor_tel</td><td>'.$item->sponsor->tel.'</td><td></td></tr>';
-	$html_text .= '<tr id="629" style="display:none"><td>sponsor_country_code</td><td>'.$item->sponsor->country_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="6210" style="display:none"><td>sponsor_street</td><td>'.$item->sponsor->street.'</td><td></td></tr>';
-	$html_text .= '<tr id="6211" style="display:none"><td>sponsor_city</td><td>'.$item->sponsor->city.'</td><td></td></tr>';
-	$html_text .= '<tr id="6212" style="display:none"><td>sponsor_state_province</td><td>'.$item->sponsor->state_province.'</td><td></td></tr>';
-	$html_text .= '<tr id="6213" style="display:none"><td>sponsor_postal_code</td><td>'.$item->sponsor->postal_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="6214" style="display:none"><td>sponsor_country_name</td><td>'.$item->sponsor->country_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="6215" style="display:none"><td>sponsor_organization</td><td>'.$item->sponsor->organization.'</td><td></td></tr>';
-	$html_text .= '<tr id="6216" style="display:none"><td>sponsor_language_pref_1</td><td>'.$item->sponsor->language_pref_1.'</td><td></td></tr>';
-	$html_text .= '<tr id="6217" style="display:none"><td>sponsor_language_pref_2</td><td>'.$item->sponsor->language_pref_2.'</td><td></td></tr>';
-	$html_text .= '<tr id="6218" style="display:none"><td>sponsor_shielded</td><td>'.$item->sponsor->shielded.'</td><td></td></tr>';
-	$html_text .= '<tr id="6219" style="display:none;vertical-align:top"><td>sponsor_status_values</td><td>'.$item->sponsor->status_values.'</td><td></td></tr>';
-	$html_text .= '<tr id="6220" style="display:none"><td>sponsor_event_registration</td><td>'.$item->sponsor->event_registration.'</td><td></td></tr>';
-	$html_text .= '<tr id="6221" style="display:none"><td>sponsor_event_last_transferred</td><td>'.$item->sponsor->event_last_transferred.'</td><td></td></tr>';
-	$html_text .= '<tr id="6222" style="display:none"><td>sponsor_event_last_changed</td><td>'.$item->sponsor->event_last_changed.'</td><td></td></tr>';
-	$html_text .= '<tr id="6223" style="display:none"><td>sponsor_event_expiration</td><td>'.$item->sponsor->event_expiration.'</td><td></td></tr>';
-	$html_text .= '<tr id="6224" style="display:none"><td>sponsor_event_deletion</td><td>'.$item->sponsor->event_deletion.'</td><td></td></tr>';
-	$html_text .= '<tr id="6225" style="display:none"><td>sponsor_event_last_uploaded</td><td>'.$item->sponsor->event_last_uploaded.'</td><td></td></tr>';
-	$html_text .= '<tr id="6226" style="display:none"><td>sponsor_event_verification_received</td><td>'.$item->sponsor->event_verification_received.'</td><td id="sponsor_event_verification_received"></td></tr>';
-	$html_text .= '<tr id="6227" style="display:none"><td>sponsor_event_verification_set</td><td>'.$item->sponsor->event_verification_set.'</td><td id="sponsor_event_verification_set"></td></tr>';
-	$html_text .= '<tr id="6228" style="display:none;vertical-align:top"><td>sponsor_properties</td><td>'.$item->sponsor->properties.'</td><td></td></tr>';
-	$html_text .= '<tr id="6229" style="display:none;vertical-align:top"><td>sponsor_remark_values</td><td>'.$item->sponsor->remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="623" style="display:none"><td>sponsor_full_name</td><td>'.$item->sponsor->full_name.'</td><td id="sponsor_recover"></td></tr>';
+	$html_text .= '<tr id="624" style="display:none"><td>sponsor_kind</td><td>'.$item->sponsor->kind.'</td><td></td></tr>';
+	$html_text .= '<tr id="625" style="display:none"><td>sponsor_url</td><td>'.$item->sponsor->url.'</td><td></td></tr>';
+	$html_text .= '<tr id="626" style="display:none"><td>sponsor_iana_id</td><td>'.$item->sponsor->iana_id.'</td><td></td></tr>';
+	$html_text .= '<tr id="627" style="display:none"><td>sponsor_name</td><td>'.$item->sponsor->name.'</td><td></td></tr>';
+	$html_text .= '<tr id="628" style="display:none"><td>sponsor_email</td><td>'.$item->sponsor->email.'</td><td></td></tr>';
+	$html_text .= '<tr id="629" style="display:none"><td>sponsor_tel</td><td>'.$item->sponsor->tel.'</td><td></td></tr>';
+	$html_text .= '<tr id="6210" style="display:none"><td>sponsor_country_code</td><td>'.$item->sponsor->country_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="6211" style="display:none"><td>sponsor_street</td><td>'.$item->sponsor->street.'</td><td></td></tr>';
+	$html_text .= '<tr id="6212" style="display:none"><td>sponsor_city</td><td>'.$item->sponsor->city.'</td><td></td></tr>';
+	$html_text .= '<tr id="6213" style="display:none"><td>sponsor_state_province</td><td>'.$item->sponsor->state_province.'</td><td></td></tr>';
+	$html_text .= '<tr id="6214" style="display:none"><td>sponsor_postal_code</td><td>'.$item->sponsor->postal_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="6215" style="display:none"><td>sponsor_country_name</td><td>'.$item->sponsor->country_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="6216" style="display:none"><td>sponsor_organization</td><td>'.$item->sponsor->organization.'</td><td></td></tr>';
+	$html_text .= '<tr id="6217" style="display:none"><td>sponsor_language_pref_1</td><td>'.$item->sponsor->language_pref_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="6218" style="display:none"><td>sponsor_language_pref_2</td><td>'.$item->sponsor->language_pref_2.'</td><td></td></tr>';
+	$html_text .= '<tr id="6219" style="display:none"><td>sponsor_shielded</td><td>'.$item->sponsor->shielded.'</td><td></td></tr>';
+	$html_text .= '<tr id="6220" style="display:none;vertical-align:top"><td>sponsor_status_values</td><td>'.$item->sponsor->status_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="6221" style="display:none"><td>sponsor_event_registration</td><td>'.$item->sponsor->event_registration.'</td><td></td></tr>';
+	$html_text .= '<tr id="6222" style="display:none"><td>sponsor_event_last_transferred</td><td>'.$item->sponsor->event_last_transferred.'</td><td></td></tr>';
+	$html_text .= '<tr id="6223" style="display:none"><td>sponsor_event_last_changed</td><td>'.$item->sponsor->event_last_changed.'</td><td></td></tr>';
+	$html_text .= '<tr id="6224" style="display:none"><td>sponsor_event_expiration</td><td>'.$item->sponsor->event_expiration.'</td><td></td></tr>';
+	$html_text .= '<tr id="6225" style="display:none"><td>sponsor_event_deletion</td><td>'.$item->sponsor->event_deletion.'</td><td></td></tr>';
+	$html_text .= '<tr id="6226" style="display:none"><td>sponsor_event_last_uploaded</td><td>'.$item->sponsor->event_last_uploaded.'</td><td></td></tr>';
+	$html_text .= '<tr id="6227" style="display:none"><td>sponsor_event_verification_received</td><td>'.$item->sponsor->event_verification_received.'</td><td id="sponsor_event_verification_received"></td></tr>';
+	$html_text .= '<tr id="6228" style="display:none"><td>sponsor_event_verification_set</td><td>'.$item->sponsor->event_verification_set.'</td><td id="sponsor_event_verification_set"></td></tr>';
+	$html_text .= '<tr id="6229" style="display:none;vertical-align:top"><td>sponsor_properties</td><td>'.$item->sponsor->properties.'</td><td></td></tr>';
+	$html_text .= '<tr id="6230" style="display:none;vertical-align:top"><td>sponsor_remark_values</td><td>'.$item->sponsor->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(63)">Name Servers +/-</button></td><td></td><td></td></tr>';
 	//if (!empty($item->name_servers->server_1->server_name_1))	{
