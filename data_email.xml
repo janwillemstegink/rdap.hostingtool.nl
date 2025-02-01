@@ -9,6 +9,7 @@
 		<registrant>
 			<handle>STE135417-TRAIP</handle>
 			<web_id>NL88COMM01234567890123456789012345</web_id>
+			<organization><![CDATA[Stegink Hosting & E-mail]]></organization>
 			<full_name>owner</full_name>
 			<kind>org</kind>
 			<name>Jan Willem Stegink</name>
@@ -20,12 +21,12 @@
 			<city>Arnhem</city>
 			<state_province>Gelderland</state_province>
 			<country_name>Nederland</country_name>
-			<organization><![CDATA[Stegink Hosting & E-mail]]></organization>
 			<shielded>name,email,tel,address</shielded>
 		</registrant>
 		<administrative>
 			<handle>STE135418-TRAIP</handle>
 			<web_id>NL88COMM01234567890123456789012345</web_id>
+			<organization><![CDATA[Stegink Hosting & E-mail]]></organization>
 			<full_name>owner</full_name>
 			<kind>org</kind>
 			<name>Jan Willem Stegink</name>
@@ -37,12 +38,12 @@
 			<city>Arnhem</city>
 			<state_province>Gelderland</state_province>			
 			<country_name>Nederland</country_name>
-			<organization><![CDATA[Stegink Hosting & E-mail]]></organization>
 			<shielded>web_id,full_name,name,tel,address</shielded>
 		</administrative>
 		<billing>
 			<handle></handle>
 			<web_id>NL88COMM01234567890123456789012345</web_id>
+			<organization><![CDATA[Stegink Hosting & E-mail]]></organization>
 			<full_name>owner</full_name>
 			<kind>org</kind>
 			<name>Jan Willem Stegink</name>
@@ -54,7 +55,6 @@
 			<city>Arnhem</city>
 			<state_province>Gelderland</state_province>
 			<country_name>Nederland</country_name>
-			<organization><![CDATA[Stegink Hosting & E-mail]]></organization>
 			<shielded>web_id,full_name,name,email,tel,address</shielded>
 		</billing>
 	</domain>

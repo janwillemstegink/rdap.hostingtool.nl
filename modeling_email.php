@@ -41,6 +41,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td COLSPAN="2"><br />Houder / Registrant:</td></tr>';
 	$html_text .= '<tr><td>registrant_handle</td><td>'.$item->registrant->handle.'</td></tr>';
 	$html_text .= '<tr><td>registrant_web_id</td><td>'.$item->registrant->web_id.'</td></tr>';
+	$html_text .= '<tr><td>registrant_organization</td><td>'.$item->registrant->organization.'</td></tr>';
 	$html_text .= '<tr><td>registrant_full_name</td><td>'.$item->registrant->full_name.'</td></tr>';
 	$html_text .= '<tr><td>registrant_kind</td><td>'.$item->registrant->kind.'</td></tr>';
 	$html_text .= '<tr><td>registrant_name</td><td>'.$item->registrant->name.'</td></tr>';
@@ -52,11 +53,11 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>registrant_city</td><td>'.$item->registrant->city.'</td></tr>';
 	$html_text .= '<tr><td>registrant_state_province</td><td>'.$item->registrant->state_province.'</td></tr>';	
 	$html_text .= '<tr><td>registrant_country_name</td><td>'.$item->registrant->country_name.'</td></tr>';
-	$html_text .= '<tr><td>registrant_organization</td><td>'.$item->registrant->organization.'</td></tr>';
 	$html_text .= '<tr><td>registrant_shielded</td><td>'.$item->registrant->shielded.'</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Administratieve contactpersoon / Administrative contact:</td></tr>';
 	$html_text .= '<tr><td>administrative_handle</td><td>'.$item->administrative->handle.'</td></tr>';
 	$html_text .= '<tr><td>administrative_web_id</td><td>'.$item->administrative->web_id.'</td></tr>';
+	$html_text .= '<tr><td>administrative_organization</td><td>'.$item->administrative->organization.'</td></tr>';
 	$html_text .= '<tr><td>administrative_full_name</td><td>'.$item->administrative->full_name.'</td></tr>';
 	$html_text .= '<tr><td>administrative_kind</td><td>'.$item->administrative->kind.'</td></tr>';
 	$html_text .= '<tr><td>administrative_name</td><td>'.$item->administrative->name.'</td></tr>';
@@ -68,11 +69,11 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>administrative_city</td><td>'.$item->administrative->city.'</td></tr>';
 	$html_text .= '<tr><td>administrative_state_province</td><td>'.$item->administrative->state_province.'</td></tr>';
 	$html_text .= '<tr><td>administrative_country_name</td><td>'.$item->administrative->country_name.'</td></tr>';
-	$html_text .= '<tr><td>administrative_organization</td><td>'.$item->administrative->organization.'</td></tr>';
 	$html_text .= '<tr><td>administrative_shielded</td><td>'.$item->administrative->shielded.'</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Facturering (indien de registry dit onderhoudt) / Billing (if the registry maintains this):</td></tr>';
 	$html_text .= '<tr><td>billing_handle</td><td>'.$item->billing->handle.'</td></tr>';
 	$html_text .= '<tr><td>billing_web_id</td><td>'.$item->billing->web_id.'</td></tr>';
+	$html_text .= '<tr><td>billing_organization</td><td>'.$item->billing->organization.'</td></tr>';
 	$html_text .= '<tr><td>billing_full_name</td><td>'.$item->billing->full_name.'</td></tr>';
 	$html_text .= '<tr><td>billing_kind</td><td>'.$item->billing->kind.'</td></tr>';
 	$html_text .= '<tr><td>billing_name</td><td>'.$item->billing->name.'</td></tr>';
@@ -84,7 +85,6 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>billing_city</td><td>'.$item->billing->city.'</td></tr>';
 	$html_text .= '<tr><td>billing_state_province</td><td>'.$item->billing->state_province.'</td></tr>';
 	$html_text .= '<tr><td>billing_country_name</td><td>'.$item->billing->country_name.'</td></tr>';
-	$html_text .= '<tr><td>billing_organization</td><td>'.$item->billing->organization.'</td></tr>';
 	$html_text .= '<tr><td>billing_shielded</td><td>'.$item->billing->shielded.'</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Is er iets mis? Het bedrijf dat deze domeinnaam beheert is: team.blue nl B.V., of de reseller: TransIP.</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2">Als u als registrant via hun menu wijzigingen kunt aanbrengen, dan bent u primair verantwoordelijk.</td></tr>';
