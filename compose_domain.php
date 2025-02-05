@@ -159,16 +159,20 @@ $notice_3_links_0_type = $obj['notices'][3]['links'][0]['type'];
 	
 if ($zone_top_level_domain == 'nl')	{
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
+	$zone_restrictions = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
+	$zone_regmenu = 'https://www.sidn.nl/en/theme/domain-names';
 }
 else	{
 	$registrant_web_id = '';
+	$zone_restrictions = '';
+	$zone_regmenu = '';
 }
 if (strlen($obj['lang']))	{
 	$zone_language = $obj['lang'];	
 }
 else	{
-	$zone_language = '(None Specified)';	
-}
+	$zone_language = 'None Specified';	
+}	
 $zone_delegation = 'https://www.iana.org/domains/root/db/'.$zone_top_level_domain.'.html';	
 $links_0_value = $obj['links'][0]['value'];
 $links_0_related = $obj['links'][0]['rel'];
@@ -1221,10 +1225,18 @@ $zone->appendChild($domain_zone_top_level_domain);
 $domain_zone_language = $doc->createElement("language");
 $domain_zone_language->appendChild($doc->createCDATASection($zone_language));	
 $zone->appendChild($domain_zone_language);	
-	
+
 $domain_zone_delegation = $doc->createElement("delegation");
 $domain_zone_delegation->appendChild($doc->createCDATASection($zone_delegation));	
-$zone->appendChild($domain_zone_delegation);		
+$zone->appendChild($domain_zone_delegation);	
+	
+$domain_zone_restrictions = $doc->createElement("restrictions");
+$domain_zone_restrictions->appendChild($doc->createCDATASection($zone_restrictions));	
+$zone->appendChild($domain_zone_restrictions);
+	
+$domain_zone_regmenu = $doc->createElement("regmenu");
+$domain_zone_regmenu->appendChild($doc->createCDATASection($zone_regmenu));	
+$zone->appendChild($domain_zone_regmenu);	
 	
 $domain_notice_0_title = $doc->createElement("notice_0_title");
 $domain_notice_0_title->appendChild($doc->createCDATASection($notice_0_title));	
