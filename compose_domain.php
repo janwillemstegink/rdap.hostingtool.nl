@@ -1222,10 +1222,6 @@ $domain_zone_top_level_domain = $doc->createElement("top_level_domain");
 $domain_zone_top_level_domain->appendChild($doc->createCDATASection($zone_top_level_domain));	
 $zone->appendChild($domain_zone_top_level_domain);
 
-$domain_zone_language = $doc->createElement("language");
-$domain_zone_language->appendChild($doc->createCDATASection($zone_language));	
-$zone->appendChild($domain_zone_language);	
-
 $domain_zone_delegation = $doc->createElement("delegation");
 $domain_zone_delegation->appendChild($doc->createCDATASection($zone_delegation));	
 $zone->appendChild($domain_zone_delegation);	
@@ -1236,7 +1232,11 @@ $zone->appendChild($domain_zone_restrictions);
 	
 $domain_zone_regmenu = $doc->createElement("regmenu");
 $domain_zone_regmenu->appendChild($doc->createCDATASection($zone_regmenu));	
-$zone->appendChild($domain_zone_regmenu);	
+$zone->appendChild($domain_zone_regmenu);
+
+$domain_zone_language = $doc->createElement("language");
+$domain_zone_language->appendChild($doc->createCDATASection($zone_language));	
+$zone->appendChild($domain_zone_language);	
 	
 $domain_notice_0_title = $doc->createElement("notice_0_title");
 $domain_notice_0_title->appendChild($doc->createCDATASection($notice_0_title));	
