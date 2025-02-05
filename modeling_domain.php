@@ -251,7 +251,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
 		document.getElementById("br_zone").textContent = "Zone .br: De RDAP-gegevens zijn aangepast met nameservervalidatie.";
-		document.getElementById("raw_data_next").textContent = "De volgorde van de rollen is niet voorgeschreven. 'None Specified' is een term van deze tool. Een XML-structuur in JSON voor de RDAP-gegevens zou nuttig zijn.";	
+		document.getElementById("raw_data_next").textContent = "De volgorde van de rollen is niet voorgeschreven. 'None Specified' komt van deze tool. Een XML-structuur in JSON voor de RDAP-gegevens zou nuttig zijn.";	
 	}
 	else if (translation == 2)	{
 		var proposed = 'PROPOSED - ';
@@ -317,7 +317,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
 		document.getElementById("br_zone").textContent = "Zone .br: The RDAP data has been modified with name server validation.";
-		document.getElementById("raw_data_next").textContent = "The order of the roles is not prescribed. 'None Specified' is a term of this tool. An XML structure in JSON for the RDAP data would be useful.";
+		document.getElementById("raw_data_next").textContent = "The order of the roles is not prescribed. 'None Specified' comes from this tool. An XML structure in JSON for the RDAP data would be useful.";
 	}
 	else if (translation == 3)	{
 		var proposed = 'VORGESCHLAGEN - ';
@@ -383,7 +383,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 		document.getElementById("name_servers_ip").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
 		document.getElementById("br_zone").textContent = "Zone .br: Die RDAP-Daten wurden mit der Nameserver-Validierung angepasst.";
-		document.getElementById("raw_data_next").textContent = "Die Reihenfolge der Rollen ist nicht vorgeschrieben. 'None Specified' ist ein Begriff dieses Tools. Eine XML-Struktur in JSON für die RDAP-Daten wäre sinnvoll.";
+		document.getElementById("raw_data_next").textContent = "Die Reihenfolge der Rollen ist nicht vorgeschrieben. 'None Specified' stammt von diesem Tool. Eine XML-Struktur in JSON für die RDAP-Daten wäre sinnvoll.";
 	}
 	else if (translation == 4)	{
 		var proposed = 'PROPOSÉ - ';
@@ -449,7 +449,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 		document.getElementById("name_servers_ip").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
 		document.getElementById("br_zone").textContent = "Zone .br: Les données RDAP ont été ajustées avec la validation du serveur de noms.";
-		document.getElementById("raw_data_next").textContent = "L'ordre des rôles n'est pas prescrit. 'None Specified' est un terme de cet outil. Une structure XML en JSON pour les données RDAP serait utile.";
+		document.getElementById("raw_data_next").textContent = "L'ordre des rôles n'est pas prescrit. 'None Specified' provient de cet outil. Une structure XML en JSON pour les données RDAP serait utile.";
 	}
 }	
 </script><?php
@@ -522,7 +522,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td id="value"><td id="explanation"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(10)">Zone Details +/-</button></td><td><b>'.$item->zone->top_level_domain.'</b></td><td id="zone_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(10)">Zone +/-</button></td><td><b>'.$item->zone->top_level_domain.'</b></td><td id="zone_role"></td></tr>';
 	$html_text .= '<tr id="101" style="display:none"><td>zone delegation</td><td><a href='.$item->zone->delegation.' target="_blank">IANA Delegation Data</a></td><td id="zone_delegation"></td></tr>';
 	if (strlen($item->zone->restrictions))	{
 		$html_text .= '<tr id="102" style="display:none"><td>zone restrictions</td><td><a href='.$item->zone->restrictions.' target="_blank">Data Usage Restrictions</a></td><td id="zone_restrictions"></td></tr>';
@@ -588,7 +588,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="236" style="display:none;vertical-align:top"><td>zone links_3_media</td><td>'.$item->view->links_3_media.'</td><td></td></tr>';
 	$html_text .= '<tr id="237" style="display:none;vertical-align:top"><td>zone links_3_type</td><td>'.$item->view->links_3_type.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(30)">Domain Details +/-</button></td><td><b>'.$viewdomain.'</b></td><td id="domain_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(30)">Details +/-</button></td><td><b>'.$viewdomain.'</b></td><td id="domain_role"></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>details handle</td><td>'.$item->details->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="302" style="display:none"><td>details name_ascii</td><td>'.$item->details->name_ascii.'</td><td id="domain_name_ascii"></td></tr>';
 	$html_text .= '<tr id="303" style="display:none"><td>details name_unicode</td><td>'.$item->details->name_unicode.'</td><td id="domain_name_unicode"></td></tr>';
