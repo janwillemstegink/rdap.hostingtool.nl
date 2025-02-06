@@ -11,7 +11,7 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 function SwitchDisplay(type) {
 	if (type == 10)			{ // zone
 		var pre = '10';
-		var max = 4
+		var max = 6
 	}
 	else if (type == 11)	{ // notice 0
 		var pre = '11';
@@ -215,7 +215,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_organization").textContent = "De naam van een organisatie die primair verantwoordelijk is voor het domeinabonnement.";
 		document.getElementById("registrant_full_name").textContent = "De naam van een persoon of rol die primair verantwoordelijk is voor het domeinabonnement.";
 		document.getElementById("registrant_kind").textContent = "Leeg / 'org' / 'individual' (Voor continuïteit: levenstestament + testament + digitale executeur)";
-		document.getElementById("registrant_name").textContent = "In het RDAP-protocol kan een persoonlijke naam zichtbaar zijn in het veld 'full_name', zie cira.ca.";
+		document.getElementById("registrant_name").textContent = "In het RDAP-protocol kan een persoonlijke naam openbaar zichtbaar zijn in het veld 'full_name', zie cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "De ISO-2-landcode-indexering werkt, bijvoorbeeld voor het Verenigd Koninkrijk, dat de EU heeft verlaten.";
 		document.getElementById("registrant_street").textContent = address;
 		document.getElementById("registrant_city").textContent = address;
@@ -251,7 +251,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
 		document.getElementById("br_zone").textContent = "Zone .br: De RDAP-gegevens zijn aangepast met nameservervalidatie.";
-		document.getElementById("raw_data_next").textContent = "De volgorde van de rollen is niet voorgeschreven. 'None Specified' komt van deze tool. Een XML-structuur in JSON voor de RDAP-gegevens zou nuttig zijn.";	
+		document.getElementById("raw_data_next").textContent = "De volgorde van de rollen is niet voorgeschreven. 'None Specified' komt van deze tool. RDAP in complexe JSON vereist een leesbare XML-structuur.";	
 	}
 	else if (translation == 2)	{
 		var proposed = 'PROPOSED - ';
@@ -280,7 +280,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_organization").textContent = "The name of an organization primarily responsible for the domain subscription.";
 		document.getElementById("registrant_full_name").textContent = "The name of a person or role primarily responsible for the domain subscription.";
 		document.getElementById("registrant_kind").textContent = "Empty / 'org' / 'individual' (For continuity: Living Will + Will + Digital Executor)";
-		document.getElementById("registrant_name").textContent = "In the RDAP protocol, a personal name may be visible in the 'full_name' field, see cira.ca.";
+		document.getElementById("registrant_name").textContent = "In the RDAP protocol, a personal name can be publicly visible in the 'full_name' field, see cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "ISO-2 country code indexing works, as for the United Kingdom, which has left the EU.";
 		document.getElementById("registrant_street").textContent = address;
 		document.getElementById("registrant_city").textContent = address;
@@ -317,7 +317,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
 		document.getElementById("br_zone").textContent = "Zone .br: The RDAP data has been modified with name server validation.";
-		document.getElementById("raw_data_next").textContent = "The order of the roles is not prescribed. 'None Specified' comes from this tool. An XML structure in JSON for the RDAP data would be useful.";
+		document.getElementById("raw_data_next").textContent = "The order of the roles is not prescribed. 'None Specified' comes from this tool. RDAP in complex JSON requires a readable XML structure.";
 	}
 	else if (translation == 3)	{
 		var proposed = 'VORGESCHLAGEN - ';
@@ -346,7 +346,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_organization").textContent = "Der Name einer Organisation, die hauptsächlich für das Domänenabonnement verantwortlich ist.";
 		document.getElementById("registrant_full_name").textContent = "Der Name einer Person oder Rolle, die hauptsächlich für das Domänenabonnement verantwortlich ist.";
 		document.getElementById("registrant_kind").textContent = "Leer / 'org' / 'individual' (Für Kontinuität: Patientenverfügung + Testament + digitaler Testamentsvollstrecker)";
-		document.getElementById("registrant_name").textContent = "Im RDAP-Protokoll kann im Feld 'full_name' ein Personenname sichtbar sein, siehe cira.ca";
+		document.getElementById("registrant_name").textContent = "Im RDAP-Protokoll kann ein Personenname im Feld 'full_name' öffentlich sichtbar sein, siehe cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "Die Indizierung mit dem ISO-2-Ländercode funktioniert, wie für das Vereinigte Königreich, das die EU verlassen hat.";
 		document.getElementById("registrant_street").textContent = address;
 		document.getElementById("registrant_city").textContent = address;
@@ -383,7 +383,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 		document.getElementById("name_servers_ip").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
 		document.getElementById("br_zone").textContent = "Zone .br: Die RDAP-Daten wurden mit der Nameserver-Validierung angepasst.";
-		document.getElementById("raw_data_next").textContent = "Die Reihenfolge der Rollen ist nicht vorgeschrieben. 'None Specified' stammt von diesem Tool. Eine XML-Struktur in JSON für die RDAP-Daten wäre sinnvoll.";
+		document.getElementById("raw_data_next").textContent = "Die Reihenfolge der Rollen ist nicht vorgeschrieben. 'None Specified' stammt von diesem Tool. RDAP in komplexem JSON erfordert eine lesbare XML-Struktur.";
 	}
 	else if (translation == 4)	{
 		var proposed = 'PROPOSÉ - ';
@@ -412,7 +412,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_organization").textContent = "Le nom d’une organisation principalement responsable de l’abonnement au domaine.";
 		document.getElementById("registrant_full_name").textContent = "Le nom d'une personne ou d'un rôle principalement responsable de l'abonnement au domaine.";
 		document.getElementById("registrant_kind").textContent = "Vide / 'org' / 'individual' (Pour la continuité : testament biologique + testament + exécuteur testamentaire numérique)";
-		document.getElementById("registrant_name").textContent = "Dans le protocole RDAP, un nom personnel peut être visible dans le champ 'full_name', voir cira.ca.";
+		document.getElementById("registrant_name").textContent = "Dans le protocole RDAP, un nom personnel peut être visible publiquement dans le champ 'full_name', voir cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "L'indexation des codes pays ISO-2 fonctionne, comme pour le Royaume-Uni, qui a quitté l'UE.";
 		document.getElementById("registrant_street").textContent = address;
 		document.getElementById("registrant_city").textContent = address;
@@ -449,7 +449,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 		document.getElementById("name_servers_ip").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
 		document.getElementById("br_zone").textContent = "Zone .br: Les données RDAP ont été ajustées avec la validation du serveur de noms.";
-		document.getElementById("raw_data_next").textContent = "L'ordre des rôles n'est pas prescrit. 'None Specified' provient de cet outil. Une structure XML en JSON pour les données RDAP serait utile.";
+		document.getElementById("raw_data_next").textContent = "L'ordre des rôles n'est pas prescrit. 'None Specified' provient de cet outil. RDAP dans un JSON complexe nécessite une structure XML lisible.";
 	}
 }	
 </script><?php
@@ -523,20 +523,22 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td id="value"><td id="explanation"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(10)">Zone +/-</button></td><td><b>'.$item->zone->top_level_domain.'</b></td><td id="zone_role"></td></tr>';
-	$html_text .= '<tr id="101" style="display:none"><td>zone delegation</td><td><a href='.$item->zone->delegation.' target="_blank">IANA Delegation Data</a></td><td id="zone_delegation"></td></tr>';
+	$html_text .= '<tr id="101" style="display:none"><td>zone object_conformance</td><td>'.$item->zone->object_conformance.'</td><td></td></tr>';
+	$html_text .= '<tr id="102" style="display:none"><td>zone object_class_name</td><td>'.$item->zone->object_class_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="103" style="display:none"><td>zone delegation</td><td><a href='.$item->zone->delegation.' target="_blank">IANA Delegation Data</a></td><td id="zone_delegation"></td></tr>';
 	if (strlen($item->zone->restrictions))	{
-		$html_text .= '<tr id="102" style="display:none"><td>zone restrictions</td><td><a href='.$item->zone->restrictions.' target="_blank">Data Usage Restrictions</a></td><td id="zone_restrictions"></td></tr>';
+		$html_text .= '<tr id="104" style="display:none"><td>zone restrictions</td><td><a href='.$item->zone->restrictions.' target="_blank">Data Usage Restrictions</a></td><td id="zone_restrictions"></td></tr>';
 	}
 	else	{
-		$html_text .= '<tr id="102" style="display:none"><td>zone restrictions</td><td>none</td><td id="zone_restrictions"></td></tr>';
+		$html_text .= '<tr id="104" style="display:none"><td>zone restrictions</td><td>none</td><td id="zone_restrictions"></td></tr>';
 	}
 	if (strlen($item->zone->regmenu))	{
-		$html_text .= '<tr id="103" style="display:none"><td>zone regmenu</td><td><a href='.$item->zone->regmenu.' target="_blank">Domain Zone Registry Menu</a></td><td id="zone_regmenu"></td></tr>';
+		$html_text .= '<tr id="105" style="display:none"><td>zone regmenu</td><td><a href='.$item->zone->regmenu.' target="_blank">Domain Zone Registry Menu</a></td><td id="zone_regmenu"></td></tr>';
 	}
 	else	{
-		$html_text .= '<tr id="103" style="display:none"><td>zone regmenu</td><td>none</td><td id="zone_regmenu"></td></tr>';	
+		$html_text .= '<tr id="105" style="display:none"><td>zone regmenu</td><td>none</td><td id="zone_regmenu"></td></tr>';	
 	}
-	$html_text .= '<tr id="104" style="display:none"><td>zone language</td><td>'.$item->zone->language.'</td><td></td></tr>';
+	$html_text .= '<tr id="106" style="display:none"><td>zone language</td><td>'.$item->zone->language.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(11)">Notice0 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(12)">Notice1 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(13)">Notice2 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(14)">Notice3 +/-</button></td><td></td><td></td></tr>';
 	$html_text .= '<tr id="111" style="display:none;vertical-align:top"><td>zone notice_0_title</td><td>'.$item->zone->notice_0_title.'</td><td></td></tr>';
 	$html_text .= '<tr id="112" style="display:none;vertical-align:top"><td>zone notice_0_description_0</td><td>'.$item->zone->notice_0_description_0.'</td><td></td></tr>';
@@ -608,7 +610,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="402" style="display:none"><td>registrant web_id</td><td>'.$item->registrant->web_id.'</td><td id="registrant_web_id"></td></tr>';
 	$html_text .= '<tr><td>registrant organization</td><td><b>'.$item->registrant->organization.'</b></td><td id="registrant_organization"></td></tr>';
 	$html_text .= '<tr><td>registrant full_name</td><td><b>'.$item->registrant->full_name.'</b></td><td id="registrant_full_name"></td></tr>';
-	$html_text .= '<tr><td>registrant kind</td><td>'.$item->registrant->kind.'</td><td id="registrant_kind"></td></tr>';
+	$html_text .= '<tr><td>registrant kind</td><td><b>'.$item->registrant->kind.'</b></td><td id="registrant_kind"></td></tr>';
 	$html_text .= '<tr id="403" style="display:none"><td>registrant name</td><td><b>'.$item->registrant->name.'</b></td><td id="registrant_name"></td></tr>';
 	$html_text .= '<tr id="404" style="display:none"><td>registrant email</td><td>'.$item->registrant->email.'</td><td></td></tr>';
 	$html_text .= '<tr id="405" style="display:none"><td>registrant tel</td><td>'.$item->registrant->tel.'</td><td></td></tr>';

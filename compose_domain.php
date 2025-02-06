@@ -134,8 +134,6 @@ if (!strlen($url))	{
 }	
 $url .= 'domain/'.$inputdomain;
 $obj = json_decode(file_get_contents($url), true);
-$rdap_conformance = $obj['rdapConformance'];
-$object_class_name = $obj['objectClassName'];
 $notice_0_title = $obj['notices'][0]['title'];
 $notice_0_description_0 = $obj['notices'][0]['description'][0];	
 $notice_0_description_1 = $obj['notices'][0]['description'][1];
@@ -156,7 +154,9 @@ $notice_3_description_0 = $obj['notices'][3]['description'][0];
 $notice_3_description_1 = $obj['notices'][3]['description'][1];
 $notice_3_links_0_href = $obj['notices'][3]['links'][0]['href'];
 $notice_3_links_0_type = $obj['notices'][3]['links'][0]['type'];	
-	
+$zone_object_class_name = $obj['objectClassName'];
+$zone_object_conformance = $obj['rdapConformance'][0];		
+$zone_delegation = 'https://www.iana.org/domains/root/db/'.$zone_top_level_domain.'.html';	
 if ($zone_top_level_domain == 'nl')	{
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
 	$zone_restrictions = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
@@ -173,7 +173,6 @@ if (strlen($obj['lang']))	{
 else	{
 	$zone_language = 'None Specified';	
 }	
-$zone_delegation = 'https://www.iana.org/domains/root/db/'.$zone_top_level_domain.'.html';	
 $links_0_value = $obj['links'][0]['value'];
 $links_0_related = $obj['links'][0]['rel'];
 $links_0_href = $obj['links'][0]['href'];
@@ -254,7 +253,7 @@ $sponsor_expiration = null;
 $sponsor_deletion = null;
 $sponsor_properties = '(not tested yet)';
 $sponsor_remark_values = '';
-$handle = $obj['handle']; 	
+$handle = $obj['handle'];
 $name_ascii = $obj['ldhName'];
 $name_unicode = $obj['unicodeName'];
 $name_servers_dnssec = 'Not Available';
@@ -1222,6 +1221,14 @@ $domain_zone_top_level_domain = $doc->createElement("top_level_domain");
 $domain_zone_top_level_domain->appendChild($doc->createCDATASection($zone_top_level_domain));	
 $zone->appendChild($domain_zone_top_level_domain);
 
+$domain_zone_object_conformance = $doc->createElement("object_conformance");
+$domain_zone_object_conformance->appendChild($doc->createCDATASection($zone_object_conformance));
+$zone->appendChild($domain_zone_object_conformance);
+	
+$domain_zone_object_class_name = $doc->createElement("object_class_name");
+$domain_zone_object_class_name->appendChild($doc->createCDATASection($zone_object_class_name));
+$zone->appendChild($domain_zone_object_class_name);	
+	
 $domain_zone_delegation = $doc->createElement("delegation");
 $domain_zone_delegation->appendChild($doc->createCDATASection($zone_delegation));	
 $zone->appendChild($domain_zone_delegation);	
@@ -1437,12 +1444,12 @@ $view->appendChild($domain_links_3_type);
 $domain->appendChild($view);
 		
 $details = $doc->createElement("details");
-$domain->appendChild($details);
+$domain->appendChild($details);	
 	
 $domain_handle = $doc->createElement("handle");
-$domain_handle->appendChild($doc->createCDATASection($handle));	
+$domain_handle->appendChild($doc->createCDATASection($handle));
 $details->appendChild($domain_handle);	
-	
+		
 $domain_name_ascii = $doc->createElement("name_ascii");
 $domain_name_ascii->appendChild($doc->createCDATASection($name_ascii));	
 $details->appendChild($domain_name_ascii);
