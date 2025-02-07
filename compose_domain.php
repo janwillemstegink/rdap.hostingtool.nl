@@ -133,6 +133,7 @@ if (!strlen($url))	{
 	}
 }	
 $url .= 'domain/'.$inputdomain;
+$url_registrar = '';	
 $obj = json_decode(file_get_contents($url), true);
 $notice_0_title = $obj['notices'][0]['title'];
 $notice_0_description_0 = $obj['notices'][0]['description'][0];	
@@ -1445,11 +1446,17 @@ $domain->appendChild($view);
 		
 $details = $doc->createElement("details");
 $domain->appendChild($details);	
+
+$domain_registry_source = $doc->createElement("registry_source");
+$domain_registry_source->appendChild($doc->createCDATASection($url));		
+$details->appendChild($domain_registry_source);	
+$domain_registrar_source = $doc->createElement("registrar_source");
+$domain_registrar_source->appendChild($doc->createCDATASection($url_registrar));		
+$details->appendChild($domain_registrar_source);	
 	
 $domain_handle = $doc->createElement("handle");
 $domain_handle->appendChild($doc->createCDATASection($handle));
-$details->appendChild($domain_handle);	
-		
+$details->appendChild($domain_handle);		
 $domain_name_ascii = $doc->createElement("name_ascii");
 $domain_name_ascii->appendChild($doc->createCDATASection($name_ascii));	
 $details->appendChild($domain_name_ascii);
@@ -2154,11 +2161,7 @@ $domain->appendChild($domain_raw_whois_data);
 	
 $domain_raw_rdap_data = $doc->createElement("raw_rdap_data");	
 $domain_raw_rdap_data->appendChild($doc->createCDATASection($raw_rdap_data));
-$domain->appendChild($domain_raw_rdap_data);
-	
-$domain_rdap_url = $doc->createElement("rdap_url");	
-$domain_rdap_url->appendChild($doc->createCDATASection($url));		
-$domain->appendChild($domain_rdap_url);	
+$domain->appendChild($domain_raw_rdap_data);	
 	
 $domains->appendChild($domain);
 $doc->appendChild($domains);
