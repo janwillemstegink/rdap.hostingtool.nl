@@ -1,12 +1,13 @@
 import sys
-import whois #whois-python also installed
+import whois #python-whois installed and port 43 open
 
 if len(sys.argv) > 1:
     received_parameter = sys.argv[1]    
 else:
     received_parameter = ''     
-d = whois.whois(received_parameter)
-print(d.text)
+w = whois.whois(received_parameter)
+print(w.text)
 print('------------------------------------')
-print(d)
-#print(d.__dict__)
+print(w)
+#print('------------------------------------')
+#print(w.__dict__)
