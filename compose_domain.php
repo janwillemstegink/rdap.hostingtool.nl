@@ -54,7 +54,8 @@ if ($inputbatch)	{
 	$raw_whois_data = '';
 }
 else	{
-	$command = escapeshellcmd("python3.9 /home/admin/get_domain_data.py");
+	//$command = escapeshellcmd("python3.9 /home/admin/get_domain_data.py");
+	$command = escapeshellcmd("/usr/bin/python3.9 /home/admin/get_domain_data.py");
 	//$raw_whois_data = shell_exec($command . " " . $inputdomain . " 2>&1");
 	$raw_whois_data = nl2br(htmlspecialchars(shell_exec($command . " " . $inputdomain)));
 }
@@ -154,9 +155,7 @@ $notice_3_title = $obj['notices'][3]['title'];
 $notice_3_description_0 = $obj['notices'][3]['description'][0];
 $notice_3_description_1 = $obj['notices'][3]['description'][1];
 $notice_3_links_0_href = $obj['notices'][3]['links'][0]['href'];
-$notice_3_links_0_type = $obj['notices'][3]['links'][0]['type'];	
-$zone_object_class_name = $obj['objectClassName'];
-$zone_object_conformance = $obj['rdapConformance'][0];		
+$notice_3_links_0_type = $obj['notices'][3]['links'][0]['type'];			
 $zone_delegation = 'https://www.iana.org/domains/root/db/'.$zone_top_level_domain.'.html';	
 if ($zone_top_level_domain == 'nl')	{
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
@@ -168,11 +167,9 @@ else	{
 	$zone_restrictions = '';
 	$zone_regmenu = '';
 }
-if (strlen($obj['lang']))	{
-	$zone_language = $obj['lang'];	
-}
-else	{
-	$zone_language = 'None Specified';	
+$zone_languages = (is_array($obj['lang'])) ? implode(",<br />", $obj['lang']) : $obj['lang'];
+if (!strlen($zone_languages))	{
+	$zone_languages = 'None Specified';	
 }	
 $links_0_value = $obj['links'][0]['value'];
 $links_0_related = $obj['links'][0]['rel'];
@@ -205,7 +202,9 @@ $links_3_href_lang_1 = $obj['links'][3]['hreflang'];
 $links_3_title = $obj['links'][3]['title'];
 $links_3_media = $obj['links'][3]['media'];
 $links_3_type = $obj['links'][3]['type'];	
-	
+
+$object_class_name = $obj['objectClassName'];
+$object_conformance = $obj['rdapConformance'][0];	
 $status_values = '';	
 $registration = null;
 $last_transferred = null;			
@@ -1220,15 +1219,7 @@ $domain->appendChild($zone);
 	
 $domain_zone_top_level_domain = $doc->createElement("top_level_domain");
 $domain_zone_top_level_domain->appendChild($doc->createCDATASection($zone_top_level_domain));	
-$zone->appendChild($domain_zone_top_level_domain);
-
-$domain_zone_object_conformance = $doc->createElement("object_conformance");
-$domain_zone_object_conformance->appendChild($doc->createCDATASection($zone_object_conformance));
-$zone->appendChild($domain_zone_object_conformance);
-	
-$domain_zone_object_class_name = $doc->createElement("object_class_name");
-$domain_zone_object_class_name->appendChild($doc->createCDATASection($zone_object_class_name));
-$zone->appendChild($domain_zone_object_class_name);	
+$zone->appendChild($domain_zone_top_level_domain);	
 	
 $domain_zone_delegation = $doc->createElement("delegation");
 $domain_zone_delegation->appendChild($doc->createCDATASection($zone_delegation));	
@@ -1242,9 +1233,9 @@ $domain_zone_regmenu = $doc->createElement("regmenu");
 $domain_zone_regmenu->appendChild($doc->createCDATASection($zone_regmenu));	
 $zone->appendChild($domain_zone_regmenu);
 
-$domain_zone_language = $doc->createElement("language");
-$domain_zone_language->appendChild($doc->createCDATASection($zone_language));	
-$zone->appendChild($domain_zone_language);	
+$domain_zone_languages = $doc->createElement("languages");
+$domain_zone_languages->appendChild($doc->createCDATASection($zone_languages));	
+$zone->appendChild($domain_zone_languages);	
 	
 $domain_notice_0_title = $doc->createElement("notice_0_title");
 $domain_notice_0_title->appendChild($doc->createCDATASection($notice_0_title));	
@@ -1447,12 +1438,20 @@ $domain->appendChild($view);
 $details = $doc->createElement("details");
 $domain->appendChild($details);	
 
-$domain_registry_source = $doc->createElement("registry_source");
-$domain_registry_source->appendChild($doc->createCDATASection($url));		
-$details->appendChild($domain_registry_source);	
-$domain_registrar_source = $doc->createElement("registrar_source");
-$domain_registrar_source->appendChild($doc->createCDATASection($url_registrar));		
-$details->appendChild($domain_registrar_source);	
+$domain_source_registry = $doc->createElement("source_registry");
+$domain_source_registry->appendChild($doc->createCDATASection($url));		
+$details->appendChild($domain_source_registry);	
+$domain_source_registrar = $doc->createElement("source_registrar");
+$domain_source_registrar->appendChild($doc->createCDATASection($url_registrar));		
+$details->appendChild($domain_source_registrar);	
+
+$domain_object_conformance = $doc->createElement("object_conformance");
+$domain_object_conformance->appendChild($doc->createCDATASection($object_conformance));
+$details->appendChild($domain_object_conformance);
+	
+$domain_object_class_name = $doc->createElement("object_class_name");
+$domain_object_class_name->appendChild($doc->createCDATASection($object_class_name));
+$details->appendChild($domain_object_class_name);	
 	
 $domain_handle = $doc->createElement("handle");
 $domain_handle->appendChild($doc->createCDATASection($handle));
