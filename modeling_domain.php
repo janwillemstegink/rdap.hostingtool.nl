@@ -125,8 +125,8 @@ function SwitchTranslation(translation)	{
 	if (translation == 0)	{		
 		var proposed = '';
 		var address = '';
-		document.getElementById("title").textContent = "Domain Data";
-		document.getElementById("subtitle").textContent = "(modeled data)";
+		document.getElementById("title").textContent = "Domain Information";
+		document.getElementById("subtitle").textContent = "RDAP-based modeling";
 		document.getElementById("instruction").textContent = "Paste a domain name and press Enter.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
@@ -194,8 +194,8 @@ function SwitchTranslation(translation)	{
 	else if (translation == 1)	{
 		var proposed = 'VOORGESTELD - ';
 		var address = "Afscherming van adresgegevens is duidelijk zichtbaar bij example.tel.";
-		document.getElementById("title").textContent = "Domeingegevens";
-		document.getElementById("subtitle").textContent = "(gemodelleerde data)";
+		document.getElementById("title").textContent = "Domeininformatie";
+		document.getElementById("subtitle").textContent = "RDAP-gebaseerde modellering";
 		document.getElementById("instruction").textContent = "Plak een domeinnaam en druk op Enter.";
 		document.getElementById("field").textContent = "Omschrijving";
 		document.getElementById("value").textContent = "Detail";
@@ -263,8 +263,8 @@ function SwitchTranslation(translation)	{
 	else if (translation == 2)	{
 		var proposed = 'PROPOSED - ';
 		var address = "Shielding of address data is clearly visible at example.tel.";
-		document.getElementById("title").textContent = "Domain Data";
-		document.getElementById("subtitle").textContent = "(modeled data)";
+		document.getElementById("title").textContent = "Domain Information";
+		document.getElementById("subtitle").textContent = "RDAP-based modeling";
 		document.getElementById("instruction").textContent = "Paste a domain name and press Enter.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
@@ -332,8 +332,8 @@ function SwitchTranslation(translation)	{
 	else if (translation == 3)	{
 		var proposed = 'VORGESCHLAGEN - ';
 		var address = "Die Abschirmung der Adressdaten ist bei example.tel deutlich sichtbar.";
-		document.getElementById("title").textContent = "Domänendaten";
-		document.getElementById("subtitle").textContent = "(modellierte Daten)";
+		document.getElementById("title").textContent = "Domäneninformation";
+		document.getElementById("subtitle").textContent = "RDAP-basierte Modellierung";
 		document.getElementById("instruction").textContent = "Fügen Sie einen Domänennamen ein und drücken Sie die Eingabetaste.";
 		document.getElementById("field").textContent = "Beschreibung";
 		document.getElementById("value").textContent = "Detail";
@@ -401,8 +401,8 @@ function SwitchTranslation(translation)	{
 	else if (translation == 4)	{
 		var proposed = 'PROPOSÉ - ';
 		var address = "Le blindage des données d'adresse est clairement visible sur example.tel.";
-		document.getElementById("title").textContent = "Données du domaine";
-		document.getElementById("subtitle").textContent = "(données modélisées)";
+		document.getElementById("title").textContent = "Informations sur le domaine";
+		document.getElementById("subtitle").textContent = "Modélisation basée sur RDAP";
 		document.getElementById("instruction").textContent = "Collez un nom de domaine et appuyez sur Entrée.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Détail";
