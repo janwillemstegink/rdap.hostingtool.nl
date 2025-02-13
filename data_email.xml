@@ -21,7 +21,7 @@
 			<city>Arnhem</city>
 			<state_province>Gelderland</state_province>
 			<country_name>Nederland</country_name>
-			<shielding>name,email,tel,address</shielding>
+			<shielding>full_name,name,email,tel,address</shielding>
 		</registrant>
 		<administrative>
 			<handle>STE135418-TRAIP</handle>

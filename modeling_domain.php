@@ -194,7 +194,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 1)	{
 		var proposed = 'VOORGESTELD - ';
 		var address = "Afscherming van adresgegevens is duidelijk zichtbaar bij example.tel.";
-		document.getElementById("title").textContent = "Domeininformatie";
+		document.getElementById("title").textContent = "Domein-informatie";
 		document.getElementById("subtitle").textContent = "RDAP-gebaseerde modellering";
 		document.getElementById("instruction").textContent = "Plak een domeinnaam en druk op Enter.";
 		document.getElementById("field").textContent = "Omschrijving";
@@ -258,7 +258,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
 		document.getElementById("br_zone").textContent = "Zone .br: De RDAP-gegevens zijn aangepast met nameservervalidatie.";
-		document.getElementById("raw_data_next").textContent = "De volgorde van de rollen is niet voorgeschreven. 'None Specified' komt van deze tool. RDAP in complexe JSON vereist een leesbare XML-structuur.";	
+		document.getElementById("raw_data_next").textContent = "De volgorde van de rollen is niet voorgeschreven. 'None Specified' komt van deze tool. Voor communicatie in JSON is een leesbare XML-structuur vereist.";
 	}
 	else if (translation == 2)	{
 		var proposed = 'PROPOSED - ';
@@ -327,7 +327,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
 		document.getElementById("br_zone").textContent = "Zone .br: The RDAP data has been modified with name server validation.";
-		document.getElementById("raw_data_next").textContent = "The order of the roles is not prescribed. 'None Specified' comes from this tool. RDAP in complex JSON requires a readable XML structure.";
+		document.getElementById("raw_data_next").textContent = "The order of the roles is not prescribed. 'None Specified' comes from this tool. Communication in JSON requires a readable XML structure.";
 	}
 	else if (translation == 3)	{
 		var proposed = 'VORGESCHLAGEN - ';
@@ -396,7 +396,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 		document.getElementById("name_servers_ip").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
 		document.getElementById("br_zone").textContent = "Zone .br: Die RDAP-Daten wurden mit der Nameserver-Validierung angepasst.";
-		document.getElementById("raw_data_next").textContent = "Die Reihenfolge der Rollen ist nicht vorgeschrieben. 'None Specified' stammt von diesem Tool. RDAP in komplexem JSON erfordert eine lesbare XML-Struktur.";
+		document.getElementById("raw_data_next").textContent = "Die Reihenfolge der Rollen ist nicht vorgeschrieben. 'None Specified' stammt von diesem Tool. Die Kommunikation in JSON erfordert eine lesbare XML-Struktur.";
 	}
 	else if (translation == 4)	{
 		var proposed = 'PROPOSÉ - ';
@@ -465,7 +465,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 		document.getElementById("name_servers_ip").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
 		document.getElementById("br_zone").textContent = "Zone .br: Les données RDAP ont été ajustées avec la validation du serveur de noms.";
-		document.getElementById("raw_data_next").textContent = "L'ordre des rôles n'est pas prescrit. 'None Specified' provient de cet outil. RDAP dans un JSON complexe nécessite une structure XML lisible.";
+		document.getElementById("raw_data_next").textContent = "L'ordre des rôles n'est pas prescrit. 'None Specified' provient de cet outil. La communication en JSON nécessite une structure XML lisible.";
 	}
 }	
 </script><?php
