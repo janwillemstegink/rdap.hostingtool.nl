@@ -218,7 +218,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("details_extensions_values").textContent = "'Eligibility': Hoe een domein voldoet aan een specifieke vereiste in een topleveldomeinzone.";
 		document.getElementById("registrant_role").textContent = "De domeingebruiker die de daadwerkelijke of effectieve controle heeft voor domeinrecht in het land van vestiging.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Webidentificatienummer voor bedrijfsentiteiten en natuurlijke personen.";
-		document.getElementById("registrant_organization").textContent = "De organisatie die primair verantwoordelijk is voor het domeinabonnement als registrant.";
+		document.getElementById("registrant_organization").textContent = "De organisatie die primair verantwoordelijk is voor het domeinabonnement als registrant, zoals icann.org.";
 		document.getElementById("registrant_full_name").textContent = "De persoon (of rol) die primair verantwoordelijk is voor het domeinabonnement als registrant.";
 		document.getElementById("registrant_kind").textContent = "Leeg / 'org' / 'individual' (Voor continuïteit: levenstestament + testament + digitale executeur)";
 		document.getElementById("registrant_name").textContent = "In het RDAP-protocol kan een persoonlijke naam openbaar zichtbaar zijn in het veld 'full_name', zie cira.ca.";
@@ -287,7 +287,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("details_extensions_values").textContent = "'Eligibility': How a domain fulfills a specific requirement in a top-level domain zone.";
 		document.getElementById("registrant_role").textContent = "The domain user who has the actual or effective control for domain rights in the country of establishment.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web Identification number for business entities and natural persons.";
-		document.getElementById("registrant_organization").textContent = "The organization primarily responsible for the domain subscription as a registrant.";
+		document.getElementById("registrant_organization").textContent = "The organization primarily responsible for the domain subscription as a registrant, such as icann.org.";
 		document.getElementById("registrant_full_name").textContent = "The person (or role) primarily responsible for the domain subscription as a registrant.";
 		document.getElementById("registrant_kind").textContent = "Empty / 'org' / 'individual' (For continuity: Living Will + Will + Digital Executor)";
 		document.getElementById("registrant_name").textContent = "In the RDAP protocol, a personal name can be publicly visible in the 'full_name' field, see cira.ca.";
@@ -356,7 +356,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("details_extensions_values").textContent = "'Eligibility': Wie eine Domäne eine bestimmte Anforderung in einer Top-Level-Domänenzone erfüllt.";
 		document.getElementById("registrant_role").textContent = "Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat für Domainrechte im Wohnsitzland.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web-Identifikationsnummer für Unternehmen und natürliche Personen.";
-		document.getElementById("registrant_organization").textContent = "Die Organisation, die als Registrant hauptsächlich für das Domänenabonnement verantwortlich ist.";
+		document.getElementById("registrant_organization").textContent = "Die Organisation, die als Registrant hauptsächlich für das Domänenabonnement verantwortlich ist, wie icann.org.";
 		document.getElementById("registrant_full_name").textContent = "Die Person (oder Rolle), die als Registrant hauptsächlich für das Domänenabonnement verantwortlich ist.";
 		document.getElementById("registrant_kind").textContent = "Leer / 'org' / 'individual' (Für Kontinuität: Patientenverfügung + Testament + digitaler Testamentsvollstrecker)";
 		document.getElementById("registrant_name").textContent = "Im RDAP-Protokoll kann ein Personenname im Feld 'full_name' öffentlich sichtbar sein, siehe cira.ca.";
@@ -425,7 +425,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("details_extensions_values").textContent = "'Eligibility' : comment un domaine répond à une exigence spécifique dans une zone de domaine de premier niveau.";
 		document.getElementById("registrant_role").textContent = "L'utilisateur du domaine qui a le contrôle réel ou effectif pour les droits de domaine dans le pays de résidence.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Numéro d’identification Web pour les entités commerciales et les personnes physiques.";
-		document.getElementById("registrant_organization").textContent = "L'organisation principalement responsable de l'abonnement au domaine en tant que titulaire.";
+		document.getElementById("registrant_organization").textContent = "L'organisation principalement responsable de l'abonnement au domaine en tant que titulaire, comme icann.org.";
 		document.getElementById("registrant_full_name").textContent = "La personne (ou le rôle) principalement responsable de l'abonnement au domaine en tant que titulaire.";
 		document.getElementById("registrant_kind").textContent = "Vide / 'org' / 'individual' (Pour la continuité : testament biologique + testament + exécuteur testamentaire numérique)";
 		document.getElementById("registrant_name").textContent = "Dans le protocole RDAP, un nom personnel peut être visible publiquement dans le champ 'full_name', voir cira.ca.";
