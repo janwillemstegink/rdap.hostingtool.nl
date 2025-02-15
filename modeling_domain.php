@@ -49,6 +49,10 @@ function SwitchDisplay(type) {
 		var pre = '30';
 		var max = 15
 	}
+	else if (type == 39)	{ // sponsor
+		var pre = '39';
+		var max = 30
+	}
 	else if (type == 40)	{ // registrant
 		var pre = '40';
 		var max = 24
@@ -80,10 +84,6 @@ function SwitchDisplay(type) {
 	else if (type == 61)	{ // abuse
 		var pre = '61';
 		var max = 3
-	}
-	else if (type == 62)	{ // sponsor
-		var pre = '62';
-		var max = 30
 	}
 	else if (type == 63)	{ // name servers
 		var pre = '63';
@@ -147,6 +147,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("details_event_deletion").textContent = "";
 		document.getElementById("details_event_last_uploaded").textContent = "";
 		document.getElementById("details_extensions_values").textContent = "";
+		document.getElementById("sponsor_role").textContent = "";
 		document.getElementById("registrant_role").textContent = "";
 		document.getElementById("registrant_web_id").textContent = proposed;
 		document.getElementById("registrant_organization").textContent = "";
@@ -184,7 +185,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;
 		document.getElementById("registrar_abuse_role").textContent = "";
-		document.getElementById("sponsor_role").textContent = "";
 		document.getElementById("name_servers_dnssec").textContent = "";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "";
 		document.getElementById("name_servers_ip").textContent = "";
@@ -216,6 +216,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("details_event_deletion").textContent = "Datum en tijdstip gepland voor volledige verwijdering. Er kan een laatste verwijderingsfase zijn.";
 		document.getElementById("details_event_last_uploaded").textContent = "Datum en tijdstip van de RDAP-database-update in Zoeloe-tijd (Coordinated Universal Time - UTC).";
 		document.getElementById("details_extensions_values").textContent = "'Eligibility': Hoe een domein voldoet aan een specifieke vereiste in een topleveldomeinzone.";
+		document.getElementById("sponsor_role").textContent = "In het geval van een sponsor is deze entiteit verantwoordelijk voor het beheer van de domeinregistratie.";
 		document.getElementById("registrant_role").textContent = "De domeingebruiker die de daadwerkelijke of effectieve controle heeft voor domeinrecht in het land van vestiging.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Webidentificatienummer voor bedrijfsentiteiten en natuurlijke personen.";
 		document.getElementById("registrant_organization").textContent = "De organisatie die primair verantwoordelijk is voor het domeinabonnement als registrant, zie icann.org.";
@@ -253,12 +254,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_abuse_role").textContent = "Informatie over hoe een derde partij contact kan opnemen met de registrar (zie bijvoorbeeld hostingtool.org).";
-		document.getElementById("sponsor_role").textContent = "In het geval van een sponsor is deze entiteit verantwoordelijk voor het beheer van de domeinregistratie.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
 		document.getElementById("br_zone").textContent = "Zone .br: De RDAP-gegevens zijn aangepast met nameservervalidatie.";
-		document.getElementById("raw_data_next").textContent = "De volgorde van de rollen is niet voorgeschreven. 'None Specified' komt van deze tool. Voor communicatie in JSON is een leesbare XML-structuur vereist.";
+		document.getElementById("raw_data_next").textContent = "De rollen zijn hier gerangschikt op verantwoordelijkheid. 'None Specified' komt van deze tool. Voor communicatie in JSON is een leesbare XML-structuur vereist.";
 	}
 	else if (translation == 2)	{
 		var proposed = 'PROPOSED - ';
@@ -285,6 +285,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("details_event_deletion").textContent = "Date and time scheduled for complete deletion. A final deletion phase may exist.";
 		document.getElementById("details_event_last_uploaded").textContent = "Date and time of RDAP database update in Zulu time (Coordinated Universal Time - UTC).";
 		document.getElementById("details_extensions_values").textContent = "'Eligibility': How a domain fulfills a specific requirement in a top-level domain zone.";
+		document.getElementById("sponsor_role").textContent = "In the case of a sponsor, this entity is responsible for managing the domain registration.";
 		document.getElementById("registrant_role").textContent = "The domain user who has the actual or effective control for domain rights in the country of establishment.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web Identification number for business entities and natural persons.";
 		document.getElementById("registrant_organization").textContent = "The organization primarily responsible for the domain subscription as a registrant, see icann.org.";
@@ -322,12 +323,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_abuse_role").textContent = "Information on how a third party can contact the registrar (see e.g. hostingtool.org).";
-		document.getElementById("sponsor_role").textContent = "In the case of a sponsor, this entity is responsible for managing the domain registration.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
 		document.getElementById("br_zone").textContent = "Zone .br: The RDAP data has been modified with name server validation.";
-		document.getElementById("raw_data_next").textContent = "The order of the roles is not prescribed. 'None Specified' comes from this tool. Communication in JSON requires a readable XML structure.";
+		document.getElementById("raw_data_next").textContent = "The roles here are arranged according to responsibility. 'None Specified' comes from this tool. Communication in JSON requires a readable XML structure.";
 	}
 	else if (translation == 3)	{
 		var proposed = 'VORGESCHLAGEN - ';
@@ -354,6 +354,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("details_event_deletion").textContent = "Datum und Uhrzeit für die vollständige Löschung geplant. Es kann eine abschließende Löschphase geben.";
 		document.getElementById("details_event_last_uploaded").textContent = "Datum und Uhrzeit der RDAP-Datenbankaktualisierung in Zulu-Zeit (Koordinierte Weltzeit – UTC).";
 		document.getElementById("details_extensions_values").textContent = "'Eligibility': Wie eine Domäne eine bestimmte Anforderung in einer Top-Level-Domänenzone erfüllt.";
+		document.getElementById("sponsor_role").textContent = "Im Falle eines Sponsors ist diese Entität für die Verwaltung der Domänenregistrierung verantwortlich.";
 		document.getElementById("registrant_role").textContent = "Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat für Domainrechte im Wohnsitzland.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web-Identifikationsnummer für Unternehmen und natürliche Personen.";
 		document.getElementById("registrant_organization").textContent = "Die Organisation, die als Registrant hauptsächlich für das Domänenabonnement verantwortlich ist, siehe icann.org.";
@@ -391,12 +392,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_abuse_role").textContent = "Informationen darüber, wie Dritte den Registrar kontaktieren können (siehe z. B. hostingtool.org).";
-		document.getElementById("sponsor_role").textContent = "Im Falle eines Sponsors ist diese Entität für die Verwaltung der Domänenregistrierung verantwortlich.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 		document.getElementById("name_servers_ip").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
 		document.getElementById("br_zone").textContent = "Zone .br: Die RDAP-Daten wurden mit der Nameserver-Validierung angepasst.";
-		document.getElementById("raw_data_next").textContent = "Die Reihenfolge der Rollen ist nicht vorgeschrieben. 'None Specified' stammt von diesem Tool. Die Kommunikation in JSON erfordert eine lesbare XML-Struktur.";
+		document.getElementById("raw_data_next").textContent = "Die Rollen sind hierbei nach Verantwortung verteilt. 'None Specified' stammt von diesem Tool. Die Kommunikation in JSON erfordert eine lesbare XML-Struktur.";
 	}
 	else if (translation == 4)	{
 		var proposed = 'PROPOSÉ - ';
@@ -423,6 +423,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("details_event_deletion").textContent = "Date et heure prévues pour la suppression complète. Une phase de suppression finale peut exister.";
 		document.getElementById("details_event_last_uploaded").textContent = "Date et heure de mise à jour de la base de données RDAP en heure Zulu (temps universel coordonné - UTC).";
 		document.getElementById("details_extensions_values").textContent = "'Eligibility' : comment un domaine répond à une exigence spécifique dans une zone de domaine de premier niveau.";
+		document.getElementById("sponsor_role").textContent = "Dans le cas d'un sponsor, cette entité est responsable de la gestion de l'enregistrement du domaine.";
 		document.getElementById("registrant_role").textContent = "L'utilisateur du domaine qui a le contrôle réel ou effectif pour les droits de domaine dans le pays de résidence.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Numéro d’identification Web pour les entités commerciales et les personnes physiques.";
 		document.getElementById("registrant_organization").textContent = "L'organisation principalement responsable de l'abonnement au domaine en tant que titulaire, voir icann.org.";
@@ -460,12 +461,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_abuse_role").textContent = "Informations sur la manière dont un tiers peut contacter le registraire (voir par exemple hostingtool.org).";
-		document.getElementById("sponsor_role").textContent = "Dans le cas d'un sponsor, cette entité est responsable de la gestion de l'enregistrement du domaine.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 		document.getElementById("name_servers_ip").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
 		document.getElementById("br_zone").textContent = "Zone .br: Les données RDAP ont été ajustées avec la validation du serveur de noms.";
-		document.getElementById("raw_data_next").textContent = "L'ordre des rôles n'est pas prescrit. 'None Specified' provient de cet outil. La communication en JSON nécessite une structure XML lisible.";
+		document.getElementById("raw_data_next").textContent = "Les rôles ici sont organisés en fonction des responsabilités. 'None Specified' provient de cet outil. La communication en JSON nécessite une structure XML lisible.";
 	}
 }	
 </script><?php
@@ -633,6 +633,37 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="3014" style="display:none;vertical-align:top"><td>details extensions_values</td><td><b>'.$item->details->extensions_values.'</b></td><td id="details_extensions_values"></td></tr>';
 	$html_text .= '<tr id="3015" style="display:none;vertical-align:top"><td>details remark_values</td><td>'.$item->details->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(39)">Sponsor +/-</button></td><td></td><td id="sponsor_role"></td></tr>';
+	$html_text .= '<tr id="391" style="display:none"><td>sponsor handle</td><td>'.$item->sponsor->handle.'</td><td></td></tr>';
+	$html_text .= '<tr id="392" style="display:none"><td>sponsor web_id</td><td>'.$item->sponsor->web_id.'</td><td id="sponsor_web_id"></td></tr>';
+	$html_text .= '<tr id="393" style="display:none"><td>sponsor organization</td><td>'.$item->sponsor->organization.'</td><td></td></tr>';
+	$html_text .= '<tr id="394" style="display:none"><td>sponsor full_name</td><td>'.$item->sponsor->full_name.'</td><td id="sponsor_recover"></td></tr>';
+	$html_text .= '<tr id="395" style="display:none"><td>sponsor kind</td><td>'.$item->sponsor->kind.'</td><td></td></tr>';
+	$html_text .= '<tr id="396" style="display:none"><td>sponsor url</td><td>'.$item->sponsor->url.'</td><td></td></tr>';
+	$html_text .= '<tr id="397" style="display:none"><td>sponsor iana_id</td><td>'.$item->sponsor->iana_id.'</td><td></td></tr>';
+	$html_text .= '<tr id="398" style="display:none"><td>sponsor name</td><td>'.$item->sponsor->name.'</td><td></td></tr>';
+	$html_text .= '<tr id="399" style="display:none"><td>sponsor email</td><td>'.$item->sponsor->email.'</td><td></td></tr>';
+	$html_text .= '<tr id="3910" style="display:none"><td>sponsor tel</td><td>'.$item->sponsor->tel.'</td><td></td></tr>';
+	$html_text .= '<tr id="3911" style="display:none"><td>sponsor country_code</td><td>'.$item->sponsor->country_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="3912" style="display:none"><td>sponsor street</td><td>'.$item->sponsor->street.'</td><td></td></tr>';
+	$html_text .= '<tr id="3913" style="display:none"><td>sponsor city</td><td>'.$item->sponsor->city.'</td><td></td></tr>';
+	$html_text .= '<tr id="3914" style="display:none"><td>sponsor state_province</td><td>'.$item->sponsor->state_province.'</td><td></td></tr>';
+	$html_text .= '<tr id="3915" style="display:none"><td>sponsor postal_code</td><td>'.$item->sponsor->postal_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="3916" style="display:none"><td>sponsor country_name</td><td>'.$item->sponsor->country_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="3917" style="display:none"><td>sponsor language_pref_1</td><td>'.$item->sponsor->language_pref_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="3918" style="display:none"><td>sponsor language_pref_2</td><td>'.$item->sponsor->language_pref_2.'</td><td></td></tr>';
+	$html_text .= '<tr id="3919" style="display:none"><td>sponsor shielding</td><td>'.$item->sponsor->shielding.'</td><td></td></tr>';
+	$html_text .= '<tr id="3920" style="display:none;vertical-align:top"><td>sponsor status_values</td><td>'.$item->sponsor->status_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="3921" style="display:none"><td>sponsor event_registration</td><td>'.$item->sponsor->event_registration.'</td><td></td></tr>';
+	$html_text .= '<tr id="3922" style="display:none"><td>sponsor event_last_transferred</td><td>'.$item->sponsor->event_last_transferred.'</td><td></td></tr>';
+	$html_text .= '<tr id="3923" style="display:none"><td>sponsor event_last_changed</td><td>'.$item->sponsor->event_last_changed.'</td><td></td></tr>';
+	$html_text .= '<tr id="3924" style="display:none"><td>sponsor event_expiration</td><td>'.$item->sponsor->event_expiration.'</td><td></td></tr>';
+	$html_text .= '<tr id="3925" style="display:none"><td>sponsor event_deletion</td><td>'.$item->sponsor->event_deletion.'</td><td></td></tr>';
+	$html_text .= '<tr id="3926" style="display:none"><td>sponsor event_last_uploaded</td><td>'.$item->sponsor->event_last_uploaded.'</td><td></td></tr>';
+	$html_text .= '<tr id="3927" style="display:none"><td>sponsor event_verification_received</td><td>'.$item->sponsor->event_verification_received.'</td><td id="sponsor_event_verification_received"></td></tr>';
+	$html_text .= '<tr id="3928" style="display:none"><td>sponsor event_verification_set</td><td>'.$item->sponsor->event_verification_set.'</td><td id="sponsor_event_verification_set"></td></tr>';
+	$html_text .= '<tr id="3929" style="display:none;vertical-align:top"><td>sponsor properties</td><td>'.$item->sponsor->properties.'</td><td></td></tr>';
+	$html_text .= '<tr id="3930" style="display:none;vertical-align:top"><td>sponsor remark_values</td><td>'.$item->sponsor->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(40)">Registrant +/-</button></td><td></td><td id="registrant_role"></td></tr>';
 	$html_text .= '<tr id="401" style="display:none"><td>registrant handle</td><td>'.$item->registrant->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="402" style="display:none"><td>registrant web_id</td><td>'.$item->registrant->web_id.'</td><td id="registrant_web_id"></td></tr>';
@@ -808,37 +839,6 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="611" style="display:none"><td>registrar abuse_full_name</td><td>'.$item->registrar->abuse_full_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="612" style="display:none"><td>registrar abuse_email</td><td>'.$item->registrar->abuse_email.'</td><td></td></tr>';
 	$html_text .= '<tr id="613" style="display:none"><td>registrar abuse_tel</td><td>'.$item->registrar->abuse_tel.'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(62)">Sponsor +/-</button></td><td></td><td id="sponsor_role"></td></tr>';
-	$html_text .= '<tr id="621" style="display:none"><td>sponsor handle</td><td>'.$item->sponsor->handle.'</td><td></td></tr>';
-	$html_text .= '<tr id="622" style="display:none"><td>sponsor web_id</td><td>'.$item->sponsor->web_id.'</td><td id="sponsor_web_id"></td></tr>';
-	$html_text .= '<tr id="623" style="display:none"><td>sponsor organization</td><td>'.$item->sponsor->organization.'</td><td></td></tr>';
-	$html_text .= '<tr id="624" style="display:none"><td>sponsor full_name</td><td>'.$item->sponsor->full_name.'</td><td id="sponsor_recover"></td></tr>';
-	$html_text .= '<tr id="625" style="display:none"><td>sponsor kind</td><td>'.$item->sponsor->kind.'</td><td></td></tr>';
-	$html_text .= '<tr id="626" style="display:none"><td>sponsor url</td><td>'.$item->sponsor->url.'</td><td></td></tr>';
-	$html_text .= '<tr id="627" style="display:none"><td>sponsor iana_id</td><td>'.$item->sponsor->iana_id.'</td><td></td></tr>';
-	$html_text .= '<tr id="628" style="display:none"><td>sponsor name</td><td>'.$item->sponsor->name.'</td><td></td></tr>';
-	$html_text .= '<tr id="629" style="display:none"><td>sponsor email</td><td>'.$item->sponsor->email.'</td><td></td></tr>';
-	$html_text .= '<tr id="6210" style="display:none"><td>sponsor tel</td><td>'.$item->sponsor->tel.'</td><td></td></tr>';
-	$html_text .= '<tr id="6211" style="display:none"><td>sponsor country_code</td><td>'.$item->sponsor->country_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="6212" style="display:none"><td>sponsor street</td><td>'.$item->sponsor->street.'</td><td></td></tr>';
-	$html_text .= '<tr id="6213" style="display:none"><td>sponsor city</td><td>'.$item->sponsor->city.'</td><td></td></tr>';
-	$html_text .= '<tr id="6214" style="display:none"><td>sponsor state_province</td><td>'.$item->sponsor->state_province.'</td><td></td></tr>';
-	$html_text .= '<tr id="6215" style="display:none"><td>sponsor postal_code</td><td>'.$item->sponsor->postal_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="6216" style="display:none"><td>sponsor country_name</td><td>'.$item->sponsor->country_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="6217" style="display:none"><td>sponsor language_pref_1</td><td>'.$item->sponsor->language_pref_1.'</td><td></td></tr>';
-	$html_text .= '<tr id="6218" style="display:none"><td>sponsor language_pref_2</td><td>'.$item->sponsor->language_pref_2.'</td><td></td></tr>';
-	$html_text .= '<tr id="6219" style="display:none"><td>sponsor shielding</td><td>'.$item->sponsor->shielding.'</td><td></td></tr>';
-	$html_text .= '<tr id="6220" style="display:none;vertical-align:top"><td>sponsor status_values</td><td>'.$item->sponsor->status_values.'</td><td></td></tr>';
-	$html_text .= '<tr id="6221" style="display:none"><td>sponsor event_registration</td><td>'.$item->sponsor->event_registration.'</td><td></td></tr>';
-	$html_text .= '<tr id="6222" style="display:none"><td>sponsor event_last_transferred</td><td>'.$item->sponsor->event_last_transferred.'</td><td></td></tr>';
-	$html_text .= '<tr id="6223" style="display:none"><td>sponsor event_last_changed</td><td>'.$item->sponsor->event_last_changed.'</td><td></td></tr>';
-	$html_text .= '<tr id="6224" style="display:none"><td>sponsor event_expiration</td><td>'.$item->sponsor->event_expiration.'</td><td></td></tr>';
-	$html_text .= '<tr id="6225" style="display:none"><td>sponsor event_deletion</td><td>'.$item->sponsor->event_deletion.'</td><td></td></tr>';
-	$html_text .= '<tr id="6226" style="display:none"><td>sponsor event_last_uploaded</td><td>'.$item->sponsor->event_last_uploaded.'</td><td></td></tr>';
-	$html_text .= '<tr id="6227" style="display:none"><td>sponsor event_verification_received</td><td>'.$item->sponsor->event_verification_received.'</td><td id="sponsor_event_verification_received"></td></tr>';
-	$html_text .= '<tr id="6228" style="display:none"><td>sponsor event_verification_set</td><td>'.$item->sponsor->event_verification_set.'</td><td id="sponsor_event_verification_set"></td></tr>';
-	$html_text .= '<tr id="6229" style="display:none;vertical-align:top"><td>sponsor properties</td><td>'.$item->sponsor->properties.'</td><td></td></tr>';
-	$html_text .= '<tr id="6230" style="display:none;vertical-align:top"><td>sponsor remark_values</td><td>'.$item->sponsor->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(63)">Name Servers +/-</button></td><td></td><td></td></tr>';
 	//if (!empty($item->name_servers->server_1->server_name))	{
