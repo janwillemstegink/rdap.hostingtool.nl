@@ -633,7 +633,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="3014" style="display:none;vertical-align:top"><td>details extensions_values</td><td><b>'.$item->details->extensions_values.'</b></td><td id="details_extensions_values"></td></tr>';
 	$html_text .= '<tr id="3015" style="display:none;vertical-align:top"><td>details remark_values</td><td>'.$item->details->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(39)">Sponsor +/-</button></td><td></td><td id="sponsor_role"></td></tr>';
+	$sponsor_applicable = (strlen($item->sponsor->organization) or strlen($item->sponsor->full_name)) ? 'Sponsor Data Exists' : 'No Sponsor Data';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(39)">Sponsor +/-</button></td><td>'.$sponsor_applicable.'</td><td id="sponsor_role"></td></tr>';
 	$html_text .= '<tr id="391" style="display:none"><td>sponsor handle</td><td>'.$item->sponsor->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="392" style="display:none"><td>sponsor web_id</td><td>'.$item->sponsor->web_id.'</td><td id="sponsor_web_id"></td></tr>';
 	$html_text .= '<tr id="393" style="display:none"><td>sponsor organization</td><td>'.$item->sponsor->organization.'</td><td></td></tr>';
