@@ -206,7 +206,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_regmenu").textContent = proposed + "Een vervolgkeuzemenu met uitleg en details, bijvoorbeeld via een subdomein van de registry.";
 		document.getElementById("zone_languages").textContent = "Een zone kan met meerdere veelgebruikte talen werken.";
 		document.getElementById("details_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
-		document.getElementById("details_source_registry").textContent = proposed;
+		document.getElementById("details_source_registry").textContent = proposed + "Met '/v1/' geeft duidelijk een volgende RDAP-versie aan met '/v2/', zie icann.com.";
 		document.getElementById("details_source_registrar").textContent = proposed;
 		document.getElementById("details_name_ascii").textContent = "Namen met speciale tekens in ASCII-tekenreeksen gebruiken Punycode-transcriptie.";
 		document.getElementById("details_name_unicode").textContent = "In het RDAP-protocol is de domeinnaam in Unicode optioneel, maar het is wel duidelijke informatie.";
@@ -216,7 +216,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("details_event_deletion").textContent = "Datum en tijdstip gepland voor volledige verwijdering. Er kan een laatste verwijderingsfase zijn.";
 		document.getElementById("details_event_last_uploaded").textContent = "Datum en tijdstip van de RDAP-database-update in Zoeloe-tijd (Coordinated Universal Time - UTC).";
 		document.getElementById("details_extensions_values").textContent = "'Eligibility': Hoe een domein voldoet aan een specifieke vereiste in een topleveldomeinzone.";
-		document.getElementById("sponsor_role").textContent = "In het geval van een sponsor is deze entiteit verantwoordelijk voor het beheer van de domeinregistratie.";
+		document.getElementById("sponsor_role").textContent = "De domeinregistratie kan worden beheerd door een sponsor. Zie bijvoorbeeld france.fr.";
 		document.getElementById("registrant_role").textContent = "De domeingebruiker die de daadwerkelijke of effectieve controle heeft voor domeinrecht in het land van vestiging.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Webidentificatienummer voor bedrijfsentiteiten en natuurlijke personen.";
 		document.getElementById("registrant_organization").textContent = "De organisatie die primair verantwoordelijk is voor het domeinabonnement als registrant, zie icann.org.";
@@ -275,7 +275,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_regmenu").textContent = proposed + "A drop-down menu with explanations and details, for example via a subdomain of the registry.";
 		document.getElementById("zone_languages").textContent = "A zone can work with multiple commonly used languages.";
 		document.getElementById("details_role").textContent = "A web domain under a top-level domain is unique worldwide and can be freely chosen under certain rules.";
-		document.getElementById("details_source_registry").textContent = proposed;
+		document.getElementById("details_source_registry").textContent = proposed + "With '/v1/' clearly indicates a next RDAP version with '/v2/', see icann.com.";
 		document.getElementById("details_source_registrar").textContent = proposed;	
 		document.getElementById("details_name_ascii").textContent = "Names containing special characters in ASCII strings use Punycode transcription.";
 		document.getElementById("details_name_unicode").textContent = "In the RDAP protocol, the domain name in Unicode is optional, but it is clear information.";
@@ -285,7 +285,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("details_event_deletion").textContent = "Date and time scheduled for complete deletion. A final deletion phase may exist.";
 		document.getElementById("details_event_last_uploaded").textContent = "Date and time of RDAP database update in Zulu time (Coordinated Universal Time - UTC).";
 		document.getElementById("details_extensions_values").textContent = "'Eligibility': How a domain fulfills a specific requirement in a top-level domain zone.";
-		document.getElementById("sponsor_role").textContent = "In the case of a sponsor, this entity is responsible for managing the domain registration.";
+		document.getElementById("sponsor_role").textContent = "The domain registration can be managed by a sponsor. See for example france.fr.";
 		document.getElementById("registrant_role").textContent = "The domain user who has the actual or effective control for domain rights in the country of establishment.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web Identification number for business entities and natural persons.";
 		document.getElementById("registrant_organization").textContent = "The organization primarily responsible for the domain subscription as a registrant, see icann.org.";
@@ -344,7 +344,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_regmenu").textContent = proposed + "Ein Dropdown-Menü mit Erläuterungen und Details, z. B. über eine Subdomain der Registry.";
 		document.getElementById("zone_languages").textContent = "Eine Zone kann mit mehreren häufig verwendeten Sprachen arbeiten.";
 		document.getElementById("details_role").textContent = "Eine Webdomain unter einer Top-Level-Domain ist weltweit einzigartig und unter bestimmten Regeln frei wählbar.";
-		document.getElementById("details_source_registry").textContent = proposed;
+		document.getElementById("details_source_registry").textContent = proposed + "Mit '/v1/' weist eindeutig auf eine nächste RDAP-Version mit '/v2/' hin, siehe icann.com.";
 		document.getElementById("details_source_registrar").textContent = proposed;	
 		document.getElementById("details_name_ascii").textContent = "Namen, die Sonderzeichen in ASCII-Zeichenfolgen enthalten, verwenden die Punycode-Transkription.";
 		document.getElementById("details_name_unicode").textContent = "Im RDAP-Protokoll ist der Domänenname in Unicode optional, stellt jedoch eine eindeutige Information dar.";
@@ -354,7 +354,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("details_event_deletion").textContent = "Datum und Uhrzeit für die vollständige Löschung geplant. Es kann eine abschließende Löschphase geben.";
 		document.getElementById("details_event_last_uploaded").textContent = "Datum und Uhrzeit der RDAP-Datenbankaktualisierung in Zulu-Zeit (Koordinierte Weltzeit – UTC).";
 		document.getElementById("details_extensions_values").textContent = "'Eligibility': Wie eine Domäne eine bestimmte Anforderung in einer Top-Level-Domänenzone erfüllt.";
-		document.getElementById("sponsor_role").textContent = "Im Falle eines Sponsors ist diese Entität für die Verwaltung der Domänenregistrierung verantwortlich.";
+		document.getElementById("sponsor_role").textContent = "Die Domänenregistrierung kann von einem Sponsor verwaltet werden. Siehe beispielsweise france.fr.";
 		document.getElementById("registrant_role").textContent = "Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat für Domainrechte im Wohnsitzland.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web-Identifikationsnummer für Unternehmen und natürliche Personen.";
 		document.getElementById("registrant_organization").textContent = "Die Organisation, die als Registrant hauptsächlich für das Domänenabonnement verantwortlich ist, siehe icann.org.";
@@ -413,7 +413,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_regmenu").textContent = proposed + "Un menu déroulant avec explication et détails, par exemple via un sous-domaine du registre.";
 		document.getElementById("zone_languages").textContent = "Une zone peut fonctionner avec plusieurs langues couramment utilisées.";
 		document.getElementById("details_role").textContent = "Un domaine Web sous un domaine de premier niveau est unique au monde et peut être choisi librement selon certaines règles.";
-		document.getElementById("details_source_registry").textContent = proposed;
+		document.getElementById("details_source_registry").textContent = proposed + "Avec '/v1/' indique clairement une prochaine version RDAP avec '/v2/', voir icann.com.";
 		document.getElementById("details_source_registrar").textContent = proposed;
 		document.getElementById("details_name_ascii").textContent = "Les noms contenant des caractères spéciaux dans les chaînes ASCII utilisent la transcription Punycode.";
 		document.getElementById("details_name_unicode").textContent = "Dans le protocole RDAP, le nom de domaine en Unicode est facultatif, mais il s'agit d'une information claire.";
@@ -423,7 +423,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("details_event_deletion").textContent = "Date et heure prévues pour la suppression complète. Une phase de suppression finale peut exister.";
 		document.getElementById("details_event_last_uploaded").textContent = "Date et heure de mise à jour de la base de données RDAP en heure Zulu (temps universel coordonné - UTC).";
 		document.getElementById("details_extensions_values").textContent = "'Eligibility' : comment un domaine répond à une exigence spécifique dans une zone de domaine de premier niveau.";
-		document.getElementById("sponsor_role").textContent = "Dans le cas d'un sponsor, cette entité est responsable de la gestion de l'enregistrement du domaine.";
+		document.getElementById("sponsor_role").textContent = "L'enregistrement du domaine peut être géré par un sponsor. Voir par exemple france.fr.";
 		document.getElementById("registrant_role").textContent = "L'utilisateur du domaine qui a le contrôle réel ou effectif pour les droits de domaine dans le pays de résidence.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Numéro d’identification Web pour les entités commerciales et les personnes physiques.";
 		document.getElementById("registrant_organization").textContent = "L'organisation principalement responsable de l'abonnement au domaine en tant que titulaire, voir icann.org.";
