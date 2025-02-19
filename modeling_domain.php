@@ -126,7 +126,7 @@ function SwitchTranslation(translation)	{
 		var proposed = '';
 		var address = '';
 		document.getElementById("title").textContent = "Domain Information";
-		document.getElementById("subtitle").textContent = "RDAP-based modeling";
+		document.getElementById("subtitle").textContent = "RDAP-v1-based modeling";
 		document.getElementById("instruction").textContent = "Paste a domain name and press Enter.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
@@ -181,6 +181,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_role").textContent = "";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "";
+		document.getElementById("registrar_tel").textContent = "";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;
@@ -195,7 +196,7 @@ function SwitchTranslation(translation)	{
 		var proposed = 'VOORGESTELD - ';
 		var address = "Afscherming van adresgegevens is duidelijk zichtbaar bij example.tel.";
 		document.getElementById("title").textContent = "Domein-informatie";
-		document.getElementById("subtitle").textContent = "RDAP-gebaseerde modellering";
+		document.getElementById("subtitle").textContent = "RDAP-v1-gebaseerde modellering";
 		document.getElementById("instruction").textContent = "Plak een domeinnaam en druk op Enter.";
 		document.getElementById("field").textContent = "Omschrijving";
 		document.getElementById("value").textContent = "Detail";
@@ -206,7 +207,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_regmenu").textContent = proposed + "Een vervolgkeuzemenu met uitleg en details, bijvoorbeeld via een subdomein van de registry.";
 		document.getElementById("zone_languages").textContent = "Een zone kan met meerdere veelgebruikte talen werken.";
 		document.getElementById("details_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
-		document.getElementById("details_source_registry").textContent = proposed + "Met '/v1/' geeft duidelijk een volgende RDAP-versie aan met '/v2/', zie icann.com.";
+		document.getElementById("details_source_registry").textContent = proposed + "In de aanloop naar een volgende versie werkt '/v1/', zie icann.com.";
 		document.getElementById("details_source_registrar").textContent = proposed;
 		document.getElementById("details_name_ascii").textContent = "Namen met speciale tekens in ASCII-tekenreeksen gebruiken Punycode-transcriptie.";
 		document.getElementById("details_name_unicode").textContent = "In het RDAP-protocol is de domeinnaam in Unicode optioneel, maar het is wel duidelijke informatie.";
@@ -250,6 +251,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_role").textContent = "De domeinregistrar is verantwoordelijk voor domeinreserveringen en IP-adresroutering.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "In het geval van ICANN-accreditatie, voor één of meer generieke topleveldomeinen. En moet juist zijn.";
+		document.getElementById("registrar_tel").textContent = "Er zijn verschillende typen telefoonnummers mogelijk, zoals bij example.ovh.";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
@@ -264,7 +266,7 @@ function SwitchTranslation(translation)	{
 		var proposed = 'PROPOSED - ';
 		var address = "Shielding of address data is clearly visible at example.tel.";
 		document.getElementById("title").textContent = "Domain Information";
-		document.getElementById("subtitle").textContent = "RDAP-based modeling";
+		document.getElementById("subtitle").textContent = "RDAP-v1-based modeling";
 		document.getElementById("instruction").textContent = "Paste a domain name and press Enter.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
@@ -275,7 +277,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_regmenu").textContent = proposed + "A drop-down menu with explanations and details, for example via a subdomain of the registry.";
 		document.getElementById("zone_languages").textContent = "A zone can work with multiple commonly used languages.";
 		document.getElementById("details_role").textContent = "A web domain under a top-level domain is unique worldwide and can be freely chosen under certain rules.";
-		document.getElementById("details_source_registry").textContent = proposed + "With '/v1/' clearly indicates a next RDAP version with '/v2/', see icann.com.";
+		document.getElementById("details_source_registry").textContent = proposed + "In the run-up to a next version, '/v1/' works, see icann.com.";
 		document.getElementById("details_source_registrar").textContent = proposed;	
 		document.getElementById("details_name_ascii").textContent = "Names containing special characters in ASCII strings use Punycode transcription.";
 		document.getElementById("details_name_unicode").textContent = "In the RDAP protocol, the domain name in Unicode is optional, but it is clear information.";
@@ -319,6 +321,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_role").textContent = "The domain registrar is responsible for domain reservations and IP address routing.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "In case of ICANN accreditation, for one or more generic top-level domains. And must be correct.";
+		document.getElementById("registrar_tel").textContent = "Different types of phone numbers are possible, as with example.ovh.";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
@@ -333,7 +336,7 @@ function SwitchTranslation(translation)	{
 		var proposed = 'VORGESCHLAGEN - ';
 		var address = "Die Abschirmung der Adressdaten ist bei example.tel deutlich sichtbar.";
 		document.getElementById("title").textContent = "Domäneninformation";
-		document.getElementById("subtitle").textContent = "RDAP-basierte Modellierung";
+		document.getElementById("subtitle").textContent = "RDAP-v1-basierte Modellierung";
 		document.getElementById("instruction").textContent = "Fügen Sie einen Domänennamen ein und drücken Sie die Eingabetaste.";
 		document.getElementById("field").textContent = "Beschreibung";
 		document.getElementById("value").textContent = "Detail";
@@ -344,7 +347,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_regmenu").textContent = proposed + "Ein Dropdown-Menü mit Erläuterungen und Details, z. B. über eine Subdomain der Registry.";
 		document.getElementById("zone_languages").textContent = "Eine Zone kann mit mehreren häufig verwendeten Sprachen arbeiten.";
 		document.getElementById("details_role").textContent = "Eine Webdomain unter einer Top-Level-Domain ist weltweit einzigartig und unter bestimmten Regeln frei wählbar.";
-		document.getElementById("details_source_registry").textContent = proposed + "Mit '/v1/' weist eindeutig auf eine nächste RDAP-Version mit '/v2/' hin, siehe icann.com.";
+		document.getElementById("details_source_registry").textContent = proposed + "Im Vorfeld einer nächsten Version funktioniert '/v1/', siehe icann.com.";
 		document.getElementById("details_source_registrar").textContent = proposed;	
 		document.getElementById("details_name_ascii").textContent = "Namen, die Sonderzeichen in ASCII-Zeichenfolgen enthalten, verwenden die Punycode-Transkription.";
 		document.getElementById("details_name_unicode").textContent = "Im RDAP-Protokoll ist der Domänenname in Unicode optional, stellt jedoch eine eindeutige Information dar.";
@@ -388,6 +391,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_role").textContent = "Der Domänenregistrar ist für die Domänenreservierung und das IP-Adressrouting verantwortlich.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "Im Falle einer ICANN-Akkreditierung für eine oder mehrere generische Top-Level-Domains. Und muss korrekt sein.";
+		document.getElementById("registrar_tel").textContent = "Es sind verschiedene Arten von Telefonnummern möglich, wie beispielsweise bei example.ovh.";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
@@ -402,7 +406,7 @@ function SwitchTranslation(translation)	{
 		var proposed = 'PROPOSÉ - ';
 		var address = "Le blindage des données d'adresse est clairement visible sur example.tel.";
 		document.getElementById("title").textContent = "Informations sur le domaine";
-		document.getElementById("subtitle").textContent = "Modélisation basée sur RDAP";
+		document.getElementById("subtitle").textContent = "Modélisation basée sur RDAP-v1";
 		document.getElementById("instruction").textContent = "Collez un nom de domaine et appuyez sur Entrée.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Détail";
@@ -413,7 +417,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_regmenu").textContent = proposed + "Un menu déroulant avec explication et détails, par exemple via un sous-domaine du registre.";
 		document.getElementById("zone_languages").textContent = "Une zone peut fonctionner avec plusieurs langues couramment utilisées.";
 		document.getElementById("details_role").textContent = "Un domaine Web sous un domaine de premier niveau est unique au monde et peut être choisi librement selon certaines règles.";
-		document.getElementById("details_source_registry").textContent = proposed + "Avec '/v1/' indique clairement une prochaine version RDAP avec '/v2/', voir icann.com.";
+		document.getElementById("details_source_registry").textContent = proposed + "En attendant la prochaine version, '/v1/' fonctionne, voir icann.com.";
 		document.getElementById("details_source_registrar").textContent = proposed;
 		document.getElementById("details_name_ascii").textContent = "Les noms contenant des caractères spéciaux dans les chaînes ASCII utilisent la transcription Punycode.";
 		document.getElementById("details_name_unicode").textContent = "Dans le protocole RDAP, le nom de domaine en Unicode est facultatif, mais il s'agit d'une information claire.";
@@ -457,6 +461,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_role").textContent = "Le registraire de domaine est responsable des réservations de domaines et du routage des adresses IP.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "En cas d'accréditation ICANN, pour un ou plusieurs domaines génériques de premier niveau. Et doit être correct.";
+		document.getElementById("registrar_tel").textContent = "Différents types de numéros de téléphone sont possibles, comme avec example.ovh.";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
@@ -547,7 +552,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 		$html_text .= '<tr id="102" style="display:none"><td>zone restrictions</td><td>none</td><td id="zone_restrictions"></td></tr>';
 	}
 	if (strlen($item->zone->regmenu))	{
-		$html_text .= '<tr id="103" style="display:none"><td>zone regmenu</td><td><a href='.$item->zone->regmenu.' target="_blank">Domain Zone Registry Menu</a></td><td id="zone_regmenu"></td></tr>';
+		$html_text .= '<tr id="103" style="display:none"><td>zone regmenu</td><td><a href='.$item->zone->regmenu.' target="_blank">Registry Zone Menu</a></td><td id="zone_regmenu"></td></tr>';
 	}
 	else	{
 		$html_text .= '<tr id="103" style="display:none"><td>zone regmenu</td><td>none</td><td id="zone_regmenu"></td></tr>';	
@@ -815,7 +820,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="605" style="display:none"><td>registrar iana_id</td><td>'.$item->registrar->iana_id.'</td><td id="registrar_iana_id"></td></tr>';
 	$html_text .= '<tr id="606" style="display:none"><td>registrar name</td><td>'.$item->registrar->name.'</td><td></td></tr>';
 	$html_text .= '<tr id="607" style="display:none"><td>registrar email</td><td>'.$item->registrar->email.'</td><td></td></tr>';
-	$html_text .= '<tr id="608" style="display:none"><td>registrar tel</td><td>'.$item->registrar->tel.'</td><td></td></tr>';
+	$html_text .= '<tr id="608" style="display:none"><td>registrar tel</td><td>'.$item->registrar->tel.'</td><td id="registrar_tel"></td></tr>';
 	$html_text .= '<tr id="609" style="display:none"><td>registrar country_code</td><td>'.$item->registrar->country_code.'</td><td></td></tr>';
 	$html_text .= '<tr id="6010" style="display:none"><td>registrar street</td><td>'.$item->registrar->street.'</td><td></td></tr>';
 	$html_text .= '<tr id="6011" style="display:none"><td>registrar city</td><td>'.$item->registrar->city.'</td><td></td></tr>';
