@@ -613,13 +613,17 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="301" style="display:none"><td>details object_conformance</td><td>'.$item->details->object_conformance.'</td><td></td></tr>';
 	$html_text .= '<tr id="302" style="display:none"><td>details object_class_name</td><td>'.$item->details->object_class_name.'</td><td></td></tr>';
 	if (strlen($item->details->source_registry))	{
-		$html_text .= '<tr id="303" style="display:none"><td>details source_registry</td><td><a href='.$item->details->source_registry.' target="_blank">Registry Data Source</a></td><td id="details_source_registry"></td></tr>';
+		$validation_registry = 
+			'https://validator.rdap.org/?url=https%3A//'.str_replace('https://','',$item->details->source_registry).'&response-type=domain&server-type=gtld-registry&errors-only=1';
+		$html_text .= '<tr id="303" style="display:none"><td>details source_registry</td><td><a href='.$item->details->source_registry.' target="_blank">Data from Registry</a> - <a href='.$validation_registry.' target="_blank">Validate Data</a></td><td id="details_source_registry"></td></tr>';
 	}
 	else	{
 		$html_text .= '<tr id="303" style="display:none"><td>details source_registry</td><td>none</td><td id="details_source_registry"></td></tr>';	
 	}
 	if (strlen($item->details->source_registrar))	{
-		$html_text .= '<tr id="304" style="display:none"><td>details source_registrar</td><td><a href='.$item->details->source_registrar.' target="_blank">Registrar Data Source</a></td><td id="details_source_registrar"></td></tr>';
+		$validation_registrar = 
+			'https://validator.rdap.org/?url=https%3A//'.str_replace('https://','',$item->details->source_registrar).'&response-type=domain&server-type=gtld-registrar&errors-only=1';
+		$html_text .= '<tr id="304" style="display:none"><td>details source_registrar</td><td><a href='.$item->details->source_registrar.' target="_blank">Data from Registrar</a> - <a href='.$validation_registrar.' target="_blank">Validate Data</a></td><td id="details_source_registrar"></td></tr>';
 	}
 	else	{
 		$html_text .= '<tr id="304" style="display:none"><td>details source_registrar</td><td>none</td><td id="details_source_registrar"></td></tr>';	
