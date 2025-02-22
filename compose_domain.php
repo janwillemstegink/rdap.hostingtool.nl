@@ -1437,8 +1437,6 @@ $domain->appendChild($view);
 		
 $details = $doc->createElement("details");
 $domain->appendChild($details);	
-
-//$url_registrar = 'https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/ICANN.COM';
 	
 $domain_source_registry = $doc->createElement("source_registry");
 $domain_source_registry->appendChild($doc->createCDATASection($url));		

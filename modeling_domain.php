@@ -208,7 +208,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_languages").textContent = "Een zone kan met meerdere veelgebruikte talen werken.";
 		document.getElementById("details_role").textContent = "Een webdomein onder een topleveldomein is wereldwijd uniek en onder bepaalde regels vrij te kiezen.";
 		document.getElementById("details_source_registry").textContent = proposed + "In de aanloop naar een volgende versie werkt '/v1/', zie icann.com.";
-		document.getElementById("details_source_registrar").textContent = proposed;
+		document.getElementById("details_source_registrar").textContent = innerHTML = proposed;
 		document.getElementById("details_name_ascii").textContent = "Namen met speciale tekens in ASCII-tekenreeksen gebruiken Punycode-transcriptie.";
 		document.getElementById("details_name_unicode").textContent = "In het RDAP-protocol is de domeinnaam in Unicode optioneel, maar het is wel duidelijke informatie.";
 		document.getElementById("details_status_values").textContent = "De waarde 'redemption period' is info over herstel. De waarde 'pending delete' is van toepassing in de laatste fase.";
@@ -221,7 +221,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "De domeingebruiker die de daadwerkelijke of effectieve controle heeft voor domeinrecht in het land van vestiging.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Webidentificatienummer voor bedrijfsentiteiten en natuurlijke personen.";
 		document.getElementById("registrant_organization").textContent = "De organisatie die primair verantwoordelijk is voor het domeinabonnement als registrant, zie icann.org.";
-		document.getElementById("registrant_presented_name").textContent = "full_name: De persoon (of rol) die primair verantwoordelijk is voor het domeinabonnement als registrant.";
+		document.getElementById("registrant_presented_name").textContent = "'full name': De persoon (of rol) die primair verantwoordelijk is voor het domeinabonnement als registrant.";
 		document.getElementById("registrant_kind").textContent = "Leeg / 'org' / 'individual' (Voor continuïteit: levenstestament + testament + digitale executeur)";
 		document.getElementById("registrant_name").textContent = "Een persoonlijke naam kan openbaar zichtbaar zijn in het veld 'presented_name', zie circa.ca.";
 		document.getElementById("registrant_country_code").textContent = "De ISO-2-landcode-indexering werkt, bijvoorbeeld voor het Verenigd Koninkrijk, dat de EU heeft verlaten.";
@@ -291,7 +291,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "The domain user who has the actual or effective control for domain rights in the country of establishment.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web Identification number for business entities and natural persons.";
 		document.getElementById("registrant_organization").textContent = "The organization primarily responsible for the domain subscription as a registrant, see icann.org.";
-		document.getElementById("registrant_presented_name").textContent = "full_name: The person (or role) primarily responsible for the domain subscription as a registrant.";
+		document.getElementById("registrant_presented_name").textContent = "'full name': The person (or role) primarily responsible for the domain subscription as a registrant.";
 		document.getElementById("registrant_kind").textContent = "Empty / 'org' / 'individual' (For continuity: Living Will + Will + Digital Executor)";
 		document.getElementById("registrant_name").textContent = "A personal name may be publicly visible in the 'presented_name' field, see circa.ca.";
 		document.getElementById("registrant_country_code").textContent = "ISO-2 country code indexing works, as for the United Kingdom, which has left the EU.";
@@ -361,7 +361,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat für Domainrechte im Wohnsitzland.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web-Identifikationsnummer für Unternehmen und natürliche Personen.";
 		document.getElementById("registrant_organization").textContent = "Die Organisation, die als Registrant hauptsächlich für das Domänenabonnement verantwortlich ist, siehe icann.org.";
-		document.getElementById("registrant_presented_name").textContent = "full_name: Die Person (oder Rolle), die als Registrant hauptsächlich für das Domänenabonnement verantwortlich ist.";
+		document.getElementById("registrant_presented_name").textContent = "'full name': Die Person (oder Rolle), die als Registrant hauptsächlich für das Domänenabonnement verantwortlich ist.";
 		document.getElementById("registrant_kind").textContent = "Leer / 'org' / 'individual' (Für Kontinuität: Patientenverfügung + Testament + digitaler Testamentsvollstrecker)";
 		document.getElementById("registrant_name").textContent = "Ein Personenname kann im Feld 'presented_name' öffentlich sichtbar sein, siehe circa.ca.";
 		document.getElementById("registrant_country_code").textContent = "Die Indizierung mit dem ISO-2-Ländercode funktioniert, wie für das Vereinigte Königreich, das die EU verlassen hat.";
@@ -431,7 +431,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "L'utilisateur du domaine qui a le contrôle réel ou effectif pour les droits de domaine dans le pays de résidence.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Numéro d’identification Web pour les entités commerciales et les personnes physiques.";
 		document.getElementById("registrant_organization").textContent = "L'organisation principalement responsable de l'abonnement au domaine en tant que titulaire, voir icann.org.";
-		document.getElementById("registrant_presented_name").textContent = "full_name: La personne (ou le rôle) principalement responsable de l'abonnement au domaine en tant que titulaire.";
+		document.getElementById("registrant_presented_name").textContent = "'full name': La personne (ou le rôle) principalement responsable de l'abonnement au domaine en tant que titulaire.";
 		document.getElementById("registrant_kind").textContent = "Vide / 'org' / 'individual' (Pour la continuité : testament biologique + testament + exécuteur testamentaire numérique)";
 		document.getElementById("registrant_name").textContent = "Un nom personnel peut être visible publiquement dans le champ 'presented_name', voir circa.ca.";
 		document.getElementById("registrant_country_code").textContent = "L'indexation des codes pays ISO-2 fonctionne, comme pour le Royaume-Uni, qui a quitté l'UE.";
@@ -555,7 +555,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 		$html_text .= '<tr id="103" style="display:none"><td>zone regmenu</td><td><a href='.$item->zone->regmenu.' target="_blank">Registry Zone Menu</a></td><td id="zone_regmenu"></td></tr>';
 	}
 	else	{
-		$html_text .= '<tr id="103" style="display:none"><td>zone regmenu</td><td>none</td><td id="zone_regmenu"></td></tr>';	
+		$html_text .= '<tr id="103" style="display:none"><td>zone regmenu</td><td>none</td><td id="zone_regmenu"</td></tr>';	
 	}
 	$html_text .= '<tr id="104" style="display:none"><td>zone languages</td><td>'.$item->zone->languages.'</td><td id="zone_languages"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(11)">Notice0 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(12)">Notice1 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(13)">Notice2 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(14)">Notice3 +/-</button></td><td></td><td></td></tr>';
@@ -615,7 +615,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	if (strlen($item->details->source_registry))	{
 		$validation_registry = 
 			'https://validator.rdap.org/?url=https%3A//'.str_replace('https://','',$item->details->source_registry).'&response-type=domain&server-type=gtld-registry&errors-only=1';
-		$html_text .= '<tr id="303" style="display:none"><td>details source_registry</td><td><a href='.$item->details->source_registry.' target="_blank">Data from Registry</a> - <a href='.$validation_registry.' target="_blank">Validate Data</a></td><td id="details_source_registry"></td></tr>';
+		$html_text .= '<tr id="303" style="display:none"><td>details source_registry</td><td><a href='.$item->details->source_registry.' target="_blank">registry file</a> - <a href='.$validation_registry.' target="_blank">validator.rdap.org</a></td><td id="details_source_registry"></td></tr>';
 	}
 	else	{
 		$html_text .= '<tr id="303" style="display:none"><td>details source_registry</td><td>none</td><td id="details_source_registry"></td></tr>';	
@@ -623,10 +623,10 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	if (strlen($item->details->source_registrar))	{
 		$validation_registrar = 
 			'https://validator.rdap.org/?url=https%3A//'.str_replace('https://','',$item->details->source_registrar).'&response-type=domain&server-type=gtld-registrar&errors-only=1';
-		$html_text .= '<tr id="304" style="display:none"><td>details source_registrar</td><td><a href='.$item->details->source_registrar.' target="_blank">Data from Registrar</a> - <a href='.$validation_registrar.' target="_blank">Validate Data</a></td><td id="details_source_registrar"></td></tr>';
+		$html_text .= '<tr id="304" style="display:none"><td>details source_registrar</td><td><a href='.$item->details->source_registrar.' target="_blank">registrar file</a> - <a href='.$validation_registrar.' target="_blank">validator.rdap.org</a></td><td id="details_source_registrar"></td></tr>';
 	}
 	else	{
-		$html_text .= '<tr id="304" style="display:none"><td>details source_registrar</td><td>none</td><td id="details_source_registrar"></td></tr>';	
+		$html_text .= '<tr id="304" style="display:none"><td>details source_registrar (<a style="font-size: 0.9rem" href="https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/icann.com" target="_blank">for icann.com as example</a>)</td><td>none</td><td id="details_source_registrar"></td></tr>';	
 	}
 	$html_text .= '<tr id="305" style="display:none"><td>details handle</td><td>'.$item->details->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="306" style="display:none"><td>details name_ascii</td><td>'.$item->details->name_ascii.'</td><td id="details_name_ascii"></td></tr>';
