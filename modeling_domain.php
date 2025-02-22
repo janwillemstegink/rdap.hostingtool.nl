@@ -555,7 +555,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 		$html_text .= '<tr id="103" style="display:none"><td>zone regmenu</td><td><a href='.$item->zone->regmenu.' target="_blank">Registry Zone Menu</a></td><td id="zone_regmenu"></td></tr>';
 	}
 	else	{
-		$html_text .= '<tr id="103" style="display:none"><td>zone regmenu</td><td>none</td><td id="zone_regmenu"</td></tr>';	
+		$html_text .= '<tr id="103" style="display:none"><td>zone regmenu</td><td>none</td><td id="zone_regmenu"></td></tr>';	
 	}
 	$html_text .= '<tr id="104" style="display:none"><td>zone languages</td><td>'.$item->zone->languages.'</td><td id="zone_languages"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(11)">Notice0 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(12)">Notice1 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(13)">Notice2 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(14)">Notice3 +/-</button></td><td></td><td></td></tr>';
@@ -613,17 +613,17 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="301" style="display:none"><td>details object_conformance</td><td>'.$item->details->object_conformance.'</td><td></td></tr>';
 	$html_text .= '<tr id="302" style="display:none"><td>details object_class_name</td><td>'.$item->details->object_class_name.'</td><td></td></tr>';
 	if (strlen($item->details->source_registry))	{
-		$validation_registry = 
-			'https://validator.rdap.org/?url=https%3A//'.str_replace('https://','',$item->details->source_registry).'&response-type=domain&server-type=gtld-registry&errors-only=1';
-		$html_text .= '<tr id="303" style="display:none"><td>details source_registry</td><td><a href='.$item->details->source_registry.' target="_blank">registry file</a> - <a href='.$validation_registry.' target="_blank">validator.rdap.org</a></td><td id="details_source_registry"></td></tr>';
+		$source_registry = str_replace('https://', '', $item->details->source_registry);
+		$validation_registry = 'https://validator.rdap.org/?url=https://'.$source_registry.'&response-type=domain&server-type=gtld-registry&errors-only=1';
+		$html_text .= '<tr id="303" style="display:none"><td>details source_registry</td><td><a href='.$item->details->source_registry.' target="_blank">registry file</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">validator.rdap.org</a></td><td id="details_source_registry"></td></tr>';
 	}
 	else	{
 		$html_text .= '<tr id="303" style="display:none"><td>details source_registry</td><td>none</td><td id="details_source_registry"></td></tr>';	
 	}
 	if (strlen($item->details->source_registrar))	{
-		$validation_registrar = 
-			'https://validator.rdap.org/?url=https%3A//'.str_replace('https://','',$item->details->source_registrar).'&response-type=domain&server-type=gtld-registrar&errors-only=1';
-		$html_text .= '<tr id="304" style="display:none"><td>details source_registrar</td><td><a href='.$item->details->source_registrar.' target="_blank">registrar file</a> - <a href='.$validation_registrar.' target="_blank">validator.rdap.org</a></td><td id="details_source_registrar"></td></tr>';
+		$source_registrar = str_replace('https://', '', $item->details->source_registrar);
+		$validation_registrar = 'https://validator.rdap.org/?url=https://'.$source_registrar.'&response-type=domain&server-type=gtld-registrar&errors-only=1';
+		$html_text .= '<tr id="304" style="display:none"><td>details source_registrar</td><td><a href='.$item->details->source_registrar.' target="_blank">registrar file</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">validator.rdap.org</a></td><td id="details_source_registrar"></td></tr>';
 	}
 	else	{
 		$html_text .= '<tr id="304" style="display:none"><td>details source_registrar (<a style="font-size: 0.9rem" href="https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/icann.com" target="_blank">for icann.com as example</a>)</td><td>none</td><td id="details_source_registrar"></td></tr>';	
