@@ -229,7 +229,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_city").textContent = address;
 		document.getElementById("registrant_postal_code").textContent = address;
 		document.getElementById("registrant_country_name").textContent = "Een openbaar zichtbare landnaam is beperkt tot een 'Registrar Lookup via RDAP'.";
-		document.getElementById("registrant_shielding").textContent = proposed + "De aanvrager, zone en rol bepalen de uitvoer per rol.";
+		document.getElementById("registrant_shielding").textContent = proposed + "Een 'Request-Driven' waarde. De aanvrager, zone en rol bepalen de uitvoer per rol.";
 		document.getElementById("registrant_event_verification_received").textContent = proposed + "De verantwoordelijke persoon kan een identieke web-ID aanklikken; leeg is intrekking.";
 		document.getElementById("registrant_event_verification_set").textContent = proposed + "Vervolgens controleert het register de gegevens bij de landspecifieke webdomeindienst.";
 		document.getElementById("administrative_role").textContent = "Het administratief aanspreekpunt beantwoordt een verzoek en stuurt zo nodig door.";
@@ -299,7 +299,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_city").textContent = address;
 		document.getElementById("registrant_postal_code").textContent = address;		
 		document.getElementById("registrant_country_name").textContent = "A publicly visible country name is limited to a 'Registrar Lookup via RDAP'.";
-		document.getElementById("registrant_shielding").textContent = proposed + "The requester, zone and role determine the output per role.";
+		document.getElementById("registrant_shielding").textContent = proposed + "A Request-Driven value. The requester, zone and role determine the output per role.";
 		document.getElementById("registrant_event_verification_received").textContent = proposed + "The responsible person can click on an identical web ID; empty is revocation.";
 		document.getElementById("registrant_event_verification_set").textContent = proposed + "The registry then checks the data with the country-specific web domain service.";	
 		document.getElementById("administrative_role").textContent = "The administratively responsible desk answers a request, and forwards on if necessary.";
@@ -369,7 +369,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_city").textContent = address;
 		document.getElementById("registrant_postal_code").textContent = address;		
 		document.getElementById("registrant_country_name").textContent = "Ein öffentlich sichtbarer Ländername ist auf eine 'Registrar Lookup via RDAP' beschränkt.";
-		document.getElementById("registrant_shielding").textContent = proposed + "Anforderer, Zone und Rolle bestimmen die Ausgabe pro Rolle.";
+		document.getElementById("registrant_shielding").textContent = proposed + "Ein 'Request-Driven' Wert. Anforderer, Zone und Rolle bestimmen die Ausgabe pro Rolle.";
 		document.getElementById("registrant_event_verification_received").textContent = proposed + "Der Verantwortliche kann auf eine identische Web-ID klicken; leer ist Rückzug.";
 		document.getElementById("registrant_event_verification_set").textContent = proposed + "Anschließend gleicht die Registry die Daten beim länderspezifischen Webdomain-Dienst ab.";
 		document.getElementById("administrative_role").textContent = "Die administrativ zuständige Stelle beantwortet eine Anfrage und leitet sie gegebenenfalls weiter.";
@@ -439,7 +439,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_city").textContent = address;
 		document.getElementById("registrant_postal_code").textContent = address;
 		document.getElementById("registrant_country_name").textContent = "Un nom de pays visible publiquement est limité à une 'Registrar Lookup via RDAP'.";
-		document.getElementById("registrant_shielding").textContent = proposed + "Le demandeur, la zone et le rôle déterminent la sortie par rôle.";
+		document.getElementById("registrant_shielding").textContent = proposed + "Une valeur 'Request-Driven'. Le demandeur, la zone et le rôle déterminent la sortie par rôle.";
 		document.getElementById("registrant_event_verification_received").textContent = proposed + "La personne responsable peut cliquer sur un identifiant Web identique ; le vide est le retrait.";
 		document.getElementById("registrant_event_verification_set").textContent = proposed + "Le registre vérifie ensuite les données avec le service de domaine Web spécifique au pays.";
 		document.getElementById("administrative_role").textContent = "Le bureau administrativement responsable répond à une demande, et la transmet si nécessaire.";
@@ -520,8 +520,6 @@ if (@get_headers($rdap_url))	{ // the application to compose for zone data
 	$xml1 = simplexml_load_file($rdap_url, "SimpleXMLElement", LIBXML_NOCDATA) or die("An entered domain could not be read.");
 }
 if	(is_null($xml1))	{
-	$display_message = str_replace("'", "\'", "A result could not be retrieved.");	
-	echo "<script>alert('$display_message');</script>";
 	$reopen = $server_url.'/modeling_domain/index.php?batch=0&domain=hostingtool.nl';
 	sc_redir($reopen);
 }
