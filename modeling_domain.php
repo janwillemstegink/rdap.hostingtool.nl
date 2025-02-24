@@ -181,11 +181,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_role").textContent = "";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "";
-		document.getElementById("registrar_tel").textContent = "";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;
 		document.getElementById("registrar_abuse_role").textContent = "";
+		document.getElementById("registrar_abuse_tel").textContent = "";
 		document.getElementById("name_servers_dnssec").textContent = "";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "";
 		document.getElementById("name_servers_ip").textContent = "";
@@ -251,11 +251,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_role").textContent = "De domeinregistrar is verantwoordelijk voor domeinreserveringen en IP-adresroutering.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "In het geval van ICANN-accreditatie, voor één of meer generieke topleveldomeinen. En moet juist zijn.";
-		document.getElementById("registrar_tel").textContent = "Er zijn verschillende typen telefoonnummers mogelijk, zoals bij example.ovh.";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
-		document.getElementById("registrar_abuse_role").textContent = "Informatie over hoe een derde partij contact kan opnemen met de registrar (zie bijvoorbeeld hostingtool.org).";
+		document.getElementById("registrar_abuse_role").textContent = "Informatie over hoe een derde partij contact kan opnemen met de registrar. Zie bijvoorbeeld hostingtool.org.";
+		document.getElementById("registrar_abuse_tel").textContent = "Voorafgaand aan een telefoonnummer is het type verplicht.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
@@ -321,11 +321,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_role").textContent = "The domain registrar is responsible for domain reservations and IP address routing.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "In case of ICANN accreditation, for one or more generic top-level domains. And must be correct.";
-		document.getElementById("registrar_tel").textContent = "Different types of phone numbers are possible, as with example.ovh.";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
-		document.getElementById("registrar_abuse_role").textContent = "Information on how a third party can contact the registrar (see e.g. hostingtool.org).";
+		document.getElementById("registrar_abuse_role").textContent = "Information on how a third party can contact the registrar. See e.g. hostingtool.org.";
+		document.getElementById("registrar_abuse_tel").textContent = "Before a telephone number, the type is mandatory.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
@@ -391,11 +391,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_role").textContent = "Der Domänenregistrar ist für die Domänenreservierung und das IP-Adressrouting verantwortlich.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "Im Falle einer ICANN-Akkreditierung für eine oder mehrere generische Top-Level-Domains. Und muss korrekt sein.";
-		document.getElementById("registrar_tel").textContent = "Es sind verschiedene Arten von Telefonnummern möglich, wie beispielsweise bei example.ovh.";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
-		document.getElementById("registrar_abuse_role").textContent = "Informationen darüber, wie Dritte den Registrar kontaktieren können (siehe z. B. hostingtool.org).";
+		document.getElementById("registrar_abuse_role").textContent = "Informationen darüber, wie Dritte den Registrar kontaktieren können. Siehe z. B. hostingtool.org.";
+		document.getElementById("registrar_abuse_tel").textContent = "Vor einer Telefonnummer ist der Typ obligatorisch.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 		document.getElementById("name_servers_ip").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
@@ -461,11 +461,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_role").textContent = "Le registraire de domaine est responsable des réservations de domaines et du routage des adresses IP.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_iana_id").textContent = "En cas d'accréditation ICANN, pour un ou plusieurs domaines génériques de premier niveau. Et doit être correct.";
-		document.getElementById("registrar_tel").textContent = "Différents types de numéros de téléphone sont possibles, comme avec example.ovh.";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
-		document.getElementById("registrar_abuse_role").textContent = "Informations sur la manière dont un tiers peut contacter le registraire (voir par exemple hostingtool.org).";
+		document.getElementById("registrar_abuse_role").textContent = "Informations sur la manière dont un tiers peut contacter le registraire. Voir par exemple hostingtool.org.";
+		document.getElementById("registrar_abuse_tel").textContent = "Devant un numéro de téléphone, le type est obligatoire.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 		document.getElementById("name_servers_ip").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
@@ -822,7 +822,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="605" style="display:none"><td>registrar iana_id</td><td>'.$item->registrar->iana_id.'</td><td id="registrar_iana_id"></td></tr>';
 	$html_text .= '<tr id="606" style="display:none"><td>registrar name</td><td>'.$item->registrar->name.'</td><td></td></tr>';
 	$html_text .= '<tr id="607" style="display:none"><td>registrar email</td><td>'.$item->registrar->email.'</td><td></td></tr>';
-	$html_text .= '<tr id="608" style="display:none"><td>registrar tel</td><td>'.$item->registrar->tel.'</td><td id="registrar_tel"></td></tr>';
+	$html_text .= '<tr id="608" style="display:none"><td>registrar tel</td><td>'.$item->registrar->tel.'</td><td></td></tr>';
 	$html_text .= '<tr id="609" style="display:none"><td>registrar country_code</td><td>'.$item->registrar->country_code.'</td><td></td></tr>';
 	$html_text .= '<tr id="6010" style="display:none"><td>registrar street</td><td>'.$item->registrar->street.'</td><td></td></tr>';
 	$html_text .= '<tr id="6011" style="display:none"><td>registrar city</td><td>'.$item->registrar->city.'</td><td></td></tr>';
@@ -846,7 +846,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(61)">Registrar Abuse +/-</button></td><td></td><td id="registrar_abuse_role"></td></tr>';
 	$html_text .= '<tr id="611" style="display:none"><td>registrar abuse_presented_name</td><td>'.$item->registrar->abuse_presented_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="612" style="display:none"><td>registrar abuse_email</td><td>'.$item->registrar->abuse_email.'</td><td></td></tr>';
-	$html_text .= '<tr id="613" style="display:none"><td>registrar abuse_tel</td><td>'.$item->registrar->abuse_tel.'</td><td></td></tr>';
+	$html_text .= '<tr id="613" style="display:none"><td>registrar abuse_tel</td><td>'.$item->registrar->abuse_tel.'</td><td id="registrar_abuse_tel"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:1.05rem" onclick="SwitchDisplay(63)">Name Servers +/-</button></td><td></td><td></td></tr>';
 	//if (!empty($item->name_servers->server_1->server_name))	{
