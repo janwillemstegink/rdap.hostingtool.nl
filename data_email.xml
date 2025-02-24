@@ -10,7 +10,7 @@
 			<handle>STE135417-TRAIP</handle>
 			<web_id>NL88COMM01234567890123456789012345</web_id>
 			<organization><![CDATA[Stegink Hosting & E-mail]]></organization>
-			<presented_name><![CDATA[Stegink Hosting & E-mail]]></presented_name>
+			<presented_name></presented_name>
 			<kind>org</kind>
 			<name>Jan Willem Stegink</name>
 			<email>steginkj@freedom.nl</email>
@@ -27,7 +27,7 @@
 			<handle>STE135418-TRAIP</handle>
 			<web_id>NL88COMM01234567890123456789012345</web_id>
 			<organization><![CDATA[Stegink Hosting & E-mail]]></organization>
-			<presented_name><![CDATA[Stegink Hosting & E-mail]]></presented_name>
+			<presented_name></presented_name>
 			<kind>org</kind>
 			<name>Jan Willem Stegink</name>
 			<email>admindesk@janwillemstegink.nl</email>
@@ -44,7 +44,7 @@
 			<handle></handle>
 			<web_id>NL88COMM01234567890123456789012345</web_id>
 			<organization><![CDATA[Stegink Hosting & E-mail]]></organization>
-			<presented_name><![CDATA[Stegink Hosting & E-mail]]></presented_name>
+			<presented_name></presented_name>
 			<kind>org</kind>
 			<name>Jan Willem Stegink</name>
 			<email>steginkj@freedom.nl</email>
