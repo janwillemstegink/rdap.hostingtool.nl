@@ -204,7 +204,20 @@ $links_3_media = $obj['links'][3]['media'];
 $links_3_type = $obj['links'][3]['type'];	
 
 $object_class_name = $obj['objectClassName'];
-$object_conformance = $obj['rdapConformance'][0];	
+$object_conformance = (is_array($obj['rdapConformance'])) ? implode(",<br />", $obj['rdapConformance']) : $obj['rdapConformance'];	
+$registrar_complaint = '';
+$status_explanation = '';	
+	
+if ($notice_0_links_0_href == 'https://icann.org/wicf' or $notice_0_links_0_href == 'https://icann.org/wicf/')	$registrar_complaint = $notice_0_links_0_href;
+if ($notice_1_links_0_href == 'https://icann.org/wicf' or $notice_1_links_0_href == 'https://icann.org/wicf/')	$registrar_complaint = $notice_1_links_0_href;
+if ($notice_2_links_0_href == 'https://icann.org/wicf' or $notice_2_links_0_href == 'https://icann.org/wicf/')	$registrar_complaint = $notice_2_links_0_href;
+if ($notice_3_links_0_href == 'https://icann.org/wicf' or $notice_3_links_0_href == 'https://icann.org/wicf/')	$registrar_complaint = $notice_3_links_0_href;
+	
+if ($notice_0_links_0_href == 'https://icann.org/epp' or $notice_0_links_0_href == 'https://icann.org/epp/')	$status_explanation = $notice_0_links_0_href;
+if ($notice_1_links_0_href == 'https://icann.org/epp' or $notice_1_links_0_href == 'https://icann.org/epp/')	$status_explanation = $notice_1_links_0_href;
+if ($notice_2_links_0_href == 'https://icann.org/epp' or $notice_2_links_0_href == 'https://icann.org/epp/')	$status_explanation = $notice_2_links_0_href;
+if ($notice_3_links_0_href == 'https://icann.org/epp' or $notice_3_links_0_href == 'https://icann.org/epp/')	$status_explanation = $notice_3_links_0_href;	
+	
 $status_values = '';	
 $registration = null;
 $last_transferred = null;			
@@ -1432,27 +1445,37 @@ $view->appendChild($domain_links_3_media);
 
 $domain_links_3_type = $doc->createElement("links_3_type");
 $domain_links_3_type->appendChild($doc->createCDATASection($links_3_type));	
-$view->appendChild($domain_links_3_type);	
-$domain->appendChild($view);
+$view->appendChild($domain_links_3_type);
+	
+$domain->appendChild($view);	
+	
+$file = $doc->createElement("file");
+$domain->appendChild($file);	
+	
+$domain_object_conformance = $doc->createElement("object_conformance");
+$domain_object_conformance->appendChild($doc->createCDATASection($object_conformance));
+$file->appendChild($domain_object_conformance);	
+$domain_source_registry = $doc->createElement("source_registry");
+$domain_source_registry->appendChild($doc->createCDATASection($url));		
+$file->appendChild($domain_source_registry);	
+$domain_source_registrar = $doc->createElement("source_registrar");
+$domain_source_registrar->appendChild($doc->createCDATASection($url_registrar));		
+$file->appendChild($domain_source_registrar);	
+$domain_object_class_name = $doc->createElement("object_class_name");
+$domain_object_class_name->appendChild($doc->createCDATASection($object_class_name));
+$file->appendChild($domain_object_class_name);	
+$domain_registrar_complaint = $doc->createElement("registrar_complaint");
+$domain_registrar_complaint->appendChild($doc->createCDATASection($registrar_complaint));		
+$file->appendChild($domain_registrar_complaint);	
+$domain_status_explanation = $doc->createElement("status_explanation");
+$domain_status_explanation->appendChild($doc->createCDATASection($status_explanation));		
+$file->appendChild($domain_status_explanation);			
+	
+$domain->appendChild($file);	
 		
 $details = $doc->createElement("details");
 $domain->appendChild($details);	
-	
-$domain_source_registry = $doc->createElement("source_registry");
-$domain_source_registry->appendChild($doc->createCDATASection($url));		
-$details->appendChild($domain_source_registry);	
-$domain_source_registrar = $doc->createElement("source_registrar");
-$domain_source_registrar->appendChild($doc->createCDATASection($url_registrar));		
-$details->appendChild($domain_source_registrar);	
-
-$domain_object_conformance = $doc->createElement("object_conformance");
-$domain_object_conformance->appendChild($doc->createCDATASection($object_conformance));
-$details->appendChild($domain_object_conformance);
-	
-$domain_object_class_name = $doc->createElement("object_class_name");
-$domain_object_class_name->appendChild($doc->createCDATASection($object_class_name));
-$details->appendChild($domain_object_class_name);	
-	
+		
 $domain_handle = $doc->createElement("handle");
 $domain_handle->appendChild($doc->createCDATASection($handle));
 $details->appendChild($domain_handle);		
