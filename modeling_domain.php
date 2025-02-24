@@ -207,7 +207,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_regmenu").textContent = proposed + "Een vervolgkeuzemenu met uitleg en details, bijvoorbeeld via een subdomein van de registry.";
 		document.getElementById("zone_languages").textContent = "Een zone kan met meerdere veelgebruikte talen werken.";
 		document.getElementById("details_role").textContent = "Een domein onder TLD-niveau is wereldwijd uniek en kan vrij worden gekozen onder bepaalde regels.";
-		document.getElementById("details_source_registry").textContent = proposed + "In de aanloop naar een volgende versie werkt '/v1/', zie icann.com.";
+		document.getElementById("details_source_registry").textContent = proposed + "De versie '/v1/' werkt voor een '/v2/', zie icann.com.";
 		document.getElementById("details_source_registrar").textContent = innerHTML = proposed;
 		document.getElementById("details_name_ascii").textContent = "Namen met speciale tekens in ASCII-tekenreeksen gebruiken Punycode-transcriptie.";
 		document.getElementById("details_name_unicode").textContent = "In het RDAP-protocol is de domeinnaam in Unicode optioneel, maar het is wel duidelijke informatie.";
@@ -277,7 +277,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_regmenu").textContent = proposed + "A drop-down menu with explanations and details, for example via a subdomain of the registry.";
 		document.getElementById("zone_languages").textContent = "A zone can work with multiple commonly used languages.";
 		document.getElementById("details_role").textContent = "A domain below TLD level is globally unique and can be freely chosen under certain rules.";
-		document.getElementById("details_source_registry").textContent = proposed + "In the run-up to a next version, '/v1/' works, see icann.com.";
+		document.getElementById("details_source_registry").textContent = proposed + "The '/v1/' version works for a '/v2/', see icann.com.";
 		document.getElementById("details_source_registrar").textContent = proposed;	
 		document.getElementById("details_name_ascii").textContent = "Names containing special characters in ASCII strings use Punycode transcription.";
 		document.getElementById("details_name_unicode").textContent = "In the RDAP protocol, the domain name in Unicode is optional, but it is clear information.";
@@ -347,7 +347,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_regmenu").textContent = proposed + "Ein Dropdown-Menü mit Erläuterungen und Details, z. B. über eine Subdomain der Registry.";
 		document.getElementById("zone_languages").textContent = "Eine Zone kann mit mehreren häufig verwendeten Sprachen arbeiten.";
 		document.getElementById("details_role").textContent = "Eine Domain unterhalb der TLD-Ebene ist weltweit eindeutig und kann unter bestimmten Regeln frei gewählt werden.";
-		document.getElementById("details_source_registry").textContent = proposed + "Im Vorfeld einer nächsten Version funktioniert '/v1/', siehe icann.com.";
+		document.getElementById("details_source_registry").textContent = proposed + "Die Version '/v1/' funktioniert für '/v2/', siehe icann.com.";
 		document.getElementById("details_source_registrar").textContent = proposed;	
 		document.getElementById("details_name_ascii").textContent = "Namen, die Sonderzeichen in ASCII-Zeichenfolgen enthalten, verwenden die Punycode-Transkription.";
 		document.getElementById("details_name_unicode").textContent = "Im RDAP-Protokoll ist der Domänenname in Unicode optional, stellt jedoch eine eindeutige Information dar.";
@@ -417,7 +417,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_regmenu").textContent = proposed + "Un menu déroulant avec explication et détails, par exemple via un sous-domaine du registre.";
 		document.getElementById("zone_languages").textContent = "Une zone peut fonctionner avec plusieurs langues couramment utilisées.";
 		document.getElementById("details_role").textContent = "Un domaine inférieur au niveau TLD est unique au monde et peut être choisi librement selon certaines règles.";
-		document.getElementById("details_source_registry").textContent = proposed + "En attendant la prochaine version, '/v1/' fonctionne, voir icann.com.";
+		document.getElementById("details_source_registry").textContent = proposed + "La version '/v1/' fonctionne pour un '/v2/', voir icann.com.";
 		document.getElementById("details_source_registrar").textContent = proposed;
 		document.getElementById("details_name_ascii").textContent = "Les noms contenant des caractères spéciaux dans les chaînes ASCII utilisent la transcription Punycode.";
 		document.getElementById("details_name_unicode").textContent = "Dans le protocole RDAP, le nom de domaine en Unicode est facultatif, mais il s'agit d'une information claire.";
