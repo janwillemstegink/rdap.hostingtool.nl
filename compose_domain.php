@@ -438,6 +438,7 @@ $server_delegation_check_last_correct_4 = '';
 $server_delegation_check_last_correct_5 = '';
 $server_delegation_check_last_correct_6 = '';	
 
+$registrar_abuse_organization = '';
 $registrar_abuse_presented_name = '';
 $registrar_abuse_email = 'No Point of Contact';
 $registrar_abuse_tel = '';	
@@ -1152,7 +1153,10 @@ foreach($obj as $key1 => $value1) {
 							foreach($value7 as $key8 => $value8) {
 								if ($key1 == 'entities' and $key2 == $entity_registrar and $key3 == 'entities' 
 									and $key4 == $entity_key4_abuse and $key5 == 'vcardArray' and $key6 == 1)	{
-									if ($value7[0] == 'fn' and $value8 == 'fn')	{
+									if ($value7[0] == 'org' and $value8 == 'org')	{
+										$registrar_abuse_organization = $value7[3];
+									}
+									elseif ($value7[0] == 'fn' and $value8 == 'fn')	{
 										$registrar_abuse_presented_name = $value7[3];
 									}
 									elseif ($value7[0] == 'email' and $value8 == 'email')	{
@@ -2004,7 +2008,10 @@ $domain_registrar_properties->appendChild($doc->createCDATASection($registrar_pr
 $registrar->appendChild($domain_registrar_properties);
 $domain_registrar_remark_values = $doc->createElement("remark_values");
 $domain_registrar_remark_values->appendChild($doc->createCDATASection($registrar_remark_values));	
-$registrar->appendChild($domain_registrar_remark_values);
+$registrar->appendChild($domain_registrar_remark_values);	
+$domain_registrar_abuse_organization = $doc->createElement("abuse_organization");
+$domain_registrar_abuse_organization->appendChild($doc->createCDATASection($registrar_abuse_organization));	
+$registrar->appendChild($domain_registrar_abuse_organization);	
 $domain_registrar_abuse_presented_name = $doc->createElement("abuse_presented_name");
 $domain_registrar_abuse_presented_name->appendChild($doc->createCDATASection($registrar_abuse_presented_name));	
 $registrar->appendChild($domain_registrar_abuse_presented_name);	

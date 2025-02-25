@@ -87,7 +87,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 61)	{ // abuse
 		var pre = '61';
-		var max = 3
+		var max = 4
 	}
 	else if (type == 63)	{ // name servers
 		var pre = '63';
@@ -262,7 +262,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
-		document.getElementById("registrar_abuse_role").textContent = "Informatie over hoe een derde partij contact kan opnemen met de registrar. Zie bijvoorbeeld hostingtool.org.";
+		document.getElementById("registrar_abuse_role").textContent = "Informatie over hoe een derde partij contact kan opnemen met de registrar. Zie bijvoorbeeld nic.frl.";
 		document.getElementById("registrar_abuse_tel").textContent = "Voorafgaand aan een telefoonnummer is het type verplicht.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
@@ -334,7 +334,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
-		document.getElementById("registrar_abuse_role").textContent = "Information on how a third party can contact the registrar. See e.g. hostingtool.org.";
+		document.getElementById("registrar_abuse_role").textContent = "Information on how a third party can contact the registrar. See e.g. nic.frl.";
 		document.getElementById("registrar_abuse_tel").textContent = "Before a telephone number, the type is mandatory.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
@@ -406,7 +406,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
-		document.getElementById("registrar_abuse_role").textContent = "Informationen darüber, wie Dritte den Registrar kontaktieren können. Siehe z. B. hostingtool.org.";
+		document.getElementById("registrar_abuse_role").textContent = "Informationen darüber, wie Dritte den Registrar kontaktieren können. Siehe z. B. nic.frl.";
 		document.getElementById("registrar_abuse_tel").textContent = "Vor einer Telefonnummer ist der Typ obligatorisch.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
@@ -478,7 +478,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
-		document.getElementById("registrar_abuse_role").textContent = "Informations sur la manière dont un tiers peut contacter le registraire. Voir par exemple hostingtool.org.";
+		document.getElementById("registrar_abuse_role").textContent = "Informations sur la manière dont un tiers peut contacter le registraire. Voir par exemple nic.frl.";
 		document.getElementById("registrar_abuse_tel").textContent = "Devant un numéro de téléphone, le type est obligatoire.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
@@ -871,9 +871,10 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="6027" style="display:none;vertical-align:top"><td>registrar properties</td><td>'.$item->registrar->properties.'</td><td></td></tr>';
 	$html_text .= '<tr id="6028" style="display:none;vertical-align:top"><td>registrar remark_values</td><td>'.$item->registrar->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Registrar Abuse +/-</button></td><td></td><td id="registrar_abuse_role"></td></tr>';
-	$html_text .= '<tr id="611" style="display:none"><td>registrar abuse_presented_name</td><td>'.$item->registrar->abuse_presented_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="612" style="display:none"><td>registrar abuse_email</td><td>'.$item->registrar->abuse_email.'</td><td></td></tr>';
-	$html_text .= '<tr id="613" style="display:none"><td>registrar abuse_tel</td><td>'.$item->registrar->abuse_tel.'</td><td id="registrar_abuse_tel"></td></tr>';
+	$html_text .= '<tr id="611" style="display:none"><td>registrar abuse_organization</td><td>'.$item->registrar->abuse_organization.'</td><td></td></tr>';
+	$html_text .= '<tr id="612" style="display:none"><td>registrar abuse_presented_name</td><td>'.$item->registrar->abuse_presented_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="613" style="display:none"><td>registrar abuse_email</td><td>'.$item->registrar->abuse_email.'</td><td></td></tr>';
+	$html_text .= '<tr id="614" style="display:none"><td>registrar abuse_tel</td><td>'.$item->registrar->abuse_tel.'</td><td id="registrar_abuse_tel"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(63)">Name Servers +/-</button></td><td></td><td></td></tr>';
 	//if (!empty($item->name_servers->server_1->server_name))	{
