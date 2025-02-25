@@ -258,7 +258,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_set").textContent = proposed;
 		document.getElementById("registrar_role").textContent = "De domeinregistrar is verantwoordelijk voor domeinreserveringen en IP-adresroutering.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_public_ids").textContent = "In het geval van ICANN-accreditatie, voor één of meer generieke topleveldomeinen. En moet juist zijn.";
+		document.getElementById("registrar_public_ids").textContent = "Id van ICANN-accreditatie, voor één of meer generieke topleveldomeinen. En moet juist zijn.";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
@@ -330,7 +330,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_role").textContent = "The domain registrar is responsible for domain reservations and IP address routing.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_public_ids").textContent = "In case of ICANN accreditation, for one or more generic top-level domains. And must be correct.";
+		document.getElementById("registrar_public_ids").textContent = "Id of ICANN accreditation, for one or more generic top-level domains. And must be correct.";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
@@ -402,7 +402,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_role").textContent = "Der Domänenregistrar ist für die Domänenreservierung und das IP-Adressrouting verantwortlich.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_public_ids").textContent = "Im Falle einer ICANN-Akkreditierung für eine oder mehrere generische Top-Level-Domains. Und muss korrekt sein.";
+		document.getElementById("registrar_public_ids").textContent = "ID einer ICANN-Akkreditierung für eine oder mehrere generische Top-Level-Domains. Und muss korrekt sein.";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
@@ -474,7 +474,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_role").textContent = "Le registraire de domaine est responsable des réservations de domaines et du routage des adresses IP.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_public_ids").textContent = "En cas d'accréditation ICANN, pour un ou plusieurs domaines génériques de premier niveau. Et doit être correct.";
+		document.getElementById("registrar_public_ids").textContent = "ID d'accréditation ICANN pour un ou plusieurs domaines génériques de premier niveau. Et cela doit être correct.";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
