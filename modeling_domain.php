@@ -55,7 +55,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 39)	{ // sponsor
 		var pre = '39';
-		var max = 30
+		var max = 28
 	}
 	else if (type == 40)	{ // registrant
 		var pre = '40';
@@ -186,7 +186,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_set").textContent = proposed;
 		document.getElementById("registrar_role").textContent = "";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_iana_id").textContent = "";
+		document.getElementById("registrar_public_ids").textContent = "";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;
@@ -258,7 +258,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_set").textContent = proposed;
 		document.getElementById("registrar_role").textContent = "De domeinregistrar is verantwoordelijk voor domeinreserveringen en IP-adresroutering.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_iana_id").textContent = "In het geval van ICANN-accreditatie, voor één of meer generieke topleveldomeinen. En moet juist zijn.";
+		document.getElementById("registrar_public_ids").textContent = "In het geval van ICANN-accreditatie, voor één of meer generieke topleveldomeinen. En moet juist zijn.";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
@@ -330,7 +330,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_role").textContent = "The domain registrar is responsible for domain reservations and IP address routing.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_iana_id").textContent = "In case of ICANN accreditation, for one or more generic top-level domains. And must be correct.";
+		document.getElementById("registrar_public_ids").textContent = "In case of ICANN accreditation, for one or more generic top-level domains. And must be correct.";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
@@ -402,7 +402,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_role").textContent = "Der Domänenregistrar ist für die Domänenreservierung und das IP-Adressrouting verantwortlich.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_iana_id").textContent = "Im Falle einer ICANN-Akkreditierung für eine oder mehrere generische Top-Level-Domains. Und muss korrekt sein.";
+		document.getElementById("registrar_public_ids").textContent = "Im Falle einer ICANN-Akkreditierung für eine oder mehrere generische Top-Level-Domains. Und muss korrekt sein.";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
@@ -474,7 +474,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_role").textContent = "Le registraire de domaine est responsable des réservations de domaines et du routage des adresses IP.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_iana_id").textContent = "En cas d'accréditation ICANN, pour un ou plusieurs domaines génériques de premier niveau. Et doit être correct.";
+		document.getElementById("registrar_public_ids").textContent = "En cas d'accréditation ICANN, pour un ou plusieurs domaines génériques de premier niveau. Et doit être correct.";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
@@ -674,31 +674,29 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="393" style="display:none"><td>sponsor organization</td><td>'.$item->sponsor->organization.'</td><td></td></tr>';
 	$html_text .= '<tr id="394" style="display:none"><td>sponsor presented_name</td><td>'.$item->sponsor->presented_name.'</td><td id="sponsor_recover"></td></tr>';
 	$html_text .= '<tr id="395" style="display:none"><td>sponsor kind</td><td>'.$item->sponsor->kind.'</td><td></td></tr>';
-	$html_text .= '<tr id="396" style="display:none"><td>sponsor url</td><td>'.$item->sponsor->url.'</td><td></td></tr>';
-	$html_text .= '<tr id="397" style="display:none"><td>sponsor iana_id</td><td>'.$item->sponsor->iana_id.'</td><td></td></tr>';
-	$html_text .= '<tr id="398" style="display:none"><td>sponsor name</td><td>'.$item->sponsor->name.'</td><td></td></tr>';
-	$html_text .= '<tr id="399" style="display:none"><td>sponsor email</td><td>'.$item->sponsor->email.'</td><td></td></tr>';
-	$html_text .= '<tr id="3910" style="display:none"><td>sponsor tel</td><td>'.$item->sponsor->tel.'</td><td></td></tr>';
-	$html_text .= '<tr id="3911" style="display:none"><td>sponsor country_code</td><td>'.$item->sponsor->country_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="3912" style="display:none"><td>sponsor street</td><td>'.$item->sponsor->street.'</td><td></td></tr>';
-	$html_text .= '<tr id="3913" style="display:none"><td>sponsor city</td><td>'.$item->sponsor->city.'</td><td></td></tr>';
-	$html_text .= '<tr id="3914" style="display:none"><td>sponsor state_province</td><td>'.$item->sponsor->state_province.'</td><td></td></tr>';
-	$html_text .= '<tr id="3915" style="display:none"><td>sponsor postal_code</td><td>'.$item->sponsor->postal_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="3916" style="display:none"><td>sponsor country_name</td><td>'.$item->sponsor->country_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="3917" style="display:none"><td>sponsor language_pref_1</td><td>'.$item->sponsor->language_pref_1.'</td><td></td></tr>';
-	$html_text .= '<tr id="3918" style="display:none"><td>sponsor language_pref_2</td><td>'.$item->sponsor->language_pref_2.'</td><td></td></tr>';
-	$html_text .= '<tr id="3919" style="display:none"><td>sponsor shielding</td><td>'.$item->sponsor->shielding.'</td><td></td></tr>';
-	$html_text .= '<tr id="3920" style="display:none;vertical-align:top"><td>sponsor status_values</td><td>'.$item->sponsor->status_values.'</td><td></td></tr>';
-	$html_text .= '<tr id="3921" style="display:none"><td>sponsor event_registration</td><td>'.$item->sponsor->event_registration.'</td><td></td></tr>';
-	$html_text .= '<tr id="3922" style="display:none"><td>sponsor event_last_transferred</td><td>'.$item->sponsor->event_last_transferred.'</td><td></td></tr>';
-	$html_text .= '<tr id="3923" style="display:none"><td>sponsor event_last_changed</td><td>'.$item->sponsor->event_last_changed.'</td><td></td></tr>';
-	$html_text .= '<tr id="3924" style="display:none"><td>sponsor event_expiration</td><td>'.$item->sponsor->event_expiration.'</td><td></td></tr>';
-	$html_text .= '<tr id="3925" style="display:none"><td>sponsor event_deletion</td><td>'.$item->sponsor->event_deletion.'</td><td></td></tr>';
-	$html_text .= '<tr id="3926" style="display:none"><td>sponsor event_last_uploaded</td><td>'.$item->sponsor->event_last_uploaded.'</td><td></td></tr>';
-	$html_text .= '<tr id="3927" style="display:none"><td>sponsor event_verification_received</td><td>'.$item->sponsor->event_verification_received.'</td><td id="sponsor_event_verification_received"></td></tr>';
-	$html_text .= '<tr id="3928" style="display:none"><td>sponsor event_verification_set</td><td>'.$item->sponsor->event_verification_set.'</td><td id="sponsor_event_verification_set"></td></tr>';
-	$html_text .= '<tr id="3929" style="display:none;vertical-align:top"><td>sponsor properties</td><td>'.$item->sponsor->properties.'</td><td></td></tr>';
-	$html_text .= '<tr id="3930" style="display:none;vertical-align:top"><td>sponsor remark_values</td><td>'.$item->sponsor->remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="396" style="display:none"><td>sponsor name</td><td>'.$item->sponsor->name.'</td><td></td></tr>';
+	$html_text .= '<tr id="397" style="display:none"><td>sponsor email</td><td>'.$item->sponsor->email.'</td><td></td></tr>';
+	$html_text .= '<tr id="398" style="display:none"><td>sponsor tel</td><td>'.$item->sponsor->tel.'</td><td></td></tr>';
+	$html_text .= '<tr id="399" style="display:none"><td>sponsor country_code</td><td>'.$item->sponsor->country_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="3910" style="display:none"><td>sponsor street</td><td>'.$item->sponsor->street.'</td><td></td></tr>';
+	$html_text .= '<tr id="3911" style="display:none"><td>sponsor city</td><td>'.$item->sponsor->city.'</td><td></td></tr>';
+	$html_text .= '<tr id="3912" style="display:none"><td>sponsor state_province</td><td>'.$item->sponsor->state_province.'</td><td></td></tr>';
+	$html_text .= '<tr id="3913" style="display:none"><td>sponsor postal_code</td><td>'.$item->sponsor->postal_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="3914" style="display:none"><td>sponsor country_name</td><td>'.$item->sponsor->country_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="3915" style="display:none"><td>sponsor language_pref_1</td><td>'.$item->sponsor->language_pref_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="3916" style="display:none"><td>sponsor language_pref_2</td><td>'.$item->sponsor->language_pref_2.'</td><td></td></tr>';
+	$html_text .= '<tr id="3917" style="display:none"><td>sponsor shielding</td><td>'.$item->sponsor->shielding.'</td><td></td></tr>';
+	$html_text .= '<tr id="3918" style="display:none;vertical-align:top"><td>sponsor status_values</td><td>'.$item->sponsor->status_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="3919" style="display:none"><td>sponsor event_registration</td><td>'.$item->sponsor->event_registration.'</td><td></td></tr>';
+	$html_text .= '<tr id="3920" style="display:none"><td>sponsor event_last_transferred</td><td>'.$item->sponsor->event_last_transferred.'</td><td></td></tr>';
+	$html_text .= '<tr id="3921" style="display:none"><td>sponsor event_last_changed</td><td>'.$item->sponsor->event_last_changed.'</td><td></td></tr>';
+	$html_text .= '<tr id="3922" style="display:none"><td>sponsor event_expiration</td><td>'.$item->sponsor->event_expiration.'</td><td></td></tr>';
+	$html_text .= '<tr id="3923" style="display:none"><td>sponsor event_deletion</td><td>'.$item->sponsor->event_deletion.'</td><td></td></tr>';
+	$html_text .= '<tr id="3924" style="display:none"><td>sponsor event_last_uploaded</td><td>'.$item->sponsor->event_last_uploaded.'</td><td></td></tr>';
+	$html_text .= '<tr id="3925" style="display:none"><td>sponsor event_verification_received</td><td>'.$item->sponsor->event_verification_received.'</td><td id="sponsor_event_verification_received"></td></tr>';
+	$html_text .= '<tr id="3926" style="display:none"><td>sponsor event_verification_set</td><td>'.$item->sponsor->event_verification_set.'</td><td id="sponsor_event_verification_set"></td></tr>';
+	$html_text .= '<tr id="3927" style="display:none;vertical-align:top"><td>sponsor properties</td><td>'.$item->sponsor->properties.'</td><td></td></tr>';
+	$html_text .= '<tr id="3928" style="display:none;vertical-align:top"><td>sponsor remark_values</td><td>'.$item->sponsor->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(40)">Registrant +/-</button></td><td></td><td id="registrant_role"></td></tr>';
 	$html_text .= '<tr id="401" style="display:none"><td>registrant handle</td><td>'.$item->registrant->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="402" style="display:none"><td>registrant web_id</td><td>'.$item->registrant->web_id.'</td><td id="registrant_web_id"></td></tr>';
@@ -846,7 +844,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>registrar presented_name</td><td>'.$item->registrar->presented_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="603" style="display:none"><td>registrar kind</td><td>'.$item->registrar->kind.'</td><td></td></tr>';
 	$html_text .= '<tr id="604" style="display:none"><td>registrar url</td><td>'.$item->registrar->url.'</td><td></td></tr>';
-	$html_text .= '<tr id="605" style="display:none"><td>registrar iana_id</td><td>'.$item->registrar->iana_id.'</td><td id="registrar_iana_id"></td></tr>';
+	$html_text .= '<tr id="605" style="display:none"><td>registrar public_ids</td><td>'.$item->registrar->public_ids.'</td><td id="registrar_public_ids"></td></tr>';
 	$html_text .= '<tr id="606" style="display:none"><td>registrar name</td><td>'.$item->registrar->name.'</td><td></td></tr>';
 	$html_text .= '<tr id="607" style="display:none"><td>registrar email</td><td>'.$item->registrar->email.'</td><td></td></tr>';
 	$html_text .= '<tr id="608" style="display:none"><td>registrar tel</td><td>'.$item->registrar->tel.'</td><td></td></tr>';

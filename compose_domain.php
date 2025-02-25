@@ -255,7 +255,7 @@ $registrar_last_transferred = null;
 $registrar_last_changed = null;
 $registrar_expiration = null;	
 $registrar_deletion = null;
-$registrar_iana_id = '';		
+$registrar_public_ids = '';		
 $registrar_properties = '(not tested yet)';	
 $registrar_remark_values = '';		
 $sponsor_status_values = '';
@@ -638,6 +638,9 @@ foreach($obj as $key1 => $value1) {
 							$sponsor_properties = $key4 . ":<br />" . (is_array($value4)) ? implode(",<br />", $value4) : $value4;
 						}	
 					}
+					if ($key2 == $entity_registrar and $key3 == 'publicIds')	{
+						$registrar_public_ids .= $value4['type'].': '.$value4['identifier'].'<br />';
+					}
 				}
 				foreach($value4 as $key5 => $value5) {
 					if ($key1 == 'entities')	{
@@ -652,7 +655,7 @@ foreach($obj as $key1 => $value1) {
 								$registrant_last_changed = $value4['eventDate'];
 							}				
 							elseif ($key5 == 'eventAction' and $value5 == 'expiration')	{
-								$registrant_expiration = $valu42['eventDate'];
+								$registrant_expiration = $value4['eventDate'];
 							}
 							elseif ($key5 == 'eventAction' and $value5 == 'deletion')	{
 								$registrant_deletion = $value4['eventDate'];
@@ -672,7 +675,7 @@ foreach($obj as $key1 => $value1) {
 								$reseller_last_changed = $value4['eventDate'];
 							}				
 							elseif ($key5 == 'eventAction' and $value5 == 'expiration')	{
-								$reseller_expiration = $valu42['eventDate'];
+								$reseller_expiration = $value4['eventDate'];
 							}
 							elseif ($key5 == 'eventAction' and $value5 == 'deletion')	{
 								$reseller_deletion = $value4['eventDate'];
@@ -692,18 +695,13 @@ foreach($obj as $key1 => $value1) {
 								$registrar_last_changed = $value4['eventDate'];
 							}				
 							elseif ($key5 == 'eventAction' and $value5 == 'expiration')	{
-								$registrar_expiration = $valu42['eventDate'];
+								$registrar_expiration = $value4['eventDate'];
 							}
 							elseif ($key5 == 'eventAction' and $value5 == 'deletion')	{
 								$registrar_deletion = $value4['eventDate'];
 							}
 							elseif ($key5 == 'eventAction' and $value5 == 'last update of RDAP database')	{
 								$registrar_last_uploaded = $value4['eventDate'];				
-							}
-						}
-						if ($key2 == $entity_registrar and $key3 == 'publicIds')	{
-							if ($key5 == 'type' and $value5 == 'IANA Registrar ID')	{
-								$registrar_iana_id = $value4['identifier'];
 							}
 						}
 						if ($key2 == $entity_sponsor and $key3 == 'events')	{
@@ -717,7 +715,7 @@ foreach($obj as $key1 => $value1) {
 								$sponsor_last_changed = $value4['eventDate'];
 							}				
 							elseif ($key5 == 'eventAction' and $value5 == 'expiration')	{
-								$sponsor_expiration = $valu42['eventDate'];
+								$sponsor_expiration = $valu4['eventDate'];
 							}
 							elseif ($key5 == 'eventAction' and $value5 == 'deletion')	{
 								$sponsor_deletion = $value4['eventDate'];
@@ -1218,7 +1216,6 @@ foreach($obj as $key1 => $value1) {
 if ($inputbatch)	{
 	$raw_rdap_data = '';
 }
-	
 $doc = new DOMDocument("1.0", "UTF-8");
 $doc->xmlStandalone = true;	
 $doc->formatOutput = true;		
@@ -1946,9 +1943,9 @@ $registrar->appendChild($domain_registrar_kind);
 $domain_registrar_name = $doc->createElement("name");
 $domain_registrar_name->appendChild($doc->createCDATASection($registrar_name));	
 $registrar->appendChild($domain_registrar_name);
-$domain_registrar_iana_id = $doc->createElement("iana_id");
-$domain_registrar_iana_id->appendChild($doc->createCDATASection($registrar_iana_id));	
-$registrar->appendChild($domain_registrar_iana_id);
+$domain_registrar_public_ids = $doc->createElement("public_ids");
+$domain_registrar_public_ids->appendChild($doc->createCDATASection($registrar_public_ids));	
+$registrar->appendChild($domain_registrar_public_ids);
 $domain_registrar_email = $doc->createElement("email");
 $domain_registrar_email->appendChild($doc->createCDATASection($registrar_email));	
 $registrar->appendChild($domain_registrar_email);	
