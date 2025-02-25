@@ -139,7 +139,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_delegation").textContent = proposed;
 		document.getElementById("zone_restrictions").textContent = proposed;
 		document.getElementById("zone_regmenu").textContent = proposed;
-		document.getElementById("zone_languages").textContent = "";
+		document.getElementById("zone_languages").textContent = proposed;
 		document.getElementById("file_source_registry").textContent = proposed;
 		document.getElementById("file_source_registrar").textContent = proposed;
 		document.getElementById("file_registrar_complaint").textContent = proposed;
@@ -211,7 +211,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_delegation").textContent = proposed + "Gepland: Web-ID-zoekopdrachten kunnen worden uitgevoerd op wereldwijde RDAP-servers.";
 		document.getElementById("zone_restrictions").textContent = proposed + "Het gebruik van domeingegevens is aan beperkingen onderhevig.";
 		document.getElementById("zone_regmenu").textContent = proposed + "Een vervolgkeuzemenu met uitleg en details, bijvoorbeeld via een subdomein van de registry.";
-		document.getElementById("zone_languages").textContent = "Een zone kan met meerdere veelgebruikte talen werken.";
+		document.getElementById("zone_languages").textContent = proposed + "Een zone kan met meerdere veelgebruikte talen werken.";
 		document.getElementById("file_source_registry").textContent = proposed + "De versie '/v1/' werkt voor een '/v2/', zie icann.com.";
 		document.getElementById("file_source_registrar").textContent = innerHTML = proposed;
 		document.getElementById("file_registrar_complaint").textContent = proposed;
@@ -228,10 +228,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("sponsor_role").textContent = "De domeinregistratie kan worden beheerd door een sponsor. Zie bijvoorbeeld france.fr.";
 		document.getElementById("registrant_role").textContent = "De domeingebruiker die de daadwerkelijke of effectieve controle heeft voor domeinrecht in het land van vestiging.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Webidentificatienummer voor bedrijfsentiteiten en natuurlijke personen.";
-		document.getElementById("registrant_organization").textContent = "De organisatie die primair verantwoordelijk is voor het domeinabonnement als registrant, zie icann.org.";
-		document.getElementById("registrant_presented_name").textContent = "De persoon (of rol) die als registrant primair verantwoordelijk is voor het domeinabonnement.";
+		document.getElementById("registrant_organization").textContent = "Een organisatie die primair verantwoordelijk is voor het domeinabonnement. Zie bijvoorbeeld icann.org.";
+		document.getElementById("registrant_presented_name").textContent = "Indien zichtbaar, de naam van een persoon die primair verantwoordelijk is. Of een rol binnen de organisatie.";
 		document.getElementById("registrant_kind").textContent = "Leeg / 'org' / 'individual' (Voor continuïteit: levenstestament + testament + digitale executeur)";
-		document.getElementById("registrant_name").textContent = "Een persoonlijke naam kan openbaar zichtbaar zijn in het veld 'presented_name', zie circa.ca.";
+		document.getElementById("registrant_name").textContent = "Een persoonlijke naam kan openbaar zichtbaar zijn in het veld 'presented_name'. Zie bijvoorbeeld circa.ca.";
 		document.getElementById("registrant_country_code").textContent = "De ISO-2-landcode-indexering werkt, bijvoorbeeld voor het Verenigd Koninkrijk, dat de EU heeft verlaten.";
 		document.getElementById("registrant_street").textContent = address;
 		document.getElementById("registrant_city").textContent = address;
@@ -283,7 +283,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_delegation").textContent = proposed + "Planned: Web ID searches can be performed on global RDAP servers.";
 		document.getElementById("zone_restrictions").textContent = proposed + "The use of domain data is subject to restrictions.";
 		document.getElementById("zone_regmenu").textContent = proposed + "A drop-down menu with explanations and details, for example via a subdomain of the registry.";
-		document.getElementById("zone_languages").textContent = "A zone can work with multiple commonly used languages.";
+		document.getElementById("zone_languages").textContent = proposed + "A zone can work with multiple commonly used languages.";
 		document.getElementById("file_source_registry").textContent = proposed + "The '/v1/' version works for a '/v2/', see icann.com.";
 		document.getElementById("file_source_registrar").textContent = proposed;
 		document.getElementById("file_registrar_complaint").textContent = proposed;
@@ -300,10 +300,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("sponsor_role").textContent = "The domain registration can be managed by a sponsor. See for example france.fr.";
 		document.getElementById("registrant_role").textContent = "The domain user who has the actual or effective control for domain rights in the country of establishment.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web Identification number for business entities and natural persons.";
-		document.getElementById("registrant_organization").textContent = "The organization primarily responsible for the domain subscription as a registrant, see icann.org.";
-		document.getElementById("registrant_presented_name").textContent = "The person (or role) who, as registrant, is primarily responsible for the domain subscription.";
+		document.getElementById("registrant_organization").textContent = "An organization primarily responsible for the domain subscription. See for example icann.org.";
+		document.getElementById("registrant_presented_name").textContent = "If visible, the name of a person primarily responsible. Or a role within the organization.";
 		document.getElementById("registrant_kind").textContent = "Empty / 'org' / 'individual' (For continuity: Living Will + Will + Digital Executor)";
-		document.getElementById("registrant_name").textContent = "A personal name may be publicly visible in the 'presented_name' field, see circa.ca.";
+		document.getElementById("registrant_name").textContent = "A personal name may be publicly visible in the 'presented_name' field. See for example circa.ca.";
 		document.getElementById("registrant_country_code").textContent = "ISO-2 country code indexing works, as for the United Kingdom, which has left the EU.";
 		document.getElementById("registrant_street").textContent = address;
 		document.getElementById("registrant_city").textContent = address;
@@ -355,7 +355,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_delegation").textContent = proposed + "Geplant: Web-ID-Suchen können auf globalen RDAP-Servern durchgeführt werden.";
 		document.getElementById("zone_restrictions").textContent = proposed + "Die Nutzung der Domaindaten unterliegt Einschränkungen.";
 		document.getElementById("zone_regmenu").textContent = proposed + "Ein Dropdown-Menü mit Erläuterungen und Details, z. B. über eine Subdomain der Registry.";
-		document.getElementById("zone_languages").textContent = "Eine Zone kann mit mehreren häufig verwendeten Sprachen arbeiten.";
+		document.getElementById("zone_languages").textContent = proposed + "Eine Zone kann mit mehreren häufig verwendeten Sprachen arbeiten.";
 		document.getElementById("file_source_registry").textContent = proposed + "Die Version '/v1/' funktioniert für '/v2/', siehe icann.com.";
 		document.getElementById("file_source_registrar").textContent = proposed;
 		document.getElementById("file_registrar_complaint").textContent = proposed;
@@ -372,10 +372,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("sponsor_role").textContent = "Die Domänenregistrierung kann von einem Sponsor verwaltet werden. Siehe beispielsweise france.fr.";
 		document.getElementById("registrant_role").textContent = "Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat für Domainrechte im Wohnsitzland.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web-Identifikationsnummer für Unternehmen und natürliche Personen.";
-		document.getElementById("registrant_organization").textContent = "Die Organisation, die als Registrant hauptsächlich für das Domänenabonnement verantwortlich ist, siehe icann.org.";
-		document.getElementById("registrant_presented_name").textContent = "Die Person (oder Rolle), die als Registrant hauptsächlich für das Domänenabonnement verantwortlich ist.";
+		document.getElementById("registrant_organization").textContent = "Eine Organisation, die hauptsächlich für das Domänenabonnement verantwortlich ist. Siehe beispielsweise icann.org.";
+		document.getElementById("registrant_presented_name").textContent = "Sofern sichtbar, der Name der hauptverantwortlichen Person. Oder eine Rolle innerhalb der Organisation.";
 		document.getElementById("registrant_kind").textContent = "Leer / 'org' / 'individual' (Für Kontinuität: Patientenverfügung + Testament + digitaler Testamentsvollstrecker)";
-		document.getElementById("registrant_name").textContent = "Ein Personenname kann im Feld 'presented_name' öffentlich sichtbar sein, siehe circa.ca.";
+		document.getElementById("registrant_name").textContent = "Ein Personenname kann im Feld 'presented_name' öffentlich sichtbar sei. Siehe beispielsweise circa.ca.";
 		document.getElementById("registrant_country_code").textContent = "Die Indizierung mit dem ISO-2-Ländercode funktioniert, wie für das Vereinigte Königreich, das die EU verlassen hat.";
 		document.getElementById("registrant_street").textContent = address;
 		document.getElementById("registrant_city").textContent = address;
@@ -427,7 +427,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_delegation").textContent = proposed + "Prévu : Les recherches d’identifiant Web peuvent être effectuées sur des serveurs RDAP mondiaux.";
 		document.getElementById("zone_restrictions").textContent = proposed + "L'utilisation des données de domaine est soumise à des restrictions.";
 		document.getElementById("zone_regmenu").textContent = proposed + "Un menu déroulant avec explication et détails, par exemple via un sous-domaine du registre.";
-		document.getElementById("zone_languages").textContent = "Une zone peut fonctionner avec plusieurs langues couramment utilisées.";
+		document.getElementById("zone_languages").textContent = proposed + "Une zone peut fonctionner avec plusieurs langues couramment utilisées.";
 		document.getElementById("file_source_registry").textContent = proposed + "La version '/v1/' fonctionne pour un '/v2/', voir icann.com.";
 		document.getElementById("file_source_registrar").textContent = proposed;
 		document.getElementById("file_registrar_complaint").textContent = proposed;
@@ -444,10 +444,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("sponsor_role").textContent = "L'enregistrement du domaine peut être géré par un sponsor. Voir par exemple france.fr.";
 		document.getElementById("registrant_role").textContent = "L'utilisateur du domaine qui a le contrôle réel ou effectif pour les droits de domaine dans le pays de résidence.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Numéro d’identification Web pour les entités commerciales et les personnes physiques.";
-		document.getElementById("registrant_organization").textContent = "L'organisation principalement responsable de l'abonnement au domaine en tant que titulaire, voir icann.org.";
-		document.getElementById("registrant_presented_name").textContent = "La personne (ou le rôle) qui, en tant que titulaire, est principalement responsable de l'abonnement au domaine.";
+		document.getElementById("registrant_organization").textContent = "Une organisation principalement responsable de l’abonnement au domaine. Voir, par exemple, icann.org.";
+		document.getElementById("registrant_presented_name").textContent = "Si visible, le nom de la personne principalement responsable. Ou un rôle au sein de l'organisation.";
 		document.getElementById("registrant_kind").textContent = "Vide / 'org' / 'individual' (Pour la continuité : testament biologique + testament + exécuteur testamentaire numérique)";
-		document.getElementById("registrant_name").textContent = "Un nom personnel peut être visible publiquement dans le champ 'presented_name', voir circa.ca.";
+		document.getElementById("registrant_name").textContent = "Un nom personnel peut être visible publiquement dans le champ 'presented_name'. Voir, par exemple, circa.ca.";
 		document.getElementById("registrant_country_code").textContent = "L'indexation des codes pays ISO-2 fonctionne, comme pour le Royaume-Uni, qui a quitté l'UE.";
 		document.getElementById("registrant_street").textContent = address;
 		document.getElementById("registrant_city").textContent = address;
@@ -544,18 +544,18 @@ $html_text .= '<tr style="font-size: .8rem"><td id="title" style="font-size: 1.3
 $html_text .= '<tr style="font-size: .8rem"><td id="subtitle" style="font-size: 1.0rem;color:blue;font-weight:bold"></td><td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">
 	<input type="hidden" id="language" name="language" value='.$viewlanguage.'>	
 	<input type="text" style="width:90%" id="domain" name="domain" value='.$viewdomain.'></form></td><td>
-	<button style="cursor:pointer;font-size:0.9rem" onclick="SwitchTranslation(0)">None</button> 
-	<button style="cursor:pointer;font-size:0.9rem" onclick="SwitchTranslation(1)">nl_NL</button> 
-	<button style="cursor:pointer;font-size:0.9rem" onclick="SwitchTranslation(2)">en_US</button> 
-	<button style="cursor:pointer;font-size:0.9rem" onclick="SwitchTranslation(3)">de_DE</button> 
-	<button style="cursor:pointer;font-size:0.9rem" onclick="SwitchTranslation(4)">fr_FR</button> 
+	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(0)">None</button> 
+	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(1)">nl_NL</button> 
+	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(2)">en_US</button> 
+	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(3)">de_DE</button> 
+	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(4)">fr_FR</button> 
 	<a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_email" target="_blank">modeling email</a> - <a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_menu" target="_blank">modeling menu</a> - <a style="font-size: 0.9rem" href="https://github.com/janwillemstegink/rdap.hostingtool.nl/issues" target="_blank">reporting of issues</a> - <a style="font-size: 0.9rem" href="https://janwillemstegink.nl/" target="_blank">janwillemstegink.nl</a></td></tr>';
 foreach ($xml1->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td id="value"><td id="explanation"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.9rem" onclick="SwitchDisplay(10)">Zone +/-</button></td><td><b>'.$item->zone->top_level_domain.'</b></td><td id="zone_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(10)">Zone +/-</button></td><td><b>'.$item->zone->top_level_domain.'</b></td><td id="zone_role"></td></tr>';
 	$html_text .= '<tr id="101" style="display:none"><td>zone delegation</td><td><a href='.$item->zone->delegation.' target="_blank">IANA Delegation Data</a></td><td id="zone_delegation"></td></tr>';
 	if (strlen($item->zone->restrictions))	{
 		$html_text .= '<tr id="102" style="display:none"><td>zone restrictions</td><td><a href='.$item->zone->restrictions.' target="_blank">Data Usage Restrictions</a></td><td id="zone_restrictions"></td></tr>';
@@ -620,8 +620,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="235" style="display:none;vertical-align:top"><td>zone links_3_title</td><td>'.$item->view->links_3_title.'</td><td></td></tr>';
 	$html_text .= '<tr id="236" style="display:none;vertical-align:top"><td>zone links_3_media</td><td>'.$item->view->links_3_media.'</td><td></td></tr>';
 	$html_text .= '<tr id="237" style="display:none;vertical-align:top"><td>zone links_3_type</td><td>'.$item->view->links_3_type.'</td><td></td></tr>';
-	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.9rem" onclick="SwitchDisplay(29)">File +/-</button></td><td></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(29)">File +/-</button></td><td></td><td>Registration Data Access Protocol (RDAP)</td></tr>';
 	$html_text .= '<tr id="291" style="display:none"><td>file object_conformance</td><td>'.$item->file->object_conformance.'</td><td></td></tr>';
 	$html_text .= '<tr id="292" style="display:none"><td>file object_class_name</td><td>'.$item->file->object_class_name.'</td><td></td></tr>';
 	if (strlen($item->file->source_registry))	{
@@ -652,7 +651,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	else	{
 		$html_text .= '<tr id="296" style="display:none"><td>file status_explanation</td><td>none</td><td id="file_status_explanation"></td></tr>';	
 	}
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.9rem" onclick="SwitchDisplay(30)">Details +/-</button></td><td><b>'.$viewdomain.'</b></td><td id="details_role"></td></tr>';
+	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(30)">Details +/-</button></td><td><b>'.$viewdomain.'</b></td><td id="details_role"></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>details handle</td><td>'.$item->details->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="302" style="display:none"><td>details name_ascii</td><td>'.$item->details->name_ascii.'</td><td id="details_name_ascii"></td></tr>';
 	$html_text .= '<tr id="303" style="display:none"><td>details name_unicode</td><td>'.$item->details->name_unicode.'</td><td id="details_name_unicode"></td></tr>';
@@ -668,7 +668,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="3011" style="display:none;vertical-align:top"><td>details remark_values</td><td>'.$item->details->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$sponsor_applicable = (strlen($item->sponsor->organization) or strlen($item->sponsor->presented_name)) ? 'Sponsor Data Exists' : 'No Sponsor Data';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.9rem" onclick="SwitchDisplay(39)">Sponsor +/-</button></td><td>'.$sponsor_applicable.'</td><td id="sponsor_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(39)">Sponsor +/-</button></td><td>'.$sponsor_applicable.'</td><td id="sponsor_role"></td></tr>';
 	$html_text .= '<tr id="391" style="display:none"><td>sponsor handle</td><td>'.$item->sponsor->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="392" style="display:none"><td>sponsor web_id</td><td>'.$item->sponsor->web_id.'</td><td id="sponsor_web_id"></td></tr>';
 	$html_text .= '<tr id="393" style="display:none"><td>sponsor organization</td><td>'.$item->sponsor->organization.'</td><td></td></tr>';
@@ -699,11 +699,11 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="3928" style="display:none"><td>sponsor event_verification_set</td><td>'.$item->sponsor->event_verification_set.'</td><td id="sponsor_event_verification_set"></td></tr>';
 	$html_text .= '<tr id="3929" style="display:none;vertical-align:top"><td>sponsor properties</td><td>'.$item->sponsor->properties.'</td><td></td></tr>';
 	$html_text .= '<tr id="3930" style="display:none;vertical-align:top"><td>sponsor remark_values</td><td>'.$item->sponsor->remark_values.'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.9rem" onclick="SwitchDisplay(40)">Registrant +/-</button></td><td></td><td id="registrant_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(40)">Registrant +/-</button></td><td></td><td id="registrant_role"></td></tr>';
 	$html_text .= '<tr id="401" style="display:none"><td>registrant handle</td><td>'.$item->registrant->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="402" style="display:none"><td>registrant web_id</td><td>'.$item->registrant->web_id.'</td><td id="registrant_web_id"></td></tr>';
 	$html_text .= '<tr><td>registrant organization</td><td><b>'.$item->registrant->organization.'</b></td><td id="registrant_organization"></td></tr>';
-	$html_text .= '<tr><td>registrant presented_name ("fn": full name)</td><td><b>'.$item->registrant->presented_name.'</b></td><td id="registrant_presented_name"></td></tr>';
+	$html_text .= '<tr><td>registrant presented_name ("fn" means full name)</td><td><b>'.$item->registrant->presented_name.'</b></td><td id="registrant_presented_name"></td></tr>';
 	$html_text .= '<tr><td>registrant kind</td><td><b>'.$item->registrant->kind.'</b></td><td id="registrant_kind"></td></tr>';
 	$html_text .= '<tr id="403" style="display:none"><td>registrant name</td><td><b>'.$item->registrant->name.'</b></td><td id="registrant_name"></td></tr>';
 	$html_text .= '<tr id="404" style="display:none"><td>registrant email</td><td>'.$item->registrant->email.'</td><td></td></tr>';
@@ -728,7 +728,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4022" style="display:none"><td>registrant event_verification_set</td><td>'.$item->registrant->event_verification_set.'</td><td id="registrant_event_verification_set"></td></tr>';
 	$html_text .= '<tr id="4023" style="display:none;vertical-align:top"><td>registrant properties</td><td>'.$item->registrant->properties.'</td><td></td></tr>';
 	$html_text .= '<tr id="4024" style="display:none;vertical-align:top"><td>registrant remark_values</td><td>'.$item->registrant->remark_values.'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.9rem" onclick="SwitchDisplay(41)">Administrative / Decision +/-</button></td><td></td><td id="administrative_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(41)">Administrative / Decision +/-</button></td><td></td><td id="administrative_role"></td></tr>';
 	$html_text .= '<tr id="411" style="display:none"><td>administrative handle</td><td>'.$item->administrative->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="412" style="display:none"><td>administrative web_id</td><td>'.$item->administrative->web_id.'</td><td id="administrative_web_id"></td></tr>';
 	$html_text .= '<tr id="413" style="display:none"><td>administrative organization</td><td>'.$item->administrative->organization.'</td><td></td></tr>';
@@ -748,7 +748,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4116" style="display:none"><td>administrative shielding</td><td>'.$item->administrative->shielding.'</td><td id="administrative_shielding"></td></tr>';
 	$html_text .= '<tr id="4117" style="display:none;vertical-align:top"><td>administrative properties</td><td>'.$item->administrative->properties.'</td><td></td></tr>';
 	$html_text .= '<tr id="4118" style="display:none;vertical-align:top"><td>administrative remark_values</td><td>'.$item->administrative->remark_values.'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.9rem" onclick="SwitchDisplay(42)">Technical / Onsite +/-</button></td><td></td><td id="technical_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Technical / Onsite +/-</button></td><td></td><td id="technical_role"></td></tr>';
 	$html_text .= '<tr id="421" style="display:none"><td>technical handle</td><td>'.$item->technical->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="422" style="display:none"><td>technical web_id</td><td>'.$item->technical->web_id.'</td><td id="technical_web_id"></td></tr>';
 	$html_text .= '<tr id="423" style="display:none"><td>technical organization</td><td>'.$item->technical->organization.'</td><td></td></tr>';
@@ -768,7 +768,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4216" style="display:none"><td>technical shielding</td><td>'.$item->technical->shielding.'</td><td id="technical_shielding"></td></tr>';
 	$html_text .= '<tr id="4217" style="display:none;vertical-align:top"><td>technical properties</td><td>'.$item->technical->properties.'</td><td></td></tr>';
 	$html_text .= '<tr id="4218" style="display:none;vertical-align:top"><td>technical remark_values</td><td>'.$item->technical->remark_values.'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.9rem" onclick="SwitchDisplay(43)">Billing +/-</button></td><td></td><td id="billing_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(43)">Billing +/-</button></td><td></td><td id="billing_role"></td></tr>';
 	$html_text .= '<tr id="431" style="display:none"><td>billing handle</td><td>'.$item->billing->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="432" style="display:none"><td>billing web_id</td><td>'.$item->billing->web_id.'</td><td></td></tr>';
 	$html_text .= '<tr id="433" style="display:none"><td>billing organization</td><td>'.$item->billing->organization.'</td><td></td></tr>';
@@ -788,7 +788,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4317" style="display:none"><td>billing shielding</td><td>'.$item->billing->shielding.'</td><td id="billing_shielding"></td></tr>';
 	$html_text .= '<tr id="4318" style="display:none;vertical-align:top"><td>billing properties</td><td>'.$item->billing->properties.'</td><td></td></tr>';	
 	$html_text .= '<tr id="4319" style="display:none;vertical-align:top"><td>billing remark_values</td><td>'.$item->billing->remark_values.'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.9rem" onclick="SwitchDisplay(44)">Emergency +/-</button></td><td></td><td id="emergency_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Emergency +/-</button></td><td></td><td id="emergency_role"></td></tr>';
 	$html_text .= '<tr id="441" style="display:none"><td>emergency handle</td><td>'.$item->emergency->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="442" style="display:none"><td>emergency web_id</td><td>'.$item->emergency->web_id.'</td><td id="emergency_web_id"></td></tr>';
 	$html_text .= '<tr id="443" style="display:none"><td>emergency organization</td><td>'.$item->emergency->organization.'</td><td></td></tr>';
@@ -809,7 +809,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4418" style="display:none;vertical-align:top"><td>emergency properties</td><td>'.$item->emergency->properties.'</td><td></td></tr>';
 	$html_text .= '<tr id="4419" style="display:none;vertical-align:top"><td>emergency remark_values</td><td>'.$item->emergency->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.9rem" onclick="SwitchDisplay(50)">Reseller +/-</button></td><td></td><td id="reseller_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(50)">Reseller +/-</button></td><td></td><td id="reseller_role"></td></tr>';
 	$html_text .= '<tr id="501" style="display:none"><td>reseller handle</td><td>'.$item->reseller->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="502" style="display:none"><td>reseller web_id</td><td>'.$item->reseller->web_id.'</td><td id="reseller_web_id"></td></tr>';
 	$html_text .= '<tr><td>reseller organization</td><td>'.$item->reseller->organization.'</td><td></td></tr>';
@@ -839,7 +839,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="5025" style="display:none;vertical-align:top"><td>reseller properties</td><td>'.$item->reseller->properties.'</td><td></td></tr>';
 	$html_text .= '<tr id="5026" style="display:none;vertical-align:top"><td>reseller remark_values</td><td>'.$item->reseller->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.9rem" onclick="SwitchDisplay(60)">Registrar +/-</button></td><td></td><td id="registrar_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(60)">Registrar +/-</button></td><td></td><td id="registrar_role"></td></tr>';
 	$html_text .= '<tr id="601" style="display:none"><td>registrar handle</td><td>'.$item->registrar->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="602" style="display:none"><td>registrar web_id</td><td>'.$item->registrar->web_id.'</td><td id="registrar_web_id"></td></tr>';
 	$html_text .= '<tr><td>registrar organization</td><td>'.$item->registrar->organization.'</td><td></td></tr>';
@@ -870,12 +870,12 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="6026" style="display:none"><td>registrar event_verification_set</td><td>'.$item->registrar->event_verification_set.'</td><td id="registrar_event_verification_set"></td></tr>';
 	$html_text .= '<tr id="6027" style="display:none;vertical-align:top"><td>registrar properties</td><td>'.$item->registrar->properties.'</td><td></td></tr>';
 	$html_text .= '<tr id="6028" style="display:none;vertical-align:top"><td>registrar remark_values</td><td>'.$item->registrar->remark_values.'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.9rem" onclick="SwitchDisplay(61)">Registrar Abuse +/-</button></td><td></td><td id="registrar_abuse_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Registrar Abuse +/-</button></td><td></td><td id="registrar_abuse_role"></td></tr>';
 	$html_text .= '<tr id="611" style="display:none"><td>registrar abuse_presented_name</td><td>'.$item->registrar->abuse_presented_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="612" style="display:none"><td>registrar abuse_email</td><td>'.$item->registrar->abuse_email.'</td><td></td></tr>';
 	$html_text .= '<tr id="613" style="display:none"><td>registrar abuse_tel</td><td>'.$item->registrar->abuse_tel.'</td><td id="registrar_abuse_tel"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.9rem" onclick="SwitchDisplay(63)">Name Servers +/-</button></td><td></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(63)">Name Servers +/-</button></td><td></td><td></td></tr>';
 	//if (!empty($item->name_servers->server_1->server_name))	{
 	//	if (strlen(trim($item->name_servers->server_1->server_name)))	{
 			$html_text .= '<tr id="631" style="display:none"><td>server_name_1</td><td>'.$item->name_servers->server_1->server_name.'</td><td></td></tr>';
@@ -945,9 +945,9 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>name_servers dnssec</td><td>'.$item->name_servers->dnssec.'</td><td id="name_servers_dnssec"></td></tr>';
 	$html_text .= '<tr><td>name_servers dnssec_algorithm</td><td>'.$item->name_servers->dnssec_algorithm.'</td><td id="name_servers_dnssec_algorithm"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.9rem" onclick="SwitchDisplay(70)">Whois Data +/-</button></td><td colspan="2"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(70)">Whois Data +/-</button></td><td colspan="2"></td></tr>';
 	$html_text .= '<tr id="701" style="display:none"><td colspan="3">'.$item->raw_whois_data.'</td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.9rem" onclick="SwitchDisplay(75)">RDAP Data +/-</button></td><td id="raw_data_next" colspan="2"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(75)">RDAP Data +/-</button></td><td id="raw_data_next" colspan="2"></td></tr>';
 	$html_text .= '<tr id="751" style="display:none"><td colspan="3">'.$item->raw_rdap_data.'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 }
