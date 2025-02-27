@@ -229,7 +229,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "De domeingebruiker die de daadwerkelijke of effectieve controle heeft voor domeinrecht in het land van vestiging.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Webidentificatienummer voor bedrijfsentiteiten en natuurlijke personen.";
 		document.getElementById("registrant_organization").textContent = "Een organisatie die primair verantwoordelijk is voor het domeinabonnement. Zie bijvoorbeeld icann.org.";
-		document.getElementById("registrant_presented_name").textContent = "Indien zichtbaar, de naam van een persoon die primair verantwoordelijk is. Of een rol binnen de organisatie.";
+		document.getElementById("registrant_presented_name").textContent = "Indien zichtbaar, of de naam van de persoon die primair verantwoordelijk is, of een rol binnen de organisatie.";
 		document.getElementById("registrant_kind").textContent = "Leeg / 'org' / 'individual' (Voor continuïteit: levenstestament + testament + digitale executeur)";
 		document.getElementById("registrant_name").textContent = "Een persoonlijke naam kan openbaar zichtbaar zijn in het veld 'presented_name'. Zie bijvoorbeeld circa.ca.";
 		document.getElementById("registrant_country_code").textContent = "De ISO-2-landcode-indexering werkt, bijvoorbeeld voor het Verenigd Koninkrijk, dat de EU heeft verlaten.";
@@ -263,7 +263,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_abuse_role").textContent = "Informatie over hoe een derde partij contact kan opnemen met de registrar. Zie bijvoorbeeld fryslan.frl.";
-		document.getElementById("registrar_abuse_tel").textContent = "Voorafgaand aan een telefoonnummer is het type verplicht.";
+		document.getElementById("registrar_abuse_tel").textContent = "Een telefoonnummer begint met het type.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
@@ -301,7 +301,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "The domain user who has the actual or effective control for domain rights in the country of establishment.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web Identification number for business entities and natural persons.";
 		document.getElementById("registrant_organization").textContent = "An organization primarily responsible for the domain subscription. See for example icann.org.";
-		document.getElementById("registrant_presented_name").textContent = "If visible, the name of a person primarily responsible. Or a role within the organization.";
+		document.getElementById("registrant_presented_name").textContent = "If visible, either the name of a person primarily responsible or a role within the organization.";
 		document.getElementById("registrant_kind").textContent = "Empty / 'org' / 'individual' (For continuity: Living Will + Will + Digital Executor)";
 		document.getElementById("registrant_name").textContent = "A personal name may be publicly visible in the 'presented_name' field. See for example circa.ca.";
 		document.getElementById("registrant_country_code").textContent = "ISO-2 country code indexing works, as for the United Kingdom, which has left the EU.";
@@ -335,7 +335,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_abuse_role").textContent = "Information on how a third party can contact the registrar. See e.g. fryslan.frl.";
-		document.getElementById("registrar_abuse_tel").textContent = "Before a telephone number, the type is mandatory.";
+		document.getElementById("registrar_abuse_tel").textContent = "A phone number starts with the type.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
@@ -373,7 +373,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat für Domainrechte im Wohnsitzland.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web-Identifikationsnummer für Unternehmen und natürliche Personen.";
 		document.getElementById("registrant_organization").textContent = "Eine Organisation, die hauptsächlich für das Domänenabonnement verantwortlich ist. Siehe beispielsweise icann.org.";
-		document.getElementById("registrant_presented_name").textContent = "Sofern sichtbar, der Name der hauptverantwortlichen Person. Oder eine Rolle innerhalb der Organisation.";
+		document.getElementById("registrant_presented_name").textContent = "Sofern sichtbar, entweder der Name einer hauptverantwortlichen Person oder eine Rolle innerhalb der Organisation.";
 		document.getElementById("registrant_kind").textContent = "Leer / 'org' / 'individual' (Für Kontinuität: Patientenverfügung + Testament + digitaler Testamentsvollstrecker)";
 		document.getElementById("registrant_name").textContent = "Ein Personenname kann im Feld 'presented_name' öffentlich sichtbar sei. Siehe beispielsweise circa.ca.";
 		document.getElementById("registrant_country_code").textContent = "Die Indizierung mit dem ISO-2-Ländercode funktioniert, wie für das Vereinigte Königreich, das die EU verlassen hat.";
@@ -407,7 +407,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_abuse_role").textContent = "Informationen darüber, wie Dritte den Registrar kontaktieren können. Siehe z. B. fryslan.frl.";
-		document.getElementById("registrar_abuse_tel").textContent = "Vor einer Telefonnummer ist der Typ obligatorisch.";
+		document.getElementById("registrar_abuse_tel").textContent = "Eine Telefonnummer beginnt mit dem Typ.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 		document.getElementById("name_servers_ip").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
@@ -445,7 +445,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "L'utilisateur du domaine qui a le contrôle réel ou effectif pour les droits de domaine dans le pays de résidence.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Numéro d’identification Web pour les entités commerciales et les personnes physiques.";
 		document.getElementById("registrant_organization").textContent = "Une organisation principalement responsable de l’abonnement au domaine. Voir, par exemple, icann.org.";
-		document.getElementById("registrant_presented_name").textContent = "Si visible, le nom de la personne principalement responsable. Ou un rôle au sein de l'organisation.";
+		document.getElementById("registrant_presented_name").textContent = "Si visible, soit le nom d'une personne principalement responsable, soit un rôle au sein de l'organisation.";
 		document.getElementById("registrant_kind").textContent = "Vide / 'org' / 'individual' (Pour la continuité : testament biologique + testament + exécuteur testamentaire numérique)";
 		document.getElementById("registrant_name").textContent = "Un nom personnel peut être visible publiquement dans le champ 'presented_name'. Voir, par exemple, circa.ca.";
 		document.getElementById("registrant_country_code").textContent = "L'indexation des codes pays ISO-2 fonctionne, comme pour le Royaume-Uni, qui a quitté l'UE.";
@@ -479,7 +479,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_abuse_role").textContent = "Informations sur la manière dont un tiers peut contacter le registraire. Voir par exemple fryslan.frl.";
-		document.getElementById("registrar_abuse_tel").textContent = "Devant un numéro de téléphone, le type est obligatoire.";
+		document.getElementById("registrar_abuse_tel").textContent = "Un numéro de téléphone commence par le type.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 		document.getElementById("name_servers_ip").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
@@ -701,7 +701,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="401" style="display:none"><td>registrant handle</td><td>'.$item->registrant->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="402" style="display:none"><td>registrant web_id</td><td>'.$item->registrant->web_id.'</td><td id="registrant_web_id"></td></tr>';
 	$html_text .= '<tr><td>registrant organization</td><td><b>'.$item->registrant->organization.'</b></td><td id="registrant_organization"></td></tr>';
-	$html_text .= '<tr><td>registrant presented_name ("fn" means full name)</td><td><b>'.$item->registrant->presented_name.'</b></td><td id="registrant_presented_name"></td></tr>';
+	$html_text .= '<tr><td>registrant presented_name ("fn" / full name)</td><td><b>'.$item->registrant->presented_name.'</b></td><td id="registrant_presented_name"></td></tr>';
 	$html_text .= '<tr><td>registrant kind</td><td><b>'.$item->registrant->kind.'</b></td><td id="registrant_kind"></td></tr>';
 	$html_text .= '<tr id="403" style="display:none"><td>registrant name</td><td><b>'.$item->registrant->name.'</b></td><td id="registrant_name"></td></tr>';
 	$html_text .= '<tr id="404" style="display:none"><td>registrant email</td><td>'.$item->registrant->email.'</td><td></td></tr>';
