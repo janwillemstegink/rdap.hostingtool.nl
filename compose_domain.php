@@ -255,7 +255,7 @@ $registrar_last_transferred = null;
 $registrar_last_changed = null;
 $registrar_expiration = null;	
 $registrar_deletion = null;
-$registrar_public_ids = '';		
+$registrar_iana_id = '';		
 $registrar_properties = '(not tested yet)';	
 $registrar_remark_values = '';		
 $sponsor_status_values = '';
@@ -639,7 +639,7 @@ foreach($obj as $key1 => $value1) {
 						}	
 					}
 					if ($key2 == $entity_registrar and $key3 == 'publicIds')	{
-						$registrar_public_ids .= $value4['type'].': '.$value4['identifier'].'<br />';
+						$registrar_iana_id .= $value4['type'].': '.$value4['identifier'].'<br />';
 					}
 				}
 				foreach($value4 as $key5 => $value5) {
@@ -1939,13 +1939,13 @@ $domain_registrar_presented_name->appendChild($doc->createCDATASection($registra
 $registrar->appendChild($domain_registrar_presented_name);
 $domain_registrar_kind = $doc->createElement("kind");
 $domain_registrar_kind->appendChild($doc->createCDATASection($registrar_kind));	
-$registrar->appendChild($domain_registrar_kind);	
+$registrar->appendChild($domain_registrar_kind);
+$domain_registrar_iana_id = $doc->createElement("iana_id");
+$domain_registrar_iana_id->appendChild($doc->createCDATASection($registrar_iana_id));	
+$registrar->appendChild($domain_registrar_iana_id);	
 $domain_registrar_name = $doc->createElement("name");
 $domain_registrar_name->appendChild($doc->createCDATASection($registrar_name));	
 $registrar->appendChild($domain_registrar_name);
-$domain_registrar_public_ids = $doc->createElement("public_ids");
-$domain_registrar_public_ids->appendChild($doc->createCDATASection($registrar_public_ids));	
-$registrar->appendChild($domain_registrar_public_ids);
 $domain_registrar_email = $doc->createElement("email");
 $domain_registrar_email->appendChild($doc->createCDATASection($registrar_email));	
 $registrar->appendChild($domain_registrar_email);	

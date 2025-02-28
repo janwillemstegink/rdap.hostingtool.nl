@@ -83,7 +83,7 @@ function SwitchDisplay(type) {
 	}	
 	else if (type == 60)	{ // registrar
 		var pre = '60';
-		var max = 28
+		var max = 27
 	}
 	else if (type == 61)	{ // abuse
 		var pre = '61';
@@ -186,7 +186,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_set").textContent = proposed;
 		document.getElementById("registrar_role").textContent = "";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_public_ids").textContent = "";
+		document.getElementById("registrar_iana_id").textContent = proposed;
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;
@@ -258,7 +258,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_set").textContent = proposed;
 		document.getElementById("registrar_role").textContent = "De domeinregistrar is verantwoordelijk voor domeinreserveringen en IP-adresroutering.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_public_ids").textContent = "Id van ICANN-accreditatie, voor één of meer generieke topleveldomeinen. En moet juist zijn.";
+		document.getElementById("registrar_iana_id").textContent = proposed + "Accreditatie, voor één of meer generieke topleveldomeinen. En moet juist zijn.";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
@@ -330,7 +330,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_role").textContent = "The domain registrar is responsible for domain reservations and IP address routing.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_public_ids").textContent = "Id of ICANN accreditation, for one or more generic top-level domains. And must be correct.";
+		document.getElementById("registrar_iana_id").textContent = proposed + "Accreditation, for one or more generic top-level domains. And must be correct.";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
@@ -402,7 +402,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_role").textContent = "Der Domänenregistrar ist für die Domänenreservierung und das IP-Adressrouting verantwortlich.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_public_ids").textContent = "ID einer ICANN-Akkreditierung für eine oder mehrere generische Top-Level-Domains. Und muss korrekt sein.";
+		document.getElementById("registrar_iana_id").textContent = proposed + "Akkreditierung für eine oder mehrere generische Top-Level-Domains. Und muss korrekt sein.";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
@@ -474,7 +474,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_role").textContent = "Le registraire de domaine est responsable des réservations de domaines et du routage des adresses IP.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_public_ids").textContent = "ID d'accréditation ICANN pour un ou plusieurs domaines génériques de premier niveau. Et cela doit être correct.";
+		document.getElementById("registrar_iana_id").textContent = proposed + "Accréditation, pour un ou plusieurs domaines génériques de premier niveau. Et doit être correct.";
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
@@ -843,31 +843,30 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>registrar organization</td><td>'.$item->registrar->organization.'</td><td></td></tr>';
 	$html_text .= '<tr><td>registrar presented_name</td><td>'.$item->registrar->presented_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="603" style="display:none"><td>registrar kind</td><td>'.$item->registrar->kind.'</td><td></td></tr>';
-	$html_text .= '<tr id="604" style="display:none"><td>registrar url</td><td>'.$item->registrar->url.'</td><td></td></tr>';
-	$html_text .= '<tr id="605" style="display:none"><td>registrar public_ids</td><td>'.$item->registrar->public_ids.'</td><td id="registrar_public_ids"></td></tr>';
-	$html_text .= '<tr id="606" style="display:none"><td>registrar name</td><td>'.$item->registrar->name.'</td><td></td></tr>';
-	$html_text .= '<tr id="607" style="display:none"><td>registrar email</td><td>'.$item->registrar->email.'</td><td></td></tr>';
-	$html_text .= '<tr id="608" style="display:none"><td>registrar tel</td><td>'.$item->registrar->tel.'</td><td></td></tr>';
-	$html_text .= '<tr id="609" style="display:none"><td>registrar country_code</td><td>'.$item->registrar->country_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="6010" style="display:none"><td>registrar street</td><td>'.$item->registrar->street.'</td><td></td></tr>';
-	$html_text .= '<tr id="6011" style="display:none"><td>registrar city</td><td>'.$item->registrar->city.'</td><td></td></tr>';
-	$html_text .= '<tr id="6012" style="display:none"><td>registrar state_province</td><td>'.$item->registrar->state_province.'</td><td></td></tr>';
-	$html_text .= '<tr id="6013" style="display:none"><td>registrar postal_code</td><td>'.$item->registrar->postal_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="6014" style="display:none"><td>registrar country_name</td><td>'.$item->registrar->country_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="6015" style="display:none"><td>registrar language_pref_1</td><td>'.$item->registrar->language_pref_1.'</td><td></td></tr>';
-	$html_text .= '<tr id="6016" style="display:none"><td>registrar language_pref_2</td><td>'.$item->registrar->language_pref_2.'</td><td></td></tr>';
-	$html_text .= '<tr id="6017" style="display:none"><td>registrar shielding</td><td>'.$item->registrar->shielding.'</td><td id="registrar_shielding"></td></tr>';
-	$html_text .= '<tr id="6018" style="display:none;vertical-align:top"><td>registrar status_values</td><td>'.$item->registrar->status_values.'</td><td></td></tr>';
-	$html_text .= '<tr id="6019" style="display:none"><td>registrar event_registration</td><td>'.$item->registrar->event_registration.'</td><td></td></tr>';
-	$html_text .= '<tr id="6020" style="display:none"><td>registrar event_last_transferred</td><td>'.$item->registrar->event_last_transferred.'</td><td></td></tr>';
-	$html_text .= '<tr id="6021" style="display:none"><td>registrar event_last_changed</td><td>'.$item->registrar->event_last_changed.'</td><td></td></tr>';
-	$html_text .= '<tr id="6022" style="display:none"><td>registrar event_expiration</td><td>'.$item->registrar->event_expiration.'</td><td></td></tr>';
-	$html_text .= '<tr id="6023" style="display:none"><td>registrar event_deletion</td><td>'.$item->registrar->event_deletion.'</td><td></td></tr>';
-	$html_text .= '<tr id="6024" style="display:none"><td>registrar event_last_uploaded</td><td>'.$item->registrar->event_last_uploaded.'</td><td></td></tr>';
-	$html_text .= '<tr id="6025" style="display:none"><td>registrar event_verification_received</td><td>'.$item->registrar->event_verification_received.'</td><td id="registrar_event_verification_received"></td></tr>';
-	$html_text .= '<tr id="6026" style="display:none"><td>registrar event_verification_set</td><td>'.$item->registrar->event_verification_set.'</td><td id="registrar_event_verification_set"></td></tr>';
-	$html_text .= '<tr id="6027" style="display:none;vertical-align:top"><td>registrar properties</td><td>'.$item->registrar->properties.'</td><td></td></tr>';
-	$html_text .= '<tr id="6028" style="display:none;vertical-align:top"><td>registrar remark_values</td><td>'.$item->registrar->remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="604" style="display:none"><td>registrar iana_id</td><td>'.$item->registrar->iana_id.'</td><td id="registrar_iana_id"></td></tr>';
+	$html_text .= '<tr id="605" style="display:none"><td>registrar name</td><td>'.$item->registrar->name.'</td><td></td></tr>';
+	$html_text .= '<tr id="606" style="display:none"><td>registrar email</td><td>'.$item->registrar->email.'</td><td></td></tr>';
+	$html_text .= '<tr id="607" style="display:none"><td>registrar tel</td><td>'.$item->registrar->tel.'</td><td></td></tr>';
+	$html_text .= '<tr id="608" style="display:none"><td>registrar country_code</td><td>'.$item->registrar->country_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="609" style="display:none"><td>registrar street</td><td>'.$item->registrar->street.'</td><td></td></tr>';
+	$html_text .= '<tr id="6010" style="display:none"><td>registrar city</td><td>'.$item->registrar->city.'</td><td></td></tr>';
+	$html_text .= '<tr id="6011" style="display:none"><td>registrar state_province</td><td>'.$item->registrar->state_province.'</td><td></td></tr>';
+	$html_text .= '<tr id="6012" style="display:none"><td>registrar postal_code</td><td>'.$item->registrar->postal_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="6013" style="display:none"><td>registrar country_name</td><td>'.$item->registrar->country_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="6014" style="display:none"><td>registrar language_pref_1</td><td>'.$item->registrar->language_pref_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="6015" style="display:none"><td>registrar language_pref_2</td><td>'.$item->registrar->language_pref_2.'</td><td></td></tr>';
+	$html_text .= '<tr id="6016" style="display:none"><td>registrar shielding</td><td>'.$item->registrar->shielding.'</td><td id="registrar_shielding"></td></tr>';
+	$html_text .= '<tr id="6017" style="display:none;vertical-align:top"><td>registrar status_values</td><td>'.$item->registrar->status_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="6018" style="display:none"><td>registrar event_registration</td><td>'.$item->registrar->event_registration.'</td><td></td></tr>';
+	$html_text .= '<tr id="6019" style="display:none"><td>registrar event_last_transferred</td><td>'.$item->registrar->event_last_transferred.'</td><td></td></tr>';
+	$html_text .= '<tr id="6020" style="display:none"><td>registrar event_last_changed</td><td>'.$item->registrar->event_last_changed.'</td><td></td></tr>';
+	$html_text .= '<tr id="6021" style="display:none"><td>registrar event_expiration</td><td>'.$item->registrar->event_expiration.'</td><td></td></tr>';
+	$html_text .= '<tr id="6022" style="display:none"><td>registrar event_deletion</td><td>'.$item->registrar->event_deletion.'</td><td></td></tr>';
+	$html_text .= '<tr id="6023" style="display:none"><td>registrar event_last_uploaded</td><td>'.$item->registrar->event_last_uploaded.'</td><td></td></tr>';
+	$html_text .= '<tr id="6024" style="display:none"><td>registrar event_verification_received</td><td>'.$item->registrar->event_verification_received.'</td><td id="registrar_event_verification_received"></td></tr>';
+	$html_text .= '<tr id="6025" style="display:none"><td>registrar event_verification_set</td><td>'.$item->registrar->event_verification_set.'</td><td id="registrar_event_verification_set"></td></tr>';
+	$html_text .= '<tr id="6026" style="display:none;vertical-align:top"><td>registrar properties</td><td>'.$item->registrar->properties.'</td><td></td></tr>';
+	$html_text .= '<tr id="6027" style="display:none;vertical-align:top"><td>registrar remark_values</td><td>'.$item->registrar->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Registrar Abuse +/-</button></td><td></td><td id="registrar_abuse_role"></td></tr>';
 	$html_text .= '<tr id="611" style="display:none"><td>registrar abuse_organization</td><td>'.$item->registrar->abuse_organization.'</td><td></td></tr>';
 	$html_text .= '<tr id="612" style="display:none"><td>registrar abuse_presented_name</td><td>'.$item->registrar->abuse_presented_name.'</td><td></td></tr>';
