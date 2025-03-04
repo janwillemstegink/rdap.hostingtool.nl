@@ -1010,25 +1010,25 @@ foreach($obj as $key1 => $value1) {
 						}
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'org' and $value6 == 'org')	{ //$value5[1]['type'].': '.
 							if ($key2 == $entity_registrant)	{
-								$registrant_organization = $value5[3];
+								$registrant_organization = (strlen($value5[1]['type'])) ? $value5[1]['type'].': '.$value5[3] : $value5[3];
 							}
 							if ($key2 == $entity_administrative)	{
-								$administrative_organization = $value5[3];
+								$administrative_organization = (strlen($value5[1]['type'])) ? $value5[1]['type'].': '.$value5[3] : $value5[3];
 							}
 							if ($key2 == $entity_technical)	{
-								$technical_organization = $value5[3];
+								$technical_organization = (strlen($value5[1]['type'])) ? $value5[1]['type'].': '.$value5[3] : $value5[3];
 							}
 							if ($key2 == $entity_billing)	{
-								$billing_organization = $value5[3];
+								$billing_organization = (strlen($value5[1]['type'])) ? $value5[1]['type'].': '.$value5[3] : $value5[3];
 							}							
 							if ($key2 == $entity_reseller)	{
-								$reseller_organization = $value5[3];
+								$reseller_organization = (strlen($value5[1]['type'])) ? $value5[1]['type'].': '.$value5[3] : $value5[3];
 							}
 							if ($key2 == $entity_registrar)	{
-								$registrar_organization = $value5[3];
+								$registrar_organization = (strlen($value5[1]['type'])) ? $value5[1]['type'].': '.$value5[3] : $value5[3];
 							}
 							if ($key2 == $entity_sponsor)	{
-								$sponsor_organization = $value5[3];
+								$sponsor_organization = (strlen($value5[1]['type'])) ? $value5[1]['type'].': '.$value5[3] : $value5[3];
 							}
 						}						
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'lang')	{
@@ -1450,32 +1450,32 @@ $view->appendChild($domain_links_3_type);
 	
 $domain->appendChild($view);	
 	
-$core = $doc->createElement("core");
-$domain->appendChild($core);	
+$protocols = $doc->createElement("protocols");
+$domain->appendChild($protocols);	
 	
 $domain_object_conformance = $doc->createElement("object_conformance");
 $domain_object_conformance->appendChild($doc->createCDATASection($object_conformance));
-$core->appendChild($domain_object_conformance);	
+$protocols->appendChild($domain_object_conformance);	
 $domain_source_registry = $doc->createElement("source_registry");
 $domain_source_registry->appendChild($doc->createCDATASection($url));		
-$core->appendChild($domain_source_registry);	
+$protocols->appendChild($domain_source_registry);	
 $domain_source_registrar = $doc->createElement("source_registrar");
 $domain_source_registrar->appendChild($doc->createCDATASection($url_registrar));		
-$core->appendChild($domain_source_registrar);	
+$protocols->appendChild($domain_source_registrar);	
 $domain_object_class_name = $doc->createElement("object_class_name");
 $domain_object_class_name->appendChild($doc->createCDATASection($object_class_name));
-$core->appendChild($domain_object_class_name);	
+$protocols->appendChild($domain_object_class_name);	
 $domain_registrar_iana_id = $doc->createElement("registrar_iana_id");
 $domain_registrar_iana_id->appendChild($doc->createCDATASection($registrar_iana_id));	
-$core->appendChild($domain_registrar_iana_id);	
+$protocols->appendChild($domain_registrar_iana_id);	
 $domain_registrar_complaint = $doc->createElement("registrar_complaint");
 $domain_registrar_complaint->appendChild($doc->createCDATASection($registrar_complaint));		
-$core->appendChild($domain_registrar_complaint);	
+$protocols->appendChild($domain_registrar_complaint);	
 $domain_status_explanation = $doc->createElement("status_explanation");
 $domain_status_explanation->appendChild($doc->createCDATASection($status_explanation));		
-$core->appendChild($domain_status_explanation);			
+$protocols->appendChild($domain_status_explanation);			
 	
-$domain->appendChild($core);	
+$domain->appendChild($protocols);	
 		
 $details = $doc->createElement("details");
 $domain->appendChild($details);	
