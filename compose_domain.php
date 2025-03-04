@@ -286,7 +286,24 @@ elseif ($obj['secureDNS']['delegationSigned'] === true)	{
 elseif ($obj['secureDNS']['delegationSigned'] === false)	{
 	$name_servers_dnssec = 'no';	
 }
+$sponsor_handle = '';
+$sponsor_organization_type = '';	
+$sponsor_organization_name = '';		
+$sponsor_presented_name = '';	
+$sponsor_kind = '';
+$sponsor_name = '';
+$sponsor_email = '';
+$sponsor_tel = '';
+$sponsor_country_code = '';		
+$sponsor_street = '';
+$sponsor_city = '';
+$sponsor_state_province = '';	
+$sponsor_postal_code = '';
+$sponsor_country_name = '';
+$sponsor_shielding = 'name,email,tel';	
 $registrant_handle = '';
+$registrant_organization_type = '';
+$registrant_organization_name = '';	
 $registrant_presented_name = '';
 $registrant_kind = '';
 $registrant_name = '';
@@ -297,12 +314,13 @@ $registrant_street = '';
 $registrant_city = '';
 $registrant_state_province = '';
 $registrant_postal_code = '';
-$registrant_country_name = '';
-$registrant_organization = '';
+$registrant_country_name = '';	
 $registrant_shielding = 'name,email,tel,address';
 $registrant_language_pref_1 = '';
 $registrant_language_pref_2 = '';	
 $administrative_handle = '';
+$administrative_organization_type = '';
+$administrative_organization_name = '';	
 $administrative_presented_name = '';
 $administrative_kind = '';
 $administrative_name = '';	
@@ -314,11 +332,12 @@ $administrative_city = '';
 $administrative_state_province = '';
 $administrative_postal_code = '';	
 $administrative_country_name = '';
-$administrative_organization = '';	
 $administrative_shielding = 'web_id,name,tel,address';
 $administrative_language_pref_1 = '';
 $administrative_language_pref_2 = '';	
 $technical_handle = '';
+$technical_organization_type = '';
+$technical_organization_name = '';	
 $technical_presented_name = '';
 $technical_kind = '';
 $technical_name = '';	
@@ -330,11 +349,12 @@ $technical_city = '';
 $technical_state_province = '';
 $technical_postal_code = '';	
 $technical_country_name = '';
-$technical_organization = '';	
 $technical_shielding = 'web_id,name,tel,address';
 $technical_language_pref_1 = '';
 $technical_language_pref_2 = '';	
 $billing_handle = '';
+$billing_organization_type = '';
+$billing_organization_name = '';	
 $billing_presented_name = '';
 $billing_kind = '';
 $billing_name = '';		
@@ -346,11 +366,12 @@ $billing_city = '';
 $billing_state_province = '';	
 $billing_postal_code = '';	
 $billing_country_name = '';
-$billing_organization = '';	
 $billing_shielding = 'web_id,name,tel,address';
 $reseller_handle = '';
+$reseller_organization_type = '';	
+$reseller_organization_name = '';	
+$reseller_presented_name = '';	
 $reseller_kind = '';	
-$reseller_presented_name = '';
 $reseller_name = '';
 $reseller_email = '';
 $reseller_tel = '';
@@ -359,14 +380,15 @@ $reseller_street = '';
 $reseller_city = '';
 $reseller_state_province = '';	
 $reseller_postal_code = '';
-$reseller_country_name = '';
-$reseller_organization = '';	
+$reseller_country_name = '';	
 $reseller_shielding = 'name,email,tel';
 $reseller_language_pref_1 = '';
 $reseller_language_pref_2 = '';	
 $registrar_handle = '';
+$registrar_organization_type = '';
+$registrar_organization_name = '';	
+$registrar_presented_name = '';	
 $registrar_kind = '';
-$registrar_presented_name = '';
 $registrar_name = '';	
 $registrar_email = '';
 $registrar_tel = '';
@@ -375,25 +397,15 @@ $registrar_street = '';
 $registrar_city = '';
 $registrar_state_province = '';	
 $registrar_postal_code = '';
-$registrar_country_name = '';
-$registrar_organization = '';	
+$registrar_country_name = '';	
 $registrar_shielding = 'name,email,tel';
 $registrar_language_pref_1 = '';
-$registrar_language_pref_2 = '';	
-$sponsor_handle = '';
-$sponsor_kind = '';
-$sponsor_presented_name = '';
-$sponsor_name = '';
-$sponsor_email = '';
-$sponsor_tel = '';
-$sponsor_country_code = '';		
-$sponsor_street = '';
-$sponsor_city = '';
-$sponsor_state_province = '';	
-$sponsor_postal_code = '';
-$sponsor_country_name = '';
-$sponsor_organization = '';	
-$sponsor_shielding = 'name,email,tel';
+$registrar_language_pref_2 = '';
+$registrar_abuse_organization_type = '';
+$registrar_abuse_organization_name = '';
+$registrar_abuse_presented_name = '';
+$registrar_abuse_email = 'No Point of Contact';
+$registrar_abuse_tel = '';	
 
 $server_name_1 = $obj['nameservers'][0]['ldhName'];
 $server_name_2 = $obj['nameservers'][1]['ldhName'];
@@ -436,20 +448,16 @@ $server_delegation_check_last_correct_2 = '';
 $server_delegation_check_last_correct_3 = '';
 $server_delegation_check_last_correct_4 = '';
 $server_delegation_check_last_correct_5 = '';
-$server_delegation_check_last_correct_6 = '';	
+$server_delegation_check_last_correct_6 = '';		
 
-$registrar_abuse_organization = '';
-$registrar_abuse_presented_name = '';
-$registrar_abuse_email = 'No Point of Contact';
-$registrar_abuse_tel = '';	
-
+$entity_sponsor = -1;	
 $entity_registrant = -1;
 $entity_administrative = -1;
 $entity_technical = -1;
 $entity_billing = -1;	
 $entity_reseller = -1;		
 $entity_registrar = -1;
-$entity_sponsor = -1;	
+$entity_key4_sponsor = -1;	
 $entity_key4_registrant = -1;	
 $entity_key4_administrative = -1;
 $entity_key4_tech = -1;
@@ -457,7 +465,6 @@ $entity_key4_billing = -1;
 $entity_key4_reseller = -1;		
 $entity_key4_registrar = -1;
 $entity_key4_abuse = -1;	
-$entity_key4_sponsor = -1;
 
 $raw_rdap_data = '';
 	
@@ -1008,27 +1015,34 @@ foreach($obj as $key1 => $value1) {
 								$sponsor_kind = $value5[3];
 							}							
 						}
-						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'org' and $value6 == 'org')	{ //$value5[1]['type'].': '.
+						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'org' and $value6 == 'org')	{
 							if ($key2 == $entity_registrant)	{
-								$registrant_organization = (strlen($value5[1]['type'])) ? $value5[1]['type'].': '.$value5[3] : $value5[3];
+								$registrant_organization_type = $value5[1]['type'];
+								$registrant_organization_name = $value5[3];
 							}
 							if ($key2 == $entity_administrative)	{
-								$administrative_organization = (strlen($value5[1]['type'])) ? $value5[1]['type'].': '.$value5[3] : $value5[3];
+								$administrative_organization_type = $value5[1]['type'];
+								$administrative_organization_name = $value5[3];
 							}
 							if ($key2 == $entity_technical)	{
-								$technical_organization = (strlen($value5[1]['type'])) ? $value5[1]['type'].': '.$value5[3] : $value5[3];
+								$technical_organization_type = $value5[1]['type'];
+								$technical_organization_name = $value5[3];
 							}
 							if ($key2 == $entity_billing)	{
-								$billing_organization = (strlen($value5[1]['type'])) ? $value5[1]['type'].': '.$value5[3] : $value5[3];
+								$billing_organization_type = $value5[1]['type'];
+								$billing_organization_name = $value5[3];
 							}							
 							if ($key2 == $entity_reseller)	{
-								$reseller_organization = (strlen($value5[1]['type'])) ? $value5[1]['type'].': '.$value5[3] : $value5[3];
+								$reseller_organization_type = $value5[1]['type'];
+								$reseller_organization_name = $value5[3];
 							}
 							if ($key2 == $entity_registrar)	{
-								$registrar_organization = (strlen($value5[1]['type'])) ? $value5[1]['type'].': '.$value5[3] : $value5[3];
+								$registrar_organization_type = $value5[1]['type'];
+								$registrar_organization_name = $value5[3];
 							}
 							if ($key2 == $entity_sponsor)	{
-								$sponsor_organization = (strlen($value5[1]['type'])) ? $value5[1]['type'].': '.$value5[3] : $value5[3];
+								$sponsor_organization_type = $value5[1]['type'];
+								$sponsor_organization_name = $value5[3];
 							}
 						}						
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'lang')	{
@@ -1152,7 +1166,8 @@ foreach($obj as $key1 => $value1) {
 								if ($key1 == 'entities' and $key2 == $entity_registrar and $key3 == 'entities' 
 									and $key4 == $entity_key4_abuse and $key5 == 'vcardArray' and $key6 == 1)	{
 									if ($value7[0] == 'org' and $value8 == 'org')	{
-										$registrar_abuse_organization = $value7[3];
+										$registrar_abuse_organization_type = $value7[1]['type'];
+										$registrar_abuse_organization_name = $value7[3];
 									}
 									elseif ($value7[0] == 'fn' and $value8 == 'fn')	{
 										$registrar_abuse_presented_name = $value7[3];
@@ -1522,10 +1537,13 @@ $sponsor = $doc->createElement("sponsor");
 $domain->appendChild($sponsor);
 $domain_sponsor_handle = $doc->createElement("handle");
 $domain_sponsor_handle->appendChild($doc->createCDATASection($sponsor_handle));	
-$sponsor->appendChild($domain_sponsor_handle);
-$domain_sponsor_organization = $doc->createElement("organization");
-$domain_sponsor_organization->appendChild($doc->createCDATASection($sponsor_organization));
-$sponsor->appendChild($domain_sponsor_organization);	
+$sponsor->appendChild($domain_sponsor_handle);	
+$domain_sponsor_organization_type = $doc->createElement("organization_type");
+$domain_sponsor_organization_type->appendChild($doc->createCDATASection($sponsor_organization_type));
+$sponsor->appendChild($domain_sponsor_organization_type);
+$domain_sponsor_organization_name = $doc->createElement("organization_name");
+$domain_sponsor_organization_name->appendChild($doc->createCDATASection($sponsor_organization_name));
+$sponsor->appendChild($domain_sponsor_organization_name);
 $domain_sponsor_presented_name = $doc->createElement("presented_name");
 $domain_sponsor_presented_name->appendChild($doc->createCDATASection($sponsor_presented_name));	
 $sponsor->appendChild($domain_sponsor_presented_name);
@@ -1602,9 +1620,12 @@ $registrant->appendChild($domain_registrant_handle);
 $domain_registrant_web_id = $doc->createElement("web_id");
 $domain_registrant_web_id->appendChild($doc->createCDATASection($registrant_web_id));	
 $registrant->appendChild($domain_registrant_web_id);
-$domain_registrant_organization = $doc->createElement("organization");
-$domain_registrant_organization->appendChild($doc->createCDATASection($registrant_organization));
-$registrant->appendChild($domain_registrant_organization);	
+$domain_registrant_organization_type = $doc->createElement("organization_type");
+$domain_registrant_organization_type->appendChild($doc->createCDATASection($registrant_organization_type));
+$registrant->appendChild($domain_registrant_organization_type);
+$domain_registrant_organization_name = $doc->createElement("organization_name");
+$domain_registrant_organization_name->appendChild($doc->createCDATASection($registrant_organization_name));
+$registrant->appendChild($domain_registrant_organization_name);
 $domain_registrant_presented_name = $doc->createElement("presented_name");
 $domain_registrant_presented_name->appendChild($doc->createCDATASection($registrant_presented_name));	
 $registrant->appendChild($domain_registrant_presented_name);
@@ -1681,9 +1702,12 @@ $domain->appendChild($administrative);
 $domain_administrative_handle = $doc->createElement("handle");
 $domain_administrative_handle->appendChild($doc->createCDATASection($administrative_handle));	
 $administrative->appendChild($domain_administrative_handle);
-$domain_administrative_organization = $doc->createElement("organization");
-$domain_administrative_organization->appendChild($doc->createCDATASection($administrative_organization));
-$administrative->appendChild($domain_administrative_organization);	
+$domain_administrative_organization_type = $doc->createElement("organization_type");
+$domain_administrative_organization_type->appendChild($doc->createCDATASection($administrative_organization_type));
+$administrative->appendChild($domain_administrative_organization_type);
+$domain_administrative_organization_name = $doc->createElement("organization_name");
+$domain_administrative_organization_name->appendChild($doc->createCDATASection($administrative_organization_name));
+$administrative->appendChild($domain_administrative_organization_name);
 $domain_administrative_presented_name = $doc->createElement("presented_name");
 $domain_administrative_presented_name->appendChild($doc->createCDATASection($administrative_presented_name));
 $administrative->appendChild($domain_administrative_presented_name);
@@ -1739,9 +1763,12 @@ $domain->appendChild($technical);
 $domain_technical_handle = $doc->createElement("handle");
 $domain_technical_handle->appendChild($doc->createCDATASection($technical_handle));	
 $technical->appendChild($domain_technical_handle);
-$domain_technical_organization = $doc->createElement("organization");
-$domain_technical_organization->appendChild($doc->createCDATASection($technical_organization));
-$technical->appendChild($domain_technical_organization);	
+$domain_technical_organization_type = $doc->createElement("organization_type");
+$domain_technical_organization_type->appendChild($doc->createCDATASection($technical_organization_type));
+$technical->appendChild($domain_technical_organization_type);
+$domain_technical_organization_name = $doc->createElement("organization_name");
+$domain_technical_organization_name->appendChild($doc->createCDATASection($technical_organization_name));
+$technical->appendChild($domain_technical_organization_name);	
 $domain_technical_presented_name = $doc->createElement("presented_name");
 $domain_technical_presented_name->appendChild($doc->createCDATASection($technical_presented_name));	
 $technical->appendChild($domain_technical_presented_name);
@@ -1797,9 +1824,12 @@ $domain->appendChild($billing);
 $domain_billing_handle = $doc->createElement("handle");
 $domain_billing_handle->appendChild($doc->createCDATASection($billing_handle));	
 $billing->appendChild($domain_billing_handle);
-$domain_billing_organization = $doc->createElement("organization");
-$domain_billing_organization->appendChild($doc->createCDATASection($billing_organization));
-$billing->appendChild($domain_billing_organization);		
+$domain_billing_organization_type = $doc->createElement("organization_type");
+$domain_billing_organization_type->appendChild($doc->createCDATASection($billing_organization_type));
+$billing->appendChild($domain_billing_organization_type);
+$domain_billing_organization_name = $doc->createElement("organization_name");
+$domain_billing_organization_name->appendChild($doc->createCDATASection($billing_organization_name));
+$billing->appendChild($domain_billing_organization_name);		
 $domain_billing_presented_name = $doc->createElement("presented_name");
 $domain_billing_presented_name->appendChild($doc->createCDATASection($billing_presented_name));	
 $billing->appendChild($domain_billing_presented_name);
@@ -1855,9 +1885,12 @@ $domain->appendChild($reseller);
 $domain_reseller_handle = $doc->createElement("handle");
 $domain_reseller_handle->appendChild($doc->createCDATASection($reseller_handle));	
 $reseller->appendChild($domain_reseller_handle);
-$domain_reseller_organization = $doc->createElement("organization");
-$domain_reseller_organization->appendChild($doc->createCDATASection($reseller_organization));
-$reseller->appendChild($domain_reseller_organization);	
+$domain_reseller_organization_type = $doc->createElement("organization_type");
+$domain_reseller_organization_type->appendChild($doc->createCDATASection($reseller_organization_type));
+$reseller->appendChild($domain_reseller_organization_type);
+$domain_reseller_organization_name = $doc->createElement("organization_name");
+$domain_reseller_organization_name->appendChild($doc->createCDATASection($reseller_organization_name));
+$reseller->appendChild($domain_reseller_organization_name);	
 $domain_reseller_presented_name = $doc->createElement("presented_name");
 $domain_reseller_presented_name->appendChild($doc->createCDATASection($reseller_presented_name));	
 $reseller->appendChild($domain_reseller_presented_name);
@@ -1934,9 +1967,12 @@ $domain->appendChild($registrar);
 $domain_registrar_handle = $doc->createElement("handle");
 $domain_registrar_handle->appendChild($doc->createCDATASection($registrar_handle));	
 $registrar->appendChild($domain_registrar_handle);
-$domain_registrar_organization = $doc->createElement("organization");
-$domain_registrar_organization->appendChild($doc->createCDATASection($registrar_organization));
-$registrar->appendChild($domain_registrar_organization);	
+$domain_registrar_organization_type = $doc->createElement("organization_type");
+$domain_registrar_organization_type->appendChild($doc->createCDATASection($registrar_organization_type));
+$registrar->appendChild($domain_registrar_organization_type);
+$domain_registrar_organization_name = $doc->createElement("organization_name");
+$domain_registrar_organization_name->appendChild($doc->createCDATASection($registrar_organization_name));
+$registrar->appendChild($domain_registrar_organization_name);	
 $domain_registrar_presented_name = $doc->createElement("presented_name");
 $domain_registrar_presented_name->appendChild($doc->createCDATASection($registrar_presented_name));	
 $registrar->appendChild($domain_registrar_presented_name);
@@ -2005,10 +2041,13 @@ $domain_registrar_properties->appendChild($doc->createCDATASection($registrar_pr
 $registrar->appendChild($domain_registrar_properties);
 $domain_registrar_remark_values = $doc->createElement("remark_values");
 $domain_registrar_remark_values->appendChild($doc->createCDATASection($registrar_remark_values));	
-$registrar->appendChild($domain_registrar_remark_values);	
-$domain_registrar_abuse_organization = $doc->createElement("abuse_organization");
-$domain_registrar_abuse_organization->appendChild($doc->createCDATASection($registrar_abuse_organization));	
-$registrar->appendChild($domain_registrar_abuse_organization);	
+$registrar->appendChild($domain_registrar_remark_values);
+$domain_registrar_abuse_organization_type = $doc->createElement("organization_type");
+$domain_registrar_abuse_organization_type->appendChild($doc->createCDATASection($registrar_abuse_organization_type));
+$registrar->appendChild($domain_registrar_abuse_organization_type);
+$domain_registrar_abuse_organization_name = $doc->createElement("organization_name");
+$domain_registrar_abuse_organization_name->appendChild($doc->createCDATASection($registrar_abuse_organization_name));
+$registrar->appendChild($domain_registrar_abuse_organization_name);
 $domain_registrar_abuse_presented_name = $doc->createElement("abuse_presented_name");
 $domain_registrar_abuse_presented_name->appendChild($doc->createCDATASection($registrar_abuse_presented_name));	
 $registrar->appendChild($domain_registrar_abuse_presented_name);	

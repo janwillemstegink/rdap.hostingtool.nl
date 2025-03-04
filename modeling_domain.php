@@ -55,7 +55,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 39)	{ // sponsor
 		var pre = '39';
-		var max = 28
+		var max = 29
 	}
 	else if (type == 40)	{ // registrant
 		var pre = '40';
@@ -63,19 +63,19 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 41)	{ // administrative
 		var pre = '41';
-		var max = 18
+		var max = 19
 	}
 	else if (type == 42)	{ // technical
 		var pre = '42';
-		var max = 18
+		var max = 19
 	}
 	else if (type == 43)	{ // billing
 		var pre = '43';
-		var max = 19
+		var max = 20
 	}
 	else if (type == 44)	{ // emergency
 		var pre = '44';
-		var max = 19
+		var max = 20
 	}
 	else if (type == 50)	{ // reseller
 		var pre = '50';
@@ -87,7 +87,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 61)	{ // abuse
 		var pre = '61';
-		var max = 4
+		var max = 5
 	}
 	else if (type == 63)	{ // name servers
 		var pre = '63';
@@ -158,7 +158,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("sponsor_role").textContent = "";
 		document.getElementById("registrant_role").textContent = "";
 		document.getElementById("registrant_web_id").textContent = proposed;
-		document.getElementById("registrant_organization").textContent = "";
+		document.getElementById("registrant_organization_name").textContent = "";
 		document.getElementById("registrant_presented_name").textContent = "";
 		document.getElementById("registrant_kind").textContent = "";
 		document.getElementById("registrant_name").textContent = "";
@@ -231,7 +231,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("sponsor_role").textContent = "De domeinregistratie kan worden beheerd door een sponsor. Zie bijvoorbeeld france.fr.";
 		document.getElementById("registrant_role").textContent = "De domeingebruiker die de daadwerkelijke of effectieve controle heeft voor domeinrecht in het land van vestiging.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Webidentificatienummer voor bedrijfsentiteiten en natuurlijke personen.";
-		document.getElementById("registrant_organization").textContent = "Een organisatie die primair verantwoordelijk is voor het domeinabonnement. Zie bijvoorbeeld icann.org.";
+		document.getElementById("registrant_organization_name").textContent = "Een organisatie die primair verantwoordelijk is voor het domeinabonnement. Zie bijvoorbeeld icann.org.";
 		document.getElementById("registrant_presented_name").textContent = "Indien zichtbaar, of de naam van de persoon die primair verantwoordelijk is, of een rol binnen de organisatie.";
 		document.getElementById("registrant_kind").textContent = "Leeg / 'org' / 'individual' (Voor continuïteit: levenstestament + testament + digitale executeur)";
 		document.getElementById("registrant_name").textContent = "Een persoonlijke naam kan openbaar zichtbaar zijn in het veld 'presented_name'. Zie bijvoorbeeld circa.ca.";
@@ -304,7 +304,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("sponsor_role").textContent = "The domain registration can be managed by a sponsor. See for example france.fr.";
 		document.getElementById("registrant_role").textContent = "The domain user who has the actual or effective control for domain rights in the country of establishment.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web Identification number for business entities and natural persons.";
-		document.getElementById("registrant_organization").textContent = "An organization primarily responsible for the domain subscription. See for example icann.org.";
+		document.getElementById("registrant_organization_name").textContent = "An organization primarily responsible for the domain subscription. See for example icann.org.";
 		document.getElementById("registrant_presented_name").textContent = "If visible, either the name of a person primarily responsible or a role within the organization.";
 		document.getElementById("registrant_kind").textContent = "Empty / 'org' / 'individual' (For continuity: Living Will + Will + Digital Executor)";
 		document.getElementById("registrant_name").textContent = "A personal name may be publicly visible in the 'presented_name' field. See for example circa.ca.";
@@ -377,7 +377,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("sponsor_role").textContent = "Die Domänenregistrierung kann von einem Sponsor verwaltet werden. Siehe beispielsweise france.fr.";
 		document.getElementById("registrant_role").textContent = "Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat für Domainrechte im Wohnsitzland.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web-Identifikationsnummer für Unternehmen und natürliche Personen.";
-		document.getElementById("registrant_organization").textContent = "Eine Organisation, die hauptsächlich für das Domänenabonnement verantwortlich ist. Siehe beispielsweise icann.org.";
+		document.getElementById("registrant_organization_name").textContent = "Eine Organisation, die hauptsächlich für das Domänenabonnement verantwortlich ist. Siehe beispielsweise icann.org.";
 		document.getElementById("registrant_presented_name").textContent = "Sofern sichtbar, entweder der Name einer hauptverantwortlichen Person oder eine Rolle innerhalb der Organisation.";
 		document.getElementById("registrant_kind").textContent = "Leer / 'org' / 'individual' (Für Kontinuität: Patientenverfügung + Testament + digitaler Testamentsvollstrecker)";
 		document.getElementById("registrant_name").textContent = "Ein Personenname kann im Feld 'presented_name' öffentlich sichtbar sei. Siehe beispielsweise circa.ca.";
@@ -450,7 +450,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("sponsor_role").textContent = "L'enregistrement du domaine peut être géré par un sponsor. Voir par exemple france.fr.";
 		document.getElementById("registrant_role").textContent = "L'utilisateur du domaine qui a le contrôle réel ou effectif pour les droits de domaine dans le pays de résidence.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Numéro d’identification Web pour les entités commerciales et les personnes physiques.";
-		document.getElementById("registrant_organization").textContent = "Une organisation principalement responsable de l’abonnement au domaine. Voir, par exemple, icann.org.";
+		document.getElementById("registrant_organization_name").textContent = "Une organisation principalement responsable de l’abonnement au domaine. Voir, par exemple, icann.org.";
 		document.getElementById("registrant_presented_name").textContent = "Si visible, soit le nom d'une personne principalement responsable, soit un rôle au sein de l'organisation.";
 		document.getElementById("registrant_kind").textContent = "Vide / 'org' / 'individual' (Pour la continuité : testament biologique + testament + exécuteur testamentaire numérique)";
 		document.getElementById("registrant_name").textContent = "Un nom personnel peut être visible publiquement dans le champ 'presented_name'. Voir, par exemple, circa.ca.";
@@ -682,38 +682,40 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(39)">Sponsor +/-</button></td><td>'.$sponsor_applicable.'</td><td id="sponsor_role"></td></tr>';
 	$html_text .= '<tr id="391" style="display:none"><td>sponsor handle</td><td>'.$item->sponsor->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="392" style="display:none"><td>sponsor web_id</td><td>'.$item->sponsor->web_id.'</td><td id="sponsor_web_id"></td></tr>';
-	$html_text .= '<tr id="393" style="display:none"><td>sponsor organization</td><td>'.$item->sponsor->organization.'</td><td></td></tr>';
-	$html_text .= '<tr id="394" style="display:none"><td>sponsor presented_name</td><td>'.$item->sponsor->presented_name.'</td><td id="sponsor_recover"></td></tr>';
-	$html_text .= '<tr id="395" style="display:none"><td>sponsor kind</td><td>'.$item->sponsor->kind.'</td><td></td></tr>';
-	$html_text .= '<tr id="396" style="display:none"><td>sponsor name</td><td>'.$item->sponsor->name.'</td><td></td></tr>';
-	$html_text .= '<tr id="397" style="display:none"><td>sponsor email</td><td>'.$item->sponsor->email.'</td><td></td></tr>';
-	$html_text .= '<tr id="398" style="display:none"><td>sponsor tel</td><td>'.$item->sponsor->tel.'</td><td></td></tr>';
-	$html_text .= '<tr id="399" style="display:none"><td>sponsor country_code</td><td>'.$item->sponsor->country_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="3910" style="display:none"><td>sponsor street</td><td>'.$item->sponsor->street.'</td><td></td></tr>';
-	$html_text .= '<tr id="3911" style="display:none"><td>sponsor city</td><td>'.$item->sponsor->city.'</td><td></td></tr>';
-	$html_text .= '<tr id="3912" style="display:none"><td>sponsor state_province</td><td>'.$item->sponsor->state_province.'</td><td></td></tr>';
-	$html_text .= '<tr id="3913" style="display:none"><td>sponsor postal_code</td><td>'.$item->sponsor->postal_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="3914" style="display:none"><td>sponsor country_name</td><td>'.$item->sponsor->country_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="3915" style="display:none"><td>sponsor language_pref_1</td><td>'.$item->sponsor->language_pref_1.'</td><td></td></tr>';
-	$html_text .= '<tr id="3916" style="display:none"><td>sponsor language_pref_2</td><td>'.$item->sponsor->language_pref_2.'</td><td></td></tr>';
-	$html_text .= '<tr id="3917" style="display:none"><td>sponsor shielding</td><td>'.$item->sponsor->shielding.'</td><td></td></tr>';
-	$html_text .= '<tr id="3918" style="display:none;vertical-align:top"><td>sponsor status_values</td><td>'.$item->sponsor->status_values.'</td><td></td></tr>';
-	$html_text .= '<tr id="3919" style="display:none"><td>sponsor event_registration</td><td>'.$item->sponsor->event_registration.'</td><td></td></tr>';
-	$html_text .= '<tr id="3920" style="display:none"><td>sponsor event_last_transferred</td><td>'.$item->sponsor->event_last_transferred.'</td><td></td></tr>';
-	$html_text .= '<tr id="3921" style="display:none"><td>sponsor event_last_changed</td><td>'.$item->sponsor->event_last_changed.'</td><td></td></tr>';
-	$html_text .= '<tr id="3922" style="display:none"><td>sponsor event_expiration</td><td>'.$item->sponsor->event_expiration.'</td><td></td></tr>';
-	$html_text .= '<tr id="3923" style="display:none"><td>sponsor event_deletion</td><td>'.$item->sponsor->event_deletion.'</td><td></td></tr>';
-	$html_text .= '<tr id="3924" style="display:none"><td>sponsor event_last_uploaded</td><td>'.$item->sponsor->event_last_uploaded.'</td><td></td></tr>';
-	$html_text .= '<tr id="3925" style="display:none"><td>sponsor event_verification_received</td><td>'.$item->sponsor->event_verification_received.'</td><td id="sponsor_event_verification_received"></td></tr>';
-	$html_text .= '<tr id="3926" style="display:none"><td>sponsor event_verification_set</td><td>'.$item->sponsor->event_verification_set.'</td><td id="sponsor_event_verification_set"></td></tr>';
-	$html_text .= '<tr id="3927" style="display:none;vertical-align:top"><td>sponsor properties</td><td>'.$item->sponsor->properties.'</td><td></td></tr>';
-	$html_text .= '<tr id="3928" style="display:none;vertical-align:top"><td>sponsor remark_values</td><td>'.$item->sponsor->remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="393" style="display:none"><td>sponsor organization_type</td><td>'.$item->sponsor->organization_type.'</td><td></td></tr>';
+	$html_text .= '<tr id="394" style="display:none"><td>sponsor organization_name</td><td>'.$item->sponsor->organization_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="395" style="display:none"><td>sponsor presented_name</td><td>'.$item->sponsor->presented_name.'</td><td id="sponsor_recover"></td></tr>';
+	$html_text .= '<tr id="396" style="display:none"><td>sponsor kind</td><td>'.$item->sponsor->kind.'</td><td></td></tr>';
+	$html_text .= '<tr id="397" style="display:none"><td>sponsor name</td><td>'.$item->sponsor->name.'</td><td></td></tr>';
+	$html_text .= '<tr id="398" style="display:none"><td>sponsor email</td><td>'.$item->sponsor->email.'</td><td></td></tr>';
+	$html_text .= '<tr id="399" style="display:none"><td>sponsor tel</td><td>'.$item->sponsor->tel.'</td><td></td></tr>';
+	$html_text .= '<tr id="3910" style="display:none"><td>sponsor country_code</td><td>'.$item->sponsor->country_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="3911" style="display:none"><td>sponsor street</td><td>'.$item->sponsor->street.'</td><td></td></tr>';
+	$html_text .= '<tr id="3912" style="display:none"><td>sponsor city</td><td>'.$item->sponsor->city.'</td><td></td></tr>';
+	$html_text .= '<tr id="3913" style="display:none"><td>sponsor state_province</td><td>'.$item->sponsor->state_province.'</td><td></td></tr>';
+	$html_text .= '<tr id="3914" style="display:none"><td>sponsor postal_code</td><td>'.$item->sponsor->postal_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="3915" style="display:none"><td>sponsor country_name</td><td>'.$item->sponsor->country_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="3916" style="display:none"><td>sponsor language_pref_1</td><td>'.$item->sponsor->language_pref_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="3917" style="display:none"><td>sponsor language_pref_2</td><td>'.$item->sponsor->language_pref_2.'</td><td></td></tr>';
+	$html_text .= '<tr id="3918" style="display:none"><td>sponsor shielding</td><td>'.$item->sponsor->shielding.'</td><td></td></tr>';
+	$html_text .= '<tr id="3919" style="display:none;vertical-align:top"><td>sponsor status_values</td><td>'.$item->sponsor->status_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="3920" style="display:none"><td>sponsor event_registration</td><td>'.$item->sponsor->event_registration.'</td><td></td></tr>';
+	$html_text .= '<tr id="3921" style="display:none"><td>sponsor event_last_transferred</td><td>'.$item->sponsor->event_last_transferred.'</td><td></td></tr>';
+	$html_text .= '<tr id="3922" style="display:none"><td>sponsor event_last_changed</td><td>'.$item->sponsor->event_last_changed.'</td><td></td></tr>';
+	$html_text .= '<tr id="3923" style="display:none"><td>sponsor event_expiration</td><td>'.$item->sponsor->event_expiration.'</td><td></td></tr>';
+	$html_text .= '<tr id="3924" style="display:none"><td>sponsor event_deletion</td><td>'.$item->sponsor->event_deletion.'</td><td></td></tr>';
+	$html_text .= '<tr id="3925" style="display:none"><td>sponsor event_last_uploaded</td><td>'.$item->sponsor->event_last_uploaded.'</td><td></td></tr>';
+	$html_text .= '<tr id="3926" style="display:none"><td>sponsor event_verification_received</td><td>'.$item->sponsor->event_verification_received.'</td><td id="sponsor_event_verification_received"></td></tr>';
+	$html_text .= '<tr id="3927" style="display:none"><td>sponsor event_verification_set</td><td>'.$item->sponsor->event_verification_set.'</td><td id="sponsor_event_verification_set"></td></tr>';
+	$html_text .= '<tr id="3928" style="display:none;vertical-align:top"><td>sponsor properties</td><td>'.$item->sponsor->properties.'</td><td></td></tr>';
+	$html_text .= '<tr id="3929" style="display:none;vertical-align:top"><td>sponsor remark_values</td><td>'.$item->sponsor->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(40)">Registrant +/-</button></td><td></td><td id="registrant_role"></td></tr>';
 	$html_text .= '<tr id="401" style="display:none"><td>registrant handle</td><td>'.$item->registrant->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="402" style="display:none"><td>registrant web_id</td><td>'.$item->registrant->web_id.'</td><td id="registrant_web_id"></td></tr>';
-	$html_text .= '<tr><td>registrant organization</td><td>'.$item->registrant->organization.'</td><td id="registrant_organization"></td></tr>';
+	$html_text .= '<tr><td>registrant organization_type</td><td>'.$item->registrant->organization_type.'</td><td></td></tr>';
+	$html_text .= '<tr><td>registrant organization_name</td><td>'.$item->registrant->organization_name.'</td><td id="registrant_organization_name"></td></tr>';
 	$html_text .= '<tr><td>registrant presented_name ("fn" / full name)</td><td>'.$item->registrant->presented_name.'</td><td id="registrant_presented_name"></td></tr>';
-	$html_text .= '<tr><td>registrant kind</td><td><b>'.$item->registrant->kind.'</b></td><td id="registrant_kind"></td></tr>';
+	$html_text .= '<tr><td>registrant kind</td><td>'.$item->registrant->kind.'</td><td id="registrant_kind"></td></tr>';
 	$html_text .= '<tr id="403" style="display:none"><td>registrant name</td><td>'.$item->registrant->name.'</td><td id="registrant_name"></td></tr>';
 	$html_text .= '<tr id="404" style="display:none"><td>registrant email</td><td>'.$item->registrant->email.'</td><td></td></tr>';
 	$html_text .= '<tr id="405" style="display:none"><td>registrant tel</td><td>'.$item->registrant->tel.'</td><td></td></tr>';
@@ -740,88 +742,93 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(41)">Administrative / Decision +/-</button></td><td></td><td id="administrative_role"></td></tr>';
 	$html_text .= '<tr id="411" style="display:none"><td>administrative handle</td><td>'.$item->administrative->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="412" style="display:none"><td>administrative web_id</td><td>'.$item->administrative->web_id.'</td><td id="administrative_web_id"></td></tr>';
-	$html_text .= '<tr id="413" style="display:none"><td>administrative organization</td><td>'.$item->administrative->organization.'</td><td></td></tr>';
-	$html_text .= '<tr id="414" style="display:none"><td>administrative presented_name</td><td>'.$item->administrative->presented_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="415" style="display:none"><td>administrative kind</td><td>'.$item->administrative->kind.'</td><td></td></tr>';
-	$html_text .= '<tr id="416" style="display:none"><td>administrative name</td><td>'.$item->administrative->name.'</td><td></td></tr>';
+	$html_text .= '<tr id="413" style="display:none"><td>administrative organization_type</td><td>'.$item->administrative->organization_type.'</td><td></td></tr>';
+	$html_text .= '<tr id="414" style="display:none"><td>administrative organization_name</td><td>'.$item->administrative->organization_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="415" style="display:none"><td>administrative presented_name</td><td>'.$item->administrative->presented_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="416" style="display:none"><td>administrative kind</td><td>'.$item->administrative->kind.'</td><td></td></tr>';
+	$html_text .= '<tr id="417" style="display:none"><td>administrative name</td><td>'.$item->administrative->name.'</td><td></td></tr>';
 	$html_text .= '<tr><td>administrative email</td><td>'.$item->administrative->email.'</td><td></td></tr>';
-	$html_text .= '<tr id="417" style="display:none"><td>administrative tel</td><td>'.$item->administrative->tel.'</td><td></td></tr>';
-	$html_text .= '<tr id="418" style="display:none"><td>administrative country_code</td><td>'.$item->administrative->country_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="419" style="display:none"><td>administrative street</td><td>'.$item->administrative->street.'</td><td></td></tr>';
-	$html_text .= '<tr id="4110" style="display:none"><td>administrative city</td><td>'.$item->administrative->city.'</td><td></td></tr>';
-	$html_text .= '<tr id="4111" style="display:none"><td>administrative state_province</td><td>'.$item->administrative->state_province.'</td><td></td></tr>';
-	$html_text .= '<tr id="4112" style="display:none"><td>administrative postal_code</td><td>'.$item->administrative->postal_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="4113" style="display:none"><td>administrative country_name</td><td>'.$item->administrative->country_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="4114" style="display:none"><td>administrative language_pref_1</td><td>'.$item->administrative->language_pref_1.'</td><td></td></tr>';
-	$html_text .= '<tr id="4115" style="display:none"><td>administrative language_pref_2</td><td>'.$item->administrative->language_pref_2.'</td><td></td></tr>';
-	$html_text .= '<tr id="4116" style="display:none"><td>administrative shielding</td><td>'.$item->administrative->shielding.'</td><td id="administrative_shielding"></td></tr>';
-	$html_text .= '<tr id="4117" style="display:none;vertical-align:top"><td>administrative properties</td><td>'.$item->administrative->properties.'</td><td></td></tr>';
-	$html_text .= '<tr id="4118" style="display:none;vertical-align:top"><td>administrative remark_values</td><td>'.$item->administrative->remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="418" style="display:none"><td>administrative tel</td><td>'.$item->administrative->tel.'</td><td></td></tr>';
+	$html_text .= '<tr id="419" style="display:none"><td>administrative country_code</td><td>'.$item->administrative->country_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="4110" style="display:none"><td>administrative street</td><td>'.$item->administrative->street.'</td><td></td></tr>';
+	$html_text .= '<tr id="4111" style="display:none"><td>administrative city</td><td>'.$item->administrative->city.'</td><td></td></tr>';
+	$html_text .= '<tr id="4112" style="display:none"><td>administrative state_province</td><td>'.$item->administrative->state_province.'</td><td></td></tr>';
+	$html_text .= '<tr id="4113" style="display:none"><td>administrative postal_code</td><td>'.$item->administrative->postal_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="4114" style="display:none"><td>administrative country_name</td><td>'.$item->administrative->country_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="4115" style="display:none"><td>administrative language_pref_1</td><td>'.$item->administrative->language_pref_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="4116" style="display:none"><td>administrative language_pref_2</td><td>'.$item->administrative->language_pref_2.'</td><td></td></tr>';
+	$html_text .= '<tr id="4117" style="display:none"><td>administrative shielding</td><td>'.$item->administrative->shielding.'</td><td id="administrative_shielding"></td></tr>';
+	$html_text .= '<tr id="4118" style="display:none;vertical-align:top"><td>administrative properties</td><td>'.$item->administrative->properties.'</td><td></td></tr>';
+	$html_text .= '<tr id="4119" style="display:none;vertical-align:top"><td>administrative remark_values</td><td>'.$item->administrative->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Technical / Onsite +/-</button></td><td></td><td id="technical_role"></td></tr>';
 	$html_text .= '<tr id="421" style="display:none"><td>technical handle</td><td>'.$item->technical->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="422" style="display:none"><td>technical web_id</td><td>'.$item->technical->web_id.'</td><td id="technical_web_id"></td></tr>';
-	$html_text .= '<tr id="423" style="display:none"><td>technical organization</td><td>'.$item->technical->organization.'</td><td></td></tr>';
-	$html_text .= '<tr id="424" style="display:none"><td>technical presented_name</td><td>'.$item->technical->presented_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="425" style="display:none"><td>technical kind</td><td>'.$item->technical->kind.'</td><td></td></tr>';
-	$html_text .= '<tr id="426" style="display:none"><td>technical name</td><td>'.$item->technical->name.'</td><td></td></tr>';
+	$html_text .= '<tr id="423" style="display:none"><td>technical organization_type</td><td>'.$item->technical->organization_type.'</td><td></td></tr>';
+	$html_text .= '<tr id="424" style="display:none"><td>technical organization_name</td><td>'.$item->technical->organization_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="425" style="display:none"><td>technical presented_name</td><td>'.$item->technical->presented_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="426" style="display:none"><td>technical kind</td><td>'.$item->technical->kind.'</td><td></td></tr>';
+	$html_text .= '<tr id="427" style="display:none"><td>technical name</td><td>'.$item->technical->name.'</td><td></td></tr>';
 	$html_text .= '<tr><td>technical email</td><td>'.$item->technical->email.'</td><td></td></tr>';
-	$html_text .= '<tr id="427" style="display:none"><td>technical tel</td><td>'.$item->technical->tel.'</td><td></td></tr>';
-	$html_text .= '<tr id="428" style="display:none"><td>technical country_code</td><td>'.$item->technical->country_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="429" style="display:none"><td>technical street</td><td>'.$item->technical->street.'</td><td></td></tr>';
-	$html_text .= '<tr id="4210" style="display:none"><td>technical city</td><td>'.$item->technical->city.'</td><td></td></tr>';
-	$html_text .= '<tr id="4211" style="display:none"><td>technical state_province</td><td>'.$item->technical->state_province.'</td><td></td></tr>';
-	$html_text .= '<tr id="4212" style="display:none"><td>technical postal_code</td><td>'.$item->technical->postal_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="4213" style="display:none"><td>technical country_name</td><td>'.$item->technical->country_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="4214" style="display:none"><td>technical language_pref_1</td><td>'.$item->technical->language_pref_1.'</td><td></td></tr>';
-	$html_text .= '<tr id="4215" style="display:none"><td>technical language_pref_2</td><td>'.$item->technical->language_pref_2.'</td><td></td></tr>';
-	$html_text .= '<tr id="4216" style="display:none"><td>technical shielding</td><td>'.$item->technical->shielding.'</td><td id="technical_shielding"></td></tr>';
-	$html_text .= '<tr id="4217" style="display:none;vertical-align:top"><td>technical properties</td><td>'.$item->technical->properties.'</td><td></td></tr>';
-	$html_text .= '<tr id="4218" style="display:none;vertical-align:top"><td>technical remark_values</td><td>'.$item->technical->remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="428" style="display:none"><td>technical tel</td><td>'.$item->technical->tel.'</td><td></td></tr>';
+	$html_text .= '<tr id="429" style="display:none"><td>technical country_code</td><td>'.$item->technical->country_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="4210" style="display:none"><td>technical street</td><td>'.$item->technical->street.'</td><td></td></tr>';
+	$html_text .= '<tr id="4211" style="display:none"><td>technical city</td><td>'.$item->technical->city.'</td><td></td></tr>';
+	$html_text .= '<tr id="4212" style="display:none"><td>technical state_province</td><td>'.$item->technical->state_province.'</td><td></td></tr>';
+	$html_text .= '<tr id="4213" style="display:none"><td>technical postal_code</td><td>'.$item->technical->postal_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="4214" style="display:none"><td>technical country_name</td><td>'.$item->technical->country_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="4215" style="display:none"><td>technical language_pref_1</td><td>'.$item->technical->language_pref_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="4216" style="display:none"><td>technical language_pref_2</td><td>'.$item->technical->language_pref_2.'</td><td></td></tr>';
+	$html_text .= '<tr id="4217" style="display:none"><td>technical shielding</td><td>'.$item->technical->shielding.'</td><td id="technical_shielding"></td></tr>';
+	$html_text .= '<tr id="4218" style="display:none;vertical-align:top"><td>technical properties</td><td>'.$item->technical->properties.'</td><td></td></tr>';
+	$html_text .= '<tr id="4219" style="display:none;vertical-align:top"><td>technical remark_values</td><td>'.$item->technical->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(43)">Billing +/-</button></td><td></td><td id="billing_role"></td></tr>';
 	$html_text .= '<tr id="431" style="display:none"><td>billing handle</td><td>'.$item->billing->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="432" style="display:none"><td>billing web_id</td><td>'.$item->billing->web_id.'</td><td></td></tr>';
-	$html_text .= '<tr id="433" style="display:none"><td>billing organization</td><td>'.$item->billing->organization.'</td><td></td></tr>';
-	$html_text .= '<tr id="434" style="display:none"><td>billing presented_name</td><td>'.$item->billing->presented_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="435" style="display:none"><td>billing kind</td><td>'.$item->billing->kind.'</td><td></td></tr>';
-	$html_text .= '<tr id="436" style="display:none"><td>billing name</td><td>'.$item->billing->name.'</td><td></td></tr>';
-	$html_text .= '<tr id="437" style="display:none"><td>billing email</td><td>'.$item->billing->email.'</td><td></td></tr>';
-	$html_text .= '<tr id="438" style="display:none"><td>billing tel</td><td>'.$item->billing->tel.'</td><td></td></tr>';
-	$html_text .= '<tr id="439" style="display:none"><td>billing country_code</td><td>'.$item->billing->country_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="4310" style="display:none"><td>billing street</td><td>'.$item->billing->street.'</td><td></td></tr>';
-	$html_text .= '<tr id="4311" style="display:none"><td>billing city</td><td>'.$item->billing->city.'</td><td></td></tr>';
-	$html_text .= '<tr id="4312" style="display:none"><td>billing state_province</td><td>'.$item->billing->state_province.'</td><td></td></tr>';
-	$html_text .= '<tr id="4313" style="display:none"><td>billing postal_code</td><td>'.$item->billing->postal_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="4314" style="display:none"><td>billing country_name</td><td>'.$item->billing->country_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="4315" style="display:none"><td>billing language_pref_1</td><td>'.$item->billing->language_pref_1.'</td><td></td></tr>';
-	$html_text .= '<tr id="4316" style="display:none"><td>billing language_pref_2</td><td>'.$item->billing->language_pref_2.'</td><td></td></tr>';
-	$html_text .= '<tr id="4317" style="display:none"><td>billing shielding</td><td>'.$item->billing->shielding.'</td><td id="billing_shielding"></td></tr>';
-	$html_text .= '<tr id="4318" style="display:none;vertical-align:top"><td>billing properties</td><td>'.$item->billing->properties.'</td><td></td></tr>';	
-	$html_text .= '<tr id="4319" style="display:none;vertical-align:top"><td>billing remark_values</td><td>'.$item->billing->remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="433" style="display:none"><td>billing organization_type</td><td>'.$item->billing->organization_type.'</td><td></td></tr>';
+	$html_text .= '<tr id="434" style="display:none"><td>billing organization_name</td><td>'.$item->billing->organization_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="435" style="display:none"><td>billing presented_name</td><td>'.$item->billing->presented_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="436" style="display:none"><td>billing kind</td><td>'.$item->billing->kind.'</td><td></td></tr>';
+	$html_text .= '<tr id="437" style="display:none"><td>billing name</td><td>'.$item->billing->name.'</td><td></td></tr>';
+	$html_text .= '<tr id="438" style="display:none"><td>billing email</td><td>'.$item->billing->email.'</td><td></td></tr>';
+	$html_text .= '<tr id="439" style="display:none"><td>billing tel</td><td>'.$item->billing->tel.'</td><td></td></tr>';
+	$html_text .= '<tr id="4310" style="display:none"><td>billing country_code</td><td>'.$item->billing->country_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="4311" style="display:none"><td>billing street</td><td>'.$item->billing->street.'</td><td></td></tr>';
+	$html_text .= '<tr id="4312" style="display:none"><td>billing city</td><td>'.$item->billing->city.'</td><td></td></tr>';
+	$html_text .= '<tr id="4313" style="display:none"><td>billing state_province</td><td>'.$item->billing->state_province.'</td><td></td></tr>';
+	$html_text .= '<tr id="4314" style="display:none"><td>billing postal_code</td><td>'.$item->billing->postal_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="4315" style="display:none"><td>billing country_name</td><td>'.$item->billing->country_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="4316" style="display:none"><td>billing language_pref_1</td><td>'.$item->billing->language_pref_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="4317" style="display:none"><td>billing language_pref_2</td><td>'.$item->billing->language_pref_2.'</td><td></td></tr>';
+	$html_text .= '<tr id="4318" style="display:none"><td>billing shielding</td><td>'.$item->billing->shielding.'</td><td id="billing_shielding"></td></tr>';
+	$html_text .= '<tr id="4319" style="display:none;vertical-align:top"><td>billing properties</td><td>'.$item->billing->properties.'</td><td></td></tr>';	
+	$html_text .= '<tr id="4320" style="display:none;vertical-align:top"><td>billing remark_values</td><td>'.$item->billing->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Emergency +/-</button></td><td></td><td id="emergency_role"></td></tr>';
 	$html_text .= '<tr id="441" style="display:none"><td>emergency handle</td><td>'.$item->emergency->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="442" style="display:none"><td>emergency web_id</td><td>'.$item->emergency->web_id.'</td><td id="emergency_web_id"></td></tr>';
-	$html_text .= '<tr id="443" style="display:none"><td>emergency organization</td><td>'.$item->emergency->organization.'</td><td></td></tr>';
-	$html_text .= '<tr id="444" style="display:none"><td>emergency presented_name</td><td>'.$item->emergency->presented_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="445" style="display:none"><td>emergency kind</td><td>'.$item->emergency->kind.'</td><td></td></tr>';
-	$html_text .= '<tr id="446" style="display:none"><td>emergency name</td><td>'.$item->emergency->name.'</td><td></td></tr>';
-	$html_text .= '<tr id="447" style="display:none"><td>emergency email</td><td>'.$item->emergency->email.'</td><td></td></tr>';
-	$html_text .= '<tr id="448" style="display:none"><td>emergency tel</td><td>'.$item->emergency->tel.'</td><td></td></tr>';
-	$html_text .= '<tr id="449" style="display:none"><td>emergency country_code</td><td>'.$item->emergency->country_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="4410" style="display:none"><td>emergency street</td><td>'.$item->emergency->street.'</td><td></td></tr>';
-	$html_text .= '<tr id="4411" style="display:none"><td>emergency city</td><td>'.$item->emergency->city.'</td><td></td></tr>';
-	$html_text .= '<tr id="4412" style="display:none"><td>emergency state_province</td><td>'.$item->emergency->state_province.'</td><td></td></tr>';
-	$html_text .= '<tr id="4413" style="display:none"><td>emergency postal_code</td><td>'.$item->emergency->postal_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="4414" style="display:none"><td>emergency country_name</td><td>'.$item->emergency->country_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="4415" style="display:none"><td>emergency language_pref_1</td><td>'.$item->emergency->language_pref_1.'</td><td></td></tr>';
-	$html_text .= '<tr id="4416" style="display:none"><td>emergency language_pref_2</td><td>'.$item->emergency->language_pref_2.'</td><td></td></tr>';
-	$html_text .= '<tr id="4417" style="display:none"><td>emergency shielding</td><td>'.$item->emergency->shielding.'</td><td id="emergency_shielding"></td></tr>';
-	$html_text .= '<tr id="4418" style="display:none;vertical-align:top"><td>emergency properties</td><td>'.$item->emergency->properties.'</td><td></td></tr>';
-	$html_text .= '<tr id="4419" style="display:none;vertical-align:top"><td>emergency remark_values</td><td>'.$item->emergency->remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="443" style="display:none"><td>emergency organization_type</td><td>'.$item->emergency->organization_type.'</td><td></td></tr>';
+	$html_text .= '<tr id="444" style="display:none"><td>emergency organization_name</td><td>'.$item->emergency->organization_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="445" style="display:none"><td>emergency presented_name</td><td>'.$item->emergency->presented_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="446" style="display:none"><td>emergency kind</td><td>'.$item->emergency->kind.'</td><td></td></tr>';
+	$html_text .= '<tr id="447" style="display:none"><td>emergency name</td><td>'.$item->emergency->name.'</td><td></td></tr>';
+	$html_text .= '<tr id="448" style="display:none"><td>emergency email</td><td>'.$item->emergency->email.'</td><td></td></tr>';
+	$html_text .= '<tr id="449" style="display:none"><td>emergency tel</td><td>'.$item->emergency->tel.'</td><td></td></tr>';
+	$html_text .= '<tr id="4410" style="display:none"><td>emergency country_code</td><td>'.$item->emergency->country_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="4411" style="display:none"><td>emergency street</td><td>'.$item->emergency->street.'</td><td></td></tr>';
+	$html_text .= '<tr id="4412" style="display:none"><td>emergency city</td><td>'.$item->emergency->city.'</td><td></td></tr>';
+	$html_text .= '<tr id="4413" style="display:none"><td>emergency state_province</td><td>'.$item->emergency->state_province.'</td><td></td></tr>';
+	$html_text .= '<tr id="4414" style="display:none"><td>emergency postal_code</td><td>'.$item->emergency->postal_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="4415" style="display:none"><td>emergency country_name</td><td>'.$item->emergency->country_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="4416" style="display:none"><td>emergency language_pref_1</td><td>'.$item->emergency->language_pref_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="4417" style="display:none"><td>emergency language_pref_2</td><td>'.$item->emergency->language_pref_2.'</td><td></td></tr>';
+	$html_text .= '<tr id="4418" style="display:none"><td>emergency shielding</td><td>'.$item->emergency->shielding.'</td><td id="emergency_shielding"></td></tr>';
+	$html_text .= '<tr id="4419" style="display:none;vertical-align:top"><td>emergency properties</td><td>'.$item->emergency->properties.'</td><td></td></tr>';
+	$html_text .= '<tr id="4420" style="display:none;vertical-align:top"><td>emergency remark_values</td><td>'.$item->emergency->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(50)">Reseller +/-</button></td><td></td><td id="reseller_role"></td></tr>';
 	$html_text .= '<tr id="501" style="display:none"><td>reseller handle</td><td>'.$item->reseller->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="502" style="display:none"><td>reseller web_id</td><td>'.$item->reseller->web_id.'</td><td id="reseller_web_id"></td></tr>';
-	$html_text .= '<tr><td>reseller organization</td><td>'.$item->reseller->organization.'</td><td></td></tr>';
+	$html_text .= '<tr><td>reseller organization_type</td><td>'.$item->reseller->organization_type.'</td><td></td></tr>';
+	$html_text .= '<tr><td>reseller organization_name</td><td>'.$item->reseller->organization_name.'</td><td></td></tr>';
 	$html_text .= '<tr><td>reseller presented_name</td><td>'.$item->reseller->presented_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="503" style="display:none"><td>reseller kind</td><td>'.$item->reseller->kind.'</td><td></td></tr>';
 	$html_text .= '<tr id="504" style="display:none"><td>reseller name</td><td>'.$item->reseller->name.'</td><td></td></tr>';
@@ -851,7 +858,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(60)">Registrar +/-</button></td><td></td><td id="registrar_role"></td></tr>';
 	$html_text .= '<tr id="601" style="display:none"><td>registrar handle</td><td>'.$item->registrar->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="602" style="display:none"><td>registrar web_id</td><td>'.$item->registrar->web_id.'</td><td id="registrar_web_id"></td></tr>';
-	$html_text .= '<tr><td>registrar organization</td><td>'.$item->registrar->organization.'</td><td></td></tr>';
+	$html_text .= '<tr><td>registrar organization_type</td><td>'.$item->registrar->organization_type.'</td><td></td></tr>';
+	$html_text .= '<tr><td>registrar organization_name</td><td>'.$item->registrar->organization_name.'</td><td></td></tr>';
 	$html_text .= '<tr><td>registrar presented_name</td><td>'.$item->registrar->presented_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="603" style="display:none"><td>registrar kind</td><td>'.$item->registrar->kind.'</td><td></td></tr>';
 	$html_text .= '<tr id="604" style="display:none"><td>registrar name</td><td>'.$item->registrar->name.'</td><td></td></tr>';
@@ -878,10 +886,11 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="6025" style="display:none;vertical-align:top"><td>registrar properties</td><td>'.$item->registrar->properties.'</td><td></td></tr>';
 	$html_text .= '<tr id="6026" style="display:none;vertical-align:top"><td>registrar remark_values</td><td>'.$item->registrar->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Registrar Abuse +/-</button></td><td></td><td id="registrar_abuse_role"></td></tr>';
-	$html_text .= '<tr id="611" style="display:none"><td>registrar abuse_organization</td><td>'.$item->registrar->abuse_organization.'</td><td></td></tr>';
-	$html_text .= '<tr id="612" style="display:none"><td>registrar abuse_presented_name</td><td>'.$item->registrar->abuse_presented_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="613" style="display:none"><td>registrar abuse_email</td><td>'.$item->registrar->abuse_email.'</td><td></td></tr>';
-	$html_text .= '<tr id="614" style="display:none"><td>registrar abuse_tel</td><td>'.$item->registrar->abuse_tel.'</td><td id="registrar_abuse_tel"></td></tr>';
+	$html_text .= '<tr id="611" style="display:none"><td>registrar abuse_organization_type</td><td>'.$item->registrar->abuse_organization_type.'</td><td></td></tr>';
+	$html_text .= '<tr id="612" style="display:none"><td>registrar abuse_organization_name</td><td>'.$item->registrar->abuse_organization_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="613" style="display:none"><td>registrar abuse_presented_name</td><td>'.$item->registrar->abuse_presented_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="614" style="display:none"><td>registrar abuse_email</td><td>'.$item->registrar->abuse_email.'</td><td></td></tr>';
+	$html_text .= '<tr id="615" style="display:none"><td>registrar abuse_tel</td><td>'.$item->registrar->abuse_tel.'</td><td id="registrar_abuse_tel"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(63)">Name Servers +/-</button></td><td></td><td></td></tr>';
 	//if (!empty($item->name_servers->server_1->server_name))	{
