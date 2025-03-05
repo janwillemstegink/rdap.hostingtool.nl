@@ -3,6 +3,7 @@
 //$_GET['domain'] = 'münchen.de';
 //$_GET['domain'] = 'example.tel';
 //$_GET['domain'] = 'nic.frl';
+//$_GET['domain'] = 'fryslan.frl';
 //$_GET['domain'] = 'example.ovh';
 //$_GET['domain'] = 'icann.org';
 
@@ -905,25 +906,25 @@ foreach($obj as $key1 => $value1) {
 						}
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'tel' and $value6 == 'tel')	{
 							if ($key2 == $entity_registrant)	{
-								$registrant_tel .= implode(",<br />",$value5[1]) . ' ' . $value5[3] . '<br />';
+								$registrant_tel .= implode(",<br />",$value5[1]) . ' ' . $value5[2] . ' ' . $value5[3] . '<br />';
 							}
 							if ($key2 == $entity_administrative)	{
-								$administrative_tel .= implode(",<br />",$value5[1]) . ' ' . $value5[3] . '<br />';
+								$administrative_tel .= implode(",<br />",$value5[1]) . ' ' . $value5[2] . ' ' . $value5[3] . '<br />';
 							}
 							if ($key2 == $entity_technical)	{
-								$technical_tel .= implode(",<br />",$value5[1]) . ' ' . $value5[3] . '<br />';
+								$technical_tel .= implode(",<br />",$value5[1]) . ' ' . $value5[2] . ' ' . $value5[3] . '<br />';
 							}
 							if ($key2 == $entity_billing)	{
-								$billing_tel .= implode(",<br />",$value5[1]) . ' ' . $value5[3] . '<br />';
+								$billing_tel .= implode(",<br />",$value5[1]) . ' ' . $value5[2] . ' ' . $value5[3] . '<br />';
 							}							
 							if ($key2 == $entity_reseller)	{
-								$reseller_tel .= implode(",<br />",$value5[1]) . ' ' . $value5[3] . '<br />';
+								$reseller_tel .= implode(",<br />",$value5[1]) . ' ' . $value5[2] . ' ' . $value5[3] . '<br />';
 							}
 							if ($key2 == $entity_registrar)	{
-								$registrar_tel .= implode(",<br />",$value5[1]) . ' ' . $value5[3] . '<br />';
+								$registrar_tel .= implode(",<br />",$value5[1]) . ' ' . $value5[2] . ' ' . $value5[3] . '<br />';
 							}
 							if ($key2 == $entity_sponsor)	{
-								$sponsor_tel .= implode(",<br />",$value5[1]) . ' ' . $value5[3] . '<br />';
+								$sponsor_tel .= implode(",<br />",$value5[1]) . ' ' . $value5[2] . ' ' . $value5[3] . '<br />';
 							}
 						}
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'fn' and $value6 == 'fn')	{
@@ -1177,7 +1178,7 @@ foreach($obj as $key1 => $value1) {
 										$registrar_abuse_email = $value7[3];
 									}
 									elseif ($value7[0] == 'tel' and $value8 == 'tel')	{
-										$registrar_abuse_tel = implode(",<br />",$value7[1]) . ' ' . $value7[3];							
+										$registrar_abuse_tel = implode(",<br />",$value7[1]) . ' ' . $value7[2] . ' ' . $value7[3];							
 									}
 									elseif ($value7[0] == 'adr' and $key8 == 1)	{
 										$registrar_abuse_country_code = detect_country_code($registrar_abuse_country_code, $value8['CC'], $value8['cc']);				
@@ -2046,12 +2047,12 @@ $registrar->appendChild($domain_registrar_properties);
 $domain_registrar_remark_values = $doc->createElement("remark_values");
 $domain_registrar_remark_values->appendChild($doc->createCDATASection($registrar_remark_values));	
 $registrar->appendChild($domain_registrar_remark_values);
-$domain_registrar_abuse_organization_type = $doc->createElement("organization_type");
+$domain_registrar_abuse_organization_type = $doc->createElement("abuse_organization_type");
 $domain_registrar_abuse_organization_type->appendChild($doc->createCDATASection($registrar_abuse_organization_type));
-$registrar->appendChild($domain_registrar_abuse_organization_type);
-$domain_registrar_abuse_organization_name = $doc->createElement("organization_name");
+$registrar->appendChild($domain_registrar_abuse_organization_type);	
+$domain_registrar_abuse_organization_name = $doc->createElement("abuse_organization_name");
 $domain_registrar_abuse_organization_name->appendChild($doc->createCDATASection($registrar_abuse_organization_name));
-$registrar->appendChild($domain_registrar_abuse_organization_name);
+$registrar->appendChild($domain_registrar_abuse_organization_name);	
 $domain_registrar_abuse_presented_name = $doc->createElement("abuse_presented_name");
 $domain_registrar_abuse_presented_name->appendChild($doc->createCDATASection($registrar_abuse_presented_name));	
 $registrar->appendChild($domain_registrar_abuse_presented_name);	
