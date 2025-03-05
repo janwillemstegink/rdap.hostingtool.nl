@@ -405,7 +405,8 @@ $registrar_abuse_organization_type = '';
 $registrar_abuse_organization_name = '';
 $registrar_abuse_presented_name = '';
 $registrar_abuse_email = 'No Point of Contact';
-$registrar_abuse_tel = '';	
+$registrar_abuse_tel = '';
+$registrar_abuse_country_code = '';	
 
 $server_name_1 = $obj['nameservers'][0]['ldhName'];
 $server_name_2 = $obj['nameservers'][1]['ldhName'];
@@ -1177,6 +1178,9 @@ foreach($obj as $key1 => $value1) {
 									}
 									elseif ($value7[0] == 'tel' and $value8 == 'tel')	{
 										$registrar_abuse_tel = implode(",<br />",$value7[1]) . ' ' . $value7[3];							
+									}
+									elseif ($value7[0] == 'adr' and $key8 == 1)	{
+										$registrar_abuse_country_code = detect_country_code($registrar_abuse_country_code, $value8['CC'], $value8['cc']);				
 									}
 								}
 								//echo 'k4: '.$key4. ' v4: '.$value4.' k5: '.$key5.' v5: '.$value5.' k6: '.$key6.' v6: '.$value6.' k7: '.$key7.' value73: '.$value7[3].'<br />';
@@ -2056,7 +2060,10 @@ $domain_registrar_abuse_email->appendChild($doc->createCDATASection($registrar_a
 $registrar->appendChild($domain_registrar_abuse_email);
 $domain_registrar_abuse_tel = $doc->createElement("abuse_tel");
 $domain_registrar_abuse_tel->appendChild($doc->createCDATASection($registrar_abuse_tel));	
-$registrar->appendChild($domain_registrar_abuse_tel);	
+$registrar->appendChild($domain_registrar_abuse_tel);
+$domain_registrar_abuse_country_code = $doc->createElement("abuse_country_code");
+$domain_registrar_abuse_country_code->appendChild($doc->createCDATASection($registrar_abuse_country_code));	
+$registrar->appendChild($domain_registrar_abuse_country_code);		
 $domain->appendChild($registrar);
 	
 $name_servers = $doc->createElement("name_servers");

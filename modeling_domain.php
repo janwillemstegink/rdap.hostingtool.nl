@@ -87,7 +87,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 61)	{ // abuse
 		var pre = '61';
-		var max = 5
+		var max = 6
 	}
 	else if (type == 63)	{ // name servers
 		var pre = '63';
@@ -891,6 +891,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="613" style="display:none"><td>registrar abuse_presented_name</td><td>'.$item->registrar->abuse_presented_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="614" style="display:none"><td>registrar abuse_email</td><td>'.$item->registrar->abuse_email.'</td><td></td></tr>';
 	$html_text .= '<tr id="615" style="display:none"><td>registrar abuse_tel</td><td>'.$item->registrar->abuse_tel.'</td><td id="registrar_abuse_tel"></td></tr>';
+	$html_text .= '<tr id="616" style="display:none"><td>registrar abuse_country_code</td><td>'.$item->registrar->abuse_country_code.'</td><td id="registrar_abuse_country_code"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(63)">Name Servers +/-</button></td><td></td><td></td></tr>';
 	//if (!empty($item->name_servers->server_1->server_name))	{
