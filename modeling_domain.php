@@ -192,7 +192,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;
 		document.getElementById("registrar_abuse_role").textContent = "";
-		document.getElementById("registrar_abuse_tel").textContent = "";
+		document.getElementById("registrar_abuse_telephone").textContent = "";
 		document.getElementById("name_servers_dnssec").textContent = "";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "";
 		document.getElementById("name_servers_ip").textContent = "";
@@ -265,7 +265,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_abuse_role").textContent = "Informatie over hoe een derde partij contact kan opnemen met de registrar. Zie bijvoorbeeld fryslan.frl.";
-		document.getElementById("registrar_abuse_tel").textContent = "Een telefoonnummer moet beginnen met het type. Toegestaan zijn in ieder geval 'voice' en 'fax'.";
+		document.getElementById("registrar_abuse_telephone").textContent = "Een telefoonnummer moet beginnen met het type. Toegestaan zijn in ieder geval 'voice' en 'fax'.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
@@ -338,7 +338,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_abuse_role").textContent = "Information on how a third party can contact the registrar. See e.g. fryslan.frl.";
-		document.getElementById("registrar_abuse_tel").textContent = "A telephone number must begin with the type. Allowed are anyway 'voice' and 'fax'.";
+		document.getElementById("registrar_abuse_telephone").textContent = "A telephone number must begin with the type. Allowed are anyway 'voice' and 'fax'.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
@@ -411,7 +411,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_abuse_role").textContent = "Informationen darüber, wie Dritte den Registrar kontaktieren können. Siehe z. B. fryslan.frl.";
-		document.getElementById("registrar_abuse_tel").textContent = "Eine Telefonnummer muss mit dem Typ beginnen. Erlaubt sind grundsätzlich 'voice' und 'fax'.";
+		document.getElementById("registrar_abuse_telephone").textContent = "Eine Telefonnummer muss mit dem Typ beginnen. Erlaubt sind grundsätzlich 'voice' und 'fax'.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 		document.getElementById("name_servers_ip").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
@@ -484,7 +484,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
 		document.getElementById("registrar_abuse_role").textContent = "Informations sur la manière dont un tiers peut contacter le registraire. Voir par exemple fryslan.frl.";
-		document.getElementById("registrar_abuse_tel").textContent = "Un numéro de téléphone doit commencer par le type. Sont autorisés de toute façon 'voice' et 'fax'.";
+		document.getElementById("registrar_abuse_telephone").textContent = "Un numéro de téléphone doit commencer par le type. Sont autorisés de toute façon 'voice' et 'fax'.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 		document.getElementById("name_servers_ip").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
@@ -688,7 +688,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="396" style="display:none"><td>sponsor kind</td><td>'.$item->sponsor->kind.'</td><td></td></tr>';
 	$html_text .= '<tr id="397" style="display:none"><td>sponsor name</td><td>'.$item->sponsor->name.'</td><td></td></tr>';
 	$html_text .= '<tr id="398" style="display:none"><td>sponsor email</td><td>'.$item->sponsor->email.'</td><td></td></tr>';
-	$html_text .= '<tr id="399" style="display:none"><td>sponsor tel</td><td>'.$item->sponsor->tel.'</td><td></td></tr>';
+	$html_text .= '<tr id="399" style="display:none"><td>sponsor telephone</td><td>'.$item->sponsor->telephone.'</td><td></td></tr>';
 	$html_text .= '<tr id="3910" style="display:none"><td>sponsor country_code</td><td>'.$item->sponsor->country_code.'</td><td></td></tr>';
 	$html_text .= '<tr id="3911" style="display:none"><td>sponsor street</td><td>'.$item->sponsor->street.'</td><td></td></tr>';
 	$html_text .= '<tr id="3912" style="display:none"><td>sponsor city</td><td>'.$item->sponsor->city.'</td><td></td></tr>';
@@ -718,7 +718,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="404" style="display:none"><td>registrant kind</td><td>'.$item->registrant->kind.'</td><td id="registrant_kind"></td></tr>';
 	$html_text .= '<tr id="405" style="display:none"><td>registrant name</td><td>'.$item->registrant->name.'</td><td id="registrant_name"></td></tr>';
 	$html_text .= '<tr id="406" style="display:none"><td>registrant email</td><td>'.$item->registrant->email.'</td><td></td></tr>';
-	$html_text .= '<tr id="407" style="display:none"><td>registrant tel</td><td>'.$item->registrant->tel.'</td><td></td></tr>';
+	$html_text .= '<tr id="407" style="display:none"><td>registrant telephone</td><td>'.$item->registrant->telephone.'</td><td></td></tr>';
 	$html_text .= '<tr><td>registrant country_code (<a style="font-size: 0.9rem" href="https://icann-hamster.nl/ham/soac/ccnso/techday/icann80/2.%20RDAP%20Conformance%20Tool%20-%20Tech%20Day.pdf" target="_blank">"cc" parameter</a>)</td><td>'.$item->registrant->country_code.'</td><td id="registrant_country_code"></td></tr>';
 	$html_text .= '<tr id="408" style="display:none"><td>registrant street</td><td>'.$item->registrant->street.'</td><td id="registrant_street"></td></tr>';
 	$html_text .= '<tr id="409" style="display:none"><td>registrant city</td><td>'.$item->registrant->city.'</td><td id="registrant_city"></td></tr>';
@@ -748,7 +748,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="416" style="display:none"><td>administrative kind</td><td>'.$item->administrative->kind.'</td><td></td></tr>';
 	$html_text .= '<tr id="417" style="display:none"><td>administrative name</td><td>'.$item->administrative->name.'</td><td></td></tr>';
 	$html_text .= '<tr><td>administrative email</td><td>'.$item->administrative->email.'</td><td></td></tr>';
-	$html_text .= '<tr id="418" style="display:none"><td>administrative tel</td><td>'.$item->administrative->tel.'</td><td></td></tr>';
+	$html_text .= '<tr id="418" style="display:none"><td>administrative telephone</td><td>'.$item->administrative->telephone.'</td><td></td></tr>';
 	$html_text .= '<tr id="419" style="display:none"><td>administrative country_code</td><td>'.$item->administrative->country_code.'</td><td></td></tr>';
 	$html_text .= '<tr id="4110" style="display:none"><td>administrative street</td><td>'.$item->administrative->street.'</td><td></td></tr>';
 	$html_text .= '<tr id="4111" style="display:none"><td>administrative city</td><td>'.$item->administrative->city.'</td><td></td></tr>';
@@ -769,7 +769,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="426" style="display:none"><td>technical kind</td><td>'.$item->technical->kind.'</td><td></td></tr>';
 	$html_text .= '<tr id="427" style="display:none"><td>technical name</td><td>'.$item->technical->name.'</td><td></td></tr>';
 	$html_text .= '<tr><td>technical email</td><td>'.$item->technical->email.'</td><td></td></tr>';
-	$html_text .= '<tr id="428" style="display:none"><td>technical tel</td><td>'.$item->technical->tel.'</td><td></td></tr>';
+	$html_text .= '<tr id="428" style="display:none"><td>technical telephone</td><td>'.$item->technical->telephone.'</td><td></td></tr>';
 	$html_text .= '<tr id="429" style="display:none"><td>technical country_code</td><td>'.$item->technical->country_code.'</td><td></td></tr>';
 	$html_text .= '<tr id="4210" style="display:none"><td>technical street</td><td>'.$item->technical->street.'</td><td></td></tr>';
 	$html_text .= '<tr id="4211" style="display:none"><td>technical city</td><td>'.$item->technical->city.'</td><td></td></tr>';
@@ -790,7 +790,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="436" style="display:none"><td>billing kind</td><td>'.$item->billing->kind.'</td><td></td></tr>';
 	$html_text .= '<tr id="437" style="display:none"><td>billing name</td><td>'.$item->billing->name.'</td><td></td></tr>';
 	$html_text .= '<tr id="438" style="display:none"><td>billing email</td><td>'.$item->billing->email.'</td><td></td></tr>';
-	$html_text .= '<tr id="439" style="display:none"><td>billing tel</td><td>'.$item->billing->tel.'</td><td></td></tr>';
+	$html_text .= '<tr id="439" style="display:none"><td>billing telephone</td><td>'.$item->billing->telephone.'</td><td></td></tr>';
 	$html_text .= '<tr id="4310" style="display:none"><td>billing country_code</td><td>'.$item->billing->country_code.'</td><td></td></tr>';
 	$html_text .= '<tr id="4311" style="display:none"><td>billing street</td><td>'.$item->billing->street.'</td><td></td></tr>';
 	$html_text .= '<tr id="4312" style="display:none"><td>billing city</td><td>'.$item->billing->city.'</td><td></td></tr>';
@@ -811,7 +811,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="446" style="display:none"><td>emergency kind</td><td>'.$item->emergency->kind.'</td><td></td></tr>';
 	$html_text .= '<tr id="447" style="display:none"><td>emergency name</td><td>'.$item->emergency->name.'</td><td></td></tr>';
 	$html_text .= '<tr id="448" style="display:none"><td>emergency email</td><td>'.$item->emergency->email.'</td><td></td></tr>';
-	$html_text .= '<tr id="449" style="display:none"><td>emergency tel</td><td>'.$item->emergency->tel.'</td><td></td></tr>';
+	$html_text .= '<tr id="449" style="display:none"><td>emergency telephone</td><td>'.$item->emergency->telephone.'</td><td></td></tr>';
 	$html_text .= '<tr id="4410" style="display:none"><td>emergency country_code</td><td>'.$item->emergency->country_code.'</td><td></td></tr>';
 	$html_text .= '<tr id="4411" style="display:none"><td>emergency street</td><td>'.$item->emergency->street.'</td><td></td></tr>';
 	$html_text .= '<tr id="4412" style="display:none"><td>emergency city</td><td>'.$item->emergency->city.'</td><td></td></tr>';
@@ -833,7 +833,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="504" style="display:none"><td>reseller kind</td><td>'.$item->reseller->kind.'</td><td></td></tr>';
 	$html_text .= '<tr id="505" style="display:none"><td>reseller name</td><td>'.$item->reseller->name.'</td><td></td></tr>';
 	$html_text .= '<tr id="506" style="display:none"><td>reseller email</td><td>'.$item->reseller->email.'</td><td></td></tr>';
-	$html_text .= '<tr id="507" style="display:none"><td>reseller tel</td><td>'.$item->reseller->tel.'</td><td></td></tr>';
+	$html_text .= '<tr id="507" style="display:none"><td>reseller telephone</td><td>'.$item->reseller->telephone.'</td><td></td></tr>';
 	$html_text .= '<tr><td>reseller country_code</td><td>'.$item->reseller->country_code.'</td><td></td></tr>';
 	$html_text .= '<tr id="508" style="display:none"><td>reseller street</td><td>'.$item->reseller->street.'</td><td></td></tr>';
 	$html_text .= '<tr id="509" style="display:none"><td>reseller city</td><td>'.$item->reseller->city.'</td><td></td></tr>';
@@ -864,7 +864,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="604" style="display:none"><td>registrar kind</td><td>'.$item->registrar->kind.'</td><td></td></tr>';
 	$html_text .= '<tr id="605" style="display:none"><td>registrar name</td><td>'.$item->registrar->name.'</td><td></td></tr>';
 	$html_text .= '<tr id="606" style="display:none"><td>registrar email</td><td>'.$item->registrar->email.'</td><td></td></tr>';
-	$html_text .= '<tr id="607" style="display:none"><td>registrar tel</td><td>'.$item->registrar->tel.'</td><td></td></tr>';
+	$html_text .= '<tr id="607" style="display:none"><td>registrar telephone</td><td>'.$item->registrar->telephone.'</td><td></td></tr>';
 	$html_text .= '<tr><td>registrar country_code</td><td>'.$item->registrar->country_code.'</td><td></td></tr>';
 	$html_text .= '<tr id="608" style="display:none"><td>registrar street</td><td>'.$item->registrar->street.'</td><td></td></tr>';
 	$html_text .= '<tr id="609" style="display:none"><td>registrar city</td><td>'.$item->registrar->city.'</td><td></td></tr>';
@@ -890,7 +890,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="612" style="display:none"><td>registrar abuse_organization_name</td><td>'.$item->registrar->abuse_organization_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="613" style="display:none"><td>registrar abuse_presented_name</td><td>'.$item->registrar->abuse_presented_name.'</td><td></td></tr>';
 	$html_text .= '<tr id="614" style="display:none"><td>registrar abuse_email</td><td>'.$item->registrar->abuse_email.'</td><td></td></tr>';
-	$html_text .= '<tr id="615" style="display:none"><td>registrar abuse_tel</td><td>'.$item->registrar->abuse_tel.'</td><td id="registrar_abuse_tel"></td></tr>';
+	$html_text .= '<tr id="615" style="display:none"><td>registrar abuse_telephone</td><td>'.$item->registrar->abuse_telephone.'</td><td id="registrar_abuse_telephone"></td></tr>';
 	$html_text .= '<tr id="616" style="display:none"><td>registrar abuse_country_code</td><td>'.$item->registrar->abuse_country_code.'</td><td id="registrar_abuse_country_code"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(63)">Name Servers +/-</button></td><td></td><td></td></tr>';

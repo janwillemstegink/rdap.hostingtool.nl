@@ -14,7 +14,7 @@
 			<kind>org</kind>
 			<name>Jan Willem Stegink</name>
 			<email>steginkj@freedom.nl</email>
-			<tel>voice +31.264453916</tel>
+			<telephone>voice uri tel:+31.264453916</telephone>
 			<country_code>NL</country_code>
 			<street>Dr. Schaepmanlaan 44</street>
 			<postal_code>6823 AS</postal_code>
@@ -31,7 +31,7 @@
 			<kind>org</kind>
 			<name>Jan Willem Stegink</name>
 			<email>admindesk@janwillemstegink.nl</email>
-			<tel>voice +31.264453916</tel>
+			<telephone>voice uri tel:+31.264453916</telephone>
 			<country_code>NL</country_code>
 			<street>Dr. Schaepmanlaan 44</street>
 			<postal_code>6823 AS</postal_code>
@@ -48,7 +48,7 @@
 			<kind>org</kind>
 			<name>Jan Willem Stegink</name>
 			<email>steginkj@freedom.nl</email>
-			<tel>voice +31.264453916</tel>
+			<telephone>voice uri tel:+31.264453916</telephone>
 			<country_code>NL</country_code>			
 			<street>Dr. Schaepmanlaan 44</street>
 			<postal_code>6823 AS</postal_code>

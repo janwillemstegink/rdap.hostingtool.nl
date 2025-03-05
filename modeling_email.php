@@ -46,7 +46,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>kind</td><td>'.$item->registrant->kind.'</td></tr>';
 	$html_text .= '<tr><td>name</td><td>'.$item->registrant->name.'</td></tr>';
 	$html_text .= '<tr><td>email</td><td>'.$item->registrant->email.'</td></tr>';
-	$html_text .= '<tr><td>tel</td><td>'.$item->registrant->tel.'</td></tr>';
+	$html_text .= '<tr><td>telephone</td><td>'.$item->registrant->telephone.'</td></tr>';
 	$html_text .= '<tr><td>country_code</td><td>'.$item->registrant->country_code.'</td></tr>';
 	$html_text .= '<tr><td>street</td><td>'.$item->registrant->street.'</td></tr>';
 	$html_text .= '<tr><td>postal_code</td><td>'.$item->registrant->postal_code.'</td></tr>';
@@ -62,7 +62,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>kind</td><td>'.$item->administrative->kind.'</td></tr>';
 	$html_text .= '<tr><td>name</td><td>'.$item->administrative->name.'</td></tr>';
 	$html_text .= '<tr><td>email</td><td>'.$item->administrative->email.'</td></tr>';
-	$html_text .= '<tr><td>tel</td><td>'.$item->administrative->tel.'</td></tr>';
+	$html_text .= '<tr><td>telephone</td><td>'.$item->administrative->telephone.'</td></tr>';
 	$html_text .= '<tr><td>country_code</td><td>'.$item->administrative->country_code.'</td></tr>';
 	$html_text .= '<tr><td>street</td><td>'.$item->administrative->street.'</td></tr>';
 	$html_text .= '<tr><td>postal_code</td><td>'.$item->administrative->postal_code.'</td></tr>';
@@ -78,7 +78,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>kind</td><td>'.$item->billing->kind.'</td></tr>';
 	$html_text .= '<tr><td>name</td><td>'.$item->billing->name.'</td></tr>';
 	$html_text .= '<tr><td>email</td><td>'.$item->billing->email.'</td></tr>';
-	$html_text .= '<tr><td>tel</td><td>'.$item->billing->tel.'</td></tr>';
+	$html_text .= '<tr><td>telephone</td><td>'.$item->billing->telephone.'</td></tr>';
 	$html_text .= '<tr><td>country_code</td><td>'.$item->billing->country_code.'</td></tr>';
 	$html_text .= '<tr><td>street</td><td>'.$item->billing->street.'</td></tr>';
 	$html_text .= '<tr><td>postal_code</td><td>'.$item->billing->postal_code.'</td></tr>';
