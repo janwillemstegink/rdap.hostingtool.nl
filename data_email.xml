@@ -9,7 +9,8 @@
 		<registrant>
 			<handle>STE135417-TRAIP</handle>
 			<web_id>NL88COMM01234567890123456789012345</web_id>
-			<organization><![CDATA[Stegink Hosting & E-mail]]></organization>
+			<organization_type></organization_type>
+			<organization_name><![CDATA[Stegink Hosting & E-mail]]></organization_name>
 			<presented_name></presented_name>
 			<kind>org</kind>
 			<name>Jan Willem Stegink</name>
@@ -26,7 +27,8 @@
 		<administrative>
 			<handle>STE135418-TRAIP</handle>
 			<web_id>NL88COMM01234567890123456789012345</web_id>
-			<organization><![CDATA[Stegink Hosting & E-mail]]></organization>
+			<organization_type></organization_type>
+			<organization_name><![CDATA[Stegink Hosting & E-mail]]></organization_name>
 			<presented_name></presented_name>
 			<kind>org</kind>
 			<name>Jan Willem Stegink</name>
@@ -43,7 +45,8 @@
 		<billing>
 			<handle></handle>
 			<web_id>NL88COMM01234567890123456789012345</web_id>
-			<organization><![CDATA[Stegink Hosting & E-mail]]></organization>
+			<organization_type></organization_type>
+			<organization_name><![CDATA[Stegink Hosting & E-mail]]></organization_name>
 			<presented_name></presented_name>
 			<kind>org</kind>
 			<name>Jan Willem Stegink</name>

@@ -41,7 +41,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td COLSPAN="2"><br /><u>Houder / Registrant:</u></td></tr>';
 	$html_text .= '<tr><td>handle</td><td>'.$item->registrant->handle.'</td></tr>';
 	$html_text .= '<tr><td>web_id</td><td>'.$item->registrant->web_id.'</td></tr>';
-	$html_text .= '<tr><td>organization</td><td>'.$item->registrant->organization.'</td></tr>';
+	$html_text .= '<tr><td>organization_type</td><td>'.$item->registrant->organization_type.'</td></tr>';
+	$html_text .= '<tr><td>organization_name</td><td>'.$item->registrant->organization_name.'</td></tr>';
 	$html_text .= '<tr><td>presented_name</td><td>'.$item->registrant->presented_name.'</td></tr>';
 	$html_text .= '<tr><td>kind</td><td>'.$item->registrant->kind.'</td></tr>';
 	$html_text .= '<tr><td>name</td><td>'.$item->registrant->name.'</td></tr>';
@@ -57,7 +58,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td COLSPAN="2"><br /><u>Administratieve contactpersoon / Administrative contact:</u></td></tr>';
 	$html_text .= '<tr><td>handle</td><td>'.$item->administrative->handle.'</td></tr>';
 	$html_text .= '<tr><td>web_id</td><td>'.$item->administrative->web_id.'</td></tr>';
-	$html_text .= '<tr><td>organization</td><td>'.$item->administrative->organization.'</td></tr>';
+	$html_text .= '<tr><td>organization_type</td><td>'.$item->administrative->organization_type.'</td></tr>';
+	$html_text .= '<tr><td>organization_name</td><td>'.$item->administrative->organization_name.'</td></tr>';
 	$html_text .= '<tr><td>presented_name</td><td>'.$item->administrative->presented_name.'</td></tr>';
 	$html_text .= '<tr><td>kind</td><td>'.$item->administrative->kind.'</td></tr>';
 	$html_text .= '<tr><td>name</td><td>'.$item->administrative->name.'</td></tr>';
@@ -73,7 +75,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td COLSPAN="2"><br /><u>Facturering (indien de registry dit onderhoudt) / Billing (if the registry maintains this):</u></td></tr>';
 	$html_text .= '<tr><td>handle</td><td>'.$item->billing->handle.'</td></tr>';
 	$html_text .= '<tr><td>web_id</td><td>'.$item->billing->web_id.'</td></tr>';
-	$html_text .= '<tr><td>organization</td><td>'.$item->billing->organization.'</td></tr>';
+	$html_text .= '<tr><td>organization_type</td><td>'.$item->billing->organization_type.'</td></tr>';
+	$html_text .= '<tr><td>organization_name</td><td>'.$item->billing->organization_name.'</td></tr>';
 	$html_text .= '<tr><td>presented_name</td><td>'.$item->billing->presented_name.'</td></tr>';
 	$html_text .= '<tr><td>kind</td><td>'.$item->billing->kind.'</td></tr>';
 	$html_text .= '<tr><td>name</td><td>'.$item->billing->name.'</td></tr>';
