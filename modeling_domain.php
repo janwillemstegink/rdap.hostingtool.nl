@@ -79,11 +79,11 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 50)	{ // reseller
 		var pre = '50';
-		var max = 27
+		var max = 26
 	}	
 	else if (type == 60)	{ // registrar
 		var pre = '60';
-		var max = 27
+		var max = 26
 	}
 	else if (type == 61)	{ // abuse
 		var pre = '61';
@@ -678,7 +678,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="3010" style="display:none;vertical-align:top"><td>details extensions_values</td><td>'.$item->details->extensions_values.'</td><td id="details_extensions_values"></td></tr>';
 	$html_text .= '<tr id="3011" style="display:none;vertical-align:top"><td>details remark_values</td><td>'.$item->details->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$sponsor_applicable = (strlen($item->sponsor->organization) or strlen($item->sponsor->presented_name)) ? 'Sponsor Data Exists' : 'No Sponsor Data';
+	$sponsor_applicable = (strlen($item->sponsor->organization_name) or strlen($item->sponsor->presented_name)) ? 'Sponsor Data Exists' : 'No Sponsor Data';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(39)">Sponsor +/-</button></td><td>'.$sponsor_applicable.'</td><td id="sponsor_role"></td></tr>';
 	$html_text .= '<tr id="391" style="display:none"><td>sponsor handle</td><td>'.$item->sponsor->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="392" style="display:none"><td>sponsor web_id</td><td>'.$item->sponsor->web_id.'</td><td id="sponsor_web_id"></td></tr>';
@@ -834,26 +834,26 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="505" style="display:none"><td>reseller name</td><td>'.$item->reseller->name.'</td><td></td></tr>';
 	$html_text .= '<tr id="506" style="display:none"><td>reseller email</td><td>'.$item->reseller->email.'</td><td></td></tr>';
 	$html_text .= '<tr id="507" style="display:none"><td>reseller tel</td><td>'.$item->reseller->tel.'</td><td></td></tr>';
-	$html_text .= '<tr id="508" style="display:none"><td>reseller country_code</td><td>'.$item->reseller->country_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="509" style="display:none"><td>reseller street</td><td>'.$item->reseller->street.'</td><td></td></tr>';
-	$html_text .= '<tr id="5010" style="display:none"><td>reseller city</td><td>'.$item->reseller->city.'</td><td></td></tr>';
-	$html_text .= '<tr id="5011" style="display:none"><td>reseller state_province</td><td>'.$item->reseller->state_province.'</td><td></td></tr>';
-	$html_text .= '<tr id="5012" style="display:none"><td>reseller postal_code</td><td>'.$item->reseller->postal_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="5013" style="display:none"><td>reseller country_name</td><td>'.$item->reseller->country_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="5014" style="display:none"><td>reseller language_pref_1</td><td>'.$item->reseller->language_pref_1.'</td><td></td></tr>';
-	$html_text .= '<tr id="5015" style="display:none"><td>reseller language_pref_2</td><td>'.$item->reseller->language_pref_2.'</td><td></td></tr>';
-	$html_text .= '<tr id="5016" style="display:none"><td>reseller shielding</td><td>'.$item->reseller->shielding.'</td><td id="reseller_shielding"></td></tr>';
-	$html_text .= '<tr id="5017" style="display:none;vertical-align:top"><td>reseller status_values</td><td>'.$item->reseller->status_values.'</td><td></td></tr>';
-	$html_text .= '<tr id="5018" style="display:none"><td>reseller event_registration</td><td>'.$item->reseller->event_registration.'</td><td></td></tr>';
-	$html_text .= '<tr id="5019" style="display:none"><td>reseller event_last_transferred</td><td>'.$item->reseller->event_last_transferred.'</td><td></td></tr>';
-	$html_text .= '<tr id="5020" style="display:none"><td>reseller event_last_changed</td><td>'.$item->reseller->event_last_changed.'</td><td></td></tr>';
-	$html_text .= '<tr id="5021" style="display:none"><td>reseller event_expiration</td><td>'.$item->reseller->event_expiration.'</td><td></td></tr>';
-	$html_text .= '<tr id="5022" style="display:none"><td>reseller event_deletion</td><td>'.$item->reseller->event_deletion.'</td><td></td></tr>';
-	$html_text .= '<tr id="5023" style="display:none"><td>reseller event_last_uploaded</td><td>'.$item->reseller->event_last_uploaded.'</td><td></td></tr>';
-	$html_text .= '<tr id="5024" style="display:none"><td>reseller event_verification_received</td><td>'.$item->reseller->event_verification_received.'</td><td id="reseller_event_verification_received"></td></tr>';
-	$html_text .= '<tr id="5025" style="display:none"><td>reseller event_verification_set</td><td>'.$item->reseller->event_verification_set.'</td><td id="reseller_event_verification_set"></td></tr>';
-	$html_text .= '<tr id="5026" style="display:none;vertical-align:top"><td>reseller properties</td><td>'.$item->reseller->properties.'</td><td></td></tr>';
-	$html_text .= '<tr id="5027" style="display:none;vertical-align:top"><td>reseller remark_values</td><td>'.$item->reseller->remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr><td>reseller country_code</td><td>'.$item->reseller->country_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="508" style="display:none"><td>reseller street</td><td>'.$item->reseller->street.'</td><td></td></tr>';
+	$html_text .= '<tr id="509" style="display:none"><td>reseller city</td><td>'.$item->reseller->city.'</td><td></td></tr>';
+	$html_text .= '<tr id="5010" style="display:none"><td>reseller state_province</td><td>'.$item->reseller->state_province.'</td><td></td></tr>';
+	$html_text .= '<tr id="5011" style="display:none"><td>reseller postal_code</td><td>'.$item->reseller->postal_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="5012" style="display:none"><td>reseller country_name</td><td>'.$item->reseller->country_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="5013" style="display:none"><td>reseller language_pref_1</td><td>'.$item->reseller->language_pref_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="5014" style="display:none"><td>reseller language_pref_2</td><td>'.$item->reseller->language_pref_2.'</td><td></td></tr>';
+	$html_text .= '<tr id="5015" style="display:none"><td>reseller shielding</td><td>'.$item->reseller->shielding.'</td><td id="reseller_shielding"></td></tr>';
+	$html_text .= '<tr id="5016" style="display:none;vertical-align:top"><td>reseller status_values</td><td>'.$item->reseller->status_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="5017" style="display:none"><td>reseller event_registration</td><td>'.$item->reseller->event_registration.'</td><td></td></tr>';
+	$html_text .= '<tr id="5018" style="display:none"><td>reseller event_last_transferred</td><td>'.$item->reseller->event_last_transferred.'</td><td></td></tr>';
+	$html_text .= '<tr id="5019" style="display:none"><td>reseller event_last_changed</td><td>'.$item->reseller->event_last_changed.'</td><td></td></tr>';
+	$html_text .= '<tr id="5020" style="display:none"><td>reseller event_expiration</td><td>'.$item->reseller->event_expiration.'</td><td></td></tr>';
+	$html_text .= '<tr id="5021" style="display:none"><td>reseller event_deletion</td><td>'.$item->reseller->event_deletion.'</td><td></td></tr>';
+	$html_text .= '<tr id="5022" style="display:none"><td>reseller event_last_uploaded</td><td>'.$item->reseller->event_last_uploaded.'</td><td></td></tr>';
+	$html_text .= '<tr id="5023" style="display:none"><td>reseller event_verification_received</td><td>'.$item->reseller->event_verification_received.'</td><td id="reseller_event_verification_received"></td></tr>';
+	$html_text .= '<tr id="5024" style="display:none"><td>reseller event_verification_set</td><td>'.$item->reseller->event_verification_set.'</td><td id="reseller_event_verification_set"></td></tr>';
+	$html_text .= '<tr id="5025" style="display:none;vertical-align:top"><td>reseller properties</td><td>'.$item->reseller->properties.'</td><td></td></tr>';
+	$html_text .= '<tr id="5026" style="display:none;vertical-align:top"><td>reseller remark_values</td><td>'.$item->reseller->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(60)">Registrar +/-</button></td><td></td><td id="registrar_role"></td></tr>';
 	$html_text .= '<tr id="601" style="display:none"><td>registrar handle</td><td>'.$item->registrar->handle.'</td><td></td></tr>';
@@ -865,26 +865,26 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="605" style="display:none"><td>registrar name</td><td>'.$item->registrar->name.'</td><td></td></tr>';
 	$html_text .= '<tr id="606" style="display:none"><td>registrar email</td><td>'.$item->registrar->email.'</td><td></td></tr>';
 	$html_text .= '<tr id="607" style="display:none"><td>registrar tel</td><td>'.$item->registrar->tel.'</td><td></td></tr>';
-	$html_text .= '<tr id="608" style="display:none"><td>registrar country_code</td><td>'.$item->registrar->country_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="609" style="display:none"><td>registrar street</td><td>'.$item->registrar->street.'</td><td></td></tr>';
-	$html_text .= '<tr id="6010" style="display:none"><td>registrar city</td><td>'.$item->registrar->city.'</td><td></td></tr>';
-	$html_text .= '<tr id="6011" style="display:none"><td>registrar state_province</td><td>'.$item->registrar->state_province.'</td><td></td></tr>';
-	$html_text .= '<tr id="6012" style="display:none"><td>registrar postal_code</td><td>'.$item->registrar->postal_code.'</td><td></td></tr>';
-	$html_text .= '<tr id="6013" style="display:none"><td>registrar country_name</td><td>'.$item->registrar->country_name.'</td><td></td></tr>';
-	$html_text .= '<tr id="6014" style="display:none"><td>registrar language_pref_1</td><td>'.$item->registrar->language_pref_1.'</td><td></td></tr>';
-	$html_text .= '<tr id="6015" style="display:none"><td>registrar language_pref_2</td><td>'.$item->registrar->language_pref_2.'</td><td></td></tr>';
-	$html_text .= '<tr id="6016" style="display:none"><td>registrar shielding</td><td>'.$item->registrar->shielding.'</td><td id="registrar_shielding"></td></tr>';
-	$html_text .= '<tr id="6017" style="display:none;vertical-align:top"><td>registrar status_values</td><td>'.$item->registrar->status_values.'</td><td></td></tr>';
-	$html_text .= '<tr id="6018" style="display:none"><td>registrar event_registration</td><td>'.$item->registrar->event_registration.'</td><td></td></tr>';
-	$html_text .= '<tr id="6019" style="display:none"><td>registrar event_last_transferred</td><td>'.$item->registrar->event_last_transferred.'</td><td></td></tr>';
-	$html_text .= '<tr id="6020" style="display:none"><td>registrar event_last_changed</td><td>'.$item->registrar->event_last_changed.'</td><td></td></tr>';
-	$html_text .= '<tr id="6021" style="display:none"><td>registrar event_expiration</td><td>'.$item->registrar->event_expiration.'</td><td></td></tr>';
-	$html_text .= '<tr id="6022" style="display:none"><td>registrar event_deletion</td><td>'.$item->registrar->event_deletion.'</td><td></td></tr>';
-	$html_text .= '<tr id="6023" style="display:none"><td>registrar event_last_uploaded</td><td>'.$item->registrar->event_last_uploaded.'</td><td></td></tr>';
-	$html_text .= '<tr id="6024" style="display:none"><td>registrar event_verification_received</td><td>'.$item->registrar->event_verification_received.'</td><td id="registrar_event_verification_received"></td></tr>';
-	$html_text .= '<tr id="6025" style="display:none"><td>registrar event_verification_set</td><td>'.$item->registrar->event_verification_set.'</td><td id="registrar_event_verification_set"></td></tr>';
-	$html_text .= '<tr id="6026" style="display:none;vertical-align:top"><td>registrar properties</td><td>'.$item->registrar->properties.'</td><td></td></tr>';
-	$html_text .= '<tr id="6027" style="display:none;vertical-align:top"><td>registrar remark_values</td><td>'.$item->registrar->remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr><td>registrar country_code</td><td>'.$item->registrar->country_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="608" style="display:none"><td>registrar street</td><td>'.$item->registrar->street.'</td><td></td></tr>';
+	$html_text .= '<tr id="609" style="display:none"><td>registrar city</td><td>'.$item->registrar->city.'</td><td></td></tr>';
+	$html_text .= '<tr id="6010" style="display:none"><td>registrar state_province</td><td>'.$item->registrar->state_province.'</td><td></td></tr>';
+	$html_text .= '<tr id="6011" style="display:none"><td>registrar postal_code</td><td>'.$item->registrar->postal_code.'</td><td></td></tr>';
+	$html_text .= '<tr id="6012" style="display:none"><td>registrar country_name</td><td>'.$item->registrar->country_name.'</td><td></td></tr>';
+	$html_text .= '<tr id="6013" style="display:none"><td>registrar language_pref_1</td><td>'.$item->registrar->language_pref_1.'</td><td></td></tr>';
+	$html_text .= '<tr id="6014" style="display:none"><td>registrar language_pref_2</td><td>'.$item->registrar->language_pref_2.'</td><td></td></tr>';
+	$html_text .= '<tr id="6015" style="display:none"><td>registrar shielding</td><td>'.$item->registrar->shielding.'</td><td id="registrar_shielding"></td></tr>';
+	$html_text .= '<tr id="6016" style="display:none;vertical-align:top"><td>registrar status_values</td><td>'.$item->registrar->status_values.'</td><td></td></tr>';
+	$html_text .= '<tr id="6017" style="display:none"><td>registrar event_registration</td><td>'.$item->registrar->event_registration.'</td><td></td></tr>';
+	$html_text .= '<tr id="6018" style="display:none"><td>registrar event_last_transferred</td><td>'.$item->registrar->event_last_transferred.'</td><td></td></tr>';
+	$html_text .= '<tr id="6019" style="display:none"><td>registrar event_last_changed</td><td>'.$item->registrar->event_last_changed.'</td><td></td></tr>';
+	$html_text .= '<tr id="6020" style="display:none"><td>registrar event_expiration</td><td>'.$item->registrar->event_expiration.'</td><td></td></tr>';
+	$html_text .= '<tr id="6021" style="display:none"><td>registrar event_deletion</td><td>'.$item->registrar->event_deletion.'</td><td></td></tr>';
+	$html_text .= '<tr id="6022" style="display:none"><td>registrar event_last_uploaded</td><td>'.$item->registrar->event_last_uploaded.'</td><td></td></tr>';
+	$html_text .= '<tr id="6023" style="display:none"><td>registrar event_verification_received</td><td>'.$item->registrar->event_verification_received.'</td><td id="registrar_event_verification_received"></td></tr>';
+	$html_text .= '<tr id="6024" style="display:none"><td>registrar event_verification_set</td><td>'.$item->registrar->event_verification_set.'</td><td id="registrar_event_verification_set"></td></tr>';
+	$html_text .= '<tr id="6025" style="display:none;vertical-align:top"><td>registrar properties</td><td>'.$item->registrar->properties.'</td><td></td></tr>';
+	$html_text .= '<tr id="6026" style="display:none;vertical-align:top"><td>registrar remark_values</td><td>'.$item->registrar->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Registrar Abuse +/-</button></td><td></td><td id="registrar_abuse_role"></td></tr>';
 	$html_text .= '<tr id="611" style="display:none"><td>registrar abuse_organization_type</td><td>'.$item->registrar->abuse_organization_type.'</td><td></td></tr>';
 	$html_text .= '<tr id="612" style="display:none"><td>registrar abuse_organization_name</td><td>'.$item->registrar->abuse_organization_name.'</td><td></td></tr>';
