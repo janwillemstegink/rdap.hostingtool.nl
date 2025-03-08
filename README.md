@@ -12,6 +12,8 @@ Menu information modeling: https://rdap.hostingtool.nl/modeling_menu/
 
 Domain inspection tool: https://www.domaincontrolregister.org/tool/control_login/
 
+Homepage routes tool: https://www.workingornot.org/index.php
+
 Find background information on:
 
 https://webhostingtech.nl/nl-zone-clearer-whois/
