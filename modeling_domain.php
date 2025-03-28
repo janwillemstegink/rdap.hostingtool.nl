@@ -642,8 +642,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 		$html_text .= '<tr id="294" style="display:none"><td>protocols source_registrar</td><td><a href='.$item->protocols->source_registrar.' target="_blank">registrar file</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">validator.rdap.org</a></td><td id="protocols_source_registrar"></td></tr>';
 	}
 	else	{
-		//$html_text .= '<tr id="294" style="display:none"><td>protocols source_registrar (<a style="font-size: 0.9rem" href="https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/icann.com" //target="_blank">e.g. icann.com</a>)</td><td>none</td><td id="protocols_source_registrar"></td></tr>';
-		$html_text .= '<tr id="294" style="display:none"><td>protocols source_registrar (<a style="font-size: 0.9rem" href="https://rdap.metaregistrar.com/domain/fryslan.frl" target="_blank">e.g. fryslan.frl</a>)</td><td>none</td><td id="protocols_source_registrar"></td></tr>';
+		$html_text .= '<tr id="294" style="display:none"><td>protocols source_registrar (<a style="font-size: 0.9rem" href="https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/icann.com" target="_blank">e.g. icann.com</a> <a style="font-size: 0.9rem" href="https://rdap.metaregistrar.com/domain/fryslan.frl" target="_blank">fryslan.frl</a>)</td><td>none</td><td id="protocols_source_registrar"></td></tr>';
 	}
 	if (strlen($item->protocols->registrar_iana_id))	{
 		$html_text .= '<tr id="295" style="display:none"><td>protocols registrar_iana_id</td><td>'.$item->protocols->registrar_iana_id.'</td><td id="protocols_registrar_iana_id"></td></tr>';
@@ -715,7 +714,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="402" style="display:none"><td>registrant web_id</td><td>'.$item->registrant->web_id.'</td><td id="registrant_web_id"></td></tr>';
 	$html_text .= '<tr id="403" style="display:none"><td>registrant organization_type</td><td>'.$item->registrant->organization_type.'</td><td></td></tr>';
 	$html_text .= '<tr><td>registrant organization_name</td><td>'.$item->registrant->organization_name.'</td><td id="registrant_organization_name"></td></tr>';
-	$html_text .= '<tr><td>registrant presented_name ("fn" / full name)</td><td>'.$item->registrant->presented_name.'</td><td id="registrant_presented_name"></td></tr>';
+	$html_text .= '<tr><td>registrant presented_name (RDAP: "fn"/full name)</td><td>'.$item->registrant->presented_name.'</td><td id="registrant_presented_name"></td></tr>';
 	$html_text .= '<tr id="404" style="display:none"><td>registrant kind</td><td>'.$item->registrant->kind.'</td><td id="registrant_kind"></td></tr>';
 	$html_text .= '<tr id="405" style="display:none"><td>registrant name</td><td>'.$item->registrant->name.'</td><td id="registrant_name"></td></tr>';
 	$html_text .= '<tr id="406" style="display:none"><td>registrant email</td><td>'.$item->registrant->email.'</td><td></td></tr>';

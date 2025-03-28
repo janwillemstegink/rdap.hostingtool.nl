@@ -7,6 +7,7 @@
 //$_GET['domain'] = 'example.ovh';
 //$_GET['domain'] = 'icann.org';
 //$_GET['domain'] = 'team.blue';
+//$_GET['domain'] = 'france.fr';
 
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
@@ -31,6 +32,7 @@ if (!empty($_GET['domain']))	{
 		if ($strpos)	{
 			$domain = mb_substr($domain, 0, $strpos);
 		}
+		$domain = htmlspecialchars($domain); // Perhaps not combining with Punycode
 		$domain = urlencode($domain);
         echo write_file($domain, $batch);
 		die();
@@ -1179,53 +1181,53 @@ foreach($obj as $key1 => $value1) {
 										$registrar_abuse_email = $value7[3];
 									}
 									elseif ($value7[0] == 'tel' and $value8 == 'tel')	{
-										$registrar_abuse_telephone = implode(",<br />",$value7[1]) . ' ' . $value7[2] . ' ' . $value7[3];							
+										$registrar_abuse_telephone .= implode(",<br />",$value7[1]) . ' ' . $value7[2] . ' ' . $value7[3].'<br />';
 									}
 									elseif ($value7[0] == 'adr' and $key8 == 1)	{
 										$registrar_abuse_country_code = detect_country_code($registrar_abuse_country_code, $value8['CC'], $value8['cc']);				
 									}
 								}
 								//echo 'k4: '.$key4. ' v4: '.$value4.' k5: '.$key5.' v5: '.$value5.' k6: '.$key6.' v6: '.$value6.' k7: '.$key7.' value73: '.$value7[3].'<br />';
-								if ($key1 == 'entities' and $key5 == 'vcardArray' and $value7[0] == 'email' and $value8 == 'email')	{					
-									if ($key4 == $entity_key4_registrant)	{
-										$registrant_email .= $value7[3].'<br />';
-									}
-									if ($key4 == $entity_key4_administrative)	{
-										$administrative_email .= $value7[3].'<br />';
-									}
-									if ($key4 == $entity_key4_tech)	{
-										$technical_email .= $value7[3].'<br />';
-									}
-									if ($key4 == $entity_key4_reseller)	{
-										$reseller_email .= $value7[3].'<br />';
-									}
-									if ($key4 == $entity_key4_registrar)	{
-										$registrar_email .= $value7[3].'<br />';
-									}
-									if ($key4 == $entity_key4_sponsor)	{
-										$sponsor_email .= $value7[3].'<br />';
-									}							
-								}
-								if ($key1 == 'entities' and $key5 == 'vcardArray' and $value7[0] == 'tel' and $value8 == 'tel')	{
-									if ($key4 == $entity_key4_registrant)	{
-										$registrant_telephone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . '<br />';
-									}
-									if ($key4 == $entity_key4_administrative)	{
-										$administrative_telephone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . '<br />';
-									}
-									if ($key4 == $entity_key4_tech)	{
-										$technical_telephone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . '<br />';
-									}	
-									if ($key4 == $entity_key4_reseller)	{
-										$reseller_telephone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . '<br />';
-									}
-									if ($key4 == $entity_key4_registrar)	{
-										$registrar_telephone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . '<br />';
-									}
-									if ($key4 == $entity_key4_sponsor)	{
-										$sponsor_telephone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . '<br />';
-									}							
-								}
+								//if ($key1 == 'entities' and $key5 == 'vcardArray' and $value7[0] == 'email' and $value8 == 'email')	{					
+								//	if ($key4 == $entity_key4_registrant)	{
+								//		$registrant_email .= $value7[3].'<br />';
+								//	}
+								//	if ($key4 == $entity_key4_administrative)	{
+								//		$administrative_email .= $value7[3].'<br />';
+								//	}
+								//	if ($key4 == $entity_key4_tech)	{
+								//		$technical_email .= $value7[3].'<br />';
+								//	}
+								//	if ($key4 == $entity_key4_reseller)	{
+								//		$reseller_email .= $value7[3].'<br />';
+								//	}
+								//	if ($key4 == $entity_key4_registrar)	{
+								//		$registrar_email .= $value7[3].'<br />';
+								//	}
+								//	if ($key4 == $entity_key4_sponsor)	{
+								//		$sponsor_email .= $value7[3].'<br />';
+								//	}							
+								//}
+								//if ($key1 == 'entities' and $key5 == 'vcardArray' and $value7[0] == 'tel' and $value8 == 'tel')	{
+								//	if ($key4 == $entity_key4_registrant)	{
+								//		$registrant_telephone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . '<br />';
+								//	}
+								//	if ($key4 == $entity_key4_administrative)	{
+								//		$administrative_telephone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . '<br />';
+								//	}
+								//	if ($key4 == $entity_key4_tech)	{
+								//		$technical_telephone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . '<br />';
+								//	}	
+								//	if ($key4 == $entity_key4_reseller)	{
+								//		$reseller_telephone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . '<br />';
+								//	}
+								//	if ($key4 == $entity_key4_registrar)	{
+								//		$registrar_telephone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . '<br />';
+								//	}
+								//	if ($key4 == $entity_key4_sponsor)	{
+								//		$sponsor_telephone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . '<br />';
+								//	}							
+								//}
 							}	
 						}	
 					}					
@@ -1233,7 +1235,7 @@ foreach($obj as $key1 => $value1) {
 			}
 		}
 	}
-}	
+}
 if ($inputbatch)	{
 	$raw_rdap_data = '';
 }
@@ -1562,7 +1564,7 @@ $sponsor->appendChild($domain_sponsor_name);
 $domain_sponsor_email = $doc->createElement("email");
 $domain_sponsor_email->appendChild($doc->createCDATASection($sponsor_email));	
 $sponsor->appendChild($domain_sponsor_email);	
-$domain_sponsor_telephone = $doc->createElement("tel");
+$domain_sponsor_telephone = $doc->createElement("telephone");
 $domain_sponsor_telephone->appendChild($doc->createCDATASection($sponsor_telephone));	
 $sponsor->appendChild($domain_sponsor_telephone);	
 $domain_sponsor_street = $doc->createElement("street");
@@ -1644,7 +1646,7 @@ $registrant->appendChild($domain_registrant_name);
 $domain_registrant_email = $doc->createElement("email");
 $domain_registrant_email->appendChild($doc->createCDATASection($registrant_email));	
 $registrant->appendChild($domain_registrant_email);	
-$domain_registrant_telephone = $doc->createElement("tel");
+$domain_registrant_telephone = $doc->createElement("telephone");
 $domain_registrant_telephone->appendChild($doc->createCDATASection($registrant_telephone));	
 $registrant->appendChild($domain_registrant_telephone);
 $domain_registrant_country_code = $doc->createElement("country_code");
@@ -1726,7 +1728,7 @@ $administrative->appendChild($domain_administrative_name);
 $domain_administrative_email = $doc->createElement("email");
 $domain_administrative_email->appendChild($doc->createCDATASection($administrative_email));	
 $administrative->appendChild($domain_administrative_email);	
-$domain_administrative_telephone = $doc->createElement("tel");
+$domain_administrative_telephone = $doc->createElement("telephone");
 $domain_administrative_telephone->appendChild($doc->createCDATASection($administrative_telephone));	
 $administrative->appendChild($domain_administrative_telephone);
 $domain_administrative_country_code = $doc->createElement("country_code");
@@ -1787,7 +1789,7 @@ $technical->appendChild($domain_technical_name);
 $domain_technical_email = $doc->createElement("email");
 $domain_technical_email->appendChild($doc->createCDATASection($technical_email));	
 $technical->appendChild($domain_technical_email);	
-$domain_technical_telephone = $doc->createElement("tel");
+$domain_technical_telephone = $doc->createElement("telephone");
 $domain_technical_telephone->appendChild($doc->createCDATASection($technical_telephone));	
 $technical->appendChild($domain_technical_telephone);
 $domain_technical_country_code = $doc->createElement("country_code");
@@ -1848,7 +1850,7 @@ $billing->appendChild($domain_billing_name);
 $domain_billing_email = $doc->createElement("email");
 $domain_billing_email->appendChild($doc->createCDATASection($billing_email));	
 $billing->appendChild($domain_billing_email);	
-$domain_billing_telephone = $doc->createElement("tel");
+$domain_billing_telephone = $doc->createElement("telephone");
 $domain_billing_telephone->appendChild($doc->createCDATASection($billing_telephone));	
 $billing->appendChild($domain_billing_telephone);
 $domain_billing_country_code = $doc->createElement("country_code");
@@ -1909,7 +1911,7 @@ $reseller->appendChild($domain_reseller_name);
 $domain_reseller_email = $doc->createElement("email");
 $domain_reseller_email->appendChild($doc->createCDATASection($reseller_email));	
 $reseller->appendChild($domain_reseller_email);	
-$domain_reseller_telephone = $doc->createElement("tel");
+$domain_reseller_telephone = $doc->createElement("telephone");
 $domain_reseller_telephone->appendChild($doc->createCDATASection($reseller_telephone));	
 $reseller->appendChild($domain_reseller_telephone);
 $domain_reseller_country_code = $doc->createElement("country_code");
@@ -1991,7 +1993,7 @@ $registrar->appendChild($domain_registrar_name);
 $domain_registrar_email = $doc->createElement("email");
 $domain_registrar_email->appendChild($doc->createCDATASection($registrar_email));	
 $registrar->appendChild($domain_registrar_email);	
-$domain_registrar_telephone = $doc->createElement("tel");
+$domain_registrar_telephone = $doc->createElement("telephone");
 $domain_registrar_telephone->appendChild($doc->createCDATASection($registrar_telephone));	
 $registrar->appendChild($domain_registrar_telephone);
 $domain_registrar_country_code = $doc->createElement("country_code");
