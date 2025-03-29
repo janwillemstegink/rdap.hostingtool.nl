@@ -507,6 +507,20 @@ $zonefile = 'data_zones.xml';
 $domainfile = 'data_domains.xml';
 if (!empty($_GET['domain']))	{
 	$viewdomain = $_GET['domain'];
+	$viewdomain = mb_strtolower($viewdomain);
+	$viewdomain = str_replace('http://','', $viewdomain);
+	$viewdomain = str_replace('https://','', $viewdomain);
+	if (substr_count($domain, '.') > 1)	{
+		$viewdomain = str_replace('www.','', $viewdomain);
+	}
+	$strpos = mb_strpos($viewdomain, '/');
+	if ($strpos)	{
+		$viewdomain = mb_substr($viewdomain, 0, $strpos);
+	}
+	$strpos = mb_strpos($viewdomain, ':');
+	if ($strpos)	{
+		$viewdomain = mb_substr($viewdomain, 0, $strpos);
+	}
 }
 else	{
 	$viewdomain = 'hostingtool.nl';

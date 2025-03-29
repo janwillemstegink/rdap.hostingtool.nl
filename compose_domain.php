@@ -1,5 +1,6 @@
 <?php
 //$_GET['domain'] = 'hostingtool.nl';
+//$_GET['domain'] = 'hostingtool.nl';
 //$_GET['domain'] = 'münchen.de';
 //$_GET['domain'] = 'example.tel';
 //$_GET['domain'] = 'nic.frl';
@@ -1475,7 +1476,6 @@ $domain->appendChild($view);
 	
 $protocols = $doc->createElement("protocols");
 $domain->appendChild($protocols);	
-	
 $domain_object_conformance = $doc->createElement("object_conformance");
 $domain_object_conformance->appendChild($doc->createCDATASection($object_conformance));
 $protocols->appendChild($domain_object_conformance);	
@@ -1496,13 +1496,11 @@ $domain_registrar_complaint->appendChild($doc->createCDATASection($registrar_com
 $protocols->appendChild($domain_registrar_complaint);	
 $domain_status_explanation = $doc->createElement("status_explanation");
 $domain_status_explanation->appendChild($doc->createCDATASection($status_explanation));		
-$protocols->appendChild($domain_status_explanation);			
-	
+$protocols->appendChild($domain_status_explanation);	
 $domain->appendChild($protocols);	
 		
 $details = $doc->createElement("details");
-$domain->appendChild($details);	
-		
+$domain->appendChild($details);		
 $domain_handle = $doc->createElement("handle");
 $domain_handle->appendChild($doc->createCDATASection($handle));
 $details->appendChild($domain_handle);		
