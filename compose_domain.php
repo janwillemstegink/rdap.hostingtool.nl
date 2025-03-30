@@ -1,6 +1,5 @@
 <?php
 //$_GET['domain'] = 'hostingtool.nl';
-//$_GET['domain'] = 'hostingtool.nl';
 //$_GET['domain'] = 'münchen.de';
 //$_GET['domain'] = 'example.tel';
 //$_GET['domain'] = 'nic.frl';
