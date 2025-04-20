@@ -59,7 +59,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 40)	{ // registrant
 		var pre = '40';
-		var max = 26
+		var max = 24
 	}
 	else if (type == 41)	{ // administrative
 		var pre = '41';
@@ -141,10 +141,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_regmenu").textContent = proposed;
 		document.getElementById("zone_languages").textContent = proposed;
 		document.getElementById("protocols_role").textContent = "";
-		document.getElementById("protocols_source_registry").textContent = proposed;
-		document.getElementById("protocols_source_registrar").textContent = proposed;
 		document.getElementById("protocols_registrar_iana_id").textContent = proposed;
 		document.getElementById("protocols_registrar_complaint").textContent = proposed;
+		document.getElementById("protocols_source_registry").textContent = proposed;
+		document.getElementById("protocols_source_registrar").textContent = proposed;
 		document.getElementById("protocols_status_explanation").textContent = proposed;
 		document.getElementById("details_role").textContent = "";
 		document.getElementById("details_name_ascii").textContent = "";
@@ -201,7 +201,7 @@ function SwitchTranslation(translation)	{
 	}
 	else if (translation == 1)	{
 		var proposed = 'VOORGESTELD - ';
-		var address = "Afscherming van adresgegevens is duidelijk zichtbaar bij example.tel.";
+		var address = "Het afschermen van adresgegevens zoals bij example.tel, resulteert in rommelige gegevens.";
 		document.getElementById("title").textContent = "Domein-informatie";
 		document.getElementById("subtitle").textContent = "RDAP-v1-gebaseerde modellering";
 		document.getElementById("instruction").textContent = "Plak een domeinnaam en druk op Enter.";
@@ -214,10 +214,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_regmenu").textContent = proposed + "Een vervolgkeuzemenu met uitleg en details, bijvoorbeeld via een subdomein van de registry.";
 		document.getElementById("zone_languages").textContent = proposed + "Een zone kan met meerdere veelgebruikte talen werken.";
 		document.getElementById("protocols_role").textContent = "Het Registration Data Access Protocol (RDAP) is bedoeld voor wereldwijde communicatie.";
-		document.getElementById("protocols_source_registry").textContent = proposed + "Een folder '/v1/' werkt voor een versie '/v2/', zie icann.com.";
-		document.getElementById("protocols_source_registrar").textContent = proposed;
 		document.getElementById("protocols_registrar_iana_id").textContent = proposed + "Accreditatie, voor één of meer generieke topleveldomeinen. En moet juist zijn.";
 		document.getElementById("protocols_registrar_complaint").textContent = proposed;
+		document.getElementById("protocols_source_registry").textContent = proposed + "Een folder '/v1/' werkt voor een versie '/v2/', zie icann.com.";
+		document.getElementById("protocols_source_registrar").textContent = proposed;
 		document.getElementById("protocols_status_explanation").textContent = proposed;
 		document.getElementById("details_role").textContent = "Een domein onder TLD-niveau is wereldwijd uniek en kan vrij worden gekozen onder bepaalde regels.";
 		document.getElementById("details_name_ascii").textContent = "Namen met speciale tekens in ASCII-tekenreeksen gebruiken Punycode-transcriptie.";
@@ -232,7 +232,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "De domeingebruiker die de daadwerkelijke of effectieve controle heeft voor domeinrecht in het land van vestiging.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Webidentificatienummer voor bedrijfsentiteiten en natuurlijke personen.";
 		document.getElementById("registrant_organization_name").textContent = "Een organisatie die primair verantwoordelijk is voor het domeinabonnement. Zie bijvoorbeeld icann.org.";
-		document.getElementById("registrant_presented_name").textContent = "Indien zichtbaar, of de naam van de persoon die primair verantwoordelijk is, of een rol binnen de organisatie.";
+		document.getElementById("registrant_presented_name").textContent = "Geldig is de naam van een primair verantwoordelijke persoon of een rol binnen de organisatie.";
 		document.getElementById("registrant_kind").textContent = "Leeg / 'org' / 'individual' (Voor continuïteit: levenstestament + testament + digitale executeur)";
 		document.getElementById("registrant_name").textContent = "Een persoonlijke naam kan openbaar zichtbaar zijn in het veld 'presented_name'. Zie bijvoorbeeld circa.ca.";
 		document.getElementById("registrant_country_code").textContent = "De ISO-2-landcode-indexering werkt, bijvoorbeeld voor het Verenigd Koninkrijk, dat de EU heeft verlaten.";
@@ -240,9 +240,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_city").textContent = address;
 		document.getElementById("registrant_postal_code").textContent = address;
 		document.getElementById("registrant_country_name").textContent = "Een openbaar zichtbare landnaam is beperkt tot een 'Registrar Lookup via RDAP'.";
-		document.getElementById("registrant_shielding").textContent = proposed + "Een 'Request-Driven' waarde. De aanvrager, zone en rol bepalen de uitvoer per rol.";
-		document.getElementById("registrant_event_verification_received").textContent = proposed + "De verantwoordelijke persoon kan een identieke web-ID aanklikken; leeg is intrekking.";
-		document.getElementById("registrant_event_verification_set").textContent = proposed + "Vervolgens controleert het register de gegevens bij de landspecifieke webdomeindienst.";
+		document.getElementById("registrant_shielding").textContent = proposed + "Een 'Request-Driven' waarde. De aanvrager, zone en rol bepalen velden per rol.";
+		document.getElementById("registrant_event_verification_received").textContent = proposed + "Na identificatie kan een overeenkomende web-ID worden bevestigd, leeg is intrekking.";
+		document.getElementById("registrant_event_verification_set").textContent = proposed + "Vervolgens verifieert de registry de gegevens bij de landspecifieke webdomeindienst.";
 		document.getElementById("administrative_role").textContent = "Het administratief aanspreekpunt beantwoordt een verzoek en stuurt zo nodig door.";
 		document.getElementById("administrative_web_id").textContent = proposed;
 		document.getElementById("administrative_shielding").textContent = proposed;
@@ -274,7 +274,7 @@ function SwitchTranslation(translation)	{
 	}
 	else if (translation == 2)	{
 		var proposed = 'PROPOSED - ';
-		var address = "Shielding of address data is clearly visible at example.tel.";
+		var address = "Shielding address data as with example.tel, results in messy data.";
 		document.getElementById("title").textContent = "Domain Information";
 		document.getElementById("subtitle").textContent = "RDAP-v1-based modeling";
 		document.getElementById("instruction").textContent = "Paste a domain name and press Enter.";
@@ -287,10 +287,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_regmenu").textContent = proposed + "A drop-down menu with explanations and details, for example via a subdomain of the registry.";
 		document.getElementById("zone_languages").textContent = proposed + "A zone can work with multiple commonly used languages.";
 		document.getElementById("protocols_role").textContent = "The Registration Data Access Protocol (RDAP) is intended for global communication.";
-		document.getElementById("protocols_source_registry").textContent = proposed + "A folder '/v1/' works for a version '/v2/', see icann.com.";
-		document.getElementById("protocols_source_registrar").textContent = proposed;
 		document.getElementById("protocols_registrar_iana_id").textContent = proposed + "Accreditation, for one or more generic top-level domains. And must be correct.";
 		document.getElementById("protocols_registrar_complaint").textContent = proposed;
+		document.getElementById("protocols_source_registry").textContent = proposed + "A folder '/v1/' works for a version '/v2/', see icann.com.";
+		document.getElementById("protocols_source_registrar").textContent = proposed;
 		document.getElementById("protocols_status_explanation").textContent = proposed;
 		document.getElementById("details_role").textContent = "A domain below TLD level is globally unique and can be freely chosen under certain rules.";
 		document.getElementById("details_name_ascii").textContent = "Names containing special characters in ASCII strings use Punycode transcription.";
@@ -305,7 +305,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "The domain user who has the actual or effective control for domain rights in the country of establishment.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web Identification number for business entities and natural persons.";
 		document.getElementById("registrant_organization_name").textContent = "An organization primarily responsible for the domain subscription. See for example icann.org.";
-		document.getElementById("registrant_presented_name").textContent = "If visible, either the name of a person primarily responsible or a role within the organization.";
+		document.getElementById("registrant_presented_name").textContent = "Valid is the name of a primarily responsible person or a role within the organization.";
 		document.getElementById("registrant_kind").textContent = "Empty / 'org' / 'individual' (For continuity: Living Will + Will + Digital Executor)";
 		document.getElementById("registrant_name").textContent = "A personal name may be publicly visible in the 'presented_name' field. See for example circa.ca.";
 		document.getElementById("registrant_country_code").textContent = "ISO-2 country code indexing works, as for the United Kingdom, which has left the EU.";
@@ -313,9 +313,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_city").textContent = address;
 		document.getElementById("registrant_postal_code").textContent = address;		
 		document.getElementById("registrant_country_name").textContent = "A publicly visible country name is limited to a 'Registrar Lookup via RDAP'.";
-		document.getElementById("registrant_shielding").textContent = proposed + "A Request-Driven value. The requester, zone and role determine the output per role.";
-		document.getElementById("registrant_event_verification_received").textContent = proposed + "The responsible person can click on an identical web ID; empty is revocation.";
-		document.getElementById("registrant_event_verification_set").textContent = proposed + "The registry then checks the data with the country-specific web domain service.";	
+		document.getElementById("registrant_shielding").textContent = proposed + "A Request-Driven value. The requester, zone and role determine fields per role.";
+		document.getElementById("registrant_event_verification_received").textContent = proposed + "After identification, a matching web ID can be confirmed, empty is revocation.";
+		document.getElementById("registrant_event_verification_set").textContent = proposed + "The registry then verifies the data with the country-specific web domain service.";	
 		document.getElementById("administrative_role").textContent = "The administratively responsible desk answers a request, and forwards on if necessary.";
 		document.getElementById("administrative_web_id").textContent = proposed;
 		document.getElementById("administrative_shielding").textContent = proposed;
@@ -347,7 +347,7 @@ function SwitchTranslation(translation)	{
 	}
 	else if (translation == 3)	{
 		var proposed = 'VORGESCHLAGEN - ';
-		var address = "Die Abschirmung der Adressdaten ist bei example.tel deutlich sichtbar.";
+		var address = "Das Abschirmen von Adressdaten wie bei example.tel, führt zu unordentlichen Daten.";
 		document.getElementById("title").textContent = "Domäneninformation";
 		document.getElementById("subtitle").textContent = "RDAP-v1-basierte Modellierung";
 		document.getElementById("instruction").textContent = "Fügen Sie einen Domänennamen ein und drücken Sie die Eingabetaste.";
@@ -360,10 +360,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_regmenu").textContent = proposed + "Ein Dropdown-Menü mit Erläuterungen und Details, z. B. über eine Subdomain der Registry.";
 		document.getElementById("zone_languages").textContent = proposed + "Eine Zone kann mit mehreren häufig verwendeten Sprachen arbeiten.";
 		document.getElementById("protocols_role").textContent = "Das Registration Data Access Protocol (RDAP) ist für die weltweite Kommunikation vorgesehen.";
-		document.getElementById("protocols_source_registry").textContent = proposed + "Ein Ordner '/v1/' funktioniert für eine Version '/v2/', siehe icann.com.";
-		document.getElementById("protocols_source_registrar").textContent = proposed;
 		document.getElementById("protocols_registrar_iana_id").textContent = proposed + "Akkreditierung für eine oder mehrere generische Top-Level-Domains. Und muss korrekt sein.";
 		document.getElementById("protocols_registrar_complaint").textContent = proposed;
+		document.getElementById("protocols_source_registry").textContent = proposed + "Ein Ordner '/v1/' funktioniert für eine Version '/v2/', siehe icann.com.";
+		document.getElementById("protocols_source_registrar").textContent = proposed;
 		document.getElementById("protocols_status_explanation").textContent = proposed;
 		document.getElementById("details_role").textContent = "Eine Domain unterhalb der TLD-Ebene ist weltweit eindeutig und kann unter bestimmten Regeln frei gewählt werden.";
 		document.getElementById("details_name_ascii").textContent = "Namen, die Sonderzeichen in ASCII-Zeichenfolgen enthalten, verwenden die Punycode-Transkription.";
@@ -378,7 +378,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat für Domainrechte im Wohnsitzland.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Web-Identifikationsnummer für Unternehmen und natürliche Personen.";
 		document.getElementById("registrant_organization_name").textContent = "Eine Organisation, die hauptsächlich für das Domänenabonnement verantwortlich ist. Siehe beispielsweise icann.org.";
-		document.getElementById("registrant_presented_name").textContent = "Sofern sichtbar, entweder der Name einer hauptverantwortlichen Person oder eine Rolle innerhalb der Organisation.";
+		document.getElementById("registrant_presented_name").textContent = "Gültig ist der Name einer hauptverantwortlichen Person oder einer Rolle innerhalb der Organisation.";
 		document.getElementById("registrant_kind").textContent = "Leer / 'org' / 'individual' (Für Kontinuität: Patientenverfügung + Testament + digitaler Testamentsvollstrecker)";
 		document.getElementById("registrant_name").textContent = "Ein Personenname kann im Feld 'presented_name' öffentlich sichtbar sei. Siehe beispielsweise circa.ca.";
 		document.getElementById("registrant_country_code").textContent = "Die Indizierung mit dem ISO-2-Ländercode funktioniert, wie für das Vereinigte Königreich, das die EU verlassen hat.";
@@ -386,9 +386,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_city").textContent = address;
 		document.getElementById("registrant_postal_code").textContent = address;		
 		document.getElementById("registrant_country_name").textContent = "Ein öffentlich sichtbarer Ländername ist auf eine 'Registrar Lookup via RDAP' beschränkt.";
-		document.getElementById("registrant_shielding").textContent = proposed + "Ein 'Request-Driven' Wert. Anforderer, Zone und Rolle bestimmen die Ausgabe pro Rolle.";
-		document.getElementById("registrant_event_verification_received").textContent = proposed + "Der Verantwortliche kann auf eine identische Web-ID klicken; leer ist Rückzug.";
-		document.getElementById("registrant_event_verification_set").textContent = proposed + "Anschließend gleicht die Registry die Daten beim länderspezifischen Webdomain-Dienst ab.";
+		document.getElementById("registrant_shielding").textContent = proposed + "Ein 'Request-Driven' Wert. Anforderer, Zone und Rolle bestimmen die Felder pro Rolle.";
+		document.getElementById("registrant_event_verification_received").textContent = proposed + "Nach der Identifizierung kann eine passende Web-ID bestätigt werden, leer ist der Widerruf.";
+		document.getElementById("registrant_event_verification_set").textContent = proposed + "Anschließend verifiziert die Registry die Daten beim länderspezifischen Webdomänendienst.";
 		document.getElementById("administrative_role").textContent = "Die administrativ zuständige Stelle beantwortet eine Anfrage und leitet sie gegebenenfalls weiter.";
 		document.getElementById("administrative_web_id").textContent = proposed;
 		document.getElementById("administrative_shielding").textContent = proposed;
@@ -420,7 +420,7 @@ function SwitchTranslation(translation)	{
 	}
 	else if (translation == 4)	{
 		var proposed = 'PROPOSÉ - ';
-		var address = "Le blindage des données d'adresse est clairement visible sur example.tel.";
+		var address = "Le blindage des données d'adresse comme avec example.tel, génère des données désordonnées.";
 		document.getElementById("title").textContent = "Informations sur le domaine";
 		document.getElementById("subtitle").textContent = "Modélisation basée sur RDAP-v1";
 		document.getElementById("instruction").textContent = "Collez un nom de domaine et appuyez sur Entrée.";
@@ -433,10 +433,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_regmenu").textContent = proposed + "Un menu déroulant avec explication et détails, par exemple via un sous-domaine du registre.";
 		document.getElementById("zone_languages").textContent = proposed + "Une zone peut fonctionner avec plusieurs langues couramment utilisées.";
 		document.getElementById("protocols_role").textContent = "Le protocole d'accès aux données d'enregistrement (RDAP) est destiné à la communication mondiale.";
-		document.getElementById("protocols_source_registry").textContent = proposed + "Un dossier '/v1/' fonctionne pour une version '/v2/', voir icann.com.";
-		document.getElementById("protocols_source_registrar").textContent = proposed;
 		document.getElementById("protocols_registrar_iana_id").textContent = proposed + "Accréditation, pour un ou plusieurs domaines génériques de premier niveau. Et doit être correct.";
 		document.getElementById("protocols_registrar_complaint").textContent = proposed;
+		document.getElementById("protocols_source_registry").textContent = proposed + "Un dossier '/v1/' fonctionne pour une version '/v2/', voir icann.com.";
+		document.getElementById("protocols_source_registrar").textContent = proposed;
 		document.getElementById("protocols_status_explanation").textContent = proposed;
 		document.getElementById("details_role").textContent = "Un domaine inférieur au niveau TLD est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("details_name_ascii").textContent = "Les noms contenant des caractères spéciaux dans les chaînes ASCII utilisent la transcription Punycode.";
@@ -451,7 +451,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "L'utilisateur du domaine qui a le contrôle réel ou effectif pour les droits de domaine dans le pays de résidence.";
 		document.getElementById("registrant_web_id").textContent = proposed + "Numéro d’identification Web pour les entités commerciales et les personnes physiques.";
 		document.getElementById("registrant_organization_name").textContent = "Une organisation principalement responsable de l’abonnement au domaine. Voir, par exemple, icann.org.";
-		document.getElementById("registrant_presented_name").textContent = "Si visible, soit le nom d'une personne principalement responsable, soit un rôle au sein de l'organisation.";
+		document.getElementById("registrant_presented_name").textContent = "Valide est le nom d'une personne principalement responsable ou d'un rôle au sein de l'organisation.";
 		document.getElementById("registrant_kind").textContent = "Vide / 'org' / 'individual' (Pour la continuité : testament biologique + testament + exécuteur testamentaire numérique)";
 		document.getElementById("registrant_name").textContent = "Un nom personnel peut être visible publiquement dans le champ 'presented_name'. Voir, par exemple, circa.ca.";
 		document.getElementById("registrant_country_code").textContent = "L'indexation des codes pays ISO-2 fonctionne, comme pour le Royaume-Uni, qui a quitté l'UE.";
@@ -459,8 +459,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_city").textContent = address;
 		document.getElementById("registrant_postal_code").textContent = address;
 		document.getElementById("registrant_country_name").textContent = "Un nom de pays visible publiquement est limité à une 'Registrar Lookup via RDAP'.";
-		document.getElementById("registrant_shielding").textContent = proposed + "Une valeur 'Request-Driven'. Le demandeur, la zone et le rôle déterminent la sortie par rôle.";
-		document.getElementById("registrant_event_verification_received").textContent = proposed + "La personne responsable peut cliquer sur un identifiant Web identique ; le vide est le retrait.";
+		document.getElementById("registrant_shielding").textContent = proposed + "Une valeur 'Request-Driven'. Le demandeur, la zone et le rôle déterminent les champs par rôle.";
+		document.getElementById("registrant_event_verification_received").textContent = proposed + "Après identification, un identifiant Web correspondant peut être confirmé, vide signifie révocation.";
 		document.getElementById("registrant_event_verification_set").textContent = proposed + "Le registre vérifie ensuite les données avec le service de domaine Web spécifique au pays.";
 		document.getElementById("administrative_role").textContent = "Le bureau administrativement responsable répond à une demande, et la transmet si nécessaire.";
 		document.getElementById("administrative_web_id").textContent = proposed;
@@ -571,9 +571,7 @@ $html_text .= '<tr style="font-size: .8rem"><td id="subtitle" style="font-size: 
 	<a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_email" target="_blank">modeling email</a> - <a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_menu" target="_blank">modeling menu</a> - <a style="font-size: 0.9rem" href="https://github.com/janwillemstegink/rdap.hostingtool.nl/issues" target="_blank">reporting of issues</a> - <a style="font-size: 0.9rem" href="https://janwillemstegink.nl/" target="_blank">janwillemstegink.nl</a></td></tr>';
 foreach ($xml1->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
-	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td id="value"><td id="explanation"></td></tr>';
-	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(10)">Zone +/-</button></td><td><b>'.$item->zone->top_level_domain.'</b></td><td id="zone_role"></td></tr>';
 	$html_text .= '<tr id="101" style="display:none"><td>zone delegation</td><td><a href='.$item->zone->delegation.' target="_blank">IANA Delegation Data</a></td><td id="zone_delegation"></td></tr>';
 	if (strlen($item->zone->restrictions))	{
@@ -642,6 +640,18 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(29)">Protocols +/-</button></td><td></td><td id="protocols_role"></td></tr>';
 	$html_text .= '<tr id="291" style="display:none"><td>protocols object_conformance</td><td>'.$item->protocols->object_conformance.'</td><td></td></tr>';
 	$html_text .= '<tr id="292" style="display:none"><td>protocols object_class_name</td><td>'.$item->protocols->object_class_name.'</td><td></td></tr>';
+	if (strlen($item->protocols->registrar_iana_id))	{
+		$html_text .= '<tr id="293" style="display:none"><td>protocols registrar_iana_id</td><td>'.$item->protocols->registrar_iana_id.'</td><td id="protocols_registrar_iana_id"></td></tr>';
+	}
+	else	{
+		$html_text .= '<tr id="293" style="display:none"><td>protocols registrar_iana_id</td><td>none</td><td id="protocols_registrar_iana_id"></td></tr>';	
+	}	
+	if (strlen($item->protocols->registrar_complaint))	{
+		$html_text .= '<tr id="294" style="display:none"><td>protocols registrar_complaint</td><td><a href='.$item->protocols->registrar_complaint.' target="_blank">icann.org/wicf</a></td><td id="protocols_registrar_complaint"></td></tr>';
+	}
+	else	{
+		$html_text .= '<tr id="294" style="display:none"><td>protocols registrar_complaint</td><td>none</td><td id="protocols_registrar_complaint"></td></tr>';	
+	}
 	if (strlen($item->protocols->source_registry))	{
 		$source_registry = str_replace('https://', '', $item->protocols->source_registry);
 		$validation_registry = 'https://validator.rdap.org/?url=https://'.$source_registry.'&response-type=domain&server-type=gtld-registry&errors-only=1';
@@ -653,22 +663,10 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	if (strlen($item->protocols->source_registrar))	{
 		$source_registrar = str_replace('https://', '', $item->protocols->source_registrar);
 		$validation_registrar = 'https://validator.rdap.org/?url=https://'.$source_registrar.'&response-type=domain&server-type=gtld-registrar&errors-only=1';
-		$html_text .= '<tr id="293" style="display:none"><td>protocols source_registrar</td><td><a href='.$item->protocols->source_registrar.' target="_blank">registrar file</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">validator.rdap.org</a></td><td id="protocols_source_registrar"></td></tr>';
+		$html_text .= '<tr id="295" style="display:none"><td>protocols source_registrar</td><td><a href='.$item->protocols->source_registrar.' target="_blank">registrar file</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">validator.rdap.org</a></td><td id="protocols_source_registrar"></td></tr>';
 	}
 	else	{
-		$html_text .= '<tr id="293" style="display:none"><td>protocols source_registrar (<a style="font-size: 0.9rem" href="https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/icann.com" target="_blank">e.g. icann.com</a> <a style="font-size: 0.9rem" href="https://rdap.metaregistrar.com/domain/fryslan.frl" target="_blank">fryslan.frl</a>)</td><td>none</td><td id="protocols_source_registrar"></td></tr>';
-	}
-	if (strlen($item->protocols->registrar_iana_id))	{
-		$html_text .= '<tr id="294" style="display:none"><td>protocols registrar_iana_id</td><td>'.$item->protocols->registrar_iana_id.'</td><td id="protocols_registrar_iana_id"></td></tr>';
-	}
-	else	{
-		$html_text .= '<tr id="294" style="display:none"><td>protocols registrar_iana_id</td><td>none</td><td id="protocols_registrar_iana_id"></td></tr>';	
-	}	
-	if (strlen($item->protocols->registrar_complaint))	{
-		$html_text .= '<tr id="295" style="display:none"><td>protocols registrar_complaint</td><td><a href='.$item->protocols->registrar_complaint.' target="_blank">icann.org/wicf</a></td><td id="protocols_registrar_complaint"></td></tr>';
-	}
-	else	{
-		$html_text .= '<tr id="295" style="display:none"><td>protocols registrar_complaint</td><td>none</td><td id="protocols_registrar_complaint"></td></tr>';	
+		$html_text .= '<tr id="295" style="display:none"><td>protocols source_registrar (<a style="font-size: 0.9rem" href="https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/icann.com" target="_blank">e.g. icann.com</a> <a style="font-size: 0.9rem" href="https://rdap.metaregistrar.com/domain/fryslan.frl" target="_blank">fryslan.frl</a>)</td><td>none</td><td id="protocols_source_registrar"></td></tr>';
 	}
 	if (strlen($item->protocols->status_explanation))	{
 		$html_text .= '<tr id="296" style="display:none"><td>protocols status_explanation</td><td><a href='.$item->protocols->status_explanation.' target="_blank">icann.org/epp</a></td><td id="protocols_status_explanation"></td></tr>';
@@ -691,7 +689,6 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="309" style="display:none"><td>details event_last_uploaded</td><td>'.$item->details->event_last_uploaded.'</td><td id="details_event_last_uploaded"></td></tr>';
 	$html_text .= '<tr id="3010" style="display:none;vertical-align:top"><td>details extensions_values</td><td>'.$item->details->extensions_values.'</td><td id="details_extensions_values"></td></tr>';
 	$html_text .= '<tr id="3011" style="display:none;vertical-align:top"><td>details remark_values</td><td>'.$item->details->remark_values.'</td><td></td></tr>';
-	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$sponsor_applicable = (strlen($item->sponsor->organization_name) or strlen($item->sponsor->presented_name)) ? 'Sponsor Data Exists' : 'No Sponsor Data';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(39)">Sponsor +/-</button></td><td>'.$sponsor_applicable.'</td><td id="sponsor_role"></td></tr>';
 	$html_text .= '<tr id="391" style="display:none"><td>sponsor handle</td><td>'.$item->sponsor->handle.'</td><td></td></tr>';
@@ -749,10 +746,10 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="4020" style="display:none"><td>registrant event_expiration</td><td>'.$item->registrant->event_expiration.'</td><td></td></tr>';
 	$html_text .= '<tr id="4021" style="display:none"><td>registrant event_deletion</td><td>'.$item->registrant->event_deletion.'</td><td id="registrant_event_deletion"></td></tr>';
 	$html_text .= '<tr id="4022" style="display:none"><td>registrant event_last_uploaded</td><td>'.$item->registrant->event_last_uploaded.'</td><td id="registrant_event_last_uploaded"></td></tr>';
-	$html_text .= '<tr id="4023" style="display:none"><td>registrant event_verification_received</td><td>'.$item->registrant->event_verification_received.'</td><td id="registrant_event_verification_received"></td></tr>';
-	$html_text .= '<tr id="4024" style="display:none"><td>registrant event_verification_set</td><td>'.$item->registrant->event_verification_set.'</td><td id="registrant_event_verification_set"></td></tr>';
-	$html_text .= '<tr id="4025" style="display:none;vertical-align:top"><td>registrant properties</td><td>'.$item->registrant->properties.'</td><td></td></tr>';
-	$html_text .= '<tr id="4026" style="display:none;vertical-align:top"><td>registrant remark_values</td><td>'.$item->registrant->remark_values.'</td><td></td></tr>';
+	$html_text .= '<tr><td>registrant event_verification_received</td><td>'.$item->registrant->event_verification_received.'</td><td id="registrant_event_verification_received"></td></tr>';
+	$html_text .= '<tr><td>registrant event_verification_set</td><td>'.$item->registrant->event_verification_set.'</td><td id="registrant_event_verification_set"></td></tr>';
+	$html_text .= '<tr id="4023" style="display:none;vertical-align:top"><td>registrant properties</td><td>'.$item->registrant->properties.'</td><td></td></tr>';
+	$html_text .= '<tr id="4024" style="display:none;vertical-align:top"><td>registrant remark_values</td><td>'.$item->registrant->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(41)">Administrative / Decision +/-</button></td><td></td><td id="administrative_role"></td></tr>';
 	$html_text .= '<tr id="411" style="display:none"><td>administrative handle</td><td>'.$item->administrative->handle.'</td><td></td></tr>';
 	$html_text .= '<tr id="412" style="display:none"><td>administrative web_id</td><td>'.$item->administrative->web_id.'</td><td id="administrative_web_id"></td></tr>';

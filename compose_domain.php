@@ -884,7 +884,7 @@ foreach($obj as $key1 => $value1) {
 						}
 					}
 					foreach($value5 as $key6 => $value6) {
-						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'email' and $value6 == 'email')	{					
+						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'email' and $value6 == 'email')	{	
 							if ($key2 == $entity_registrant)	{
 								$registrant_email .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3].'<br />';
 							}
@@ -1477,22 +1477,22 @@ $protocols = $doc->createElement("protocols");
 $domain->appendChild($protocols);	
 $domain_object_conformance = $doc->createElement("object_conformance");
 $domain_object_conformance->appendChild($doc->createCDATASection($object_conformance));
-$protocols->appendChild($domain_object_conformance);	
-$domain_source_registry = $doc->createElement("source_registry");
-$domain_source_registry->appendChild($doc->createCDATASection($url));		
-$protocols->appendChild($domain_source_registry);	
-$domain_source_registrar = $doc->createElement("source_registrar");
-$domain_source_registrar->appendChild($doc->createCDATASection($url_registrar));		
-$protocols->appendChild($domain_source_registrar);	
-$domain_object_class_name = $doc->createElement("object_class_name");
-$domain_object_class_name->appendChild($doc->createCDATASection($object_class_name));
-$protocols->appendChild($domain_object_class_name);	
+$protocols->appendChild($domain_object_conformance);
 $domain_registrar_iana_id = $doc->createElement("registrar_iana_id");
 $domain_registrar_iana_id->appendChild($doc->createCDATASection($registrar_iana_id));	
 $protocols->appendChild($domain_registrar_iana_id);	
 $domain_registrar_complaint = $doc->createElement("registrar_complaint");
 $domain_registrar_complaint->appendChild($doc->createCDATASection($registrar_complaint));		
 $protocols->appendChild($domain_registrar_complaint);	
+$domain_source_registry = $doc->createElement("source_registry");
+$domain_source_registry->appendChild($doc->createCDATASection($url));	
+$protocols->appendChild($domain_source_registry);	
+$domain_source_registrar = $doc->createElement("source_registrar");
+$domain_source_registrar->appendChild($doc->createCDATASection($url_registrar));		
+$protocols->appendChild($domain_source_registrar);	
+$domain_object_class_name = $doc->createElement("object_class_name");
+$domain_object_class_name->appendChild($doc->createCDATASection($object_class_name));
+$protocols->appendChild($domain_object_class_name);		
 $domain_status_explanation = $doc->createElement("status_explanation");
 $domain_status_explanation->appendChild($doc->createCDATASection($status_explanation));		
 $protocols->appendChild($domain_status_explanation);	
