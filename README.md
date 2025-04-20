@@ -10,7 +10,7 @@ Data by email modeling: https://rdap.hostingtool.nl/modeling_email/
 
 Menu information modeling: https://rdap.hostingtool.nl/modeling_menu/
 
-Domain inspection tool: https://www.domaincontrolregister.org/tool/control_login/
+Domain inspection tool: https://www.domaincontrolregister.org/
 
 Find background information on:
 
