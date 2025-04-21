@@ -160,16 +160,27 @@ $notice_3_description_0 = $obj['notices'][3]['description'][0];
 $notice_3_description_1 = $obj['notices'][3]['description'][1];
 $notice_3_links_0_href = $obj['notices'][3]['links'][0]['href'];
 $notice_3_links_0_type = $obj['notices'][3]['links'][0]['type'];			
-$zone_delegation = 'https://www.iana.org/domains/root/db/'.$zone_top_level_domain.'.html';	
+$zone_delegation_url = 'https://www.iana.org/domains/root/db/'.$zone_top_level_domain.'.html';	
 if ($zone_top_level_domain == 'nl')	{
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
-	$zone_restrictions = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
-	$zone_regmenu = 'https://www.sidn.nl/en/theme/domain-names';
+	$zone_registry_operator = 'Stichting Internet Domeinregistratie Nederland';
+	$zone_registry = 'SIDN B.V.';
+	$zone_restrictions_url = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
+	$zone_menu_url = 'https://www.sidn.nl/en/theme/domain-names';
 }
+elseif ($zone_top_level_domain == 'frl')	{
+	$registrant_web_id = 'NL88COMM01234567890123456789012345';
+	$zone_registry_operator = 'FRLregistry B.V.';
+	$zone_registry = 'Team Internet Group PLC';
+	$zone_restrictions_url = 'https://nic.frl/';
+	$zone_menu_url = 'https://nic.frl/';
+}	
 else	{
 	$registrant_web_id = '';
-	$zone_restrictions = '';
-	$zone_regmenu = '';
+	$zone_registry_operator = '';
+	$zone_registry = '';
+	$zone_restrictions_url = '';
+	$zone_menu_url = '';
 }
 $zone_languages = (is_array($obj['lang'])) ? implode(",<br />", $obj['lang']) : $obj['lang'];
 if (!strlen($zone_languages))	{
@@ -275,9 +286,9 @@ $name_ascii = $obj['ldhName'];
 $name_unicode = $obj['unicodeName'];
 $name_servers_dnssec = 'Not Available';
 $name_servers_dnssec_algorithm = 'Not Applicable';
-if (empty($obj['secureDNS']['delegationSigned']))	{
+if (empty($obj['secureDNS']['delegation_urlSigned']))	{
 }	
-elseif ($obj['secureDNS']['delegationSigned'] === true)	{
+elseif ($obj['secureDNS']['delegation_urlSigned'] === true)	{
 	$name_servers_dnssec = 'yes';
 	$algorithm = $obj['secureDNS']['dsData'][0]['algorithm'];
 	if (strlen($algorithm))	{
@@ -287,7 +298,7 @@ elseif ($obj['secureDNS']['delegationSigned'] === true)	{
 		$name_servers_dnssec_algorithm = 'Not Available';
 	}	
 }
-elseif ($obj['secureDNS']['delegationSigned'] === false)	{
+elseif ($obj['secureDNS']['delegation_urlSigned'] === false)	{
 	$name_servers_dnssec = 'no';	
 }
 $sponsor_handle = '';
@@ -436,24 +447,24 @@ $server_ipv4_5 = $obj['nameservers'][4]['ipAddresses']['v4'][0];
 $server_ipv6_5 = $obj['nameservers'][4]['ipAddresses']['v6'][0];
 $server_ipv4_6 = $obj['nameservers'][5]['ipAddresses']['v4'][0];
 $server_ipv6_6 = $obj['nameservers'][5]['ipAddresses']['v6'][0];
-$server_delegation_check_1 = '';	
-$server_delegation_check_2 = '';
-$server_delegation_check_3 = '';
-$server_delegation_check_4 = '';
-$server_delegation_check_5 = '';
-$server_delegation_check_6 = '';
+$server_delegation_url_check_1 = '';	
+$server_delegation_url_check_2 = '';
+$server_delegation_url_check_3 = '';
+$server_delegation_url_check_4 = '';
+$server_delegation_url_check_5 = '';
+$server_delegation_url_check_6 = '';
 $server_status_1 = '';
 $server_status_2 = '';
 $server_status_3 = '';
 $server_status_4 = '';
 $server_status_5 = '';
 $server_status_6 = '';	
-$server_delegation_check_last_correct_1 = '';
-$server_delegation_check_last_correct_2 = '';
-$server_delegation_check_last_correct_3 = '';
-$server_delegation_check_last_correct_4 = '';
-$server_delegation_check_last_correct_5 = '';
-$server_delegation_check_last_correct_6 = '';		
+$server_delegation_url_check_last_correct_1 = '';
+$server_delegation_url_check_last_correct_2 = '';
+$server_delegation_url_check_last_correct_3 = '';
+$server_delegation_url_check_last_correct_4 = '';
+$server_delegation_url_check_last_correct_5 = '';
+$server_delegation_url_check_last_correct_6 = '';		
 
 $entity_sponsor = -1;	
 $entity_registrant = -1;
@@ -783,16 +794,16 @@ foreach($obj as $key1 => $value1) {
 						if ($key2 == 0)	{
 							if ($key3 == 'events')	{
 								if ($key4 == 0)	{	
-									if ($key5 == 'eventAction' and $value5 == 'delegation check')	{
-										$server_delegation_check_1 = $value4['eventDate'];
+									if ($key5 == 'eventAction' and $value5 == 'delegation_url check')	{
+										$server_delegation_url_check_1 = $value4['eventDate'];
 									}
 									if ($key5 == 'status')	{
 										$server_status_1 = $value5[0];	
 									}
 								}	
 								elseif ($key4 == 1)	{	
-									if ($key5 == 'eventAction' and $value5 == 'last correct delegation check')	{
-										$server_delegation_check_last_correct_1 = $value4['eventDate'];
+									if ($key5 == 'eventAction' and $value5 == 'last correct delegation_url check')	{
+										$server_delegation_url_check_last_correct_1 = $value4['eventDate'];
 									}	
 								}		
 							}	
@@ -800,16 +811,16 @@ foreach($obj as $key1 => $value1) {
 						elseif ($key2 == 1)	{
 							if ($key3 == 'events')	{
 								if ($key4 == 0)	{	
-									if ($key5 == 'eventAction' and $value5 == 'delegation check')	{
-										$server_delegation_check_2 = $value4['eventDate'];
+									if ($key5 == 'eventAction' and $value5 == 'delegation_url check')	{
+										$server_delegation_url_check_2 = $value4['eventDate'];
 									}
 									if ($key5 == 'status')	{
 										$server_status_2 = $value5[0];	
 									}
 								}	
 								elseif ($key4 == 1)	{	
-									if ($key5 == 'eventAction' and $value5 == 'last correct delegation check')	{
-										$server_delegation_check_last_correct_2 = $value4['eventDate'];
+									if ($key5 == 'eventAction' and $value5 == 'last correct delegation_url check')	{
+										$server_delegation_url_check_last_correct_2 = $value4['eventDate'];
 									}	
 								}		
 							}	
@@ -817,16 +828,16 @@ foreach($obj as $key1 => $value1) {
 						elseif ($key2 == 2)	{
 							if ($key3 == 'events')	{
 								if ($key4 == 0)	{	
-									if ($key5 == 'eventAction' and $value5 == 'delegation check')	{
-										$server_delegation_check_3 = $value4['eventDate'];
+									if ($key5 == 'eventAction' and $value5 == 'delegation_url check')	{
+										$server_delegation_url_check_3 = $value4['eventDate'];
 									}
 									if ($key5 == 'status')	{
 										$server_status_3 = $value5[0];	
 									}
 								}	
 								elseif ($key4 == 1)	{	
-									if ($key5 == 'eventAction' and $value5 == 'last correct delegation check')	{
-										$server_delegation_check_last_correct_3 = $value4['eventDate'];
+									if ($key5 == 'eventAction' and $value5 == 'last correct delegation_url check')	{
+										$server_delegation_url_check_last_correct_3 = $value4['eventDate'];
 									}	
 								}		
 							}	
@@ -834,16 +845,16 @@ foreach($obj as $key1 => $value1) {
 						elseif ($key2 == 3)	{
 							if ($key3 == 'events')	{
 								if ($key4 == 0)	{	
-									if ($key5 == 'eventAction' and $value5 == 'delegation check')	{
-										$server_delegation_check_4 = $value4['eventDate'];
+									if ($key5 == 'eventAction' and $value5 == 'delegation_url check')	{
+										$server_delegation_url_check_4 = $value4['eventDate'];
 									}
 									if ($key5 == 'status')	{
 										$server_status_4 = $value5[0];	
 									}
 								}	
 								elseif ($key4 == 1)	{	
-									if ($key5 == 'eventAction' and $value5 == 'last correct delegation check')	{
-										$server_delegation_check_last_correct_4 = $value4['eventDate'];
+									if ($key5 == 'eventAction' and $value5 == 'last correct delegation_url check')	{
+										$server_delegation_url_check_last_correct_4 = $value4['eventDate'];
 									}	
 								}		
 							}	
@@ -851,16 +862,16 @@ foreach($obj as $key1 => $value1) {
 						elseif ($key2 == 4)	{
 							if ($key3 == 'events')	{
 								if ($key4 == 0)	{	
-									if ($key5 == 'eventAction' and $value5 == 'delegation check')	{
-										$server_delegation_check_5 = $value4['eventDate'];
+									if ($key5 == 'eventAction' and $value5 == 'delegation_url check')	{
+										$server_delegation_url_check_5 = $value4['eventDate'];
 									}
 									if ($key5 == 'status')	{
 										$server_status_5 = $value5[0];	
 									}
 								}	
 								elseif ($key4 == 1)	{	
-									if ($key5 == 'eventAction' and $value5 == 'last correct delegation check')	{
-										$server_delegation_check_last_correct_5 = $value4['eventDate'];
+									if ($key5 == 'eventAction' and $value5 == 'last correct delegation_url check')	{
+										$server_delegation_url_check_last_correct_5 = $value4['eventDate'];
 									}	
 								}		
 							}	
@@ -868,16 +879,16 @@ foreach($obj as $key1 => $value1) {
 						elseif ($key2 == 5)	{
 							if ($key3 == 'events')	{
 								if ($key4 == 0)	{	
-									if ($key5 == 'eventAction' and $value5 == 'delegation check')	{
-										$server_delegation_check_6 = $value4['eventDate'];
+									if ($key5 == 'eventAction' and $value5 == 'delegation_url check')	{
+										$server_delegation_url_check_6 = $value4['eventDate'];
 									}
 									if ($key5 == 'status')	{
 										$server_status_6 = $value5[0];	
 									}
 								}	
 								elseif ($key4 == 1)	{	
-									if ($key5 == 'eventAction' and $value5 == 'last correct delegation check')	{
-										$server_delegation_check_last_correct_6 = $value4['eventDate'];
+									if ($key5 == 'eventAction' and $value5 == 'last correct delegation_url check')	{
+										$server_delegation_url_check_last_correct_6 = $value4['eventDate'];
 									}	
 								}		
 							}	
@@ -1257,18 +1268,26 @@ $domain->appendChild($zone);
 $domain_zone_top_level_domain = $doc->createElement("top_level_domain");
 $domain_zone_top_level_domain->appendChild($doc->createCDATASection($zone_top_level_domain));	
 $zone->appendChild($domain_zone_top_level_domain);	
+
+$domain_zone_registry_operator = $doc->createElement("registry_operator");
+$domain_zone_registry_operator->appendChild($doc->createCDATASection($zone_registry_operator));	
+$zone->appendChild($domain_zone_registry_operator);
 	
-$domain_zone_delegation = $doc->createElement("delegation");
-$domain_zone_delegation->appendChild($doc->createCDATASection($zone_delegation));	
-$zone->appendChild($domain_zone_delegation);	
+$domain_zone_registry = $doc->createElement("registry");
+$domain_zone_registry->appendChild($doc->createCDATASection($zone_registry));	
+$zone->appendChild($domain_zone_registry);	
 	
-$domain_zone_restrictions = $doc->createElement("restrictions");
-$domain_zone_restrictions->appendChild($doc->createCDATASection($zone_restrictions));	
-$zone->appendChild($domain_zone_restrictions);
+$domain_zone_delegation_url = $doc->createElement("delegation_url");
+$domain_zone_delegation_url->appendChild($doc->createCDATASection($zone_delegation_url));	
+$zone->appendChild($domain_zone_delegation_url);	
 	
-$domain_zone_regmenu = $doc->createElement("regmenu");
-$domain_zone_regmenu->appendChild($doc->createCDATASection($zone_regmenu));	
-$zone->appendChild($domain_zone_regmenu);
+$domain_zone_restrictions_url = $doc->createElement("restrictions_url");
+$domain_zone_restrictions_url->appendChild($doc->createCDATASection($zone_restrictions_url));	
+$zone->appendChild($domain_zone_restrictions_url);
+	
+$domain_zone_menu_url = $doc->createElement("menu_url");
+$domain_zone_menu_url->appendChild($doc->createCDATASection($zone_menu_url));	
+$zone->appendChild($domain_zone_menu_url);
 
 $domain_zone_languages = $doc->createElement("languages");
 $domain_zone_languages->appendChild($doc->createCDATASection($zone_languages));	
@@ -2078,15 +2097,15 @@ $server_1->appendChild($domain_server_name_1);
 $domain_server_name_unicode_1 = $doc->createElement("server_name_unicode");
 $domain_server_name_unicode_1->appendChild($doc->createCDATASection($server_name_unicode_1));
 $server_1->appendChild($domain_server_name_unicode_1);	
-$domain_server_delegation_check_1 = $doc->createElement("server_delegation_check");
-$domain_server_delegation_check_1->appendChild($doc->createCDATASection($server_delegation_check_1));		
-$server_1->appendChild($domain_server_delegation_check_1);
+$domain_server_delegation_url_check_1 = $doc->createElement("server_delegation_url_check");
+$domain_server_delegation_url_check_1->appendChild($doc->createCDATASection($server_delegation_url_check_1));		
+$server_1->appendChild($domain_server_delegation_url_check_1);
 $domain_server_status_1 = $doc->createElement("server_status");
 $domain_server_status_1->appendChild($doc->createCDATASection($server_status_1));		
 $server_1->appendChild($domain_server_status_1);		
-$domain_server_delegation_check_last_correct_1 = $doc->createElement("server_delegation_check_last_correct");
-$domain_server_delegation_check_last_correct_1->appendChild($doc->createCDATASection($server_delegation_check_last_correct_1));		
-$server_1->appendChild($domain_server_delegation_check_last_correct_1);	
+$domain_server_delegation_url_check_last_correct_1 = $doc->createElement("server_delegation_url_check_last_correct");
+$domain_server_delegation_url_check_last_correct_1->appendChild($doc->createCDATASection($server_delegation_url_check_last_correct_1));		
+$server_1->appendChild($domain_server_delegation_url_check_last_correct_1);	
 $domain_server_ipv4_1 = $doc->createElement("server_ipv4");
 $domain_server_ipv4_1->appendChild($doc->createCDATASection($server_ipv4_1));		
 $server_1->appendChild($domain_server_ipv4_1);
@@ -2103,15 +2122,15 @@ $server_2->appendChild($domain_server_name_2);
 $domain_server_name_unicode_2 = $doc->createElement("server_name_unicode");
 $domain_server_name_unicode_2->appendChild($doc->createCDATASection($server_name_unicode_2));		
 $server_2->appendChild($domain_server_name_unicode_2);
-$domain_server_delegation_check_2 = $doc->createElement("server_delegation_check");
-$domain_server_delegation_check_2->appendChild($doc->createCDATASection($server_delegation_check_2));		
-$server_2->appendChild($domain_server_delegation_check_2);
+$domain_server_delegation_url_check_2 = $doc->createElement("server_delegation_url_check");
+$domain_server_delegation_url_check_2->appendChild($doc->createCDATASection($server_delegation_url_check_2));		
+$server_2->appendChild($domain_server_delegation_url_check_2);
 $domain_server_status_2 = $doc->createElement("server_status");
 $domain_server_status_2->appendChild($doc->createCDATASection($server_status_2));		
 $server_2->appendChild($domain_server_status_2);		
-$domain_server_delegation_check_last_correct_2 = $doc->createElement("server_delegation_check_last_correct");
-$domain_server_delegation_check_last_correct_2->appendChild($doc->createCDATASection($server_delegation_check_last_correct_2));		
-$server_2->appendChild($domain_server_delegation_check_last_correct_2);	
+$domain_server_delegation_url_check_last_correct_2 = $doc->createElement("server_delegation_url_check_last_correct");
+$domain_server_delegation_url_check_last_correct_2->appendChild($doc->createCDATASection($server_delegation_url_check_last_correct_2));		
+$server_2->appendChild($domain_server_delegation_url_check_last_correct_2);	
 $domain_server_ipv4_2 = $doc->createElement("server_ipv4");
 $domain_server_ipv4_2->appendChild($doc->createCDATASection($server_ipv4_2));		
 $server_2->appendChild($domain_server_ipv4_2);
@@ -2128,15 +2147,15 @@ $server_3->appendChild($domain_server_name_3);
 $domain_server_name_unicode_3 = $doc->createElement("server_name_unicode");
 $domain_server_name_unicode_3->appendChild($doc->createCDATASection($server_name_unicode_3));		
 $server_3->appendChild($domain_server_name_unicode_3);
-$domain_server_delegation_check_3 = $doc->createElement("server_delegation_check");
-$domain_server_delegation_check_3->appendChild($doc->createCDATASection($server_delegation_check_3));		
-$server_3->appendChild($domain_server_delegation_check_3);
+$domain_server_delegation_url_check_3 = $doc->createElement("server_delegation_url_check");
+$domain_server_delegation_url_check_3->appendChild($doc->createCDATASection($server_delegation_url_check_3));		
+$server_3->appendChild($domain_server_delegation_url_check_3);
 $domain_server_status_3 = $doc->createElement("server_status");
 $domain_server_status_3->appendChild($doc->createCDATASection($server_status_3));		
 $server_3->appendChild($domain_server_status_3);		
-$domain_server_delegation_check_last_correct_3 = $doc->createElement("server_delegation_check_last_correct");
-$domain_server_delegation_check_last_correct_3->appendChild($doc->createCDATASection($server_delegation_check_last_correct_3));		
-$server_3->appendChild($domain_server_delegation_check_last_correct_3);	
+$domain_server_delegation_url_check_last_correct_3 = $doc->createElement("server_delegation_url_check_last_correct");
+$domain_server_delegation_url_check_last_correct_3->appendChild($doc->createCDATASection($server_delegation_url_check_last_correct_3));		
+$server_3->appendChild($domain_server_delegation_url_check_last_correct_3);	
 $domain_server_ipv4_3 = $doc->createElement("server_ipv4");
 $domain_server_ipv4_3->appendChild($doc->createCDATASection($server_ipv4_3));		
 $server_3->appendChild($domain_server_ipv4_3);
@@ -2153,15 +2172,15 @@ $server_4->appendChild($domain_server_name_4);
 $domain_server_name_unicode_4 = $doc->createElement("server_name_unicode");
 $domain_server_name_unicode_4->appendChild($doc->createCDATASection($server_name_unicode_4));		
 $server_4->appendChild($domain_server_name_unicode_4);
-$domain_server_delegation_check_4 = $doc->createElement("server_delegation_check");
-$domain_server_delegation_check_4->appendChild($doc->createCDATASection($server_delegation_check_4));		
-$server_4->appendChild($domain_server_delegation_check_4);
+$domain_server_delegation_url_check_4 = $doc->createElement("server_delegation_url_check");
+$domain_server_delegation_url_check_4->appendChild($doc->createCDATASection($server_delegation_url_check_4));		
+$server_4->appendChild($domain_server_delegation_url_check_4);
 $domain_server_status_4 = $doc->createElement("server_status");
 $domain_server_status_4->appendChild($doc->createCDATASection($server_status_4));		
 $server_4->appendChild($domain_server_status_4);		
-$domain_server_delegation_check_last_correct_4 = $doc->createElement("server_delegation_check_last_correct");
-$domain_server_delegation_check_last_correct_4->appendChild($doc->createCDATASection($server_delegation_check_last_correct_4));		
-$server_4->appendChild($domain_server_delegation_check_last_correct_4);	
+$domain_server_delegation_url_check_last_correct_4 = $doc->createElement("server_delegation_url_check_last_correct");
+$domain_server_delegation_url_check_last_correct_4->appendChild($doc->createCDATASection($server_delegation_url_check_last_correct_4));		
+$server_4->appendChild($domain_server_delegation_url_check_last_correct_4);	
 $domain_server_ipv4_4 = $doc->createElement("server_ipv4");
 $domain_server_ipv4_4->appendChild($doc->createCDATASection($server_ipv4_4));		
 $server_4->appendChild($domain_server_ipv4_4);
@@ -2178,15 +2197,15 @@ $server_5->appendChild($domain_server_name_5);
 $domain_server_name_unicode_5 = $doc->createElement("server_name_unicode");
 $domain_server_name_unicode_5->appendChild($doc->createCDATASection($server_name_unicode_5));		
 $server_5->appendChild($domain_server_name_unicode_5);
-$domain_server_delegation_check_5 = $doc->createElement("server_delegation_check");
-$domain_server_delegation_check_5->appendChild($doc->createCDATASection($server_delegation_check_5));		
-$server_5->appendChild($domain_server_delegation_check_5);
+$domain_server_delegation_url_check_5 = $doc->createElement("server_delegation_url_check");
+$domain_server_delegation_url_check_5->appendChild($doc->createCDATASection($server_delegation_url_check_5));		
+$server_5->appendChild($domain_server_delegation_url_check_5);
 $domain_server_status_5 = $doc->createElement("server_status");
 $domain_server_status_5->appendChild($doc->createCDATASection($server_status_5));		
 $server_5->appendChild($domain_server_status_5);		
-$domain_server_delegation_check_last_correct_5 = $doc->createElement("server_delegation_check_last_correct");
-$domain_server_delegation_check_last_correct_5->appendChild($doc->createCDATASection($server_delegation_check_last_correct_5));		
-$server_5->appendChild($domain_server_delegation_check_last_correct_5);	
+$domain_server_delegation_url_check_last_correct_5 = $doc->createElement("server_delegation_url_check_last_correct");
+$domain_server_delegation_url_check_last_correct_5->appendChild($doc->createCDATASection($server_delegation_url_check_last_correct_5));		
+$server_5->appendChild($domain_server_delegation_url_check_last_correct_5);	
 $domain_server_ipv4_5 = $doc->createElement("server_ipv4");
 $domain_server_ipv4_5->appendChild($doc->createCDATASection($server_ipv4_5));		
 $server_5->appendChild($domain_server_ipv4_5);
@@ -2202,15 +2221,15 @@ $server_6->appendChild($domain_server_name_6);
 $domain_server_name_unicode_6 = $doc->createElement("server_name_unicode");
 $domain_server_name_unicode_6->appendChild($doc->createCDATASection($server_name_unicode_6));		
 $server_6->appendChild($domain_server_name_unicode_6);
-$domain_server_delegation_check_6 = $doc->createElement("server_delegation_check");
-$domain_server_delegation_check_6->appendChild($doc->createCDATASection($server_delegation_check_6));		
-$server_6->appendChild($domain_server_delegation_check_6);
+$domain_server_delegation_url_check_6 = $doc->createElement("server_delegation_url_check");
+$domain_server_delegation_url_check_6->appendChild($doc->createCDATASection($server_delegation_url_check_6));		
+$server_6->appendChild($domain_server_delegation_url_check_6);
 $domain_server_status_6 = $doc->createElement("server_status");
 $domain_server_status_6->appendChild($doc->createCDATASection($server_status_6));		
 $server_6->appendChild($domain_server_status_6);		
-$domain_server_delegation_check_last_correct_6 = $doc->createElement("server_delegation_check_last_correct");
-$domain_server_delegation_check_last_correct_6->appendChild($doc->createCDATASection($server_delegation_check_last_correct_6));		
-$server_6->appendChild($domain_server_delegation_check_last_correct_6);
+$domain_server_delegation_url_check_last_correct_6 = $doc->createElement("server_delegation_url_check_last_correct");
+$domain_server_delegation_url_check_last_correct_6->appendChild($doc->createCDATASection($server_delegation_url_check_last_correct_6));		
+$server_6->appendChild($domain_server_delegation_url_check_last_correct_6);
 $domain_server_ipv4_6 = $doc->createElement("server_ipv4");
 $domain_server_ipv4_6->appendChild($doc->createCDATASection($server_ipv4_6));		
 $server_6->appendChild($domain_server_ipv4_6);

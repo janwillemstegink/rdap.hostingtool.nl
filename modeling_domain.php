@@ -11,7 +11,7 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 function SwitchDisplay(type) {
 	if (type == 10)			{ // zone
 		var pre = '10';
-		var max = 4
+		var max = 6
 	}
 	else if (type == 11)	{ // notice 0
 		var pre = '11';
@@ -136,9 +136,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "";
 		document.getElementById("zone_role").textContent = "";
-		document.getElementById("zone_delegation").textContent = proposed;
-		document.getElementById("zone_restrictions").textContent = proposed;
-		document.getElementById("zone_regmenu").textContent = proposed;
+		document.getElementById("zone_delegation_url").textContent = proposed;
+		document.getElementById("zone_registry_operator").textContent = proposed;
+		document.getElementById("zone_restrictions_url").textContent = proposed;
+		document.getElementById("zone_registry").textContent = proposed;
+		document.getElementById("zone_menu_url").textContent = proposed;
 		document.getElementById("zone_languages").textContent = proposed;
 		document.getElementById("protocols_role").textContent = "";
 		document.getElementById("protocols_registrar_iana_id").textContent = proposed;
@@ -209,9 +211,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Webdomeinen toegelicht";
 		document.getElementById("zone_role").textContent = "Topleveldomeinen worden door ICANN toegewezen aan domeinregisters die de domeinen beheren.";
-		document.getElementById("zone_delegation").textContent = proposed + "Gepland: Web-ID-zoekopdrachten kunnen worden uitgevoerd op wereldwijde RDAP-servers.";
-		document.getElementById("zone_restrictions").textContent = proposed + "Het gebruik van domeingegevens is aan beperkingen onderhevig.";
-		document.getElementById("zone_regmenu").textContent = proposed + "Een vervolgkeuzemenu met uitleg en details, bijvoorbeeld via een subdomein van de registry.";
+		document.getElementById("zone_delegation_url").textContent = proposed + "Gepland: Web-ID-zoekopdrachten kunnen worden uitgevoerd op wereldwijde RDAP-servers.";
+		document.getElementById("zone_registry_operator").textContent = proposed;
+		document.getElementById("zone_restrictions_url").textContent = proposed + "Het gebruik van domeingegevens is aan beperkingen onderhevig.";
+		document.getElementById("zone_menu_url").textContent = proposed + "Een vervolgkeuzemenu met uitleg en details, bijvoorbeeld via een subdomein van de registry.";
+		document.getElementById("zone_registry").textContent = proposed;
 		document.getElementById("zone_languages").textContent = proposed + "Een zone kan met meerdere veelgebruikte talen werken.";
 		document.getElementById("protocols_role").textContent = "Het Registration Data Access Protocol (RDAP) is bedoeld voor wereldwijde communicatie.";
 		document.getElementById("protocols_registrar_iana_id").textContent = proposed + "Accreditatie, voor één of meer generieke topleveldomeinen. En moet juist zijn.";
@@ -282,9 +286,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Web Domains Explained";		
 		document.getElementById("zone_role").textContent = "Top-level domains are assigned by ICANN to domain registries that manage the domains.";
-		document.getElementById("zone_delegation").textContent = proposed + "Planned: Web ID searches can be performed on global RDAP servers.";
-		document.getElementById("zone_restrictions").textContent = proposed + "The use of domain data is subject to restrictions.";
-		document.getElementById("zone_regmenu").textContent = proposed + "A drop-down menu with explanations and details, for example via a subdomain of the registry.";
+		document.getElementById("zone_delegation_url").textContent = proposed + "Planned: Web ID searches can be performed on global RDAP servers.";
+		document.getElementById("zone_registry_operator").textContent = proposed;
+		document.getElementById("zone_restrictions_url").textContent = proposed + "The use of domain data is subject to restrictions.";
+		document.getElementById("zone_registry").textContent = proposed;
+		document.getElementById("zone_menu_url").textContent = proposed + "A drop-down menu with explanations and details, for example via a subdomain of the registry.";
 		document.getElementById("zone_languages").textContent = proposed + "A zone can work with multiple commonly used languages.";
 		document.getElementById("protocols_role").textContent = "The Registration Data Access Protocol (RDAP) is intended for global communication.";
 		document.getElementById("protocols_registrar_iana_id").textContent = proposed + "Accreditation, for one or more generic top-level domains. And must be correct.";
@@ -355,9 +361,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Webdomänen erklärt";		
 		document.getElementById("zone_role").textContent = "Top-Level-Domains werden von der ICANN an Domain-Registrare vergeben, die die Domains verwalten.";	
-		document.getElementById("zone_delegation").textContent = proposed + "Geplant: Web-ID-Suchen können auf globalen RDAP-Servern durchgeführt werden.";
-		document.getElementById("zone_restrictions").textContent = proposed + "Die Nutzung der Domaindaten unterliegt Einschränkungen.";
-		document.getElementById("zone_regmenu").textContent = proposed + "Ein Dropdown-Menü mit Erläuterungen und Details, z. B. über eine Subdomain der Registry.";
+		document.getElementById("zone_delegation_url").textContent = proposed + "Geplant: Web-ID-Suchen können auf globalen RDAP-Servern durchgeführt werden.";
+		document.getElementById("zone_registry_operator").textContent = proposed;
+		document.getElementById("zone_restrictions_url").textContent = proposed + "Die Nutzung der Domaindaten unterliegt Einschränkungen.";
+		document.getElementById("zone_registry").textContent = proposed;
+		document.getElementById("zone_menu_url").textContent = proposed + "Ein Dropdown-Menü mit Erläuterungen und Details, z. B. über eine Subdomain der Registry.";
 		document.getElementById("zone_languages").textContent = proposed + "Eine Zone kann mit mehreren häufig verwendeten Sprachen arbeiten.";
 		document.getElementById("protocols_role").textContent = "Das Registration Data Access Protocol (RDAP) ist für die weltweite Kommunikation vorgesehen.";
 		document.getElementById("protocols_registrar_iana_id").textContent = proposed + "Akkreditierung für eine oder mehrere generische Top-Level-Domains. Und muss korrekt sein.";
@@ -428,9 +436,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("value").textContent = "Détail";
 		document.getElementById("explanation").textContent = "Domaines Web expliqués";		
 		document.getElementById("zone_role").textContent = "Les domaines de premier niveau sont attribués par l'ICANN aux registres de domaines qui gèrent les domaines.";
-		document.getElementById("zone_delegation").textContent = proposed + "Prévu : Les recherches d’identifiant Web peuvent être effectuées sur des serveurs RDAP mondiaux.";
-		document.getElementById("zone_restrictions").textContent = proposed + "L'utilisation des données de domaine est soumise à des restrictions.";
-		document.getElementById("zone_regmenu").textContent = proposed + "Un menu déroulant avec explication et détails, par exemple via un sous-domaine du registre.";
+		document.getElementById("zone_delegation_url").textContent = proposed + "Prévu : Les recherches d’identifiant Web peuvent être effectuées sur des serveurs RDAP mondiaux.";
+		document.getElementById("zone_registry_operator").textContent = proposed;
+		document.getElementById("zone_restrictions_url").textContent = proposed + "L'utilisation des données de domaine est soumise à des restrictions.";
+		document.getElementById("zone_registry").textContent = proposed;
+		document.getElementById("zone_menu_url").textContent = proposed + "Un menu déroulant avec explication et détails, par exemple via un sous-domaine du registre.";
 		document.getElementById("zone_languages").textContent = proposed + "Une zone peut fonctionner avec plusieurs langues couramment utilisées.";
 		document.getElementById("protocols_role").textContent = "Le protocole d'accès aux données d'enregistrement (RDAP) est destiné à la communication mondiale.";
 		document.getElementById("protocols_registrar_iana_id").textContent = proposed + "Accréditation, pour un ou plusieurs domaines génériques de premier niveau. Et doit être correct.";
@@ -573,20 +583,22 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td id="value"><td id="explanation"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(10)">Zone +/-</button></td><td><b>'.$item->zone->top_level_domain.'</b></td><td id="zone_role"></td></tr>';
-	$html_text .= '<tr id="101" style="display:none"><td>zone delegation</td><td><a href='.$item->zone->delegation.' target="_blank">IANA Delegation Data</a></td><td id="zone_delegation"></td></tr>';
-	if (strlen($item->zone->restrictions))	{
-		$html_text .= '<tr id="102" style="display:none"><td>zone restrictions</td><td><a href='.$item->zone->restrictions.' target="_blank">Data Usage Restrictions</a></td><td id="zone_restrictions"></td></tr>';
+	$html_text .= '<tr id="101" style="display:none"><td>zone delegation_url</td><td><a href='.$item->zone->delegation_url.' target="_blank">Top-Level Domain Delegation</a></td><td id="zone_delegation_url"></td></tr>';
+	$html_text .= '<tr id="102" style="display:none"><td>zone registry_operator</td><td>'.$item->zone->registry_operator.'</td><td id="zone_registry_operator"></td></tr>';
+	if (strlen($item->zone->restrictions_url))	{
+		$html_text .= '<tr id="103" style="display:none"><td>zone restrictions_url</td><td><a href='.$item->zone->restrictions_url.' target="_blank">Top-Level Domain Restrictions</a></td><td id="zone_restrictions_url"></td></tr>';
 	}
 	else	{
-		$html_text .= '<tr id="102" style="display:none"><td>zone restrictions</td><td>none</td><td id="zone_restrictions"></td></tr>';
+		$html_text .= '<tr id="103" style="display:none"><td>zone restrictions_url</td><td></td><td id="zone_restrictions_url"></td></tr>';
 	}
-	if (strlen($item->zone->regmenu))	{
-		$html_text .= '<tr id="103" style="display:none"><td>zone regmenu</td><td><a href='.$item->zone->regmenu.' target="_blank">Registry Zone Menu</a></td><td id="zone_regmenu"></td></tr>';
+	if (strlen($item->zone->menu_url))	{
+		$html_text .= '<tr id="104" style="display:none"><td>zone menu_url</td><td><a href='.$item->zone->menu_url.' target="_blank">Top-Level Domain Menu</a></td><td id="zone_menu_url"></td></tr>';
 	}
 	else	{
-		$html_text .= '<tr id="103" style="display:none"><td>zone regmenu</td><td>none</td><td id="zone_regmenu"></td></tr>';	
+		$html_text .= '<tr id="104" style="display:none"><td>zone menu_url</td><td></td><td id="zone_menu_url"></td></tr>';	
 	}
-	$html_text .= '<tr id="104" style="display:none"><td>zone languages</td><td>'.$item->zone->languages.'</td><td id="zone_languages"></td></tr>';
+	$html_text .= '<tr id="105" style="display:none"><td>zone registry</td><td>'.$item->zone->registry.'</td><td id="zone_registry"></td></tr>';
+	$html_text .= '<tr id="106" style="display:none"><td>zone languages</td><td>'.$item->zone->languages.'</td><td id="zone_languages"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(11)">Notice0 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(12)">Notice1 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(13)">Notice2 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(14)">Notice3 +/-</button></td><td></td><td></td></tr>';
 	$html_text .= '<tr id="111" style="display:none;vertical-align:top"><td>zone notice_0_title</td><td>'.$item->zone->notice_0_title.'</td><td></td></tr>';
 	$html_text .= '<tr id="112" style="display:none;vertical-align:top"><td>zone notice_0_description_0</td><td>'.$item->zone->notice_0_description_0.'</td><td></td></tr>';
