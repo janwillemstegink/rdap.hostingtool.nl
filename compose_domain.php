@@ -163,28 +163,28 @@ $notice_3_links_0_type = $obj['notices'][3]['links'][0]['type'];
 $zone_delegation_url = 'https://www.iana.org/domains/root/db/'.$zone_top_level_domain.'.html';	
 if ($zone_top_level_domain == 'nl')	{
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
-	$zone_registry_operator = 'Stichting Internet Domeinregistratie Nederland';
-	$zone_registry = 'SIDN B.V.';
+	$zone_registry_operator_trade_name = 'Stichting Internet Domeinregistratie Nederland';
+	$zone_registry_trade_name = 'SIDN B.V.';
 	$zone_restrictions_url = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
 	$zone_menu_url = 'https://www.sidn.nl/en/theme/domain-names';
 }
 elseif ($zone_top_level_domain == 'frl')	{
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
-	$zone_registry_operator = 'FRLregistry B.V.';
-	$zone_registry = 'Team Internet Group PLC';
+	$zone_registry_operator_trade_name = 'FRLregistry B.V.';
+	$zone_registry_trade_name = 'Team Internet Group PLC';
 	$zone_restrictions_url = 'https://nic.frl/';
 	$zone_menu_url = 'https://nic.frl/';
 }	
 else	{
 	$registrant_web_id = '';
-	$zone_registry_operator = '';
-	$zone_registry = '';
+	$zone_registry_operator_trade_name = '';
+	$zone_registry_trade_name = '';
 	$zone_restrictions_url = '';
 	$zone_menu_url = '';
 }
-$zone_languages = (is_array($obj['lang'])) ? implode(",<br />", $obj['lang']) : $obj['lang'];
-if (!strlen($zone_languages))	{
-	$zone_languages = 'None Specified';	
+$zone_language_codes = (is_array($obj['lang'])) ? implode(",<br />", $obj['lang']) : $obj['lang'];
+if (!strlen($zone_language_codes))	{
+	$zone_language_codes = 'None Specified';	
 }	
 $links_0_value = $obj['links'][0]['value'];
 $links_0_related = $obj['links'][0]['rel'];
@@ -1269,12 +1269,12 @@ $domain_zone_top_level_domain = $doc->createElement("top_level_domain");
 $domain_zone_top_level_domain->appendChild($doc->createCDATASection($zone_top_level_domain));	
 $zone->appendChild($domain_zone_top_level_domain);	
 
-$domain_zone_registry_operator = $doc->createElement("registry_operator");
-$domain_zone_registry_operator->appendChild($doc->createCDATASection($zone_registry_operator));	
-$zone->appendChild($domain_zone_registry_operator);
+$domain_zone_registry_operator_trade_name = $doc->createElement("registry_operator_trade_name");
+$domain_zone_registry_operator_trade_name->appendChild($doc->createCDATASection($zone_registry_operator_trade_name));	
+$zone->appendChild($domain_zone_registry_operator_trade_name);
 	
-$domain_zone_registry = $doc->createElement("registry");
-$domain_zone_registry->appendChild($doc->createCDATASection($zone_registry));	
+$domain_zone_registry = $doc->createElement("registry_trade_name");
+$domain_zone_registry->appendChild($doc->createCDATASection($zone_registry_trade_name));	
 $zone->appendChild($domain_zone_registry);	
 	
 $domain_zone_delegation_url = $doc->createElement("delegation_url");
@@ -1289,9 +1289,9 @@ $domain_zone_menu_url = $doc->createElement("menu_url");
 $domain_zone_menu_url->appendChild($doc->createCDATASection($zone_menu_url));	
 $zone->appendChild($domain_zone_menu_url);
 
-$domain_zone_languages = $doc->createElement("languages");
-$domain_zone_languages->appendChild($doc->createCDATASection($zone_languages));	
-$zone->appendChild($domain_zone_languages);	
+$domain_zone_language_codes = $doc->createElement("language_codes");
+$domain_zone_language_codes->appendChild($doc->createCDATASection($zone_language_codes));	
+$zone->appendChild($domain_zone_language_codes);	
 	
 $domain_notice_0_title = $doc->createElement("notice_0_title");
 $domain_notice_0_title->appendChild($doc->createCDATASection($notice_0_title));	
