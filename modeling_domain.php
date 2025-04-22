@@ -129,6 +129,7 @@ function SwitchTranslation(translation)	{
 	if (translation == 0)	{		
 		var proposed = '';
 		var address = '';
+		var accessible = '';
 		document.getElementById("title").textContent = "Domain Information";
 		document.getElementById("subtitle").textContent = "RDAP-v1-based modeling";
 		document.getElementById("instruction").textContent = "Paste a domain name and press Enter.";
@@ -161,6 +162,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("details_extensions_values").textContent = "";
 		document.getElementById("sponsor_role").textContent = "";
 		document.getElementById("registrant_role").textContent = "";
+		document.getElementById("registrant_handle").textContent = "";
 		document.getElementById("registrant_web_id").textContent = proposed;
 		document.getElementById("registrant_organization_name").textContent = "";
 		document.getElementById("registrant_presented_name").textContent = "";
@@ -204,8 +206,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("raw_data_next").textContent = "";
 	}
 	else if (translation == 1)	{
-		var proposed = 'VOORGESTELD - ';
+		var proposed = 'Voorgesteld - ';
 		var address = "Het afschermen van adresgegevens zoals bij example.tel, resulteert in rommelige gegevens.";
+		var accessible = 'Met de voorgestelde velden wordt deze informatie gemakkelijker toegankelijk.';
 		document.getElementById("title").textContent = "Domein-informatie";
 		document.getElementById("subtitle").textContent = "RDAP-v1-gebaseerde modellering";
 		document.getElementById("instruction").textContent = "Plak een domeinnaam en druk op Enter.";
@@ -216,11 +219,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_delegation_url").textContent = proposed + "Gepland: Web-ID-zoekopdrachten kunnen worden uitgevoerd op wereldwijde RDAP-servers.";
 		document.getElementById("zone_registry_operator_trade_name").textContent = proposed;
 		document.getElementById("zone_restrictions_url").textContent = proposed + "Het gebruik van domeingegevens is aan beperkingen onderhevig.";
-		document.getElementById("zone_menu_url").textContent = proposed + "Een vervolgkeuzemenu met uitleg en details, bijvoorbeeld via een subdomein.";
+		document.getElementById("zone_menu_url").textContent = proposed + 'Een vervolgkeuzemenu met uitleg en details, bijvoorbeeld via een subdomein "regmenu".';
 		document.getElementById("zone_registry_trade_name").textContent = proposed;
 		document.getElementById("zone_language_codes").textContent = proposed + "Een zone kan met meerdere veelgebruikte talen werken.";
-		document.getElementById("notices_role").textContent = proposed + "Deze informatie zou toegankelijker zijn in de voorgestelde velden.";
-		document.getElementById("links_role").textContent = proposed + "Deze informatie zou toegankelijker zijn in de voorgestelde velden.";	
+		document.getElementById("notices_role").textContent = accessible;
+		document.getElementById("links_role").textContent = accessible;	
 		document.getElementById("protocols_role").textContent = "Het Registration Data Access Protocol (RDAP) is bedoeld voor wereldwijde communicatie.";
 		document.getElementById("protocols_registrar_iana_id").textContent = proposed + "Accreditatie, voor één of meer generieke topleveldomeinen. En moet juist zijn.";
 		document.getElementById("protocols_registrar_complaint").textContent = proposed;
@@ -238,6 +241,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("details_extensions_values").textContent = "'Eligibility': Hoe een domein voldoet aan een specifieke vereiste in een topleveldomeinzone.";
 		document.getElementById("sponsor_role").textContent = "De domeinregistratie kan worden beheerd door een sponsor. Zie bijvoorbeeld france.fr.";
 		document.getElementById("registrant_role").textContent = "De domeingebruiker die de daadwerkelijke of effectieve controle heeft voor domeinrecht in het land van vestiging.";
+		document.getElementById("registrant_handle").textContent = 'De uitvoer van "hostingtool.nl" bevat onbedoeld informatie met "STE135427-TRAIP".';
 		document.getElementById("registrant_web_id").textContent = proposed + "Webidentificatienummer voor bedrijfsentiteiten en natuurlijke personen.";
 		document.getElementById("registrant_organization_name").textContent = "Een organisatie die primair verantwoordelijk is voor het domeinabonnement. Zie bijvoorbeeld icann.org.";
 		document.getElementById("registrant_presented_name").textContent = "Geldig is de naam van een primair verantwoordelijke persoon of een rol binnen de organisatie.";
@@ -281,8 +285,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("raw_data_next").textContent = "De rollen zijn hier gerangschikt op verantwoordelijkheid. 'None Specified' komt van deze tool. Voor communicatie in JSON is een leesbare XML-structuur vereist.";
 	}
 	else if (translation == 2)	{
-		var proposed = 'SUGGESTED - ';
+		var proposed = 'Proposed - ';
 		var address = "Shielding address data as with example.tel, results in messy data.";
+		var accessible = 'With the proposed fields, this information would be more easily accessible.';
 		document.getElementById("title").textContent = "Domain Information";
 		document.getElementById("subtitle").textContent = "RDAP-v1-based modeling";
 		document.getElementById("instruction").textContent = "Paste a domain name and press Enter.";
@@ -294,10 +299,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_registry_operator_trade_name").textContent = proposed;
 		document.getElementById("zone_restrictions_url").textContent = proposed + "The use of domain data is subject to restrictions.";
 		document.getElementById("zone_registry_trade_name").textContent = proposed;
-		document.getElementById("zone_menu_url").textContent = proposed + "A drop-down menu with explanations and details, for example via a subdomain.";
+		document.getElementById("zone_menu_url").textContent = proposed + 'A drop-down menu with explanations and details, for example via a subdomain "regmenu".';
 		document.getElementById("zone_language_codes").textContent = proposed + "A zone can work with multiple commonly used languages.";
-		document.getElementById("notices_role").textContent = proposed + "This information would be more accessible in the suggested fields.";
-		document.getElementById("links_role").textContent = proposed + "This information would be more accessible in the suggested fields.";			
+		document.getElementById("notices_role").textContent = accessible;
+		document.getElementById("links_role").textContent = accessible;			
 		document.getElementById("protocols_role").textContent = "The Registration Data Access Protocol (RDAP) is intended for global communication.";
 		document.getElementById("protocols_registrar_iana_id").textContent = proposed + "Accreditation, for one or more generic top-level domains. And must be correct.";
 		document.getElementById("protocols_registrar_complaint").textContent = proposed;
@@ -315,6 +320,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("details_extensions_values").textContent = "'Eligibility': How a domain fulfills a specific requirement in a top-level domain zone.";
 		document.getElementById("sponsor_role").textContent = "The domain registration can be managed by a sponsor. See for example france.fr.";
 		document.getElementById("registrant_role").textContent = "The domain user who has the actual or effective control for domain rights in the country of establishment.";
+		document.getElementById("registrant_handle").textContent = 'The output from "hostingtool.nl" unintentionally contains information with "STE135427-TRAIP".';
 		document.getElementById("registrant_web_id").textContent = proposed + "Web Identification number for business entities and natural persons.";
 		document.getElementById("registrant_organization_name").textContent = "An organization primarily responsible for the domain subscription. See for example icann.org.";
 		document.getElementById("registrant_presented_name").textContent = "Valid is the name of a primarily responsible person or a role within the organization.";
@@ -358,8 +364,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("raw_data_next").textContent = "The roles here are arranged according to responsibility. 'None Specified' comes from this tool. Communication in JSON requires a readable XML structure.";
 	}
 	else if (translation == 3)	{
-		var proposed = 'VORGESCHLAGEN - ';
+		var proposed = 'Vorgeschlagen - ';
 		var address = "Das Abschirmen von Adressdaten wie bei example.tel, führt zu unordentlichen Daten.";
+		var accessible = 'Mit den vorgeschlagenen Feldern wären diese Informationen leichter zugänglich.';
 		document.getElementById("title").textContent = "Domäneninformation";
 		document.getElementById("subtitle").textContent = "RDAP-v1-basierte Modellierung";
 		document.getElementById("instruction").textContent = "Fügen Sie einen Domänennamen ein und drücken Sie die Eingabetaste.";
@@ -371,10 +378,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_registry_operator_trade_name").textContent = proposed;
 		document.getElementById("zone_restrictions_url").textContent = proposed + "Die Nutzung der Domaindaten unterliegt Einschränkungen.";
 		document.getElementById("zone_registry_trade_name").textContent = proposed;
-		document.getElementById("zone_menu_url").textContent = proposed + "Ein Dropdown-Menü mit Erläuterungen und Details, z. B. über eine Subdomain.";
+		document.getElementById("zone_menu_url").textContent = proposed + 'Ein Dropdown-Menü mit Erläuterungen und Details, z. B. über eine Subdomain "regmenu".';
 		document.getElementById("zone_language_codes").textContent = proposed + "Eine Zone kann mit mehreren häufig verwendeten Sprachen arbeiten.";
-		document.getElementById("notices_role").textContent = proposed + "Diese Informationen wären in den vorgeschlagenen Feldern leichter zugänglich.";
-		document.getElementById("links_role").textContent = proposed + "Diese Informationen wären in den vorgeschlagenen Feldern leichter zugänglich.";			
+		document.getElementById("notices_role").textContent = accessible;
+		document.getElementById("links_role").textContent = accessible;
 		document.getElementById("protocols_role").textContent = "Das Registration Data Access Protocol (RDAP) ist für die weltweite Kommunikation vorgesehen.";
 		document.getElementById("protocols_registrar_iana_id").textContent = proposed + "Akkreditierung für eine oder mehrere generische Top-Level-Domains. Und muss korrekt sein.";
 		document.getElementById("protocols_registrar_complaint").textContent = proposed;
@@ -392,6 +399,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("details_extensions_values").textContent = "'Eligibility': Wie eine Domäne eine bestimmte Anforderung in einer Top-Level-Domänenzone erfüllt.";
 		document.getElementById("sponsor_role").textContent = "Die Domänenregistrierung kann von einem Sponsor verwaltet werden. Siehe beispielsweise france.fr.";
 		document.getElementById("registrant_role").textContent = "Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat für Domainrechte im Wohnsitzland.";
+		document.getElementById("registrant_handle").textContent = 'Die Ausgabe von "hostingtool.nl" enthält unbeabsichtigt Informationen mit "STE135427-TRAIP".';
 		document.getElementById("registrant_web_id").textContent = proposed + "Web-Identifikationsnummer für Unternehmen und natürliche Personen.";
 		document.getElementById("registrant_organization_name").textContent = "Eine Organisation, die hauptsächlich für das Domänenabonnement verantwortlich ist. Siehe beispielsweise icann.org.";
 		document.getElementById("registrant_presented_name").textContent = "Gültig ist der Name einer hauptverantwortlichen Person oder einer Rolle innerhalb der Organisation.";
@@ -435,8 +443,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("raw_data_next").textContent = "Die Rollen sind hierbei nach Verantwortung verteilt. 'None Specified' stammt von diesem Tool. Die Kommunikation in JSON erfordert eine lesbare XML-Struktur.";
 	}
 	else if (translation == 4)	{
-		var proposed = 'SUGGÉRÉ - ';
+		var proposed = 'Proposé - ';
 		var address = "Le blindage des données d'adresse comme avec example.tel, génère des données désordonnées.";
+		var accessible = 'Avec les champs proposés, ces informations seraient plus facilement accessibles.';
 		document.getElementById("title").textContent = "Informations sur le domaine";
 		document.getElementById("subtitle").textContent = "Modélisation basée sur RDAP-v1";
 		document.getElementById("instruction").textContent = "Collez un nom de domaine et appuyez sur Entrée.";
@@ -448,9 +457,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_registry_operator_trade_name").textContent = proposed;
 		document.getElementById("zone_restrictions_url").textContent = proposed + "L'utilisation des données de domaine est soumise à des restrictions.";
 		document.getElementById("zone_registry_trade_name").textContent = proposed;
-		document.getElementById("zone_menu_url").textContent = proposed + "Un menu déroulant avec explication et détails, par exemple via un sous-domaine.";
-		document.getElementById("notices_role").textContent = proposed + "Ces informations seraient plus accessibles dans les champs suggérés.";
-		document.getElementById("links_role").textContent = proposed + "Ces informations seraient plus accessibles dans les champs suggérés.";			
+		document.getElementById("zone_menu_url").textContent = proposed + 'Un menu déroulant avec explication et détails, par exemple via un sous-domaine "regmenu".';
+		document.getElementById("notices_role").textContent = accessible;
+		document.getElementById("links_role").textContent = accessible;
 		document.getElementById("zone_language_codes").textContent = proposed + "Une zone peut fonctionner avec plusieurs langues couramment utilisées.";
 		document.getElementById("protocols_role").textContent = "Le protocole d'accès aux données d'enregistrement (RDAP) est destiné à la communication mondiale.";
 		document.getElementById("protocols_registrar_iana_id").textContent = proposed + "Accréditation, pour un ou plusieurs domaines génériques de premier niveau. Et doit être correct.";
@@ -469,6 +478,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("details_extensions_values").textContent = "'Eligibility' : comment un domaine répond à une exigence spécifique dans une zone de domaine de premier niveau.";
 		document.getElementById("sponsor_role").textContent = "L'enregistrement du domaine peut être géré par un sponsor. Voir par exemple france.fr.";
 		document.getElementById("registrant_role").textContent = "L'utilisateur du domaine qui a le contrôle réel ou effectif pour les droits de domaine dans le pays de résidence.";
+		document.getElementById("registrant_handle").textContent = 'La sortie de "hostingtool.nl" contient involontairement des informations avec "STE135427-TRAIP"';
 		document.getElementById("registrant_web_id").textContent = proposed + "Numéro d’identification Web pour les entités commerciales et les personnes physiques.";
 		document.getElementById("registrant_organization_name").textContent = "Une organisation principalement responsable de l’abonnement au domaine. Voir, par exemple, icann.org.";
 		document.getElementById("registrant_presented_name").textContent = "Valide est le nom d'une personne principalement responsable ou d'un rôle au sein de l'organisation.";
@@ -743,7 +753,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="3928" style="display:none;vertical-align:top"><td>sponsor properties</td><td>'.$item->sponsor->properties.'</td><td></td></tr>';
 	$html_text .= '<tr id="3929" style="display:none;vertical-align:top"><td>sponsor remark_values</td><td>'.$item->sponsor->remark_values.'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(40)">Registrant +/-</button></td><td></td><td id="registrant_role"></td></tr>';
-	$html_text .= '<tr id="401" style="display:none"><td>registrant handle</td><td>'.$item->registrant->handle.'</td><td></td></tr>';
+	$html_text .= '<tr id="401" style="display:none"><td>registrant handle</td><td>'.$item->registrant->handle.'</td><td id="registrant_handle"></td></tr>';
 	$html_text .= '<tr id="402" style="display:none"><td>registrant web_id</td><td>'.$item->registrant->web_id.'</td><td id="registrant_web_id"></td></tr>';
 	$html_text .= '<tr id="403" style="display:none"><td>registrant organization_type</td><td>'.$item->registrant->organization_type.'</td><td></td></tr>';
 	$html_text .= '<tr><td>registrant organization_name</td><td>'.$item->registrant->organization_name.'</td><td id="registrant_organization_name"></td></tr>';
