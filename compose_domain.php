@@ -117,8 +117,9 @@ switch ($zone_top_level_domain) {
    		//die("No match with a top level domain.");
 }
 
+$zone_lookup_endpoint = 'https://data.iana.org/rdap/dns.json';
 if (!strlen($url))	{
-	$rdap = json_decode(file_get_contents('https://data.iana.org/rdap/dns.json'), true);
+	$rdap = json_decode(file_get_contents($zone_lookup_endpoint), true);
 	$temp_key = -1;
 	foreach($rdap as $key1 => $value1) {
     	foreach($value1 as $key2 => $value2) {
@@ -1291,7 +1292,11 @@ $zone->appendChild($domain_zone_menu_url);
 
 $domain_zone_language_codes = $doc->createElement("language_codes");
 $domain_zone_language_codes->appendChild($doc->createCDATASection($zone_language_codes));	
-$zone->appendChild($domain_zone_language_codes);	
+$zone->appendChild($domain_zone_language_codes);
+	
+$domain_zone_lookup_endpoint = $doc->createElement("lookup_endpoint");
+$domain_zone_lookup_endpoint->appendChild($doc->createCDATASection($zone_lookup_endpoint));	
+$zone->appendChild($domain_zone_lookup_endpoint);
 	
 $domain_notice_0_title = $doc->createElement("notice_0_title");
 $domain_notice_0_title->appendChild($doc->createCDATASection($notice_0_title));	

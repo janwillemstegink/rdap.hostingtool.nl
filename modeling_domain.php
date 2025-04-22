@@ -11,7 +11,7 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 function SwitchDisplay(type) {
 	if (type == 10)			{ // zone
 		var pre = '10';
-		var max = 6
+		var max = 7
 	}
 	else if (type == 11)	{ // notice 0
 		var pre = '11';
@@ -143,6 +143,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_registry_trade_name").textContent = proposed;
 		document.getElementById("zone_menu_url").textContent = proposed;
 		document.getElementById("zone_language_codes").textContent = proposed;
+		document.getElementById("zone_lookup_endpoint").textContent = proposed;
 		document.getElementById("notices_role").textContent = "";
 		document.getElementById("links_role").textContent = "";		
 		document.getElementById("protocols_role").textContent = "";
@@ -222,6 +223,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_menu_url").textContent = proposed + 'Een vervolgkeuzemenu met uitleg en details, bijvoorbeeld via een subdomein "regmenu".';
 		document.getElementById("zone_registry_trade_name").textContent = proposed;
 		document.getElementById("zone_language_codes").textContent = proposed + "Een zone kan met meerdere veelgebruikte talen werken.";
+		document.getElementById("zone_lookup_endpoint").textContent = proposed;
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;	
 		document.getElementById("protocols_role").textContent = "Het Registration Data Access Protocol (RDAP) is bedoeld voor wereldwijde communicatie.";
@@ -301,6 +303,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_registry_trade_name").textContent = proposed;
 		document.getElementById("zone_menu_url").textContent = proposed + 'A drop-down menu with explanations and details, for example via a subdomain "regmenu".';
 		document.getElementById("zone_language_codes").textContent = proposed + "A zone can work with multiple commonly used languages.";
+		document.getElementById("zone_lookup_endpoint").textContent = proposed;
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;			
 		document.getElementById("protocols_role").textContent = "The Registration Data Access Protocol (RDAP) is intended for global communication.";
@@ -380,6 +383,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_registry_trade_name").textContent = proposed;
 		document.getElementById("zone_menu_url").textContent = proposed + 'Ein Dropdown-Menü mit Erläuterungen und Details, z. B. über eine Subdomain "regmenu".';
 		document.getElementById("zone_language_codes").textContent = proposed + "Eine Zone kann mit mehreren häufig verwendeten Sprachen arbeiten.";
+		document.getElementById("zone_lookup_endpoint").textContent = proposed;
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;
 		document.getElementById("protocols_role").textContent = "Das Registration Data Access Protocol (RDAP) ist für die weltweite Kommunikation vorgesehen.";
@@ -461,6 +465,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;
 		document.getElementById("zone_language_codes").textContent = proposed + "Une zone peut fonctionner avec plusieurs langues couramment utilisées.";
+		document.getElementById("zone_lookup_endpoint").textContent = proposed;
 		document.getElementById("protocols_role").textContent = "Le protocole d'accès aux données d'enregistrement (RDAP) est destiné à la communication mondiale.";
 		document.getElementById("protocols_registrar_iana_id").textContent = proposed + "Accréditation, pour un ou plusieurs domaines génériques de premier niveau. Et doit être correct.";
 		document.getElementById("protocols_registrar_complaint").textContent = proposed;
@@ -619,6 +624,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	}
 	$html_text .= '<tr id="105" style="display:none"><td>zone registry_trade_name</td><td>'.$item->zone->registry_trade_name.'</td><td id="zone_registry_trade_name"></td></tr>';
 	$html_text .= '<tr id="106" style="display:none"><td>zone language_codes</td><td>'.$item->zone->language_codes.'</td><td id="zone_language_codes"></td></tr>';
+	$html_text .= '<tr id="107" style="display:none"><td>zone lookup_endpoint</td><td><a href='.$item->zone->lookup_endpoint.' target="_blank">Top-Level Domain Lookup Endpoint</a></td><td id="zone_lookup_endpoint"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(11)">Notice0 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(12)">Notice1 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(13)">Notice2 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(14)">Notice3 +/-</button></td><td></td><td id="notices_role"></td></tr>';
 	$html_text .= '<tr id="111" style="display:none;vertical-align:top"><td>zone notice_0_title</td><td>'.$item->zone->notice_0_title.'</td><td></td></tr>';
 	$html_text .= '<tr id="112" style="display:none;vertical-align:top"><td>zone notice_0_description_0</td><td>'.$item->zone->notice_0_description_0.'</td><td></td></tr>';
