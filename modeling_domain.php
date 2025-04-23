@@ -207,7 +207,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("raw_data_next").textContent = "";
 	}
 	else if (translation == 1)	{
-		var proposed = 'Voorgesteld - ';
+		var proposed = 'Voorgesteld: ';
 		var address = "Het afschermen van adresgegevens zoals bij example.tel, resulteert in rommelige gegevens.";
 		var accessible = 'Met de voorgestelde velden wordt deze informatie gemakkelijker toegankelijk.';
 		document.getElementById("title").textContent = "Domein-informatie";
@@ -287,7 +287,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("raw_data_next").textContent = "De rollen zijn hier gerangschikt op verantwoordelijkheid. 'None Specified' komt van deze tool. Voor communicatie in JSON is een leesbare XML-structuur vereist.";
 	}
 	else if (translation == 2)	{
-		var proposed = 'Proposed - ';
+		var proposed = 'Proposed: ';
 		var address = "Shielding address data as with example.tel, results in messy data.";
 		var accessible = 'With the proposed fields, this information would be more easily accessible.';
 		document.getElementById("title").textContent = "Domain Information";
@@ -367,7 +367,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("raw_data_next").textContent = "The roles here are arranged according to responsibility. 'None Specified' comes from this tool. Communication in JSON requires a readable XML structure.";
 	}
 	else if (translation == 3)	{
-		var proposed = 'Vorgeschlagen - ';
+		var proposed = 'Vorgeschlagen: ';
 		var address = "Das Abschirmen von Adressdaten wie bei example.tel, führt zu unordentlichen Daten.";
 		var accessible = 'Mit den vorgeschlagenen Feldern wären diese Informationen leichter zugänglich.';
 		document.getElementById("title").textContent = "Domäneninformation";
@@ -447,7 +447,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("raw_data_next").textContent = "Die Rollen sind hierbei nach Verantwortung verteilt. 'None Specified' stammt von diesem Tool. Die Kommunikation in JSON erfordert eine lesbare XML-Struktur.";
 	}
 	else if (translation == 4)	{
-		var proposed = 'Proposé - ';
+		var proposed = 'Proposé : ';
 		var address = "Le blindage des données d'adresse comme avec example.tel, génère des données désordonnées.";
 		var accessible = 'Avec les champs proposés, ces informations seraient plus facilement accessibles.';
 		document.getElementById("title").textContent = "Informations sur le domaine";
@@ -611,20 +611,20 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr id="101" style="display:none"><td>zone delegation_url</td><td><a href='.$item->zone->delegation_url.' target="_blank">Top-Level Domain Delegation</a></td><td id="zone_delegation_url"></td></tr>';
 	$html_text .= '<tr id="102" style="display:none"><td>zone registry_operator_trade_name</td><td>'.$item->zone->registry_operator_trade_name.'</td><td id="zone_registry_operator_trade_name"></td></tr>';
 	if (strlen($item->zone->restrictions_url))	{
-		$html_text .= '<tr id="103" style="display:none"><td>zone restrictions_url</td><td><a href='.$item->zone->restrictions_url.' target="_blank">Top-Level Domain Restrictions</a></td><td id="zone_restrictions_url"></td></tr>';
+		$html_text .= '<tr id="103" style="display:none"><td>zone restrictions_url</td><td><a href='.$item->zone->restrictions_url.' target="_blank">Zone Restrictions</a></td><td id="zone_restrictions_url"></td></tr>';
 	}
 	else	{
 		$html_text .= '<tr id="103" style="display:none"><td>zone restrictions_url</td><td></td><td id="zone_restrictions_url"></td></tr>';
 	}
 	if (strlen($item->zone->menu_url))	{
-		$html_text .= '<tr id="104" style="display:none"><td>zone menu_url</td><td><a href='.$item->zone->menu_url.' target="_blank">Top-Level Domain Menu</a></td><td id="zone_menu_url"></td></tr>';
+		$html_text .= '<tr id="104" style="display:none"><td>zone menu_url</td><td><a href='.$item->zone->menu_url.' target="_blank">Zone Menu</a></td><td id="zone_menu_url"></td></tr>';
 	}
 	else	{
 		$html_text .= '<tr id="104" style="display:none"><td>zone menu_url</td><td></td><td id="zone_menu_url"></td></tr>';	
 	}
 	$html_text .= '<tr id="105" style="display:none"><td>zone registry_trade_name</td><td>'.$item->zone->registry_trade_name.'</td><td id="zone_registry_trade_name"></td></tr>';
 	$html_text .= '<tr id="106" style="display:none"><td>zone language_codes</td><td>'.$item->zone->language_codes.'</td><td id="zone_language_codes"></td></tr>';
-	$html_text .= '<tr id="107" style="display:none"><td>zone lookup_endpoint</td><td><a href='.$item->zone->lookup_endpoint.' target="_blank">Top-Level Domain Lookup Endpoint</a></td><td id="zone_lookup_endpoint"></td></tr>';
+	$html_text .= '<tr id="107" style="display:none"><td>zone lookup_endpoint</td><td><a href='.$item->zone->lookup_endpoint.' target="_blank">Zone Lookup Endpoint</a></td><td id="zone_lookup_endpoint"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(11)">Notice0 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(12)">Notice1 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(13)">Notice2 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(14)">Notice3 +/-</button></td><td></td><td id="notices_role"></td></tr>';
 	$html_text .= '<tr id="111" style="display:none;vertical-align:top"><td>zone notice_0_title</td><td>'.$item->zone->notice_0_title.'</td><td></td></tr>';
 	$html_text .= '<tr id="112" style="display:none;vertical-align:top"><td>zone notice_0_description_0</td><td>'.$item->zone->notice_0_description_0.'</td><td></td></tr>';
