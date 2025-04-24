@@ -219,9 +219,9 @@ $links_3_title = $obj['links'][3]['title'];
 $links_3_media = $obj['links'][3]['media'];
 $links_3_type = $obj['links'][3]['type'];	
 
-$object_class_name = $obj['objectClassName'];
-$object_conformance = (is_array($obj['rdapConformance'])) ? implode(",<br />", $obj['rdapConformance']) : $obj['rdapConformance'];
-$registrar_iana_id = '';
+$class_name = $obj['objectClassName'];
+$conformance = (is_array($obj['rdapConformance'])) ? implode(",<br />", $obj['rdapConformance']) : $obj['rdapConformance'];
+$iana_registrar_id = '';
 $registrar_complaint_url = '';
 $status_explanation_url = '';	
 	
@@ -663,7 +663,7 @@ foreach($obj as $key1 => $value1) {
 						}	
 					}
 					if ($key2 == $entity_registrar and $key3 == 'publicIds')	{
-						$registrar_iana_id .= $value4['type'].': '.$value4['identifier'].'<br />';
+						$iana_registrar_id .= $value4['type'].': '.$value4['identifier'].'<br />';
 					}
 				}
 				foreach($value4 as $key5 => $value5) {
@@ -1497,30 +1497,30 @@ $view->appendChild($domain_links_3_type);
 	
 $domain->appendChild($view);	
 	
-$protocols = $doc->createElement("protocols");
-$domain->appendChild($protocols);	
-$domain_object_conformance = $doc->createElement("object_conformance");
-$domain_object_conformance->appendChild($doc->createCDATASection($object_conformance));
-$protocols->appendChild($domain_object_conformance);
-$domain_registrar_iana_id = $doc->createElement("registrar_iana_id");
-$domain_registrar_iana_id->appendChild($doc->createCDATASection($registrar_iana_id));	
-$protocols->appendChild($domain_registrar_iana_id);	
+$object = $doc->createElement("object");
+$domain->appendChild($object);
+$domain_class_name = $doc->createElement("class_name");
+$domain_class_name->appendChild($doc->createCDATASection($class_name));
+$object->appendChild($domain_class_name);	
+$domain_conformance = $doc->createElement("conformance");
+$domain_conformance->appendChild($doc->createCDATASection($conformance));
+$object->appendChild($domain_conformance);
+$domain_iana_registrar_id = $doc->createElement("iana_registrar_id");
+$domain_iana_registrar_id->appendChild($doc->createCDATASection($iana_registrar_id));	
+$object->appendChild($domain_iana_registrar_id);	
 $domain_registrar_complaint_url = $doc->createElement("registrar_complaint_url");
 $domain_registrar_complaint_url->appendChild($doc->createCDATASection($registrar_complaint_url));		
-$protocols->appendChild($domain_registrar_complaint_url);	
-$domain_source_registry = $doc->createElement("source_registry");
-$domain_source_registry->appendChild($doc->createCDATASection($url));	
-$protocols->appendChild($domain_source_registry);	
-$domain_source_registrar = $doc->createElement("source_registrar");
-$domain_source_registrar->appendChild($doc->createCDATASection($url_registrar));		
-$protocols->appendChild($domain_source_registrar);	
-$domain_object_class_name = $doc->createElement("object_class_name");
-$domain_object_class_name->appendChild($doc->createCDATASection($object_class_name));
-$protocols->appendChild($domain_object_class_name);		
+$object->appendChild($domain_registrar_complaint_url);	
+$domain_registry_source = $doc->createElement("registry_source");
+$domain_registry_source->appendChild($doc->createCDATASection($url));	
+$object->appendChild($domain_registry_source);	
+$domain_registrar_source = $doc->createElement("registrar_source");
+$domain_registrar_source->appendChild($doc->createCDATASection($url_registrar));		
+$object->appendChild($domain_registrar_source);			
 $domain_status_explanation_url = $doc->createElement("status_explanation_url");
 $domain_status_explanation_url->appendChild($doc->createCDATASection($status_explanation_url));		
-$protocols->appendChild($domain_status_explanation_url);	
-$domain->appendChild($protocols);	
+$object->appendChild($domain_status_explanation_url);	
+$domain->appendChild($object);	
 		
 $details = $doc->createElement("details");
 $domain->appendChild($details);		
