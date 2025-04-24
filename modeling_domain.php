@@ -149,7 +149,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("protocols_role").textContent = "";
 		document.getElementById("protocols_registrar_iana_id").textContent = proposed;
 		document.getElementById("protocols_registrar_complaint").textContent = proposed;
-		document.getElementById("protocols_source_registry_trade_name").textContent = proposed;
+		document.getElementById("protocols_source_registry").textContent = proposed;
 		document.getElementById("protocols_source_registrar").textContent = proposed;
 		document.getElementById("protocols_status_explanation").textContent = proposed;
 		document.getElementById("details_role").textContent = "";
@@ -229,7 +229,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("protocols_role").textContent = "Het Registration Data Access Protocol (RDAP) is bedoeld voor wereldwijde communicatie.";
 		document.getElementById("protocols_registrar_iana_id").textContent = proposed + "Accreditatie, voor één of meer generieke topleveldomeinen. En moet juist zijn.";
 		document.getElementById("protocols_registrar_complaint").textContent = proposed;
-		document.getElementById("protocols_source_registry_trade_name").textContent = proposed + "Een folder '/v1/' werkt voor een versie '/v2/', zie icann.com.";
+		document.getElementById("protocols_source_registry").textContent = proposed + "Een folder '/v1/' werkt voor een versie '/v2/', zie icann.com.";
 		document.getElementById("protocols_source_registrar").textContent = proposed;
 		document.getElementById("protocols_status_explanation").textContent = proposed;
 		document.getElementById("details_role").textContent = "Een domein onder TLD-niveau is wereldwijd uniek en kan vrij worden gekozen onder bepaalde regels.";
@@ -309,7 +309,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("protocols_role").textContent = "The Registration Data Access Protocol (RDAP) is intended for global communication.";
 		document.getElementById("protocols_registrar_iana_id").textContent = proposed + "Accreditation, for one or more generic top-level domains. And must be correct.";
 		document.getElementById("protocols_registrar_complaint").textContent = proposed;
-		document.getElementById("protocols_source_registry_trade_name").textContent = proposed + "A folder '/v1/' works for a version '/v2/', see icann.com.";
+		document.getElementById("protocols_source_registry").textContent = proposed + "A folder '/v1/' works for a version '/v2/', see icann.com.";
 		document.getElementById("protocols_source_registrar").textContent = proposed;
 		document.getElementById("protocols_status_explanation").textContent = proposed;
 		document.getElementById("details_role").textContent = "A domain below TLD level is globally unique and can be freely chosen under certain rules.";
@@ -389,7 +389,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("protocols_role").textContent = "Das Registration Data Access Protocol (RDAP) ist für die weltweite Kommunikation vorgesehen.";
 		document.getElementById("protocols_registrar_iana_id").textContent = proposed + "Akkreditierung für eine oder mehrere generische Top-Level-Domains. Und muss korrekt sein.";
 		document.getElementById("protocols_registrar_complaint").textContent = proposed;
-		document.getElementById("protocols_source_registry_trade_name").textContent = proposed + "Ein Ordner '/v1/' funktioniert für eine Version '/v2/', siehe icann.com.";
+		document.getElementById("protocols_source_registry").textContent = proposed + "Ein Ordner '/v1/' funktioniert für eine Version '/v2/', siehe icann.com.";
 		document.getElementById("protocols_source_registrar").textContent = proposed;
 		document.getElementById("protocols_status_explanation").textContent = proposed;
 		document.getElementById("details_role").textContent = "Eine Domain unterhalb der TLD-Ebene ist weltweit eindeutig und kann unter bestimmten Regeln frei gewählt werden.";
@@ -469,7 +469,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("protocols_role").textContent = "Le protocole d'accès aux données d'enregistrement (RDAP) est destiné à la communication mondiale.";
 		document.getElementById("protocols_registrar_iana_id").textContent = proposed + "Accréditation, pour un ou plusieurs domaines génériques de premier niveau. Et doit être correct.";
 		document.getElementById("protocols_registrar_complaint").textContent = proposed;
-		document.getElementById("protocols_source_registry_trade_name").textContent = proposed + "Un dossier '/v1/' fonctionne pour une version '/v2/', voir icann.com.";
+		document.getElementById("protocols_source_registry").textContent = proposed + "Un dossier '/v1/' fonctionne pour une version '/v2/', voir icann.com.";
 		document.getElementById("protocols_source_registrar").textContent = proposed;
 		document.getElementById("protocols_status_explanation").textContent = proposed;
 		document.getElementById("details_role").textContent = "Un domaine inférieur au niveau TLD est unique au monde et peut être choisi librement selon certaines règles.";
@@ -610,18 +610,8 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(10)">Zone Information +/-</button></td><td><b>'.$item->zone->top_level_domain.'</b></td><td id="zone_role"></td></tr>';
 	$html_text .= '<tr id="101" style="display:none"><td>zone delegation_url</td><td><a href='.$item->zone->delegation_url.' target="_blank">Top-Level Domain Delegation</a></td><td id="zone_delegation_url"></td></tr>';
 	$html_text .= '<tr id="102" style="display:none"><td>zone registry_operator_trade_name</td><td>'.$item->zone->registry_operator_trade_name.'</td><td id="zone_registry_operator_trade_name"></td></tr>';
-	if (strlen($item->zone->restrictions_url))	{
-		$html_text .= '<tr id="103" style="display:none"><td>zone restrictions_url</td><td><a href='.$item->zone->restrictions_url.' target="_blank">Zone Restrictions</a></td><td id="zone_restrictions_url"></td></tr>';
-	}
-	else	{
-		$html_text .= '<tr id="103" style="display:none"><td>zone restrictions_url</td><td></td><td id="zone_restrictions_url"></td></tr>';
-	}
-	if (strlen($item->zone->menu_url))	{
-		$html_text .= '<tr id="104" style="display:none"><td>zone menu_url</td><td><a href='.$item->zone->menu_url.' target="_blank">Zone Menu</a></td><td id="zone_menu_url"></td></tr>';
-	}
-	else	{
-		$html_text .= '<tr id="104" style="display:none"><td>zone menu_url</td><td></td><td id="zone_menu_url"></td></tr>';	
-	}
+	$html_text .= '<tr id="103" style="display:none"><td>zone restrictions_url</td><td>'.((strlen($item->zone->restrictions_url)) ? '<a href='.$item->zone->restrictions_url.' target="_blank">Zone Restrictions</a>' : '').'</td><td id="zone_restrictions_url"></td></tr>';
+	$html_text .= '<tr id="104" style="display:none"><td>zone menu_url</td><td>'.((strlen($item->zone->menu_url)) ? '<a href='.$item->zone->menu_url.' target="_blank">Zone Menu</a>' : '').'</td><td id="zone_menu_url"></td></tr>';
 	$html_text .= '<tr id="105" style="display:none"><td>zone registry_trade_name</td><td>'.$item->zone->registry_trade_name.'</td><td id="zone_registry_trade_name"></td></tr>';
 	$html_text .= '<tr id="106" style="display:none"><td>zone language_codes</td><td>'.$item->zone->language_codes.'</td><td id="zone_language_codes"></td></tr>';
 	$html_text .= '<tr id="107" style="display:none"><td>zone lookup_endpoint</td><td><a href='.$item->zone->lookup_endpoint.' target="_blank">Zone Lookup Endpoint</a></td><td id="zone_lookup_endpoint"></td></tr>';
@@ -678,40 +668,15 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(29)">Protocol Information +/-</button></td><td></td><td id="protocols_role"></td></tr>';
 	$html_text .= '<tr id="291" style="display:none"><td>protocols object_conformance</td><td>'.$item->protocols->object_conformance.'</td><td></td></tr>';
 	$html_text .= '<tr id="292" style="display:none"><td>protocols object_class_name</td><td>'.$item->protocols->object_class_name.'</td><td></td></tr>';
-	if (strlen($item->protocols->registrar_iana_id))	{
-		$html_text .= '<tr id="293" style="display:none"><td>protocols registrar_iana_id</td><td>'.$item->protocols->registrar_iana_id.'</td><td id="protocols_registrar_iana_id"></td></tr>';
-	}
-	else	{
-		$html_text .= '<tr id="293" style="display:none"><td>protocols registrar_iana_id</td><td>none</td><td id="protocols_registrar_iana_id"></td></tr>';	
-	}	
-	if (strlen($item->protocols->registrar_complaint))	{
-		$html_text .= '<tr id="294" style="display:none"><td>protocols registrar_complaint</td><td><a href='.$item->protocols->registrar_complaint.' target="_blank">icann.org/wicf</a></td><td id="protocols_registrar_complaint"></td></tr>';
-	}
-	else	{
-		$html_text .= '<tr id="294" style="display:none"><td>protocols registrar_complaint</td><td>none</td><td id="protocols_registrar_complaint"></td></tr>';	
-	}
-	if (strlen($item->protocols->source_registry))	{
-		$source_registry = str_replace('https://', '', $item->protocols->source_registry);
-		$validation_registry = 'https://validator.rdap.org/?url=https://'.$source_registry.'&response-type=domain&server-type=gtld-registry&errors-only=1';
-		$html_text .= '<tr><td>protocols source_registry</td><td><a href='.$item->protocols->source_registry.' target="_blank">registry file</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">validator.rdap.org</a></td><td id="protocols_source_registry_trade_name"></td></tr>';
-	}
-	else	{
-		$html_text .= '<tr><td>protocols source_registry</td><td>none</td><td id="protocols_source_registry_trade_name"></td></tr>';	
-	}
-	if (strlen($item->protocols->source_registrar))	{
-		$source_registrar = str_replace('https://', '', $item->protocols->source_registrar);
-		$validation_registrar = 'https://validator.rdap.org/?url=https://'.$source_registrar.'&response-type=domain&server-type=gtld-registrar&errors-only=1';
-		$html_text .= '<tr id="295" style="display:none"><td>protocols source_registrar</td><td><a href='.$item->protocols->source_registrar.' target="_blank">registrar file</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">validator.rdap.org</a></td><td id="protocols_source_registrar"></td></tr>';
-	}
-	else	{
-		$html_text .= '<tr id="295" style="display:none"><td>protocols source_registrar (<a style="font-size: 0.9rem" href="https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/icann.com" target="_blank">e.g. icann.com</a> <a style="font-size: 0.9rem" href="https://rdap.metaregistrar.com/domain/fryslan.frl" target="_blank">fryslan.frl</a>)</td><td>none</td><td id="protocols_source_registrar"></td></tr>';
-	}
-	if (strlen($item->protocols->status_explanation))	{
-		$html_text .= '<tr id="296" style="display:none"><td>protocols status_explanation</td><td><a href='.$item->protocols->status_explanation.' target="_blank">icann.org/epp</a></td><td id="protocols_status_explanation"></td></tr>';
-	}
-	else	{
-		$html_text .= '<tr id="296" style="display:none"><td>protocols status_explanation</td><td>none</td><td id="protocols_status_explanation"></td></tr>';	
-	}
+	$html_text .= '<tr id="293" style="display:none"><td>protocols registrar_iana_id</td><td>'.((strlen($item->protocols->registrar_iana_id)) ? $item->protocols->registrar_iana_id : 'none').'</td><td id="protocols_registrar_iana_id"></td></tr>';
+	$html_text .= '<tr id="294" style="display:none"><td>protocols registrar_complaint</td><td>'.((strlen($item->protocols->registrar_complaint)) ? '<a href='.$item->protocols->registrar_complaint.' target="_blank">icann.org/wicf</a>' : 'none').'</td><td id="protocols_registrar_complaint"></td></tr>';	
+	$source_registry = str_replace('https://', '', $item->protocols->source_registry);
+	$validation_registry = 'https://validator.rdap.org/?url=https://'.$source_registry.'&response-type=domain&server-type=gtld-registry&errors-only=1';	
+	$html_text .= '<tr><td>protocols source_registry</td><td>'.((strlen($item->protocols->source_registry)) ? '<a href='.$item->protocols->source_registry.' target="_blank">registry file</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">validator.rdap.org</a>' : 'none').'</td><td id="protocols_source_registry"></td></tr>';	
+	$source_registrar = str_replace('https://', '', $item->protocols->source_registrar);
+	$validation_registrar = 'https://validator.rdap.org/?url=https://'.$source_registrar.'&response-type=domain&server-type=gtld-registrar&errors-only=1';	
+	$html_text .= '<tr id="295" style="display:none"><td>protocols source_registrar (e.g. <a style="font-size: 0.9rem" href="https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/icann.com" target="_blank">icann.com</a> <a style="font-size: 0.9rem" href="https://rdap.metaregistrar.com/domain/fryslan.frl" target="_blank">fryslan.frl</a>)</td><td>'.((strlen($item->protocols->source_registrar)) ? '<a href='.$item->protocols->source_registrar.' target="_blank">registrar file</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">validator.rdap.org</a>' : 'none').'</td><td id="protocols_source_registrar"></td></tr>';	
+	$html_text .= '<tr id="296" style="display:none"><td>protocols status_explanation</td><td>'.((strlen($item->protocols->status_explanation)) ? '<a href='.$item->protocols->status_explanation.' target="_blank">icann.org/epp</a>' : 'none').'</td><td id="protocols_status_explanation"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(30)">Details +/-</button></td><td>'.$viewdomain.'</td><td id="details_role"></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>details handle</td><td>'.$item->details->handle.'</td><td></td></tr>';
