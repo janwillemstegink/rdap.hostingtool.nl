@@ -6,6 +6,7 @@
 //$_GET['domain'] = 'nic.br';
 //$_GET['domain'] = 'fryslan.frl';
 //$_GET['domain'] = 'example.ovh';
+//$_GET['domain'] = 'icann.com';
 //$_GET['domain'] = 'icann.org';
 //$_GET['domain'] = 'team.blue';
 //$_GET['domain'] = 'france.fr';
@@ -933,25 +934,25 @@ foreach($obj as $key1 => $value1) {
 						}
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'tel' and $value6 == 'tel')	{
 							if ($key2 == $entity_registrant)	{
-								$registrant_telephone .= implode(",<br />",$value5[1]) . ' ' . $value5[2] . ' ' . $value5[3] . "<br />";
+								$registrant_telephone .= implode(",<br />",$value5[1]) . ' ' . $value5[2] . ' ' . $value5[3];
 							}
 							if ($key2 == $entity_administrative)	{
-								$administrative_telephone .= implode(",<br />",$value5[1]) . ' ' . $value5[2] . ' ' . $value5[3] . "<br />";
+								$administrative_telephone .= implode(",<br />",$value5[1]) . ' ' . $value5[2] . ' ' . $value5[3];
 							}
 							if ($key2 == $entity_technical)	{
-								$technical_telephone .= implode(",<br />",$value5[1]) . ' ' . $value5[2] . ' ' . $value5[3] . "<br />";
+								$technical_telephone .= implode(",<br />",$value5[1]) . ' ' . $value5[2] . ' ' . $value5[3];
 							}
 							if ($key2 == $entity_billing)	{
-								$billing_telephone .= implode(",<br />",$value5[1]) . ' ' . $value5[2] . ' ' . $value5[3] . "<br />";
+								$billing_telephone .= implode(",<br />",$value5[1]) . ' ' . $value5[2] . ' ' . $value5[3];
 							}							
 							if ($key2 == $entity_reseller)	{
-								$reseller_telephone .= implode(",<br />",$value5[1]) . ' ' . $value5[2] . ' ' . $value5[3] . "<br />";
+								$reseller_telephone .= implode(",<br />",$value5[1]) . ' ' . $value5[2] . ' ' . $value5[3];
 							}
 							if ($key2 == $entity_registrar)	{
-								$registrar_telephone .= implode(",<br />",$value5[1]) . ' ' . $value5[2] . ' ' . $value5[3] . "<br />";
+								$registrar_telephone .= implode(",<br />",$value5[1]) . ' ' . $value5[2] . ' ' . $value5[3];
 							}
 							if ($key2 == $entity_sponsor)	{
-								$sponsor_telephone .= implode(",<br />",$value5[1]) . ' ' . $value5[2] . ' ' . $value5[3] . "<br />";
+								$sponsor_telephone .= implode(",<br />",$value5[1]) . ' ' . $value5[2] . ' ' . $value5[3];
 							}
 						}
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'fn' and $value6 == 'fn')	{
@@ -1046,31 +1047,31 @@ foreach($obj as $key1 => $value1) {
 						}
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'org' and $value6 == 'org')	{
 							if ($key2 == $entity_registrant)	{
-								$registrant_organization_type = $value5[1]['type'];
+								$registrant_organization_type = (is_array($value5[1]['type'])) ? implode(",<br />",$value5[1]['type']) : $value5[1]['type'];
 								$registrant_organization_name = $value5[3];
 							}
 							if ($key2 == $entity_administrative)	{
-								$administrative_organization_type = $value5[1]['type'];
+								$administrative_organization_type = (is_array($value5[1]['type'])) ? implode(",<br />",$value5[1]['type']) : $value5[1]['type'];
 								$administrative_organization_name = $value5[3];
 							}
 							if ($key2 == $entity_technical)	{
-								$technical_organization_type = $value5[1]['type'];
+								$technical_organization_type = (is_array($value5[1]['type'])) ? implode(",<br />",$value5[1]['type']) : $value5[1]['type'];
 								$technical_organization_name = $value5[3];
 							}
 							if ($key2 == $entity_billing)	{
-								$billing_organization_type = $value5[1]['type'];
+								$billing_organization_type = (is_array($value5[1]['type'])) ? implode(",<br />",$value5[1]['type']) : $value5[1]['type'];
 								$billing_organization_name = $value5[3];
 							}							
 							if ($key2 == $entity_reseller)	{
-								$reseller_organization_type = $value5[1]['type'];
+								$reseller_organization_type = (is_array($value5[1]['type'])) ? implode(",<br />",$value5[1]['type']) : $value5[1]['type'];
 								$reseller_organization_name = $value5[3];
 							}
 							if ($key2 == $entity_registrar)	{
-								$registrar_organization_type = $value5[1]['type'];
+								$registrar_organization_type = (is_array($value5[1]['type'])) ? implode(",<br />",$value5[1]['type']) : $value5[1]['type'];
 								$registrar_organization_name = $value5[3];
 							}
 							if ($key2 == $entity_sponsor)	{
-								$sponsor_organization_type = $value5[1]['type'];
+								$sponsor_organization_type = (is_array($value5[1]['type'])) ? implode(",<br />",$value5[1]['type']) : $value5[1]['type'];
 								$sponsor_organization_name = $value5[3];
 							}
 						}						

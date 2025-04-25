@@ -165,6 +165,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "";
 		document.getElementById("registrant_handle").textContent = "";
 		document.getElementById("registrant_web_id").textContent = proposed;
+		document.getElementById("registrant_organization_type").textContent = "";
 		document.getElementById("registrant_organization_name").textContent = "";
 		document.getElementById("registrant_presented_name").textContent = "";
 		document.getElementById("registrant_kind").textContent = "";
@@ -245,6 +246,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "De domeingebruiker die de daadwerkelijke of effectieve controle heeft voor domeinrecht in het land van vestiging.";
 		document.getElementById("registrant_handle").textContent = 'De uitvoer van "hostingtool.nl" bevat onbedoeld informatie met "STE135427-TRAIP".';
 		document.getElementById("registrant_web_id").textContent = proposed + "Webidentificatienummer voor bedrijfsentiteiten en natuurlijke personen.";
+		document.getElementById("registrant_organization_type").textContent = 'De gebruikelijke waarde is "work", of mogelijk "work", "headquarters".';
 		document.getElementById("registrant_organization_name").textContent = "Een organisatie die primair verantwoordelijk is voor het domeinabonnement. Zie bijvoorbeeld icann.org.";
 		document.getElementById("registrant_presented_name").textContent = "Geldig is de naam van een primair verantwoordelijke persoon of een rol binnen de organisatie.";
 		document.getElementById("registrant_kind").textContent = "Leeg / 'org' / 'individual' (Voor continuïteit: levenstestament + testament + digitale executeur)";
@@ -325,6 +327,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "The domain user who has the actual or effective control for domain rights in the country of establishment.";
 		document.getElementById("registrant_handle").textContent = 'The output from "hostingtool.nl" unintentionally contains information with "STE135427-TRAIP".';
 		document.getElementById("registrant_web_id").textContent = proposed + "Web Identification number for business entities and natural persons.";
+		document.getElementById("registrant_organization_type").textContent = 'The usual value is "work", or possibly "work", "headquarters".';
 		document.getElementById("registrant_organization_name").textContent = "An organization primarily responsible for the domain subscription. See for example icann.org.";
 		document.getElementById("registrant_presented_name").textContent = "Valid is the name of a primarily responsible person or a role within the organization.";
 		document.getElementById("registrant_kind").textContent = "Empty / 'org' / 'individual' (For continuity: Living Will + Will + Digital Executor)";
@@ -405,6 +408,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat für Domainrechte im Wohnsitzland.";
 		document.getElementById("registrant_handle").textContent = 'Die Ausgabe von "hostingtool.nl" enthält unbeabsichtigt Informationen mit "STE135427-TRAIP".';
 		document.getElementById("registrant_web_id").textContent = proposed + "Web-Identifikationsnummer für Unternehmen und natürliche Personen.";
+		document.getElementById("registrant_organization_type").textContent = 'Der übliche Wert ist "work" oder möglicherweise "work", "headquarters".';
 		document.getElementById("registrant_organization_name").textContent = "Eine Organisation, die hauptsächlich für das Domänenabonnement verantwortlich ist. Siehe beispielsweise icann.org.";
 		document.getElementById("registrant_presented_name").textContent = "Gültig ist der Name einer hauptverantwortlichen Person oder einer Rolle innerhalb der Organisation.";
 		document.getElementById("registrant_kind").textContent = "Leer / 'org' / 'individual' (Für Kontinuität: Patientenverfügung + Testament + digitaler Testamentsvollstrecker)";
@@ -485,6 +489,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_role").textContent = "L'utilisateur du domaine qui a le contrôle réel ou effectif pour les droits de domaine dans le pays de résidence.";
 		document.getElementById("registrant_handle").textContent = 'La sortie de "hostingtool.nl" contient involontairement des informations avec "STE135427-TRAIP"';
 		document.getElementById("registrant_web_id").textContent = proposed + "Numéro d’identification Web pour les entités commerciales et les personnes physiques.";
+		document.getElementById("registrant_organization_type").textContent = 'La valeur habituelle est "work", ou éventuellement "work", "headquarters".';
 		document.getElementById("registrant_organization_name").textContent = "Une organisation principalement responsable de l’abonnement au domaine. Voir, par exemple, icann.org.";
 		document.getElementById("registrant_presented_name").textContent = "Valide est le nom d'une personne principalement responsable ou d'un rôle au sein de l'organisation.";
 		document.getElementById("registrant_kind").textContent = "Vide / 'org' / 'individual' (Pour la continuité : testament biologique + testament + exécuteur testamentaire numérique)";
@@ -600,7 +605,8 @@ $html_text .= '<tr style="font-size: .8rem"><td id="subtitle" style="font-size: 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(3)">de_DE</button> 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(4)">fr_FR</button> 
 	<a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_email" target="_blank">modeling email</a> - <a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_menu" target="_blank">modeling menu</a> - <a style="font-size: 0.9rem" href="https://github.com/janwillemstegink/rdap.hostingtool.nl/issues" target="_blank">reporting of issues</a> - <a style="font-size: 0.9rem" href="https://janwillemstegink.nl/" target="_blank">janwillemstegink.nl</a></td></tr>';
-if ($pd == $data[$pd]['details']['name_ascii'] or empty($data[$pd]['details']['name_ascii']))	{
+//echo $pd.'#'.$data[$pd]['details']['name_ascii'];
+if (true or $pd == mb_strtolower($data[$pd]['details']['name_ascii']) or empty($data[$pd]['details']['name_ascii']))	{
 	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td id="value"><td id="explanation"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(10)">Zone Information +/-</button></td><td><b>'.$data[$pd]['zone']['top_level_domain'].'</b></td><td id="zone_role"></td></tr>';
 	$html_text .= '<tr id="101" style="display:none"><td>zone delegation_url</td><td><a href='.$data[$pd]['zone']['delegation_url'].' target="_blank">Top-Level Domain Delegation</a></td><td id="zone_delegation_url"></td></tr>';
@@ -675,7 +681,7 @@ if ($pd == $data[$pd]['details']['name_ascii'] or empty($data[$pd]['details']['n
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(30)">Details +/-</button></td><td>'.$vd.'</td><td id="details_role"></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>details handle</td><td>'.$data[$pd]['details']['handle'].'</td><td></td></tr>';
-	$html_text .= '<tr id="302" style="display:none"><td>details name_ascii</td><td>'.$data[$pd]['details']['name_ascii'].'</td><td id="details_name_ascii"></td></tr>';
+	$html_text .= '<tr id="302" style="display:none"><td>details name_ascii (lower case is not a "MUST")</td><td>'.$data[$pd]['details']['name_ascii'].'</td><td id="details_name_ascii"></td></tr>';
 	$html_text .= '<tr id="303" style="display:none"><td>details name_unicode</td><td>'.$data[$pd]['details']['name_unicode'].'</td><td id="details_name_unicode"></td></tr>';
 	$html_text .= '<tr style="vertical-align:top"><td>details status_values</td><td>'.$data[$pd]['details']['status_values'].'</td><td id="details_status_values"></td></tr>';
 	$html_text .= '<tr id="304" style="display:none"><td>details event_registration</td><td>'.$data[$pd]['details']['event_registration'].'</td><td></td></tr>';
@@ -721,7 +727,7 @@ if ($pd == $data[$pd]['details']['name_ascii'] or empty($data[$pd]['details']['n
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(40)">Registrant +/-</button></td><td></td><td id="registrant_role"></td></tr>';
 	$html_text .= '<tr id="401" style="display:none"><td>registrant handle</td><td>'.$data[$pd]['registrant']['handle'].'</td><td id="registrant_handle"></td></tr>';
 	$html_text .= '<tr id="402" style="display:none"><td>registrant web_id</td><td>'.$data[$pd]['registrant']['web_id'].'</td><td id="registrant_web_id"></td></tr>';
-	$html_text .= '<tr id="403" style="display:none"><td>registrant organization_type</td><td>'.$data[$pd]['registrant']['organization_type'].'</td><td></td></tr>';
+	$html_text .= '<tr id="403" style="display:none"><td>registrant organization_type</td><td>'.$data[$pd]['registrant']['organization_type'].'</td><td id="registrant_organization_type"></td></tr>';
 	$html_text .= '<tr><td>registrant organization_name</td><td>'.$data[$pd]['registrant']['organization_name'].'</td><td id="registrant_organization_name"></td></tr>';
 	$html_text .= '<tr><td>registrant presented_name (RDAP: "fn"/full name)</td><td>'.$data[$pd]['registrant']['presented_name'].'</td><td id="registrant_presented_name"></td></tr>';
 	$html_text .= '<tr id="404" style="display:none"><td>registrant kind</td><td>'.$data[$pd]['registrant']['kind'].'</td><td id="registrant_kind"></td></tr>';
