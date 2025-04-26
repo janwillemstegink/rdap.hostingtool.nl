@@ -87,7 +87,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 61)	{ // abuse
 		var pre = '61';
-		var max = 6
+		var max = 7
 	}
 	else if (type == 63)	{ // name servers
 		var pre = '63';
@@ -149,7 +149,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("object_lookup_endpoints").textContent = proposed;
 		document.getElementById("object_registry_source").textContent = proposed;
 		document.getElementById("object_registrar_source").textContent = proposed;
-		document.getElementById("object_iana_registrar_id").textContent = proposed;
+		document.getElementById("object_registrar_public_id").textContent = proposed;
 		document.getElementById("object_registrar_complaint_url").textContent = proposed;
 		document.getElementById("object_status_explanation_url").textContent = proposed;
 		document.getElementById("details_role").textContent = "";
@@ -231,7 +231,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("object_lookup_endpoints").textContent = proposed;
 		document.getElementById("object_registry_source").textContent = proposed + "Een folder '/v1/' werkt voor een versie '/v2/', zie icann.com.";
 		document.getElementById("object_registrar_source").textContent = proposed;
-		document.getElementById("object_iana_registrar_id").textContent = proposed + "Accreditatie, voor één of meer generieke topleveldomeinen. En moet juist zijn.";
+		document.getElementById("object_registrar_public_id").textContent = proposed + "Accreditatie, voor één of meer generieke topleveldomeinen. En moet juist zijn.";
 		document.getElementById("object_registrar_complaint_url").textContent = proposed;		
 		document.getElementById("object_status_explanation_url").textContent = proposed;
 		document.getElementById("details_role").textContent = "Een domein onder TLD-niveau is wereldwijd uniek en kan vrij worden gekozen onder bepaalde regels.";
@@ -313,7 +313,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("object_lookup_endpoints").textContent = proposed;
 		document.getElementById("object_registry_source").textContent = proposed + "A folder '/v1/' works for a version '/v2/', see icann.com.";
 		document.getElementById("object_registrar_source").textContent = proposed;
-		document.getElementById("object_iana_registrar_id").textContent = proposed + "Accreditation, for one or more generic top-level domains. And must be correct.";
+		document.getElementById("object_registrar_public_id").textContent = proposed + "Accreditation, for one or more generic top-level domains. And must be correct.";
 		document.getElementById("object_registrar_complaint_url").textContent = proposed;		
 		document.getElementById("object_status_explanation_url").textContent = proposed;
 		document.getElementById("details_role").textContent = "A domain below TLD level is globally unique and can be freely chosen under certain rules.";
@@ -395,7 +395,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("object_lookup_endpoints").textContent = proposed;
 		document.getElementById("object_registry_source").textContent = proposed + "Ein Ordner '/v1/' funktioniert für eine Version '/v2/', siehe icann.com.";
 		document.getElementById("object_registrar_source").textContent = proposed;
-		document.getElementById("object_iana_registrar_id").textContent = proposed + "Akkreditierung für eine oder mehrere generische Top-Level-Domains. Und muss korrekt sein.";
+		document.getElementById("object_registrar_public_id").textContent = proposed + "Akkreditierung für eine oder mehrere generische Top-Level-Domains. Und muss korrekt sein.";
 		document.getElementById("object_registrar_complaint_url").textContent = proposed;		
 		document.getElementById("object_status_explanation_url").textContent = proposed;
 		document.getElementById("details_role").textContent = "Eine Domain unterhalb der TLD-Ebene ist weltweit eindeutig und kann unter bestimmten Regeln frei gewählt werden.";
@@ -477,7 +477,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("object_lookup_endpoints").textContent = proposed;
 		document.getElementById("object_registry_source").textContent = proposed + "Un dossier '/v1/' fonctionne pour une version '/v2/', voir icann.com.";
 		document.getElementById("object_registrar_source").textContent = proposed;
-		document.getElementById("object_iana_registrar_id").textContent = proposed + "Accréditation, pour un ou plusieurs domaines génériques de premier niveau. Et doit être correct.";
+		document.getElementById("object_registrar_public_id").textContent = proposed + "Accréditation, pour un ou plusieurs domaines génériques de premier niveau. Et doit être correct.";
 		document.getElementById("object_registrar_complaint_url").textContent = proposed;		
 		document.getElementById("object_status_explanation_url").textContent = proposed;
 		document.getElementById("details_role").textContent = "Un domaine inférieur au niveau TLD est unique au monde et peut être choisi librement selon certaines règles.";
@@ -680,7 +680,7 @@ if (true or $pd == mb_strtolower($data[$pd]['details']['name_ascii']) or empty($
 	$registrar_source = str_replace('https://', '', $data[$pd]['object']['registrar_source']);
 	$validation_registrar = 'https://validator.rdap.org/?url=https://'.$registrar_source.'&response-type=domain&server-type=gtld-registrar&errors-only=1';	
 	$html_text .= '<tr id="294" style="display:none"><td>object registrar_source (e.g. <a style="font-size: 0.9rem" href="https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/icann.com" target="_blank">icann.com</a> <a style="font-size: 0.9rem" href="https://rdap.metaregistrar.com/domain/fryslan.frl" target="_blank">fryslan.frl</a>)</td><td>'.((strlen($data[$pd]['object']['registrar_source'])) ? '<a href='.$data[$pd]['object']['registrar_source'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">validator.rdap.org</a>' : 'none').'</td><td id="object_registrar_source"></td></tr>';
-	$html_text .= '<tr id="295" style="display:none"><td>object iana_registrar_id</td><td>'.((strlen($data[$pd]['object']['iana_registrar_id'])) ? $data[$pd]['object']['iana_registrar_id'] : 'none').'</td><td id="object_iana_registrar_id"></td></tr>';
+	$html_text .= '<tr id="295" style="display:none"><td>object registrar_public_id</td><td>'.((strlen($data[$pd]['object']['registrar_public_id'])) ? $data[$pd]['object']['registrar_public_id'] : 'none').'</td><td id="object_registrar_public_id"></td></tr>';
 	$html_text .= '<tr id="296" style="display:none"><td>object registrar_complaint_url</td><td>'.((strlen($data[$pd]['object']['registrar_complaint_url'])) ? '<a href='.$data[$pd]['object']['registrar_complaint_url'].' target="_blank">icann.org/wicf</a>' : 'none').'</td><td id="object_registrar_complaint_url"></td></tr>';
 	$html_text .= '<tr id="297" style="display:none"><td>object status_explanation_url</td><td>'.((strlen($data[$pd]['object']['status_explanation_url'])) ? '<a href='.$data[$pd]['object']['status_explanation_url'].' target="_blank">icann.org/epp</a>' : 'none').'</td><td id="object_status_explanation_url"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
@@ -909,9 +909,10 @@ if (true or $pd == mb_strtolower($data[$pd]['details']['name_ascii']) or empty($
 	$html_text .= '<tr id="611" style="display:none"><td>registrar_abuse organization_type</td><td>'.$data[$pd]['registrar_abuse']['organization_type'].'</td><td></td></tr>';
 	$html_text .= '<tr id="612" style="display:none"><td>registrar_abuse organization_name</td><td>'.$data[$pd]['registrar_abuse']['organization_name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="613" style="display:none"><td>registrar_abuse presented_name</td><td>'.$data[$pd]['registrar_abuse']['presented_name'].'</td><td></td></tr>';
-	$html_text .= '<tr id="614" style="display:none"><td>registrar_abuse email</td><td>'.$data[$pd]['registrar_abuse']['email'].'</td><td></td></tr>';
-	$html_text .= '<tr id="615" style="display:none"><td>registrar_abuse telephone</td><td>'.$data[$pd]['registrar_abuse']['telephone'].'</td><td id="registrar_abuse_telephone"></td></tr>';
-	$html_text .= '<tr id="616" style="display:none"><td>registrar_abuse country_code</td><td>'.$data[$pd]['registrar_abuse']['country_code'].'</td><td id="registrar_abuse_country_code"></td></tr>';
+	$html_text .= '<tr id="614" style="display:none"><td>registrar_abuse kind</td><td>'.$data[$pd]['registrar_abuse']['kind'].'</td><td></td></tr>';
+	$html_text .= '<tr id="615" style="display:none"><td>registrar_abuse email</td><td>'.$data[$pd]['registrar_abuse']['email'].'</td><td></td></tr>';
+	$html_text .= '<tr id="616" style="display:none"><td>registrar_abuse telephone</td><td>'.$data[$pd]['registrar_abuse']['telephone'].'</td><td id="registrar_abuse_telephone"></td></tr>';
+	$html_text .= '<tr id="617" style="display:none"><td>registrar_abuse country_code</td><td>'.$data[$pd]['registrar_abuse']['country_code'].'</td><td id="registrar_abuse_country_code"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(63)">Name Servers +/-</button></td><td></td><td></td></tr>';
 	//if (!empty($data[$pd]['name_servers']['server_1']['server_name_ascii']))	{
