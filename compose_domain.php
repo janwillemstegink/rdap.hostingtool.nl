@@ -130,9 +130,9 @@ switch ($zone_top_level_domain) {
    		//die("No match with a top level domain.");
 }
 
-$zone_lookup_endpoint = 'https://data.iana.org/rdap/dns.json';
+$lookup_endpoints = 'https://data.iana.org/rdap/dns.json';
 if (!strlen($url))	{
-	$rdap = json_decode(file_get_contents($zone_lookup_endpoint), true);
+	$rdap = json_decode(file_get_contents($lookup_endpoints), true);
 	$temp_key = -1;
 	foreach($rdap as $key1 => $value1) {
     	foreach($value1 as $key2 => $value2) {
@@ -1272,7 +1272,6 @@ $arr[$inputdomain]['zone']['delegation_url'] = $zone_delegation_url;
 $arr[$inputdomain]['zone']['restrictions_url'] = $zone_restrictions_url;
 $arr[$inputdomain]['zone']['menu_url'] = $zone_menu_url;
 $arr[$inputdomain]['zone']['language_codes'] = $zone_language_codes;	
-$arr[$inputdomain]['zone']['lookup_endpoint'] = $zone_lookup_endpoint;
 	
 $arr[$inputdomain]['notices']['notice_0_title'] = $notice_0_title;	
 $arr[$inputdomain]['notices']['notice_0_description_0'] = $notice_0_description_0;
@@ -1332,10 +1331,11 @@ $arr[$inputdomain]['links']['links_3_type'] = $links_3_type;
 
 $arr[$inputdomain]['object']['class_name'] = $class_name;
 $arr[$inputdomain]['object']['conformance'] = $conformance;	
+$arr[$inputdomain]['object']['lookup_endpoints'] = $lookup_endpoints;		
+$arr[$inputdomain]['object']['registry_source'] = $url;		
+$arr[$inputdomain]['object']['registrar_source'] = $url_registrar;
 $arr[$inputdomain]['object']['iana_registrar_id'] = $iana_registrar_id;	
 $arr[$inputdomain]['object']['registrar_complaint_url'] = $registrar_complaint_url;		
-$arr[$inputdomain]['object']['registry_source'] = $url;		
-$arr[$inputdomain]['object']['registrar_source'] = $url_registrar;	
 $arr[$inputdomain]['object']['status_explanation_url'] = $status_explanation_url;	
 	
 $arr[$inputdomain]['details']['handle'] = $handle;

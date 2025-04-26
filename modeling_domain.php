@@ -11,7 +11,7 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 function SwitchDisplay(type) {
 	if (type == 10)			{ // zone
 		var pre = '10';
-		var max = 7
+		var max = 6
 	}
 	else if (type == 11)	{ // notice 0
 		var pre = '11';
@@ -47,7 +47,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 29)	{ // object
 		var pre = '29';
-		var max = 6
+		var max = 7
 	}
 	else if (type == 30)	{ // details
 		var pre = '30';
@@ -143,14 +143,14 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_registry_trade_name").textContent = proposed;
 		document.getElementById("zone_menu_url").textContent = proposed;
 		document.getElementById("zone_language_codes").textContent = proposed;
-		document.getElementById("zone_lookup_endpoint").textContent = proposed;
 		document.getElementById("notices_role").textContent = "";
 		document.getElementById("links_role").textContent = "";		
 		document.getElementById("object_role").textContent = "";
-		document.getElementById("object_iana_registrar_id").textContent = proposed;
-		document.getElementById("object_registrar_complaint_url").textContent = proposed;
+		document.getElementById("object_lookup_endpoints").textContent = proposed;
 		document.getElementById("object_registry_source").textContent = proposed;
 		document.getElementById("object_registrar_source").textContent = proposed;
+		document.getElementById("object_iana_registrar_id").textContent = proposed;
+		document.getElementById("object_registrar_complaint_url").textContent = proposed;
 		document.getElementById("object_status_explanation_url").textContent = proposed;
 		document.getElementById("details_role").textContent = "";
 		document.getElementById("details_name_ascii").textContent = "";
@@ -225,20 +225,20 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_menu_url").textContent = proposed + 'Een vervolgkeuzemenu met uitleg en details, bijvoorbeeld via een subdomein "regmenu".';
 		document.getElementById("zone_registry_trade_name").textContent = proposed;
 		document.getElementById("zone_language_codes").textContent = proposed + "Een zone kan met meerdere veelgebruikte talen werken.";
-		document.getElementById("zone_lookup_endpoint").textContent = proposed;
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;	
 		document.getElementById("object_role").textContent = "Het Registration Data Access Protocol (RDAP) is bedoeld voor wereldwijde communicatie.";
-		document.getElementById("object_iana_registrar_id").textContent = proposed + "Accreditatie, voor één of meer generieke topleveldomeinen. En moet juist zijn.";
-		document.getElementById("object_registrar_complaint_url").textContent = proposed;
+		document.getElementById("object_lookup_endpoints").textContent = proposed;
 		document.getElementById("object_registry_source").textContent = proposed + "Een folder '/v1/' werkt voor een versie '/v2/', zie icann.com.";
 		document.getElementById("object_registrar_source").textContent = proposed;
+		document.getElementById("object_iana_registrar_id").textContent = proposed + "Accreditatie, voor één of meer generieke topleveldomeinen. En moet juist zijn.";
+		document.getElementById("object_registrar_complaint_url").textContent = proposed;		
 		document.getElementById("object_status_explanation_url").textContent = proposed;
 		document.getElementById("details_role").textContent = "Een domein onder TLD-niveau is wereldwijd uniek en kan vrij worden gekozen onder bepaalde regels.";
 		document.getElementById("details_name_ascii").textContent = "Voor speciale tekens bevatten de ASCII-tekenreeksen Punycode-transcriptie.";
-		document.getElementById("details_name_unicode").textContent = "In het RDAP-protocol is de domeinnaam in Unicode optioneel, maar het is wel duidelijke informatie.";
+		document.getElementById("details_name_unicode").textContent = "Hoewel de informatie duidelijk is, is de unicode-domeinnaam optioneel binnen het RDAP-protocol.";
 		document.getElementById("details_status_values").textContent = "De waarde 'redemption period' is info over herstel. De waarde 'pending delete' is van toepassing in de laatste fase.";
-		document.getElementById("details_event_registration").textContent = "De datumvelden staan hier in een logische volgorde. Dit is ook mogelijk bij RDAP-uitvoer.";
+		document.getElementById("details_event_registration").textContent = "De datumvelden staan hier in een logische volgorde. Dit werkt ook in de RDAP-uitvoer.";
 		document.getElementById("details_event_expiration").textContent = "Datum en tijdstip van periodieke verlenging of stopzetting van de publicatie.";
 		document.getElementById("details_event_recovery_until").textContent = proposed + "Tijdstip tot wanneer herstel nog mogelijk is.";		
 		document.getElementById("details_event_deletion").textContent = "Datum en tijdstip gepland voor volledige verwijdering. Er kan een laatste verwijderingsfase zijn.";
@@ -307,20 +307,20 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_registry_trade_name").textContent = proposed;
 		document.getElementById("zone_menu_url").textContent = proposed + 'A drop-down menu with explanations and details, for example via a subdomain "regmenu".';
 		document.getElementById("zone_language_codes").textContent = proposed + "A zone can work with multiple commonly used languages.";
-		document.getElementById("zone_lookup_endpoint").textContent = proposed;
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;			
 		document.getElementById("object_role").textContent = "The Registration Data Access Protocol (RDAP) is intended for global communication.";
-		document.getElementById("object_iana_registrar_id").textContent = proposed + "Accreditation, for one or more generic top-level domains. And must be correct.";
-		document.getElementById("object_registrar_complaint_url").textContent = proposed;
+		document.getElementById("object_lookup_endpoints").textContent = proposed;
 		document.getElementById("object_registry_source").textContent = proposed + "A folder '/v1/' works for a version '/v2/', see icann.com.";
 		document.getElementById("object_registrar_source").textContent = proposed;
+		document.getElementById("object_iana_registrar_id").textContent = proposed + "Accreditation, for one or more generic top-level domains. And must be correct.";
+		document.getElementById("object_registrar_complaint_url").textContent = proposed;		
 		document.getElementById("object_status_explanation_url").textContent = proposed;
 		document.getElementById("details_role").textContent = "A domain below TLD level is globally unique and can be freely chosen under certain rules.";
 		document.getElementById("details_name_ascii").textContent = "For special characters, the ASCII character strings contain Punycode transcription.";
-		document.getElementById("details_name_unicode").textContent = "In the RDAP protocol, the domain name in Unicode is optional, but it is clear information.";
+		document.getElementById("details_name_unicode").textContent = "Although the information is clear, the unicode domain name is optional within the RDAP protocol.";
 		document.getElementById("details_status_values").textContent = "The 'redemption period' value is info about recovery. The 'pending delete' value applies in the final phase.";
-		document.getElementById("details_event_registration").textContent = "The date fields are here in a logical order. This is also possible with RDAP output.";
+		document.getElementById("details_event_registration").textContent = "The date fields are here in a logical order. This will also work in the RDAP output.";
 		document.getElementById("details_event_expiration").textContent = "Date and time of periodic renewal or discontinuation of publication.";
 		document.getElementById("details_event_recovery_until").textContent = proposed + "Time until which recovery is still possible.";
 		document.getElementById("details_event_deletion").textContent = "Date and time scheduled for complete deletion. A final deletion phase may exist.";
@@ -389,20 +389,20 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_registry_trade_name").textContent = proposed;
 		document.getElementById("zone_menu_url").textContent = proposed + 'Ein Dropdown-Menü mit Erläuterungen und Details, z. B. über eine Subdomain "regmenu".';
 		document.getElementById("zone_language_codes").textContent = proposed + "Eine Zone kann mit mehreren häufig verwendeten Sprachen arbeiten.";
-		document.getElementById("zone_lookup_endpoint").textContent = proposed;
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;
 		document.getElementById("object_role").textContent = "Das Registration Data Access Protocol (RDAP) ist für die weltweite Kommunikation vorgesehen.";
-		document.getElementById("object_iana_registrar_id").textContent = proposed + "Akkreditierung für eine oder mehrere generische Top-Level-Domains. Und muss korrekt sein.";
-		document.getElementById("object_registrar_complaint_url").textContent = proposed;
+		document.getElementById("object_lookup_endpoints").textContent = proposed;
 		document.getElementById("object_registry_source").textContent = proposed + "Ein Ordner '/v1/' funktioniert für eine Version '/v2/', siehe icann.com.";
 		document.getElementById("object_registrar_source").textContent = proposed;
+		document.getElementById("object_iana_registrar_id").textContent = proposed + "Akkreditierung für eine oder mehrere generische Top-Level-Domains. Und muss korrekt sein.";
+		document.getElementById("object_registrar_complaint_url").textContent = proposed;		
 		document.getElementById("object_status_explanation_url").textContent = proposed;
 		document.getElementById("details_role").textContent = "Eine Domain unterhalb der TLD-Ebene ist weltweit eindeutig und kann unter bestimmten Regeln frei gewählt werden.";
 		document.getElementById("details_name_ascii").textContent = "Für Sonderzeichen enthalten die ASCII-Zeichenfolgen eine Punycode-Transkription.";
-		document.getElementById("details_name_unicode").textContent = "Im RDAP-Protokoll ist der Domänenname in Unicode optional, stellt jedoch eine eindeutige Information dar.";
+		document.getElementById("details_name_unicode").textContent = "Obwohl die Informationen eindeutig sind, ist der Unicode-Domänenname innerhalb des RDAP-Protokolls optional.";
 		document.getElementById("details_status_values").textContent = "Der Wert 'redemption period' ist Info zur Wiederherstellung. Der Wert 'pending delete' gilt in der Endphase.";
-		document.getElementById("details_event_registration").textContent = "Die Datumsfelder stehen hier in einer logischen Reihenfolge. Dies ist auch mit RDAP-Ausgabe möglich.";
+		document.getElementById("details_event_registration").textContent = "Die Datumsfelder stehen hier in einer logischen Reihenfolge. Dies funktioniert auch in der RDAP-Ausgabe.";
 		document.getElementById("details_event_expiration").textContent = "Datum und Uhrzeit der periodischen Erneuerung oder Einstellung der Veröffentlichung.";
 		document.getElementById("details_event_recovery_until").textContent = proposed + "Zeitpunkt, bis zu dem eine Wiederherstellung noch möglich ist.";
 		document.getElementById("details_event_deletion").textContent = "Datum und Uhrzeit für die vollständige Löschung geplant. Es kann eine abschließende Löschphase geben.";
@@ -473,18 +473,18 @@ function SwitchTranslation(translation)	{
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;
 		document.getElementById("zone_language_codes").textContent = proposed + "Une zone peut fonctionner avec plusieurs langues couramment utilisées.";
-		document.getElementById("zone_lookup_endpoint").textContent = proposed;
 		document.getElementById("object_role").textContent = "Le protocole d'accès aux données d'enregistrement (RDAP) est destiné à la communication mondiale.";
-		document.getElementById("object_iana_registrar_id").textContent = proposed + "Accréditation, pour un ou plusieurs domaines génériques de premier niveau. Et doit être correct.";
-		document.getElementById("object_registrar_complaint_url").textContent = proposed;
+		document.getElementById("object_lookup_endpoints").textContent = proposed;
 		document.getElementById("object_registry_source").textContent = proposed + "Un dossier '/v1/' fonctionne pour une version '/v2/', voir icann.com.";
 		document.getElementById("object_registrar_source").textContent = proposed;
+		document.getElementById("object_iana_registrar_id").textContent = proposed + "Accréditation, pour un ou plusieurs domaines génériques de premier niveau. Et doit être correct.";
+		document.getElementById("object_registrar_complaint_url").textContent = proposed;		
 		document.getElementById("object_status_explanation_url").textContent = proposed;
 		document.getElementById("details_role").textContent = "Un domaine inférieur au niveau TLD est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("details_name_ascii").textContent = "Pour les caractères spéciaux, les chaînes de caractères ASCII contiennent une transcription Punycode.";
-		document.getElementById("details_name_unicode").textContent = "Dans le protocole RDAP, le nom de domaine en Unicode est facultatif, mais il s'agit d'une information claire.";
+		document.getElementById("details_name_unicode").textContent = "Bien que l'information soit claire, le nom de domaine Unicode est facultatif dans le protocole RDAP.";
 		document.getElementById("details_status_values").textContent = "La valeur 'redemption period' est infos de récupération. La valeur 'pending delete' s'applique dans la phase finale.";
-		document.getElementById("details_event_registration").textContent = "Les champs de date sont ici classés dans un ordre logique. Ceci est également possible avec la sortie RDAP.";
+		document.getElementById("details_event_registration").textContent = "Les champs de date sont ici classés dans un ordre logique. Cela fonctionnera également dans la sortie RDAP.";
 		document.getElementById("details_event_expiration").textContent = "Date et heure du renouvellement périodique ou de l'arrêt de la publication.";
 		document.getElementById("details_event_recovery_until").textContent = proposed + "Délai jusqu'à lequel la récupération est encore possible.";
 		document.getElementById("details_event_deletion").textContent = "Date et heure prévues pour la suppression complète. Une phase de suppression finale peut exister.";
@@ -620,7 +620,6 @@ if (true or $pd == mb_strtolower($data[$pd]['details']['name_ascii']) or empty($
 	$html_text .= '<tr id="104" style="display:none"><td>zone menu_url</td><td>'.((strlen($data[$pd]['zone']['menu_url'])) ? '<a href='.$data[$pd]['zone']['menu_url'].' target="_blank">Zone Menu</a>' : '').'</td><td id="zone_menu_url"></td></tr>';
 	$html_text .= '<tr id="105" style="display:none"><td>zone registry_trade_name</td><td>'.$data[$pd]['zone']['registry_trade_name'].'</td><td id="zone_registry_trade_name"></td></tr>';
 	$html_text .= '<tr id="106" style="display:none"><td>zone language_codes</td><td>'.$data[$pd]['zone']['language_codes'].'</td><td id="zone_language_codes"></td></tr>';
-	$html_text .= '<tr id="107" style="display:none"><td>zone lookup_endpoint</td><td><a href='.$data[$pd]['zone']['lookup_endpoint'].' target="_blank">Zone Lookup Endpoint</a></td><td id="zone_lookup_endpoint"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(11)">Notice0 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(12)">Notice1 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(13)">Notice2 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(14)">Notice3 +/-</button></td><td></td><td id="notices_role"></td></tr>';
 	$html_text .= '<tr id="111" style="display:none;vertical-align:top"><td>notice_0_title</td><td>'.$data[$pd]['notices']['notice_0_title'].'</td><td></td></tr>';
 	$html_text .= '<tr id="112" style="display:none;vertical-align:top"><td>notice_0_description_0</td><td>'.$data[$pd]['notices']['notice_0_description_0'].'</td><td></td></tr>';
@@ -674,15 +673,16 @@ if (true or $pd == mb_strtolower($data[$pd]['details']['name_ascii']) or empty($
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(29)">Object Information +/-</button></td><td></td><td id="object_role"></td></tr>';
 	$html_text .= '<tr id="291" style="display:none"><td>object class_name</td><td>'.$data[$pd]['object']['class_name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="292" style="display:none"><td>object conformance</td><td>'.$data[$pd]['object']['conformance'].'</td><td></td></tr>';
-	$html_text .= '<tr id="293" style="display:none"><td>object iana_registrar_id</td><td>'.((strlen($data[$pd]['object']['iana_registrar_id'])) ? $data[$pd]['object']['iana_registrar_id'] : 'none').'</td><td id="object_iana_registrar_id"></td></tr>';
-	$html_text .= '<tr id="294" style="display:none"><td>object registrar_complaint_url</td><td>'.((strlen($data[$pd]['object']['registrar_complaint_url'])) ? '<a href='.$data[$pd]['object']['registrar_complaint_url'].' target="_blank">icann.org/wicf</a>' : 'none').'</td><td id="object_registrar_complaint_url"></td></tr>';	
+	$html_text .= '<tr id="293" style="display:none"><td>object lookup_endpoints</td><td><a href='.$data[$pd]['object']['lookup_endpoints'].' target="_blank">Lookup Endpoints</a></td><td id="object_lookup_endpoints"></td></tr>';	
 	$registry_source = str_replace('https://', '', $data[$pd]['object']['registry_source']);
 	$validation_registry = 'https://validator.rdap.org/?url=https://'.$registry_source.'&response-type=domain&server-type=gtld-registry&errors-only=1';	
-	$html_text .= '<tr><td>object registry_source</td><td>'.((strlen($data[$pd]['object']['registry_source'])) ? '<a href='.$data[$pd]['object']['registry_source'].' target="_blank">registry response</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">validator.rdap.org</a>' : 'none').'</td><td id="object_registry_source"></td></tr>';
+	$html_text .= '<tr><td>object registry_source</td><td>'.((strlen($data[$pd]['object']['registry_source'])) ? '<a href='.$data[$pd]['object']['registry_source'].' target="_blank">Registry Response</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">validator.rdap.org</a>' : 'none').'</td><td id="object_registry_source"></td></tr>';
 	$registrar_source = str_replace('https://', '', $data[$pd]['object']['registrar_source']);
 	$validation_registrar = 'https://validator.rdap.org/?url=https://'.$registrar_source.'&response-type=domain&server-type=gtld-registrar&errors-only=1';	
-	$html_text .= '<tr id="295" style="display:none"><td>object registrar_source (e.g. <a style="font-size: 0.9rem" href="https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/icann.com" target="_blank">icann.com</a> <a style="font-size: 0.9rem" href="https://rdap.metaregistrar.com/domain/fryslan.frl" target="_blank">fryslan.frl</a>)</td><td>'.((strlen($data[$pd]['object']['registrar_source'])) ? '<a href='.$data[$pd]['object']['registrar_source'].' target="_blank">registrar response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">validator.rdap.org</a>' : 'none').'</td><td id="object_registrar_source"></td></tr>';	
-	$html_text .= '<tr id="296" style="display:none"><td>object status_explanation_url</td><td>'.((strlen($data[$pd]['object']['status_explanation_url'])) ? '<a href='.$data[$pd]['object']['status_explanation_url'].' target="_blank">icann.org/epp</a>' : 'none').'</td><td id="object_status_explanation_url"></td></tr>';
+	$html_text .= '<tr id="294" style="display:none"><td>object registrar_source (e.g. <a style="font-size: 0.9rem" href="https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/icann.com" target="_blank">icann.com</a> <a style="font-size: 0.9rem" href="https://rdap.metaregistrar.com/domain/fryslan.frl" target="_blank">fryslan.frl</a>)</td><td>'.((strlen($data[$pd]['object']['registrar_source'])) ? '<a href='.$data[$pd]['object']['registrar_source'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">validator.rdap.org</a>' : 'none').'</td><td id="object_registrar_source"></td></tr>';
+	$html_text .= '<tr id="295" style="display:none"><td>object iana_registrar_id</td><td>'.((strlen($data[$pd]['object']['iana_registrar_id'])) ? $data[$pd]['object']['iana_registrar_id'] : 'none').'</td><td id="object_iana_registrar_id"></td></tr>';
+	$html_text .= '<tr id="296" style="display:none"><td>object registrar_complaint_url</td><td>'.((strlen($data[$pd]['object']['registrar_complaint_url'])) ? '<a href='.$data[$pd]['object']['registrar_complaint_url'].' target="_blank">icann.org/wicf</a>' : 'none').'</td><td id="object_registrar_complaint_url"></td></tr>';
+	$html_text .= '<tr id="297" style="display:none"><td>object status_explanation_url</td><td>'.((strlen($data[$pd]['object']['status_explanation_url'])) ? '<a href='.$data[$pd]['object']['status_explanation_url'].' target="_blank">icann.org/epp</a>' : 'none').'</td><td id="object_status_explanation_url"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(30)">Details +/-</button></td><td>'.$vd.'</td><td id="details_role"></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>details handle</td><td>'.$data[$pd]['details']['handle'].'</td><td></td></tr>';
