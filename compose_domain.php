@@ -1317,11 +1317,10 @@ if ($inputbatch)	{
 }
 $arr = array();	
 $arr[$inputdomain]['zone']['top_level_domain'] = $top_level_domain;
+$arr[$inputdomain]['zone']['delegation_url'] = $delegation_url;
 $arr[$inputdomain]['zone']['sponsoring_organization_trade_name'] = $sponsoring_organization_trade_name;
 $arr[$inputdomain]['zone']['registry_operator_trade_name'] = $registry_operator_trade_name;
 $arr[$inputdomain]['zone']['backend_operator_trade_name'] = $backend_operator_trade_name;
-$arr[$inputdomain]['zone']['registry_trade_name'] = $registry_trade_name;
-$arr[$inputdomain]['zone']['delegation_url'] = $delegation_url;
 $arr[$inputdomain]['zone']['restrictions_url'] = $restrictions_url;
 $arr[$inputdomain]['zone']['menu_url'] = $menu_url;
 $arr[$inputdomain]['zone']['language_codes'] = $language_codes;	

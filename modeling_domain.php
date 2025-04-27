@@ -11,7 +11,7 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 function SwitchDisplay(type) {
 	if (type == 10)			{ // zone
 		var pre = '10';
-		var max = 8
+		var max = 7
 	}
 	else if (type == 11)	{ // notice 0
 		var pre = '11';
@@ -146,7 +146,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_registry_operator_trade_name").textContent = proposed;
 		document.getElementById("zone_backend_operator_trade_name").textContent = proposed;
 		document.getElementById("zone_restrictions_url").textContent = proposed;
-		document.getElementById("zone_registry_trade_name").textContent = proposed;
 		document.getElementById("zone_menu_url").textContent = proposed;
 		document.getElementById("zone_language_codes").textContent = proposed;
 		document.getElementById("notices_role").textContent = "";
@@ -233,7 +232,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_backend_operator_trade_name").textContent = proposed;
 		document.getElementById("zone_restrictions_url").textContent = proposed + "Het gebruik van domeingegevens is aan beperkingen onderhevig.";
 		document.getElementById("zone_menu_url").textContent = proposed + 'Een vervolgkeuzemenu met uitleg en details, bijvoorbeeld via een subdomein "regmenu".';
-		document.getElementById("zone_registry_trade_name").textContent = proposed;
 		document.getElementById("zone_language_codes").textContent = proposed + "Een zone kan met meerdere veelgebruikte talen werken.";
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;
@@ -318,7 +316,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_registry_operator_trade_name").textContent = proposed;
 		document.getElementById("zone_backend_operator_trade_name").textContent = proposed;
 		document.getElementById("zone_restrictions_url").textContent = proposed + "The use of domain data is subject to restrictions.";
-		document.getElementById("zone_registry_trade_name").textContent = proposed;
 		document.getElementById("zone_menu_url").textContent = proposed + 'A drop-down menu with explanations and details, for example via a subdomain "regmenu".';
 		document.getElementById("zone_language_codes").textContent = proposed + "A zone can work with multiple commonly used languages.";
 		document.getElementById("notices_role").textContent = accessible;
@@ -400,11 +397,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Webdomänen erklärt";		
 		document.getElementById("zone_role").textContent = 'Die Vergabe einer Top-Level-Domain erfolgt durch die ICANN an einen Registry-Betreiber. Outsourcing ist möglich.';	
 		document.getElementById("zone_delegation_url").textContent = proposed + "Geplant: Web-ID-Suchen können auf globalen RDAP-Servern durchgeführt werden.";
-		document.getElementById("zone_registry_operator_trade_name").textContent = proposed;
-		document.getElementById("zone_restrictions_url").textContent = proposed + "Die Nutzung der Domaindaten unterliegt Einschränkungen.";
 		document.getElementById("zone_sponsoring_organization_trade_name").textContent = proposed;
 		document.getElementById("zone_registry_operator_trade_name").textContent = proposed;
 		document.getElementById("zone_backend_operator_trade_name").textContent = proposed;
+		document.getElementById("zone_restrictions_url").textContent = proposed + "Die Nutzung der Domaindaten unterliegt Einschränkungen.";		
 		document.getElementById("zone_menu_url").textContent = proposed + 'Ein Dropdown-Menü mit Erläuterungen und Details, z. B. über eine Subdomain "regmenu".';
 		document.getElementById("zone_language_codes").textContent = proposed + "Eine Zone kann mit mehreren häufig verwendeten Sprachen arbeiten.";
 		document.getElementById("notices_role").textContent = accessible;
@@ -485,11 +481,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("value").textContent = "Détail";
 		document.getElementById("explanation").textContent = "Domaines Web expliqués";		
 		document.getElementById("zone_role").textContent = "Un domaine de premier niveau est délégué par l'ICANN à un opérateur de registre. L'externalisation est possible.";
-		document.getElementById("zone_delegation_url").textContent = proposed + "Prévu : Les recherches d’identifiant Web peuvent être effectuées sur des serveurs RDAP mondiaux.";
-		document.getElementById("zone_restrictions_url").textContent = proposed + "L'utilisation des données de domaine est soumise à des restrictions.";		
+		document.getElementById("zone_delegation_url").textContent = proposed + "Prévu : Les recherches d’identifiant Web peuvent être effectuées sur des serveurs RDAP mondiaux.";	
 		document.getElementById("zone_sponsoring_organization_trade_name").textContent = proposed;
 		document.getElementById("zone_registry_operator_trade_name").textContent = proposed;
-		document.getElementById("zone_backend_operator_trade_name").textContent = proposed;		document.getElementById("zone_registry_operator_trade_name").textContent = proposed;
+		document.getElementById("zone_backend_operator_trade_name").textContent = proposed;
+		document.getElementById("zone_restrictions_url").textContent = proposed + "L'utilisation des données de domaine est soumise à des restrictions.";			
 		document.getElementById("zone_menu_url").textContent = proposed + 'Un menu déroulant avec explication et détails, par exemple via un sous-domaine "regmenu".';
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;
@@ -643,8 +639,7 @@ if (true or $pd == mb_strtolower($data[$pd]['details']['name_ascii']) or empty($
 	$html_text .= '<tr id="104" style="display:none"><td>zone backend_operator_trade_name</td><td>'.$data[$pd]['zone']['backend_operator_trade_name'].'</td><td id="zone_backend_operator_trade_name"></td></tr>';
 	$html_text .= '<tr id="105" style="display:none"><td>zone restrictions_url</td><td>'.((strlen($data[$pd]['zone']['restrictions_url'])) ? '<a href='.$data[$pd]['zone']['restrictions_url'].' target="_blank">Zone Restrictions</a>' : '').'</td><td id="zone_restrictions_url"></td></tr>';
 	$html_text .= '<tr id="106" style="display:none"><td>zone menu_url</td><td>'.((strlen($data[$pd]['zone']['menu_url'])) ? '<a href='.$data[$pd]['zone']['menu_url'].' target="_blank">Zone Menu</a>' : '').'</td><td id="zone_menu_url"></td></tr>';
-	$html_text .= '<tr id="107" style="display:none"><td>zone registry_trade_name</td><td>'.$data[$pd]['zone']['registry_trade_name'].'</td><td id="zone_registry_trade_name"></td></tr>';
-	$html_text .= '<tr id="108" style="display:none"><td>zone language_codes</td><td>'.$data[$pd]['zone']['language_codes'].'</td><td id="zone_language_codes"></td></tr>';
+	$html_text .= '<tr id="107 style="display:none"><td>zone language_codes</td><td>'.$data[$pd]['zone']['language_codes'].'</td><td id="zone_language_codes"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(11)">Notice0 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(12)">Notice1 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(13)">Notice2 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(14)">Notice3 +/-</button></td><td></td><td id="notices_role"></td></tr>';
 	$html_text .= '<tr id="111" style="display:none;vertical-align:top"><td>notice_0_title</td><td>'.$data[$pd]['notices']['notice_0_title'].'</td><td></td></tr>';
 	$html_text .= '<tr id="112" style="display:none;vertical-align:top"><td>notice_0_description_0</td><td>'.$data[$pd]['notices']['notice_0_description_0'].'</td><td></td></tr>';
