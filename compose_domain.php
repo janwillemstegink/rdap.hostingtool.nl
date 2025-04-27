@@ -235,7 +235,7 @@ $links_3_type = $obj['links'][3]['type'];
 
 $class_name = $obj['objectClassName'];
 $conformance = (is_array($obj['rdapConformance'])) ? implode(",<br />", $obj['rdapConformance']) : $obj['rdapConformance'];
-$registrar_public_id = '';
+$registrar_public_ids = '';
 $registrar_complaint_url = '';
 $status_explanation_url = '';	
 	
@@ -678,7 +678,7 @@ foreach($obj as $key1 => $value1) {
 						}	
 					}
 					if ($key2 == $entity_registrar and $key3 == 'publicIds')	{
-						$registrar_public_id .= $value4['type'].': '.$value4['identifier']."<br />";
+						$registrar_public_ids .= $value4['type'].': '.$value4['identifier']."<br />";
 					}
 				}
 				foreach($value4 as $key5 => $value5) {
@@ -1368,12 +1368,13 @@ $arr[$inputdomain]['links']['links_3_type'] = $links_3_type;
 
 $arr[$inputdomain]['object']['class_name'] = $class_name;
 $arr[$inputdomain]['object']['conformance'] = $conformance;	
-$arr[$inputdomain]['object']['lookup_endpoints'] = $lookup_endpoints;		
-$arr[$inputdomain]['object']['registry_source'] = $url;		
-$arr[$inputdomain]['object']['registrar_source'] = $url_registrar;
-$arr[$inputdomain]['object']['registrar_public_id'] = $registrar_public_id;	
-$arr[$inputdomain]['object']['registrar_complaint_url'] = $registrar_complaint_url;		
-$arr[$inputdomain]['object']['status_explanation_url'] = $status_explanation_url;	
+$arr[$inputdomain]['object']['lookup_endpoints'] = $lookup_endpoints;
+	
+$arr[$inputdomain]['resources']['registry_source'] = $url;		
+$arr[$inputdomain]['resources']['registrar_source'] = $url_registrar;
+$arr[$inputdomain]['resources']['registrar_public_ids'] = $registrar_public_ids;	
+$arr[$inputdomain]['resources']['registrar_complaint_url'] = $registrar_complaint_url;		
+$arr[$inputdomain]['resources']['status_explanation_url'] = $status_explanation_url;	
 	
 $arr[$inputdomain]['details']['handle'] = $handle;
 $arr[$inputdomain]['details']['name_ascii'] = $name_ascii;	
