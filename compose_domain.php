@@ -181,22 +181,33 @@ $notice_3_links_0_type = $obj['notices'][3]['links'][0]['type'];
 $delegation_url = 'https://www.iana.org/domains/root/db/'.$top_level_domain.'.html';	
 if ($top_level_domain == 'nl')	{
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
+	$sponsoring_organization_trade_name = 'Stichting Internet Domeinregistratie Nederland';
 	$registry_operator_trade_name = 'Stichting Internet Domeinregistratie Nederland';
-	$registry_trade_name = 'SIDN B.V.';
+	$backend_operator_trade_name = 'SIDN B.V.';
 	$restrictions_url = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
 	$menu_url = 'https://www.sidn.nl/en/theme/domain-names';
 }
 elseif ($top_level_domain == 'frl')	{
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
+	$sponsoring_organization_trade_name = 'FRLregistry B.V.';
 	$registry_operator_trade_name = 'FRLregistry B.V.';
-	$registry_trade_name = 'Team Internet Group PLC';
+	$backend_operator_trade_name = 'Team Internet Group PLC';
 	$restrictions_url = 'https://nic.frl/';
 	$menu_url = 'https://nic.frl/';
+}
+elseif ($top_level_domain == 'amsterdam')	{
+	$registrant_web_id = 'NL88COMM01234567890123456789012345';
+	$sponsoring_organization_trade_name = 'Gemeente Amsterdam';
+	$registry_operator_trade_name = 'Stichting Internet Domeinregistratie Nederland';
+	$backend_operator_trade_name = 'SIDN B.V.';
+	$restrictions_url = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
+	$menu_url = 'https://www.sidn.nl/en/theme/domain-names';
 }	
 else	{
 	$registrant_web_id = '';
+	$sponsoring_organization_trade_name = '';
 	$registry_operator_trade_name = '';
-	$registry_trade_name = '';
+	$backend_operator_trade_name = '';
 	$restrictions_url = '';
 	$menu_url = '';
 }
@@ -1304,9 +1315,11 @@ foreach($obj as $key1 => $value1) {
 if ($inputbatch)	{
 	$raw_rdap_data = '';
 }
-$arr = array();
+$arr = array();	
 $arr[$inputdomain]['zone']['top_level_domain'] = $top_level_domain;
+$arr[$inputdomain]['zone']['sponsoring_organization_trade_name'] = $sponsoring_organization_trade_name;
 $arr[$inputdomain]['zone']['registry_operator_trade_name'] = $registry_operator_trade_name;
+$arr[$inputdomain]['zone']['backend_operator_trade_name'] = $backend_operator_trade_name;
 $arr[$inputdomain]['zone']['registry_trade_name'] = $registry_trade_name;
 $arr[$inputdomain]['zone']['delegation_url'] = $delegation_url;
 $arr[$inputdomain]['zone']['restrictions_url'] = $restrictions_url;
