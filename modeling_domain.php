@@ -11,7 +11,7 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 function SwitchDisplay(type) {
 	if (type == 10)			{ // zone
 		var pre = '10';
-		var max = 7
+		var max = 10
 	}
 	else if (type == 11)	{ // notice 0
 		var pre = '11';
@@ -141,13 +141,16 @@ function SwitchTranslation(translation)	{
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "";
 		document.getElementById("zone_role").textContent = "";
-		document.getElementById("zone_delegation_url").textContent = proposed;
-		document.getElementById("zone_sponsoring_organization_trade_name").textContent = proposed;
+		document.getElementById("zone_tld_category").textContent = proposed;
+		document.getElementById("zone_tld_type").textContent = proposed;
+		document.getElementById("zone_sponsoring_organization").textContent = proposed;
+		document.getElementById("zone_country_code_designated_manager").textContent = proposed;
 		document.getElementById("zone_registry_operator_trade_name").textContent = proposed;
 		document.getElementById("zone_backend_operator_trade_name").textContent = proposed;
+		document.getElementById("zone_language_codes").textContent = proposed;
+		document.getElementById("zone_delegation_url").textContent = proposed;
 		document.getElementById("zone_restrictions_url").textContent = proposed;
 		document.getElementById("zone_menu_url").textContent = proposed;
-		document.getElementById("zone_language_codes").textContent = proposed;
 		document.getElementById("notices_role").textContent = "";
 		document.getElementById("links_role").textContent = "";		
 		document.getElementById("background_role").textContent = "";
@@ -155,6 +158,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("background_accredited_registrars_url").textContent = proposed;
 		document.getElementById("background_lookup_endpoints_url").textContent = proposed;
 		document.getElementById("background_registry_source").textContent = proposed;
+		document.getElementById("resources_role").textContent = "";
 		document.getElementById("resources_registrar_source").textContent = proposed;
 		document.getElementById("resources_registrar_public_ids").textContent = proposed;
 		document.getElementById("resources_registrar_complaint_url").textContent = proposed;
@@ -225,14 +229,17 @@ function SwitchTranslation(translation)	{
 		document.getElementById("field").textContent = "Omschrijving";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Webdomeinen toegelicht";
-		document.getElementById("zone_role").textContent = 'Een topleveldomein wordt door ICANN gedelegeerd aan een registerbeheerder. Outsourcing is mogelijk.';
-		document.getElementById("zone_delegation_url").textContent = proposed + "Gepland: Web-ID-zoekopdrachten kunnen worden uitgevoerd op wereldwijde RDAP-servers.";
-		document.getElementById("zone_sponsoring_organization_trade_name").textContent = proposed;
-		document.getElementById("zone_registry_operator_trade_name").textContent = proposed;
+		document.getElementById("zone_role").textContent = 'ICANN beheert de delegatie van een topleveldomein.';
+		document.getElementById("zone_tld_category").textContent = proposed + "Een landcodetopleveldomein opereert met een grote mate van autonomie.";
+		document.getElementById("zone_tld_type").textContent = proposed;		
+		document.getElementById("zone_sponsoring_organization").textContent = proposed + 'Een sponsorende organisatie stelt het toelatingsbeleid vast en ziet toe op de regels in de gemeenschap.';
+		document.getElementById("zone_country_code_designated_manager").textContent = proposed + 'Deze instanties kunnen zelf als registerbeheerder optreden of een registerbeheerder inhuren.';
+		document.getElementById("zone_registry_operator_trade_name").textContent = proposed  + 'In Nederland zou het "Forum Standaardisatie" aan "state-of-the-art" kunnen werken.';
 		document.getElementById("zone_backend_operator_trade_name").textContent = proposed;
+		document.getElementById("zone_language_codes").textContent = proposed + "Een zone kan met meerdere veelgebruikte talen werken.";
+		document.getElementById("zone_delegation_url").textContent = proposed;
 		document.getElementById("zone_restrictions_url").textContent = proposed + "Het gebruik van domeingegevens is aan beperkingen onderhevig.";
 		document.getElementById("zone_menu_url").textContent = proposed + 'Een vervolgkeuzemenu met uitleg en details, bijvoorbeeld via een subdomein "regmenu".';
-		document.getElementById("zone_language_codes").textContent = proposed + "Een zone kan met meerdere veelgebruikte talen werken.";
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;
 		document.getElementById("background_root_zones_url").textContent = proposed;
@@ -240,6 +247,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("background_role").textContent = "Het Registration Data Access Protocol (RDAP) is bedoeld voor wereldwijde communicatie.";
 		document.getElementById("background_lookup_endpoints_url").textContent = proposed;
 		document.getElementById("background_registry_source").textContent = proposed + "Een folder '/v1/' werkt voor een versie '/v2/', zie icann.com.";
+		document.getElementById("resources_role").textContent = "Gepland: Web-ID-zoekopdrachten kunnen worden uitgevoerd op wereldwijde RDAP-servers.";
 		document.getElementById("resources_registrar_source").textContent = proposed;
 		document.getElementById("resources_registrar_public_ids").textContent = proposed + "Een IANA-accreditatie-ID voor generieke topleveldomeinen moet correct zijn.";
 		document.getElementById("resources_registrar_complaint_url").textContent = proposed;		
@@ -310,14 +318,17 @@ function SwitchTranslation(translation)	{
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Web Domains Explained";		
-		document.getElementById("zone_role").textContent = "A top-level domain is delegated by ICANN to a registry operator. Outsourcing is possible.";
-		document.getElementById("zone_delegation_url").textContent = proposed + "Planned: Web ID searches can be performed on global RDAP servers.";
-		document.getElementById("zone_sponsoring_organization_trade_name").textContent = proposed;
-		document.getElementById("zone_registry_operator_trade_name").textContent = proposed;
+		document.getElementById("zone_role").textContent = "ICANN manages the delegation of a top-level domain.";
+		document.getElementById("zone_tld_category").textContent = proposed + "A country code top-level domain operates with a significant degree of autonomy.";
+		document.getElementById("zone_tld_type").textContent = proposed;		
+		document.getElementById("zone_sponsoring_organization").textContent = proposed + 'A sponsoring organization sets eligibility policies and oversees community rules.';
+		document.getElementById("zone_country_code_designated_manager").textContent = proposed + 'These entities may act as registry operators themselves or contract one.';
+		document.getElementById("zone_registry_operator_trade_name").textContent = proposed + 'In the Netherlands, the "Standardization Forum" could work on "state-of-the-art".';
 		document.getElementById("zone_backend_operator_trade_name").textContent = proposed;
+		document.getElementById("zone_language_codes").textContent = proposed + "A zone can work with multiple commonly used languages.";
+		document.getElementById("zone_delegation_url").textContent = proposed;
 		document.getElementById("zone_restrictions_url").textContent = proposed + "The use of domain data is subject to restrictions.";
 		document.getElementById("zone_menu_url").textContent = proposed + 'A drop-down menu with explanations and details, for example via a subdomain "regmenu".';
-		document.getElementById("zone_language_codes").textContent = proposed + "A zone can work with multiple commonly used languages.";
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;			
 		document.getElementById("background_role").textContent = "The Registration Data Access Protocol (RDAP) is intended for global communication.";
@@ -325,6 +336,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("background_accredited_registrars_url").textContent = proposed;		
 		document.getElementById("background_lookup_endpoints_url").textContent = proposed;
 		document.getElementById("background_registry_source").textContent = proposed + "A folder '/v1/' works for a version '/v2/', see icann.com.";
+		document.getElementById("resources_role").textContent = "Planned: Web ID searches can be performed on global RDAP servers.";
 		document.getElementById("resources_registrar_source").textContent = proposed;
 		document.getElementById("resources_registrar_public_ids").textContent = proposed + "An IANA accreditation ID for generic top-level domains must be correct.";
 		document.getElementById("resources_registrar_complaint_url").textContent = proposed;		
@@ -395,14 +407,17 @@ function SwitchTranslation(translation)	{
 		document.getElementById("field").textContent = "Beschreibung";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Webdomänen erklärt";		
-		document.getElementById("zone_role").textContent = 'Die Vergabe einer Top-Level-Domain erfolgt durch die ICANN an einen Registry-Betreiber. Outsourcing ist möglich.';	
-		document.getElementById("zone_delegation_url").textContent = proposed + "Geplant: Web-ID-Suchen können auf globalen RDAP-Servern durchgeführt werden.";
-		document.getElementById("zone_sponsoring_organization_trade_name").textContent = proposed;
-		document.getElementById("zone_registry_operator_trade_name").textContent = proposed;
+		document.getElementById("zone_role").textContent = 'ICANN verwaltet die Delegierung einer Top-Level-Domain.';
+		document.getElementById("zone_tld_category").textContent = proposed + 'Eine länderspezifische Top-Level-Domain funktioniert mit einem erheblichen Maß an Autonomie.';
+		document.getElementById("zone_tld_type").textContent = proposed;		
+		document.getElementById("zone_sponsoring_organization").textContent = 'Eine Trägerorganisation legt die Teilnahmekriterien fest und überwacht die Einhaltung der Gemeinschaftsregeln.';
+		document.getElementById("zone_country_code_designated_manager").textContent = proposed + 'Diese Unternehmen können selbst als Registerbetreiber fungieren oder einen solchen beauftragen.';
+		document.getElementById("zone_registry_operator_trade_name").textContent = proposed + 'In den Niederlanden könnte das "Standardization Forum" am "State-of-the-Art" arbeiten.';
 		document.getElementById("zone_backend_operator_trade_name").textContent = proposed;
+		document.getElementById("zone_language_codes").textContent = proposed + "Eine Zone kann mit mehreren häufig verwendeten Sprachen arbeiten.";
+		document.getElementById("zone_delegation_url").textContent = proposed;
 		document.getElementById("zone_restrictions_url").textContent = proposed + "Die Nutzung der Domaindaten unterliegt Einschränkungen.";		
 		document.getElementById("zone_menu_url").textContent = proposed + 'Ein Dropdown-Menü mit Erläuterungen und Details, z. B. über eine Subdomain "regmenu".';
-		document.getElementById("zone_language_codes").textContent = proposed + "Eine Zone kann mit mehreren häufig verwendeten Sprachen arbeiten.";
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;
 		document.getElementById("background_role").textContent = "Das Registration Data Access Protocol (RDAP) ist für die weltweite Kommunikation vorgesehen.";
@@ -410,6 +425,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("background_accredited_registrars_url").textContent = proposed;		
 		document.getElementById("background_lookup_endpoints_url").textContent = proposed;
 		document.getElementById("background_registry_source").textContent = proposed + "Ein Ordner '/v1/' funktioniert für eine Version '/v2/', siehe icann.com.";
+		document.getElementById("resources_role").textContent = "Geplant: Web-ID-Suchen können auf globalen RDAP-Servern durchgeführt werden.";
 		document.getElementById("resources_registrar_source").textContent = proposed;
 		document.getElementById("resources_registrar_public_ids").textContent = proposed + "Eine IANA-Akkreditierungs-ID für generische Top-Level-Domains muss korrekt sein.";
 		document.getElementById("resources_registrar_complaint_url").textContent = proposed;		
@@ -480,21 +496,26 @@ function SwitchTranslation(translation)	{
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Détail";
 		document.getElementById("explanation").textContent = "Domaines Web expliqués";		
-		document.getElementById("zone_role").textContent = "Un domaine de premier niveau est délégué par l'ICANN à un opérateur de registre. L'externalisation est possible.";
-		document.getElementById("zone_delegation_url").textContent = proposed + "Prévu : Les recherches d’identifiant Web peuvent être effectuées sur des serveurs RDAP mondiaux.";	
-		document.getElementById("zone_sponsoring_organization_trade_name").textContent = proposed;
-		document.getElementById("zone_registry_operator_trade_name").textContent = proposed;
+		document.getElementById("zone_role").textContent = "L'ICANN gère la délégation d'un domaine de premier niveau.";
+		document.getElementById("zone_tld_category").textContent = proposed + 'Un domaine de premier niveau de code de pays fonctionne avec un degré d’autonomie important.';
+		document.getElementById("zone_tld_type").textContent = proposed;		
+		document.getElementById("zone_sponsoring_organization").textContent = proposed + "Une organisation parrainante définit les politiques d'éligibilité et supervise les règles de la communauté.";
+		document.getElementById("zone_country_code_designated_manager").textContent = proposed + "Ces entités peuvent agir elles-mêmes en tant qu’opérateurs de registre ou en contracter un.";
+		document.getElementById("zone_registry_operator_trade_name").textContent = proposed + "Aux Pays-Bas, le 'Forum de normalisation' pourrait travailler sur l’état de l’art.";
 		document.getElementById("zone_backend_operator_trade_name").textContent = proposed;
+		document.getElementById("zone_language_codes").textContent = proposed + "Une zone peut fonctionner avec plusieurs langues couramment utilisées.";
+		document.getElementById("zone_delegation_url").textContent = proposed;	
 		document.getElementById("zone_restrictions_url").textContent = proposed + "L'utilisation des données de domaine est soumise à des restrictions.";			
 		document.getElementById("zone_menu_url").textContent = proposed + 'Un menu déroulant avec explication et détails, par exemple via un sous-domaine "regmenu".';
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;
-		document.getElementById("zone_language_codes").textContent = proposed + "Une zone peut fonctionner avec plusieurs langues couramment utilisées.";
+
 		document.getElementById("background_role").textContent = "Le protocole d'accès aux données d'enregistrement (RDAP) est destiné à la communication mondiale.";
 		document.getElementById("background_root_zones_url").textContent = proposed;
 		document.getElementById("background_accredited_registrars_url").textContent = proposed;		
 		document.getElementById("background_lookup_endpoints_url").textContent = proposed;
 		document.getElementById("background_registry_source").textContent = proposed + "Un dossier '/v1/' fonctionne pour une version '/v2/', voir icann.com.";
+		document.getElementById("resources_role").textContent = "Prévu : Les recherches d’identifiant Web peuvent être effectuées sur des serveurs RDAP mondiaux.";
 		document.getElementById("resources_registrar_source").textContent = proposed;
 		document.getElementById("resources_registrar_public_ids").textContent = proposed + "Un identifiant d'accréditation IANA pour les domaines génériques de premier niveau doit être correct.";
 		document.getElementById("resources_registrar_complaint_url").textContent = proposed;		
@@ -633,13 +654,16 @@ $html_text .= '<tr style="font-size: .8rem"><td id="subtitle" style="font-size: 
 if (true or $pd == mb_strtolower($data[$pd]['details']['name_ascii']) or empty($data[$pd]['details']['name_ascii']))	{
 	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td id="value"><td id="explanation"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(10)">Zone Information +/-</button></td><td><b>'.$data[$pd]['zone']['top_level_domain'].'</b></td><td id="zone_role"></td></tr>';
-	$html_text .= '<tr id="101" style="display:none"><td>zone delegation_url</td><td><a href='.$data[$pd]['zone']['delegation_url'].' target="_blank">Top-Level Domain Delegation</a></td><td id="zone_delegation_url"></td></tr>';
-	$html_text .= '<tr id="102" style="display:none"><td>zone sponsoring_organization_trade_name</td><td>'.$data[$pd]['zone']['sponsoring_organization_trade_name'].'</td><td id="zone_sponsoring_organization_trade_name"></td></tr>';
-	$html_text .= '<tr id="103" style="display:none"><td>zone registry_operator_trade_name</td><td>'.$data[$pd]['zone']['registry_operator_trade_name'].'</td><td id="zone_registry_operator_trade_name"></td></tr>';
-	$html_text .= '<tr id="104" style="display:none"><td>zone backend_operator_trade_name</td><td>'.$data[$pd]['zone']['backend_operator_trade_name'].'</td><td id="zone_backend_operator_trade_name"></td></tr>';
-	$html_text .= '<tr id="105" style="display:none"><td>zone restrictions_url</td><td>'.((strlen($data[$pd]['zone']['restrictions_url'])) ? '<a href='.$data[$pd]['zone']['restrictions_url'].' target="_blank">Zone Restrictions</a>' : '').'</td><td id="zone_restrictions_url"></td></tr>';
-	$html_text .= '<tr id="106" style="display:none"><td>zone menu_url</td><td>'.((strlen($data[$pd]['zone']['menu_url'])) ? '<a href='.$data[$pd]['zone']['menu_url'].' target="_blank">Zone Menu</a>' : '').'</td><td id="zone_menu_url"></td></tr>';
-	$html_text .= '<tr id="107 style="display:none"><td>zone language_codes</td><td>'.$data[$pd]['zone']['language_codes'].'</td><td id="zone_language_codes"></td></tr>';
+	$html_text .= '<tr id="101" style="display:none"><td>zone tld_category</td><td>'.$data[$pd]['zone']['tld_category'].'</td><td id="zone_tld_category"></td></tr>';
+	$html_text .= '<tr id="102" style="display:none"><td>zone tld_type</td><td>'.$data[$pd]['zone']['tld_type'].'</td><td id="zone_tld_type"></td></tr>';
+	$html_text .= '<tr id="103" style="display:none"><td>zone sponsoring_organization</td><td>'.$data[$pd]['zone']['sponsoring_organization'].'</td><td id="zone_sponsoring_organization"></td></tr>';
+	$html_text .= '<tr id="104" style="display:none"><td>zone country_code_designated_manager</td><td>'.$data[$pd]['zone']['country_code_designated_manager'].'</td><td id="zone_country_code_designated_manager"></td></tr>';
+	$html_text .= '<tr id="105" style="display:none"><td>zone registry_operator_trade_name</td><td>'.$data[$pd]['zone']['registry_operator_trade_name'].'</td><td id="zone_registry_operator_trade_name"></td></tr>';
+	$html_text .= '<tr id="106" style="display:none"><td>zone backend_operator_trade_name</td><td>'.$data[$pd]['zone']['backend_operator_trade_name'].'</td><td id="zone_backend_operator_trade_name"></td></tr>';
+	$html_text .= '<tr id="107" style="display:none"><td>zone language_codes</td><td>'.$data[$pd]['zone']['language_codes'].'</td><td id="zone_language_codes"></td></tr>';
+	$html_text .= '<tr id="108" style="display:none"><td>zone delegation_url</td><td><a href='.$data[$pd]['zone']['delegation_url'].' target="_blank">Top-Level Domain Delegation</a></td><td id="zone_delegation_url"></td></tr>';
+	$html_text .= '<tr id="109" style="display:none"><td>zone restrictions_url</td><td>'.((strlen($data[$pd]['zone']['restrictions_url'])) ? '<a href='.$data[$pd]['zone']['restrictions_url'].' target="_blank">Zone Restrictions</a>' : '').'</td><td id="zone_restrictions_url"></td></tr>';
+	$html_text .= '<tr id="1010" style="display:none"><td>zone menu_url</td><td>'.((strlen($data[$pd]['zone']['menu_url'])) ? '<a href='.$data[$pd]['zone']['menu_url'].' target="_blank">Zone Menu</a>' : '').'</td><td id="zone_menu_url"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(11)">Notice0 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(12)">Notice1 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(13)">Notice2 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(14)">Notice3 +/-</button></td><td></td><td id="notices_role"></td></tr>';
 	$html_text .= '<tr id="111" style="display:none;vertical-align:top"><td>notice_0_title</td><td>'.$data[$pd]['notices']['notice_0_title'].'</td><td></td></tr>';
 	$html_text .= '<tr id="112" style="display:none;vertical-align:top"><td>notice_0_description_0</td><td>'.$data[$pd]['notices']['notice_0_description_0'].'</td><td></td></tr>';
@@ -696,7 +720,7 @@ if (true or $pd == mb_strtolower($data[$pd]['details']['name_ascii']) or empty($
 	$html_text .= '<tr id="283" style="display:none"><td>background root_zones_url</td><td><a href='.$data[$pd]['background']['root_zones_url'].' target="_blank">Root Zones</a></td><td id="background_root_zones_url"></td></tr>';
 	$html_text .= '<tr id="284" style="display:none"><td>background accredited_registrars_url</td><td><a href='.$data[$pd]['background']['accredited_registrars_url'].' target="_blank">IANA Registrars</a></td><td id="background_accredited_registrars_url"></td></tr>';
 	$html_text .= '<tr id="285" style="display:none"><td>background lookup_endpoints_url</td><td><a href='.$data[$pd]['background']['lookup_endpoints_url'].' target="_blank">Lookup Endpoints</a></td><td id="background_lookup_endpoints_url"></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(29)">Resources +/-</button></td><td></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(29)">Resources +/-</button></td><td></td><td id="resources_role"></td></tr>';
 	$registry_source = str_replace('https://', '', $data[$pd]['resources']['registry_source']);
 	$validation_registry = 'https://validator.rdap.org/?url=https://'.$registry_source.'&response-type=domain&server-type=gtld-registry&errors-only=1';	
 	$html_text .= '<tr id="291" style="display:none"><td>resources registry_source</td><td>'.((strlen($data[$pd]['resources']['registry_source'])) ? '<a href='.$data[$pd]['resources']['registry_source'].' target="_blank">Registry Response</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">validator.rdap.org</a>' : 'none').'</td><td id="background_registry_source"></td></tr>';

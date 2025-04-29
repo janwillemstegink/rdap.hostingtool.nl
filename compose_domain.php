@@ -178,39 +178,72 @@ $notice_3_description_0 = $obj['notices'][3]['description'][0];
 $notice_3_description_1 = $obj['notices'][3]['description'][1];
 $notice_3_links_0_href = $obj['notices'][3]['links'][0]['href'];
 $notice_3_links_0_type = $obj['notices'][3]['links'][0]['type'];			
-$delegation_url = 'https://www.iana.org/domains/root/db/'.$top_level_domain.'.html';	
 if ($top_level_domain == 'nl')	{
-	$registrant_web_id = 'NL88COMM01234567890123456789012345';
-	$sponsoring_organization_trade_name = 'Stichting Internet Domeinregistratie Nederland';
+	$tld_category = 'ccTLD';
+	$tld_type = 'ccTLD';
+	$sponsoring_organization = '';
+	$country_code_designated_manager = 'Stichting Internet Domeinregistratie Nederland';
 	$registry_operator_trade_name = 'Stichting Internet Domeinregistratie Nederland';
 	$backend_operator_trade_name = 'SIDN B.V.';
 	$restrictions_url = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
 	$menu_url = 'https://www.sidn.nl/en/theme/domain-names';
+	$registrant_web_id = 'NL88COMM01234567890123456789012345';
 }
 elseif ($top_level_domain == 'frl')	{
-	$registrant_web_id = 'NL88COMM01234567890123456789012345';
-	$sponsoring_organization_trade_name = 'FRLregistry B.V.';
+	$tld_category = 'gTLD';
+	$tld_type = 'geoTLD';
+	$sponsoring_organization = 'FRLregistry B.V.';
+	$country_code_designated_manager = '';
 	$registry_operator_trade_name = 'FRLregistry B.V.';
 	$backend_operator_trade_name = 'Team Internet Group PLC';
 	$restrictions_url = 'https://nic.frl/';
 	$menu_url = 'https://nic.frl/';
+	$registrant_web_id = 'NL88COMM01234567890123456789012345';
 }
 elseif ($top_level_domain == 'amsterdam')	{
-	$registrant_web_id = 'NL88COMM01234567890123456789012345';
-	$sponsoring_organization_trade_name = 'Gemeente Amsterdam';
+	$tld_category = 'gTLD';
+	$tld_type = 'geoTLD';
+	$sponsoring_organization = 'Gemeente Amsterdam';
+	$country_code_designated_manager = '';
 	$registry_operator_trade_name = 'Stichting Internet Domeinregistratie Nederland';
 	$backend_operator_trade_name = 'SIDN B.V.';
 	$restrictions_url = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
 	$menu_url = 'https://www.sidn.nl/en/theme/domain-names';
+	$registrant_web_id = 'NL88COMM01234567890123456789012345';
+}
+elseif ($top_level_domain == 'politie')	{
+	$tld_category = 'gTLD';
+	$tld_type = 'Brand gTLD';
+	$sponsoring_organization = 'Politie Nederland';
+	$country_code_designated_manager = '';
+	$registry_operator_trade_name = 'Stichting Internet Domeinregistratie Nederland';
+	$backend_operator_trade_name = 'SIDN B.V.';
+	$restrictions_url = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
+	$menu_url = 'https://www.sidn.nl/en/theme/domain-names';
+}
+elseif ($top_level_domain == 'eu')	{
+	$tld_category = 'ccTLD';
+	$tld_type = 'ccTLD';
+	$sponsoring_organization = '';
+	$country_code_designated_manager = 'EURid vzw/asbl';
+	$registry_operator_trade_name = 'EURid vzw';
+	$backend_operator_trade_name = 'EURid vzw';
+	$restrictions_url = 'https://help.eurid.eu/hc/en-gb/';
+	$menu_url = 'https://help.eurid.eu/hc/en-gb/';
+	$registrant_web_id = 'NL88COMM01234567890123456789012345';
 }	
 else	{
-	$registrant_web_id = '';
-	$sponsoring_organization_trade_name = '';
+	$tld_category = '';
+	$tld_type = '';
+	$sponsoring_organization = '';
+	$country_code_designated_manager = '';
 	$registry_operator_trade_name = '';
 	$backend_operator_trade_name = '';
 	$restrictions_url = '';
 	$menu_url = '';
+	$registrant_web_id = '';
 }
+$delegation_url = 'https://www.iana.org/domains/root/db/'.$top_level_domain.'.html';		
 $language_codes = (is_array($obj['lang'])) ? implode(",<br />", $obj['lang']) : $obj['lang'];
 if (!strlen($language_codes))	{
 	$language_codes = 'None Specified';	
@@ -1317,10 +1350,13 @@ if ($inputbatch)	{
 }
 $arr = array();	
 $arr[$inputdomain]['zone']['top_level_domain'] = $top_level_domain;
-$arr[$inputdomain]['zone']['delegation_url'] = $delegation_url;
-$arr[$inputdomain]['zone']['sponsoring_organization_trade_name'] = $sponsoring_organization_trade_name;
+$arr[$inputdomain]['zone']['tld_category'] = $tld_category;
+$arr[$inputdomain]['zone']['tld_type'] = $tld_type;
+$arr[$inputdomain]['zone']['sponsoring_organization'] = $sponsoring_organization;
+$arr[$inputdomain]['zone']['country_code_designated_manager'] = $country_code_designated_manager;
 $arr[$inputdomain]['zone']['registry_operator_trade_name'] = $registry_operator_trade_name;
 $arr[$inputdomain]['zone']['backend_operator_trade_name'] = $backend_operator_trade_name;
+$arr[$inputdomain]['zone']['delegation_url'] = $delegation_url;	
 $arr[$inputdomain]['zone']['restrictions_url'] = $restrictions_url;
 $arr[$inputdomain]['zone']['menu_url'] = $menu_url;
 $arr[$inputdomain]['zone']['language_codes'] = $language_codes;	
