@@ -136,7 +136,7 @@ function SwitchTranslation(translation)	{
 		var accessible = '';
 		document.getElementById("title").textContent = "Domain Information";
 		document.getElementById("subtitle").textContent = "RDAP-v1-based modeling";
-		document.getElementById("instruction").textContent = "Press Enter to retrieve.";
+		document.getElementById("instruction").textContent = "Fill in and press Enter to retrieve.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "";
@@ -220,12 +220,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("raw_data_next").textContent = "";
 	}
 	else if (translation == 1)	{
-		var proposed = 'Nieuw: ';
+		var proposed = 'Nieuw. ';
 		var address = "Het afschermen van adresgegevens zoals bij example.tel, resulteert in rommelige gegevens.";
 		var accessible = 'Dankzij de voorgestelde velden is deze informatie beter toegankelijk en beter gestructureerd.';
 		document.getElementById("title").textContent = "Domein-informatie";
 		document.getElementById("subtitle").textContent = "RDAP-v1-gebaseerde modellering";
-		document.getElementById("instruction").textContent = "Druk op Enter om op te halen.";
+		document.getElementById("instruction").textContent = "Vul in en druk op Enter om op te halen.";
 		document.getElementById("field").textContent = "Omschrijving";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Een overzicht van en toelichting op webdomeinstructuur en -kenmerken";
@@ -309,12 +309,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("raw_data_next").textContent = "De rollen zijn hier gerangschikt op verantwoordelijkheid. 'None Specified' komt van deze tool. Voor communicatie in JSON is een leesbare XML-structuur vereist.";
 	}
 	else if (translation == 2)	{
-		var proposed = 'New: ';
+		var proposed = 'New. ';
 		var address = "Shielding address data as with example.tel, results in messy data.";
 		var accessible = 'Thanks to the proposed fields, this information is more accessible and better structured.';
 		document.getElementById("title").textContent = "Domain Information";
 		document.getElementById("subtitle").textContent = "RDAP-v1-based modeling";
-		document.getElementById("instruction").textContent = "Press Enter to retrieve.";
+		document.getElementById("instruction").textContent = "Fill in and press Enter to retrieve.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "An overview and explanation of web domain structure and attributes";		
@@ -398,12 +398,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("raw_data_next").textContent = "The roles here are arranged according to responsibility. 'None Specified' comes from this tool. Communication in JSON requires a readable XML structure.";
 	}
 	else if (translation == 3)	{
-		var proposed = 'Neu: ';
+		var proposed = 'Neu. ';
 		var address = "Das Abschirmen von Adressdaten wie bei example.tel, führt zu unordentlichen Daten.";
 		var accessible = 'Dank der vorgeschlagenen Felder sind diese Informationen leichter zugänglich und besser strukturiert.';
 		document.getElementById("title").textContent = "Domäneninformation";
 		document.getElementById("subtitle").textContent = "RDAP-v1-basierte Modellierung";
-		document.getElementById("instruction").textContent = "Drücken Sie zum Abrufen die Eingabetaste.";
+		document.getElementById("instruction").textContent = "Ausfüllen und zum Abrufen die Eingabetaste drücken.";
 		document.getElementById("field").textContent = "Beschreibung";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Eine Übersicht und Erklärung der Struktur und Attribute von Webdomänen";		
@@ -487,12 +487,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("raw_data_next").textContent = "Die Rollen sind hierbei nach Verantwortung verteilt. 'None Specified' stammt von diesem Tool. Die Kommunikation in JSON erfordert eine lesbare XML-Struktur.";
 	}
 	else if (translation == 4)	{
-		var proposed = 'Nouveau : ';
+		var proposed = 'Nouveau. ';
 		var address = "Le blindage des données d'adresse comme avec example.tel, génère des données désordonnées.";
 		var accessible = 'Grâce aux champs proposés, ces informations sont plus accessibles et mieux structurées.';
 		document.getElementById("title").textContent = "Informations sur le domaine";
 		document.getElementById("subtitle").textContent = "Modélisation basée sur RDAP-v1";
-		document.getElementById("instruction").textContent = "Appuyez sur Entrée pour récupérer.";
+		document.getElementById("instruction").textContent = "Remplissez et appuyez sur Entrée pour récupérer.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Détail";
 		document.getElementById("explanation").textContent = "Un aperçu et une explication de la structure et des attributs du domaine Web";		
