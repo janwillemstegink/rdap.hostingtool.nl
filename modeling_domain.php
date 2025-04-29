@@ -220,7 +220,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("raw_data_next").textContent = "";
 	}
 	else if (translation == 1)	{
-		var proposed = 'Nieuw. ';
+		var proposed = 'Nieuw; ';
 		var address = "Het afschermen van adresgegevens zoals bij example.tel, resulteert in rommelige gegevens.";
 		var accessible = 'Dankzij de voorgestelde velden is deze informatie beter toegankelijk en beter gestructureerd.';
 		document.getElementById("title").textContent = "Domein-informatie";
@@ -233,7 +233,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_tld_category").textContent = proposed + "Een landcodetopleveldomein opereert met een grote mate van autonomie.";
 		document.getElementById("zone_tld_type").textContent = proposed + 'Er is geen algemene vereiste voor wereldwijde standaardisatie van een ccTLD-zone.';		
 		document.getElementById("zone_sponsoring_organization").textContent = proposed + 'Een sponsorende organisatie stelt het toelatingsbeleid vast en ziet toe op de regels in de gemeenschap.';
-		document.getElementById("zone_country_code_designated_manager").textContent = proposed + 'Deze instanties kunnen zelf als registerbeheerder optreden of een registerbeheerder inhuren.';
+		document.getElementById("zone_country_code_designated_manager").textContent = proposed;
 		document.getElementById("zone_registry_operator_trade_name").textContent = proposed;
 		document.getElementById("zone_backend_operator_trade_name").textContent = proposed;
 		document.getElementById("zone_language_codes").textContent = proposed + "Een zone kan met meerdere veelgebruikte talen werken.";
@@ -309,7 +309,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("raw_data_next").textContent = "De rollen zijn hier gerangschikt op verantwoordelijkheid. 'None Specified' komt van deze tool. Voor communicatie in JSON is een leesbare XML-structuur vereist.";
 	}
 	else if (translation == 2)	{
-		var proposed = 'New. ';
+		var proposed = 'New; ';
 		var address = "Shielding address data as with example.tel, results in messy data.";
 		var accessible = 'Thanks to the proposed fields, this information is more accessible and better structured.';
 		document.getElementById("title").textContent = "Domain Information";
@@ -322,7 +322,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_tld_category").textContent = proposed + "A country code top-level domain operates with a significant degree of autonomy.";
 		document.getElementById("zone_tld_type").textContent = proposed + 'There is no general requirement for global standardization of a ccTLD zone.';		
 		document.getElementById("zone_sponsoring_organization").textContent = proposed + 'A sponsoring organization sets eligibility policies and oversees community rules.';
-		document.getElementById("zone_country_code_designated_manager").textContent = proposed + 'These entities may act as registry operators themselves or contract one.';
+		document.getElementById("zone_country_code_designated_manager").textContent = proposed;
 		document.getElementById("zone_registry_operator_trade_name").textContent = proposed;
 		document.getElementById("zone_backend_operator_trade_name").textContent = proposed;
 		document.getElementById("zone_language_codes").textContent = proposed + "A zone can work with multiple commonly used languages.";
@@ -398,7 +398,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("raw_data_next").textContent = "The roles here are arranged according to responsibility. 'None Specified' comes from this tool. Communication in JSON requires a readable XML structure.";
 	}
 	else if (translation == 3)	{
-		var proposed = 'Neu. ';
+		var proposed = 'Neu; ';
 		var address = "Das Abschirmen von Adressdaten wie bei example.tel, führt zu unordentlichen Daten.";
 		var accessible = 'Dank der vorgeschlagenen Felder sind diese Informationen leichter zugänglich und besser strukturiert.';
 		document.getElementById("title").textContent = "Domäneninformation";
@@ -410,8 +410,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_role").textContent = 'ICANN verwaltet die Delegierung einer Top-Level-Domain.';
 		document.getElementById("zone_tld_category").textContent = proposed + 'Eine länderspezifische Top-Level-Domain funktioniert mit einem erheblichen Maß an Autonomie.';
 		document.getElementById("zone_tld_type").textContent = proposed + 'Es gibt keine allgemeine Anforderung für eine globale Standardisierung einer ccTLD-Zone.';		
-		document.getElementById("zone_sponsoring_organization").textContent = 'Eine Trägerorganisation legt die Teilnahmekriterien fest und überwacht die Einhaltung der Gemeinschaftsregeln.';
-		document.getElementById("zone_country_code_designated_manager").textContent = proposed + 'Diese Unternehmen können selbst als Registerbetreiber fungieren oder einen solchen beauftragen.';
+		document.getElementById("zone_sponsoring_organization").textContent = proposed + 'Eine Trägerorganisation legt die Teilnahmekriterien fest und überwacht die Einhaltung der Gemeinschaftsregeln.';
+		document.getElementById("zone_country_code_designated_manager").textContent = proposed;
 		document.getElementById("zone_registry_operator_trade_name").textContent = proposed;
 		document.getElementById("zone_backend_operator_trade_name").textContent = proposed;
 		document.getElementById("zone_language_codes").textContent = proposed + "Eine Zone kann mit mehreren häufig verwendeten Sprachen arbeiten.";
@@ -487,7 +487,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("raw_data_next").textContent = "Die Rollen sind hierbei nach Verantwortung verteilt. 'None Specified' stammt von diesem Tool. Die Kommunikation in JSON erfordert eine lesbare XML-Struktur.";
 	}
 	else if (translation == 4)	{
-		var proposed = 'Nouveau. ';
+		var proposed = 'Nouveau; ';
 		var address = "Le blindage des données d'adresse comme avec example.tel, génère des données désordonnées.";
 		var accessible = 'Grâce aux champs proposés, ces informations sont plus accessibles et mieux structurées.';
 		document.getElementById("title").textContent = "Informations sur le domaine";
@@ -500,7 +500,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_tld_category").textContent = proposed + 'Un domaine de premier niveau de code de pays fonctionne avec un degré d’autonomie important.';
 		document.getElementById("zone_tld_type").textContent = proposed + "Il n’existe aucune exigence générale de normalisation mondiale d’une zone ccTLD.";		
 		document.getElementById("zone_sponsoring_organization").textContent = proposed + "Une organisation parrainante définit les politiques d'éligibilité et supervise les règles de la communauté.";
-		document.getElementById("zone_country_code_designated_manager").textContent = proposed + "Ces entités peuvent agir elles-mêmes en tant qu’opérateurs de registre ou en contracter un.";
+		document.getElementById("zone_country_code_designated_manager").textContent = proposed;
 		document.getElementById("zone_registry_operator_trade_name").textContent = proposed;
 		document.getElementById("zone_backend_operator_trade_name").textContent = proposed;
 		document.getElementById("zone_language_codes").textContent = proposed + "Une zone peut fonctionner avec plusieurs langues couramment utilisées.";
