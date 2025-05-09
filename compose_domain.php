@@ -127,6 +127,12 @@ switch ($top_level_domain) {
     	break;
 	case 'frl':
     	$url = 'https://rdap.centralnic.com/frl/';
+    	break;
+	case 'ch':
+    	$url = 'https://rdap.nic.ch/';
+    	break;
+	case 'li':
+    	$url = 'https://rdap.nic.ch/';
     	break;	
 	default:
    		//die("No match with a top level domain.");
@@ -230,7 +236,29 @@ elseif ($top_level_domain == 'eu')	{
 	$backend_operator_trade_name = 'EURid vzw';
 	$restrictions_url = 'https://help.eurid.eu/hc/en-gb/';
 	$menu_url = 'https://help.eurid.eu/hc/en-gb/';
-	$registrant_web_id = 'NL88COMM01234567890123456789012345';
+	$registrant_web_id = '';
+}
+elseif ($top_level_domain == 'ch')	{
+	$tld_category = 'ccTLD';
+	$tld_type = 'ccTLD';
+	$sponsoring_organization = '';
+	$country_code_designated_manager = 'SWITCH The Swiss Education & Research Network';
+	$registry_operator_trade_name = 'SWITCH The Swiss Education & Research Network';
+	$backend_operator_trade_name = 'SWITCH The Swiss Education & Research Network';
+	$restrictions_url = 'https://www.nic.ch/';
+	$menu_url = 'https://www.nic.ch/';
+	$registrant_web_id = '';
+}
+elseif ($top_level_domain == 'li')	{
+	$tld_category = 'ccTLD';
+	$tld_type = 'ccTLD';
+	$sponsoring_organization = '';
+	$country_code_designated_manager = 'SWITCH The Swiss Education & Research Network';
+	$registry_operator_trade_name = 'SWITCH The Swiss Education & Research Network';
+	$backend_operator_trade_name = 'SWITCH The Swiss Education & Research Network';
+	$restrictions_url = 'https://www.nic.li/';
+	$menu_url = 'https://www.nic.li/';
+	$registrant_web_id = '';
 }	
 else	{
 	$tld_category = '';
@@ -478,13 +506,13 @@ $registrar_country_name = '';
 $registrar_shielding = 'name,email,tel';
 $registrar_language_pref_1 = '';
 $registrar_language_pref_2 = '';
-$registrar_abuse_organization_type = '';
-$registrar_abuse_organization_name = '';
-$registrar_abuse_presented_name = '';
-$registrar_abuse_kind = '';
-$registrar_abuse_email = 'Abuse contact email unavailable.';
-$registrar_abuse_telephone = '';
-$registrar_abuse_country_code = '';	
+$abuse_organization_type = '';
+$abuse_organization_name = '';
+$abuse_presented_name = '';
+$abuse_kind = '';
+$abuse_email = 'Abuse contact email unavailable.';
+$abuse_telephone = '';
+$abuse_country_code = '';	
 
 $server_name_ascii_1 = $obj['nameservers'][0]['ldhName'];
 $server_name_ascii_2 = $obj['nameservers'][1]['ldhName'];
@@ -1261,17 +1289,17 @@ foreach($obj as $key1 => $value1) {
 								if ($key1 == 'entities' and $key2 == $entity_registrar and $key3 == 'entities' 
 									and $key4 == $entity_key4_abuse and $key5 == 'vcardArray' and $key6 == 1)	{
 									if ($value7[0] == 'org' and $value8 == 'org')	{
-										$registrar_abuse_organization_type = $value7[1]['type'];
-										$registrar_abuse_organization_name = $value7[3];
+										$abuse_organization_type = $value7[1]['type'];
+										$abuse_organization_name = $value7[3];
 									}
 									elseif ($value7[0] == 'fn' and $value8 == 'fn')	{
-										$registrar_abuse_presented_name = $value7[3];
+										$abuse_presented_name = $value7[3];
 									}
 									elseif ($value7[0] == 'kind' and $value8 == 'kind')	{
-										$registrar_abuse_kind = $value7[3];
+										$abuse_kind = $value7[3];
 									}	
 									elseif ($value7[0] == 'email' and $value8 == 'email')	{
-										$registrar_abuse_email = $value7[3];
+										$abuse_email = $value7[3];
 									}
 									elseif ($value7[0] == 'tel' and $value8 == 'tel')	{
 										$typeresult = '';
@@ -1290,10 +1318,10 @@ foreach($obj as $key1 => $value1) {
 										else	{
 											$typeresult .= $value7[1] . ' ';								
 										}						
-										$registrar_abuse_telephone .= $typeresult . $value7[2] . ' ' . $value7[3]."<br />";
+										$abuse_telephone .= $typeresult . $value7[2] . ' ' . $value7[3]."<br />";
 									}
 									elseif ($value7[0] == 'adr' and $key8 == 1)	{
-										$registrar_abuse_country_code = detect_country_code($registrar_abuse_country_code, $value8['CC'], $value8['cc']);				
+										$abuse_country_code = detect_country_code($abuse_country_code, $value8['CC'], $value8['cc']);				
 									}
 								}
 								//echo 'k4: '.$key4. ' v4: '.$value4.' k5: '.$key5.' v5: '.$value5.' k6: '.$key6.' v6: '.$value6.' k7: '.$key7.' value73: '.$value7[3]."<br />";
@@ -1638,13 +1666,13 @@ $arr[$inputdomain]['registrar']['event_last_uploaded'] = $registrar_last_uploade
 $arr[$inputdomain]['registrar']['properties'] = $registrar_properties;
 $arr[$inputdomain]['registrar']['remark_values'] = $registrar_remark_values;	
 
-$arr[$inputdomain]['registrar_abuse']['organization_type'] = $registrar_abuse_organization_type;	
-$arr[$inputdomain]['registrar_abuse']['organization_name'] = $registrar_abuse_organization_name;	
-$arr[$inputdomain]['registrar_abuse']['presented_name'] = $registrar_abuse_presented_name;
-$arr[$inputdomain]['registrar_abuse']['kind'] = $registrar_abuse_kind;
-$arr[$inputdomain]['registrar_abuse']['email'] = $registrar_abuse_email;	
-$arr[$inputdomain]['registrar_abuse']['telephone'] = $registrar_abuse_telephone;
-$arr[$inputdomain]['registrar_abuse']['country_code'] = $registrar_abuse_country_code;	
+$arr[$inputdomain]['abuse']['organization_type'] = $abuse_organization_type;	
+$arr[$inputdomain]['abuse']['organization_name'] = $abuse_organization_name;	
+$arr[$inputdomain]['abuse']['presented_name'] = $abuse_presented_name;
+$arr[$inputdomain]['abuse']['kind'] = $abuse_kind;
+$arr[$inputdomain]['abuse']['email'] = $abuse_email;	
+$arr[$inputdomain]['abuse']['telephone'] = $abuse_telephone;
+$arr[$inputdomain]['abuse']['country_code'] = $abuse_country_code;	
 	
 $arr[$inputdomain]['name_servers']['server_1']['server_name_ascii'] = $server_name_ascii_1;	
 $arr[$inputdomain]['name_servers']['server_1']['server_name_unicode'] = $server_name_unicode_1;	

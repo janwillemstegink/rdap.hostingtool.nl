@@ -211,8 +211,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;
-		document.getElementById("registrar_abuse_role").textContent = "";
-		document.getElementById("registrar_abuse_telephone").textContent = "";
+		document.getElementById("abuse_role").textContent = "";
+		document.getElementById("abuse_telephone").textContent = "";
 		document.getElementById("name_servers_dnssec").textContent = "";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "";
 		document.getElementById("name_servers_ip").textContent = "";
@@ -236,7 +236,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_country_code_designated_manager").textContent = proposed + "ccTLD-beheerders hoeven zich niet aan internationale standaarden te houden.";
 		document.getElementById("zone_registry_operator_trade_name").textContent = proposed + 'Handelsnaam van de organisatie die verantwoordelijk is voor het beheer van het register.';
 		document.getElementById("zone_backend_operator_trade_name").textContent = proposed + 'De backend-operator verzorgt de technische infrastructuur van de TLD.';
-		document.getElementById("zone_language_codes").textContent = proposed + "Geeft ondersteunde taalcodes voor de zone aan.";
+		document.getElementById("zone_language_codes").textContent = proposed + "Geeft ondersteunde talen voor de zone aan.";
 		document.getElementById("zone_delegation_url").textContent = proposed + 'URL die verwijst naar het ICANN-delegatierecord voor de TLD.';
 		document.getElementById("zone_restrictions_url").textContent = proposed + "Beperkingen op gebruik en registratiebeleid zijn te vinden via deze URL.";
 		document.getElementById("zone_menu_url").textContent = proposed + 'Een informatiemenu specifiek voor de zone, bijvoorbeeld via een subdomein zoals "regmenu".';
@@ -300,8 +300,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
-		document.getElementById("registrar_abuse_role").textContent = "Informatie over hoe een derde partij contact kan opnemen met de registrar. Zie bijvoorbeeld fryslan.frl.";
-		document.getElementById("registrar_abuse_telephone").textContent = "Een telefoonnummer moet beginnen met het type. Toegestaan zijn in ieder geval 'voice' en 'fax'.";
+		document.getElementById("abuse_role").textContent = "Informatie over hoe een derde partij contact kan opnemen met de registrar. Zie bijvoorbeeld fryslan.frl.";
+		document.getElementById("abuse_telephone").textContent = "Een telefoonnummer moet beginnen met het type. Toegestaan zijn in ieder geval 'voice' en 'fax'.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
@@ -325,7 +325,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_country_code_designated_manager").textContent = proposed + 'ccTLD managers are not required to adhere to international standards.';
 		document.getElementById("zone_registry_operator_trade_name").textContent = proposed + 'Trade name of the organization responsible for operating the registry.';
 		document.getElementById("zone_backend_operator_trade_name").textContent = proposed + 'The backend operator manages the technical infrastructure of the TLD.';
-		document.getElementById("zone_language_codes").textContent = proposed + "Indicates supported language codes for the zone.";
+		document.getElementById("zone_language_codes").textContent = proposed + "Indicates supported languages for the zone.";
 		document.getElementById("zone_delegation_url").textContent = proposed + 'URL referencing the ICANN delegation record for the TLD.';
 		document.getElementById("zone_restrictions_url").textContent = proposed + "Restrictions on usage and registration policies can be found at this URL.";
 		document.getElementById("zone_menu_url").textContent = proposed + 'A zone-specific info menu, e.g. under a subdomain like "regmenu".';
@@ -389,8 +389,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
-		document.getElementById("registrar_abuse_role").textContent = "Information on how a third party can contact the registrar. See e.g. fryslan.frl.";
-		document.getElementById("registrar_abuse_telephone").textContent = "A telephone number must begin with the type. Allowed are anyway 'voice' and 'fax'.";
+		document.getElementById("abuse_role").textContent = "Information on how a third party can contact the registrar. See e.g. fryslan.frl.";
+		document.getElementById("abuse_telephone").textContent = "A telephone number must begin with the type. Allowed are anyway 'voice' and 'fax'.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
@@ -414,7 +414,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_country_code_designated_manager").textContent = proposed + 'ccTLD-Manager sind nicht verpflichtet, internationale Standards einzuhalten.';
 		document.getElementById("zone_registry_operator_trade_name").textContent = proposed + 'Name der Organisation, die den Registry-Betrieb übernimmt.';
 		document.getElementById("zone_backend_operator_trade_name").textContent = proposed + 'Der Backend-Betreiber verwaltet die technische Infrastruktur der TLD.';
-		document.getElementById("zone_language_codes").textContent = proposed + "Gibt die unterstützten Sprachcodes der Zone an.";
+		document.getElementById("zone_language_codes").textContent = proposed + "Gibt die unterstützten Sprachen der Zone an.";
 		document.getElementById("zone_delegation_url").textContent = proposed + 'URL mit Verweis auf den ICANN-Delegationsdatensatz für die TLD.';
 		document.getElementById("zone_restrictions_url").textContent = proposed + "Nutzungsbeschränkungen und Registrierungsrichtlinien finden Sie unter dieser URL.";		
 		document.getElementById("zone_menu_url").textContent = proposed + 'Ein zonenspezifisches Informationsmenü, z. B. unter einer Subdomain wie "regmenu".';
@@ -478,8 +478,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
-		document.getElementById("registrar_abuse_role").textContent = "Informationen darüber, wie Dritte den Registrar kontaktieren können. Siehe z. B. fryslan.frl.";
-		document.getElementById("registrar_abuse_telephone").textContent = "Eine Telefonnummer muss mit dem Typ beginnen. Erlaubt sind grundsätzlich 'voice' und 'fax'.";
+		document.getElementById("abuse_role").textContent = "Informationen darüber, wie Dritte den Registrar kontaktieren können. Siehe z. B. fryslan.frl.";
+		document.getElementById("abuse_telephone").textContent = "Eine Telefonnummer muss mit dem Typ beginnen. Erlaubt sind grundsätzlich 'voice' und 'fax'.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 		document.getElementById("name_servers_ip").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
@@ -503,7 +503,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_country_code_designated_manager").textContent = proposed + "Les gestionnaires de ccTLD ne sont pas tenus d’adhérer aux normes internationales.";
 		document.getElementById("zone_registry_operator_trade_name").textContent = proposed + "Nom commercial de l’organisme responsable de l’exploitation du registre.";
 		document.getElementById("zone_backend_operator_trade_name").textContent = proposed + "Le opérateur du backend gère l'infrastructure technique du TLD.";
-		document.getElementById("zone_language_codes").textContent = proposed + "Indique les codes de langue pris en charge pour la zone.";
+		document.getElementById("zone_language_codes").textContent = proposed + "Indique les langues prises en charge pour la zone.";
 		document.getElementById("zone_delegation_url").textContent = proposed + "URL référençant l'enregistrement de délégation de l'ICANN pour le TLD.";	
 		document.getElementById("zone_restrictions_url").textContent = proposed + "Les restrictions d’usage et les politiques d’enregistrement sont accessibles via cette URL.";				document.getElementById("zone_menu_url").textContent = proposed + "Un menu d’information propre à la zone, par exemple sous un sous-domaine comme 'regmenu'.";
 		document.getElementById("notices_role").textContent = accessible;
@@ -566,8 +566,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_shielding").textContent = proposed;
 		document.getElementById("registrar_event_verification_received").textContent = proposed;
 		document.getElementById("registrar_event_verification_set").textContent = proposed;		
-		document.getElementById("registrar_abuse_role").textContent = "Informations sur la manière dont un tiers peut contacter le registraire. Voir par exemple fryslan.frl.";
-		document.getElementById("registrar_abuse_telephone").textContent = "Un numéro de téléphone doit commencer par le type. Sont autorisés de toute façon 'voice' et 'fax'.";
+		document.getElementById("abuse_role").textContent = "Informations sur la manière dont un tiers peut contacter le registraire. Voir par exemple fryslan.frl.";
+		document.getElementById("abuse_telephone").textContent = "Un numéro de téléphone doit commencer par le type. Sont autorisés de toute façon 'voice' et 'fax'.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 		document.getElementById("name_servers_ip").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
@@ -950,14 +950,14 @@ if (true or $pd == mb_strtolower($data[$pd]['details']['name_ascii']) or empty($
 	$html_text .= '<tr id="6024" style="display:none"><td>registrar event_verification_set</td><td>'.$data[$pd]['registrar']['event_verification_set'].'</td><td id="registrar_event_verification_set"></td></tr>';
 	$html_text .= '<tr id="6025" style="display:none;vertical-align:top"><td>registrar properties</td><td>'.$data[$pd]['registrar']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="6026" style="display:none;vertical-align:top"><td>registrar remark_values</td><td>'.$data[$pd]['registrar']['remark_values'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Registrar Abuse +/-</button></td><td></td><td id="registrar_abuse_role"></td></tr>';
-	$html_text .= '<tr id="611" style="display:none"><td>registrar_abuse organization_type</td><td>'.$data[$pd]['registrar_abuse']['organization_type'].'</td><td></td></tr>';
-	$html_text .= '<tr id="612" style="display:none"><td>registrar_abuse organization_name</td><td>'.$data[$pd]['registrar_abuse']['organization_name'].'</td><td></td></tr>';
-	$html_text .= '<tr id="613" style="display:none"><td>registrar_abuse presented_name</td><td>'.$data[$pd]['registrar_abuse']['presented_name'].'</td><td></td></tr>';
-	$html_text .= '<tr id="614" style="display:none"><td>registrar_abuse kind</td><td>'.$data[$pd]['registrar_abuse']['kind'].'</td><td></td></tr>';
-	$html_text .= '<tr id="615" style="display:none"><td>registrar_abuse email</td><td>'.$data[$pd]['registrar_abuse']['email'].'</td><td></td></tr>';
-	$html_text .= '<tr id="616" style="display:none"><td>registrar_abuse telephone</td><td>'.$data[$pd]['registrar_abuse']['telephone'].'</td><td id="registrar_abuse_telephone"></td></tr>';
-	$html_text .= '<tr id="617" style="display:none"><td>registrar_abuse country_code</td><td>'.$data[$pd]['registrar_abuse']['country_code'].'</td><td id="registrar_abuse_country_code"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Abuse +/-</button></td><td></td><td id="abuse_role"></td></tr>';
+	$html_text .= '<tr id="611" style="display:none"><td>abuse organization_type</td><td>'.$data[$pd]['abuse']['organization_type'].'</td><td></td></tr>';
+	$html_text .= '<tr id="612" style="display:none"><td>abuse organization_name</td><td>'.$data[$pd]['abuse']['organization_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="613" style="display:none"><td>abuse presented_name</td><td>'.$data[$pd]['abuse']['presented_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="614" style="display:none"><td>abuse kind</td><td>'.$data[$pd]['abuse']['kind'].'</td><td></td></tr>';
+	$html_text .= '<tr id="615" style="display:none"><td>abuse email</td><td>'.$data[$pd]['abuse']['email'].'</td><td></td></tr>';
+	$html_text .= '<tr id="616" style="display:none"><td>abuse telephone</td><td>'.$data[$pd]['abuse']['telephone'].'</td><td id="abuse_telephone"></td></tr>';
+	$html_text .= '<tr id="617" style="display:none"><td>abuse country_code</td><td>'.$data[$pd]['abuse']['country_code'].'</td><td id="abuse_country_code"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(63)">Name Servers +/-</button></td><td></td><td></td></tr>';
 	//if (!empty($data[$pd]['name_servers']['server_1']['server_name_ascii']))	{
