@@ -11,7 +11,7 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 function SwitchDisplay(type) {
 	if (type == 10)			{ // zone
 		var pre = '10';
-		var max = 10
+		var max = 12
 	}
 	else if (type == 11)	{ // notice 0
 		var pre = '11';
@@ -146,7 +146,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_sponsoring_organization").textContent = proposed;
 		document.getElementById("zone_country_code_designated_manager").textContent = proposed;
 		document.getElementById("zone_registry_operator_trade_name").textContent = proposed;
+		document.getElementById("zone_registry_operator_department").textContent = proposed;
 		document.getElementById("zone_backend_operator_trade_name").textContent = proposed;
+		document.getElementById("zone_backend_operator_department").textContent = proposed;
 		document.getElementById("zone_language_codes").textContent = proposed;
 		document.getElementById("zone_delegation_url").textContent = proposed;
 		document.getElementById("zone_restrictions_url").textContent = proposed;
@@ -235,7 +237,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_sponsoring_organization").textContent = proposed + 'Verantwoordelijk voor de toelatingscriteria en communityregels van de TLD.';
 		document.getElementById("zone_country_code_designated_manager").textContent = proposed + "ccTLD-beheerders hoeven zich niet aan internationale standaarden te houden.";
 		document.getElementById("zone_registry_operator_trade_name").textContent = proposed + 'Handelsnaam van de organisatie die verantwoordelijk is voor het beheer van het register.';
+		document.getElementById("zone_registry_operator_department").textContent = proposed;
 		document.getElementById("zone_backend_operator_trade_name").textContent = proposed + 'De backend-operator verzorgt de technische infrastructuur van de TLD.';
+		document.getElementById("zone_backend_operator_department").textContent = proposed;
 		document.getElementById("zone_language_codes").textContent = proposed + "Geeft ondersteunde talen voor de zone aan.";
 		document.getElementById("zone_delegation_url").textContent = proposed + 'URL die verwijst naar het ICANN-delegatierecord voor de TLD.';
 		document.getElementById("zone_restrictions_url").textContent = proposed + "Beperkingen op gebruik en registratiebeleid zijn te vinden via deze URL.";
@@ -324,7 +328,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_sponsoring_organization").textContent = proposed + 'Responsible for eligibility and community rules related to the TLD.';
 		document.getElementById("zone_country_code_designated_manager").textContent = proposed + 'ccTLD managers are not required to adhere to international standards.';
 		document.getElementById("zone_registry_operator_trade_name").textContent = proposed + 'Trade name of the organization responsible for operating the registry.';
+		document.getElementById("zone_registry_operator_department").textContent = proposed;
 		document.getElementById("zone_backend_operator_trade_name").textContent = proposed + 'The backend operator manages the technical infrastructure of the TLD.';
+		document.getElementById("zone_backend_operator_department").textContent = proposed;
 		document.getElementById("zone_language_codes").textContent = proposed + "Indicates supported languages for the zone.";
 		document.getElementById("zone_delegation_url").textContent = proposed + 'URL referencing the ICANN delegation record for the TLD.';
 		document.getElementById("zone_restrictions_url").textContent = proposed + "Restrictions on usage and registration policies can be found at this URL.";
@@ -413,7 +419,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_sponsoring_organization").textContent = proposed + 'Zuständig für die Zulassung und Community-Regeln im Zusammenhang mit der TLD.';
 		document.getElementById("zone_country_code_designated_manager").textContent = proposed + 'ccTLD-Manager sind nicht verpflichtet, internationale Standards einzuhalten.';
 		document.getElementById("zone_registry_operator_trade_name").textContent = proposed + 'Name der Organisation, die den Registry-Betrieb übernimmt.';
+		document.getElementById("zone_registry_operator_department").textContent = proposed;
 		document.getElementById("zone_backend_operator_trade_name").textContent = proposed + 'Der Backend-Betreiber verwaltet die technische Infrastruktur der TLD.';
+		document.getElementById("zone_backend_operator_department").textContent = proposed;
 		document.getElementById("zone_language_codes").textContent = proposed + "Gibt die unterstützten Sprachen der Zone an.";
 		document.getElementById("zone_delegation_url").textContent = proposed + 'URL mit Verweis auf den ICANN-Delegationsdatensatz für die TLD.';
 		document.getElementById("zone_restrictions_url").textContent = proposed + "Nutzungsbeschränkungen und Registrierungsrichtlinien finden Sie unter dieser URL.";		
@@ -502,7 +510,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_sponsoring_organization").textContent = proposed + "Responsable de l'éligibilité et les règles du TLD.";
 		document.getElementById("zone_country_code_designated_manager").textContent = proposed + "Les gestionnaires de ccTLD ne sont pas tenus d’adhérer aux normes internationales.";
 		document.getElementById("zone_registry_operator_trade_name").textContent = proposed + "Nom commercial de l’organisme responsable de l’exploitation du registre.";
+		document.getElementById("zone_registry_operator_department").textContent = proposed;
 		document.getElementById("zone_backend_operator_trade_name").textContent = proposed + "Le opérateur du backend gère l'infrastructure technique du TLD.";
+		document.getElementById("zone_backend_operator_department").textContent = proposed;
 		document.getElementById("zone_language_codes").textContent = proposed + "Indique les langues prises en charge pour la zone.";
 		document.getElementById("zone_delegation_url").textContent = proposed + "URL référençant l'enregistrement de délégation de l'ICANN pour le TLD.";	
 		document.getElementById("zone_restrictions_url").textContent = proposed + "Les restrictions d’usage et les politiques d’enregistrement sont accessibles via cette URL.";				document.getElementById("zone_menu_url").textContent = proposed + "Un menu d’information propre à la zone, par exemple sous un sous-domaine comme 'regmenu'.";
@@ -657,11 +667,13 @@ if (true or $pd == mb_strtolower($data[$pd]['details']['name_ascii']) or empty($
 	$html_text .= '<tr id="103" style="display:none"><td>zone sponsoring_organization</td><td>'.$data[$pd]['zone']['sponsoring_organization'].'</td><td id="zone_sponsoring_organization"></td></tr>';
 	$html_text .= '<tr id="104" style="display:none"><td>zone country_code_designated_manager</td><td>'.$data[$pd]['zone']['country_code_designated_manager'].'</td><td id="zone_country_code_designated_manager"></td></tr>';
 	$html_text .= '<tr id="105" style="display:none"><td>zone registry_operator_trade_name</td><td>'.$data[$pd]['zone']['registry_operator_trade_name'].'</td><td id="zone_registry_operator_trade_name"></td></tr>';
-	$html_text .= '<tr id="106" style="display:none"><td>zone backend_operator_trade_name</td><td>'.$data[$pd]['zone']['backend_operator_trade_name'].'</td><td id="zone_backend_operator_trade_name"></td></tr>';
-	$html_text .= '<tr id="107" style="display:none"><td>zone language_codes</td><td>'.$data[$pd]['zone']['language_codes'].'</td><td id="zone_language_codes"></td></tr>';
-	$html_text .= '<tr id="108" style="display:none"><td>zone delegation_url</td><td><a href='.$data[$pd]['zone']['delegation_url'].' target="_blank">Top-Level Domain Delegation</a></td><td id="zone_delegation_url"></td></tr>';
-	$html_text .= '<tr id="109" style="display:none"><td>zone restrictions_url</td><td>'.((strlen($data[$pd]['zone']['restrictions_url'])) ? '<a href='.$data[$pd]['zone']['restrictions_url'].' target="_blank">Zone Restrictions</a>' : '').'</td><td id="zone_restrictions_url"></td></tr>';
-	$html_text .= '<tr id="1010" style="display:none"><td>zone menu_url</td><td>'.((strlen($data[$pd]['zone']['menu_url'])) ? '<a href='.$data[$pd]['zone']['menu_url'].' target="_blank">Zone Menu</a>' : '').'</td><td id="zone_menu_url"></td></tr>';
+	$html_text .= '<tr id="106" style="display:none"><td>zone registry_operator_department</td><td>'.$data[$pd]['zone']['registry_operator_department'].'</td><td id="zone_registry_operator_department"></td></tr>';
+	$html_text .= '<tr id="107" style="display:none"><td>zone backend_operator_trade_name</td><td>'.$data[$pd]['zone']['backend_operator_trade_name'].'</td><td id="zone_backend_operator_trade_name"></td></tr>';
+	$html_text .= '<tr id="108" style="display:none"><td>zone backend_operator_department</td><td>'.$data[$pd]['zone']['backend_operator_department'].'</td><td id="zone_backend_operator_department"></td></tr>';
+	$html_text .= '<tr id="109" style="display:none"><td>zone language_codes</td><td>'.$data[$pd]['zone']['language_codes'].'</td><td id="zone_language_codes"></td></tr>';
+	$html_text .= '<tr id="1010" style="display:none"><td>zone delegation_url</td><td><a href='.$data[$pd]['zone']['delegation_url'].' target="_blank">Top-Level Domain Delegation</a></td><td id="zone_delegation_url"></td></tr>';
+	$html_text .= '<tr id="1011" style="display:none"><td>zone restrictions_url</td><td>'.((strlen($data[$pd]['zone']['restrictions_url'])) ? '<a href='.$data[$pd]['zone']['restrictions_url'].' target="_blank">Zone Restrictions</a>' : '').'</td><td id="zone_restrictions_url"></td></tr>';
+	$html_text .= '<tr id="1012" style="display:none"><td>zone menu_url</td><td>'.((strlen($data[$pd]['zone']['menu_url'])) ? '<a href='.$data[$pd]['zone']['menu_url'].' target="_blank">Zone Menu</a>' : '').'</td><td id="zone_menu_url"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(11)">Notice0 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(12)">Notice1 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(13)">Notice2 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(14)">Notice3 +/-</button></td><td></td><td id="notices_role"></td></tr>';
 	$html_text .= '<tr id="111" style="display:none;vertical-align:top"><td>notice_0_title</td><td>'.$data[$pd]['notices']['notice_0_title'].'</td><td></td></tr>';
 	$html_text .= '<tr id="112" style="display:none;vertical-align:top"><td>notice_0_description_0</td><td>'.$data[$pd]['notices']['notice_0_description_0'].'</td><td></td></tr>';
@@ -1037,5 +1049,4 @@ if (true or $pd == mb_strtolower($data[$pd]['details']['name_ascii']) or empty($
 }
 $html_text .= '</table></div></body></html>';
 echo $html_text;
-
 ?>
