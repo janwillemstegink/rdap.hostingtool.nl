@@ -238,6 +238,28 @@ elseif ($top_level_domain == 'eu')	{
 	$menu_url = 'https://help.eurid.eu/hc/en-gb/';
 	$registrant_web_id = '';
 }
+elseif ($top_level_domain == 'de')	{
+	$tld_category = 'ccTLD';
+	$tld_type = 'ccTLD';
+	$sponsoring_organization = '';
+	$country_code_designated_manager = 'DENIC eG';
+	$registry_operator_trade_name = 'Vorstand DENIC eG';
+	$backend_operator_trade_name = 'Business Services DENIC eG';
+	$restrictions_url = 'https://www.denic.de/';
+	$menu_url = 'https://www.denic.de/';
+	$registrant_web_id = '';
+}
+elseif ($top_level_domain == 'fr')	{
+	$tld_category = 'ccTLD';
+	$tld_type = 'ccTLD';
+	$sponsoring_organization = '';
+	$country_code_designated_manager = 'Association Française pour le Nommage Internet en Coopération (A.F.N.I.C.)';
+	$registry_operator_trade_name = 'Association Française pour le Nommage Internet en Coopération (A.F.N.I.C.)';
+	$backend_operator_trade_name = 'Association Française pour le Nommage Internet en Coopération (A.F.N.I.C.)';
+	$restrictions_url = 'https://www.afnic.fr/';
+	$menu_url = 'https://www.afnic.fr/';
+	$registrant_web_id = '';
+}
 elseif ($top_level_domain == 'ch')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
@@ -248,7 +270,8 @@ elseif ($top_level_domain == 'ch')	{
 	$restrictions_url = 'https://www.nic.ch/';
 	$menu_url = 'https://www.nic.ch/';
 	$registrant_web_id = '';
-}
+}	
+	
 elseif ($top_level_domain == 'li')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
@@ -258,6 +281,28 @@ elseif ($top_level_domain == 'li')	{
 	$backend_operator_trade_name = 'SWITCH The Swiss Education & Research Network';
 	$restrictions_url = 'https://www.nic.li/';
 	$menu_url = 'https://www.nic.li/';
+	$registrant_web_id = '';
+}
+elseif ($top_level_domain == 'be')	{
+	$tld_category = 'ccTLD';
+	$tld_type = 'ccTLD';
+	$sponsoring_organization = '';
+	$country_code_designated_manager = 'DNS Belgium vzw/asbl';
+	$registry_operator_trade_name = 'DNS Belgium vzw/asbl';
+	$backend_operator_trade_name = 'DNS Belgium vzw/asbl';
+	$restrictions_url = 'https://www.dnsbelgium.be/';
+	$menu_url = 'https://www.dnsbelgium.be/';
+	$registrant_web_id = '';
+}
+elseif ($top_level_domain == 'lu')	{
+	$tld_category = 'ccTLD';
+	$tld_type = 'ccTLD';
+	$sponsoring_organization = '';
+	$country_code_designated_manager = 'RESTENA';
+	$registry_operator_trade_name = 'Fondation RESTENA';
+	$backend_operator_trade_name = 'NOC Fondation RESTENA';
+	$restrictions_url = 'https://restena.lu/';
+	$menu_url = 'https://restena.lu/';
 	$registrant_web_id = '';
 }	
 else	{

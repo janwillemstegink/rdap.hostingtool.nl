@@ -1037,4 +1037,5 @@ if (true or $pd == mb_strtolower($data[$pd]['details']['name_ascii']) or empty($
 }
 $html_text .= '</table></div></body></html>';
 echo $html_text;
+
 ?>
