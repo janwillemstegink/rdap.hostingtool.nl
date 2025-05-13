@@ -143,12 +143,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_role").textContent = "";
 		document.getElementById("zone_tld_category").textContent = proposed;
 		document.getElementById("zone_tld_type").textContent = proposed;
-		document.getElementById("zone_sponsoring_organization").textContent = proposed;
+		document.getElementById("zone_sponsoring_organization_name").textContent = proposed;
 		document.getElementById("zone_country_code_designated_manager").textContent = proposed;
-		document.getElementById("zone_registry_operator_trade_name").textContent = proposed;
-		document.getElementById("zone_registry_operator_department").textContent = proposed;
-		document.getElementById("zone_backend_operator_trade_name").textContent = proposed;
-		document.getElementById("zone_backend_operator_department").textContent = proposed;
+		document.getElementById("zone_registry_operator_organization_name").textContent = proposed;
+		document.getElementById("zone_registry_operator_presented_name").textContent = proposed;
+		document.getElementById("zone_backend_operator_organization_name").textContent = proposed;
+		document.getElementById("zone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("zone_language_codes").textContent = proposed;
 		document.getElementById("zone_delegation_url").textContent = proposed;
 		document.getElementById("zone_restrictions_url").textContent = proposed;
@@ -224,7 +224,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 1)	{
 		var proposed = '(Nieuw) ';
 		var address = "Het afschermen van adresgegevens zoals bij example.tel, resulteert in rommelige gegevens.";
-		var accessible = 'De voorgestelde velden verbeteren de bruikbaarheid en vergroten de transparantie van RDAP.';
+		var accessible = 'De hier voorgestelde velden verbeteren de bruikbaarheid en verhogen de transparantie van RDAP.';
 		document.getElementById("title").textContent = "Domeininformatie";
 		document.getElementById("subtitle").textContent = "RDAP-v1-gebaseerde modellering";
 		document.getElementById("instruction").textContent = "Typ een domeinnaam en druk op Enter.";
@@ -234,12 +234,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_role").textContent = 'ICANN beheert de delegatie van een topleveldomein.';
 		document.getElementById("zone_tld_category").textContent = proposed + 'Geeft een generieke TLD (gTLD) of een landcode-TLD (ccTLD) aan.';
 		document.getElementById("zone_tld_type").textContent = proposed + 'Geeft een lijst van TLD-typen weer, zoals gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD en geoTLD.';
-		document.getElementById("zone_sponsoring_organization").textContent = proposed + 'Definieert de geschiktheid en communityregels voor de TLD.';
+		document.getElementById("zone_sponsoring_organization_name").textContent = proposed + 'Definieert de geschiktheid en communityregels voor de TLD.';
 		document.getElementById("zone_country_code_designated_manager").textContent = proposed + "ccTLD-beheerders zijn niet noodzakelijkerwijs gebonden aan internationale normen.";
-		document.getElementById("zone_registry_operator_trade_name").textContent = proposed + 'De handelsnaam van de organisatie die verantwoordelijk is voor de registratieactiviteiten.';
-		document.getElementById("zone_registry_operator_department").textContent = proposed;
-		document.getElementById("zone_backend_operator_trade_name").textContent = proposed + 'De backend-operator verzorgt de technische infrastructuur van de TLD.';
-		document.getElementById("zone_backend_operator_department").textContent = proposed;
+		document.getElementById("zone_registry_operator_organization_name").textContent = proposed + 'De handelsnaam van de organisatie die verantwoordelijk is voor de registratieactiviteiten.';
+		document.getElementById("zone_registry_operator_presented_name").textContent = proposed;
+		document.getElementById("zone_backend_operator_organization_name").textContent = proposed + 'De backend-operator verzorgt de technische infrastructuur van de TLD.';
+		document.getElementById("zone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("zone_language_codes").textContent = proposed + "Geeft ondersteunde talen voor de zone aan.";
 		document.getElementById("zone_delegation_url").textContent = proposed + 'URL die verwijst naar het ICANN-delegatierecord voor de TLD.';
 		document.getElementById("zone_restrictions_url").textContent = proposed + "Beperkingen op gebruik en registratiebeleid zijn te vinden via deze URL.";
@@ -315,7 +315,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 2)	{
 		var proposed = '(New) ';
 		var address = "Shielding address data as with example.tel, results in messy data.";
-		var accessible = 'These proposed fields improve usability and enhance the transparency of RDAP.';
+		var accessible = 'The fields proposed here improve the usability and increase the transparency of RDAP.';
 		document.getElementById("title").textContent = "Domain Information";
 		document.getElementById("subtitle").textContent = "RDAP-v1-based modeling";
 		document.getElementById("instruction").textContent = "Type a domain, then press Enter.";
@@ -325,12 +325,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_role").textContent = "ICANN manages the delegation of a top-level domain.";
 		document.getElementById("zone_tld_category").textContent = proposed + 'Indicates generic TLD (gTLD) or a country-code TLD (ccTLD).';
 		document.getElementById("zone_tld_type").textContent = proposed + 'Lists TLD types such as gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD, and geoTLD.';
-		document.getElementById("zone_sponsoring_organization").textContent = proposed + 'Defines eligibility and community rules for the TLD.';
+		document.getElementById("zone_sponsoring_organization_name").textContent = proposed + 'Defines eligibility and community rules for the TLD.';
 		document.getElementById("zone_country_code_designated_manager").textContent = proposed + 'ccTLD managers are not necessarily bound by international standards.';
-		document.getElementById("zone_registry_operator_trade_name").textContent = proposed + 'The trade name of the organization responsible for registry operations.';
-		document.getElementById("zone_registry_operator_department").textContent = proposed;
-		document.getElementById("zone_backend_operator_trade_name").textContent = proposed + 'The backend operator manages the technical infrastructure of the TLD.';
-		document.getElementById("zone_backend_operator_department").textContent = proposed;
+		document.getElementById("zone_registry_operator_organization_name").textContent = proposed + 'The trade name of the organization responsible for registry operations.';
+		document.getElementById("zone_registry_operator_presented_name").textContent = proposed;
+		document.getElementById("zone_backend_operator_organization_name").textContent = proposed + 'The backend operator manages the technical infrastructure of the TLD.';
+		document.getElementById("zone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("zone_language_codes").textContent = proposed + "Indicates supported languages for the zone.";
 		document.getElementById("zone_delegation_url").textContent = proposed + 'Links to the ICANN delegation record for this TLD.';
 		document.getElementById("zone_restrictions_url").textContent = proposed + "Usage and registration restrictions are listed at this URL.";
@@ -406,7 +406,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 3)	{
 		var proposed = '(Neu) ';
 		var address = "Das Abschirmen von Adressdaten wie bei example.tel, führt zu unordentlichen Daten.";
-		var accessible = 'Die vorgeschlagenen Felder verbessern die Benutzerfreundlichkeit und erhöhen die Transparenz von RDAP.';
+		var accessible = 'Die hier vorgeschlagenen Felder verbessern die Benutzerfreundlichkeit und erhöhen die Transparenz von RDAP.';
 		document.getElementById("title").textContent = "Domaininformationen";
 		document.getElementById("subtitle").textContent = "RDAP-v1-basierte Modellierung";
 		document.getElementById("instruction").textContent = "Geben Sie eine Domain ein und drücken Sie Enter.";
@@ -416,12 +416,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_role").textContent = 'ICANN verwaltet die Delegierung einer Top-Level-Domain.';
 		document.getElementById("zone_tld_category").textContent = proposed + 'Zeigt eine generische TLD (gTLD) oder eine länderspezifische TLD (ccTLD) an.';
 		document.getElementById("zone_tld_type").textContent = proposed + 'Listet TLD-Typen wie gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD und geoTLD auf.';
-		document.getElementById("zone_sponsoring_organization").textContent = proposed + 'Definiert die Berechtigung und Community-Regeln für die TLD.';
+		document.getElementById("zone_sponsoring_organization_name").textContent = proposed + 'Definiert die Berechtigung und Community-Regeln für die TLD.';
 		document.getElementById("zone_country_code_designated_manager").textContent = proposed + 'ccTLD-Manager sind nicht unbedingt an internationale Standards gebunden.';
-		document.getElementById("zone_registry_operator_trade_name").textContent = proposed + 'Der Handelsname der für die Registrierungsvorgänge verantwortlichen Organisation.';
-		document.getElementById("zone_registry_operator_department").textContent = proposed;
-		document.getElementById("zone_backend_operator_trade_name").textContent = proposed + 'Der Backend-Betreiber verwaltet die technische Infrastruktur der TLD.';
-		document.getElementById("zone_backend_operator_department").textContent = proposed;
+		document.getElementById("zone_registry_operator_organization_name").textContent = proposed + 'Der Handelsname der für die Registrierungsvorgänge verantwortlichen Organisation.';
+		document.getElementById("zone_registry_operator_presented_name").textContent = proposed;
+		document.getElementById("zone_backend_operator_organization_name").textContent = proposed + 'Der Backend-Betreiber verwaltet die technische Infrastruktur der TLD.';
+		document.getElementById("zone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("zone_language_codes").textContent = proposed + "Gibt die unterstützten Sprachen der Zone an.";
 		document.getElementById("zone_delegation_url").textContent = proposed + 'URL mit Verweis auf den ICANN-Delegationsdatensatz für die TLD.';
 		document.getElementById("zone_restrictions_url").textContent = proposed + "Nutzungsbeschränkungen und Registrierungsrichtlinien finden Sie unter dieser URL.";		
@@ -497,7 +497,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 4)	{
 		var proposed = '(Nouveau) ';
 		var address = "Le blindage des données d'adresse comme avec example.tel, génère des données désordonnées.";
-		var accessible = "Les champs proposés améliorent la convivialité et renforcent la transparence du RDAP.";
+		var accessible = "Les champs proposés ici améliorent la convivialité et augmentent la transparence du RDAP.";
 		document.getElementById("title").textContent = "Informations sur le domaine";
 		document.getElementById("subtitle").textContent = "Modélisation basée sur RDAP-v1";
 		document.getElementById("instruction").textContent = "Saisissez un nom de domaine, puis appuyez sur Entrée.";
@@ -507,12 +507,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_role").textContent = "L'ICANN gère la délégation d'un domaine de premier niveau.";
 		document.getElementById("zone_tld_category").textContent = proposed + "Indique un TLD générique (gTLD) ou un TLD de code pays (ccTLD).";
 		document.getElementById("zone_tld_type").textContent = proposed + "Répertorie les types de TLD tels que gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD et geoTLD.";
-		document.getElementById("zone_sponsoring_organization").textContent = proposed + "Définit l'éligibilité et les règles communautaires pour le TLD.";
+		document.getElementById("zone_sponsoring_organization_name").textContent = proposed + "Définit l'éligibilité et les règles communautaires pour le TLD.";
 		document.getElementById("zone_country_code_designated_manager").textContent = proposed + "Les gestionnaires de ccTLD ne sont pas nécessairement liés par les normes internationales.";
-		document.getElementById("zone_registry_operator_trade_name").textContent = proposed + "Le nom commercial de l’organisation responsable des opérations de registre.";
-		document.getElementById("zone_registry_operator_department").textContent = proposed;
-		document.getElementById("zone_backend_operator_trade_name").textContent = proposed + "Le opérateur du backend gère l'infrastructure technique du TLD.";
-		document.getElementById("zone_backend_operator_department").textContent = proposed;
+		document.getElementById("zone_registry_operator_organization_name").textContent = proposed + "Le nom commercial de l’organisation responsable des opérations de registre.";
+		document.getElementById("zone_registry_operator_presented_name").textContent = proposed;
+		document.getElementById("zone_backend_operator_organization_name").textContent = proposed + "Le opérateur du backend gère l'infrastructure technique du TLD.";
+		document.getElementById("zone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("zone_language_codes").textContent = proposed + "Indique les langues prises en charge pour la zone.";
 		document.getElementById("zone_delegation_url").textContent = proposed + "URL référençant l'enregistrement de délégation de l'ICANN pour le TLD.";	
 		document.getElementById("zone_restrictions_url").textContent = proposed + "Les restrictions d’usage et les politiques d’enregistrement sont accessibles via cette URL.";
@@ -665,12 +665,12 @@ if (true or $pd == mb_strtolower($data[$pd]['details']['name_ascii']) or empty($
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(10)">Zone Information +/-</button></td><td><b>'.$data[$pd]['zone']['top_level_domain'].'</b></td><td id="zone_role"></td></tr>';
 	$html_text .= '<tr id="101" style="display:none"><td>zone tld_category</td><td>'.$data[$pd]['zone']['tld_category'].'</td><td id="zone_tld_category"></td></tr>';
 	$html_text .= '<tr id="102" style="display:none"><td>zone tld_type</td><td>'.$data[$pd]['zone']['tld_type'].'</td><td id="zone_tld_type"></td></tr>';
-	$html_text .= '<tr id="103" style="display:none"><td>zone sponsoring_organization</td><td>'.$data[$pd]['zone']['sponsoring_organization'].'</td><td id="zone_sponsoring_organization"></td></tr>';
+	$html_text .= '<tr id="103" style="display:none"><td>zone sponsoring_organization_name</td><td>'.$data[$pd]['zone']['sponsoring_organization_name'].'</td><td id="zone_sponsoring_organization_name"></td></tr>';
 	$html_text .= '<tr id="104" style="display:none"><td>zone country_code_designated_manager</td><td>'.$data[$pd]['zone']['country_code_designated_manager'].'</td><td id="zone_country_code_designated_manager"></td></tr>';
-	$html_text .= '<tr id="105" style="display:none"><td>zone registry_operator_trade_name</td><td>'.$data[$pd]['zone']['registry_operator_trade_name'].'</td><td id="zone_registry_operator_trade_name"></td></tr>';
-	$html_text .= '<tr id="106" style="display:none"><td>zone registry_operator_department</td><td>'.$data[$pd]['zone']['registry_operator_department'].'</td><td id="zone_registry_operator_department"></td></tr>';
-	$html_text .= '<tr id="107" style="display:none"><td>zone backend_operator_trade_name</td><td>'.$data[$pd]['zone']['backend_operator_trade_name'].'</td><td id="zone_backend_operator_trade_name"></td></tr>';
-	$html_text .= '<tr id="108" style="display:none"><td>zone backend_operator_department</td><td>'.$data[$pd]['zone']['backend_operator_department'].'</td><td id="zone_backend_operator_department"></td></tr>';
+	$html_text .= '<tr id="105" style="display:none"><td>zone registry_operator_organization_name</td><td>'.$data[$pd]['zone']['registry_operator_organization_name'].'</td><td id="zone_registry_operator_organization_name"></td></tr>';
+	$html_text .= '<tr id="106" style="display:none"><td>zone registry_operator_presented_name</td><td>'.$data[$pd]['zone']['registry_operator_presented_name'].'</td><td id="zone_registry_operator_presented_name"></td></tr>';
+	$html_text .= '<tr id="107" style="display:none"><td>zone backend_operator_organization_name</td><td>'.$data[$pd]['zone']['backend_operator_organization_name'].'</td><td id="zone_backend_operator_organization_name"></td></tr>';
+	$html_text .= '<tr id="108" style="display:none"><td>zone backend_operator_presented_name</td><td>'.$data[$pd]['zone']['backend_operator_presented_name'].'</td><td id="zone_backend_operator_presented_name"></td></tr>';
 	$html_text .= '<tr id="109" style="display:none"><td>zone language_codes</td><td>'.$data[$pd]['zone']['language_codes'].'</td><td id="zone_language_codes"></td></tr>';
 	$html_text .= '<tr id="1010" style="display:none"><td>zone delegation_url</td><td><a href='.$data[$pd]['zone']['delegation_url'].' target="_blank">Top-Level Domain Delegation</a></td><td id="zone_delegation_url"></td></tr>';
 	$html_text .= '<tr id="1011" style="display:none"><td>zone restrictions_url</td><td>'.((strlen($data[$pd]['zone']['restrictions_url'])) ? '<a href='.$data[$pd]['zone']['restrictions_url'].' target="_blank">Zone Restrictions</a>' : '').'</td><td id="zone_restrictions_url"></td></tr>';

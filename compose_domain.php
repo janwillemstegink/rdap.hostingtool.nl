@@ -187,12 +187,12 @@ $notice_3_links_0_type = $obj['notices'][3]['links'][0]['type'];
 if ($top_level_domain == 'nl')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$sponsoring_organization = '';
+	$sponsoring_organization_name = '';
 	$country_code_designated_manager = 'Stichting Internet Domeinregistratie Nederland';
-	$registry_operator_trade_name = 'Stichting Internet Domeinregistratie Nederland';
-	$registry_operator_department = '';
-	$backend_operator_trade_name = 'SIDN B.V.';
-	$backend_operator_department = '';
+	$registry_operator_organization_name = 'Stichting Internet Domeinregistratie Nederland';
+	$registry_operator_presented_name = '';
+	$backend_operator_organization_name = 'SIDN B.V.';
+	$backend_operator_presented_name = '';
 	$restrictions_url = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
 	$menu_url = 'https://www.sidn.nl/en/theme/domain-names';
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
@@ -200,12 +200,12 @@ if ($top_level_domain == 'nl')	{
 elseif ($top_level_domain == 'frl')	{
 	$tld_category = 'gTLD';
 	$tld_type = 'geoTLD';
-	$sponsoring_organization = 'FRLregistry B.V.';
+	$sponsoring_organization_name = 'FRLregistry B.V.';
 	$country_code_designated_manager = '';
-	$registry_operator_trade_name = 'FRLregistry B.V.';
-	$registry_operator_department = '';
-	$backend_operator_trade_name = 'Team Internet Group PLC';
-	$backend_operator_department = 'CTO CentralNic';
+	$registry_operator_organization_name = 'FRLregistry B.V.';
+	$registry_operator_presented_name = '';
+	$backend_operator_organization_name = 'Team Internet Group PLC';
+	$backend_operator_presented_name = 'CTO CentralNic';
 	$restrictions_url = 'https://nic.frl/';
 	$menu_url = 'https://nic.frl/';
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
@@ -213,12 +213,12 @@ elseif ($top_level_domain == 'frl')	{
 elseif ($top_level_domain == 'amsterdam')	{
 	$tld_category = 'gTLD';
 	$tld_type = 'geoTLD';
-	$sponsoring_organization = 'Gemeente Amsterdam';
+	$sponsoring_organization_name = 'Gemeente Amsterdam';
 	$country_code_designated_manager = '';
-	$registry_operator_trade_name = 'Stichting Internet Domeinregistratie Nederland';
-	$registry_operator_department = '';
-	$backend_operator_trade_name = 'SIDN B.V.';
-	$backend_operator_department = '';
+	$registry_operator_organization_name = 'Stichting Internet Domeinregistratie Nederland';
+	$registry_operator_presented_name = '';
+	$backend_operator_organization_name = 'SIDN B.V.';
+	$backend_operator_presented_name = '';
 	$restrictions_url = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
 	$menu_url = 'https://www.sidn.nl/en/theme/domain-names';
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
@@ -226,24 +226,24 @@ elseif ($top_level_domain == 'amsterdam')	{
 elseif ($top_level_domain == 'politie')	{
 	$tld_category = 'gTLD';
 	$tld_type = 'Brand gTLD';
-	$sponsoring_organization = 'Politie Nederland';
+	$sponsoring_organization_name = 'Politie Nederland';
 	$country_code_designated_manager = '';
-	$registry_operator_trade_name = 'Stichting Internet Domeinregistratie Nederland';
-	$registry_operator_department = '';
-	$backend_operator_trade_name = 'SIDN B.V.';
-	$backend_operator_department = '';
+	$registry_operator_organization_name = 'Stichting Internet Domeinregistratie Nederland';
+	$registry_operator_presented_name = '';
+	$backend_operator_organization_name = 'SIDN B.V.';
+	$backend_operator_presented_name = '';
 	$restrictions_url = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
 	$menu_url = 'https://www.sidn.nl/en/theme/domain-names';
 }
 elseif ($top_level_domain == 'eu')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$sponsoring_organization = '';
+	$sponsoring_organization_name = '';
 	$country_code_designated_manager = 'EURid vzw/asbl';
-	$registry_operator_trade_name = 'EURid vzw';
-	$registry_operator_department = '';
-	$backend_operator_trade_name = 'EURid vzw';
-	$backend_operator_department = 'Technical Department';
+	$registry_operator_organization_name = 'EURid vzw';
+	$registry_operator_presented_name = '';
+	$backend_operator_organization_name = 'EURid vzw';
+	$backend_operator_presented_name = 'Technical Department';
 	$restrictions_url = 'https://help.eurid.eu/hc/en-gb/';
 	$menu_url = 'https://help.eurid.eu/hc/en-gb/';
 	$registrant_web_id = '';
@@ -251,12 +251,12 @@ elseif ($top_level_domain == 'eu')	{
 elseif ($top_level_domain == 'de')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$sponsoring_organization = '';
+	$sponsoring_organization_name = '';
 	$country_code_designated_manager = 'DENIC eG';
-	$registry_operator_trade_name = 'DENIC eG';
-	$registry_operator_department = 'Vorstand';
-	$backend_operator_trade_name = 'DENIC eG';
-	$backend_operator_department = 'Business Services';
+	$registry_operator_organization_name = 'DENIC eG';
+	$registry_operator_presented_name = 'Vorstand';
+	$backend_operator_organization_name = 'DENIC eG';
+	$backend_operator_presented_name = 'Business Services';
 	$restrictions_url = 'https://www.denic.de/';
 	$menu_url = 'https://www.denic.de/';
 	$registrant_web_id = '';
@@ -264,12 +264,12 @@ elseif ($top_level_domain == 'de')	{
 elseif ($top_level_domain == 'fr')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$sponsoring_organization = '';
+	$sponsoring_organization_name = '';
 	$country_code_designated_manager = 'Association Française pour le Nommage Internet en Coopération (A.F.N.I.C.)';
-	$registry_operator_trade_name = 'Association Française pour le Nommage Internet en Coopération (A.F.N.I.C.)';
-	$registry_operator_department = '';
-	$backend_operator_trade_name = 'Association Française pour le Nommage Internet en Coopération (A.F.N.I.C.)';
-	$backend_operator_department = '';
+	$registry_operator_organization_name = 'Association Française pour le Nommage Internet en Coopération (A.F.N.I.C.)';
+	$registry_operator_presented_name = '';
+	$backend_operator_organization_name = 'Association Française pour le Nommage Internet en Coopération (A.F.N.I.C.)';
+	$backend_operator_presented_name = '';
 	$restrictions_url = 'https://www.afnic.fr/';
 	$menu_url = 'https://www.afnic.fr/';
 	$registrant_web_id = '';
@@ -277,12 +277,12 @@ elseif ($top_level_domain == 'fr')	{
 elseif ($top_level_domain == 'ch')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$sponsoring_organization = '';
+	$sponsoring_organization_name = '';
 	$country_code_designated_manager = 'SWITCH Foundation';
-	$registry_operator_trade_name = 'SWITCH Foundation';
-	$registry_operator_department = 'The Swiss Education & Research Network';
-	$backend_operator_trade_name = 'SWITCH Foundation';
-	$backend_operator_department = 'The Swiss Education & Research Network';
+	$registry_operator_organization_name = 'SWITCH Foundation';
+	$registry_operator_presented_name = 'The Swiss Education & Research Network';
+	$backend_operator_organization_name = 'SWITCH Foundation';
+	$backend_operator_presented_name = 'The Swiss Education & Research Network';
 	$restrictions_url = 'https://www.nic.ch/';
 	$menu_url = 'https://www.nic.ch/';
 	$registrant_web_id = '';
@@ -290,12 +290,12 @@ elseif ($top_level_domain == 'ch')	{
 elseif ($top_level_domain == 'li')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$sponsoring_organization = '';
+	$sponsoring_organization_name = '';
 	$country_code_designated_manager = 'SWITCH Foundation';
-	$registry_operator_trade_name = 'SWITCH Foundation';
-	$registry_operator_department = 'The Swiss Education & Research Network';
-	$backend_operator_trade_name = 'SWITCH Foundation';
-	$backend_operator_department = 'The Swiss Education & Research Network';
+	$registry_operator_organization_name = 'SWITCH Foundation';
+	$registry_operator_presented_name = 'The Swiss Education & Research Network';
+	$backend_operator_organization_name = 'SWITCH Foundation';
+	$backend_operator_presented_name = 'The Swiss Education & Research Network';
 	$restrictions_url = 'https://www.nic.li/';
 	$menu_url = 'https://www.nic.li/';
 	$registrant_web_id = '';
@@ -303,12 +303,12 @@ elseif ($top_level_domain == 'li')	{
 elseif ($top_level_domain == 'be')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$sponsoring_organization = '';
+	$sponsoring_organization_name = '';
 	$country_code_designated_manager = 'DNS Belgium vzw/asbl';
-	$registry_operator_trade_name = 'DNS Belgium vzw/asbl';
-	$registry_operator_department = '';
-	$backend_operator_trade_name = 'DNS Belgium vzw/asbl';
-	$backend_operator_department = '';
+	$registry_operator_organization_name = 'DNS Belgium vzw/asbl';
+	$registry_operator_presented_name = '';
+	$backend_operator_organization_name = 'DNS Belgium vzw/asbl';
+	$backend_operator_presented_name = '';
 	$restrictions_url = 'https://www.dnsbelgium.be/';
 	$menu_url = 'https://www.dnsbelgium.be/';
 	$registrant_web_id = '';
@@ -316,12 +316,12 @@ elseif ($top_level_domain == 'be')	{
 elseif ($top_level_domain == 'lu')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$sponsoring_organization = '';
+	$sponsoring_organization_name = '';
 	$country_code_designated_manager = 'RESTENA';
-	$registry_operator_trade_name = 'Fondation RESTENA';
-	$registry_operator_department = '';
-	$backend_operator_trade_name = 'Fondation RESTENA';
-	$backend_operator_department = 'NOC';
+	$registry_operator_organization_name = 'Fondation RESTENA';
+	$registry_operator_presented_name = '';
+	$backend_operator_organization_name = 'Fondation RESTENA';
+	$backend_operator_presented_name = 'NOC';
 	$restrictions_url = 'https://restena.lu/';
 	$menu_url = 'https://restena.lu/';
 	$registrant_web_id = '';
@@ -329,12 +329,12 @@ elseif ($top_level_domain == 'lu')	{
 elseif ($top_level_domain == 'uk')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$sponsoring_organization = '';
+	$sponsoring_organization_name = '';
 	$country_code_designated_manager = 'Nominet UK';
-	$registry_operator_trade_name = 'Nominet UK';
-	$registry_operator_department = 'TLD Registry Services Management';
-	$backend_operator_trade_name = 'Nominet UK';
-	$backend_operator_department = 'TLD Registry Services Technical';
+	$registry_operator_organization_name = 'Nominet UK';
+	$registry_operator_presented_name = 'TLD Registry Services Management';
+	$backend_operator_organization_name = 'Nominet UK';
+	$backend_operator_presented_name = 'TLD Registry Services Technical';
 	$restrictions_url = 'https://nominet.uk/';
 	$menu_url = 'https://nominet.uk/';
 	$registrant_web_id = '';
@@ -342,12 +342,12 @@ elseif ($top_level_domain == 'uk')	{
 else	{
 	$tld_category = '';
 	$tld_type = '';
-	$sponsoring_organization = '';
+	$sponsoring_organization_name = '';
 	$country_code_designated_manager = '';
-	$registry_operator_trade_name = '';
-	$registry_operator_department = '';
-	$backend_operator_trade_name = '';
-	$backend_operator_department = '';
+	$registry_operator_organization_name = '';
+	$registry_operator_presented_name = '';
+	$backend_operator_organization_name = '';
+	$backend_operator_presented_name = '';
 	$restrictions_url = '';
 	$menu_url = '';
 	$registrant_web_id = '';
@@ -1461,12 +1461,12 @@ $arr = array();
 $arr[$inputdomain]['zone']['top_level_domain'] = $top_level_domain;
 $arr[$inputdomain]['zone']['tld_category'] = $tld_category;
 $arr[$inputdomain]['zone']['tld_type'] = $tld_type;
-$arr[$inputdomain]['zone']['sponsoring_organization'] = $sponsoring_organization;
+$arr[$inputdomain]['zone']['sponsoring_organization_name'] = $sponsoring_organization_name;
 $arr[$inputdomain]['zone']['country_code_designated_manager'] = $country_code_designated_manager;
-$arr[$inputdomain]['zone']['registry_operator_trade_name'] = $registry_operator_trade_name;
-$arr[$inputdomain]['zone']['registry_operator_department'] = $registry_operator_department;
-$arr[$inputdomain]['zone']['backend_operator_trade_name'] = $backend_operator_trade_name;
-$arr[$inputdomain]['zone']['backend_operator_department'] = $backend_operator_department;
+$arr[$inputdomain]['zone']['registry_operator_organization_name'] = $registry_operator_organization_name;
+$arr[$inputdomain]['zone']['registry_operator_presented_name'] = $registry_operator_presented_name;
+$arr[$inputdomain]['zone']['backend_operator_organization_name'] = $backend_operator_organization_name;
+$arr[$inputdomain]['zone']['backend_operator_presented_name'] = $backend_operator_presented_name;
 $arr[$inputdomain]['zone']['delegation_url'] = $delegation_url;	
 $arr[$inputdomain]['zone']['restrictions_url'] = $restrictions_url;
 $arr[$inputdomain]['zone']['menu_url'] = $menu_url;
