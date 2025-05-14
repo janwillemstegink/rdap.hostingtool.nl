@@ -236,7 +236,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_tld_type").textContent = proposed + 'Geeft een lijst van TLD-typen weer, zoals gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD en geoTLD.';
 		document.getElementById("zone_sponsoring_organization_name").textContent = proposed + 'Definieert de geschiktheid en communityregels voor de TLD.';
 		document.getElementById("zone_country_code_designated_manager").textContent = proposed + "ccTLD-beheerders zijn niet noodzakelijkerwijs gebonden aan internationale normen.";
-		document.getElementById("zone_registry_operator_organization_name").textContent = proposed + 'De handelsnaam van de organisatie die verantwoordelijk is voor de registratieactiviteiten.';
+		document.getElementById("zone_registry_operator_organization_name").textContent = proposed + 'De juridische naam van de organisatie die verantwoordelijk is voor de registratieactiviteiten.';
 		document.getElementById("zone_registry_operator_presented_name").textContent = proposed;
 		document.getElementById("zone_backend_operator_organization_name").textContent = proposed + 'De backend-operator verzorgt de technische infrastructuur van de TLD.';
 		document.getElementById("zone_backend_operator_presented_name").textContent = proposed;
@@ -271,7 +271,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_handle").textContent = 'De uitvoer van "hostingtool.nl" bevat onbedoeld informatie met "STE135427-TRAIP".';
 		document.getElementById("registrant_web_id").textContent = proposed + "Webidentificatienummer voor bedrijfsentiteiten en natuurlijke personen.";
 		document.getElementById("registrant_organization_type").textContent = 'De gebruikelijke waarde is "work", of mogelijk "work", "headquarters".';
-		document.getElementById("registrant_organization_name").textContent = "Een organisatie die primair verantwoordelijk is voor het domeinabonnement. Zie bijvoorbeeld icann.org.";
+		document.getElementById("registrant_organization_name").textContent = "De juridische naam van de organisatie die primair verantwoordelijk is voor het domeinabonnement.";
 		document.getElementById("registrant_presented_name").textContent = "Geldig is de naam van een primair verantwoordelijke persoon of een rol binnen de organisatie.";
 		document.getElementById("registrant_kind").textContent = "Leeg / 'org' / 'individual' (Voor continuïteit: levenstestament + testament + digitale executeur)";
 		document.getElementById("registrant_name").textContent = "Een persoonlijke naam kan openbaar zichtbaar zijn in het veld 'presented_name'. Zie bijvoorbeeld circa.ca.";
@@ -327,7 +327,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_tld_type").textContent = proposed + 'Lists TLD types such as gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD, and geoTLD.';
 		document.getElementById("zone_sponsoring_organization_name").textContent = proposed + 'Defines eligibility and community rules for the TLD.';
 		document.getElementById("zone_country_code_designated_manager").textContent = proposed + 'ccTLD managers are not necessarily bound by international standards.';
-		document.getElementById("zone_registry_operator_organization_name").textContent = proposed + 'The trade name of the organization responsible for registry operations.';
+		document.getElementById("zone_registry_operator_organization_name").textContent = proposed + 'The legal name of the organization responsible for registration activities.';
 		document.getElementById("zone_registry_operator_presented_name").textContent = proposed;
 		document.getElementById("zone_backend_operator_organization_name").textContent = proposed + 'The backend operator manages the technical infrastructure of the TLD.';
 		document.getElementById("zone_backend_operator_presented_name").textContent = proposed;
@@ -362,7 +362,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_handle").textContent = 'The output from "hostingtool.nl" unintentionally contains information with "STE135427-TRAIP".';
 		document.getElementById("registrant_web_id").textContent = proposed + "Web Identification number for business entities and natural persons.";
 		document.getElementById("registrant_organization_type").textContent = 'The usual value is "work", or possibly "work", "headquarters".';
-		document.getElementById("registrant_organization_name").textContent = "An organization primarily responsible for the domain subscription. See for example icann.org.";
+		document.getElementById("registrant_organization_name").textContent = "The legal name of the organization primarily responsible for the domain subscription.";
 		document.getElementById("registrant_presented_name").textContent = "Valid is the name of a primarily responsible person or a role within the organization.";
 		document.getElementById("registrant_kind").textContent = "Empty / 'org' / 'individual' (For continuity: Living Will + Will + Digital Executor)";
 		document.getElementById("registrant_name").textContent = "A personal name may be publicly visible in the 'presented_name' field. See for example circa.ca.";
@@ -418,7 +418,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_tld_type").textContent = proposed + 'Listet TLD-Typen wie gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD und geoTLD auf.';
 		document.getElementById("zone_sponsoring_organization_name").textContent = proposed + 'Definiert die Berechtigung und Community-Regeln für die TLD.';
 		document.getElementById("zone_country_code_designated_manager").textContent = proposed + 'ccTLD-Manager sind nicht unbedingt an internationale Standards gebunden.';
-		document.getElementById("zone_registry_operator_organization_name").textContent = proposed + 'Der Handelsname der für die Registrierungsvorgänge verantwortlichen Organisation.';
+		document.getElementById("zone_registry_operator_organization_name").textContent = proposed + 'Der offizielle Name der Organisation, die für die Registrierungsaktivitäten verantwortlich ist.';
 		document.getElementById("zone_registry_operator_presented_name").textContent = proposed;
 		document.getElementById("zone_backend_operator_organization_name").textContent = proposed + 'Der Backend-Betreiber verwaltet die technische Infrastruktur der TLD.';
 		document.getElementById("zone_backend_operator_presented_name").textContent = proposed;
@@ -453,7 +453,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_handle").textContent = 'Die Ausgabe von "hostingtool.nl" enthält unbeabsichtigt Informationen mit "STE135427-TRAIP".';
 		document.getElementById("registrant_web_id").textContent = proposed + "Web-Identifikationsnummer für Unternehmen und natürliche Personen.";
 		document.getElementById("registrant_organization_type").textContent = 'Der übliche Wert ist "work" oder möglicherweise "work", "headquarters".';
-		document.getElementById("registrant_organization_name").textContent = "Eine Organisation, die hauptsächlich für das Domänenabonnement verantwortlich ist. Siehe beispielsweise icann.org.";
+		document.getElementById("registrant_organization_name").textContent = "Der offizielle Name der Organisation, die hauptsächlich für das Domänenabonnement verantwortlich ist.";
 		document.getElementById("registrant_presented_name").textContent = "Gültig ist der Name einer hauptverantwortlichen Person oder einer Rolle innerhalb der Organisation.";
 		document.getElementById("registrant_kind").textContent = "Leer / 'org' / 'individual' (Für Kontinuität: Patientenverfügung + Testament + digitaler Testamentsvollstrecker)";
 		document.getElementById("registrant_name").textContent = "Ein Personenname kann im Feld 'presented_name' öffentlich sichtbar sei. Siehe beispielsweise circa.ca.";
@@ -509,7 +509,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_tld_type").textContent = proposed + "Répertorie les types de TLD tels que gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD et geoTLD.";
 		document.getElementById("zone_sponsoring_organization_name").textContent = proposed + "Définit l'éligibilité et les règles communautaires pour le TLD.";
 		document.getElementById("zone_country_code_designated_manager").textContent = proposed + "Les gestionnaires de ccTLD ne sont pas nécessairement liés par les normes internationales.";
-		document.getElementById("zone_registry_operator_organization_name").textContent = proposed + "Le nom commercial de l’organisation responsable des opérations de registre.";
+		document.getElementById("zone_registry_operator_organization_name").textContent = proposed + "Le nom légal de l’organisation responsable des activités d’enregistrement.";
 		document.getElementById("zone_registry_operator_presented_name").textContent = proposed;
 		document.getElementById("zone_backend_operator_organization_name").textContent = proposed + "Le opérateur du backend gère l'infrastructure technique du TLD.";
 		document.getElementById("zone_backend_operator_presented_name").textContent = proposed;
@@ -544,7 +544,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_handle").textContent = 'La sortie de "hostingtool.nl" contient involontairement des informations avec "STE135427-TRAIP"';
 		document.getElementById("registrant_web_id").textContent = proposed + "Numéro d’identification Web pour les entités commerciales et les personnes physiques.";
 		document.getElementById("registrant_organization_type").textContent = 'La valeur habituelle est "work", ou éventuellement "work", "headquarters".';
-		document.getElementById("registrant_organization_name").textContent = "Une organisation principalement responsable de l’abonnement au domaine. Voir, par exemple, icann.org.";
+		document.getElementById("registrant_organization_name").textContent = "Le nom légal de l'organisation principalement responsable de l'abonnement au domaine.";
 		document.getElementById("registrant_presented_name").textContent = "Valide est le nom d'une personne principalement responsable ou d'un rôle au sein de l'organisation.";
 		document.getElementById("registrant_kind").textContent = "Vide / 'org' / 'individual' (Pour la continuité : testament biologique + testament + exécuteur testamentaire numérique)";
 		document.getElementById("registrant_name").textContent = "Un nom personnel peut être visible publiquement dans le champ 'presented_name'. Voir, par exemple, circa.ca.";
@@ -658,7 +658,7 @@ $html_text .= '<tr style="font-size: .8rem"><td id="subtitle" style="font-size: 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(2)">en_US</button> 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(3)">de_DE</button> 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(4)">fr_FR</button> 
-	<a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_email" target="_blank">email modeling</a> - <a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_menu" target="_blank">menu modeling</a> - <a style="font-size: 0.9rem" href="https://github.com/janwillemstegink/rdap.hostingtool.nl/issues" target="_blank">reporting of issues</a> - <a style="font-size: 0.9rem" href="https://janwillemstegink.nl/" target="_blank">janwillemstegink.nl</a></td></tr>';
+	<a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_email" target="_blank">email modeling</a> - <a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_menu" target="_blank">menu modeling</a> - <a style="font-size: 0.9rem" href="https://github.com/janwillemstegink/rdap.hostingtool.nl" target="_blank">code/issues on GitHub</a> - <a style="font-size: 0.9rem" href="https://janwillemstegink.nl/" target="_blank">janwillemstegink.nl</a></td></tr>';
 //echo $pd.'#'.$data[$pd]['details']['name_ascii'];
 if (true or $pd == mb_strtolower($data[$pd]['details']['name_ascii']) or empty($data[$pd]['details']['name_ascii']))	{
 	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td id="value"><td id="explanation"></td></tr>';
