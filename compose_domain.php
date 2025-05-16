@@ -415,7 +415,7 @@ $last_uploaded_at = null;
 $extensions_values = '';
 $remark_values = '';	
 $registrant_status_values = '';
-$registrant_registration = null;
+$registrant_created_at = null;
 $registrant_last_transferred_at = null;	
 $registrant_last_updated_at = null;
 $registrant_expiration_at = null;	
@@ -429,7 +429,7 @@ $technical_remark_values = '';
 $billing_properties = '(not tested yet)';
 $billing_remark_values = '';		
 $reseller_status_values = '';
-$reseller_registration = null;
+$reseller_created_at = null;
 $reseller_last_transferred_at = null;	
 $reseller_last_updated_at = null;
 $reseller_expiration_at = null;	
@@ -437,7 +437,7 @@ $reseller_deletion_at = null;
 $reseller_properties = '(not tested yet)';	
 $reseller_remark_values = '';		
 $registrar_status_values = '';	
-$registrar_registration = null;
+$registrar_created_at = null;
 $registrar_last_transferred_at = null;	
 $registrar_last_updated_at = null;
 $registrar_expiration_at = null;	
@@ -445,7 +445,7 @@ $registrar_deletion_at = null;
 $registrar_properties = '(not tested yet)';	
 $registrar_remark_values = '';		
 $sponsor_status_values = '';
-$sponsor_registration = null;
+$sponsor_created_at = null;
 $sponsor_last_transferred_at = null;	
 $sponsor_last_updated_at = null;
 $sponsor_expiration_at = null;	
@@ -841,7 +841,7 @@ foreach($obj as $key1 => $value1) {
 					if ($key1 == 'entities')	{
 						if ($key2 == $entity_registrant and $key3 == 'events')	{
 							if ($key5 == 'eventAction' and $value5 == 'registration')	{
-								$registrant_registration = $value4['eventDate'];
+								$registrant_created_at = $value4['eventDate'];
 							}
 							elseif ($key5 == 'eventAction' and $value5 == 'transfer')	{
 								$registrant_last_transferred_at = $value4['eventDate'];
@@ -861,7 +861,7 @@ foreach($obj as $key1 => $value1) {
 						}
 						if ($key2 == $entity_reseller and $key3 == 'events')	{
 							if ($key5 == 'eventAction' and $value5 == 'registration')	{
-								$reseller_registration = $value4['eventDate'];
+								$reseller_created_at = $value4['eventDate'];
 							}
 							elseif ($key5 == 'eventAction' and $value5 == 'transfer')	{
 								$reseller_last_transferred_at = $value4['eventDate'];
@@ -881,7 +881,7 @@ foreach($obj as $key1 => $value1) {
 						}				
 						if ($key2 == $entity_registrar and $key3 == 'events')	{
 							if ($key5 == 'eventAction' and $value5 == 'registration')	{
-								$registrar_registration = $value4['eventDate'];
+								$registrar_created_at = $value4['eventDate'];
 							}
 							elseif ($key5 == 'eventAction' and $value5 == 'transfer')	{
 								$registrar_last_transferred_at = $value4['eventDate'];
@@ -901,7 +901,7 @@ foreach($obj as $key1 => $value1) {
 						}
 						if ($key2 == $entity_sponsor and $key3 == 'events')	{
 							if ($key5 == 'eventAction' and $value5 == 'registration')	{
-								$sponsor_registration = $value4['eventDate'];
+								$sponsor_created_at = $value4['eventDate'];
 							}
 							elseif ($key5 == 'eventAction' and $value5 == 'transfer')	{
 								$sponsor_last_transferred_at = $value4['eventDate'];
@@ -1572,7 +1572,7 @@ $arr[$inputdomain]['sponsor']['language_pref_1'] = $sponsor_language_pref_1;
 $arr[$inputdomain]['sponsor']['language_pref_2'] = $sponsor_language_pref_2;
 $arr[$inputdomain]['sponsor']['shielding'] = $sponsor_shielding;
 $arr[$inputdomain]['sponsor']['status_values'] = $sponsor_status_values;
-$arr[$inputdomain]['sponsor']['created_at'] = $sponsor_registration;
+$arr[$inputdomain]['sponsor']['created_at'] = $sponsor_created_at;
 $arr[$inputdomain]['sponsor']['last_transferred_at'] = $sponsor_last_transferred_at;	
 $arr[$inputdomain]['sponsor']['last_updated_at'] = $sponsor_last_updated_at;
 $arr[$inputdomain]['sponsor']['expiration_at'] = $sponsor_expiration_at;
@@ -1600,7 +1600,7 @@ $arr[$inputdomain]['registrant']['language_pref_1'] = $registrant_language_pref_
 $arr[$inputdomain]['registrant']['language_pref_2'] = $registrant_language_pref_2;
 $arr[$inputdomain]['registrant']['shielding'] = $registrant_shielding;
 $arr[$inputdomain]['registrant']['status_values'] = $registrant_status_values;
-$arr[$inputdomain]['registrant']['created_at'] = $registrant_registration;
+$arr[$inputdomain]['registrant']['created_at'] = $registrant_created_at;
 $arr[$inputdomain]['registrant']['last_transferred_at'] = $registrant_last_transferred_at;	
 $arr[$inputdomain]['registrant']['last_updated_at'] = $registrant_last_updated_at;
 $arr[$inputdomain]['registrant']['expiration_at'] = $registrant_expiration_at;
@@ -1628,7 +1628,7 @@ $arr[$inputdomain]['administrative']['language_pref_1'] = $administrative_langua
 $arr[$inputdomain]['administrative']['language_pref_2'] = $administrative_language_pref_2;
 $arr[$inputdomain]['administrative']['shielding'] = $administrative_shielding;
 $arr[$inputdomain]['administrative']['status_values'] = $administrative_status_values;
-$arr[$inputdomain]['administrative']['created_at'] = $administrative_registration;
+$arr[$inputdomain]['administrative']['created_at'] = $administrative_created_at;
 $arr[$inputdomain]['administrative']['last_transferred_at'] = $administrative_last_transferred_at;	
 $arr[$inputdomain]['administrative']['last_updated_at'] = $administrative_last_updated_at;
 $arr[$inputdomain]['administrative']['expiration_at'] = $administrative_expiration_at;
@@ -1656,7 +1656,7 @@ $arr[$inputdomain]['technical']['language_pref_1'] = $technical_language_pref_1;
 $arr[$inputdomain]['technical']['language_pref_2'] = $technical_language_pref_2;
 $arr[$inputdomain]['technical']['shielding'] = $technical_shielding;
 $arr[$inputdomain]['technical']['status_values'] = $technical_status_values;
-$arr[$inputdomain]['technical']['created_at'] = $technical_registration;
+$arr[$inputdomain]['technical']['created_at'] = $technical_created_at;
 $arr[$inputdomain]['technical']['last_transferred_at'] = $technical_last_transferred_at;	
 $arr[$inputdomain]['technical']['last_updated_at'] = $technical_last_updated_at;
 $arr[$inputdomain]['technical']['expiration_at'] = $technical_expiration_at;
@@ -1684,7 +1684,7 @@ $arr[$inputdomain]['billing']['language_pref_1'] = $billing_language_pref_1;
 $arr[$inputdomain]['billing']['language_pref_2'] = $billing_language_pref_2;
 $arr[$inputdomain]['billing']['shielding'] = $billing_shielding;
 $arr[$inputdomain]['billing']['status_values'] = $billing_status_values;
-$arr[$inputdomain]['billing']['created_at'] = $billing_registration;
+$arr[$inputdomain]['billing']['created_at'] = $billing_created_at;
 $arr[$inputdomain]['billing']['last_transferred_at'] = $billing_last_transferred_at;	
 $arr[$inputdomain]['billing']['last_updated_at'] = $billing_last_updated_at;
 $arr[$inputdomain]['billing']['expiration_at'] = $billing_expiration_at;
@@ -1712,7 +1712,7 @@ $arr[$inputdomain]['reseller']['language_pref_1'] = $reseller_language_pref_1;
 $arr[$inputdomain]['reseller']['language_pref_2'] = $reseller_language_pref_2;
 $arr[$inputdomain]['reseller']['shielding'] = $reseller_shielding;
 $arr[$inputdomain]['reseller']['status_values'] = $reseller_status_values;
-$arr[$inputdomain]['reseller']['created_at'] = $reseller_registration;
+$arr[$inputdomain]['reseller']['created_at'] = $reseller_created_at;
 $arr[$inputdomain]['reseller']['last_transferred_at'] = $reseller_last_transferred_at;	
 $arr[$inputdomain]['reseller']['last_updated_at'] = $reseller_last_updated_at;
 $arr[$inputdomain]['reseller']['expiration_at'] = $reseller_expiration_at;
@@ -1740,7 +1740,7 @@ $arr[$inputdomain]['registrar']['language_pref_1'] = $registrar_language_pref_1;
 $arr[$inputdomain]['registrar']['language_pref_2'] = $registrar_language_pref_2;
 $arr[$inputdomain]['registrar']['shielding'] = $registrar_shielding;
 $arr[$inputdomain]['registrar']['status_values'] = $registrar_status_values;
-$arr[$inputdomain]['registrar']['created_at'] = $registrar_registration;
+$arr[$inputdomain]['registrar']['created_at'] = $registrar_created_at;
 $arr[$inputdomain]['registrar']['last_transferred_at'] = $registrar_last_transferred_at;	
 $arr[$inputdomain]['registrar']['last_updated_at'] = $registrar_last_updated_at;
 $arr[$inputdomain]['registrar']['expiration_at'] = $registrar_expiration_at;
