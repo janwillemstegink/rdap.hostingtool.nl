@@ -139,6 +139,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "";
 		document.getElementById("rootzone_role").textContent = proposed;
 		document.getElementById("rootzone_root_zones_url").textContent = proposed;
+		document.getElementById("rootzone_delegation_url").textContent = proposed;
 		document.getElementById("rootzone_tld_category").textContent = proposed;
 		document.getElementById("rootzone_tld_type").textContent = proposed;
 		document.getElementById("rootzone_sponsoring_organization_name").textContent = proposed;
@@ -148,7 +149,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("rootzone_backend_operator_organization_name").textContent = proposed;
 		document.getElementById("rootzone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("rootzone_language_codes").textContent = modified;
-		document.getElementById("rootzone_delegation_url").textContent = proposed;
 		document.getElementById("rootzone_restrictions_url").textContent = proposed;
 		document.getElementById("rootzone_menu_url").textContent = proposed;
 		document.getElementById("notices_role").textContent = "";
@@ -232,6 +232,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Een overzicht en toelichting op de structuur en kenmerken van webdomeinen.";
 		document.getElementById("rootzone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("rootzone_root_zones_url").textContent = proposed + 'Een verwijzing naar de officiële lijst met Root Zones.';
+		document.getElementById("rootzone_delegation_url").textContent = proposed + 'URL die verwijst naar het ICANN-delegatierecord voor de TLD.';
 		document.getElementById("rootzone_tld_category").textContent = proposed + 'Geeft een generieke TLD (gTLD) of een landcode-TLD (ccTLD) aan.';
 		document.getElementById("rootzone_tld_type").textContent = proposed + 'Geeft een lijst van TLD-typen weer, zoals gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD en geoTLD.';
 		document.getElementById("rootzone_sponsoring_organization_name").textContent = proposed + 'Definieert de geschiktheid en communityregels voor de TLD.';
@@ -241,7 +242,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("rootzone_backend_operator_organization_name").textContent = proposed + 'De backend-operator verzorgt de technische infrastructuur van de TLD.';
 		document.getElementById("rootzone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("rootzone_language_codes").textContent = modified + "Geeft ondersteunde talen voor de Root Zone aan.";
-		document.getElementById("rootzone_delegation_url").textContent = proposed + 'URL die verwijst naar het ICANN-delegatierecord voor de TLD.';
 		document.getElementById("rootzone_restrictions_url").textContent = proposed + "Beperkingen op gebruik en registratiebeleid zijn te vinden via deze URL.";
 		document.getElementById("rootzone_menu_url").textContent = proposed + 'Een TLD-specifiek informatiemenu, beschikbaar onder een subdomein zoals "regmenu".';
 		document.getElementById("notices_role").textContent = accessible;
@@ -325,6 +325,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "An overview of the structure and key characteristics of domain data.";		
 		document.getElementById("rootzone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("rootzone_root_zones_url").textContent = proposed + 'A reference to the official list of Root Zones.';
+		document.getElementById("rootzone_delegation_url").textContent = proposed + 'URL pointing to the ICANN delegation record for the TLD.';
 		document.getElementById("rootzone_tld_category").textContent = proposed + 'Indicates generic TLD (gTLD) or a country-code TLD (ccTLD).';
 		document.getElementById("rootzone_tld_type").textContent = proposed + 'Lists TLD types such as gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD, and geoTLD.';
 		document.getElementById("rootzone_sponsoring_organization_name").textContent = proposed + 'Defines eligibility and community rules for the TLD.';
@@ -334,7 +335,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("rootzone_backend_operator_organization_name").textContent = proposed + 'The backend operator manages the technical infrastructure of the TLD.';
 		document.getElementById("rootzone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("rootzone_language_codes").textContent = modified + "Indicates supported languages for the Root Zone.";
-		document.getElementById("rootzone_delegation_url").textContent = proposed + 'URL pointing to the ICANN delegation record for the TLD.';
 		document.getElementById("rootzone_restrictions_url").textContent = proposed + "Usage and registration restrictions are listed at this URL.";
 		document.getElementById("rootzone_menu_url").textContent = proposed + 'A TLD specific information menu, available under a subdomain such as "regmenu".';
 		document.getElementById("notices_role").textContent = accessible;
@@ -418,6 +418,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Eine Übersicht und Erklärung zur Struktur und den Eigenschaften von Webdomänen.";		
 		document.getElementById("rootzone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("rootzone_root_zones_url").textContent = proposed + 'Ein Verweis auf die offizielle Liste der Root-Zones.';	
+		document.getElementById("rootzone_delegation_url").textContent = proposed + 'URL mit Verweis auf den ICANN-Delegationsdatensatz für die TLD.';
 		document.getElementById("rootzone_tld_category").textContent = proposed + 'Zeigt eine generische TLD (gTLD) oder eine länderspezifische TLD (ccTLD) an.';
 		document.getElementById("rootzone_tld_type").textContent = proposed + 'Listet TLD-Typen wie gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD und geoTLD auf.';
 		document.getElementById("rootzone_sponsoring_organization_name").textContent = proposed + 'Definiert die Berechtigung und Community-Regeln für die TLD.';
@@ -427,7 +428,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("rootzone_backend_operator_organization_name").textContent = proposed + 'Der Backend-Betreiber verwaltet die technische Infrastruktur der TLD.';
 		document.getElementById("rootzone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("rootzone_language_codes").textContent = modified + "Gibt die unterstützten Sprachen der Root-Zone an.";
-		document.getElementById("rootzone_delegation_url").textContent = proposed + 'URL mit Verweis auf den ICANN-Delegationsdatensatz für die TLD.';
 		document.getElementById("rootzone_restrictions_url").textContent = proposed + "Nutzungsbeschränkungen und Registrierungsrichtlinien finden Sie unter dieser URL.";		
 		document.getElementById("rootzone_menu_url").textContent = proposed + 'Ein TLD-spezifisches Informationsmenü, verfügbar unter einer Subdomäne wie "regmenu".';
 		document.getElementById("notices_role").textContent = accessible;
@@ -510,7 +510,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("value").textContent = "Détail";
 		document.getElementById("explanation").textContent = "Un aperçu et une explication de la structure et des caractéristiques des domaines Web.";		
 		document.getElementById("rootzone_role").textContent = proposed + "Top-Level Domain (TLD)";
-		document.getElementById("rootzone_root_zones_url").textContent = proposed + "Une référence à la liste officielle des 'Root Zones'.";	
+		document.getElementById("rootzone_root_zones_url").textContent = proposed + "Une référence à la liste officielle des 'Root Zones'.";
+		document.getElementById("rootzone_delegation_url").textContent = proposed + "URL référençant l'enregistrement de délégation de l'ICANN pour le TLD.";	
 		document.getElementById("rootzone_tld_category").textContent = proposed + "Indique un TLD générique (gTLD) ou un TLD de code pays (ccTLD).";
 		document.getElementById("rootzone_tld_type").textContent = proposed + "Répertorie les types de TLD tels que gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD et geoTLD.";
 		document.getElementById("rootzone_sponsoring_organization_name").textContent = proposed + "Définit l'éligibilité et les règles communautaires pour le TLD.";
@@ -520,7 +521,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("rootzone_backend_operator_organization_name").textContent = proposed + "Le opérateur du backend gère l'infrastructure technique du TLD.";
 		document.getElementById("rootzone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("rootzone_language_codes").textContent = modified + "Indique les langues prises en charge pour la 'Root Zone'.";
-		document.getElementById("rootzone_delegation_url").textContent = proposed + "URL référençant l'enregistrement de délégation de l'ICANN pour le TLD.";	
 		document.getElementById("rootzone_restrictions_url").textContent = proposed + "Les restrictions d’usage et les politiques d’enregistrement sont accessibles via cette URL.";
 		document.getElementById("rootzone_menu_url").textContent = proposed + "Un menu d'informations spécifique au TLD, disponible sous un sous-domaine tel que 'regmenu'.";
 		document.getElementById("notices_role").textContent = accessible;
@@ -670,16 +670,16 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td id="value"><td id="explanation"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(10)">Root Zone information +/-</button></td><td><b>'.$data[$pd]['rootzone']['top_level_domain'].'</b></td><td id="rootzone_role"></td></tr>';
 	$html_text .= '<tr id="101" style="display:none"><td>rootzone root_zones_url</td><td><a href='.$data[$pd]['rootzone']['root_zones_url'].' target="_blank">Root Zones</a></td><td id="rootzone_root_zones_url"></td></tr>';
-	$html_text .= '<tr id="102" style="display:none"><td>rootzone tld_category</td><td>'.$data[$pd]['rootzone']['tld_category'].'</td><td id="rootzone_tld_category"></td></tr>';
-	$html_text .= '<tr id="103" style="display:none"><td>rootzone tld_type</td><td>'.$data[$pd]['rootzone']['tld_type'].'</td><td id="rootzone_tld_type"></td></tr>';
-	$html_text .= '<tr id="104" style="display:none"><td>rootzone sponsoring_organization_name</td><td>'.$data[$pd]['rootzone']['sponsoring_organization_name'].'</td><td id="rootzone_sponsoring_organization_name"></td></tr>';
-	$html_text .= '<tr id="105" style="display:none"><td>rootzone country_code_designated_manager</td><td>'.$data[$pd]['rootzone']['country_code_designated_manager'].'</td><td id="rootzone_country_code_designated_manager"></td></tr>';
-	$html_text .= '<tr id="106" style="display:none"><td>rootzone registry_operator_organization_name</td><td>'.$data[$pd]['rootzone']['registry_operator_organization_name'].'</td><td id="rootzone_registry_operator_organization_name"></td></tr>';
-	$html_text .= '<tr id="107" style="display:none"><td>rootzone registry_operator_presented_name</td><td>'.$data[$pd]['rootzone']['registry_operator_presented_name'].'</td><td id="rootzone_registry_operator_presented_name"></td></tr>';
-	$html_text .= '<tr id="108" style="display:none"><td>rootzone backend_operator_organization_name</td><td>'.$data[$pd]['rootzone']['backend_operator_organization_name'].'</td><td id="rootzone_backend_operator_organization_name"></td></tr>';
-	$html_text .= '<tr id="109" style="display:none"><td>rootzone backend_operator_presented_name</td><td>'.$data[$pd]['rootzone']['backend_operator_presented_name'].'</td><td id="rootzone_backend_operator_presented_name"></td></tr>';
-	$html_text .= '<tr id="1010" style="display:none"><td>rootzone language_codes</td><td>'.$data[$pd]['rootzone']['language_codes'].'</td><td id="rootzone_language_codes"></td></tr>';
-	$html_text .= '<tr id="1011" style="display:none"><td>rootzone delegation_url</td><td><a href='.$data[$pd]['rootzone']['delegation_url'].' target="_blank">TLD Delegation</a></td><td id="rootzone_delegation_url"></td></tr>';
+	$html_text .= '<tr id="102" style="display:none"><td>rootzone delegation_url</td><td><a href='.$data[$pd]['rootzone']['delegation_url'].' target="_blank">TLD Delegation</a></td><td id="rootzone_delegation_url"></td></tr>';
+	$html_text .= '<tr id="103" style="display:none"><td>rootzone tld_category</td><td>'.$data[$pd]['rootzone']['tld_category'].'</td><td id="rootzone_tld_category"></td></tr>';
+	$html_text .= '<tr id="104" style="display:none"><td>rootzone tld_type</td><td>'.$data[$pd]['rootzone']['tld_type'].'</td><td id="rootzone_tld_type"></td></tr>';
+	$html_text .= '<tr id="105" style="display:none"><td>rootzone sponsoring_organization_name</td><td>'.$data[$pd]['rootzone']['sponsoring_organization_name'].'</td><td id="rootzone_sponsoring_organization_name"></td></tr>';
+	$html_text .= '<tr id="106" style="display:none"><td>rootzone country_code_designated_manager</td><td>'.$data[$pd]['rootzone']['country_code_designated_manager'].'</td><td id="rootzone_country_code_designated_manager"></td></tr>';
+	$html_text .= '<tr id="107" style="display:none"><td>rootzone registry_operator_organization_name</td><td>'.$data[$pd]['rootzone']['registry_operator_organization_name'].'</td><td id="rootzone_registry_operator_organization_name"></td></tr>';
+	$html_text .= '<tr id="108" style="display:none"><td>rootzone registry_operator_presented_name</td><td>'.$data[$pd]['rootzone']['registry_operator_presented_name'].'</td><td id="rootzone_registry_operator_presented_name"></td></tr>';
+	$html_text .= '<tr id="109" style="display:none"><td>rootzone backend_operator_organization_name</td><td>'.$data[$pd]['rootzone']['backend_operator_organization_name'].'</td><td id="rootzone_backend_operator_organization_name"></td></tr>';
+	$html_text .= '<tr id="1010" style="display:none"><td>rootzone backend_operator_presented_name</td><td>'.$data[$pd]['rootzone']['backend_operator_presented_name'].'</td><td id="rootzone_backend_operator_presented_name"></td></tr>';
+	$html_text .= '<tr id="1011" style="display:none"><td>rootzone language_codes</td><td>'.$data[$pd]['rootzone']['language_codes'].'</td><td id="rootzone_language_codes"></td></tr>';
 	$html_text .= '<tr id="1012" style="display:none"><td>rootzone restrictions_url</td><td>'.((strlen($data[$pd]['rootzone']['restrictions_url'])) ? '<a href='.$data[$pd]['rootzone']['restrictions_url'].' target="_blank">TLD Restrictions</a>' : '').'</td><td id="rootzone_restrictions_url"></td></tr>';
 	$html_text .= '<tr id="1013" style="display:none"><td>rootzone menu_url</td><td>'.((strlen($data[$pd]['rootzone']['menu_url'])) ? '<a href='.$data[$pd]['rootzone']['menu_url'].' target="_blank">TLD Menu</a>' : '').'</td><td id="rootzone_menu_url"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(11)">Notice0 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(12)">Notice1 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(13)">Notice2 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(14)">Notice3 +/-</button></td><td></td><td id="notices_role"></td></tr>';

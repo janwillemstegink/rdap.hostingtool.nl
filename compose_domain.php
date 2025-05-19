@@ -1459,7 +1459,8 @@ if ($inputbatch)	{
 }
 $arr = array();	
 $arr[$inputdomain]['rootzone']['top_level_domain'] = $top_level_domain;
-$arr[$inputdomain]['rootzone']['root_zones_url'] = $root_zones_url;	
+$arr[$inputdomain]['rootzone']['root_zones_url'] = $root_zones_url;
+$arr[$inputdomain]['rootzone']['delegation_url'] = $delegation_url;		
 $arr[$inputdomain]['rootzone']['tld_category'] = $tld_category;
 $arr[$inputdomain]['rootzone']['tld_type'] = $tld_type;
 $arr[$inputdomain]['rootzone']['sponsoring_organization_name'] = $sponsoring_organization_name;
@@ -1469,7 +1470,6 @@ $arr[$inputdomain]['rootzone']['registry_operator_presented_name'] = $registry_o
 $arr[$inputdomain]['rootzone']['backend_operator_organization_name'] = $backend_operator_organization_name;
 $arr[$inputdomain]['rootzone']['backend_operator_presented_name'] = $backend_operator_presented_name;
 $arr[$inputdomain]['rootzone']['language_codes'] = $language_codes;		
-$arr[$inputdomain]['rootzone']['delegation_url'] = $delegation_url;	
 $arr[$inputdomain]['rootzone']['restrictions_url'] = $restrictions_url;
 $arr[$inputdomain]['rootzone']['menu_url'] = $menu_url;
 	
