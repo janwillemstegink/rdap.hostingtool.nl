@@ -11,7 +11,7 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 function SwitchDisplay(type) {
 	if (type == 10)			{ // rootzone
 		var pre = '10';
-		var max = 13
+		var max = 16
 	}
 	else if (type == 11)	{ // notice 0
 		var pre = '11';
@@ -149,6 +149,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("rootzone_backend_operator_organization_name").textContent = proposed;
 		document.getElementById("rootzone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("rootzone_language_codes").textContent = modified;
+		document.getElementById("rootzone_redemption_period_days").textContent = proposed;
+		document.getElementById("rootzone_deletion_phase_days").textContent = proposed;
+		document.getElementById("rootzone_upon_termination").textContent = proposed;
 		document.getElementById("rootzone_restrictions_url").textContent = proposed;
 		document.getElementById("rootzone_menu_url").textContent = proposed;
 		document.getElementById("notices_role").textContent = "";
@@ -166,12 +169,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "";
 		document.getElementById("domain_ascii_name").textContent = "";
 		document.getElementById("domain_unicode_name").textContent = "";
+		document.getElementById("domain_accredited_registrar").textContent = modified;
 		document.getElementById("domain_statuses").textContent = "";
 		document.getElementById("domain_created_at").textContent = "";
 		document.getElementById("domain_expiration_at").textContent = "";
 		document.getElementById("domain_recovery_deadline").textContent = proposed;
 		document.getElementById("domain_deletion_at").textContent = "";
-		document.getElementById("domain_accredited_registrar").textContent = modified;
 		document.getElementById("domain_extensions").textContent = "";
 		document.getElementById("sponsor_role").textContent = "";
 		document.getElementById("registrant_role").textContent = "";
@@ -242,6 +245,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("rootzone_backend_operator_organization_name").textContent = proposed + 'De backend-operator verzorgt de technische infrastructuur van de TLD.';
 		document.getElementById("rootzone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("rootzone_language_codes").textContent = modified + "Geeft ondersteunde talen voor de Root Zone aan.";
+		document.getElementById("rootzone_redemption_period_days").textContent = proposed;
+		document.getElementById("rootzone_deletion_phase_days").textContent = proposed;
+		document.getElementById("rootzone_upon_termination").textContent = proposed;		
 		document.getElementById("rootzone_restrictions_url").textContent = proposed + "Beperkingen op gebruik en registratiebeleid zijn te vinden via deze URL.";
 		document.getElementById("rootzone_menu_url").textContent = proposed + 'Een TLD-specifiek informatiemenu, beschikbaar onder een subdomein zoals "regmenu".';
 		document.getElementById("notices_role").textContent = accessible;
@@ -259,12 +265,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "Een domein onder TLD-niveau is wereldwijd uniek en kan vrij worden gekozen onder bepaalde regels.";
 		document.getElementById("domain_ascii_name").textContent = "Voor speciale tekens bevatten de ASCII-tekenreeksen Punycode-transcriptie.";
 		document.getElementById("domain_unicode_name").textContent = "Hoewel de informatie verduidelijkt, is de unicode-domeinnaam optioneel binnen het RDAP-protocol.";
+		document.getElementById("domain_accredited_registrar").textContent = modified + "Een IANA-registraraccreditatie-ID voor gTLD's moet correct zijn.";
 		document.getElementById("domain_statuses").textContent = "De status 'redemption period' is info over herstel. De status 'pending delete' is van toepassing in de laatste fase.";
 		document.getElementById("domain_created_at").textContent = "De datumvelden staan hier in een logische volgorde. Dit werkt ook in de RDAP-uitvoer.";
 		document.getElementById("domain_expiration_at").textContent = "Datum en tijdstip van periodieke verlenging of stopzetting van de publicatie.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "Tijdstip tot wanneer herstel nog mogelijk is.";		
 		document.getElementById("domain_deletion_at").textContent = "Datum en tijdstip gepland voor volledige verwijdering. Er kan een laatste verwijderingsfase zijn.";
-		document.getElementById("domain_accredited_registrar").textContent = modified + "Een IANA-registraraccreditatie-ID voor gTLD's moet correct zijn.";
 		document.getElementById("domain_extensions").textContent = "'Eligibility': Hoe een domein voldoet aan een specifieke vereiste in een topleveldomeinzone.";
 		document.getElementById("sponsor_role").textContent = "De domeinregistratie kan worden beheerd door een sponsor. Zie bijvoorbeeld france.fr.";
 		document.getElementById("registrant_role").textContent = "De domeingebruiker die de daadwerkelijke of effectieve controle heeft voor domeinrecht in het land van vestiging.";
@@ -335,6 +341,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("rootzone_backend_operator_organization_name").textContent = proposed + 'The backend operator manages the technical infrastructure of the TLD.';
 		document.getElementById("rootzone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("rootzone_language_codes").textContent = modified + "Indicates supported languages for the Root Zone.";
+		document.getElementById("rootzone_redemption_period_days").textContent = proposed;
+		document.getElementById("rootzone_deletion_phase_days").textContent = proposed;
+		document.getElementById("rootzone_upon_termination").textContent = proposed;
 		document.getElementById("rootzone_restrictions_url").textContent = proposed + "Usage and registration restrictions are listed at this URL.";
 		document.getElementById("rootzone_menu_url").textContent = proposed + 'A TLD specific information menu, available under a subdomain such as "regmenu".';
 		document.getElementById("notices_role").textContent = accessible;
@@ -352,12 +361,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "A domain below TLD level is globally unique and can be freely chosen under certain rules.";
 		document.getElementById("domain_ascii_name").textContent = "For special characters, the ASCII character strings contain Punycode transcription.";
 		document.getElementById("domain_unicode_name").textContent = "Although information clarifies, the unicode domain name is optional within the RDAP protocol.";
+		document.getElementById("domain_accredited_registrar").textContent = modified + "The IANA registrar accreditation ID for gTLDs must be accurate.";
 		document.getElementById("domain_statuses").textContent = "The 'redemption period' status is info about recovery. The 'pending delete' status applies in the final phase.";
 		document.getElementById("domain_created_at").textContent = "The date fields are here in a logical order. This will also work in the RDAP output.";
 		document.getElementById("domain_expiration_at").textContent = "Date and time of periodic renewal or discontinuation of publication.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "Time until which recovery is still possible.";
 		document.getElementById("domain_deletion_at").textContent = "Date and time scheduled for complete deletion. A final deletion phase may exist.";
-		document.getElementById("domain_accredited_registrar").textContent = modified + "The IANA registrar accreditation ID for gTLDs must be accurate.";
 		document.getElementById("domain_extensions").textContent = "'Eligibility': How a domain fulfills a specific requirement in a top-level domain root zone.";
 		document.getElementById("sponsor_role").textContent = "The domain registration can be managed by a sponsor. See for example france.fr.";
 		document.getElementById("registrant_role").textContent = "The domain user who has the actual or effective control for domain rights in the country of establishment.";
@@ -428,6 +437,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("rootzone_backend_operator_organization_name").textContent = proposed + 'Der Backend-Betreiber verwaltet die technische Infrastruktur der TLD.';
 		document.getElementById("rootzone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("rootzone_language_codes").textContent = modified + "Gibt die unterstützten Sprachen der Root-Zone an.";
+		document.getElementById("rootzone_redemption_period_days").textContent = proposed;
+		document.getElementById("rootzone_deletion_phase_days").textContent = proposed;
+		document.getElementById("rootzone_upon_termination").textContent = proposed;
 		document.getElementById("rootzone_restrictions_url").textContent = proposed + "Nutzungsbeschränkungen und Registrierungsrichtlinien finden Sie unter dieser URL.";		
 		document.getElementById("rootzone_menu_url").textContent = proposed + 'Ein TLD-spezifisches Informationsmenü, verfügbar unter einer Subdomäne wie "regmenu".';
 		document.getElementById("notices_role").textContent = accessible;
@@ -445,12 +457,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "Eine Domain unterhalb der TLD-Ebene ist weltweit eindeutig und kann unter bestimmten Regeln frei gewählt werden.";
 		document.getElementById("domain_ascii_name").textContent = "Für Sonderzeichen enthalten die ASCII-Zeichenfolgen eine Punycode-Transkription.";
 		document.getElementById("domain_unicode_name").textContent = "Obwohl die Informationen klarstellen, ist der Unicode-Domänenname innerhalb des RDAP-Protokolls optional.";
+		document.getElementById("domain_accredited_registrar").textContent = modified + "Eine IANA-Registrar-Akkreditierungs-ID für gTLDs muss korrekt sein.";
 		document.getElementById("domain_statuses").textContent = "Der Status 'redemption period' ist Info zur Wiederherstellung. Der Status 'pending delete' gilt in der Endphase.";
 		document.getElementById("domain_created_at").textContent = "Die Datumsfelder stehen hier in einer logischen Reihenfolge. Dies funktioniert auch in der RDAP-Ausgabe.";
 		document.getElementById("domain_expiration_at").textContent = "Datum und Uhrzeit der periodischen Erneuerung oder Einstellung der Veröffentlichung.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "Zeitpunkt, bis zu dem eine Wiederherstellung noch möglich ist.";
 		document.getElementById("domain_deletion_at").textContent = "Datum und Uhrzeit für die vollständige Löschung geplant. Es kann eine abschließende Löschphase geben.";
-		document.getElementById("domain_accredited_registrar").textContent = modified + "Eine IANA-Registrar-Akkreditierungs-ID für gTLDs muss korrekt sein.";
 		document.getElementById("domain_extensions").textContent = "'Eligibility': Wie eine Domäne eine bestimmte Anforderung in einer Top-Level-Domänenzone erfüllt.";
 		document.getElementById("sponsor_role").textContent = "Die Domänenregistrierung kann von einem Sponsor verwaltet werden. Siehe beispielsweise france.fr.";
 		document.getElementById("registrant_role").textContent = "Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat für Domainrechte im Wohnsitzland.";
@@ -521,6 +533,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("rootzone_backend_operator_organization_name").textContent = proposed + "Le opérateur du backend gère l'infrastructure technique du TLD.";
 		document.getElementById("rootzone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("rootzone_language_codes").textContent = modified + "Indique les langues prises en charge pour la 'Root Zone'.";
+		document.getElementById("rootzone_redemption_period_days").textContent = proposed;
+		document.getElementById("rootzone_deletion_phase_days").textContent = proposed;
+		document.getElementById("rootzone_upon_termination").textContent = proposed;
 		document.getElementById("rootzone_restrictions_url").textContent = proposed + "Les restrictions d’usage et les politiques d’enregistrement sont accessibles via cette URL.";
 		document.getElementById("rootzone_menu_url").textContent = proposed + "Un menu d'informations spécifique au TLD, disponible sous un sous-domaine tel que 'regmenu'.";
 		document.getElementById("notices_role").textContent = accessible;
@@ -538,12 +553,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "Un domaine inférieur au niveau TLD est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_ascii_name").textContent = "Pour les caractères spéciaux, les chaînes de caractères ASCII contiennent une transcription Punycode.";
 		document.getElementById("domain_unicode_name").textContent = "Bien que les informations soient clarifiées, le nom de domaine Unicode est facultatif dans le protocole RDAP.";
+		document.getElementById("domain_accredited_registrar").textContent = modified + "Un identifiant d'accréditation de bureau d'enregistrement IANA pour les gTLD doit être exact.";
 		document.getElementById("domain_statuses").textContent = "Le statut 'redemption period' est infos de récupération. Le statut 'pending delete' s'applique dans la phase finale.";
 		document.getElementById("domain_created_at").textContent = "Les champs de date sont ici classés dans un ordre logique. Cela fonctionnera également dans la sortie RDAP.";
 		document.getElementById("domain_expiration_at").textContent = "Date et heure du renouvellement périodique ou de l'arrêt de la publication.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "Délai jusqu'à lequel la récupération est encore possible.";
 		document.getElementById("domain_deletion_at").textContent = "Date et heure prévues pour la suppression complète. Une phase de suppression finale peut exister.";
-		document.getElementById("domain_accredited_registrar").textContent = modified + "Un identifiant d'accréditation de bureau d'enregistrement IANA pour les gTLD doit être exact.";
 		document.getElementById("domain_extensions").textContent = "'Eligibility' : comment un domaine répond à une exigence spécifique dans une zone de domaine de premier niveau.";
 		document.getElementById("sponsor_role").textContent = "L'enregistrement du domaine peut être géré par un sponsor. Voir par exemple france.fr.";
 		document.getElementById("registrant_role").textContent = "L'utilisateur du domaine qui a le contrôle réel ou effectif pour les droits de domaine dans le pays de résidence.";
@@ -680,8 +695,11 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="109" style="display:none"><td>rootzone backend_operator_organization_name</td><td>'.$data[$pd]['rootzone']['backend_operator_organization_name'].'</td><td id="rootzone_backend_operator_organization_name"></td></tr>';
 	$html_text .= '<tr id="1010" style="display:none"><td>rootzone backend_operator_presented_name</td><td>'.$data[$pd]['rootzone']['backend_operator_presented_name'].'</td><td id="rootzone_backend_operator_presented_name"></td></tr>';
 	$html_text .= '<tr id="1011" style="display:none"><td>rootzone language_codes</td><td>'.$data[$pd]['rootzone']['language_codes'].'</td><td id="rootzone_language_codes"></td></tr>';
-	$html_text .= '<tr id="1012" style="display:none"><td>rootzone restrictions_url</td><td>'.((strlen($data[$pd]['rootzone']['restrictions_url'])) ? '<a href='.$data[$pd]['rootzone']['restrictions_url'].' target="_blank">TLD Restrictions</a>' : '').'</td><td id="rootzone_restrictions_url"></td></tr>';
-	$html_text .= '<tr id="1013" style="display:none"><td>rootzone menu_url</td><td>'.((strlen($data[$pd]['rootzone']['menu_url'])) ? '<a href='.$data[$pd]['rootzone']['menu_url'].' target="_blank">TLD Menu</a>' : '').'</td><td id="rootzone_menu_url"></td></tr>';
+	$html_text .= '<tr id="1012" style="display:none"><td>rootzone redemption_period_days</td><td>'.$data[$pd]['rootzone']['redemption_period_days'].'</td><td id="rootzone_redemption_period_days"></td></tr>';
+	$html_text .= '<tr id="1013" style="display:none"><td>rootzone deletion_phase_days</td><td>'.$data[$pd]['rootzone']['deletion_phase_days'].'</td><td id="rootzone_deletion_phase_days"></td></tr>';
+	$html_text .= '<tr id="1014" style="display:none"><td>rootzone upon_termination</td><td>'.$data[$pd]['rootzone']['upon_termination'].'</td><td id="rootzone_upon_termination"></td></tr>';
+	$html_text .= '<tr id="1015" style="display:none"><td>rootzone restrictions_url</td><td>'.((strlen($data[$pd]['rootzone']['restrictions_url'])) ? '<a href='.$data[$pd]['rootzone']['restrictions_url'].' target="_blank">TLD Restrictions</a>' : '').'</td><td id="rootzone_restrictions_url"></td></tr>';
+	$html_text .= '<tr id="1016" style="display:none"><td>rootzone menu_url</td><td>'.((strlen($data[$pd]['rootzone']['menu_url'])) ? '<a href='.$data[$pd]['rootzone']['menu_url'].' target="_blank">TLD Menu</a>' : '').'</td><td id="rootzone_menu_url"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(11)">Notice0 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(12)">Notice1 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(13)">Notice2 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(14)">Notice3 +/-</button></td><td></td><td id="notices_role"></td></tr>';
 	$html_text .= '<tr id="111" style="display:none;vertical-align:top"><td>notice_0_title</td><td>'.$data[$pd]['notices']['notice_0_title'].'</td><td></td></tr>';
 	$html_text .= '<tr id="112" style="display:none;vertical-align:top"><td>notice_0_description_0</td><td>'.$data[$pd]['notices']['notice_0_description_0'].'</td><td></td></tr>';
@@ -751,14 +769,14 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="301" style="display:none"><td>domain handle</td><td>'.$data[$pd]['domain']['handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="302" style="display:none"><td>domain ascii_name (lower case is not a "MUST")</td><td>'.$data[$pd]['domain']['ascii_name'].'</td><td id="domain_ascii_name"></td></tr>';
 	$html_text .= '<tr id="303" style="display:none"><td>domain unicode_name</td><td>'.$data[$pd]['domain']['unicode_name'].'</td><td id="domain_unicode_name"></td></tr>';
+	$html_text .= '<tr id="304" style="display:none"><td>domain accredited_registrar</td><td>'.((strlen($data[$pd]['domain']['accredited_registrar'])) ? $data[$pd]['domain']['accredited_registrar'] : 'Not Applicable').'</td><td id="domain_accredited_registrar"></td></tr>';
 	$html_text .= '<tr style="vertical-align:top"><td>domain statuses</td><td>'.$data[$pd]['domain']['statuses'].'</td><td id="domain_statuses"></td></tr>';
-	$html_text .= '<tr id="304" style="display:none"><td>domain created_at</td><td>'.$data[$pd]['domain']['created_at'].'</td><td id="domain_created_at"></td></tr>';
-	$html_text .= '<tr id="305" style="display:none"><td>domain latest_transfer_at</td><td>'.$data[$pd]['domain']['latest_transfer_at'].'</td><td></td></tr>';
-	$html_text .= '<tr id="306" style="display:none"><td>domain latest_update_at</td><td>'.$data[$pd]['domain']['latest_update_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="305" style="display:none"><td>domain created_at</td><td>'.$data[$pd]['domain']['created_at'].'</td><td id="domain_created_at"></td></tr>';
+	$html_text .= '<tr id="306" style="display:none"><td>domain latest_transfer_at</td><td>'.$data[$pd]['domain']['latest_transfer_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="307" style="display:none"><td>domain latest_update_at</td><td>'.$data[$pd]['domain']['latest_update_at'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>domain expiration_at</td><td>'.$data[$pd]['domain']['expiration_at'].'</td><td id="domain_expiration_at"></td></tr>';
-	$html_text .= '<tr id="307" style="display:none"><td>domain recovery_deadline</td><td>'.$data[$pd]['domain']['recovery_deadline'].'</td><td id="domain_recovery_deadline"></td></tr>';
-	$html_text .= '<tr id="308" style="display:none"><td>domain deletion_at</td><td>'.$data[$pd]['domain']['deletion_at'].'</td><td id="domain_deletion_at"></td></tr>';
-	$html_text .= '<tr id="309" style="display:none"><td>domain accredited_registrar</td><td>'.((strlen($data[$pd]['domain']['accredited_registrar'])) ? $data[$pd]['domain']['accredited_registrar'] : 'Not Applicable').'</td><td id="domain_accredited_registrar"></td></tr>';
+	$html_text .= '<tr id="308" style="display:none"><td>domain recovery_deadline</td><td>'.$data[$pd]['domain']['recovery_deadline'].'</td><td id="domain_recovery_deadline"></td></tr>';
+	$html_text .= '<tr id="309" style="display:none"><td>domain deletion_at</td><td>'.$data[$pd]['domain']['deletion_at'].'</td><td id="domain_deletion_at"></td></tr>';
 	$html_text .= '<tr id="3010" style="display:none;vertical-align:top"><td>domain extensions</td><td>'.$data[$pd]['domain']['extensions'].'</td><td id="domain_extensions"></td></tr>';
 	$html_text .= '<tr id="3011" style="display:none;vertical-align:top"><td>domain remarks</td><td>'.$data[$pd]['domain']['remarks'].'</td><td></td></tr>';
 	$sponsor_applicable = (strlen($data[$pd]['sponsor']['organization_name']) or strlen($data[$pd]['sponsor']['presented_name'])) ? 'Sponsor Data Exists' : 'No Sponsor Data';

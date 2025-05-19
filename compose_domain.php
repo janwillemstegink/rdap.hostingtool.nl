@@ -183,10 +183,27 @@ $notice_3_title = $obj['notices'][3]['title'];
 $notice_3_description_0 = $obj['notices'][3]['description'][0];
 $notice_3_description_1 = $obj['notices'][3]['description'][1];
 $notice_3_links_0_href = $obj['notices'][3]['links'][0]['href'];
-$notice_3_links_0_type = $obj['notices'][3]['links'][0]['type'];			
+$notice_3_links_0_type = $obj['notices'][3]['links'][0]['type'];
+$tld_category = '';
+$tld_type = '';
+$sponsoring_organization_name = '';
+$country_code_designated_manager = '';
+$registry_operator_organization_name = '';
+$registry_operator_presented_name = '';
+$backend_operator_organization_name = '';
+$backend_operator_presented_name = '';
+$redemption_period_days = null;
+$deletion_phase_days = null;
+$upon_termination = null;
+$restrictions_url = '';
+$menu_url = '';
+$registrant_web_id = '';		
 if ($top_level_domain == 'nl')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
+	$redemption_period_days = 40;
+	$deletion_phase_days = 0;
+	$upon_termination = ".nl quarantine phase of 40 days";
 	$sponsoring_organization_name = '';
 	$country_code_designated_manager = 'Stichting Internet Domeinregistratie Nederland';
 	$registry_operator_organization_name = 'Stichting Internet Domeinregistratie Nederland';
@@ -234,6 +251,7 @@ elseif ($top_level_domain == 'politie')	{
 	$backend_operator_presented_name = '';
 	$restrictions_url = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
 	$menu_url = 'https://www.sidn.nl/en/theme/domain-names';
+	$registrant_web_id = 'NL88COMM01234567890123456789012345';
 }
 elseif ($top_level_domain == 'eu')	{
 	$tld_category = 'ccTLD';
@@ -246,7 +264,6 @@ elseif ($top_level_domain == 'eu')	{
 	$backend_operator_presented_name = 'Technical Department';
 	$restrictions_url = 'https://help.eurid.eu/hc/en-gb/';
 	$menu_url = 'https://help.eurid.eu/hc/en-gb/';
-	$registrant_web_id = '';
 }
 elseif ($top_level_domain == 'de')	{
 	$tld_category = 'ccTLD';
@@ -259,7 +276,6 @@ elseif ($top_level_domain == 'de')	{
 	$backend_operator_presented_name = 'Business Services';
 	$restrictions_url = 'https://www.denic.de/';
 	$menu_url = 'https://www.denic.de/';
-	$registrant_web_id = '';
 }
 elseif ($top_level_domain == 'fr')	{
 	$tld_category = 'ccTLD';
@@ -272,7 +288,6 @@ elseif ($top_level_domain == 'fr')	{
 	$backend_operator_presented_name = '';
 	$restrictions_url = 'https://www.afnic.fr/';
 	$menu_url = 'https://www.afnic.fr/';
-	$registrant_web_id = '';
 }
 elseif ($top_level_domain == 'ch')	{
 	$tld_category = 'ccTLD';
@@ -285,7 +300,6 @@ elseif ($top_level_domain == 'ch')	{
 	$backend_operator_presented_name = 'The Swiss Education & Research Network';
 	$restrictions_url = 'https://www.nic.ch/';
 	$menu_url = 'https://www.nic.ch/';
-	$registrant_web_id = '';
 }	
 elseif ($top_level_domain == 'li')	{
 	$tld_category = 'ccTLD';
@@ -298,7 +312,6 @@ elseif ($top_level_domain == 'li')	{
 	$backend_operator_presented_name = 'The Swiss Education & Research Network';
 	$restrictions_url = 'https://www.nic.li/';
 	$menu_url = 'https://www.nic.li/';
-	$registrant_web_id = '';
 }
 elseif ($top_level_domain == 'be')	{
 	$tld_category = 'ccTLD';
@@ -311,7 +324,6 @@ elseif ($top_level_domain == 'be')	{
 	$backend_operator_presented_name = '';
 	$restrictions_url = 'https://www.dnsbelgium.be/';
 	$menu_url = 'https://www.dnsbelgium.be/';
-	$registrant_web_id = '';
 }
 elseif ($top_level_domain == 'lu')	{
 	$tld_category = 'ccTLD';
@@ -324,7 +336,6 @@ elseif ($top_level_domain == 'lu')	{
 	$backend_operator_presented_name = 'NOC';
 	$restrictions_url = 'https://restena.lu/';
 	$menu_url = 'https://restena.lu/';
-	$registrant_web_id = '';
 }
 elseif ($top_level_domain == 'uk')	{
 	$tld_category = 'ccTLD';
@@ -337,21 +348,7 @@ elseif ($top_level_domain == 'uk')	{
 	$backend_operator_presented_name = 'TLD Registry Services Technical';
 	$restrictions_url = 'https://nominet.uk/';
 	$menu_url = 'https://nominet.uk/';
-	$registrant_web_id = '';
 }	
-else	{
-	$tld_category = '';
-	$tld_type = '';
-	$sponsoring_organization_name = '';
-	$country_code_designated_manager = '';
-	$registry_operator_organization_name = '';
-	$registry_operator_presented_name = '';
-	$backend_operator_organization_name = '';
-	$backend_operator_presented_name = '';
-	$restrictions_url = '';
-	$menu_url = '';
-	$registrant_web_id = '';
-}
 $delegation_url = 'https://www.iana.org/domains/root/db/'.$top_level_domain.'.html';		
 $language_codes = (is_array($obj['lang'])) ? implode(",<br />", $obj['lang']) : $obj['lang'];
 if (!strlen($language_codes))	{
@@ -1469,7 +1466,10 @@ $arr[$inputdomain]['rootzone']['registry_operator_organization_name'] = $registr
 $arr[$inputdomain]['rootzone']['registry_operator_presented_name'] = $registry_operator_presented_name;
 $arr[$inputdomain]['rootzone']['backend_operator_organization_name'] = $backend_operator_organization_name;
 $arr[$inputdomain]['rootzone']['backend_operator_presented_name'] = $backend_operator_presented_name;
-$arr[$inputdomain]['rootzone']['language_codes'] = $language_codes;		
+$arr[$inputdomain]['rootzone']['language_codes'] = $language_codes;
+$arr[$inputdomain]['rootzone']['redemption_period_days'] = $redemption_period_days;
+$arr[$inputdomain]['rootzone']['deletion_phase_days'] = $deletion_phase_days;
+$arr[$inputdomain]['rootzone']['upon_termination'] = $upon_termination;
 $arr[$inputdomain]['rootzone']['restrictions_url'] = $restrictions_url;
 $arr[$inputdomain]['rootzone']['menu_url'] = $menu_url;
 	
@@ -1542,13 +1542,13 @@ $arr[$inputdomain]['metadata']['status_explanation_url'] = $status_explanation_u
 $arr[$inputdomain]['domain']['handle'] = $handle;
 $arr[$inputdomain]['domain']['ascii_name'] = $ascii_name;	
 $arr[$inputdomain]['domain']['unicode_name'] = $unicode_name;
+$arr[$inputdomain]['domain']['accredited_registrar'] = $accredited_registrar;	
 $arr[$inputdomain]['domain']['statuses'] = $statuses;	
 $arr[$inputdomain]['domain']['created_at'] = $created_at;	
 $arr[$inputdomain]['domain']['latest_transfer_at'] = $latest_transfer_at;
 $arr[$inputdomain]['domain']['latest_update_at'] = $latest_update_at;
 $arr[$inputdomain]['domain']['expiration_at'] = $expiration_at;
 $arr[$inputdomain]['domain']['deletion_at'] = $deletion_at;
-$arr[$inputdomain]['domain']['accredited_registrar'] = $accredited_registrar;		
 $arr[$inputdomain]['domain']['extensions'] = $extensions;
 $arr[$inputdomain]['domain']['remarks'] = $remarks;	
 	
