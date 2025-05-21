@@ -267,7 +267,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_ascii_name").textContent = "Voor speciale tekens bevatten de ASCII-tekenreeksen Punycode-transcriptie.";
 		document.getElementById("domain_unicode_name").textContent = "Hoewel de informatie verduidelijkt, is de unicode-domeinnaam optioneel binnen het RDAP-protocol.";
 		document.getElementById("domain_accredited_registrar").textContent = modified + "Een IANA-registraraccreditatie-ID voor gTLD's moet correct zijn.";
-		document.getElementById("domain_statuses").textContent = "De status 'redemption period' is info over herstel. De status 'pending delete' is van toepassing in de laatste fase.";
+		document.getElementById("domain_statuses").textContent = "De status 'redemption period' biedt de mogelijkheid tot herstel. Met 'pending delete' wordt de verwijdering definitief.";
 		document.getElementById("domain_created_at").textContent = "De datumvelden staan hier in een logische volgorde. Dit werkt ook in de RDAP-uitvoer.";
 		document.getElementById("domain_expiration_at").textContent = "Datum en tijdstip van periodieke verlenging of stopzetting van de publicatie.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "Tijdstip tot wanneer herstel nog mogelijk is.";		
@@ -364,7 +364,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_ascii_name").textContent = "For special characters, the ASCII character strings contain Punycode transcription.";
 		document.getElementById("domain_unicode_name").textContent = "Although information clarifies, the unicode domain name is optional within the RDAP protocol.";
 		document.getElementById("domain_accredited_registrar").textContent = modified + "The IANA registrar accreditation ID for gTLDs must be accurate.";
-		document.getElementById("domain_statuses").textContent = "The 'redemption period' status is info about recovery. The 'pending delete' status applies in the final phase.";
+		document.getElementById("domain_statuses").textContent = "Status 'redemption period' allows for recovery. With 'pending delete' deletion becomes final.";
 		document.getElementById("domain_created_at").textContent = "The date fields are here in a logical order. This will also work in the RDAP output.";
 		document.getElementById("domain_expiration_at").textContent = "Date and time of periodic renewal or discontinuation of publication.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "Time until which recovery is still possible.";
@@ -461,7 +461,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_ascii_name").textContent = "Für Sonderzeichen enthalten die ASCII-Zeichenfolgen eine Punycode-Transkription.";
 		document.getElementById("domain_unicode_name").textContent = "Obwohl die Informationen klarstellen, ist der Unicode-Domänenname innerhalb des RDAP-Protokolls optional.";
 		document.getElementById("domain_accredited_registrar").textContent = modified + "Eine IANA-Registrar-Akkreditierungs-ID für gTLDs muss korrekt sein.";
-		document.getElementById("domain_statuses").textContent = "Der Status 'redemption period' ist Info zur Wiederherstellung. Der Status 'pending delete' gilt in der Endphase.";
+		document.getElementById("domain_statuses").textContent = "Der Status 'redemption period' ermöglicht eine Wiederherstellung. Mit 'pending delete' wird die Löschung endgültig.";
 		document.getElementById("domain_created_at").textContent = "Die Datumsfelder stehen hier in einer logischen Reihenfolge. Dies funktioniert auch in der RDAP-Ausgabe.";
 		document.getElementById("domain_expiration_at").textContent = "Datum und Uhrzeit der periodischen Erneuerung oder Einstellung der Veröffentlichung.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "Zeitpunkt, bis zu dem eine Wiederherstellung noch möglich ist.";
@@ -558,7 +558,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_ascii_name").textContent = "Pour les caractères spéciaux, les chaînes de caractères ASCII contiennent une transcription Punycode.";
 		document.getElementById("domain_unicode_name").textContent = "Bien que les informations soient clarifiées, le nom de domaine Unicode est facultatif dans le protocole RDAP.";
 		document.getElementById("domain_accredited_registrar").textContent = modified + "Un identifiant d'accréditation de bureau d'enregistrement IANA pour les gTLD doit être exact.";
-		document.getElementById("domain_statuses").textContent = "Le statut 'redemption period' est infos de récupération. Le statut 'pending delete' s'applique dans la phase finale.";
+		document.getElementById("domain_statuses").textContent = "Le statut 'redemption period' permet la récupération. Avec le statut 'pending delete', la suppression devient définitive.";
 		document.getElementById("domain_created_at").textContent = "Les champs de date sont ici classés dans un ordre logique. Cela fonctionnera également dans la sortie RDAP.";
 		document.getElementById("domain_expiration_at").textContent = "Date et heure du renouvellement périodique ou de l'arrêt de la publication.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "Délai jusqu'à lequel la récupération est encore possible.";
