@@ -91,7 +91,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 63)	{ // name servers
 		var pre = '63';
-		var max = 42
+		var max = 7
 	}
 	else if (type == 70)	{ // raw whois data
 		var pre = '70';
@@ -268,7 +268,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_unicode_name").textContent = "Hoewel de informatie verduidelijkt, is de unicode-domeinnaam optioneel binnen het RDAP-protocol.";
 		document.getElementById("domain_accredited_registrar").textContent = modified + "Een IANA-registraraccreditatie-ID voor gTLD's moet correct zijn.";
 		document.getElementById("domain_statuses").textContent = "De status 'redemption period' biedt de mogelijkheid tot herstel. Met 'pending delete' wordt de verwijdering definitief.";
-		document.getElementById("domain_created_at").textContent = "De datumvelden staan hier in een logische volgorde. Dit werkt ook in de RDAP-uitvoer.";
+		document.getElementById("domain_created_at").textContent = "De datumvelden staan hier in een logische volgorde. Dit is ook eenvoudig in de JSON-array.";
 		document.getElementById("domain_expiration_at").textContent = "Datum en tijdstip van periodieke verlenging of stopzetting van de publicatie.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "Tijdstip tot wanneer herstel nog mogelijk is.";		
 		document.getElementById("domain_deletion_at").textContent = "Datum en tijdstip gepland voor volledige verwijdering. Er kan een laatste verwijderingsfase zijn.";
@@ -318,7 +318,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
 		document.getElementById("br_zone").textContent = "TLD .br: De RDAP-gegevens zijn aangepast met nameservervalidatie.";
-		document.getElementById("raw_data_next").textContent = "De rollen zijn hier gerangschikt op verantwoordelijkheid. 'None Specified' komt van deze tool. Voor communicatie in JSON is een leesbare XML-structuur vereist.";
+		document.getElementById("raw_data_next").textContent = "De rollen zijn hier gerangschikt op verantwoordelijkheid. 'None Specified' komt van deze tool. Een structuur in JSON kan net zo plat zijn als in XML.";
 	}
 	else if (translation == 2)	{
 		var modified = '(Modified) ';
@@ -365,7 +365,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_unicode_name").textContent = "Although information clarifies, the unicode domain name is optional within the RDAP protocol.";
 		document.getElementById("domain_accredited_registrar").textContent = modified + "The IANA registrar accreditation ID for gTLDs must be accurate.";
 		document.getElementById("domain_statuses").textContent = "Status 'redemption period' allows for recovery. With 'pending delete' deletion becomes final.";
-		document.getElementById("domain_created_at").textContent = "The date fields are here in a logical order. This will also work in the RDAP output.";
+		document.getElementById("domain_created_at").textContent = "The date fields are here in a logical order. This is also easy in the JSON array.";
 		document.getElementById("domain_expiration_at").textContent = "Date and time of periodic renewal or discontinuation of publication.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "Time until which recovery is still possible.";
 		document.getElementById("domain_deletion_at").textContent = "Date and time scheduled for complete deletion. A final deletion phase may exist.";
@@ -415,7 +415,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
 		document.getElementById("br_zone").textContent = "TLD .br: The RDAP data has been modified with name server validation.";
-		document.getElementById("raw_data_next").textContent = "The roles here are arranged according to responsibility. 'None Specified' comes from this tool. Communication in JSON requires a readable XML structure.";
+		document.getElementById("raw_data_next").textContent = "The roles here are arranged according to responsibility. 'None Specified' comes from this tool. A structure in JSON can be as flat as in XML.";
 	}
 	else if (translation == 3)	{
 		var modified = '(Geändert) ';
@@ -462,7 +462,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_unicode_name").textContent = "Obwohl die Informationen klarstellen, ist der Unicode-Domänenname innerhalb des RDAP-Protokolls optional.";
 		document.getElementById("domain_accredited_registrar").textContent = modified + "Eine IANA-Registrar-Akkreditierungs-ID für gTLDs muss korrekt sein.";
 		document.getElementById("domain_statuses").textContent = "Der Status 'redemption period' ermöglicht eine Wiederherstellung. Mit 'pending delete' wird die Löschung endgültig.";
-		document.getElementById("domain_created_at").textContent = "Die Datumsfelder stehen hier in einer logischen Reihenfolge. Dies funktioniert auch in der RDAP-Ausgabe.";
+		document.getElementById("domain_created_at").textContent = "Die Datumsfelder stehen hier in einer logischen Reihenfolge. Auch dies ist im JSON-Array einfach.";
 		document.getElementById("domain_expiration_at").textContent = "Datum und Uhrzeit der periodischen Erneuerung oder Einstellung der Veröffentlichung.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "Zeitpunkt, bis zu dem eine Wiederherstellung noch möglich ist.";
 		document.getElementById("domain_deletion_at").textContent = "Datum und Uhrzeit für die vollständige Löschung geplant. Es kann eine abschließende Löschphase geben.";
@@ -512,7 +512,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 		document.getElementById("name_servers_ip").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
 		document.getElementById("br_zone").textContent = "TLD .br: Die RDAP-Daten wurden mit der Nameserver-Validierung angepasst.";
-		document.getElementById("raw_data_next").textContent = "Die Rollen sind hierbei nach Verantwortung verteilt. 'None Specified' stammt von diesem Tool. Die Kommunikation in JSON erfordert eine lesbare XML-Struktur.";
+		document.getElementById("raw_data_next").textContent = "Die Rollen sind hierbei nach Verantwortung verteilt. 'None Specified' stammt von diesem Tool. Eine Struktur in JSON kann genauso flach sein wie in XML.";
 	}
 	else if (translation == 4)	{
 		var modified = '(Modifié) ';
@@ -559,7 +559,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_unicode_name").textContent = "Bien que les informations soient clarifiées, le nom de domaine Unicode est facultatif dans le protocole RDAP.";
 		document.getElementById("domain_accredited_registrar").textContent = modified + "Un identifiant d'accréditation de bureau d'enregistrement IANA pour les gTLD doit être exact.";
 		document.getElementById("domain_statuses").textContent = "Le statut 'redemption period' permet la récupération. Avec le statut 'pending delete', la suppression devient définitive.";
-		document.getElementById("domain_created_at").textContent = "Les champs de date sont ici classés dans un ordre logique. Cela fonctionnera également dans la sortie RDAP.";
+		document.getElementById("domain_created_at").textContent = "Les champs de date sont ici classés dans un ordre logique. C'est également facile dans le tableau JSON.";
 		document.getElementById("domain_expiration_at").textContent = "Date et heure du renouvellement périodique ou de l'arrêt de la publication.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "Délai jusqu'à lequel la récupération est encore possible.";
 		document.getElementById("domain_deletion_at").textContent = "Date et heure prévues pour la suppression complète. Une phase de suppression finale peut exister.";
@@ -609,7 +609,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 		document.getElementById("name_servers_ip").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
 		document.getElementById("br_zone").textContent = "TLD .br: Les données RDAP ont été ajustées avec la validation du serveur de noms.";
-		document.getElementById("raw_data_next").textContent = "Les rôles ici sont organisés en fonction des responsabilités. 'None Specified' provient de cet outil. La communication en JSON nécessite une structure XML lisible.";
+		document.getElementById("raw_data_next").textContent = "Les rôles ici sont organisés en fonction des responsabilités. 'None Specified' provient de cet outil. Une structure en JSON peut être aussi plate qu'en XML.";
 	}
 }	
 </script><?php
@@ -986,72 +986,13 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="618" style="display:none"><td>abuse country_code</td><td>'.$data[$pd]['abuse']['country_code'].'</td><td id="abuse_country_code"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(63)">Name Servers +/-</button></td><td></td><td></td></tr>';
-	//if (!empty($data[$pd]['name_servers']['server_1']['server_ascii_name']))	{
-	//	if (strlen(trim($data[$pd]['name_servers']['server_1']['server_ascii_name'])))	{
-			$html_text .= '<tr id="631" style="display:none"><td>server_ascii_name_1</td><td>'.$data[$pd]['name_servers']['server_1']['server_ascii_name'].'</td><td></td></tr>';
-			$html_text .= '<tr id="632" style="display:none"><td>server_unicode_name_1</td><td>'.$data[$pd]['name_servers']['server_1']['server_unicode_name'].'</td><td></td></tr>';
-			$html_text .= '<tr id="633" style="display:none"><td>server_ipv4_1</td><td>'.$data[$pd]['name_servers']['server_1']['server_ipv4'].'</td><td id="name_servers_ip"></td></tr>';
-			$html_text .= '<tr id="634" style="display:none"><td>server_ipv6_1</td><td>'.$data[$pd]['name_servers']['server_1']['server_ipv6'].'</td><td></td></tr>';
-			$html_text .= '<tr id="635" style="display:none"><td>server_delegation_check_1</td><td>'.$data[$pd]['name_servers']['server_1']['server_delegation_check'].'</td><td id="br_zone"></td></tr>';
-			$html_text .= '<tr id="636" style="display:none"><td>server_status_1</td><td>'.$data[$pd]['name_servers']['server_1']['server_status'].'</td><td></td></tr>';
-			$html_text .= '<tr id="637" style="display:none"><td>server_delegation_latest_correct_check_1</td><td>'.$data[$pd]['name_servers']['server_1']['server_delegation_latest_correct_check'].'</td><td></td></tr>';	
-	//	}	
-	//}
-	if (!empty($data[$pd]['name_servers']['server_2']['server_ascii_name']))	{		
-		if (strlen(trim($data[$pd]['name_servers']['server_2']['server_ascii_name'])))	{
-			$html_text .= '<tr id="638" style="display:none"><td>server_ascii_name_2</td><td>'.$data[$pd]['name_servers']['server_2']['server_ascii_name'].'</td><td></td></tr>';
-			$html_text .= '<tr id="639" style="display:none"><td>server_unicode_name_2</td><td>'.$data[$pd]['name_servers']['server_2']['server_unicode_name'].'</td><td></td></tr>';		
-			$html_text .= '<tr id="6310" style="display:none"><td>server_ipv4_2</td><td>'.$data[$pd]['name_servers']['server_2']['server_ipv4'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6311" style="display:none"><td>server_ipv6_2</td><td>'.$data[$pd]['name_servers']['server_2']['server_ipv6'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6312" style="display:none"><td>server_delegation_check_2</td><td>'.$data[$pd]['name_servers']['server_2']['server_delegation_check'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6313" style="display:none"><td>server_status_2</td><td>'.$data[$pd]['name_servers']['server_2']['server_status'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6314" style="display:none"><td>server_delegation_latest_correct_check_2</td><td>'.$data[$pd]['name_servers']['server_2']['server_delegation_latest_correct_check'].'</td><td></td></tr>';
-		}	
-	}
-	if (!empty($data[$pd]['name_servers']['server_3']['server_ascii_name']))	{
-		if (strlen(trim($data[$pd]['name_servers']['server_3']['server_ascii_name'])))	{
-			$html_text .= '<tr id="6315" style="display:none"><td>server_ascii_name_3</td><td>'.$data[$pd]['name_servers']['server_3']['server_ascii_name'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6316" style="display:none"><td>server_unicode_name_3</td><td>'.$data[$pd]['name_servers']['server_3']['server_unicode_name'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6317" style="display:none"><td>server_ipv4_3</td><td>'.$data[$pd]['name_servers']['server_3']['server_ipv4'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6318" style="display:none"><td>server_ipv6_3</td><td>'.$data[$pd]['name_servers']['server_3']['server_ipv6'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6319" style="display:none"><td>server_delegation_check_3</td><td>'.$data[$pd]['name_servers']['server_3']['server_delegation_check'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6320" style="display:none"><td>server_status_3</td><td>'.$data[$pd]['name_servers']['server_3']['server_status'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6321" style="display:none"><td>server_delegation_latest_correct_check_3</td><td>'.$data[$pd]['name_servers']['server_3']['server_delegation_latest_correct_check'].'</td><td></td></tr>';				
-		}	
-	}
-	if (!empty($data[$pd]['name_servers']['server_4']['server_ascii_name']))	{	
-		if (strlen(trim($data[$pd]['name_servers']['server_4']['server_ascii_name'])))	{
-			$html_text .= '<tr id="6322" style="display:none"><td>server_ascii_name_4</td><td>'.$data[$pd]['name_servers']['server_4']['server_ascii_name'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6323" style="display:none"><td>server_unicode_name_4</td><td>'.$data[$pd]['name_servers']['server_4']['server_unicode_name'].'</td><td></td></tr>';	
-			$html_text .= '<tr id="6324" style="display:none"><td>server_ipv4_4</td><td>'.$data[$pd]['name_servers']['server_4']['server_ipv4'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6325" style="display:none"><td>server_ipv6_4</td><td>'.$data[$pd]['name_servers']['server_4']['server_ipv6'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6326" style="display:none"><td>server_delegation_check_4</td><td>'.$data[$pd]['name_servers']['server_4']['server_delegation_check'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6327" style="display:none"><td>server_status_4</td><td>'.$data[$pd]['name_servers']['server_4']['server_status'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6328" style="display:none"><td>server_delegation_latest_correct_check_4</td><td>'.$data[$pd]['name_servers']['server_4']['server_delegation_latest_correct_check'].'</td><td></td></tr>';
-		}	
-	}
-	if (!empty($data[$pd]['name_servers']['server_5']['server_ascii_name']))	{		
-		if (strlen(trim($data[$pd]['name_servers']['server_5']['server_ascii_name'])))	{
-			$html_text .= '<tr id="6329" style="display:none"><td>server_ascii_name_5</td><td>'.$data[$pd]['name_servers']['server_5']['server_ascii_name'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6330" style="display:none"><td>server_unicode_name_5</td><td>'.$data[$pd]['name_servers']['server_5']['server_unicode_name'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6331" style="display:none"><td>server_ipv4_5</td><td>'.$data[$pd]['name_servers']['server_5']['server_ipv4'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6332" style="display:none"><td>server_ipv6_5</td><td>'.$data[$pd]['name_servers']['server_5']['server_ipv6'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6333" style="display:none"><td>server_delegation_check_5</td><td>'.$data[$pd]['name_servers']['server_5']['server_delegation_check'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6334" style="display:none"><td>server_status_5</td><td>'.$data[$pd]['name_servers']['server_5']['server_status'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6335" style="display:none"><td>server_delegation_latest_correct_check_5</td><td>'.$data[$pd]['name_servers']['server_5']['server_delegation_latest_correct_check'].'</td><td></td></tr>';	
-		}	
-	}
-	if (!empty($data[$pd]['name_servers']['server_6']['server_ascii_name']))	{
-		if (strlen(trim($data[$pd]['name_servers']['server_6']['server_ascii_name'])))	{
-			$html_text .= '<tr id="6336" style="display:none"><td>server_ascii_name_6</td><td>'.$data[$pd]['name_servers']['server_6']['server_ascii_name'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6337" style="display:none"><td>server_unicode_name_6</td><td>'.$data[$pd]['name_servers']['server_6']['server_unicode_name'].'</td><td></td></tr>';	
-			$html_text .= '<tr id="6338" style="display:none"><td>server_ipv4_6</td><td>'.$data[$pd]['name_servers']['server_6']['server_ipv4'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6339" style="display:none"><td>server_ipv6_6</td><td>'.$data[$pd]['name_servers']['server_6']['server_ipv6'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6340" style="display:none"><td>server_delegation_check_6</td><td>'.$data[$pd]['name_servers']['server_6']['server_delegation_check'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6341" style="display:none"><td>server_status_6</td><td>'.$data[$pd]['name_servers']['server_6']['server_status'].'</td><td></td></tr>';
-			$html_text .= '<tr id="6342" style="display:none"><td>server_delegation_latest_correct_check_6</td><td>'.$data[$pd]['name_servers']['server_6']['server_delegation_latest_correct_check'].'</td><td></td></tr>';	
-		}	
-	}
+	$html_text .= '<tr id="631" style="display:none;vertical-align:top"><td>ascii</td><td>'.$data[$pd]['name_servers']['ascii'].'</td><td></td></tr>';
+	$html_text .= '<tr id="632" style="display:none;vertical-align:top"><td>unicode</td><td>'.$data[$pd]['name_servers']['unicode'].'</td><td></td></tr>';
+	$html_text .= '<tr id="633" style="display:none;vertical-align:top"><td>ipv4</td><td>'.$data[$pd]['name_servers']['ipv4'].'</td><td id="name_servers_ip"></td></tr>';
+	$html_text .= '<tr id="634" style="display:none;vertical-align:top"><td>ipv6</td><td>'.$data[$pd]['name_servers']['ipv6'].'</td><td></td></tr>';
+	$html_text .= '<tr id="635" style="display:none;vertical-align:top"><td>delegation_check</td><td>'.$data[$pd]['name_servers']['delegation_check'].'</td><td id="br_zone"></td></tr>';
+	$html_text .= '<tr id="636" style="display:none;vertical-align:top"><td>status</td><td>'.$data[$pd]['name_servers']['status'].'</td><td></td></tr>';
+	$html_text .= '<tr id="637" style="display:none;vertical-align:top"><td>latest_correct_delegation_check</td><td>'.$data[$pd]['name_servers']['latest_correct_delegation_check'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>name_servers dnssec</td><td>'.$data[$pd]['name_servers']['dnssec'].'</td><td id="name_servers_dnssec"></td></tr>';
 	$html_text .= '<tr><td>name_servers dnssec_algorithm</td><td>'.$data[$pd]['name_servers']['dnssec_algorithm'].'</td><td id="name_servers_dnssec_algorithm"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';

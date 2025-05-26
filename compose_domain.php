@@ -1,5 +1,6 @@
 <?php
 //$_GET['domain'] = 'hostingtool.nl';
+//$_GET['domain'] = 'cyberfusion.nl';
 //$_GET['domain'] = 'münchen.de';
 //$_GET['domain'] = 'example.tel';
 //$_GET['domain'] = 'nic.frl';
@@ -592,50 +593,15 @@ $abuse_kind = '';
 $abuse_email = 'Abuse contact email unavailable.';
 $abuse_telephone = '';
 $abuse_country_code = '';	
-
-$server_ascii_name_1 = $obj['nameservers'][0]['ldhName'];
-$server_ascii_name_2 = $obj['nameservers'][1]['ldhName'];
-$server_ascii_name_3 = $obj['nameservers'][2]['ldhName'];
-$server_ascii_name_4 = $obj['nameservers'][3]['ldhName'];
-$server_ascii_name_5 = $obj['nameservers'][4]['ldhName'];
-$server_ascii_name_6 = $obj['nameservers'][5]['ldhName'];	
-$server_unicode_name_1 = $obj['nameservers'][0]['unicodeName'];
-$server_unicode_name_2 = $obj['nameservers'][1]['unicodeName'];
-$server_unicode_name_3 = $obj['nameservers'][2]['unicodeName'];
-$server_unicode_name_4 = $obj['nameservers'][3]['unicodeName'];
-$server_unicode_name_5 = $obj['nameservers'][4]['unicodeName'];
-$server_unicode_name_6 = $obj['nameservers'][5]['unicodeName'];	
-$server_ipv4_1 = $obj['nameservers'][0]['ipAddresses']['v4'][0];
-$server_ipv6_1 = $obj['nameservers'][0]['ipAddresses']['v6'][0];	
-$server_ipv4_2 = $obj['nameservers'][1]['ipAddresses']['v4'][0];
-$server_ipv6_2 = $obj['nameservers'][1]['ipAddresses']['v6'][0];
-$server_ipv4_3 = $obj['nameservers'][2]['ipAddresses']['v4'][0];
-$server_ipv6_3 = $obj['nameservers'][2]['ipAddresses']['v6'][0];
-$server_ipv4_4 = $obj['nameservers'][3]['ipAddresses']['v4'][0];
-$server_ipv6_4 = $obj['nameservers'][3]['ipAddresses']['v6'][0];	
-$server_ipv4_5 = $obj['nameservers'][4]['ipAddresses']['v4'][0];
-$server_ipv6_5 = $obj['nameservers'][4]['ipAddresses']['v6'][0];
-$server_ipv4_6 = $obj['nameservers'][5]['ipAddresses']['v4'][0];
-$server_ipv6_6 = $obj['nameservers'][5]['ipAddresses']['v6'][0];
-$server_delegation_check_1 = '';	
-$server_delegation_check_2 = '';
-$server_delegation_check_3 = '';
-$server_delegation_check_4 = '';
-$server_delegation_check_5 = '';
-$server_delegation_check_6 = '';
-$server_status_1 = '';
-$server_status_2 = '';
-$server_status_3 = '';
-$server_status_4 = '';
-$server_status_5 = '';
-$server_status_6 = '';	
-$server_delegation_latest_correct_check_1 = '';
-$server_delegation_latest_correct_check_2 = '';
-$server_delegation_latest_correct_check_3 = '';
-$server_delegation_latest_correct_check_4 = '';
-$server_delegation_latest_correct_check_5 = '';
-$server_delegation_latest_correct_check_6 = '';		
-
+	
+$name_servers_ascii = '';
+$name_servers_unicode = '';
+$name_servers_ipv4 = '';
+$name_servers_ipv6 = '';
+$name_servers_status = '';
+$name_servers_delegation_check = '';
+$name_servers_latest_correct_delegation_check = '';	
+	
 $entity_sponsor = -1;	
 $entity_registrant = -1;
 $entity_administrative = -1;
@@ -806,6 +772,14 @@ foreach($obj as $key1 => $value1) {
 					}
 				}
 			}	
+			if ($key1 == 'nameservers')	{					
+				if ($key3 == 'ldhName') {
+					$name_servers_ascii .= $key2.': '.$value3."<br />";
+				}
+				elseif ($key3 == 'unicodeName')	{
+					$name_servers_unicode .= $key2.': '.$value3."<br />";
+				}
+			}	
 			foreach($value3 as $key4 => $value4) {
 				if ($key1 == 'entities')	{
 					if ($key3 == 'properties')	{
@@ -959,110 +933,32 @@ foreach($obj as $key1 => $value1) {
 							}
 							$sponsor_remarks .= (is_array($value5)) ? $key5.': '.$value5 : $value5;
 						}
-					}
-					if ($key1 == 'nameservers')	{
-						if ($key2 == 0)	{
-							if ($key3 == 'events')	{
-								if ($key4 == 0)	{	
-									if ($key5 == 'eventAction' and $value5 == 'delegation check')	{
-										$server_delegation_check_1 = $value4['eventDate'];
-									}
-									if ($key5 == 'status')	{
-										$server_status_1 = $value5[0];	
-									}
-								}	
-								elseif ($key4 == 1)	{	
-									if ($key5 == 'eventAction' and $value5 == 'last correct delegation check')	{
-										$server_delegation_latest_correct_check_1 = $value4['eventDate'];
-									}	
-								}		
+					}		
+					if ($key1 == 'nameservers')	{							
+						if ($key3 == 'events')	{
+							if ($key4 == 0)	{	
+								if ($key5 == 'eventAction' and $value5 == 'delegation check')	{
+									$name_servers_delegation_check .= $key2.': '.$value4['eventDate']."<br />";
+								}
+								if ($key5 == 'status')	{
+									$name_servers_status .= $key2.': '.$value5[0]."<br />";	
+								}
 							}	
+							elseif ($key4 == 1)	{	
+								if ($key5 == 'eventAction' and $value5 == 'last correct delegation check')	{
+									$name_servers_latest_correct_delegation_check .= $key2.': '.$value4['eventDate']."<br />";
+								}
+							}					
+						
 						}
-						elseif ($key2 == 1)	{
-							if ($key3 == 'events')	{
-								if ($key4 == 0)	{	
-									if ($key5 == 'eventAction' and $value5 == 'delegation check')	{
-										$server_delegation_check_2 = $value4['eventDate'];
-									}
-									if ($key5 == 'status')	{
-										$server_status_2 = $value5[0];	
-									}
-								}	
-								elseif ($key4 == 1)	{	
-									if ($key5 == 'eventAction' and $value5 == 'last correct delegation check')	{
-										$server_delegation_latest_correct_check_2 = $value4['eventDate'];
-									}	
-								}		
-							}	
-						}
-						elseif ($key2 == 2)	{
-							if ($key3 == 'events')	{
-								if ($key4 == 0)	{	
-									if ($key5 == 'eventAction' and $value5 == 'delegation check')	{
-										$server_delegation_check_3 = $value4['eventDate'];
-									}
-									if ($key5 == 'status')	{
-										$server_status_3 = $value5[0];	
-									}
-								}	
-								elseif ($key4 == 1)	{	
-									if ($key5 == 'eventAction' and $value5 == 'last correct delegation check')	{
-										$server_delegation_latest_correct_check_3 = $value4['eventDate'];
-									}	
-								}		
-							}	
-						}
-						elseif ($key2 == 3)	{
-							if ($key3 == 'events')	{
-								if ($key4 == 0)	{	
-									if ($key5 == 'eventAction' and $value5 == 'delegation check')	{
-										$server_delegation_check_4 = $value4['eventDate'];
-									}
-									if ($key5 == 'status')	{
-										$server_status_4 = $value5[0];	
-									}
-								}	
-								elseif ($key4 == 1)	{	
-									if ($key5 == 'eventAction' and $value5 == 'last correct delegation check')	{
-										$server_delegation_latest_correct_check_4 = $value4['eventDate'];
-									}	
-								}		
-							}	
-						}
-						elseif ($key2 == 4)	{
-							if ($key3 == 'events')	{
-								if ($key4 == 0)	{	
-									if ($key5 == 'eventAction' and $value5 == 'delegation check')	{
-										$server_delegation_check_5 = $value4['eventDate'];
-									}
-									if ($key5 == 'status')	{
-										$server_status_5 = $value5[0];	
-									}
-								}	
-								elseif ($key4 == 1)	{	
-									if ($key5 == 'eventAction' and $value5 == 'last correct delegation check')	{
-										$server_delegation_latest_correct_check_5 = $value4['eventDate'];
-									}	
-								}		
-							}	
-						}
-						elseif ($key2 == 5)	{
-							if ($key3 == 'events')	{
-								if ($key4 == 0)	{	
-									if ($key5 == 'eventAction' and $value5 == 'delegation check')	{
-										$server_delegation_check_6 = $value4['eventDate'];
-									}
-									if ($key5 == 'status')	{
-										$server_status_6 = $value5[0];	
-									}
-								}	
-								elseif ($key4 == 1)	{	
-									if ($key5 == 'eventAction' and $value5 == 'last correct delegation check')	{
-										$server_delegation_latest_correct_check_6 = $value4['eventDate'];
-									}	
-								}		
-							}	
-						}
+						if ($key3 == 'ipAddresses') {
+							if ($key4 == 'v4') {
+								$name_servers_ipv4 .= $key2.': '.$value5."<br />";
+							}
+							elseif ($key4 == 'v6') {
+								$name_servers_ipv5 .= $key2.': '.$value5."<br />";
+							}
+						}					
 					}
 					foreach($value5 as $key6 => $value6) {
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'email' and $value6 == 'email')	{	
@@ -1730,54 +1626,13 @@ $arr[$inputdomain]['abuse']['email'] = $abuse_email;
 $arr[$inputdomain]['abuse']['telephone'] = $abuse_telephone;
 $arr[$inputdomain]['abuse']['country_code'] = $abuse_country_code;	
 	
-$arr[$inputdomain]['name_servers']['server_1']['server_ascii_name'] = $server_ascii_name_1;	
-$arr[$inputdomain]['name_servers']['server_1']['server_unicode_name'] = $server_unicode_name_1;	
-$arr[$inputdomain]['name_servers']['server_1']['server_delegation_check'] = $server_delegation_check_1;	
-$arr[$inputdomain]['name_servers']['server_1']['server_status'] = $server_status_1;	
-$arr[$inputdomain]['name_servers']['server_1']['server_delegation_latest_correct_check'] = $server_delegation_latest_correct_check_1;	
-$arr[$inputdomain]['name_servers']['server_1']['server_ipv4'] = $server_ipv4_1;	
-$arr[$inputdomain]['name_servers']['server_1']['server_ipv6'] = $server_ipv6_1;	
-
-$arr[$inputdomain]['name_servers']['server_2']['server_ascii_name'] = $server_ascii_name_2;	
-$arr[$inputdomain]['name_servers']['server_2']['server_unicode_name'] = $server_unicode_name_2;	
-$arr[$inputdomain]['name_servers']['server_2']['server_delegation_check'] = $server_delegation_check_2;	
-$arr[$inputdomain]['name_servers']['server_2']['server_status'] = $server_status_2;	
-$arr[$inputdomain]['name_servers']['server_2']['server_delegation_latest_correct_check'] = $server_delegation_latest_correct_check_2;	
-$arr[$inputdomain]['name_servers']['server_2']['server_ipv4'] = $server_ipv4_2;	
-$arr[$inputdomain]['name_servers']['server_2']['server_ipv6'] = $server_ipv6_2;
-	
-$arr[$inputdomain]['name_servers']['server_3']['server_ascii_name'] = $server_ascii_name_3;	
-$arr[$inputdomain]['name_servers']['server_3']['server_unicode_name'] = $server_unicode_name_3;	
-$arr[$inputdomain]['name_servers']['server_3']['server_delegation_check'] = $server_delegation_check_3;	
-$arr[$inputdomain]['name_servers']['server_3']['server_status'] = $server_status_3;	
-$arr[$inputdomain]['name_servers']['server_3']['server_delegation_latest_correct_check'] = $server_delegation_latest_correct_check_3;	
-$arr[$inputdomain]['name_servers']['server_3']['server_ipv4'] = $server_ipv4_3;	
-$arr[$inputdomain]['name_servers']['server_3']['server_ipv6'] = $server_ipv6_3;
-	
-$arr[$inputdomain]['name_servers']['server_4']['server_ascii_name'] = $server_ascii_name_4;	
-$arr[$inputdomain]['name_servers']['server_4']['server_unicode_name'] = $server_unicode_name_4;	
-$arr[$inputdomain]['name_servers']['server_4']['server_delegation_check'] = $server_delegation_check_4;	
-$arr[$inputdomain]['name_servers']['server_4']['server_status'] = $server_status_4;	
-$arr[$inputdomain]['name_servers']['server_4']['server_delegation_latest_correct_check'] = $server_delegation_latest_correct_check_4;	
-$arr[$inputdomain]['name_servers']['server_4']['server_ipv4'] = $server_ipv4_4;	
-$arr[$inputdomain]['name_servers']['server_4']['server_ipv6'] = $server_ipv6_4;	
-	
-$arr[$inputdomain]['name_servers']['server_5']['server_ascii_name'] = $server_ascii_name_5;	
-$arr[$inputdomain]['name_servers']['server_5']['server_unicode_name'] = $server_unicode_name_5;	
-$arr[$inputdomain]['name_servers']['server_5']['server_delegation_check'] = $server_delegation_check_5;	
-$arr[$inputdomain]['name_servers']['server_5']['server_status'] = $server_status_5;	
-$arr[$inputdomain]['name_servers']['server_5']['server_delegation_latest_correct_check'] = $server_delegation_latest_correct_check_5;	
-$arr[$inputdomain]['name_servers']['server_5']['server_ipv4'] = $server_ipv4_5;	
-$arr[$inputdomain]['name_servers']['server_5']['server_ipv6'] = $server_ipv6_5;
-	
-$arr[$inputdomain]['name_servers']['server_6']['server_ascii_name'] = $server_ascii_name_6;	
-$arr[$inputdomain]['name_servers']['server_6']['server_unicode_name'] = $server_unicode_name_6;	
-$arr[$inputdomain]['name_servers']['server_6']['server_delegation_check'] = $server_delegation_check_6;	
-$arr[$inputdomain]['name_servers']['server_6']['server_status'] = $server_status_6;	
-$arr[$inputdomain]['name_servers']['server_6']['server_delegation_latest_correct_check'] = $server_delegation_latest_correct_check_6;	
-$arr[$inputdomain]['name_servers']['server_6']['server_ipv4'] = $server_ipv4_6;	
-$arr[$inputdomain]['name_servers']['server_6']['server_ipv6'] = $server_ipv6_6;	
-		
+$arr[$inputdomain]['name_servers']['ascii'] = $name_servers_ascii;
+$arr[$inputdomain]['name_servers']['unicode'] = $name_servers_unicode;	
+$arr[$inputdomain]['name_servers']['ipv4'] = $name_servers_ipv4;	
+$arr[$inputdomain]['name_servers']['ipv6'] = $name_servers_ipv5;	
+$arr[$inputdomain]['name_servers']['status'] = $name_servers_status;	
+$arr[$inputdomain]['name_servers']['delegation_check'] = $name_servers_delegation_check;
+$arr[$inputdomain]['name_servers']['latest_correct_delegation_check'] = $name_servers_latest_correct_delegation_check;	
 $arr[$inputdomain]['name_servers']['dnssec'] = $name_servers_dnssec;
 $arr[$inputdomain]['name_servers']['dnssec_algorithm'] = $name_servers_dnssec_algorithm;
 	
