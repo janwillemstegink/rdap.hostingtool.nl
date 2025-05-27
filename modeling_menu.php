@@ -1,5 +1,4 @@
-<?php
-session_start();  // is needed with no PHP Generator Scriptcase
+//session_start();  // is needed with no PHP Generator Scriptcase
 if (empty($inputlanguage))	{
 	$browserlanguage = getLanguage();
 	switch ($browserlanguage) {
@@ -199,4 +198,3 @@ break;
 # return the found language
 return $language;
 }
-?>
