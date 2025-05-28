@@ -75,8 +75,7 @@ if ($inputbatch)	{
 	$raw_whois_data = '';
 }
 else	{
-	//$command = escapeshellcmd("python3.9 /home/admin/get_domain_data.py");
-	$command = escapeshellcmd("/usr/bin/python3.9 /home/admin/get_domain_data.py");
+	$command = escapeshellcmd("/usr/bin/python3.9 /home/admin/scripts/get_domain_data.py");
 	//$raw_whois_data = shell_exec($command . " " . $inputdomain . " 2>&1");
 	$raw_whois_data = nl2br(htmlspecialchars(shell_exec($command . " " . $inputdomain)));
 }

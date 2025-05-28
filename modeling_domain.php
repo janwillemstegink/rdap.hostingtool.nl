@@ -26,8 +26,9 @@ if (empty([ip]) or empty([block]))	{
 	[ip] = getClientIP();
 	[block] = get_block([ip]);
 }
-$sql = "INSERT INTO rdap_log (utc, url, ip, block) VALUES ('$utc', '$vd', '[ip]', '[block]')";
-sc_exec_sql($sql);
+$log_file = "/home/admin/logging/domain_lookup_tool_" . date("Ym") . ".txt";
+$log_line = $datetime->format('Y-m-d H:i:s') . " UTC, " . $vd . ", " . [ip] . ", " . [block] . "\n";
+file_put_contents($log_file, $log_line, FILE_APPEND);
 echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta charset="UTF-8" />
@@ -1051,13 +1052,13 @@ function get_block($ip) {
             if (isset($entity['vcardArray'][1])) {
                 foreach ($entity['vcardArray'][1] as $vcardField) {
                     if ($vcardField[0] === 'fn') {
-                        $orgName .= $vcardField[3].'<br />';
+                        $orgName .= $vcardField[3].'; ';
                     }
 
                 }
             }
         }
     }
-	return (strlen($country)) ? $country . '<br />' . $orgName : $orgName;	
+	return (strlen($country)) ? $country . '; ' . $orgName : $orgName;	
 }
 ?>
