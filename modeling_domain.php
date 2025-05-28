@@ -80,7 +80,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 30)	{ // domain
 		var pre = '30';
-		var max = 11
+		var max = 12
 	}
 	else if (type == 39)	{ // sponsor
 		var pre = '39';
@@ -198,8 +198,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "";
 		document.getElementById("domain_ascii_name").textContent = "";
 		document.getElementById("domain_unicode_name").textContent = "";
+		document.getElementById("domain_statuses_registry").textContent = "";
+		document.getElementById("domain_statuses_registrar").textContent = modified;
 		document.getElementById("domain_accredited_registrar").textContent = modified;
-		document.getElementById("domain_statuses").textContent = "";
 		document.getElementById("domain_created_at").textContent = "";
 		document.getElementById("domain_expiration_at").textContent = "";
 		document.getElementById("domain_recovery_deadline").textContent = proposed;
@@ -295,8 +296,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "Een domein onder TLD-niveau is wereldwijd uniek en kan vrij worden gekozen onder bepaalde regels.";
 		document.getElementById("domain_ascii_name").textContent = "Voor speciale tekens bevatten de ASCII-tekenreeksen Punycode-transcriptie.";
 		document.getElementById("domain_unicode_name").textContent = "Hoewel de informatie verduidelijkt, is de unicode-domeinnaam optioneel binnen het RDAP-protocol.";
+		document.getElementById("domain_statuses_registry").textContent = "De status 'redemption period' biedt de mogelijkheid tot herstel. Met 'pending delete' wordt de verwijdering definitief.";
+		document.getElementById("domain_statuses_registrar").textContent = modified;
 		document.getElementById("domain_accredited_registrar").textContent = modified + "Een IANA-registraraccreditatie-ID voor gTLD's moet correct zijn.";
-		document.getElementById("domain_statuses").textContent = "De status 'redemption period' biedt de mogelijkheid tot herstel. Met 'pending delete' wordt de verwijdering definitief.";
 		document.getElementById("domain_created_at").textContent = "De datumvelden staan hier in een logische volgorde. Dit is ook eenvoudig in de JSON-array.";
 		document.getElementById("domain_expiration_at").textContent = "Datum en tijdstip van periodieke verlenging of stopzetting van de publicatie.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "Tijdstip tot wanneer herstel nog mogelijk is.";		
@@ -392,8 +394,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "A domain below TLD level is globally unique and can be freely chosen under certain rules.";
 		document.getElementById("domain_ascii_name").textContent = "For special characters, the ASCII character strings contain Punycode transcription.";
 		document.getElementById("domain_unicode_name").textContent = "Although information clarifies, the unicode domain name is optional within the RDAP protocol.";
+		document.getElementById("domain_statuses_registry").textContent = "Status 'redemption period' allows for recovery. With 'pending delete' deletion becomes final.";
+		document.getElementById("domain_statuses_registrar").textContent = modified;
 		document.getElementById("domain_accredited_registrar").textContent = modified + "The IANA registrar accreditation ID for gTLDs must be accurate.";
-		document.getElementById("domain_statuses").textContent = "Status 'redemption period' allows for recovery. With 'pending delete' deletion becomes final.";
 		document.getElementById("domain_created_at").textContent = "The date fields are here in a logical order. This is also easy in the JSON array.";
 		document.getElementById("domain_expiration_at").textContent = "Date and time of periodic renewal or discontinuation of publication.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "Time until which recovery is still possible.";
@@ -489,8 +492,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "Eine Domain unterhalb der TLD-Ebene ist weltweit eindeutig und kann unter bestimmten Regeln frei gewählt werden.";
 		document.getElementById("domain_ascii_name").textContent = "Für Sonderzeichen enthalten die ASCII-Zeichenfolgen eine Punycode-Transkription.";
 		document.getElementById("domain_unicode_name").textContent = "Obwohl die Informationen klarstellen, ist der Unicode-Domänenname innerhalb des RDAP-Protokolls optional.";
+		document.getElementById("domain_statuses_registry").textContent = "Der Status 'redemption period' ermöglicht eine Wiederherstellung. Mit 'pending delete' wird die Löschung endgültig.";
+		document.getElementById("domain_statuses_registrar").textContent = modified;
 		document.getElementById("domain_accredited_registrar").textContent = modified + "Eine IANA-Registrar-Akkreditierungs-ID für gTLDs muss korrekt sein.";
-		document.getElementById("domain_statuses").textContent = "Der Status 'redemption period' ermöglicht eine Wiederherstellung. Mit 'pending delete' wird die Löschung endgültig.";
 		document.getElementById("domain_created_at").textContent = "Die Datumsfelder stehen hier in einer logischen Reihenfolge. Auch dies ist im JSON-Array einfach.";
 		document.getElementById("domain_expiration_at").textContent = "Datum und Uhrzeit der periodischen Erneuerung oder Einstellung der Veröffentlichung.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "Zeitpunkt, bis zu dem eine Wiederherstellung noch möglich ist.";
@@ -586,8 +590,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "Un domaine inférieur au niveau TLD est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_ascii_name").textContent = "Pour les caractères spéciaux, les chaînes de caractères ASCII contiennent une transcription Punycode.";
 		document.getElementById("domain_unicode_name").textContent = "Bien que les informations soient clarifiées, le nom de domaine Unicode est facultatif dans le protocole RDAP.";
+		document.getElementById("domain_statuses_registry").textContent = "Le statut 'redemption period' permet la récupération. Avec le statut 'pending delete', la suppression devient définitive.";
+		document.getElementById("domain_statuses_registrar").textContent = modified;
 		document.getElementById("domain_accredited_registrar").textContent = modified + "Un identifiant d'accréditation de bureau d'enregistrement IANA pour les gTLD doit être exact.";
-		document.getElementById("domain_statuses").textContent = "Le statut 'redemption period' permet la récupération. Avec le statut 'pending delete', la suppression devient définitive.";
 		document.getElementById("domain_created_at").textContent = "Les champs de date sont ici classés dans un ordre logique. C'est également facile dans le tableau JSON.";
 		document.getElementById("domain_expiration_at").textContent = "Date et heure du renouvellement périodique ou de l'arrêt de la publication.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "Délai jusqu'à lequel la récupération est encore possible.";
@@ -783,19 +788,20 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="301" style="display:none"><td>domain handle</td><td>'.$data[$pd]['domain']['handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="302" style="display:none"><td>domain ascii_name (lower case is not a "MUST")</td><td>'.$data[$pd]['domain']['ascii_name'].'</td><td id="domain_ascii_name"></td></tr>';
 	$html_text .= '<tr id="303" style="display:none"><td>domain unicode_name</td><td>'.$data[$pd]['domain']['unicode_name'].'</td><td id="domain_unicode_name"></td></tr>';
-	$html_text .= '<tr id="304" style="display:none"><td>domain accredited_registrar</td><td>'.((strlen($data[$pd]['domain']['accredited_registrar'])) ? $data[$pd]['domain']['accredited_registrar'] : 'Not Applicable').'</td><td id="domain_accredited_registrar"></td></tr>';
-	$html_text .= '<tr style="vertical-align:top"><td>domain statuses</td><td>'.$data[$pd]['domain']['statuses'].'</td><td id="domain_statuses"></td></tr>';
-	$html_text .= '<tr id="305" style="display:none"><td>domain created_at</td><td>'.$data[$pd]['domain']['created_at'].'</td><td id="domain_created_at"></td></tr>';
-	$html_text .= '<tr id="306" style="display:none"><td>domain latest_transfer_at</td><td>'.$data[$pd]['domain']['latest_transfer_at'].'</td><td></td></tr>';
-	$html_text .= '<tr id="307" style="display:none"><td>domain latest_update_at</td><td>'.$data[$pd]['domain']['latest_update_at'].'</td><td></td></tr>';
+	$html_text .= '<tr style="vertical-align:top"><td>domain statuses_registry</td><td>'.$data[$pd]['domain']['statuses_registry'].'</td><td id="domain_statuses_registry"></td></tr>';
+	$html_text .= '<tr id="304" style="display:none;vertical-align:top"><td>domain statuses_registrar</td><td>'.$data[$pd]['domain']['statuses_registrar'].'</td><td id="domain_statuses_registrar"></td></tr>';
+	$html_text .= '<tr id="305" style="display:none"><td>domain accredited_registrar</td><td>'.((strlen($data[$pd]['domain']['accredited_registrar'])) ? $data[$pd]['domain']['accredited_registrar'] : 'Not Applicable').'</td><td id="domain_accredited_registrar"></td></tr>';
+	$html_text .= '<tr id="306" style="display:none"><td>domain created_at</td><td>'.$data[$pd]['domain']['created_at'].'</td><td id="domain_created_at"></td></tr>';
+	$html_text .= '<tr id="307" style="display:none"><td>domain latest_transfer_at</td><td>'.$data[$pd]['domain']['latest_transfer_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="308" style="display:none"><td>domain latest_update_at</td><td>'.$data[$pd]['domain']['latest_update_at'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>domain expiration_at</td><td>'.$data[$pd]['domain']['expiration_at'].'</td><td id="domain_expiration_at"></td></tr>';
-	$html_text .= '<tr id="308" style="display:none"><td>domain recovery_deadline</td><td>'.$data[$pd]['domain']['recovery_deadline'].'</td><td id="domain_recovery_deadline"></td></tr>';
-	$html_text .= '<tr id="309" style="display:none"><td>domain deletion_at</td><td>'.$data[$pd]['domain']['deletion_at'].'</td><td id="domain_deletion_at"></td></tr>';
-	$html_text .= '<tr id="3010" style="display:none;vertical-align:top"><td>domain extensions</td><td>'.$data[$pd]['domain']['extensions'].'</td><td id="domain_extensions"></td></tr>';
-	$html_text .= '<tr id="3011" style="display:none;vertical-align:top"><td>domain remarks</td><td>'.$data[$pd]['domain']['remarks'].'</td><td></td></tr>';
+	$html_text .= '<tr id="309" style="display:none"><td>domain recovery_deadline</td><td>'.$data[$pd]['domain']['recovery_deadline'].'</td><td id="domain_recovery_deadline"></td></tr>';
+	$html_text .= '<tr id="3010" style="display:none"><td>domain deletion_at</td><td>'.$data[$pd]['domain']['deletion_at'].'</td><td id="domain_deletion_at"></td></tr>';
+	$html_text .= '<tr id="3011" style="display:none;vertical-align:top"><td>domain extensions</td><td>'.$data[$pd]['domain']['extensions'].'</td><td id="domain_extensions"></td></tr>';
+	$html_text .= '<tr id="3012" style="display:none;vertical-align:top"><td>domain remarks</td><td>'.$data[$pd]['domain']['remarks'].'</td><td></td></tr>';
 	$sponsor_applicable = (strlen($data[$pd]['sponsor']['organization_name']) or strlen($data[$pd]['sponsor']['presented_name'])) ? 'Sponsor Data Exists' : 'No Sponsor Data';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(39)">Sponsor +/-</button></td><td>'.$sponsor_applicable.'</td><td id="sponsor_role"></td></tr>';
-	$html_text .= '<tr id="391" style="display:none"><td>sponsor shielding</td><td>'.$data[$pd]['sponsor']['shielding'].'</td><td></td></tr>';
+	$html_text .= '<tr id="391" style="display:none"><td>sponsor shielding</td><td>'.implode(",", $data[$pd]['sponsor']['shielding']).'</td><td></td></tr>';
 	$html_text .= '<tr id="392" style="display:none"><td>sponsor handle</td><td>'.$data[$pd]['sponsor']['handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="393" style="display:none"><td>sponsor web_id</td><td>'.$data[$pd]['sponsor']['web_id'].'</td><td id="sponsor_web_id"></td></tr>';
 	$html_text .= '<tr id="394" style="display:none"><td>sponsor organization_type</td><td>'.$data[$pd]['sponsor']['organization_type'].'</td><td></td></tr>';
@@ -821,7 +827,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="3924" style="display:none;vertical-align:top"><td>sponsor properties</td><td>'.$data[$pd]['sponsor']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="3925" style="display:none;vertical-align:top"><td>sponsor remarks</td><td>'.$data[$pd]['sponsor']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(40)">Registrant +/-</button></td><td></td><td id="registrant_role"></td></tr>';
-	$html_text .= '<tr id="401" style="display:none"><td>registrant shielding</td><td>'.$data[$pd]['registrant']['shielding'].'</td><td id="registrant_shielding"></td></tr>';
+	$html_text .= '<tr id="401" style="display:none"><td>registrant shielding</td><td>'.implode(",", $data[$pd]['registrant']['shielding']).'</td><td id="registrant_shielding"></td></tr>';
 	$html_text .= '<tr id="402" style="display:none"><td>registrant handle</td><td>'.$data[$pd]['registrant']['handle'].'</td><td id="registrant_handle"></td></tr>';
 	$html_text .= '<tr id="403" style="display:none"><td>registrant web_id</td><td>'.$data[$pd]['registrant']['web_id'].'</td><td id="registrant_web_id"></td></tr>';
 	$html_text .= '<tr id="404" style="display:none"><td>registrant organization_type</td><td>'.$data[$pd]['registrant']['organization_type'].'</td><td id="registrant_organization_type"></td></tr>';
@@ -847,7 +853,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4019" style="display:none;vertical-align:top"><td>registrant properties</td><td>'.$data[$pd]['registrant']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4020" style="display:none;vertical-align:top"><td>registrant remarks</td><td>'.$data[$pd]['registrant']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(41)">Administrative / Decision +/-</button></td><td></td><td id="administrative_role"></td></tr>';
-	$html_text .= '<tr id="411" style="display:none"><td>administrative shielding</td><td>'.$data[$pd]['administrative']['shielding'].'</td><td id="administrative_shielding"></td></tr>';
+	$html_text .= '<tr id="411" style="display:none"><td>administrative shielding</td><td>'.implode(",", $data[$pd]['administrative']['shielding']).'</td><td id="administrative_shielding"></td></tr>';
 	$html_text .= '<tr id="412" style="display:none"><td>administrative handle</td><td>'.$data[$pd]['administrative']['handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="413" style="display:none"><td>administrative web_id</td><td>'.$data[$pd]['administrative']['web_id'].'</td><td id="administrative_web_id"></td></tr>';
 	$html_text .= '<tr id="414" style="display:none"><td>administrative organization_type</td><td>'.$data[$pd]['administrative']['organization_type'].'</td><td></td></tr>';
@@ -868,7 +874,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4118" style="display:none;vertical-align:top"><td>administrative properties</td><td>'.$data[$pd]['administrative']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4119" style="display:none;vertical-align:top"><td>administrative remarks</td><td>'.$data[$pd]['administrative']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Technical / Onsite +/-</button></td><td></td><td id="technical_role"></td></tr>';
-	$html_text .= '<tr id="421" style="display:none"><td>technical shielding</td><td>'.$data[$pd]['technical']['shielding'].'</td><td id="technical_shielding"></td></tr>';
+	$html_text .= '<tr id="421" style="display:none"><td>technical shielding</td><td>'.implode(",", $data[$pd]['technical']['shielding']).'</td><td id="technical_shielding"></td></tr>';
 	$html_text .= '<tr id="422" style="display:none"><td>technical handle</td><td>'.$data[$pd]['technical']['handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="423" style="display:none"><td>technical web_id</td><td>'.$data[$pd]['technical']['web_id'].'</td><td id="technical_web_id"></td></tr>';
 	$html_text .= '<tr id="424" style="display:none"><td>technical organization_type</td><td>'.$data[$pd]['technical']['organization_type'].'</td><td></td></tr>';
@@ -889,7 +895,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4218" style="display:none;vertical-align:top"><td>technical properties</td><td>'.$data[$pd]['technical']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4219" style="display:none;vertical-align:top"><td>technical remarks</td><td>'.$data[$pd]['technical']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(43)">Billing +/-</button></td><td></td><td id="billing_role"></td></tr>';
-	$html_text .= '<tr id="431" style="display:none"><td>billing shielding</td><td>'.$data[$pd]['billing']['shielding'].'</td><td id="billing_shielding"></td></tr>';
+	$html_text .= '<tr id="431" style="display:none"><td>billing shielding</td><td>'.implode(",", $data[$pd]['billing']['shielding']).'</td><td id="billing_shielding"></td></tr>';
 	$html_text .= '<tr id="432" style="display:none"><td>billing handle</td><td>'.$data[$pd]['billing']['handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="433" style="display:none"><td>billing web_id</td><td>'.$data[$pd]['billing']['web_id'].'</td><td></td></tr>';
 	$html_text .= '<tr id="434" style="display:none"><td>billing organization_type</td><td>'.$data[$pd]['billing']['organization_type'].'</td><td></td></tr>';
@@ -910,7 +916,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4319" style="display:none;vertical-align:top"><td>billing properties</td><td>'.$data[$pd]['billing']['properties'].'</td><td></td></tr>';	
 	$html_text .= '<tr id="4320" style="display:none;vertical-align:top"><td>billing remarks</td><td>'.$data[$pd]['billing']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Emergency +/-</button></td><td></td><td id="emergency_role"></td></tr>';
-	$html_text .= '<tr id="441" style="display:none"><td>emergency shielding</td><td>'.$data[$pd]['emergency']['shielding'].'</td><td id="emergency_shielding"></td></tr>';
+	$html_text .= '<tr id="441" style="display:none"><td>emergency shielding</td><td>'.implode(",", $data[$pd]['emergency']['shielding']).'</td><td id="emergency_shielding"></td></tr>';
 	$html_text .= '<tr id="442" style="display:none"><td>emergency handle</td><td>'.$data[$pd]['emergency']['handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="443" style="display:none"><td>emergency web_id</td><td>'.$data[$pd]['emergency']['web_id'].'</td><td id="emergency_web_id"></td></tr>';
 	$html_text .= '<tr id="444" style="display:none"><td>emergency organization_type</td><td>'.$data[$pd]['emergency']['organization_type'].'</td><td></td></tr>';
@@ -932,7 +938,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4420" style="display:none;vertical-align:top"><td>emergency remarks</td><td>'.$data[$pd]['emergency']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(50)">Reseller +/-</button></td><td></td><td id="reseller_role"></td></tr>';
-	$html_text .= '<tr id="501" style="display:none"><td>reseller shielding</td><td>'.$data[$pd]['reseller']['shielding'].'</td><td id="reseller_shielding"></td></tr>';
+	$html_text .= '<tr id="501" style="display:none"><td>reseller shielding</td><td>'.implode(",", $data[$pd]['reseller']['shielding']).'</td><td id="reseller_shielding"></td></tr>';
 	$html_text .= '<tr id="502" style="display:none"><td>reseller handle</td><td>'.$data[$pd]['reseller']['handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="503" style="display:none"><td>reseller web_id</td><td>'.$data[$pd]['reseller']['web_id'].'</td><td id="reseller_web_id"></td></tr>';
 	$html_text .= '<tr id="504" style="display:none"><td>reseller organization_type</td><td>'.$data[$pd]['reseller']['organization_type'].'</td><td></td></tr>';
@@ -959,7 +965,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="5022" style="display:none;vertical-align:top"><td>reseller remarks</td><td>'.$data[$pd]['reseller']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(60)">Registrar +/-</button></td><td></td><td id="registrar_role"></td></tr>';
-	$html_text .= '<tr id="601" style="display:none"><td>registrar shielding</td><td>'.$data[$pd]['registrar']['shielding'].'</td><td id="registrar_shielding"></td></tr>';
+	$html_text .= '<tr id="601" style="display:none"><td>registrar shielding</td><td>'.implode(",", $data[$pd]['registrar']['shielding']).'</td><td id="registrar_shielding"></td></tr>';
 	$html_text .= '<tr id="602" style="display:none"><td>registrar handle</td><td>'.$data[$pd]['registrar']['handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="603" style="display:none"><td>registrar web_id</td><td>'.$data[$pd]['registrar']['web_id'].'</td><td id="registrar_web_id"></td></tr>';
 	$html_text .= '<tr id="604" style="display:none"><td>registrar organization_type</td><td>'.$data[$pd]['registrar']['organization_type'].'</td><td></td></tr>';
@@ -985,7 +991,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="6021" style="display:none;vertical-align:top"><td>registrar properties</td><td>'.$data[$pd]['registrar']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="6022" style="display:none;vertical-align:top"><td>registrar remarks</td><td>'.$data[$pd]['registrar']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Abuse +/-</button></td><td></td><td id="abuse_role"></td></tr>';
-	$html_text .= '<tr id="611" style="display:none"><td>abuse shielding</td><td>'.$data[$pd]['abuse']['shielding'].'</td><td id="abuse_shielding"></td></tr>';
+	$html_text .= '<tr id="611" style="display:none"><td>abuse shielding</td><td>'.implode(",", $data[$pd]['abuse']['shielding']).'</td><td id="abuse_shielding"></td></tr>';
 	$html_text .= '<tr id="612" style="display:none"><td>abuse organization_type</td><td>'.$data[$pd]['abuse']['organization_type'].'</td><td></td></tr>';
 	$html_text .= '<tr id="613" style="display:none"><td>abuse organization_name</td><td>'.$data[$pd]['abuse']['organization_name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="614" style="display:none"><td>abuse presented_name</td><td>'.$data[$pd]['abuse']['presented_name'].'</td><td></td></tr>';
