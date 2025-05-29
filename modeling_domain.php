@@ -349,7 +349,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
 		document.getElementById("br_zone").textContent = "TLD .br: De RDAP-gegevens zijn aangepast met nameservervalidatie.";
-		document.getElementById("raw_data_next").textContent = "De rollen zijn hier gerangschikt op verantwoordelijkheid. 'None Specified' komt van deze tool. Een structuur in JSON kan net zo plat zijn als in XML.";
+		document.getElementById("raw_data_next").textContent = "De rollen zijn hier gerangschikt op verantwoordelijkheid. 'None Specified' komt van deze tool. Een JSON-structuur kan leesbaar zijn als XML.";
 	}
 	else if (translation == 2)	{
 		var modified = '(Modified) ';
@@ -447,7 +447,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
 		document.getElementById("br_zone").textContent = "TLD .br: The RDAP data has been modified with name server validation.";
-		document.getElementById("raw_data_next").textContent = "The roles here are arranged according to responsibility. 'None Specified' comes from this tool. A structure in JSON can be as flat as in XML.";
+		document.getElementById("raw_data_next").textContent = "The roles here are arranged according to responsibility. 'None Specified' comes from this tool. A JSON structure can be readable as XML.";
 	}
 	else if (translation == 3)	{
 		var modified = '(Geändert) ';
@@ -545,7 +545,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 		document.getElementById("name_servers_ip").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
 		document.getElementById("br_zone").textContent = "TLD .br: Die RDAP-Daten wurden mit der Nameserver-Validierung angepasst.";
-		document.getElementById("raw_data_next").textContent = "Die Rollen sind hierbei nach Verantwortung verteilt. 'None Specified' stammt von diesem Tool. Eine Struktur in JSON kann genauso flach sein wie in XML.";
+		document.getElementById("raw_data_next").textContent = "Die Rollen sind hierbei nach Verantwortung verteilt. 'None Specified' stammt von diesem Tool. Eine JSON-Struktur kann als XML lesbar sein.";
 	}
 	else if (translation == 4)	{
 		var modified = '(Modifié) ';
@@ -643,7 +643,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 		document.getElementById("name_servers_ip").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
 		document.getElementById("br_zone").textContent = "TLD .br: Les données RDAP ont été ajustées avec la validation du serveur de noms.";
-		document.getElementById("raw_data_next").textContent = "Les rôles ici sont organisés en fonction des responsabilités. 'None Specified' provient de cet outil. Une structure en JSON peut être aussi plate qu'en XML.";
+		document.getElementById("raw_data_next").textContent = "Les rôles ici sont organisés en fonction des responsabilités. 'None Specified' provient de cet outil. Une structure JSON peut être lisible en XML.";
 	}
 }	
 </script><?php
@@ -801,7 +801,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="3012" style="display:none;vertical-align:top"><td>domain remarks</td><td>'.$data[$pd]['domain']['remarks'].'</td><td></td></tr>';
 	$sponsor_applicable = (strlen($data[$pd]['sponsor']['organization_name']) or strlen($data[$pd]['sponsor']['presented_name'])) ? 'Sponsor Data Exists' : 'No Sponsor Data';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(39)">Sponsor +/-</button></td><td>'.$sponsor_applicable.'</td><td id="sponsor_role"></td></tr>';
-	$html_text .= '<tr id="391" style="display:none"><td>sponsor shielding</td><td>'.implode(",", $data[$pd]['sponsor']['shielding']).'</td><td></td></tr>';
+	$html_text .= '<tr id="391" style="display:none"><td>sponsor shielding</td><td>'.$data[$pd]['sponsor']['shielding'].'</td><td></td></tr>';
 	$html_text .= '<tr id="392" style="display:none"><td>sponsor handle</td><td>'.$data[$pd]['sponsor']['handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="393" style="display:none"><td>sponsor web_id</td><td>'.$data[$pd]['sponsor']['web_id'].'</td><td id="sponsor_web_id"></td></tr>';
 	$html_text .= '<tr id="394" style="display:none"><td>sponsor organization_type</td><td>'.$data[$pd]['sponsor']['organization_type'].'</td><td></td></tr>';
@@ -827,7 +827,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="3924" style="display:none;vertical-align:top"><td>sponsor properties</td><td>'.$data[$pd]['sponsor']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="3925" style="display:none;vertical-align:top"><td>sponsor remarks</td><td>'.$data[$pd]['sponsor']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(40)">Registrant +/-</button></td><td></td><td id="registrant_role"></td></tr>';
-	$html_text .= '<tr id="401" style="display:none"><td>registrant shielding</td><td>'.implode(",", $data[$pd]['registrant']['shielding']).'</td><td id="registrant_shielding"></td></tr>';
+	$html_text .= '<tr id="401" style="display:none"><td>registrant shielding</td><td>'.$data[$pd]['registrant']['shielding'].'</td><td id="registrant_shielding"></td></tr>';
 	$html_text .= '<tr id="402" style="display:none"><td>registrant handle</td><td>'.$data[$pd]['registrant']['handle'].'</td><td id="registrant_handle"></td></tr>';
 	$html_text .= '<tr id="403" style="display:none"><td>registrant web_id</td><td>'.$data[$pd]['registrant']['web_id'].'</td><td id="registrant_web_id"></td></tr>';
 	$html_text .= '<tr id="404" style="display:none"><td>registrant organization_type</td><td>'.$data[$pd]['registrant']['organization_type'].'</td><td id="registrant_organization_type"></td></tr>';
@@ -853,7 +853,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4019" style="display:none;vertical-align:top"><td>registrant properties</td><td>'.$data[$pd]['registrant']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4020" style="display:none;vertical-align:top"><td>registrant remarks</td><td>'.$data[$pd]['registrant']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(41)">Administrative / Decision +/-</button></td><td></td><td id="administrative_role"></td></tr>';
-	$html_text .= '<tr id="411" style="display:none"><td>administrative shielding</td><td>'.implode(",", $data[$pd]['administrative']['shielding']).'</td><td id="administrative_shielding"></td></tr>';
+	$html_text .= '<tr id="411" style="display:none"><td>administrative shielding</td><td>'.$data[$pd]['administrative']['shielding'].'</td><td id="administrative_shielding"></td></tr>';
 	$html_text .= '<tr id="412" style="display:none"><td>administrative handle</td><td>'.$data[$pd]['administrative']['handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="413" style="display:none"><td>administrative web_id</td><td>'.$data[$pd]['administrative']['web_id'].'</td><td id="administrative_web_id"></td></tr>';
 	$html_text .= '<tr id="414" style="display:none"><td>administrative organization_type</td><td>'.$data[$pd]['administrative']['organization_type'].'</td><td></td></tr>';
@@ -874,7 +874,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4118" style="display:none;vertical-align:top"><td>administrative properties</td><td>'.$data[$pd]['administrative']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4119" style="display:none;vertical-align:top"><td>administrative remarks</td><td>'.$data[$pd]['administrative']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Technical / Onsite +/-</button></td><td></td><td id="technical_role"></td></tr>';
-	$html_text .= '<tr id="421" style="display:none"><td>technical shielding</td><td>'.implode(",", $data[$pd]['technical']['shielding']).'</td><td id="technical_shielding"></td></tr>';
+	$html_text .= '<tr id="421" style="display:none"><td>technical shielding</td><td>'.$data[$pd]['technical']['shielding'].'</td><td id="technical_shielding"></td></tr>';
 	$html_text .= '<tr id="422" style="display:none"><td>technical handle</td><td>'.$data[$pd]['technical']['handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="423" style="display:none"><td>technical web_id</td><td>'.$data[$pd]['technical']['web_id'].'</td><td id="technical_web_id"></td></tr>';
 	$html_text .= '<tr id="424" style="display:none"><td>technical organization_type</td><td>'.$data[$pd]['technical']['organization_type'].'</td><td></td></tr>';
@@ -895,7 +895,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4218" style="display:none;vertical-align:top"><td>technical properties</td><td>'.$data[$pd]['technical']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4219" style="display:none;vertical-align:top"><td>technical remarks</td><td>'.$data[$pd]['technical']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(43)">Billing +/-</button></td><td></td><td id="billing_role"></td></tr>';
-	$html_text .= '<tr id="431" style="display:none"><td>billing shielding</td><td>'.implode(",", $data[$pd]['billing']['shielding']).'</td><td id="billing_shielding"></td></tr>';
+	$html_text .= '<tr id="431" style="display:none"><td>billing shielding</td><td>'.$data[$pd]['billing']['shielding'].'</td><td id="billing_shielding"></td></tr>';
 	$html_text .= '<tr id="432" style="display:none"><td>billing handle</td><td>'.$data[$pd]['billing']['handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="433" style="display:none"><td>billing web_id</td><td>'.$data[$pd]['billing']['web_id'].'</td><td></td></tr>';
 	$html_text .= '<tr id="434" style="display:none"><td>billing organization_type</td><td>'.$data[$pd]['billing']['organization_type'].'</td><td></td></tr>';
@@ -916,7 +916,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4319" style="display:none;vertical-align:top"><td>billing properties</td><td>'.$data[$pd]['billing']['properties'].'</td><td></td></tr>';	
 	$html_text .= '<tr id="4320" style="display:none;vertical-align:top"><td>billing remarks</td><td>'.$data[$pd]['billing']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Emergency +/-</button></td><td></td><td id="emergency_role"></td></tr>';
-	$html_text .= '<tr id="441" style="display:none"><td>emergency shielding</td><td>'.implode(",", $data[$pd]['emergency']['shielding']).'</td><td id="emergency_shielding"></td></tr>';
+	$html_text .= '<tr id="441" style="display:none"><td>emergency shielding</td><td>'.$data[$pd]['emergency']['shielding'].'</td><td id="emergency_shielding"></td></tr>';
 	$html_text .= '<tr id="442" style="display:none"><td>emergency handle</td><td>'.$data[$pd]['emergency']['handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="443" style="display:none"><td>emergency web_id</td><td>'.$data[$pd]['emergency']['web_id'].'</td><td id="emergency_web_id"></td></tr>';
 	$html_text .= '<tr id="444" style="display:none"><td>emergency organization_type</td><td>'.$data[$pd]['emergency']['organization_type'].'</td><td></td></tr>';
@@ -938,7 +938,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4420" style="display:none;vertical-align:top"><td>emergency remarks</td><td>'.$data[$pd]['emergency']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(50)">Reseller +/-</button></td><td></td><td id="reseller_role"></td></tr>';
-	$html_text .= '<tr id="501" style="display:none"><td>reseller shielding</td><td>'.implode(",", $data[$pd]['reseller']['shielding']).'</td><td id="reseller_shielding"></td></tr>';
+	$html_text .= '<tr id="501" style="display:none"><td>reseller shielding</td><td>'.$data[$pd]['reseller']['shielding'].'</td><td id="reseller_shielding"></td></tr>';
 	$html_text .= '<tr id="502" style="display:none"><td>reseller handle</td><td>'.$data[$pd]['reseller']['handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="503" style="display:none"><td>reseller web_id</td><td>'.$data[$pd]['reseller']['web_id'].'</td><td id="reseller_web_id"></td></tr>';
 	$html_text .= '<tr id="504" style="display:none"><td>reseller organization_type</td><td>'.$data[$pd]['reseller']['organization_type'].'</td><td></td></tr>';
@@ -965,7 +965,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="5022" style="display:none;vertical-align:top"><td>reseller remarks</td><td>'.$data[$pd]['reseller']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(60)">Registrar +/-</button></td><td></td><td id="registrar_role"></td></tr>';
-	$html_text .= '<tr id="601" style="display:none"><td>registrar shielding</td><td>'.implode(",", $data[$pd]['registrar']['shielding']).'</td><td id="registrar_shielding"></td></tr>';
+	$html_text .= '<tr id="601" style="display:none"><td>registrar shielding</td><td>'.$data[$pd]['registrar']['shielding'].'</td><td id="registrar_shielding"></td></tr>';
 	$html_text .= '<tr id="602" style="display:none"><td>registrar handle</td><td>'.$data[$pd]['registrar']['handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="603" style="display:none"><td>registrar web_id</td><td>'.$data[$pd]['registrar']['web_id'].'</td><td id="registrar_web_id"></td></tr>';
 	$html_text .= '<tr id="604" style="display:none"><td>registrar organization_type</td><td>'.$data[$pd]['registrar']['organization_type'].'</td><td></td></tr>';
@@ -991,7 +991,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="6021" style="display:none;vertical-align:top"><td>registrar properties</td><td>'.$data[$pd]['registrar']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="6022" style="display:none;vertical-align:top"><td>registrar remarks</td><td>'.$data[$pd]['registrar']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Abuse +/-</button></td><td></td><td id="abuse_role"></td></tr>';
-	$html_text .= '<tr id="611" style="display:none"><td>abuse shielding</td><td>'.implode(",", $data[$pd]['abuse']['shielding']).'</td><td id="abuse_shielding"></td></tr>';
+	$html_text .= '<tr id="611" style="display:none"><td>abuse shielding</td><td>'.$data[$pd]['abuse']['shielding'].'</td><td id="abuse_shielding"></td></tr>';
 	$html_text .= '<tr id="612" style="display:none"><td>abuse organization_type</td><td>'.$data[$pd]['abuse']['organization_type'].'</td><td></td></tr>';
 	$html_text .= '<tr id="613" style="display:none"><td>abuse organization_name</td><td>'.$data[$pd]['abuse']['organization_name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="614" style="display:none"><td>abuse presented_name</td><td>'.$data[$pd]['abuse']['presented_name'].'</td><td></td></tr>';

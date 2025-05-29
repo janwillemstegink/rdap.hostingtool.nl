@@ -402,7 +402,8 @@ if ($notice_1_links_0_href == 'https://icann.org/epp' or $notice_1_links_0_href 
 if ($notice_2_links_0_href == 'https://icann.org/epp' or $notice_2_links_0_href == 'https://icann.org/epp/')	$status_explanation_url = $notice_2_links_0_href;
 if ($notice_3_links_0_href == 'https://icann.org/epp' or $notice_3_links_0_href == 'https://icann.org/epp/')	$status_explanation_url = $notice_3_links_0_href;	
 	
-$statuses = '';	
+$statuses_registry = '';
+$statuses_registrar = '';	
 $created_at = null;
 $latest_transfer_at = null;			
 $latest_update_at = null;
@@ -696,7 +697,7 @@ $raw_rdap_data = nl2br(htmlspecialchars($raw_rdap_data));
 $raw_rdap_data = str_replace(' Array','', $raw_rdap_data);
 foreach($obj as $key1 => $value1) {
 	if ($key1 == 'status')	{	
-		$statuses .= (is_array($value1)) ? implode(",<br />", $value1) : $value1;
+		$statuses_registry .= (is_array($value1)) ? implode(",<br />", $value1) : $value1;
 	}
 	if ($key1 == 'extensions')	{	
 		$extensions .= (is_array($value1)) ? implode(",<br />", $value1) : $value1;
@@ -1439,8 +1440,8 @@ $arr[$inputdomain]['metadata']['status_explanation_url'] = $status_explanation_u
 $arr[$inputdomain]['domain']['handle'] = $handle;
 $arr[$inputdomain]['domain']['ascii_name'] = $ascii_name;	
 $arr[$inputdomain]['domain']['unicode_name'] = $unicode_name;
-$arr[$inputdomain]['domain']['statuses_registry'] = $statuses;
-$arr[$inputdomain]['domain']['statuses_registrar'] = '';
+$arr[$inputdomain]['domain']['statuses_registry'] = $statuses_registry;
+$arr[$inputdomain]['domain']['statuses_registrar'] = $statuses_registrar;
 $arr[$inputdomain]['domain']['accredited_registrar'] = $accredited_registrar;	
 $arr[$inputdomain]['domain']['created_at'] = $created_at;	
 $arr[$inputdomain]['domain']['latest_transfer_at'] = $latest_transfer_at;
@@ -1450,7 +1451,7 @@ $arr[$inputdomain]['domain']['deletion_at'] = $deletion_at;
 $arr[$inputdomain]['domain']['extensions'] = $extensions;
 $arr[$inputdomain]['domain']['remarks'] = $remarks;	
 	
-$arr[$inputdomain]['sponsor']['shielding'] = $sponsor_shielding;
+$arr[$inputdomain]['sponsor']['shielding'] = implode(',', $sponsor_shielding);
 $arr[$inputdomain]['sponsor']['handle'] = $sponsor_handle;
 $arr[$inputdomain]['sponsor']['web_id'] = $sponsor_web_id;		
 $arr[$inputdomain]['sponsor']['organization_type'] = $sponsor_organization_type;	
@@ -1474,7 +1475,7 @@ $arr[$inputdomain]['sponsor']['latest_update_at'] = $sponsor_latest_update_at;
 $arr[$inputdomain]['sponsor']['properties'] = $sponsor_properties;
 $arr[$inputdomain]['sponsor']['remarks'] = $sponsor_remarks;
 	
-$arr[$inputdomain]['registrant']['shielding'] = $registrant_shielding;
+$arr[$inputdomain]['registrant']['shielding'] = implode(',', $registrant_shielding);
 $arr[$inputdomain]['registrant']['handle'] = $registrant_handle;
 $arr[$inputdomain]['registrant']['web_id'] = $registrant_web_id;		
 $arr[$inputdomain]['registrant']['organization_type'] = $registrant_organization_type;	
@@ -1498,7 +1499,7 @@ $arr[$inputdomain]['registrant']['latest_update_at'] = $registrant_latest_update
 $arr[$inputdomain]['registrant']['properties'] = $registrant_properties;
 $arr[$inputdomain]['registrant']['remarks'] = $registrant_remarks;	
 	
-$arr[$inputdomain]['administrative']['shielding'] = $administrative_shielding;
+$arr[$inputdomain]['administrative']['shielding'] = implode(',', $administrative_shielding);
 $arr[$inputdomain]['administrative']['handle'] = $administrative_handle;
 $arr[$inputdomain]['administrative']['web_id'] = $administrative_web_id;		
 $arr[$inputdomain]['administrative']['organization_type'] = $administrative_organization_type;	
@@ -1522,7 +1523,7 @@ $arr[$inputdomain]['administrative']['latest_update_at'] = $administrative_lates
 $arr[$inputdomain]['administrative']['properties'] = $administrative_properties;
 $arr[$inputdomain]['administrative']['remarks'] = $administrative_remarks;	
 
-$arr[$inputdomain]['technical']['shielding'] = $technical_shielding;
+$arr[$inputdomain]['technical']['shielding'] = implode(',', $technical_shielding);
 $arr[$inputdomain]['technical']['handle'] = $technical_handle;
 $arr[$inputdomain]['technical']['web_id'] = $technical_web_id;		
 $arr[$inputdomain]['technical']['organization_type'] = $technical_organization_type;	
@@ -1546,7 +1547,7 @@ $arr[$inputdomain]['technical']['latest_update_at'] = $technical_latest_update_a
 $arr[$inputdomain]['technical']['properties'] = $technical_properties;
 $arr[$inputdomain]['technical']['remarks'] = $technical_remarks;
 	
-$arr[$inputdomain]['billing']['shielding'] = $billing_shielding;
+$arr[$inputdomain]['billing']['shielding'] = implode(',', $billing_shielding);
 $arr[$inputdomain]['billing']['handle'] = $billing_handle;
 $arr[$inputdomain]['billing']['web_id'] = $billing_web_id;		
 $arr[$inputdomain]['billing']['organization_type'] = $billing_organization_type;	
@@ -1570,9 +1571,9 @@ $arr[$inputdomain]['billing']['latest_update_at'] = $billing_latest_update_at;
 $arr[$inputdomain]['billing']['properties'] = $billing_properties;
 $arr[$inputdomain]['billing']['remarks'] = $billing_remarks;
 	
-$arr[$inputdomain]['emergency']['shielding'] = $emergency_shielding;
+$arr[$inputdomain]['emergency']['shielding'] = implode(',', $emergency_shielding);
 
-$arr[$inputdomain]['reseller']['shielding'] = $reseller_shielding;
+$arr[$inputdomain]['reseller']['shielding'] = implode(',', $reseller_shielding);
 $arr[$inputdomain]['reseller']['handle'] = $reseller_handle;
 $arr[$inputdomain]['reseller']['web_id'] = $reseller_web_id;		
 $arr[$inputdomain]['reseller']['organization_type'] = $reseller_organization_type;	
@@ -1596,7 +1597,7 @@ $arr[$inputdomain]['reseller']['latest_update_at'] = $reseller_latest_update_at;
 $arr[$inputdomain]['reseller']['properties'] = $reseller_properties;
 $arr[$inputdomain]['reseller']['remarks'] = $reseller_remarks;	
 
-$arr[$inputdomain]['registrar']['shielding'] = $registrar_shielding;
+$arr[$inputdomain]['registrar']['shielding'] = implode(',', $registrar_shielding);
 $arr[$inputdomain]['registrar']['handle'] = $registrar_handle;
 $arr[$inputdomain]['registrar']['web_id'] = $registrar_web_id;		
 $arr[$inputdomain]['registrar']['organization_type'] = $registrar_organization_type;	
@@ -1620,7 +1621,7 @@ $arr[$inputdomain]['registrar']['latest_update_at'] = $registrar_latest_update_a
 $arr[$inputdomain]['registrar']['properties'] = $registrar_properties;
 $arr[$inputdomain]['registrar']['remarks'] = $registrar_remarks;	
 
-$arr[$inputdomain]['abuse']['shielding'] = $abuse_shielding;
+$arr[$inputdomain]['abuse']['shielding'] = implode(',', $abuse_shielding);
 $arr[$inputdomain]['abuse']['organization_type'] = $abuse_organization_type;
 $arr[$inputdomain]['abuse']['organization_name'] = $abuse_organization_name;	
 $arr[$inputdomain]['abuse']['presented_name'] = $abuse_presented_name;
