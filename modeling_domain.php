@@ -40,7 +40,7 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 function SwitchDisplay(type) {
 	if (type == 10)			{ // root zone
 		var pre = '10';
-		var max = 16
+		var max = 13
 	}
 	else if (type == 11)	{ // notice 0
 		var pre = '11';
@@ -73,6 +73,10 @@ function SwitchDisplay(type) {
 	else if (type == 23)	{ // links 3
 		var pre = '23';
 		var max = 7
+	}
+	else if (type == 28)	{ // life cycle
+		var pre = '28';
+		var max = 8
 	}
 	else if (type == 29)	{ // meta
 		var pre = '29';
@@ -178,13 +182,17 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_backend_operator_organization_name").textContent = proposed;
 		document.getElementById("root_zone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("root_zone_language_codes").textContent = modified;
-		document.getElementById("root_zone_redemption_period_days").textContent = proposed;
-		document.getElementById("root_zone_deletion_phase_days").textContent = proposed;
-		document.getElementById("root_zone_upon_termination").textContent = proposed;
 		document.getElementById("root_zone_restrictions_url").textContent = proposed;
 		document.getElementById("root_zone_menu_url").textContent = proposed;
 		document.getElementById("notices_role").textContent = "";
-		document.getElementById("links_role").textContent = "";
+		document.getElementById("links_role").textContent = "";		
+		document.getElementById("lifecycle_role").textContent = proposed;
+		document.getElementById("lifecycle_add_period_days").textContent = proposed;
+		document.getElementById("lifecycle_renew_period_days").textContent = proposed;
+		document.getElementById("lifecycle_auto_renew_period_days").textContent = proposed;		
+		document.getElementById("lifecycle_redemption_period_days").textContent = proposed;
+		document.getElementById("lifecycle_deletion_phase_days").textContent = proposed;
+		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed;
 		document.getElementById("metadata_resource_upload_at").textContent = modified;
@@ -275,14 +283,18 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_registry_operator_presented_name").textContent = proposed;
 		document.getElementById("root_zone_backend_operator_organization_name").textContent = proposed + 'De backend-operator verzorgt de technische infrastructuur van de TLD.';
 		document.getElementById("root_zone_backend_operator_presented_name").textContent = proposed;
-		document.getElementById("root_zone_language_codes").textContent = modified + "Geeft ondersteunde talen voor de Root Zone aan.";
-		document.getElementById("root_zone_redemption_period_days").textContent = proposed;
-		document.getElementById("root_zone_deletion_phase_days").textContent = proposed;
-		document.getElementById("root_zone_upon_termination").textContent = proposed;		
+		document.getElementById("root_zone_language_codes").textContent = modified + "Geeft ondersteunde talen voor de Root Zone aan.";	
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Beperkingen op gebruik en registratiebeleid zijn te vinden via deze URL.";
 		document.getElementById("root_zone_menu_url").textContent = proposed + 'Een TLD-specifiek informatiemenu, beschikbaar onder een subdomein zoals "regmenu".';
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;
+		document.getElementById("lifecycle_role").textContent = proposed;
+		document.getElementById("lifecycle_add_period_days").textContent = proposed;
+		document.getElementById("lifecycle_renew_period_days").textContent = proposed;
+		document.getElementById("lifecycle_auto_renew_period_days").textContent = proposed;
+		document.getElementById("lifecycle_redemption_period_days").textContent = proposed;
+		document.getElementById("lifecycle_deletion_phase_days").textContent = proposed;
+		document.getElementById("lifecycle_upon_termination").textContent = proposed;			
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed + "Een folder /v1/ ondersteunt ook mogelijke /v2/-responses; zie icann.com.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Datum en tijdstip van de RDAP-database-update in Zoeloe-tijd (UTC).";
@@ -349,7 +361,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
 		document.getElementById("br_zone").textContent = "TLD .br: De RDAP-gegevens zijn aangepast met nameservervalidatie.";
-		document.getElementById("raw_data_next").textContent = "De rollen zijn hier gerangschikt op verantwoordelijkheid. 'None Specified' komt van deze tool. Een JSON-structuur kan leesbaar zijn als XML.";
+		document.getElementById("raw_data_next").textContent = "De rollen zijn hier gerangschikt op verantwoordelijkheid. 'None Specified' komt van deze tool. Een JSON-structuur kan ook zo leesbaar zijn als XML.";
 	}
 	else if (translation == 2)	{
 		var modified = '(Modified) ';
@@ -374,13 +386,17 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_backend_operator_organization_name").textContent = proposed + 'The backend operator manages the technical infrastructure of the TLD.';
 		document.getElementById("root_zone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("root_zone_language_codes").textContent = modified + "Indicates supported languages for the Root Zone.";
-		document.getElementById("root_zone_redemption_period_days").textContent = proposed;
-		document.getElementById("root_zone_deletion_phase_days").textContent = proposed;
-		document.getElementById("root_zone_upon_termination").textContent = proposed;
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Usage and registration restrictions are listed at this URL.";
 		document.getElementById("root_zone_menu_url").textContent = proposed + 'A TLD specific information menu, available under a subdomain such as "regmenu".';
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;
+		document.getElementById("lifecycle_role").textContent = proposed;
+		document.getElementById("lifecycle_add_period_days").textContent = proposed;
+		document.getElementById("lifecycle_renew_period_days").textContent = proposed;
+		document.getElementById("lifecycle_auto_renew_period_days").textContent = proposed;		
+		document.getElementById("lifecycle_redemption_period_days").textContent = proposed;
+		document.getElementById("lifecycle_deletion_phase_days").textContent = proposed;
+		document.getElementById("lifecycle_upon_termination").textContent = proposed;		
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed + "A /v1/ folder may also support /v2/ responses — see icann.com for details.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Date and time of RDAP database update in Zulu time (UTC).";
@@ -447,7 +463,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
 		document.getElementById("br_zone").textContent = "TLD .br: The RDAP data has been modified with name server validation.";
-		document.getElementById("raw_data_next").textContent = "The roles here are arranged according to responsibility. 'None Specified' comes from this tool. A JSON structure can be readable as XML.";
+		document.getElementById("raw_data_next").textContent = "The roles here are arranged according to responsibility. 'None Specified' comes from this tool. A JSON structure can also be as readable as XML.";
 	}
 	else if (translation == 3)	{
 		var modified = '(Geändert) ';
@@ -472,13 +488,17 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_backend_operator_organization_name").textContent = proposed + 'Der Backend-Betreiber verwaltet die technische Infrastruktur der TLD.';
 		document.getElementById("root_zone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("root_zone_language_codes").textContent = modified + "Gibt die unterstützten Sprachen der Root-Zone an.";
-		document.getElementById("root_zone_redemption_period_days").textContent = proposed;
-		document.getElementById("root_zone_deletion_phase_days").textContent = proposed;
-		document.getElementById("root_zone_upon_termination").textContent = proposed;
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Nutzungsbeschränkungen und Registrierungsrichtlinien finden Sie unter dieser URL.";		
 		document.getElementById("root_zone_menu_url").textContent = proposed + 'Ein TLD-spezifisches Informationsmenü, verfügbar unter einer Subdomäne wie "regmenu".';
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;
+		document.getElementById("lifecycle_role").textContent = proposed;
+		document.getElementById("lifecycle_add_period_days").textContent = proposed;
+		document.getElementById("lifecycle_renew_period_days").textContent = proposed;
+		document.getElementById("lifecycle_auto_renew_period_days").textContent = proposed;		
+		document.getElementById("lifecycle_redemption_period_days").textContent = proposed;
+		document.getElementById("lifecycle_deletion_phase_days").textContent = proposed;
+		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed + "Ein /v1/-Ordner unterstützt auch mögliche /v2/-Antworten; siehe icann.com.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Datum und Uhrzeit der RDAP-Datenbankaktualisierung in Zulu-Zeit (UTC).";
@@ -545,7 +565,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 		document.getElementById("name_servers_ip").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
 		document.getElementById("br_zone").textContent = "TLD .br: Die RDAP-Daten wurden mit der Nameserver-Validierung angepasst.";
-		document.getElementById("raw_data_next").textContent = "Die Rollen sind hierbei nach Verantwortung verteilt. 'None Specified' stammt von diesem Tool. Eine JSON-Struktur kann als XML lesbar sein.";
+		document.getElementById("raw_data_next").textContent = "Die Rollen sind hierbei nach Verantwortung verteilt. 'None Specified' stammt von diesem Tool. Eine JSON-Struktur kann auch genauso lesbar sein wie XML.";
 	}
 	else if (translation == 4)	{
 		var modified = '(Modifié) ';
@@ -570,13 +590,17 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_backend_operator_organization_name").textContent = proposed + "Le opérateur du backend gère l'infrastructure technique du TLD.";
 		document.getElementById("root_zone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("root_zone_language_codes").textContent = modified + "Indique les langues prises en charge pour la 'Root Zone'.";
-		document.getElementById("root_zone_redemption_period_days").textContent = proposed;
-		document.getElementById("root_zone_deletion_phase_days").textContent = proposed;
-		document.getElementById("root_zone_upon_termination").textContent = proposed;
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Les restrictions d’usage et les politiques d’enregistrement sont accessibles via cette URL.";
 		document.getElementById("root_zone_menu_url").textContent = proposed + "Un menu d'informations spécifique au TLD, disponible sous un sous-domaine tel que 'regmenu'.";
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;
+		document.getElementById("lifecycle_role").textContent = proposed;
+		document.getElementById("lifecycle_add_period_days").textContent = proposed;
+		document.getElementById("lifecycle_renew_period_days").textContent = proposed;
+		document.getElementById("lifecycle_auto_renew_period_days").textContent = proposed;		
+		document.getElementById("lifecycle_redemption_period_days").textContent = proposed;
+		document.getElementById("lifecycle_deletion_phase_days").textContent = proposed;
+		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed + "Un dossier /v1/ prend également en charge les réponses /v2/ possibles ; voir icann.com.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Date et heure de mise à jour de la base de données RDAP en heure Zulu (UTC).";
@@ -643,7 +667,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 		document.getElementById("name_servers_ip").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
 		document.getElementById("br_zone").textContent = "TLD .br: Les données RDAP ont été ajustées avec la validation du serveur de noms.";
-		document.getElementById("raw_data_next").textContent = "Les rôles ici sont organisés en fonction des responsabilités. 'None Specified' provient de cet outil. Une structure JSON peut être lisible en XML.";
+		document.getElementById("raw_data_next").textContent = "Les rôles ici sont organisés en fonction des responsabilités. 'None Specified' provient de cet outil. Une structure JSON peut également être aussi lisible que XML.";
 	}
 }	
 </script><?php
@@ -714,11 +738,8 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="109" style="display:none"><td>backend_operator_organization_name</td><td>'.$data[$pd]['root_zone']['backend_operator_organization_name'].'</td><td id="root_zone_backend_operator_organization_name"></td></tr>';
 	$html_text .= '<tr id="1010" style="display:none"><td>backend_operator_presented_name</td><td>'.$data[$pd]['root_zone']['backend_operator_presented_name'].'</td><td id="root_zone_backend_operator_presented_name"></td></tr>';
 	$html_text .= '<tr id="1011" style="display:none"><td>language_codes</td><td>'.$data[$pd]['root_zone']['language_codes'].'</td><td id="root_zone_language_codes"></td></tr>';
-	$html_text .= '<tr id="1012" style="display:none"><td>redemption_period_days</td><td>'.$data[$pd]['root_zone']['redemption_period_days'].'</td><td id="root_zone_redemption_period_days"></td></tr>';
-	$html_text .= '<tr id="1013" style="display:none"><td>deletion_phase_days</td><td>'.$data[$pd]['root_zone']['deletion_phase_days'].'</td><td id="root_zone_deletion_phase_days"></td></tr>';
-	$html_text .= '<tr id="1014" style="display:none"><td>upon_termination</td><td>'.$data[$pd]['root_zone']['upon_termination'].'</td><td id="root_zone_upon_termination"></td></tr>';
-	$html_text .= '<tr id="1015" style="display:none"><td>restrictions_url</td><td>'.((strlen($data[$pd]['root_zone']['restrictions_url'])) ? '<a href='.$data[$pd]['root_zone']['restrictions_url'].' target="_blank">TLD Restrictions</a>' : '').'</td><td id="root_zone_restrictions_url"></td></tr>';
-	$html_text .= '<tr id="1016" style="display:none"><td>menu_url</td><td>'.((strlen($data[$pd]['root_zone']['menu_url'])) ? '<a href='.$data[$pd]['root_zone']['menu_url'].' target="_blank">TLD Menu</a>' : '').'</td><td id="root_zone_menu_url"></td></tr>';
+	$html_text .= '<tr id="1012" style="display:none"><td>restrictions_url</td><td>'.((strlen($data[$pd]['root_zone']['restrictions_url'])) ? '<a href='.$data[$pd]['root_zone']['restrictions_url'].' target="_blank">TLD Restrictions</a>' : '').'</td><td id="root_zone_restrictions_url"></td></tr>';
+	$html_text .= '<tr id="1013" style="display:none"><td>menu_url</td><td>'.((strlen($data[$pd]['root_zone']['menu_url'])) ? '<a href='.$data[$pd]['root_zone']['menu_url'].' target="_blank">TLD Menu</a>' : '').'</td><td id="root_zone_menu_url"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(11)">Notice0 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(12)">Notice1 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(13)">Notice2 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(14)">Notice3 +/-</button></td><td></td><td id="notices_role"></td></tr>';
 	$html_text .= '<tr id="111" style="display:none;vertical-align:top"><td>notice_0_title</td><td>'.$data[$pd]['notices']['notice_0_title'].'</td><td></td></tr>';
 	$html_text .= '<tr id="112" style="display:none;vertical-align:top"><td>notice_0_description_0</td><td>'.$data[$pd]['notices']['notice_0_description_0'].'</td><td></td></tr>';
@@ -769,6 +790,13 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="235" style="display:none;vertical-align:top"><td>links_3_title</td><td>'.$data[$pd]['links']['links_3_title'].'</td><td></td></tr>';
 	$html_text .= '<tr id="236" style="display:none;vertical-align:top"><td>links_3_media</td><td>'.$data[$pd]['links']['links_3_media'].'</td><td></td></tr>';
 	$html_text .= '<tr id="237" style="display:none;vertical-align:top"><td>links_3_type</td><td>'.$data[$pd]['links']['links_3_type'].'</td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(28)">Lifecycle data +/-</button></td><td></td><td id="lifecycle_role"></td></tr>';
+	$html_text .= '<tr id="281" style="display:none"><td>add_period_days</td><td>'.$data[$pd]['lifecycle']['add_period_days'].'</td><td id="lifecycle_add_period_days"></td></tr>';
+	$html_text .= '<tr id="282" style="display:none"><td>renew_period_days</td><td>'.$data[$pd]['lifecycle']['renew_period_days'].'</td><td id="lifecycle_renew_period_days"></td></tr>';
+	$html_text .= '<tr id="283" style="display:none"><td>auto_renew_period_days</td><td>'.$data[$pd]['lifecycle']['auto_renew_period_days'].'</td><td id="lifecycle_auto_renew_period_days"></td></tr>';
+	$html_text .= '<tr id="284" style="display:none"><td>redemption_period_days</td><td>'.$data[$pd]['lifecycle']['redemption_period_days'].'</td><td id="lifecycle_redemption_period_days"></td></tr>';
+	$html_text .= '<tr id="285" style="display:none"><td>deletion_phase_days</td><td>'.$data[$pd]['lifecycle']['deletion_phase_days'].'</td><td id="lifecycle_deletion_phase_days"></td></tr>';
+	$html_text .= '<tr id="286" style="display:none"><td>upon_termination</td><td>'.$data[$pd]['lifecycle']['upon_termination'].'</td><td id="lifecycle_upon_termination"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(29)">Metadata +/-</button></td><td></td><td id="metadata_role"></td></tr>';
 	$html_text .= '<tr id="291" style="display:none"><td>lookup_endpoints_url</td><td><a href='.$data[$pd]['metadata']['lookup_endpoints_url'].' target="_blank">Lookup Endpoints</a></td><td id="metadata_lookup_endpoints_url"></td></tr>';
 	$html_text .= '<tr id="292" style="display:none"><td>resource_upload_at</td><td>'.$data[$pd]['metadata']['resource_upload_at'].'</td><td id="metadata_resource_upload_at"></td></tr>';

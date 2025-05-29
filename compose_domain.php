@@ -193,6 +193,9 @@ $registry_operator_presented_name = '';
 $backend_operator_organization_name = '';
 $backend_operator_presented_name = '';
 $redemption_period_days = null;
+$add_period_days = null;
+$renew_period_days = null;
+$auto_renew_period_days = null;
 $deletion_phase_days = null;
 $upon_termination = null;
 $restrictions_url = '';
@@ -201,6 +204,9 @@ $registrant_web_id = '';
 if ($top_level_domain == 'nl')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
+	$add_period_days = null;
+	$renew_period_days = null;
+	$auto_renew_period_days = null;
 	$redemption_period_days = 40;
 	$deletion_phase_days = 0;
 	$upon_termination = ".nl quarantine phase of 40 days";
@@ -1365,9 +1371,6 @@ $arr[$inputdomain]['root_zone']['registry_operator_presented_name'] = $registry_
 $arr[$inputdomain]['root_zone']['backend_operator_organization_name'] = $backend_operator_organization_name;
 $arr[$inputdomain]['root_zone']['backend_operator_presented_name'] = $backend_operator_presented_name;
 $arr[$inputdomain]['root_zone']['language_codes'] = $language_codes;
-$arr[$inputdomain]['root_zone']['redemption_period_days'] = $redemption_period_days;
-$arr[$inputdomain]['root_zone']['deletion_phase_days'] = $deletion_phase_days;
-$arr[$inputdomain]['root_zone']['upon_termination'] = $upon_termination;
 $arr[$inputdomain]['root_zone']['restrictions_url'] = $restrictions_url;
 $arr[$inputdomain]['root_zone']['menu_url'] = $menu_url;
 	
@@ -1426,6 +1429,13 @@ $arr[$inputdomain]['links']['links_3_href_lang'] = $links_3_href_lang;
 $arr[$inputdomain]['links']['links_3_title'] = $links_3_title;	
 $arr[$inputdomain]['links']['links_3_media'] = $links_3_media;	
 $arr[$inputdomain]['links']['links_3_type'] = $links_3_type;	
+	
+$arr[$inputdomain]['lifecycle']['add_period_days'] = $add_period_days;
+$arr[$inputdomain]['lifecycle']['renew_period_days'] = $renew_period_days;
+$arr[$inputdomain]['lifecycle']['auto_renew_period_days'] = $auto_renew_period_days;
+$arr[$inputdomain]['lifecycle']['redemption_period_days'] = $redemption_period_days;
+$arr[$inputdomain]['lifecycle']['deletion_phase_days'] = $deletion_phase_days;
+$arr[$inputdomain]['lifecycle']['upon_termination'] = $upon_termination;	
 
 $arr[$inputdomain]['metadata']['lookup_endpoints_url'] = $lookup_endpoints_url;
 $arr[$inputdomain]['metadata']['resource_upload_at'] = $resource_upload_at;	
