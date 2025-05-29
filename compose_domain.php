@@ -607,7 +607,7 @@ $name_servers_ascii = '';
 $name_servers_unicode = '';
 $name_servers_ipv4 = '';
 $name_servers_ipv6 = '';
-$name_servers_status = '';
+$name_servers_statuses = '';
 $name_servers_delegation_check = '';
 $name_servers_latest_correct_delegation_check = '';	
 	
@@ -950,7 +950,7 @@ foreach($obj as $key1 => $value1) {
 									$name_servers_delegation_check .= $key2.': '.$value4['eventDate']."<br />";
 								}
 								if ($key5 == 'status')	{
-									$name_servers_status .= $key2.': '.$value5[0]."<br />";	
+									$name_servers_statuses .= $key2.': '.$value5[0]."<br />";	
 								}
 							}	
 							elseif ($key4 == 1)	{	
@@ -1643,13 +1643,13 @@ $arr[$inputdomain]['registrar']['latest_update_at'] = $registrar_latest_update_a
 $arr[$inputdomain]['registrar']['properties'] = $registrar_properties;
 $arr[$inputdomain]['registrar']['remarks'] = $registrar_remarks;	
 	
-$arr[$inputdomain]['name_servers']['ascii'] = $name_servers_ascii;
-$arr[$inputdomain]['name_servers']['unicode'] = $name_servers_unicode;	
-$arr[$inputdomain]['name_servers']['ipv4'] = $name_servers_ipv4;	
-$arr[$inputdomain]['name_servers']['ipv6'] = $name_servers_ipv6;	
-$arr[$inputdomain]['name_servers']['status'] = $name_servers_status;	
-$arr[$inputdomain]['name_servers']['delegation_check'] = $name_servers_delegation_check;
-$arr[$inputdomain]['name_servers']['latest_correct_delegation_check'] = $name_servers_latest_correct_delegation_check;	
+$arr[$inputdomain]['name_servers']['ascii_names'] = $name_servers_ascii;
+$arr[$inputdomain]['name_servers']['unicode_names'] = $name_servers_unicode;	
+$arr[$inputdomain]['name_servers']['ipv4_addresses'] = $name_servers_ipv4;	
+$arr[$inputdomain]['name_servers']['ipv6_addresses'] = $name_servers_ipv6;	
+$arr[$inputdomain]['name_servers']['statuses'] = $name_servers_statuses;	
+$arr[$inputdomain]['name_servers']['delegation_checks'] = $name_servers_delegation_check;
+$arr[$inputdomain]['name_servers']['latest_correct_delegation_checks'] = $name_servers_latest_correct_delegation_check;	
 $arr[$inputdomain]['name_servers']['dnssec'] = $name_servers_dnssec;
 $arr[$inputdomain]['name_servers']['dnssec_algorithm'] = $name_servers_dnssec_algorithm;
 	
