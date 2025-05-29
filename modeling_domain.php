@@ -76,7 +76,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 28)	{ // life cycle
 		var pre = '28';
-		var max = 8
+		var max = 7
 	}
 	else if (type == 29)	{ // meta
 		var pre = '29';
@@ -187,6 +187,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("notices_role").textContent = "";
 		document.getElementById("links_role").textContent = "";		
 		document.getElementById("lifecycle_role").textContent = proposed;
+		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed;
 		document.getElementById("lifecycle_add_period_days").textContent = proposed;
 		document.getElementById("lifecycle_renew_period_days").textContent = proposed;
 		document.getElementById("lifecycle_auto_renew_period_days").textContent = proposed;		
@@ -289,6 +290,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;
 		document.getElementById("lifecycle_role").textContent = proposed;
+		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed;
 		document.getElementById("lifecycle_add_period_days").textContent = proposed;
 		document.getElementById("lifecycle_renew_period_days").textContent = proposed;
 		document.getElementById("lifecycle_auto_renew_period_days").textContent = proposed;
@@ -391,6 +393,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;
 		document.getElementById("lifecycle_role").textContent = proposed;
+		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed;
 		document.getElementById("lifecycle_add_period_days").textContent = proposed;
 		document.getElementById("lifecycle_renew_period_days").textContent = proposed;
 		document.getElementById("lifecycle_auto_renew_period_days").textContent = proposed;		
@@ -493,6 +496,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;
 		document.getElementById("lifecycle_role").textContent = proposed;
+		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed;
 		document.getElementById("lifecycle_add_period_days").textContent = proposed;
 		document.getElementById("lifecycle_renew_period_days").textContent = proposed;
 		document.getElementById("lifecycle_auto_renew_period_days").textContent = proposed;		
@@ -595,6 +599,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;
 		document.getElementById("lifecycle_role").textContent = proposed;
+		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed;
 		document.getElementById("lifecycle_add_period_days").textContent = proposed;
 		document.getElementById("lifecycle_renew_period_days").textContent = proposed;
 		document.getElementById("lifecycle_auto_renew_period_days").textContent = proposed;		
@@ -726,7 +731,7 @@ $html_text .= '<tr style="font-size: .8rem"><td id="subtitle" style="font-size: 
 //echo $pd.'#'.$data[$pd]['domain']['ascii_name'];
 if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($data[$pd]['domain']['ascii_name']))	{
 	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td id="value"><td id="explanation"></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(10)">Root Zone information +/-</button></td><td><b>'.$data[$pd]['root_zone']['top_level_domain'].'</b></td><td id="root_zone_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(10)">Root Zone Information +/-</button></td><td><b>'.$data[$pd]['root_zone']['top_level_domain'].'</b></td><td id="root_zone_role"></td></tr>';
 	$html_text .= '<tr id="101" style="display:none"><td>root_zones_url</td><td><a href='.$data[$pd]['root_zone']['root_zones_url'].' target="_blank">Root Zones</a></td><td id="root_zone_root_zones_url"></td></tr>';
 	$html_text .= '<tr id="102" style="display:none"><td>delegation_url</td><td><a href='.$data[$pd]['root_zone']['delegation_url'].' target="_blank">TLD Delegation</a></td><td id="root_zone_delegation_url"></td></tr>';
 	$html_text .= '<tr id="103" style="display:none"><td>tld_category</td><td>'.$data[$pd]['root_zone']['tld_category'].'</td><td id="root_zone_tld_category"></td></tr>';
@@ -790,13 +795,14 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="235" style="display:none;vertical-align:top"><td>links_3_title</td><td>'.$data[$pd]['links']['links_3_title'].'</td><td></td></tr>';
 	$html_text .= '<tr id="236" style="display:none;vertical-align:top"><td>links_3_media</td><td>'.$data[$pd]['links']['links_3_media'].'</td><td></td></tr>';
 	$html_text .= '<tr id="237" style="display:none;vertical-align:top"><td>links_3_type</td><td>'.$data[$pd]['links']['links_3_type'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(28)">Lifecycle data +/-</button></td><td></td><td id="lifecycle_role"></td></tr>';
-	$html_text .= '<tr id="281" style="display:none"><td>add_period_days</td><td>'.$data[$pd]['lifecycle']['add_period_days'].'</td><td id="lifecycle_add_period_days"></td></tr>';
-	$html_text .= '<tr id="282" style="display:none"><td>renew_period_days</td><td>'.$data[$pd]['lifecycle']['renew_period_days'].'</td><td id="lifecycle_renew_period_days"></td></tr>';
-	$html_text .= '<tr id="283" style="display:none"><td>auto_renew_period_days</td><td>'.$data[$pd]['lifecycle']['auto_renew_period_days'].'</td><td id="lifecycle_auto_renew_period_days"></td></tr>';
-	$html_text .= '<tr id="284" style="display:none"><td>redemption_period_days</td><td>'.$data[$pd]['lifecycle']['redemption_period_days'].'</td><td id="lifecycle_redemption_period_days"></td></tr>';
-	$html_text .= '<tr id="285" style="display:none"><td>deletion_phase_days</td><td>'.$data[$pd]['lifecycle']['deletion_phase_days'].'</td><td id="lifecycle_deletion_phase_days"></td></tr>';
-	$html_text .= '<tr id="286" style="display:none"><td>upon_termination</td><td>'.$data[$pd]['lifecycle']['upon_termination'].'</td><td id="lifecycle_upon_termination"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(28)">Lifecycle Data +/-</button></td><td></td><td id="lifecycle_role"></td></tr>';
+	$html_text .= '<tr id="281" style="display:none"><td>max_subscription_period_years</td><td>'.$data[$pd]['lifecycle']['max_subscription_period_years'].'</td><td id="lifecycle_max_subscription_period_years"></td></tr>';
+	$html_text .= '<tr id="282" style="display:none"><td>add_period_days</td><td>'.$data[$pd]['lifecycle']['add_period_days'].'</td><td id="lifecycle_add_period_days"></td></tr>';
+	$html_text .= '<tr id="283" style="display:none"><td>renew_period_days</td><td>'.$data[$pd]['lifecycle']['renew_period_days'].'</td><td id="lifecycle_renew_period_days"></td></tr>';
+	$html_text .= '<tr id="284" style="display:none"><td>auto_renew_period_days</td><td>'.$data[$pd]['lifecycle']['auto_renew_period_days'].'</td><td id="lifecycle_auto_renew_period_days"></td></tr>';
+	$html_text .= '<tr id="285" style="display:none"><td>redemption_period_days</td><td>'.$data[$pd]['lifecycle']['redemption_period_days'].'</td><td id="lifecycle_redemption_period_days"></td></tr>';
+	$html_text .= '<tr id="286" style="display:none"><td>deletion_phase_days</td><td>'.$data[$pd]['lifecycle']['deletion_phase_days'].'</td><td id="lifecycle_deletion_phase_days"></td></tr>';
+	$html_text .= '<tr id="287" style="display:none"><td>upon_termination</td><td>'.$data[$pd]['lifecycle']['upon_termination'].'</td><td id="lifecycle_upon_termination"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(29)">Metadata +/-</button></td><td></td><td id="metadata_role"></td></tr>';
 	$html_text .= '<tr id="291" style="display:none"><td>lookup_endpoints_url</td><td><a href='.$data[$pd]['metadata']['lookup_endpoints_url'].' target="_blank">Lookup Endpoints</a></td><td id="metadata_lookup_endpoints_url"></td></tr>';
 	$html_text .= '<tr id="292" style="display:none"><td>resource_upload_at</td><td>'.$data[$pd]['metadata']['resource_upload_at'].'</td><td id="metadata_resource_upload_at"></td></tr>';
@@ -812,7 +818,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="298" style="display:none"><td>registrar_complaint_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_complaint_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_complaint_url'].' target="_blank">icann.org/wicf</a>' : 'Not Applicable').'</td><td id="metadata_registrar_complaint_url"></td></tr>';
 	$html_text .= '<tr id="299" style="display:none"><td>status_explanation_url</td><td>'.((strlen($data[$pd]['metadata']['status_explanation_url'])) ? '<a href='.$data[$pd]['metadata']['status_explanation_url'].' target="_blank">icann.org/epp</a>' : 'Not Applicable').'</td><td id="metadata_status_explanation_url"></td></tr>';
 	//$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(30)">Domain data +/-</button></td><td>'.$vd.'</td><td id="domain_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(30)">Domain Data +/-</button></td><td>'.$vd.'</td><td id="domain_role"></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>domain_handle</td><td>'.$data[$pd]['domain']['handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="302" style="display:none"><td>domain_ascii_name (lower case is not a "MUST")</td><td>'.$data[$pd]['domain']['ascii_name'].'</td><td id="domain_ascii_name"></td></tr>';
 	$html_text .= '<tr id="303" style="display:none"><td>domain_unicode_name</td><td>'.$data[$pd]['domain']['unicode_name'].'</td><td id="domain_unicode_name"></td></tr>';
@@ -827,7 +833,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="3010" style="display:none"><td>domain_deletion_at</td><td>'.$data[$pd]['domain']['deletion_at'].'</td><td id="domain_deletion_at"></td></tr>';
 	$html_text .= '<tr id="3011" style="display:none;vertical-align:top"><td>domain_extensions</td><td>'.$data[$pd]['domain']['extensions'].'</td><td id="domain_extensions"></td></tr>';
 	$html_text .= '<tr id="3012" style="display:none;vertical-align:top"><td>domain_remarks</td><td>'.$data[$pd]['domain']['remarks'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(35)">Abuse contact +/-</button></td><td></td><td id="abuse_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(35)">Abuse Contact +/-</button></td><td></td><td id="abuse_role"></td></tr>';
 	$html_text .= '<tr id="351" style="display:none"><td>abuse_shielding</td><td>'.$data[$pd]['abuse']['shielding'].'</td><td id="abuse_shielding"></td></tr>';
 	$html_text .= '<tr id="352" style="display:none"><td>abuse_organization_type</td><td>'.$data[$pd]['abuse']['organization_type'].'</td><td></td></tr>';
 	$html_text .= '<tr id="353" style="display:none"><td>abuse_organization_name</td><td>'.$data[$pd]['abuse']['organization_name'].'</td><td></td></tr>';
@@ -1039,9 +1045,9 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr><td>dnssec</td><td>'.$data[$pd]['name_servers']['dnssec'].'</td><td id="name_servers_dnssec"></td></tr>';
 	$html_text .= '<tr><td>dnssec_algorithm</td><td>'.$data[$pd]['name_servers']['dnssec_algorithm'].'</td><td id="name_servers_dnssec_algorithm"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(70)">raw Whois +/-</button></td><td colspan="2"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(70)">Raw Whois +/-</button></td><td colspan="2"></td></tr>';
 	$html_text .= '<tr id="701" style="display:none"><td colspan="3">'.$data[$pd]['raw_whois'].'</td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(75)">raw RDAP +/-</button></td><td id="raw_data_next" colspan="2"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(75)">Raw RDAP +/-</button></td><td id="raw_data_next" colspan="2"></td></tr>';
 	$html_text .= '<tr id="751" style="display:none"><td colspan="3">'.$data[$pd]['raw_rdap'].'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 }
