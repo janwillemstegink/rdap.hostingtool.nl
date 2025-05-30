@@ -823,10 +823,15 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="302" style="display:none"><td>domain_ascii_name (lower case is not a "MUST")</td><td>'.$data[$pd]['domain']['ascii_name'].'</td><td id="domain_ascii_name"></td></tr>';
 	$html_text .= '<tr id="303" style="display:none"><td>domain_unicode_name</td><td>'.$data[$pd]['domain']['unicode_name'].'</td><td id="domain_unicode_name"></td></tr>';
 	$html_text .= '<tr style="vertical-align:top"><td>domain_statuses_registry</td><td>'.$data[$pd]['domain']['statuses_registry'].'</td><td id="domain_statuses_registry"></td></tr>';
-	if (!empty($data[$pd]['root_zone']['top_level_domain']))	{
-		if ($data[$pd]['root_zone']['top_level_domain'] == 'nl')	{
-			if (str_contains($data[$pd]['domain']['statuses_registry'], 'pending delete'))	{
-				$html_text .= '<tr><td>Notice to the Registry:</td><td>.nl: "pending delete" -> "redemption period"</td><td></td></tr>';
+	if (!empty($data[$pd]['domain']['statuses_registry']))	{
+		if (str_contains($data[$pd]['domain']['statuses_registry'], 'pending delete'))	{
+			if (str_contains($data[$pd]['domain']['statuses_registry'], 'redemption period') and str_contains($data[$pd]['domain']['statuses_registry'], 'pending delete'))	{
+				$html_text .= '<tr><td>Notice to the Registry:</td><td>"pending delete" disregards redemption<td><td></td></tr>';
+			}	
+			elseif (!empty($data[$pd]['root_zone']['top_level_domain']))	{
+				if ($data[$pd]['root_zone']['top_level_domain'] == 'nl')	{
+					$html_text .= '<tr><td>Notice to the Registry:</td><td>.nl: pending delete -> redemption period</td><td></td></tr>';
+				}	
 			}	
 		}	
 	}
@@ -840,11 +845,18 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
     	$expiration = strtotime($data[$pd]['domain']['expiration_at']);
     	$deletion = strtotime($data[$pd]['domain']['deletion_at']);
     	if ($expiration !== false and $deletion !== false and $expiration > $deletion) {
-        	$html_text .= '<tr><td>Notice to the Registry:</td><td>inconsistency: expiration_at > deletion_at</td><td></td></tr>';
+       		$html_text .= '<tr><td>Notice to the Registry:</td><td>inconsistency: expiration_at > deletion_at</td><td></td></tr>';
     	}
 	}
 	$html_text .= '<tr id="309" style="display:none"><td>domain_recovery_deadline</td><td>'.$data[$pd]['domain']['recovery_deadline'].'</td><td id="domain_recovery_deadline"></td></tr>';
-	$html_text .= '<tr id="3010" style="display:none"><td>domain_deletion_at</td><td>'.$data[$pd]['domain']['deletion_at'].'</td><td id="domain_deletion_at"></td></tr>';		
+	$html_text .= '<tr id="3010" style="display:none"><td>domain_deletion_at</td><td>'.$data[$pd]['domain']['deletion_at'].'</td><td id="domain_deletion_at"></td></tr>';
+	if (!empty($data[$pd]['domain']['deletion_at'])) {
+		$current = strtotime($datetime->format('Y-m-d H:i:s'));
+		$deletion = strtotime($data[$pd]['domain']['deletion_at']);
+    	if ($current !== false and $deletion !== false and $current > $deletion) {
+        	$html_text .= '<tr><td>Notice to the Registry:</td><td>scheduled "deletion_at" < current time</td><td></td></tr>';
+    	}
+	}
 	$html_text .= '<tr id="3011" style="display:none;vertical-align:top"><td>domain_extensions</td><td>'.$data[$pd]['domain']['extensions'].'</td><td id="domain_extensions"></td></tr>';
 	$html_text .= '<tr id="3012" style="display:none;vertical-align:top"><td>domain_remarks</td><td>'.$data[$pd]['domain']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(35)">Abuse Contact +/-</button></td><td></td><td id="abuse_role"></td></tr>';
