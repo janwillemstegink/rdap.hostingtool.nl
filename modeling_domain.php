@@ -826,11 +826,11 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	if (!empty($data[$pd]['domain']['statuses_registry']))	{
 		if (str_contains($data[$pd]['domain']['statuses_registry'], 'pending delete'))	{
 			if (str_contains($data[$pd]['domain']['statuses_registry'], 'redemption period') and str_contains($data[$pd]['domain']['statuses_registry'], 'pending delete'))	{
-				$html_text .= '<tr><td>Notice to the Registry:</td><td>"pending delete" disregards redemption<td><td></td></tr>';
+				$html_text .= '<tr><td>Notice to the Registry:</td><td>"pending delete" disregards redemption grace<td><td></td></tr>';
 			}	
 			elseif (!empty($data[$pd]['root_zone']['top_level_domain']))	{
 				if ($data[$pd]['root_zone']['top_level_domain'] == 'nl')	{
-					$html_text .= '<tr><td>Notice to the Registry:</td><td>.nl: pending delete -> redemption period</td><td></td></tr>';
+					$html_text .= '<tr><td>Notice to the Registry:</td><td>.nl: "pending delete" -> "redemption period"</td><td></td></tr>';
 				}	
 			}	
 		}	
@@ -845,7 +845,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
     	$expiration = strtotime($data[$pd]['domain']['expiration_at']);
     	$deletion = strtotime($data[$pd]['domain']['deletion_at']);
     	if ($expiration !== false and $deletion !== false and $expiration > $deletion) {
-       		$html_text .= '<tr><td>Notice to the Registry:</td><td>inconsistency: expiration_at > deletion_at</td><td></td></tr>';
+       		$html_text .= '<tr><td>Notice to the Registry:</td><td>inconsistency: "expiration_at" > "deletion_at"</td><td></td></tr>';
     	}
 	}
 	$html_text .= '<tr id="309" style="display:none"><td>domain_recovery_deadline</td><td>'.$data[$pd]['domain']['recovery_deadline'].'</td><td id="domain_recovery_deadline"></td></tr>';
@@ -854,7 +854,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 		$current = strtotime($datetime->format('Y-m-d H:i:s'));
 		$deletion = strtotime($data[$pd]['domain']['deletion_at']);
     	if ($current !== false and $deletion !== false and $current > $deletion) {
-        	$html_text .= '<tr><td>Notice to the Registry:</td><td>scheduled "deletion_at" < current time</td><td></td></tr>';
+        	$html_text .= '<tr><td>Notice to the Registry:</td><td>the "deletion_at" time is before now</td><td></td></tr>';
     	}
 	}
 	$html_text .= '<tr id="3011" style="display:none;vertical-align:top"><td>domain_extensions</td><td>'.$data[$pd]['domain']['extensions'].'</td><td id="domain_extensions"></td></tr>';
