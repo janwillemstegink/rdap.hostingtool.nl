@@ -823,14 +823,28 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="302" style="display:none"><td>domain_ascii_name (lower case is not a "MUST")</td><td>'.$data[$pd]['domain']['ascii_name'].'</td><td id="domain_ascii_name"></td></tr>';
 	$html_text .= '<tr id="303" style="display:none"><td>domain_unicode_name</td><td>'.$data[$pd]['domain']['unicode_name'].'</td><td id="domain_unicode_name"></td></tr>';
 	$html_text .= '<tr style="vertical-align:top"><td>domain_statuses_registry</td><td>'.$data[$pd]['domain']['statuses_registry'].'</td><td id="domain_statuses_registry"></td></tr>';
+	if (!empty($data[$pd]['root_zone']['top_level_domain']))	{
+		if ($data[$pd]['root_zone']['top_level_domain'] == 'nl')	{
+			if (str_contains($data[$pd]['domain']['statuses_registry'], 'pending delete'))	{
+				$html_text .= '<tr><td>Notice to the Registry:</td><td>.nl: "pending delete" -> "redemption period"</td><td></td></tr>';
+			}	
+		}	
+	}
 	$html_text .= '<tr id="304" style="display:none;vertical-align:top"><td>domain_statuses_registrar</td><td>'.$data[$pd]['domain']['statuses_registrar'].'</td><td id="domain_statuses_registrar"></td></tr>';
 	$html_text .= '<tr id="305" style="display:none"><td>domain_accredited_registrar</td><td>'.((strlen($data[$pd]['domain']['accredited_registrar'])) ? $data[$pd]['domain']['accredited_registrar'] : 'Not Applicable').'</td><td id="domain_accredited_registrar"></td></tr>';
 	$html_text .= '<tr id="306" style="display:none"><td>domain_created_at</td><td>'.$data[$pd]['domain']['created_at'].'</td><td id="domain_created_at"></td></tr>';
 	$html_text .= '<tr id="307" style="display:none"><td>domain_latest_transfer_at</td><td>'.$data[$pd]['domain']['latest_transfer_at'].'</td><td></td></tr>';
 	$html_text .= '<tr id="308" style="display:none"><td>domain_latest_update_at</td><td>'.$data[$pd]['domain']['latest_update_at'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>domain_expiration_at</td><td>'.$data[$pd]['domain']['expiration_at'].'</td><td id="domain_expiration_at"></td></tr>';
+	if (!empty($data[$pd]['domain']['expiration_at']) and !empty($data[$pd]['domain']['deletion_at'])) {
+    	$expiration = strtotime($data[$pd]['domain']['expiration_at']);
+    	$deletion = strtotime($data[$pd]['domain']['deletion_at']);
+    	if ($expiration !== false and $deletion !== false and $expiration > $deletion) {
+        	$html_text .= '<tr><td>Notice to the Registry:</td><td>inconsistency: expiration_at > deletion_at</td><td></td></tr>';
+    	}
+	}
 	$html_text .= '<tr id="309" style="display:none"><td>domain_recovery_deadline</td><td>'.$data[$pd]['domain']['recovery_deadline'].'</td><td id="domain_recovery_deadline"></td></tr>';
-	$html_text .= '<tr id="3010" style="display:none"><td>domain_deletion_at</td><td>'.$data[$pd]['domain']['deletion_at'].'</td><td id="domain_deletion_at"></td></tr>';
+	$html_text .= '<tr id="3010" style="display:none"><td>domain_deletion_at</td><td>'.$data[$pd]['domain']['deletion_at'].'</td><td id="domain_deletion_at"></td></tr>';		
 	$html_text .= '<tr id="3011" style="display:none;vertical-align:top"><td>domain_extensions</td><td>'.$data[$pd]['domain']['extensions'].'</td><td id="domain_extensions"></td></tr>';
 	$html_text .= '<tr id="3012" style="display:none;vertical-align:top"><td>domain_remarks</td><td>'.$data[$pd]['domain']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(35)">Abuse Contact +/-</button></td><td></td><td id="abuse_role"></td></tr>';
@@ -1039,8 +1053,8 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="632" style="display:none;vertical-align:top"><td>unicode_names</td><td>'.$data[$pd]['name_servers']['unicode_names'].'</td><td></td></tr>';
 	$html_text .= '<tr id="633" style="display:none;vertical-align:top"><td>ipv4_addresses</td><td>'.$data[$pd]['name_servers']['ipv4_addresses'].'</td><td id="name_servers_ip"></td></tr>';
 	$html_text .= '<tr id="634" style="display:none;vertical-align:top"><td>ipv6_addresses</td><td>'.$data[$pd]['name_servers']['ipv6_addresses'].'</td><td></td></tr>';
-	$html_text .= '<tr id="636" style="display:none;vertical-align:top"><td>statuses</td><td>'.$data[$pd]['name_servers']['statuses'].'</td><td id="br_zone"></td></tr>';
-	$html_text .= '<tr id="635" style="display:none;vertical-align:top"><td>delegation_checks</td><td>'.$data[$pd]['name_servers']['delegation_checks'].'</td><td></td></tr>';
+	$html_text .= '<tr id="636" style="display:none;vertical-align:top"><td>statuses</td><td>'.$data[$pd]['name_servers']['statuses'].'</td><td></td></tr>';
+	$html_text .= '<tr id="635" style="display:none;vertical-align:top"><td>delegation_checks</td><td>'.$data[$pd]['name_servers']['delegation_checks'].'</td><td id="br_zone"></td></tr>';
 	$html_text .= '<tr id="637" style="display:none;vertical-align:top"><td>latest_correct_delegation_checks</td><td>'.$data[$pd]['name_servers']['latest_correct_delegation_checks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>dnssec</td><td>'.$data[$pd]['name_servers']['dnssec'].'</td><td id="name_servers_dnssec"></td></tr>';
 	$html_text .= '<tr><td>dnssec_algorithm</td><td>'.$data[$pd]['name_servers']['dnssec_algorithm'].'</td><td id="name_servers_dnssec_algorithm"></td></tr>';
