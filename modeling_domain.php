@@ -826,11 +826,11 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	if (!empty($data[$pd]['domain']['statuses_registry']))	{
 		if (str_contains($data[$pd]['domain']['statuses_registry'], 'pending delete'))	{
 			if (str_contains($data[$pd]['domain']['statuses_registry'], 'redemption period') and str_contains($data[$pd]['domain']['statuses_registry'], 'pending delete'))	{
-				$html_text .= '<tr><td>Notice to the Registry:</td><td>"pending delete" disregards redemption grace<td><td></td></tr>';
+				$html_text .= '<tr><td>⚠️ (notice to the registry)</td><td>"pending delete" disregards redemption grace<td><td></td></tr>';
 			}	
 			elseif (!empty($data[$pd]['root_zone']['top_level_domain']))	{
 				if ($data[$pd]['root_zone']['top_level_domain'] == 'nl')	{
-					$html_text .= '<tr><td>Notice to the Registry:</td><td>.nl: "pending delete" -> "redemption period"</td><td></td></tr>';
+					$html_text .= '<tr><td>⚠️ (notice to the registry)</td><td>.nl: "pending delete" -> "redemption period"</td><td></td></tr>';
 				}	
 			}	
 		}	
@@ -845,7 +845,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
     	$expiration = strtotime($data[$pd]['domain']['expiration_at']);
     	$deletion = strtotime($data[$pd]['domain']['deletion_at']);
     	if ($expiration !== false and $deletion !== false and $expiration > $deletion) {
-       		$html_text .= '<tr><td>Notice to the Registry:</td><td>inconsistency: "expiration_at" > "deletion_at"</td><td></td></tr>';
+       		$html_text .= '<tr><td>❌ (notice to the registry)</td><td>inconsistency: "expiration_at" > "deletion_at"</td><td></td></tr>';
     	}
 	}
 	$html_text .= '<tr id="309" style="display:none"><td>domain_recovery_deadline</td><td>'.$data[$pd]['domain']['recovery_deadline'].'</td><td id="domain_recovery_deadline"></td></tr>';
@@ -854,7 +854,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 		$current = strtotime($datetime->format('Y-m-d H:i:s'));
 		$deletion = strtotime($data[$pd]['domain']['deletion_at']);
     	if ($current !== false and $deletion !== false and $current > $deletion) {
-        	$html_text .= '<tr><td>Notice to the Registry:</td><td>the "deletion_at" time is before now</td><td></td></tr>';
+        	$html_text .= '<tr><td>⚠️ (notice to the registry)</td><td>the "deletion_at" time is before now</td><td></td></tr>';
     	}
 	}
 	$html_text .= '<tr id="3011" style="display:none;vertical-align:top"><td>domain_extensions</td><td>'.$data[$pd]['domain']['extensions'].'</td><td id="domain_extensions"></td></tr>';
@@ -885,7 +885,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="3913" style="display:none"><td>sponsor_city</td><td>'.$data[$pd]['sponsor']['city'].'</td><td></td></tr>';
 	$html_text .= '<tr id="3914" style="display:none"><td>sponsor_state_or_province</td><td>'.$data[$pd]['sponsor']['state_or_province'].'</td><td></td></tr>';
 	$html_text .= '<tr id="3915" style="display:none"><td>sponsor_postal_code</td><td>'.$data[$pd]['sponsor']['postal_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="3916" style="display:none"><td>sponsor_country_name</td><td>'.$data[$pd]['sponsor']['country_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="3916" style="display:none"><td>sponsor_country_name'.if_filled($data[$pd]['sponsor']['country_name']).'</td><td>'.$data[$pd]['sponsor']['country_name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="3917" style="display:none"><td>sponsor_language_pref_1</td><td>'.$data[$pd]['sponsor']['language_pref_1'].'</td><td></td></tr>';
 	$html_text .= '<tr id="3918" style="display:none"><td>sponsor_language_pref_2</td><td>'.$data[$pd]['sponsor']['language_pref_2'].'</td><td></td></tr>';
 	$html_text .= '<tr id="3919" style="display:none;vertical-align:top"><td>sponsor_statuses</td><td>'.$data[$pd]['sponsor']['statuses'].'</td><td></td></tr>';
@@ -911,7 +911,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4010" style="display:none"><td>registrant_city</td><td>'.$data[$pd]['registrant']['city'].'</td><td id="registrant_city"></td></tr>';
 	$html_text .= '<tr id="4011" style="display:none"><td>registrant_state_or_province</td><td>'.$data[$pd]['registrant']['state_or_province'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4012" style="display:none"><td>registrant_postal_code</td><td>'.$data[$pd]['registrant']['postal_code'].'</td><td id="registrant_postal_code"></td></tr>';
-	$html_text .= '<tr id="4013" style="display:none"><td>registrant_country_name</td><td>'.$data[$pd]['registrant']['country_name'].'</td><td id="registrant_country_name"></td></tr>';
+	$html_text .= '<tr id="4013" style="display:none"><td>registrant_country_name'.if_filled($data[$pd]['registrant']['country_name']).'</td><td>'.$data[$pd]['registrant']['country_name'].'</td><td id="registrant_country_name"></td></tr>';
 	$html_text .= '<tr id="4014" style="display:none"><td>registrant_language_pref_1</td><td>'.$data[$pd]['registrant']['language_pref_1'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4015" style="display:none"><td>registrant_language_pref_2</td><td>'.$data[$pd]['registrant']['language_pref_2'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4016" style="display:none;vertical-align:top"><td>registrant_statuses</td><td>'.$data[$pd]['registrant']['statuses'].'</td><td></td></tr>';
@@ -937,7 +937,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4112" style="display:none"><td>administrative_city</td><td>'.$data[$pd]['administrative']['city'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4113" style="display:none"><td>administrative_state_or_province</td><td>'.$data[$pd]['administrative']['state_or_province'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4114" style="display:none"><td>administrative_postal_code</td><td>'.$data[$pd]['administrative']['postal_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4115" style="display:none"><td>administrative_country_name</td><td>'.$data[$pd]['administrative']['country_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4115" style="display:none"><td>administrative_country_name'.if_filled($data[$pd]['administrative']['country_name']).'</td><td>'.$data[$pd]['administrative']['country_name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4116" style="display:none"><td>administrative_language_pref_1</td><td>'.$data[$pd]['administrative']['language_pref_1'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4117" style="display:none"><td>administrative_language_pref_2</td><td>'.$data[$pd]['administrative']['language_pref_2'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4118" style="display:none;vertical-align:top"><td>administrative_properties</td><td>'.$data[$pd]['administrative']['properties'].'</td><td></td></tr>';
@@ -958,7 +958,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4212" style="display:none"><td>technical_city</td><td>'.$data[$pd]['technical']['city'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4213" style="display:none"><td>technical_state_or_province</td><td>'.$data[$pd]['technical']['state_or_province'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4214" style="display:none"><td>technical_postal_code</td><td>'.$data[$pd]['technical']['postal_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4215" style="display:none"><td>technical_country_name</td><td>'.$data[$pd]['technical']['country_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4215" style="display:none"><td>technical_country_name'.if_filled($data[$pd]['technical']['country_name']).'</td><td>'.$data[$pd]['technical']['country_name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4216" style="display:none"><td>technical_language_pref_1</td><td>'.$data[$pd]['technical']['language_pref_1'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4217" style="display:none"><td>technical_language_pref_2</td><td>'.$data[$pd]['technical']['language_pref_2'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4218" style="display:none;vertical-align:top"><td>technical_properties</td><td>'.$data[$pd]['technical']['properties'].'</td><td></td></tr>';
@@ -979,7 +979,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4313" style="display:none"><td>billing_city</td><td>'.$data[$pd]['billing']['city'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4314" style="display:none"><td>billing_state_or_province</td><td>'.$data[$pd]['billing']['state_or_province'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4315" style="display:none"><td>billing_postal_code</td><td>'.$data[$pd]['billing']['postal_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4316" style="display:none"><td>billing_country_name</td><td>'.$data[$pd]['billing']['country_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4316" style="display:none"><td>billing_country_name'.if_filled($data[$pd]['billing']['country_name']).'</td><td>'.$data[$pd]['billing']['country_name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4317" style="display:none"><td>billing_language_pref_1</td><td>'.$data[$pd]['billing']['language_pref_1'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4318" style="display:none"><td>billing_language_pref_2</td><td>'.$data[$pd]['billing']['language_pref_2'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4319" style="display:none;vertical-align:top"><td>billing_properties</td><td>'.$data[$pd]['billing']['properties'].'</td><td></td></tr>';	
@@ -1000,7 +1000,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4413" style="display:none"><td>emergency_city</td><td>'.$data[$pd]['emergency']['city'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4414" style="display:none"><td>emergency_state_or_province</td><td>'.$data[$pd]['emergency']['state_or_province'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4415" style="display:none"><td>emergency_postal_code</td><td>'.$data[$pd]['emergency']['postal_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4416" style="display:none"><td>emergency_country_name</td><td>'.$data[$pd]['emergency']['country_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4416" style="display:none"><td>emergency_country_name'.if_filled($data[$pd]['emergency']['country_name']).'</td><td>'.$data[$pd]['emergency']['country_name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4417" style="display:none"><td>emergency_language_pref_1</td><td>'.$data[$pd]['emergency']['language_pref_1'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4418" style="display:none"><td>emergency_language_pref_2</td><td>'.$data[$pd]['emergency']['language_pref_2'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4419" style="display:none;vertical-align:top"><td>emergency_properties</td><td>'.$data[$pd]['emergency']['properties'].'</td><td></td></tr>';
@@ -1022,7 +1022,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="5010" style="display:none"><td>reseller_city</td><td>'.$data[$pd]['reseller']['city'].'</td><td></td></tr>';
 	$html_text .= '<tr id="5011" style="display:none"><td>reseller_state_or_province</td><td>'.$data[$pd]['reseller']['state_or_province'].'</td><td></td></tr>';
 	$html_text .= '<tr id="5012" style="display:none"><td>reseller_postal_code</td><td>'.$data[$pd]['reseller']['postal_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5013" style="display:none"><td>reseller_country_name</td><td>'.$data[$pd]['reseller']['country_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5013" style="display:none"><td>reseller_country_name'.if_filled($data[$pd]['reseller']['country_name']).'</td><td>'.$data[$pd]['reseller']['country_name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="5014" style="display:none"><td>reseller_language_pref_1</td><td>'.$data[$pd]['reseller']['language_pref_1'].'</td><td></td></tr>';
 	$html_text .= '<tr id="5015" style="display:none"><td>reseller_language_pref_2</td><td>'.$data[$pd]['reseller']['language_pref_2'].'</td><td></td></tr>';
 	$html_text .= '<tr id="5016" style="display:none;vertical-align:top"><td>reseller_statuses</td><td>'.$data[$pd]['reseller']['statuses'].'</td><td></td></tr>';
@@ -1049,7 +1049,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="6010" style="display:none"><td>registrar_city</td><td>'.$data[$pd]['registrar']['city'].'</td><td></td></tr>';
 	$html_text .= '<tr id="6011" style="display:none"><td>registrar_state_or_province</td><td>'.$data[$pd]['registrar']['state_or_province'].'</td><td></td></tr>';
 	$html_text .= '<tr id="6012" style="display:none"><td>registrar_postal_code</td><td>'.$data[$pd]['registrar']['postal_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6013" style="display:none"><td>registrar_country_name</td><td>'.$data[$pd]['registrar']['country_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6013" style="display:none"><td>registrar_country_name'.if_filled($data[$pd]['registrar']['country_name']).'</td><td>'.$data[$pd]['registrar']['country_name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="6014" style="display:none"><td>registrar_language_pref_1</td><td>'.$data[$pd]['registrar']['language_pref_1'].'</td><td></td></tr>';
 	$html_text .= '<tr id="6015" style="display:none"><td>registrar_language_pref_2</td><td>'.$data[$pd]['registrar']['language_pref_2'].'</td><td></td></tr>';
 	$html_text .= '<tr id="6016" style="display:none;vertical-align:top"><td>registrar_statuses</td><td>'.$data[$pd]['registrar']['statuses'].'</td><td></td></tr>';
@@ -1127,4 +1127,11 @@ function get_block($ip) {
     }
 	return (strlen($country)) ? $country . '; ' . $orgName : $orgName;	
 }
+
+function if_filled($inputvalue)	{
+	if (!empty($inputvalue))	{
+		return ' ⚠️ (must be empty)';
+	}
+	return '';
+}	
 ?>
