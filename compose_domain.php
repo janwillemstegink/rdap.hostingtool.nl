@@ -211,7 +211,7 @@ if ($top_level_domain == 'nl')	{
 	$auto_renew_period_days = '?';
 	$redemption_period_days = 40;
 	$deletion_phase_days = 0;
-	$upon_termination = ".nl quarantine phase of 40 days";
+	$upon_termination = "40-day quarantine phase (.nl)";
 	$sponsoring_organization_name = '';
 	$country_code_designated_manager = 'Stichting Internet Domeinregistratie Nederland';
 	$registry_operator_organization_name = 'Stichting Internet Domeinregistratie Nederland';

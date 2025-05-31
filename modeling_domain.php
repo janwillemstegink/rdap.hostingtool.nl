@@ -38,11 +38,7 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 ?><script>
 	
 function SwitchDisplay(type) {
-	if (type == 10)			{ // root zone
-		var pre = '10';
-		var max = 13
-	}
-	else if (type == 11)	{ // notice 0
+	if (type == 11)	{ // notice 0
 		var pre = '11';
 		var max = 5
 	}
@@ -73,6 +69,10 @@ function SwitchDisplay(type) {
 	else if (type == 23)	{ // links 3
 		var pre = '23';
 		var max = 7
+	}
+	else if (type == 27)		{ // root zone
+		var pre = '27';
+		var max = 13
 	}
 	else if (type == 28)	{ // life cycle
 		var pre = '28';
@@ -170,6 +170,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "";
+		document.getElementById("notices_role").textContent = "";
+		document.getElementById("links_role").textContent = "";
 		document.getElementById("root_zone_role").textContent = proposed;
 		document.getElementById("root_zone_root_zones_url").textContent = proposed;
 		document.getElementById("root_zone_delegation_url").textContent = proposed;
@@ -183,9 +185,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("root_zone_language_codes").textContent = modified;
 		document.getElementById("root_zone_restrictions_url").textContent = proposed;
-		document.getElementById("root_zone_menu_url").textContent = proposed;
-		document.getElementById("notices_role").textContent = "";
-		document.getElementById("links_role").textContent = "";		
+		document.getElementById("root_zone_menu_url").textContent = proposed;		
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed;
 		document.getElementById("lifecycle_add_period_days").textContent = proposed;
@@ -273,6 +273,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("field").textContent = "Omschrijving";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Een overzicht en toelichting op de structuur en kenmerken van webdomeinen.";
+		document.getElementById("notices_role").textContent = accessible;
+		document.getElementById("links_role").textContent = accessible;		
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_root_zones_url").textContent = proposed + 'Een verwijzing naar de officiële lijst met Root Zones.';
 		document.getElementById("root_zone_delegation_url").textContent = proposed + 'URL die verwijst naar het ICANN-delegatierecord voor de TLD.';
@@ -287,8 +289,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_language_codes").textContent = modified + "Geeft ondersteunde talen voor de Root Zone aan.";	
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Beperkingen op gebruik en registratiebeleid zijn te vinden via deze URL.";
 		document.getElementById("root_zone_menu_url").textContent = proposed + 'Een TLD-specifiek informatiemenu, beschikbaar onder een subdomein zoals "regmenu".';
-		document.getElementById("notices_role").textContent = accessible;
-		document.getElementById("links_role").textContent = accessible;
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed;
 		document.getElementById("lifecycle_add_period_days").textContent = proposed;
@@ -375,7 +375,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("instruction").textContent = "Type a domain, then press Enter.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
-		document.getElementById("explanation").textContent = "An overview of the structure and key characteristics of domain data.";		
+		document.getElementById("explanation").textContent = "An overview of the structure and key characteristics of domain data.";
+		document.getElementById("notices_role").textContent = accessible;
+		document.getElementById("links_role").textContent = accessible;		
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_root_zones_url").textContent = proposed + 'A reference to the official list of Root Zones.';
 		document.getElementById("root_zone_delegation_url").textContent = proposed + 'URL pointing to the ICANN delegation record for the TLD.';
@@ -390,8 +392,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_language_codes").textContent = modified + "Indicates supported languages for the Root Zone.";
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Usage and registration restrictions are listed at this URL.";
 		document.getElementById("root_zone_menu_url").textContent = proposed + 'A TLD specific information menu, available under a subdomain such as "regmenu".';
-		document.getElementById("notices_role").textContent = accessible;
-		document.getElementById("links_role").textContent = accessible;
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed;
 		document.getElementById("lifecycle_add_period_days").textContent = proposed;
@@ -478,7 +478,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("instruction").textContent = "Geben Sie eine Domain ein und drücken Sie Enter.";
 		document.getElementById("field").textContent = "Beschreibung";
 		document.getElementById("value").textContent = "Detail";
-		document.getElementById("explanation").textContent = "Eine Übersicht und Erklärung zur Struktur und den Eigenschaften von Webdomänen.";		
+		document.getElementById("explanation").textContent = "Eine Übersicht und Erklärung zur Struktur und den Eigenschaften von Webdomänen.";
+		document.getElementById("notices_role").textContent = accessible;
+		document.getElementById("links_role").textContent = accessible;		
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_root_zones_url").textContent = proposed + 'Ein Verweis auf die offizielle Liste der Root-Zones.';	
 		document.getElementById("root_zone_delegation_url").textContent = proposed + 'URL mit Verweis auf den ICANN-Delegationsdatensatz für die TLD.';
@@ -493,8 +495,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_language_codes").textContent = modified + "Gibt die unterstützten Sprachen der Root-Zone an.";
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Nutzungsbeschränkungen und Registrierungsrichtlinien finden Sie unter dieser URL.";		
 		document.getElementById("root_zone_menu_url").textContent = proposed + 'Ein TLD-spezifisches Informationsmenü, verfügbar unter einer Subdomäne wie "regmenu".';
-		document.getElementById("notices_role").textContent = accessible;
-		document.getElementById("links_role").textContent = accessible;
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed;
 		document.getElementById("lifecycle_add_period_days").textContent = proposed;
@@ -581,7 +581,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("instruction").textContent = "Saisissez un nom de domaine, puis appuyez sur Entrée.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Détail";
-		document.getElementById("explanation").textContent = "Un aperçu et une explication de la structure et des caractéristiques des domaines Web.";		
+		document.getElementById("explanation").textContent = "Un aperçu et une explication de la structure et des caractéristiques des domaines Web.";
+		document.getElementById("notices_role").textContent = accessible;
+		document.getElementById("links_role").textContent = accessible;		
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_root_zones_url").textContent = proposed + "Une référence à la liste officielle des 'Root Zones'.";
 		document.getElementById("root_zone_delegation_url").textContent = proposed + "URL référençant l'enregistrement de délégation de l'ICANN pour le TLD.";	
@@ -596,8 +598,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_language_codes").textContent = modified + "Indique les langues prises en charge pour la 'Root Zone'.";
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Les restrictions d’usage et les politiques d’enregistrement sont accessibles via cette URL.";
 		document.getElementById("root_zone_menu_url").textContent = proposed + "Un menu d'informations spécifique au TLD, disponible sous un sous-domaine tel que 'regmenu'.";
-		document.getElementById("notices_role").textContent = accessible;
-		document.getElementById("links_role").textContent = accessible;
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed;
 		document.getElementById("lifecycle_add_period_days").textContent = proposed;
@@ -731,20 +731,6 @@ $html_text .= '<tr style="font-size: .8rem"><td id="subtitle" style="font-size: 
 //echo $pd.'#'.$data[$pd]['domain']['ascii_name'];
 if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($data[$pd]['domain']['ascii_name']))	{
 	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td id="value"><td id="explanation"></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(10)">Root Zone Information +/-</button></td><td><b>'.$data[$pd]['root_zone']['top_level_domain'].'</b></td><td id="root_zone_role"></td></tr>';
-	$html_text .= '<tr id="101" style="display:none"><td>root_zones_url</td><td><a href='.$data[$pd]['root_zone']['root_zones_url'].' target="_blank">Root Zones</a></td><td id="root_zone_root_zones_url"></td></tr>';
-	$html_text .= '<tr id="102" style="display:none"><td>delegation_url</td><td><a href='.$data[$pd]['root_zone']['delegation_url'].' target="_blank">TLD Delegation</a></td><td id="root_zone_delegation_url"></td></tr>';
-	$html_text .= '<tr id="103" style="display:none"><td>tld_category</td><td>'.$data[$pd]['root_zone']['tld_category'].'</td><td id="root_zone_tld_category"></td></tr>';
-	$html_text .= '<tr id="104" style="display:none"><td>tld_type</td><td>'.$data[$pd]['root_zone']['tld_type'].'</td><td id="root_zone_tld_type"></td></tr>';
-	$html_text .= '<tr id="105" style="display:none"><td>sponsoring_organization_name</td><td>'.$data[$pd]['root_zone']['sponsoring_organization_name'].'</td><td id="root_zone_sponsoring_organization_name"></td></tr>';
-	$html_text .= '<tr id="106" style="display:none"><td>country_code_designated_manager</td><td>'.$data[$pd]['root_zone']['country_code_designated_manager'].'</td><td id="root_zone_country_code_designated_manager"></td></tr>';
-	$html_text .= '<tr id="107" style="display:none"><td>registry_operator_organization_name</td><td>'.$data[$pd]['root_zone']['registry_operator_organization_name'].'</td><td id="root_zone_registry_operator_organization_name"></td></tr>';
-	$html_text .= '<tr id="108" style="display:none"><td>registry_operator_presented_name</td><td>'.$data[$pd]['root_zone']['registry_operator_presented_name'].'</td><td id="root_zone_registry_operator_presented_name"></td></tr>';
-	$html_text .= '<tr id="109" style="display:none"><td>backend_operator_organization_name</td><td>'.$data[$pd]['root_zone']['backend_operator_organization_name'].'</td><td id="root_zone_backend_operator_organization_name"></td></tr>';
-	$html_text .= '<tr id="1010" style="display:none"><td>backend_operator_presented_name</td><td>'.$data[$pd]['root_zone']['backend_operator_presented_name'].'</td><td id="root_zone_backend_operator_presented_name"></td></tr>';
-	$html_text .= '<tr id="1011" style="display:none"><td>language_codes</td><td>'.$data[$pd]['root_zone']['language_codes'].'</td><td id="root_zone_language_codes"></td></tr>';
-	$html_text .= '<tr id="1012" style="display:none"><td>restrictions_url</td><td>'.((strlen($data[$pd]['root_zone']['restrictions_url'])) ? '<a href='.$data[$pd]['root_zone']['restrictions_url'].' target="_blank">TLD Restrictions</a>' : '').'</td><td id="root_zone_restrictions_url"></td></tr>';
-	$html_text .= '<tr id="1013" style="display:none"><td>menu_url</td><td>'.((strlen($data[$pd]['root_zone']['menu_url'])) ? '<a href='.$data[$pd]['root_zone']['menu_url'].' target="_blank">TLD Menu</a>' : '').'</td><td id="root_zone_menu_url"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(11)">Notice0 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(12)">Notice1 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(13)">Notice2 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(14)">Notice3 +/-</button></td><td></td><td id="notices_role"></td></tr>';
 	$html_text .= '<tr id="111" style="display:none;vertical-align:top"><td>notice_0_title</td><td>'.$data[$pd]['notices']['notice_0_title'].'</td><td></td></tr>';
 	$html_text .= '<tr id="112" style="display:none;vertical-align:top"><td>notice_0_description_0</td><td>'.$data[$pd]['notices']['notice_0_description_0'].'</td><td></td></tr>';
@@ -795,6 +781,20 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="235" style="display:none;vertical-align:top"><td>links_3_title</td><td>'.$data[$pd]['links']['links_3_title'].'</td><td></td></tr>';
 	$html_text .= '<tr id="236" style="display:none;vertical-align:top"><td>links_3_media</td><td>'.$data[$pd]['links']['links_3_media'].'</td><td></td></tr>';
 	$html_text .= '<tr id="237" style="display:none;vertical-align:top"><td>links_3_type</td><td>'.$data[$pd]['links']['links_3_type'].'</td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(27)">Root Zone Information +/-</button></td><td><b>'.$data[$pd]['root_zone']['top_level_domain'].'</b></td><td id="root_zone_role"></td></tr>';
+	$html_text .= '<tr id="271" style="display:none"><td>root_zones_url</td><td><a href='.$data[$pd]['root_zone']['root_zones_url'].' target="_blank">Root Zones</a></td><td id="root_zone_root_zones_url"></td></tr>';
+	$html_text .= '<tr id="272" style="display:none"><td>delegation_url</td><td><a href='.$data[$pd]['root_zone']['delegation_url'].' target="_blank">TLD Delegation</a></td><td id="root_zone_delegation_url"></td></tr>';
+	$html_text .= '<tr id="273" style="display:none"><td>tld_category</td><td>'.$data[$pd]['root_zone']['tld_category'].'</td><td id="root_zone_tld_category"></td></tr>';
+	$html_text .= '<tr id="274" style="display:none"><td>tld_type</td><td>'.$data[$pd]['root_zone']['tld_type'].'</td><td id="root_zone_tld_type"></td></tr>';
+	$html_text .= '<tr id="275" style="display:none"><td>sponsoring_organization_name</td><td>'.$data[$pd]['root_zone']['sponsoring_organization_name'].'</td><td id="root_zone_sponsoring_organization_name"></td></tr>';
+	$html_text .= '<tr id="276" style="display:none"><td>country_code_designated_manager</td><td>'.$data[$pd]['root_zone']['country_code_designated_manager'].'</td><td id="root_zone_country_code_designated_manager"></td></tr>';
+	$html_text .= '<tr id="277" style="display:none"><td>registry_operator_organization_name</td><td>'.$data[$pd]['root_zone']['registry_operator_organization_name'].'</td><td id="root_zone_registry_operator_organization_name"></td></tr>';
+	$html_text .= '<tr id="278" style="display:none"><td>registry_operator_presented_name</td><td>'.$data[$pd]['root_zone']['registry_operator_presented_name'].'</td><td id="root_zone_registry_operator_presented_name"></td></tr>';
+	$html_text .= '<tr id="279" style="display:none"><td>backend_operator_organization_name</td><td>'.$data[$pd]['root_zone']['backend_operator_organization_name'].'</td><td id="root_zone_backend_operator_organization_name"></td></tr>';
+	$html_text .= '<tr id="2710" style="display:none"><td>backend_operator_presented_name</td><td>'.$data[$pd]['root_zone']['backend_operator_presented_name'].'</td><td id="root_zone_backend_operator_presented_name"></td></tr>';
+	$html_text .= '<tr id="2711" style="display:none"><td>language_codes</td><td>'.$data[$pd]['root_zone']['language_codes'].'</td><td id="root_zone_language_codes"></td></tr>';
+	$html_text .= '<tr id="2712" style="display:none"><td>restrictions_url</td><td>'.((strlen($data[$pd]['root_zone']['restrictions_url'])) ? '<a href='.$data[$pd]['root_zone']['restrictions_url'].' target="_blank">TLD Restrictions</a>' : '').'</td><td id="root_zone_restrictions_url"></td></tr>';
+	$html_text .= '<tr id="2713" style="display:none"><td>menu_url</td><td>'.((strlen($data[$pd]['root_zone']['menu_url'])) ? '<a href='.$data[$pd]['root_zone']['menu_url'].' target="_blank">TLD Menu</a>' : '').'</td><td id="root_zone_menu_url"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(28)">Lifecycle Data +/-</button></td><td></td><td id="lifecycle_role"></td></tr>';
 	$html_text .= '<tr id="281" style="display:none"><td>max_subscription_period_years</td><td>'.$data[$pd]['lifecycle']['max_subscription_period_years'].'</td><td id="lifecycle_max_subscription_period_years"></td></tr>';
 	$html_text .= '<tr id="282" style="display:none"><td>add_period_days</td><td>'.$data[$pd]['lifecycle']['add_period_days'].'</td><td id="lifecycle_add_period_days"></td></tr>';
@@ -1133,5 +1133,5 @@ function if_filled($inputvalue)	{
 		return ' ⚠️ (must be empty)';
 	}
 	return '';
-}	
+}		
 ?>
