@@ -1361,20 +1361,6 @@ if ($inputbatch)	{
 	$raw_rdap_data = '';
 }
 $arr = array();	
-$arr[$inputdomain]['root_zone']['top_level_domain'] = $top_level_domain;
-$arr[$inputdomain]['root_zone']['root_zones_url'] = $root_zones_url;
-$arr[$inputdomain]['root_zone']['delegation_url'] = $delegation_url;		
-$arr[$inputdomain]['root_zone']['tld_category'] = $tld_category;
-$arr[$inputdomain]['root_zone']['tld_type'] = $tld_type;
-$arr[$inputdomain]['root_zone']['sponsoring_organization_name'] = $sponsoring_organization_name;
-$arr[$inputdomain]['root_zone']['country_code_designated_manager'] = $country_code_designated_manager;
-$arr[$inputdomain]['root_zone']['registry_operator_organization_name'] = $registry_operator_organization_name;
-$arr[$inputdomain]['root_zone']['registry_operator_presented_name'] = $registry_operator_presented_name;
-$arr[$inputdomain]['root_zone']['backend_operator_organization_name'] = $backend_operator_organization_name;
-$arr[$inputdomain]['root_zone']['backend_operator_presented_name'] = $backend_operator_presented_name;
-$arr[$inputdomain]['root_zone']['language_codes'] = $language_codes;
-$arr[$inputdomain]['root_zone']['restrictions_url'] = $restrictions_url;
-$arr[$inputdomain]['root_zone']['menu_url'] = $menu_url;
 	
 $arr[$inputdomain]['notices']['notice_0_title'] = $notice_0_title;	
 $arr[$inputdomain]['notices']['notice_0_description_0'] = $notice_0_description_0;
@@ -1430,7 +1416,22 @@ $arr[$inputdomain]['links']['links_3_href'] = $links_3_href;
 $arr[$inputdomain]['links']['links_3_href_lang'] = $links_3_href_lang;			
 $arr[$inputdomain]['links']['links_3_title'] = $links_3_title;	
 $arr[$inputdomain]['links']['links_3_media'] = $links_3_media;	
-$arr[$inputdomain]['links']['links_3_type'] = $links_3_type;	
+$arr[$inputdomain]['links']['links_3_type'] = $links_3_type;
+	
+$arr[$inputdomain]['root_zone']['top_level_domain'] = $top_level_domain;
+$arr[$inputdomain]['root_zone']['root_zones_url'] = $root_zones_url;
+$arr[$inputdomain]['root_zone']['delegation_url'] = $delegation_url;		
+$arr[$inputdomain]['root_zone']['tld_category'] = $tld_category;
+$arr[$inputdomain]['root_zone']['tld_type'] = $tld_type;
+$arr[$inputdomain]['root_zone']['sponsoring_organization_name'] = $sponsoring_organization_name;
+$arr[$inputdomain]['root_zone']['country_code_designated_manager'] = $country_code_designated_manager;
+$arr[$inputdomain]['root_zone']['registry_operator_organization_name'] = $registry_operator_organization_name;
+$arr[$inputdomain]['root_zone']['registry_operator_presented_name'] = $registry_operator_presented_name;
+$arr[$inputdomain]['root_zone']['backend_operator_organization_name'] = $backend_operator_organization_name;
+$arr[$inputdomain]['root_zone']['backend_operator_presented_name'] = $backend_operator_presented_name;
+$arr[$inputdomain]['root_zone']['language_codes'] = $language_codes;
+$arr[$inputdomain]['root_zone']['restrictions_url'] = $restrictions_url;
+$arr[$inputdomain]['root_zone']['menu_url'] = $menu_url;	
 	
 $arr[$inputdomain]['lifecycle']['max_subscription_period_years'] = $max_subscription_period_years;
 $arr[$inputdomain]['lifecycle']['add_period_days'] = $add_period_days;

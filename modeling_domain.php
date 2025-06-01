@@ -2,6 +2,25 @@
 session_start();  // is needed with no Scriptcase PHP Generator
 $datetime = new DateTime('now', new DateTimeZone('UTC'));
 $utc = $datetime->format('Y-m-d H:i:s');
+if (empty($_GET["language"]))	{
+	$browserlanguage = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+	switch ($browserlanguage) {
+  		case 'nl':
+    		$viewlanguage = 1;
+    		break;
+  		case 'de':
+    		$viewlanguage = 3;
+    		break;
+  		case 'fr':
+    		$viewlanguage = 4;
+    		break;
+  		default:
+    		$viewlanguage = 2;
+	}
+}
+else	{
+	$viewlanguage = $_GET["language"];
+}
 if (!empty($_GET['domain']))	{
 	$vd = $_GET['domain'];
 	$vd = mb_strtolower($vd);
@@ -27,7 +46,7 @@ if (empty([ip]) or empty([block]))	{
 	[block] = get_block([ip]);
 }
 $log_file = "/home/admin/logging/domain_lookup_tool_" . date("Ym") . ".txt";
-$log_line = $datetime->format('Y-m-d H:i:s') . " UTC, " . $vd . ", " . [ip] . ", " . [block] . "\n";
+$log_line = $datetime->format('Y-m-d H:i:s') . " UTC, lang" . $viewlanguage . ", " . $vd . ", " . [ip] . ", " . [block] . "\n";
 file_put_contents($log_file, $log_line, FILE_APPEND);
 echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -312,7 +331,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_unicode_name").textContent = "Hoewel de informatie verduidelijkt, is de unicode-domeinnaam optioneel binnen het RDAP-protocol.";
 		document.getElementById("domain_statuses_registry").textContent = "De status 'redemption period' biedt de mogelijkheid tot herstel. Met 'pending delete' wordt de verwijdering definitief.";
 		document.getElementById("domain_statuses_registrar").textContent = modified;
-		document.getElementById("domain_accredited_registrar").textContent = modified + "Een IANA-registraraccreditatie-ID voor gTLD's moet correct zijn.";
+		document.getElementById("domain_accredited_registrar").textContent = modified + "Er kan een IANA Registrar Accreditation ID voor gTLD's bestaan. Deze moet correct zijn.";
 		document.getElementById("domain_created_at").textContent = "De datumvelden staan hier in een logische volgorde. Dit is ook eenvoudig in de JSON-array.";
 		document.getElementById("domain_expiration_at").textContent = "Datum en tijdstip van periodieke verlenging of stopzetting van de publicatie.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "Herstel is mogelijk tot 'domain_expiration_at' plus 'redemption_period_days'.";		
@@ -415,7 +434,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_unicode_name").textContent = "Although information clarifies, the unicode domain name is optional within the RDAP protocol.";
 		document.getElementById("domain_statuses_registry").textContent = "Status 'redemption period' allows for recovery. With 'pending delete' deletion becomes final.";
 		document.getElementById("domain_statuses_registrar").textContent = modified;
-		document.getElementById("domain_accredited_registrar").textContent = modified + "The IANA registrar accreditation ID for gTLDs must be accurate.";
+		document.getElementById("domain_accredited_registrar").textContent = modified + "There may be an IANA Registrar Accreditation ID for gTLDs. It must be correct.";
 		document.getElementById("domain_created_at").textContent = "The date fields are here in a logical order. This is also easy in the JSON array.";
 		document.getElementById("domain_expiration_at").textContent = "Date and time of periodic renewal or discontinuation of publication.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "Recovery is possible up to the 'domain_expiration_at' plus 'redemption_period_days'.";
@@ -518,7 +537,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_unicode_name").textContent = "Obwohl die Informationen klarstellen, ist der Unicode-Domänenname innerhalb des RDAP-Protokolls optional.";
 		document.getElementById("domain_statuses_registry").textContent = "Der Status 'redemption period' ermöglicht eine Wiederherstellung. Mit 'pending delete' wird die Löschung endgültig.";
 		document.getElementById("domain_statuses_registrar").textContent = modified;
-		document.getElementById("domain_accredited_registrar").textContent = modified + "Eine IANA-Registrar-Akkreditierungs-ID für gTLDs muss korrekt sein.";
+		document.getElementById("domain_accredited_registrar").textContent = modified + "Für gTLDs kann eine IANA-Registrar-Akkreditierungs-ID vorhanden sein. Diese muss korrekt sein.";
 		document.getElementById("domain_created_at").textContent = "Die Datumsfelder stehen hier in einer logischen Reihenfolge. Auch dies ist im JSON-Array einfach.";
 		document.getElementById("domain_expiration_at").textContent = "Datum und Uhrzeit der periodischen Erneuerung oder Einstellung der Veröffentlichung.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "Eine Wiederherstellung ist bis zum Ablaufdatum plus den Tagen der Einlösungsfrist möglich.";
@@ -621,7 +640,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_unicode_name").textContent = "Bien que les informations soient clarifiées, le nom de domaine Unicode est facultatif dans le protocole RDAP.";
 		document.getElementById("domain_statuses_registry").textContent = "Le statut 'redemption period' permet la récupération. Avec le statut 'pending delete', la suppression devient définitive.";
 		document.getElementById("domain_statuses_registrar").textContent = modified;
-		document.getElementById("domain_accredited_registrar").textContent = modified + "Un identifiant d'accréditation de bureau d'enregistrement IANA pour les gTLD doit être exact.";
+		document.getElementById("domain_accredited_registrar").textContent = modified + "Il peut exister un identifiant d'accréditation IANA pour les gTLD. Il doit être correct.";
 		document.getElementById("domain_created_at").textContent = "Les champs de date sont ici classés dans un ordre logique. C'est également facile dans le tableau JSON.";
 		document.getElementById("domain_expiration_at").textContent = "Date et heure du renouvellement périodique ou de l'arrêt de la publication.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "La récupération est possible jusqu'à 'domain_expiration_at' plus 'redemption_period_days'.";
@@ -683,25 +702,6 @@ else	{
 	die('allow_url_fopen does not work.'); 	
 }
 $pd = idn_to_ascii($vd, IDNA_DEFAULT, INTL_IDNA_VARIANT_UTS46);
-if (empty($_GET["language"]))	{
-	$browserlanguage = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-	switch ($browserlanguage) {
-  		case 'nl':
-    		$viewlanguage = 1;
-    		break;
-  		case 'de':
-    		$viewlanguage = 3;
-    		break;
-  		case 'fr':
-    		$viewlanguage = 4;
-    		break;
-  		default:
-    		$viewlanguage = 2;
-	}
-}
-else	{
-	$viewlanguage = $_GET["language"];
-}
 $server_url = isset($_SERVER['HTTPS']) && strcasecmp('off', $_SERVER['HTTPS']) !== 0 ? "https" : "http";
 $server_url .= '://'. $_SERVER['HTTP_HOST'];
 $server_url .= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);	
@@ -1133,5 +1133,5 @@ function if_filled($inputvalue)	{
 		return ' ⚠️ (must be empty)';
 	}
 	return '';
-}		
+}			
 ?>
