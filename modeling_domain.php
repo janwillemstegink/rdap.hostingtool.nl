@@ -301,9 +301,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_language_codes").textContent = modified + "Geeft ondersteunde talen voor de Root Zone aan.";	
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Beperkingen op gebruik en registratiebeleid zijn te vinden via deze URL.";
 		document.getElementById("root_zone_menu_url").textContent = proposed + 'Een TLD-specifiek informatiemenu, beschikbaar onder een subdomein zoals "regmenu".';
-		document.getElementById("root_zone_role_shielding").textContent = proposed + "Een 'Request-Driven' waarde. Aanvrager/TLD/rol vereisen een niet-geclusterde zichtbaarheid.";
+		document.getElementById("root_zone_role_shielding").textContent = proposed + "'Request-Driven': Aanvrager/TLD/rol vereisen een niet-geclusterde zichtbaarheid.";
 		document.getElementById("lifecycle_role").textContent = proposed;
-		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed;
+		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed + 'De registrar kan de registrant voor meer jaren dan gebruikelijk korting verlenen.';
 		document.getElementById("lifecycle_add_period_days").textContent = proposed;
 		document.getElementById("lifecycle_renew_period_days").textContent = proposed;
 		document.getElementById("lifecycle_auto_renew_period_days").textContent = proposed;
@@ -397,9 +397,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_language_codes").textContent = modified + "Indicates supported languages for the Root Zone.";
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Usage and registration restrictions are listed at this URL.";
 		document.getElementById("root_zone_menu_url").textContent = proposed + 'A TLD specific information menu, available under a subdomain such as "regmenu".';
-		document.getElementById("root_zone_role_shielding").textContent = proposed + "A Request-Driven value. Requester/TLD/role require an unclustered visibility.";
+		document.getElementById("root_zone_role_shielding").textContent = proposed + "Request-Driven: Requester/TLD/role require an unclustered visibility.";
 		document.getElementById("lifecycle_role").textContent = proposed;
-		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed;
+		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed + 'The registrar may grant the registrant a discount for more years than usual.';
 		document.getElementById("lifecycle_add_period_days").textContent = proposed;
 		document.getElementById("lifecycle_renew_period_days").textContent = proposed;
 		document.getElementById("lifecycle_auto_renew_period_days").textContent = proposed;		
@@ -493,9 +493,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_language_codes").textContent = modified + "Gibt die unterstützten Sprachen der Root-Zone an.";
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Nutzungsbeschränkungen und Registrierungsrichtlinien finden Sie unter dieser URL.";		
 		document.getElementById("root_zone_menu_url").textContent = proposed + 'Ein TLD-spezifisches Informationsmenü, verfügbar unter einer Subdomäne wie "regmenu".';
-		document.getElementById("root_zone_role_shielding").textContent = proposed + "Ein 'Request-Driven' Wert. Anforderer/TLD/Rolle erfordern eine nicht gruppierte Sichtbarkeit.";
+		document.getElementById("root_zone_role_shielding").textContent = proposed + "'Request-Driven: Anforderer/TLD/Rolle erfordern eine nicht gruppierte Sichtbarkeit.";
 		document.getElementById("lifecycle_role").textContent = proposed;
-		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed;
+		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed + 'Der Registrar kann dem Registranten für mehr Jahre als üblich einen Rabatt gewähren.';
 		document.getElementById("lifecycle_add_period_days").textContent = proposed;
 		document.getElementById("lifecycle_renew_period_days").textContent = proposed;
 		document.getElementById("lifecycle_auto_renew_period_days").textContent = proposed;		
@@ -589,9 +589,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_language_codes").textContent = modified + "Indique les langues prises en charge pour la 'Root Zone'.";
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Les restrictions d’usage et les politiques d’enregistrement sont accessibles via cette URL.";
 		document.getElementById("root_zone_menu_url").textContent = proposed + "Un menu d'informations spécifique au TLD, disponible sous un sous-domaine tel que 'regmenu'.";
-		document.getElementById("root_zone_role_shielding").textContent = proposed + "Une valeur 'Request-Driven'. Le demandeur/TLD/le rôle nécessite une visibilité non groupée.";
+		document.getElementById("root_zone_role_shielding").textContent = proposed + "'Request-Driven': Le demandeur/TLD/le rôle nécessite une visibilité non groupée.";
 		document.getElementById("lifecycle_role").textContent = proposed;
-		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed;
+		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed + "Le registraire peut accorder au titulaire une réduction pour un nombre d'années supérieur à la normale.";
 		document.getElementById("lifecycle_add_period_days").textContent = proposed;
 		document.getElementById("lifecycle_renew_period_days").textContent = proposed;
 		document.getElementById("lifecycle_auto_renew_period_days").textContent = proposed;		
@@ -1090,5 +1090,5 @@ function if_filled($inputvalue)	{
 		return ' ⚠️ (must be empty)';
 	}
 	return '';
-}				
+}					
 ?>
