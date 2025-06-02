@@ -201,22 +201,22 @@ $deletion_phase_days = null;
 $upon_termination = null;
 $restrictions_url = '';
 $menu_url = '';
-$roles_json = '[{"readable_sequence": 10,"role_name": "abuse","shielding": ["name"]},
-{"readable_sequence": 20,"role_name": "sponsor","shielding": ["name", "email", "tel"]},
-{"readable_sequence": 30,"role_name": "registrant","shielding": ["name", "email", "tel", "address"]},
-{"readable_sequence": 40,"role_name": "administrative","shielding": ["web_id", "name", "tel", "address"]},
-{"readable_sequence": 50,"role_name": "technical","shielding": ["web_id", "name", "tel", "address"]},
-{"readable_sequence": 60,"role_name": "billing","shielding": ["web_id", "name", "email", "tel", "address"]},
-{"readable_sequence": 70,"role_name": "emergency","shielding": ["name"]},
-{"readable_sequence": 80,"role_name": "reseller","shielding": ["name", "email", "tel"]},
-{"readable_sequence": 90,"role_name": "registrar","shielding": ["name", "email", "tel"]}]';
+$roles_json = '[{"sequence": 10,"identifier": "abuse","shielding": ["name"]},
+{"sequence": 20,"identifier": "sponsor","shielding": ["name", "email", "tel"]},
+{"sequence": 30,"identifier": "registrant","shielding": ["name", "email", "tel", "address"]},
+{"sequence": 40,"identifier": "administrative","shielding": ["web_id", "name", "tel", "address"]},
+{"sequence": 50,"identifier": "technical","shielding": ["web_id", "name", "tel", "address"]},
+{"sequence": 60,"identifier": "billing","shielding": ["web_id", "name", "email", "tel", "address"]},
+{"sequence": 70,"identifier": "emergency","shielding": ["name"]},
+{"sequence": 80,"identifier": "reseller","shielding": ["name", "email", "tel"]},
+{"sequence": 90,"identifier": "registrar","shielding": ["name", "email", "tel"]}]';
 $decoded = json_decode($roles_json, true);
 usort($decoded, function ($a, $b) {
-    return $a['readable_sequence'] <=> $b['readable_sequence'];
+    return $a['sequence'] <=> $b['sequence'];
 });
-$roles .= 'readable_sequence - role_name - shielding<br />';    
+$roles .= 'sequence, identifier, shielding<br />';    
 foreach ($decoded as $role) {
-	$roles .= $role['readable_sequence'] . ' - ' . $role['role_name'] . ' - [' . implode(',', $role['shielding']) . ']<br />';
+	$roles .= $role['sequence'] . ', ' . $role['identifier'] . ', [' . implode(', ', $role['shielding']) . ']<br />';
 }
 $registrant_web_id = '';		
 if ($top_level_domain == 'nl')	{

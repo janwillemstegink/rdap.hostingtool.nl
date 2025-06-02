@@ -760,7 +760,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="2711" style="display:none"><td>language_codes</td><td>'.$data[$pd]['root_zone']['language_codes'].'</td><td id="root_zone_language_codes"></td></tr>';
 	$html_text .= '<tr id="2712" style="display:none"><td>restrictions_url</td><td>'.((strlen($data[$pd]['root_zone']['restrictions_url'])) ? '<a href='.$data[$pd]['root_zone']['restrictions_url'].' target="_blank">TLD Restrictions</a>' : '').'</td><td id="root_zone_restrictions_url"></td></tr>';
 	$html_text .= '<tr id="2713" style="display:none"><td>menu_url</td><td>'.((strlen($data[$pd]['root_zone']['menu_url'])) ? '<a href='.$data[$pd]['root_zone']['menu_url'].' target="_blank">TLD Menu</a>' : '').'</td><td id="root_zone_menu_url"></td></tr>';
-	$html_text .= '<tr id="2714" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['roles'].'</td><td id="root_zone_role_shielding"></td></tr>';	
+	$html_text .= '<tr id="2714" style="display:none;vertical-align:top"><td colspan="2">roles: '.$data[$pd]['root_zone']['roles'].'</td><td id="root_zone_role_shielding"></td></tr>';	
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(28)">Lifecycle Data +/-</button></td><td></td><td id="lifecycle_role"></td></tr>';
 	$html_text .= '<tr id="281" style="display:none"><td>max_subscription_period_years</td><td>'.$data[$pd]['lifecycle']['max_subscription_period_years'].'</td><td id="lifecycle_max_subscription_period_years"></td></tr>';
 	$html_text .= '<tr id="282" style="display:none"><td>add_period_days</td><td>'.$data[$pd]['lifecycle']['add_period_days'].'</td><td id="lifecycle_add_period_days"></td></tr>';
@@ -1090,5 +1090,5 @@ function if_filled($inputvalue)	{
 		return ' ⚠️ (must be empty)';
 	}
 	return '';
-}					
+}						
 ?>
