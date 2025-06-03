@@ -495,6 +495,7 @@ elseif ($obj['secureDNS']['delegationSigned'] === true)	{
 elseif ($obj['secureDNS']['delegation_urlSigned'] === false)	{
 	$name_servers_dnssec = 'no';	
 }
+$abuse_handle = '';	
 $abuse_organization_type = '';
 $abuse_organization_name = '';
 $abuse_presented_name = '';
@@ -757,6 +758,9 @@ foreach($obj as $key1 => $value1) {
 			}			
 			if ($key1 == 'entities')	{
 				if ($key3 == 'handle')	{
+					if ($key2 == $entity_sponsor)	{
+						$sponsor_handle = $value3;
+					}
 					if ($key2 == $entity_registrant)	{
 						$registrant_handle = $value3;
 					}				
@@ -771,9 +775,6 @@ foreach($obj as $key1 => $value1) {
 					}
 					if ($key2 == $entity_registrar)	{
 						$registrar_handle = $value3;
-					}
-					if ($key2 == $entity_sponsor)	{
-						$sponsor_handle = $value3;
 					}	
 				}
 				if ($key3 == 'status')	{
@@ -1286,7 +1287,10 @@ foreach($obj as $key1 => $value1) {
 							foreach($value7 as $key8 => $value8) {
 								if ($key1 == 'entities' and $key2 == $entity_registrar and $key3 == 'entities' 
 									and $key4 == $entity_key4_abuse and $key5 == 'vcardArray' and $key6 == 1)	{
-									if ($value7[0] == 'org' and $value8 == 'org')	{
+									if ($value7[0] == 'handle' and $value8 == 'handle')	{
+										$abuse_handle = $value7[3];
+									}
+									elseif ($value7[0] == 'org' and $value8 == 'org')	{
 										$abuse_organization_type = $value7[1]['type'];
 										$abuse_organization_name = $value7[3];
 									}
@@ -1481,6 +1485,7 @@ $arr[$inputdomain]['domain']['deletion_at'] = $deletion_at;
 $arr[$inputdomain]['domain']['extensions'] = $extensions;
 $arr[$inputdomain]['domain']['remarks'] = $remarks;	
 	
+$arr[$inputdomain]['abuse']['handle'] = $abuse_handle;
 $arr[$inputdomain]['abuse']['organization_type'] = $abuse_organization_type;
 $arr[$inputdomain]['abuse']['organization_name'] = $abuse_organization_name;	
 $arr[$inputdomain]['abuse']['presented_name'] = $abuse_presented_name;
