@@ -79,10 +79,10 @@ else	{
 	//$raw_whois_data = shell_exec($command . " " . $inputdomain . " 2>&1");
 	$raw_whois_data = nl2br(htmlspecialchars(shell_exec($command . " " . $inputdomain)));
 }
-$top_level_domain = mb_substr($inputdomain, strrpos($inputdomain, '.') + 1);
+$zone_identifier = mb_substr($inputdomain, strrpos($inputdomain, '.') + 1);
 
 $url = '';	
-switch ($top_level_domain) {
+switch ($zone_identifier) {
 	case 'nl':
    		$url = 'https://rdap.sidn.nl/';
    		break;		
@@ -148,7 +148,7 @@ if (!strlen($url))	{
     	foreach($value1 as $key2 => $value2) {
 			foreach($value2 as $key3 => $value3) {				
 				foreach($value3 as $key4 => $value4) {
-					if ($key3 == 0 and $value4 == $top_level_domain)	{
+					if ($key3 == 0 and $value4 == $zone_identifier)	{
 						$temp_key = $key2;
 						break;
 					}
@@ -201,25 +201,25 @@ $deletion_phase_days = null;
 $upon_termination = null;
 $restrictions_url = '';
 $menu_url = '';
-$roles_json = '[{"sequence": 10,"identifier": "abuse","shielding": ["name"]},
-{"sequence": 20,"identifier": "sponsor","shielding": ["name", "email", "tel"]},
-{"sequence": 30,"identifier": "registrant","shielding": ["name", "email", "tel", "address"]},
-{"sequence": 40,"identifier": "administrative","shielding": ["web_id", "name", "tel", "address"]},
-{"sequence": 50,"identifier": "technical","shielding": ["web_id", "name", "tel", "address"]},
-{"sequence": 60,"identifier": "billing","shielding": ["web_id", "name", "email", "tel", "address"]},
-{"sequence": 70,"identifier": "emergency","shielding": ["name"]},
-{"sequence": 80,"identifier": "reseller","shielding": ["name", "email", "tel"]},
-{"sequence": 90,"identifier": "registrar","shielding": ["name", "email", "tel"]}]';
+$roles_json = '[{"role_sequence": 10,"role_identifier": "abuse","role_shielding": ["name"]},
+{"role_sequence": 20,"role_identifier": "sponsor","role_shielding": ["name", "email", "tel"]},
+{"role_sequence": 30,"role_identifier": "registrant","role_shielding": ["name", "email", "tel", "address"]},
+{"role_sequence": 40,"role_identifier": "administrative","role_shielding": ["web_id", "name", "tel", "address"]},
+{"role_sequence": 50,"role_identifier": "technical","role_shielding": ["web_id", "name", "tel", "address"]},
+{"role_sequence": 60,"role_identifier": "billing","role_shielding": ["web_id", "name", "email", "tel", "address"]},
+{"role_sequence": 70,"role_identifier": "emergency","role_shielding": ["name"]},
+{"role_sequence": 80,"role_identifier": "reseller","role_shielding": ["name", "email", "tel"]},
+{"role_sequence": 90,"role_identifier": "registrar","role_shielding": ["name", "email", "tel"]}]';
 $decoded = json_decode($roles_json, true);
 usort($decoded, function ($a, $b) {
-    return $a['sequence'] <=> $b['sequence'];
+    return $a['role_sequence'] <=> $b['role_sequence'];
 });
-$roles .= 'sequence, identifier, shielding<br />';    
+$roles .= 'role_sequence, role_identifier, role_shielding<br />';    
 foreach ($decoded as $role) {
-	$roles .= $role['sequence'] . ', ' . $role['identifier'] . ', [' . implode(', ', $role['shielding']) . ']<br />';
+	$roles .= $role['role_sequence'] . ', ' . $role['role_identifier'] . ', [' . implode(', ', $role['role_shielding']) . ']<br />';
 }
 $registrant_web_id = '';		
-if ($top_level_domain == 'nl')	{
+if ($zone_identifier == 'nl')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
 	$max_subscription_period_years = 1;
@@ -239,7 +239,7 @@ if ($top_level_domain == 'nl')	{
 	$menu_url = 'https://www.sidn.nl/en/theme/domain-names';
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
 }
-elseif ($top_level_domain == 'frl')	{
+elseif ($zone_identifier == 'frl')	{
 	$tld_category = 'gTLD';
 	$tld_type = 'geoTLD';
 	$sponsoring_organization_name = 'FRLregistry B.V.';
@@ -252,7 +252,7 @@ elseif ($top_level_domain == 'frl')	{
 	$menu_url = 'https://nic.frl/';
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
 }
-elseif ($top_level_domain == 'amsterdam')	{
+elseif ($zone_identifier == 'amsterdam')	{
 	$tld_category = 'gTLD';
 	$tld_type = 'geoTLD';
 	$sponsoring_organization_name = 'Gemeente Amsterdam';
@@ -265,7 +265,7 @@ elseif ($top_level_domain == 'amsterdam')	{
 	$menu_url = 'https://www.sidn.nl/en/theme/domain-names';
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
 }
-elseif ($top_level_domain == 'politie')	{
+elseif ($zone_identifier == 'politie')	{
 	$tld_category = 'gTLD';
 	$tld_type = 'Brand gTLD';
 	$sponsoring_organization_name = 'Politie Nederland';
@@ -278,7 +278,7 @@ elseif ($top_level_domain == 'politie')	{
 	$menu_url = 'https://www.sidn.nl/en/theme/domain-names';
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
 }
-elseif ($top_level_domain == 'eu')	{
+elseif ($zone_identifier == 'eu')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
 	$sponsoring_organization_name = '';
@@ -290,7 +290,7 @@ elseif ($top_level_domain == 'eu')	{
 	$restrictions_url = 'https://help.eurid.eu/hc/en-gb/';
 	$menu_url = 'https://help.eurid.eu/hc/en-gb/';
 }
-elseif ($top_level_domain == 'de')	{
+elseif ($zone_identifier == 'de')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
 	$sponsoring_organization_name = '';
@@ -302,7 +302,7 @@ elseif ($top_level_domain == 'de')	{
 	$restrictions_url = 'https://www.denic.de/';
 	$menu_url = 'https://www.denic.de/';
 }
-elseif ($top_level_domain == 'fr')	{
+elseif ($zone_identifier == 'fr')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
 	$sponsoring_organization_name = '';
@@ -314,7 +314,7 @@ elseif ($top_level_domain == 'fr')	{
 	$restrictions_url = 'https://www.afnic.fr/';
 	$menu_url = 'https://www.afnic.fr/';
 }
-elseif ($top_level_domain == 'ch')	{
+elseif ($zone_identifier == 'ch')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
 	$sponsoring_organization_name = '';
@@ -326,7 +326,7 @@ elseif ($top_level_domain == 'ch')	{
 	$restrictions_url = 'https://www.nic.ch/';
 	$menu_url = 'https://www.nic.ch/';
 }	
-elseif ($top_level_domain == 'li')	{
+elseif ($zone_identifier == 'li')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
 	$sponsoring_organization_name = '';
@@ -338,7 +338,7 @@ elseif ($top_level_domain == 'li')	{
 	$restrictions_url = 'https://www.nic.li/';
 	$menu_url = 'https://www.nic.li/';
 }
-elseif ($top_level_domain == 'be')	{
+elseif ($zone_identifier == 'be')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
 	$sponsoring_organization_name = '';
@@ -350,7 +350,7 @@ elseif ($top_level_domain == 'be')	{
 	$restrictions_url = 'https://www.dnsbelgium.be/';
 	$menu_url = 'https://www.dnsbelgium.be/';
 }
-elseif ($top_level_domain == 'lu')	{
+elseif ($zone_identifier == 'lu')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
 	$sponsoring_organization_name = '';
@@ -362,7 +362,7 @@ elseif ($top_level_domain == 'lu')	{
 	$restrictions_url = 'https://restena.lu/';
 	$menu_url = 'https://restena.lu/';
 }
-elseif ($top_level_domain == 'uk')	{
+elseif ($zone_identifier == 'uk')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
 	$sponsoring_organization_name = '';
@@ -374,7 +374,7 @@ elseif ($top_level_domain == 'uk')	{
 	$restrictions_url = 'https://nominet.uk/';
 	$menu_url = 'https://nominet.uk/';
 }	
-$delegation_url = 'https://www.iana.org/domains/root/db/'.$top_level_domain.'.html';		
+$delegation_url = 'https://www.iana.org/domains/root/db/'.$zone_identifier.'.html';		
 $language_codes = (is_array($obj['lang'])) ? implode(",<br />", $obj['lang']) : $obj['lang'];
 if (!strlen($language_codes))	{
 	$language_codes = 'None Specified';	
@@ -613,6 +613,7 @@ $registrar_country_name = '';
 $registrar_language_pref_1 = '';
 $registrar_language_pref_2 = '';
 	
+$name_servers_handles = '';
 $name_servers_ascii = '';
 $name_servers_unicode = '';
 $name_servers_ipv4 = '';
@@ -791,8 +792,11 @@ foreach($obj as $key1 => $value1) {
 					}
 				}
 			}	
-			if ($key1 == 'nameservers')	{					
-				if ($key3 == 'ldhName') {
+			if ($key1 == 'nameservers')	{
+				if ($key3 == 'handle') {
+					$name_servers_handles .= $key2.': '.$value3."<br />";
+				}
+				elseif ($key3 == 'ldhName') {
 					$name_servers_ascii .= $key2.': '.$value3."<br />";
 				}
 				elseif ($key3 == 'unicodeName')	{
@@ -1428,7 +1432,7 @@ $arr[$inputdomain]['links']['links_3_title'] = $links_3_title;
 $arr[$inputdomain]['links']['links_3_media'] = $links_3_media;	
 $arr[$inputdomain]['links']['links_3_type'] = $links_3_type;
 	
-$arr[$inputdomain]['root_zone']['top_level_domain'] = $top_level_domain;
+$arr[$inputdomain]['root_zone']['zone_identifier'] = $zone_identifier;
 $arr[$inputdomain]['root_zone']['root_zones_url'] = $root_zones_url;
 $arr[$inputdomain]['root_zone']['delegation_url'] = $delegation_url;		
 $arr[$inputdomain]['root_zone']['tld_category'] = $tld_category;
@@ -1461,6 +1465,7 @@ $arr[$inputdomain]['metadata']['accredited_registrars_url'] = $accredited_regist
 $arr[$inputdomain]['metadata']['registrar_source'] = $url_registrar;
 $arr[$inputdomain]['metadata']['registrar_complaint_url'] = $registrar_complaint_url;		
 $arr[$inputdomain]['metadata']['status_explanation_url'] = $status_explanation_url;
+$arr[$inputdomain]['metadata']['geo_location'] = '';
 	
 $arr[$inputdomain]['domain']['handle'] = $handle;
 $arr[$inputdomain]['domain']['ascii_name'] = $ascii_name;	
@@ -1645,6 +1650,7 @@ $arr[$inputdomain]['registrar']['latest_update_at'] = $registrar_latest_update_a
 $arr[$inputdomain]['registrar']['properties'] = $registrar_properties;
 $arr[$inputdomain]['registrar']['remarks'] = $registrar_remarks;	
 	
+$arr[$inputdomain]['name_servers']['handles'] = $name_servers_handles;
 $arr[$inputdomain]['name_servers']['ascii_names'] = $name_servers_ascii;
 $arr[$inputdomain]['name_servers']['unicode_names'] = $name_servers_unicode;	
 $arr[$inputdomain]['name_servers']['ipv4_addresses'] = $name_servers_ipv4;	

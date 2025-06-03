@@ -99,7 +99,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 29)	{ // meta
 		var pre = '29';
-		var max = 9
+		var max = 10
 	}
 	else if (type == 30)	{ // domain
 		var pre = '30';
@@ -143,7 +143,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 63)	{ // name servers
 		var pre = '63';
-		var max = 7
+		var max = 8
 	}
 	else if (type == 70)	{ // raw whois data
 		var pre = '70';
@@ -746,7 +746,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="235" style="display:none;vertical-align:top"><td>links_3_title</td><td>'.$data[$pd]['links']['links_3_title'].'</td><td></td></tr>';
 	$html_text .= '<tr id="236" style="display:none;vertical-align:top"><td>links_3_media</td><td>'.$data[$pd]['links']['links_3_media'].'</td><td></td></tr>';
 	$html_text .= '<tr id="237" style="display:none;vertical-align:top"><td>links_3_type</td><td>'.$data[$pd]['links']['links_3_type'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(27)">Root Zone Information +/-</button></td><td><b>'.$data[$pd]['root_zone']['top_level_domain'].'</b></td><td id="root_zone_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(27)">Root Zone Information +/-</button></td><td><b>'.$data[$pd]['root_zone']['zone_identifier'].'</b></td><td id="root_zone_role"></td></tr>';
 	$html_text .= '<tr id="271" style="display:none"><td>root_zones_url</td><td><a href='.$data[$pd]['root_zone']['root_zones_url'].' target="_blank">Root Zones</a></td><td id="root_zone_root_zones_url"></td></tr>';
 	$html_text .= '<tr id="272" style="display:none"><td>delegation_url</td><td><a href='.$data[$pd]['root_zone']['delegation_url'].' target="_blank">TLD Delegation</a></td><td id="root_zone_delegation_url"></td></tr>';
 	$html_text .= '<tr id="273" style="display:none"><td>tld_category</td><td>'.$data[$pd]['root_zone']['tld_category'].'</td><td id="root_zone_tld_category"></td></tr>';
@@ -760,7 +760,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="2711" style="display:none"><td>language_codes</td><td>'.$data[$pd]['root_zone']['language_codes'].'</td><td id="root_zone_language_codes"></td></tr>';
 	$html_text .= '<tr id="2712" style="display:none"><td>restrictions_url</td><td>'.((strlen($data[$pd]['root_zone']['restrictions_url'])) ? '<a href='.$data[$pd]['root_zone']['restrictions_url'].' target="_blank">TLD Restrictions</a>' : '').'</td><td id="root_zone_restrictions_url"></td></tr>';
 	$html_text .= '<tr id="2713" style="display:none"><td>menu_url</td><td>'.((strlen($data[$pd]['root_zone']['menu_url'])) ? '<a href='.$data[$pd]['root_zone']['menu_url'].' target="_blank">TLD Menu</a>' : '').'</td><td id="root_zone_menu_url"></td></tr>';
-	$html_text .= '<tr id="2714" style="display:none;vertical-align:top"><td colspan="2">roles: '.$data[$pd]['root_zone']['roles'].'</td><td id="root_zone_role_shielding"></td></tr>';	
+	$html_text .= '<tr id="2714" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['roles'].'</td><td id="root_zone_role_shielding"></td></tr>';	
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(28)">Lifecycle Data +/-</button></td><td></td><td id="lifecycle_role"></td></tr>';
 	$html_text .= '<tr id="281" style="display:none"><td>max_subscription_period_years</td><td>'.$data[$pd]['lifecycle']['max_subscription_period_years'].'</td><td id="lifecycle_max_subscription_period_years"></td></tr>';
 	$html_text .= '<tr id="282" style="display:none"><td>add_period_days</td><td>'.$data[$pd]['lifecycle']['add_period_days'].'</td><td id="lifecycle_add_period_days"></td></tr>';
@@ -783,6 +783,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="297" style="display:none"><td>registrar_source eg. <a style="font-size: 0.9rem" href="https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/icann.com" target="_blank">icann.com</a> <a style="font-size: 0.9rem" href="https://rdap.metaregistrar.com/domain/fryslan.frl" target="_blank">fryslan.frl</a></td><td>'.((strlen($data[$pd]['metadata']['registrar_source'])) ? '<a href='.$data[$pd]['metadata']['registrar_source'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">validator.rdap.org</a>' : 'Not Available').'</td><td id="metadata_registrar_source"></td></tr>';
 	$html_text .= '<tr id="298" style="display:none"><td>registrar_complaint_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_complaint_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_complaint_url'].' target="_blank">icann.org/wicf</a>' : 'Not Applicable').'</td><td id="metadata_registrar_complaint_url"></td></tr>';
 	$html_text .= '<tr id="299" style="display:none"><td>status_explanation_url</td><td>'.((strlen($data[$pd]['metadata']['status_explanation_url'])) ? '<a href='.$data[$pd]['metadata']['status_explanation_url'].' target="_blank">icann.org/epp</a>' : 'Not Applicable').'</td><td id="metadata_status_explanation_url"></td></tr>';
+	$html_text .= '<tr id="2910" style="display:none"><td>geo_location</td><td>'.$data[$pd]['metadata']['geo_location'].'</td><td></td></tr>';
 	//$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(30)">Domain Data +/-</button></td><td>'.$vd.'</td><td id="domain_role"></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>domain_handle</td><td>'.$data[$pd]['domain']['handle'].'</td><td></td></tr>';
@@ -794,8 +795,8 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 			if (str_contains($data[$pd]['domain']['statuses_registry'], 'redemption period') and str_contains($data[$pd]['domain']['statuses_registry'], 'pending delete'))	{
 				$html_text .= '<tr><td>⚠️ (notice to the registry)</td><td>"pending delete" disregards redemption grace<td><td></td></tr>';
 			}	
-			elseif (!empty($data[$pd]['root_zone']['top_level_domain']))	{
-				if ($data[$pd]['root_zone']['top_level_domain'] == 'nl')	{
+			elseif (!empty($data[$pd]['root_zone']['zone_identifier']))	{
+				if ($data[$pd]['root_zone']['zone_identifier'] == 'nl')	{
 					$html_text .= '<tr><td>⚠️ (notice to the registry)</td><td>.nl: "pending delete" -> "redemption period"</td><td></td></tr>';
 				}	
 			}	
@@ -1018,13 +1019,14 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="6021" style="display:none;vertical-align:top"><td>registrar_remarks</td><td>'.$data[$pd]['registrar']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(63)">Name Servers +/-</button></td><td></td><td></td></tr>';
-	$html_text .= '<tr id="631" style="display:none;vertical-align:top"><td>ascii_names</td><td>'.$data[$pd]['name_servers']['ascii_names'].'</td><td></td></tr>';
-	$html_text .= '<tr id="632" style="display:none;vertical-align:top"><td>unicode_names</td><td>'.$data[$pd]['name_servers']['unicode_names'].'</td><td></td></tr>';
-	$html_text .= '<tr id="633" style="display:none;vertical-align:top"><td>ipv4_addresses</td><td>'.$data[$pd]['name_servers']['ipv4_addresses'].'</td><td id="name_servers_ip"></td></tr>';
-	$html_text .= '<tr id="634" style="display:none;vertical-align:top"><td>ipv6_addresses</td><td>'.$data[$pd]['name_servers']['ipv6_addresses'].'</td><td></td></tr>';
+	$html_text .= '<tr id="631" style="display:none;vertical-align:top"><td>handles</td><td>'.$data[$pd]['name_servers']['handles'].'</td><td></td></tr>';
+	$html_text .= '<tr id="632" style="display:none;vertical-align:top"><td>ascii_names</td><td>'.$data[$pd]['name_servers']['ascii_names'].'</td><td></td></tr>';
+	$html_text .= '<tr id="633" style="display:none;vertical-align:top"><td>unicode_names</td><td>'.$data[$pd]['name_servers']['unicode_names'].'</td><td></td></tr>';
+	$html_text .= '<tr id="634" style="display:none;vertical-align:top"><td>ipv4_addresses</td><td>'.$data[$pd]['name_servers']['ipv4_addresses'].'</td><td id="name_servers_ip"></td></tr>';
+	$html_text .= '<tr id="635" style="display:none;vertical-align:top"><td>ipv6_addresses</td><td>'.$data[$pd]['name_servers']['ipv6_addresses'].'</td><td></td></tr>';
 	$html_text .= '<tr id="636" style="display:none;vertical-align:top"><td>statuses</td><td>'.$data[$pd]['name_servers']['statuses'].'</td><td></td></tr>';
-	$html_text .= '<tr id="635" style="display:none;vertical-align:top"><td>delegation_checks</td><td>'.$data[$pd]['name_servers']['delegation_checks'].'</td><td id="br_zone"></td></tr>';
-	$html_text .= '<tr id="637" style="display:none;vertical-align:top"><td>latest_correct_delegation_checks</td><td>'.$data[$pd]['name_servers']['latest_correct_delegation_checks'].'</td><td></td></tr>';
+	$html_text .= '<tr id="637" style="display:none;vertical-align:top"><td>delegation_checks</td><td>'.$data[$pd]['name_servers']['delegation_checks'].'</td><td id="br_zone"></td></tr>';
+	$html_text .= '<tr id="638" style="display:none;vertical-align:top"><td>latest_correct_delegation_checks</td><td>'.$data[$pd]['name_servers']['latest_correct_delegation_checks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>dnssec</td><td>'.$data[$pd]['name_servers']['dnssec'].'</td><td id="name_servers_dnssec"></td></tr>';
 	$html_text .= '<tr><td>dnssec_algorithm</td><td>'.$data[$pd]['name_servers']['dnssec_algorithm'].'</td><td id="name_servers_dnssec_algorithm"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
@@ -1090,5 +1092,5 @@ function if_filled($inputvalue)	{
 		return ' ⚠️ (must be empty)';
 	}
 	return '';
-}						
+}							
 ?>
