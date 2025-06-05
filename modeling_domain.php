@@ -21,8 +21,8 @@ if (empty($_GET["language"]))	{
 else	{
 	$viewlanguage = $_GET["language"];
 }
-if (!empty($_GET['domain']))	{
-	$vd = $_GET['domain'];
+if (!empty(trim($_GET['domain'])))	{
+	$vd = trim($_GET['domain']);
 	$vd = mb_strtolower($vd);
 	$vd = str_replace('http://','', $vd);
 	$vd = str_replace('https://','', $vd);

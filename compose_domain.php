@@ -15,7 +15,7 @@
 
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
-		$domain = trim($_GET['domain']);
+		$domain = $_GET['domain'];
 		$batch = false;
 		if (!empty($_GET['batch']))	{
 			if (trim($_GET['batch'] == '1'))	{
@@ -373,6 +373,30 @@ elseif ($zone_identifier == 'uk')	{
 	$backend_operator_presented_name = 'TLD Registry Services Technical';
 	$restrictions_url = 'https://nominet.uk/';
 	$menu_url = 'https://nominet.uk/';
+}
+elseif ($zone_identifier == 'com')	{
+	$tld_category = 'gTLD';
+	$tld_type = 'gTLD';
+	$sponsoring_organization_name = 'VeriSign Global Registry Services (ICANN?)';
+	$country_code_designated_manager = '';
+	$registry_operator_organization_name = 'VeriSign Global Registry Services';
+	$registry_operator_presented_name = 'Registry Customer Service';
+	$backend_operator_organization_name = 'VeriSign Global Registry Services';
+	$backend_operator_presented_name = 'Registry Customer Service';
+	$restrictions_url = 'https://www.verisigninc.com/';
+	$menu_url = 'https://www.verisigninc.com/';
+}
+elseif ($zone_identifier == 'org')	{
+	$tld_category = 'gTLD';
+	$tld_type = 'gTLD';
+	$sponsoring_organization_name = 'Public Interest Registry (PIR)';
+	$country_code_designated_manager = '';
+	$registry_operator_organization_name = 'Public Interest Registry (PIR)';
+	$registry_operator_presented_name = 'Director of Operations, Compliance and Customer Support';
+	$backend_operator_organization_name = 'Public Interest Registry (PIR)';
+	$backend_operator_presented_name = 'Senior Director, DNS Infrastructure Group';
+	$restrictions_url = '';
+	$menu_url = '';
 }	
 $delegation_url = 'https://www.iana.org/domains/root/db/'.$zone_identifier.'.html';		
 $language_codes = (is_array($obj['lang'])) ? implode(",<br />", $obj['lang']) : $obj['lang'];
