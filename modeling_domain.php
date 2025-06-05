@@ -776,11 +776,11 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="294" style="display:none; vertical-align:top"><td>object_conformance</td><td>'.$data[$pd]['metadata']['object_conformance'].'</td><td id="metadata_object_conformance"></td></tr>';
 	$registry_source = str_replace('https://', '', $data[$pd]['metadata']['registry_source']);
 	$validation_registry = 'https://validator.rdap.org/?url=https://'.$registry_source.'&response-type=domain&server-type=gtld-registry&errors-only=1';	
-	$html_text .= '<tr id="295" style="display:none"><td>registry_source</td><td>'.((strlen($data[$pd]['metadata']['registry_source'])) ? '<a href='.$data[$pd]['metadata']['registry_source'].' target="_blank">Registry Response</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">validator.rdap.org</a>' : '').'</td><td id="metadata_registry_source"></td></tr>';
+	$html_text .= '<tr id="295" style="display:none"><td>registry_source</td><td>'.((strlen($data[$pd]['metadata']['registry_source'])) ? '<a href='.$data[$pd]['metadata']['registry_source'].' target="_blank">Registry Response</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registry_source"></td></tr>';
 	$html_text .= '<tr id="296" style="display:none"><td>accredited_registrars_url</td><td><a href='.$data[$pd]['metadata']['accredited_registrars_url'].' target="_blank">IANA Registrars</a></td><td id="metadata_accredited_registrars_url"></td></tr>';
 	$registrar_source = str_replace('https://', '', $data[$pd]['metadata']['registrar_source']);
 	$validation_registrar = 'https://validator.rdap.org/?url=https://'.$registrar_source.'&response-type=domain&server-type=gtld-registrar&errors-only=1';	
-	$html_text .= '<tr id="297" style="display:none"><td>registrar_source eg. <a style="font-size: 0.9rem" href="https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/icann.com" target="_blank">icann.com</a> <a style="font-size: 0.9rem" href="https://rdap.metaregistrar.com/domain/fryslan.frl" target="_blank">fryslan.frl</a></td><td>'.((strlen($data[$pd]['metadata']['registrar_source'])) ? '<a href='.$data[$pd]['metadata']['registrar_source'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">validator.rdap.org</a>' : 'Not Available').'</td><td id="metadata_registrar_source"></td></tr>';
+	$html_text .= '<tr id="297" style="display:none"><td>registrar_source eg. <a style="font-size: 0.9rem" href="https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/icann.com" target="_blank">icann.com</a> <a style="font-size: 0.9rem" href="https://rdap.metaregistrar.com/domain/fryslan.frl" target="_blank">fryslan.frl</a></td><td>'.((strlen($data[$pd]['metadata']['registrar_source'])) ? '<a href='.$data[$pd]['metadata']['registrar_source'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : 'Not Available').'</td><td id="metadata_registrar_source"></td></tr>';
 	$html_text .= '<tr id="298" style="display:none"><td>registrar_complaint_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_complaint_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_complaint_url'].' target="_blank">icann.org/wicf</a>' : 'Not Applicable').'</td><td id="metadata_registrar_complaint_url"></td></tr>';
 	$html_text .= '<tr id="299" style="display:none"><td>status_explanation_url</td><td>'.((strlen($data[$pd]['metadata']['status_explanation_url'])) ? '<a href='.$data[$pd]['metadata']['status_explanation_url'].' target="_blank">icann.org/epp</a>' : 'Not Applicable').'</td><td id="metadata_status_explanation_url"></td></tr>';
 	$html_text .= '<tr id="2910" style="display:none"><td>geo_location</td><td>'.$data[$pd]['metadata']['geo_location'].'</td><td></td></tr>';
@@ -812,7 +812,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
     	$expiration = strtotime($data[$pd]['domain']['expiration_at']);
     	$deletion = strtotime($data[$pd]['domain']['deletion_at']);
     	if ($expiration !== false and $deletion !== false and $expiration > $deletion) {
-       		$html_text .= '<tr><td>❌ (notice to the registry)</td><td>inconsistency: "expiration_at" > "deletion_at"</td><td></td></tr>';
+       		$html_text .= '<tr><td>⚠️ (notice to the registry)</td><td>inconsistency: "expiration_at" > "deletion_at"</td><td></td></tr>';
     	}
 	}
 	$html_text .= '<tr id="309" style="display:none"><td>domain_recovery_deadline</td><td>'.$data[$pd]['domain']['recovery_deadline'].'</td><td id="domain_recovery_deadline"></td></tr>';
@@ -1090,7 +1090,7 @@ function get_block($ip) {
 
 function if_filled($inputvalue)	{
 	if (!empty($inputvalue))	{
-		return ' ⚠️ (must be empty)';
+		return ' ⚠️ (to be empty)';
 	}
 	return '';
 }
@@ -1099,7 +1099,7 @@ function if_not_filled($inputvalue, $inputtrigger)	{
 	if (!empty($inputtrigger))	{
 		if (strlen($inputtrigger))	{
 			if (empty($inputvalue))	{
-				return ' ⚠️ (future-proof if existing)';
+				return ' (limits global storage)';
 			}	
 		}
 	}	
