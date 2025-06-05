@@ -790,6 +790,14 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="302" style="display:none"><td>domain_ascii_name (lower case is not a "MUST")</td><td>'.$data[$pd]['domain']['ascii_name'].'</td><td id="domain_ascii_name"></td></tr>';
 	$html_text .= '<tr id="303" style="display:none"><td>domain_unicode_name</td><td>'.$data[$pd]['domain']['unicode_name'].'</td><td id="domain_unicode_name"></td></tr>';
 	$html_text .= '<tr style="vertical-align:top"><td>domain_statuses_registry</td><td>'.$data[$pd]['domain']['statuses_registry'].'</td><td id="domain_statuses_registry"></td></tr>';
+	$html_text .= '<tr id="304" style="display:none;vertical-align:top"><td>domain_statuses_registrar</td><td>'.$data[$pd]['domain']['statuses_registrar'].'</td><td id="domain_statuses_registrar"></td></tr>';
+	$html_text .= '<tr id="305" style="display:none"><td>domain_accredited_registrar</td><td>'.((strlen($data[$pd]['domain']['accredited_registrar'])) ? $data[$pd]['domain']['accredited_registrar'] : '').'</td><td id="domain_accredited_registrar"></td></tr>';
+	$html_text .= '<tr id="306" style="display:none"><td>domain_created_at</td><td>'.$data[$pd]['domain']['created_at'].'</td><td id="domain_created_at"></td></tr>';
+	$html_text .= '<tr id="307" style="display:none"><td>domain_latest_transfer_at</td><td>'.$data[$pd]['domain']['latest_transfer_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="308" style="display:none"><td>domain_latest_update_at</td><td>'.$data[$pd]['domain']['latest_update_at'].'</td><td></td></tr>';
+	$html_text .= '<tr><td>domain_expiration_at</td><td>'.$data[$pd]['domain']['expiration_at'].'</td><td id="domain_expiration_at"></td></tr>';
+	$html_text .= '<tr id="309" style="display:none"><td>domain_recovery_deadline</td><td>'.$data[$pd]['domain']['recovery_deadline'].'</td><td id="domain_recovery_deadline"></td></tr>';
+	$html_text .= '<tr id="3010" style="display:none"><td>domain_deletion_at</td><td>'.$data[$pd]['domain']['deletion_at'].'</td><td id="domain_deletion_at"></td></tr>';
 	if (!empty($data[$pd]['domain']['statuses_registry']))	{
 		if (str_contains($data[$pd]['domain']['statuses_registry'], 'pending delete'))	{
 			if (str_contains($data[$pd]['domain']['statuses_registry'], 'redemption period') and str_contains($data[$pd]['domain']['statuses_registry'], 'pending delete'))	{
@@ -797,33 +805,27 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 			}	
 			elseif (!empty($data[$pd]['root_zone']['zone_identifier']))	{
 				if ($data[$pd]['root_zone']['zone_identifier'] == 'nl')	{
-					$html_text .= '<tr><td>no globally working RDAP (ccTLDs) ⚠️</td><td>"pending delete" means "redemption period"</td><td></td></tr>';
+					$html_text .= '<tr><td>no globally working RDAP (ccTLDs) ⚠️</td><td>"pending delete" refers to "redemption period"</td><td></td></tr>';
 				}	
 			}	
 		}	
 	}
-	$html_text .= '<tr id="304" style="display:none;vertical-align:top"><td>domain_statuses_registrar</td><td>'.$data[$pd]['domain']['statuses_registrar'].'</td><td id="domain_statuses_registrar"></td></tr>';
-	$html_text .= '<tr id="305" style="display:none"><td>domain_accredited_registrar</td><td>'.((strlen($data[$pd]['domain']['accredited_registrar'])) ? $data[$pd]['domain']['accredited_registrar'] : '').'</td><td id="domain_accredited_registrar"></td></tr>';
-	$html_text .= '<tr id="306" style="display:none"><td>domain_created_at</td><td>'.$data[$pd]['domain']['created_at'].'</td><td id="domain_created_at"></td></tr>';
-	$html_text .= '<tr id="307" style="display:none"><td>domain_latest_transfer_at</td><td>'.$data[$pd]['domain']['latest_transfer_at'].'</td><td></td></tr>';
-	$html_text .= '<tr id="308" style="display:none"><td>domain_latest_update_at</td><td>'.$data[$pd]['domain']['latest_update_at'].'</td><td></td></tr>';
-	$html_text .= '<tr><td>domain_expiration_at</td><td>'.$data[$pd]['domain']['expiration_at'].'</td><td id="domain_expiration_at"></td></tr>';
 	if (!empty($data[$pd]['domain']['expiration_at']) and !empty($data[$pd]['domain']['deletion_at'])) {
     	$expiration = strtotime($data[$pd]['domain']['expiration_at']);
     	$deletion = strtotime($data[$pd]['domain']['deletion_at']);
     	if ($expiration !== false and $deletion !== false and $expiration > $deletion) {
-       		$html_text .= '<tr><td>no globally working RDAP (ccTLDs) ⚠️</td><td>"expiration_at" is later than "deletion_at"</td><td></td></tr>';
+			$days_before = floor(($expiration - $deletion) / (60 * 60 * 24));
+       		$html_text .= '<tr><td>no globally working RDAP (ccTLDs) ⚠️</td><td>"deletion_at" is '.$days_before.' days before "expiration_at"</td><td></td></tr>';
     	}
 	}
-	$html_text .= '<tr id="309" style="display:none"><td>domain_recovery_deadline</td><td>'.$data[$pd]['domain']['recovery_deadline'].'</td><td id="domain_recovery_deadline"></td></tr>';
-	$html_text .= '<tr id="3010" style="display:none"><td>domain_deletion_at</td><td>'.$data[$pd]['domain']['deletion_at'].'</td><td id="domain_deletion_at"></td></tr>';
 	if (!empty($data[$pd]['domain']['deletion_at'])) {
 		$current = strtotime($datetime->format('Y-m-d H:i:s'));
 		$deletion = strtotime($data[$pd]['domain']['deletion_at']);
     	if ($current !== false and $deletion !== false and $current > $deletion) {
-        	$html_text .= '<tr><td>no globally working RDAP (ccTLDs) ⚠️</td><td>the "deletion_at" time is before now</td><td></td></tr>';
-    	}
-	}
+			$days_ago = floor(($current - $deletion) / (60 * 60 * 24));
+        	$html_text .= '<tr><td>no globally working RDAP (ccTLDs) ⚠️</td><td>"deletion_at" is '.$days_ago.' days before now</td><td></td></tr>';
+		}
+	}	
 	$html_text .= '<tr id="3011" style="display:none;vertical-align:top"><td>domain_extensions</td><td>'.$data[$pd]['domain']['extensions'].'</td><td id="domain_extensions"></td></tr>';
 	$html_text .= '<tr id="3012" style="display:none;vertical-align:top"><td>domain_remarks</td><td>'.$data[$pd]['domain']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(35)">Abuse Contact +/-</button></td><td></td><td id="abuse_role"></td></tr>';
