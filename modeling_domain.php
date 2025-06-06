@@ -95,7 +95,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 28)	{ // life cycle
 		var pre = '28';
-		var max = 7
+		var max = 11
 	}
 	else if (type == 29)	{ // meta
 		var pre = '29';
@@ -208,11 +208,15 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_role_shielding").textContent = proposed;
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed;
-		document.getElementById("lifecycle_add_period_days").textContent = proposed;
-		document.getElementById("lifecycle_renew_period_days").textContent = proposed;
-		document.getElementById("lifecycle_auto_renew_period_days").textContent = proposed;		
-		document.getElementById("lifecycle_redemption_period_days").textContent = proposed;
-		document.getElementById("lifecycle_deletion_phase_days").textContent = proposed;
+		document.getElementById("lifecycle_add_period_grace_days").textContent = proposed;
+		document.getElementById("lifecycle_transfer_period_grace_days").textContent = proposed;
+		document.getElementById("lifecycle_post_transfer_lock_days").textContent = proposed;
+		document.getElementById("lifecycle_min_renew_period_grace_days").textContent = proposed;
+		document.getElementById("lifecycle_max_renew_period_grace_days").textContent = proposed;
+		document.getElementById("lifecycle_min_redemption_period_days").textContent = proposed;
+		document.getElementById("lifecycle_max_redemption_period_days").textContent = proposed;
+		document.getElementById("lifecycle_min_deletion_phase_days").textContent = proposed;
+		document.getElementById("lifecycle_max_deletion_phase_days").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed;
@@ -291,7 +295,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_root_zones_url").textContent = proposed + 'Een verwijzing naar de officiële lijst met Root Zones.';
 		document.getElementById("root_zone_delegation_url").textContent = proposed + 'URL die verwijst naar het ICANN-delegatierecord voor de TLD.';
 		document.getElementById("root_zone_tld_category").textContent = proposed + 'Geeft een generieke TLD (gTLD) of een landcode-TLD (ccTLD) aan.';
-		document.getElementById("root_zone_tld_type").textContent = proposed + 'Geeft een lijst van TLD-typen weer, zoals gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD en geoTLD.';
+		document.getElementById("root_zone_tld_type").textContent = proposed + 'Het TLD-type, bijvoorbeeld gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD of geoTLD.';
 		document.getElementById("root_zone_sponsoring_organization_name").textContent = proposed + 'Definieert de geschiktheid en communityregels voor de TLD.';
 		document.getElementById("root_zone_country_code_designated_manager").textContent = proposed + "ccTLD-beheerders zijn niet noodzakelijkerwijs gebonden aan internationale normen.";
 		document.getElementById("root_zone_registry_operator_organization_name").textContent = proposed + 'De juridische naam van de organisatie die verantwoordelijk is voor de registratieactiviteiten.';
@@ -304,11 +308,15 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_role_shielding").textContent = proposed + "'Request-Driven': Aanvrager/TLD/rol vereisen een niet-geclusterde zichtbaarheid.";
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed + 'De registrar kan de registrant voor meer jaren dan gebruikelijk korting verlenen.';
-		document.getElementById("lifecycle_add_period_days").textContent = proposed;
-		document.getElementById("lifecycle_renew_period_days").textContent = proposed;
-		document.getElementById("lifecycle_auto_renew_period_days").textContent = proposed;
-		document.getElementById("lifecycle_redemption_period_days").textContent = proposed;
-		document.getElementById("lifecycle_deletion_phase_days").textContent = proposed;
+		document.getElementById("lifecycle_add_period_grace_days").textContent = proposed;
+		document.getElementById("lifecycle_transfer_period_grace_days").textContent = proposed;
+		document.getElementById("lifecycle_post_transfer_lock_days").textContent = proposed;
+		document.getElementById("lifecycle_min_renew_period_grace_days").textContent = proposed;
+		document.getElementById("lifecycle_max_renew_period_grace_days").textContent = proposed;
+		document.getElementById("lifecycle_min_redemption_period_days").textContent = proposed;
+		document.getElementById("lifecycle_max_redemption_period_days").textContent = proposed;
+		document.getElementById("lifecycle_min_deletion_phase_days").textContent = proposed;
+		document.getElementById("lifecycle_max_deletion_phase_days").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;			
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed + "Een folder /v1/ ondersteunt ook mogelijke /v2/-responses; zie icann.com.";
@@ -387,7 +395,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_root_zones_url").textContent = proposed + 'A reference to the official list of Root Zones.';
 		document.getElementById("root_zone_delegation_url").textContent = proposed + 'URL pointing to the ICANN delegation record for the TLD.';
 		document.getElementById("root_zone_tld_category").textContent = proposed + 'Indicates generic TLD (gTLD) or a country-code TLD (ccTLD).';
-		document.getElementById("root_zone_tld_type").textContent = proposed + 'Lists TLD types such as gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD, and geoTLD.';
+		document.getElementById("root_zone_tld_type").textContent = proposed + 'The TLD type, such as gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD, or geoTLD.';
 		document.getElementById("root_zone_sponsoring_organization_name").textContent = proposed + 'Defines eligibility and community rules for the TLD.';
 		document.getElementById("root_zone_country_code_designated_manager").textContent = proposed + 'ccTLD managers are not necessarily bound by international standards.';
 		document.getElementById("root_zone_registry_operator_organization_name").textContent = proposed + 'The legal name of the organization responsible for registration activities.';
@@ -400,11 +408,15 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_role_shielding").textContent = proposed + "Request-Driven: Requester/TLD/role require an unclustered visibility.";
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed + 'The registrar may grant the registrant a discount for more years than usual.';
-		document.getElementById("lifecycle_add_period_days").textContent = proposed;
-		document.getElementById("lifecycle_renew_period_days").textContent = proposed;
-		document.getElementById("lifecycle_auto_renew_period_days").textContent = proposed;		
-		document.getElementById("lifecycle_redemption_period_days").textContent = proposed;
-		document.getElementById("lifecycle_deletion_phase_days").textContent = proposed;
+		document.getElementById("lifecycle_add_period_grace_days").textContent = proposed;
+		document.getElementById("lifecycle_transfer_period_grace_days").textContent = proposed;
+		document.getElementById("lifecycle_post_transfer_lock_days").textContent = proposed;
+		document.getElementById("lifecycle_min_renew_period_grace_days").textContent = proposed;
+		document.getElementById("lifecycle_max_renew_period_grace_days").textContent = proposed;	
+		document.getElementById("lifecycle_min_redemption_period_days").textContent = proposed;
+		document.getElementById("lifecycle_max_redemption_period_days").textContent = proposed;
+		document.getElementById("lifecycle_min_deletion_phase_days").textContent = proposed;
+		document.getElementById("lifecycle_max_deletion_phase_days").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;		
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed + "A /v1/ folder may also support /v2/ responses — see icann.com for details.";
@@ -483,7 +495,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_root_zones_url").textContent = proposed + 'Ein Verweis auf die offizielle Liste der Root-Zones.';	
 		document.getElementById("root_zone_delegation_url").textContent = proposed + 'URL mit Verweis auf den ICANN-Delegationsdatensatz für die TLD.';
 		document.getElementById("root_zone_tld_category").textContent = proposed + 'Zeigt eine generische TLD (gTLD) oder eine länderspezifische TLD (ccTLD) an.';
-		document.getElementById("root_zone_tld_type").textContent = proposed + 'Listet TLD-Typen wie gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD und geoTLD auf.';
+		document.getElementById("root_zone_tld_type").textContent = proposed + 'Der TLD-Typ, z. B. gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD oder geoTLD.';
 		document.getElementById("root_zone_sponsoring_organization_name").textContent = proposed + 'Definiert die Berechtigung und Community-Regeln für die TLD.';
 		document.getElementById("root_zone_country_code_designated_manager").textContent = proposed + 'ccTLD-Manager sind nicht unbedingt an internationale Standards gebunden.';
 		document.getElementById("root_zone_registry_operator_organization_name").textContent = proposed + 'Der offizielle Name der Organisation, die für die Registrierungsaktivitäten verantwortlich ist.';
@@ -496,11 +508,15 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_role_shielding").textContent = proposed + "'Request-Driven: Anforderer/TLD/Rolle erfordern eine nicht gruppierte Sichtbarkeit.";
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed + 'Der Registrar kann dem Registranten für mehr Jahre als üblich einen Rabatt gewähren.';
-		document.getElementById("lifecycle_add_period_days").textContent = proposed;
-		document.getElementById("lifecycle_renew_period_days").textContent = proposed;
-		document.getElementById("lifecycle_auto_renew_period_days").textContent = proposed;		
-		document.getElementById("lifecycle_redemption_period_days").textContent = proposed;
-		document.getElementById("lifecycle_deletion_phase_days").textContent = proposed;
+		document.getElementById("lifecycle_add_period_grace_days").textContent = proposed;
+		document.getElementById("lifecycle_transfer_period_grace_days").textContent = proposed;
+		document.getElementById("lifecycle_post_transfer_lock_days").textContent = proposed;
+		document.getElementById("lifecycle_min_renew_period_grace_days").textContent = proposed;
+		document.getElementById("lifecycle_max_renew_period_grace_days").textContent = proposed;	
+		document.getElementById("lifecycle_min_redemption_period_days").textContent = proposed;
+		document.getElementById("lifecycle_max_redemption_period_days").textContent = proposed;
+		document.getElementById("lifecycle_min_deletion_phase_days").textContent = proposed;
+		document.getElementById("lifecycle_max_deletion_phase_days").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed + "Ein /v1/-Ordner unterstützt auch mögliche /v2/-Antworten; siehe icann.com.";
@@ -579,7 +595,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_root_zones_url").textContent = proposed + "Une référence à la liste officielle des 'Root Zones'.";
 		document.getElementById("root_zone_delegation_url").textContent = proposed + "URL référençant l'enregistrement de délégation de l'ICANN pour le TLD.";	
 		document.getElementById("root_zone_tld_category").textContent = proposed + "Indique un TLD générique (gTLD) ou un TLD de code pays (ccTLD).";
-		document.getElementById("root_zone_tld_type").textContent = proposed + "Répertorie les types de TLD tels que gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD et geoTLD.";
+		document.getElementById("root_zone_tld_type").textContent = proposed + "Le type de TLD, tel que gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD ou geoTLD.";
 		document.getElementById("root_zone_sponsoring_organization_name").textContent = proposed + "Définit l'éligibilité et les règles communautaires pour le TLD.";
 		document.getElementById("root_zone_country_code_designated_manager").textContent = proposed + "Les gestionnaires de ccTLD ne sont pas nécessairement liés par les normes internationales.";
 		document.getElementById("root_zone_registry_operator_organization_name").textContent = proposed + "Le nom légal de l’organisation responsable des activités d’enregistrement.";
@@ -592,11 +608,15 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_role_shielding").textContent = proposed + "'Request-Driven': Le demandeur/TLD/le rôle nécessite une visibilité non groupée.";
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_max_subscription_period_years").textContent = proposed + "Le registraire peut accorder au titulaire une réduction pour un nombre d'années supérieur à la normale.";
-		document.getElementById("lifecycle_add_period_days").textContent = proposed;
-		document.getElementById("lifecycle_renew_period_days").textContent = proposed;
-		document.getElementById("lifecycle_auto_renew_period_days").textContent = proposed;		
-		document.getElementById("lifecycle_redemption_period_days").textContent = proposed;
-		document.getElementById("lifecycle_deletion_phase_days").textContent = proposed;
+		document.getElementById("lifecycle_add_period_grace_days").textContent = proposed;
+		document.getElementById("lifecycle_transfer_period_grace_days").textContent = proposed;
+		document.getElementById("lifecycle_post_transfer_lock_days").textContent = proposed;
+		document.getElementById("lifecycle_min_renew_period_grace_days").textContent = proposed;
+		document.getElementById("lifecycle_max_renew_period_grace_days").textContent = proposed;	
+		document.getElementById("lifecycle_min_redemption_period_days").textContent = proposed;
+		document.getElementById("lifecycle_max_redemption_period_days").textContent = proposed;
+		document.getElementById("lifecycle_min_deletion_phase_days").textContent = proposed;
+		document.getElementById("lifecycle_max_deletion_phase_days").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed + "Un dossier /v1/ prend également en charge les réponses /v2/ possibles ; voir icann.com.";
@@ -763,12 +783,16 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="2714" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['roles'].'</td><td id="root_zone_role_shielding"></td></tr>';	
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(28)">Lifecycle Data +/-</button></td><td></td><td id="lifecycle_role"></td></tr>';
 	$html_text .= '<tr id="281" style="display:none"><td>max_subscription_period_years</td><td>'.$data[$pd]['lifecycle']['max_subscription_period_years'].'</td><td id="lifecycle_max_subscription_period_years"></td></tr>';
-	$html_text .= '<tr id="282" style="display:none"><td>add_period_days</td><td>'.$data[$pd]['lifecycle']['add_period_days'].'</td><td id="lifecycle_add_period_days"></td></tr>';
-	$html_text .= '<tr id="283" style="display:none"><td>renew_period_days</td><td>'.$data[$pd]['lifecycle']['renew_period_days'].'</td><td id="lifecycle_renew_period_days"></td></tr>';
-	$html_text .= '<tr id="284" style="display:none"><td>auto_renew_period_days</td><td>'.$data[$pd]['lifecycle']['auto_renew_period_days'].'</td><td id="lifecycle_auto_renew_period_days"></td></tr>';
-	$html_text .= '<tr id="285" style="display:none"><td>redemption_period_days</td><td>'.$data[$pd]['lifecycle']['redemption_period_days'].'</td><td id="lifecycle_redemption_period_days"></td></tr>';
-	$html_text .= '<tr id="286" style="display:none"><td>deletion_phase_days</td><td>'.$data[$pd]['lifecycle']['deletion_phase_days'].'</td><td id="lifecycle_deletion_phase_days"></td></tr>';
-	$html_text .= '<tr id="287" style="display:none"><td>upon_termination</td><td>'.$data[$pd]['lifecycle']['upon_termination'].'</td><td id="lifecycle_upon_termination"></td></tr>';
+	$html_text .= '<tr id="282" style="display:none"><td>add_period_grace_days</td><td>'.$data[$pd]['lifecycle']['add_period_grace_days'].'</td><td id="lifecycle_add_period_grace_days"></td></tr>';
+	$html_text .= '<tr id="283" style="display:none"><td>transfer_period_grace_days</td><td>'.$data[$pd]['lifecycle']['transfer_period_grace_days'].'</td><td id="lifecycle_transfer_period_grace_days"></td></tr>';
+	$html_text .= '<tr id="284" style="display:none"><td>post_transfer_lock_days</td><td>'.$data[$pd]['lifecycle']['post_transfer_lock_days'].'</td><td id="lifecycle_post_transfer_lock_days"></td></tr>';
+	$html_text .= '<tr id="285" style="display:none"><td>min_renew_period_grace_days</td><td>'.$data[$pd]['lifecycle']['min_renew_period_grace_days'].'</td><td id="lifecycle_min_renew_period_grace_days"></td></tr>';
+	$html_text .= '<tr id="286" style="display:none"><td>max_renew_period_grace_days</td><td>'.$data[$pd]['lifecycle']['max_renew_period_grace_days'].'</td><td id="lifecycle_max_renew_period_grace_days"></td></tr>';
+	$html_text .= '<tr id="287" style="display:none"><td>min_redemption_period_days</td><td>'.$data[$pd]['lifecycle']['min_redemption_period_days'].'</td><td id="lifecycle_min_redemption_period_days"></td></tr>';
+	$html_text .= '<tr id="288" style="display:none"><td>max_redemption_period_days</td><td>'.$data[$pd]['lifecycle']['max_redemption_period_days'].'</td><td id="lifecycle_max_redemption_period_days"></td></tr>';
+	$html_text .= '<tr id="289" style="display:none"><td>min_deletion_phase_days</td><td>'.$data[$pd]['lifecycle']['min_deletion_phase_days'].'</td><td id="lifecycle_min_deletion_phase_days"></td></tr>';
+	$html_text .= '<tr id="2810" style="display:none"><td>max_deletion_phase_days</td><td>'.$data[$pd]['lifecycle']['max_deletion_phase_days'].'</td><td id="lifecycle_max_deletion_phase_days"></td></tr>';
+	$html_text .= '<tr id="2811" style="display:none"><td>upon_termination</td><td>'.$data[$pd]['lifecycle']['upon_termination'].'</td><td id="lifecycle_upon_termination"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(29)">Metadata +/-</button></td><td></td><td id="metadata_role"></td></tr>';
 	$html_text .= '<tr id="291" style="display:none"><td>lookup_endpoints_url</td><td><a href='.$data[$pd]['metadata']['lookup_endpoints_url'].' target="_blank">Lookup Endpoints</a></td><td id="metadata_lookup_endpoints_url"></td></tr>';
 	$html_text .= '<tr id="292" style="display:none"><td>resource_upload_at</td><td>'.$data[$pd]['metadata']['resource_upload_at'].'</td><td id="metadata_resource_upload_at"></td></tr>';

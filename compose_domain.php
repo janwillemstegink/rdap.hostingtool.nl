@@ -193,11 +193,15 @@ $registry_operator_presented_name = '';
 $backend_operator_organization_name = '';
 $backend_operator_presented_name = '';
 $max_subscription_period_years = null;
-$add_period_days = null;
-$renew_period_days = null;
-$auto_renew_period_days = null;
-$redemption_period_days = null;	
-$deletion_phase_days = null;
+$add_period_grace_days = null;
+$transfer_period_grace_days = null;	
+$post_transfer_lock_days = null;
+$min_renew_period_grace_days = null;
+$max_renew_period_grace_days = null;
+$min_redemption_period_days = null;
+$max_redemption_period_days = null;
+$min_deletion_phase_days = null;
+$max_deletion_phase_days = null;
 $upon_termination = null;
 $restrictions_url = '';
 $menu_url = '';
@@ -223,11 +227,10 @@ if ($zone_identifier == 'nl')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
 	$max_subscription_period_years = 1;
-	$add_period_days = '?';
-	$renew_period_days = '?';
-	$auto_renew_period_days = '?';
-	$redemption_period_days = 40;
-	$deletion_phase_days = 0;
+	$min_redemption_period_days = 40;
+	$max_redemption_period_days = 40;
+	$min_deletion_phase_days = 0;
+	$max_deletion_phase_days = 0;
 	$upon_termination = "40-day quarantine phase (.nl)";
 	$sponsoring_organization_name = '';
 	$country_code_designated_manager = 'Stichting Internet Domeinregistratie Nederland';
@@ -293,6 +296,10 @@ elseif ($zone_identifier == 'eu')	{
 elseif ($zone_identifier == 'de')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
+	$min_redemption_period_days = 0;
+	$max_redemption_period_days = 28;
+	$min_deletion_phase_days = 0;
+	$max_deletion_phase_days = 0;
 	$sponsoring_organization_name = '';
 	$country_code_designated_manager = 'DENIC eG';
 	$registry_operator_organization_name = 'DENIC eG';
@@ -305,6 +312,10 @@ elseif ($zone_identifier == 'de')	{
 elseif ($zone_identifier == 'fr')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
+	$min_redemption_period_days = 30;
+	$max_redemption_period_days = 30;
+	$min_deletion_phase_days = 0;
+	$max_deletion_phase_days = 0;
 	$sponsoring_organization_name = '';
 	$country_code_designated_manager = 'Association Française pour le Nommage Internet en Coopération (A.F.N.I.C.)';
 	$registry_operator_organization_name = 'Association Française pour le Nommage Internet en Coopération (A.F.N.I.C.)';
@@ -317,6 +328,10 @@ elseif ($zone_identifier == 'fr')	{
 elseif ($zone_identifier == 'ch')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
+	$min_redemption_period_days = 40;
+	$max_redemption_period_days = 40;
+	$min_deletion_phase_days = 0;
+	$max_deletion_phase_days = 0;
 	$sponsoring_organization_name = '';
 	$country_code_designated_manager = 'SWITCH Foundation';
 	$registry_operator_organization_name = 'SWITCH Foundation';
@@ -365,6 +380,12 @@ elseif ($zone_identifier == 'lu')	{
 elseif ($zone_identifier == 'uk')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
+	$renew_period_days = 30;
+	$auto_renew_period_days = 30;
+	$min_redemption_period_days = 60;
+	$max_redemption_period_days = 60;
+	$min_deletion_phase_days = 0;
+	$max_deletion_phase_days = 0;
 	$sponsoring_organization_name = '';
 	$country_code_designated_manager = 'Nominet UK';
 	$registry_operator_organization_name = 'Nominet UK';
@@ -377,6 +398,14 @@ elseif ($zone_identifier == 'uk')	{
 elseif ($zone_identifier == 'com')	{
 	$tld_category = 'gTLD';
 	$tld_type = 'gTLD';
+	$transfer_period_grace_days = 5;	
+	$post_transfer_lock_days = 60;
+	$min_renew_period_grace_days = 0;
+	$max_renew_period_grace_days = 45;
+	$min_redemption_period_days = 30;
+	$max_redemption_period_days = 30;
+	$min_deletion_phase_days = 5;
+	$max_deletion_phase_days = 5;
 	$sponsoring_organization_name = 'VeriSign Global Registry Services (ICANN?)';
 	$country_code_designated_manager = '';
 	$registry_operator_organization_name = 'VeriSign Global Registry Services';
@@ -389,6 +418,14 @@ elseif ($zone_identifier == 'com')	{
 elseif ($zone_identifier == 'org')	{
 	$tld_category = 'gTLD';
 	$tld_type = 'gTLD';
+	$transfer_period_grace_days = 5;	
+	$post_transfer_lock_days = 60;
+	$min_renew_period_grace_days = 0;
+	$max_renew_period_grace_days = 45;
+	$min_redemption_period_days = 30;
+	$max_redemption_period_days = 30;
+	$min_deletion_phase_days = 5;
+	$max_deletion_phase_days = 5;
 	$sponsoring_organization_name = 'Public Interest Registry (PIR)';
 	$country_code_designated_manager = '';
 	$registry_operator_organization_name = 'Public Interest Registry (PIR)';
@@ -1477,11 +1514,15 @@ $arr[$inputdomain]['root_zone']['menu_url'] = $menu_url;
 $arr[$inputdomain]['root_zone']['roles'] = $roles;	
 	
 $arr[$inputdomain]['lifecycle']['max_subscription_period_years'] = $max_subscription_period_years;
-$arr[$inputdomain]['lifecycle']['add_period_days'] = $add_period_days;
-$arr[$inputdomain]['lifecycle']['renew_period_days'] = $renew_period_days;
-$arr[$inputdomain]['lifecycle']['auto_renew_period_days'] = $auto_renew_period_days;
-$arr[$inputdomain]['lifecycle']['redemption_period_days'] = $redemption_period_days;
-$arr[$inputdomain]['lifecycle']['deletion_phase_days'] = $deletion_phase_days;
+$arr[$inputdomain]['lifecycle']['add_period_grace_days'] = $add_period_grace_days;
+$arr[$inputdomain]['lifecycle']['transfer_period_grace_days'] = $transfer_period_grace_days;
+$arr[$inputdomain]['lifecycle']['post_transfer_lock_days'] = $post_transfer_lock_days;		
+$arr[$inputdomain]['lifecycle']['min_renew_period_grace_days'] = $min_renew_period_grace_days;
+$arr[$inputdomain]['lifecycle']['max_renew_period_grace_days'] = $max_renew_period_grace_days;
+$arr[$inputdomain]['lifecycle']['min_redemption_period_days'] = $min_redemption_period_days;
+$arr[$inputdomain]['lifecycle']['max_redemption_period_days'] = $max_redemption_period_days;
+$arr[$inputdomain]['lifecycle']['min_deletion_phase_days'] = $min_deletion_phase_days;
+$arr[$inputdomain]['lifecycle']['max_deletion_phase_days'] = $max_deletion_phase_days;
 $arr[$inputdomain]['lifecycle']['upon_termination'] = $upon_termination;	
 
 $arr[$inputdomain]['metadata']['lookup_endpoints_url'] = $lookup_endpoints_url;
