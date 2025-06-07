@@ -192,17 +192,6 @@ $registry_operator_organization_name = '';
 $registry_operator_presented_name = '';
 $backend_operator_organization_name = '';
 $backend_operator_presented_name = '';
-$max_subscription_period_years = null;
-$add_period_grace_days = null;
-$transfer_period_grace_days = null;	
-$post_transfer_lock_days = null;
-$min_renew_period_grace_days = null;
-$max_renew_period_grace_days = null;
-$min_redemption_period_days = null;
-$max_redemption_period_days = null;
-$min_deletion_phase_days = null;
-$max_deletion_phase_days = null;
-$upon_termination = null;
 $restrictions_url = '';
 $menu_url = '';
 $roles_json = '[{"role_sequence": 10,"role_identifier": "abuse","role_shielding": ["name"]},
@@ -218,19 +207,33 @@ $decoded = json_decode($roles_json, true);
 usort($decoded, function ($a, $b) {
     return $a['role_sequence'] <=> $b['role_sequence'];
 });
-$roles .= 'role_sequence, role_identifier, role_shielding<br />';    
+$roles = 'role_sequence, role_identifier, role_shielding<br />';    
 foreach ($decoded as $role) {
 	$roles .= $role['role_sequence'] . ', ' . $role['role_identifier'] . ', [' . implode(', ', $role['role_shielding']) . ']<br />';
-}
+}	
+$periods_json = '[
+        {"period_identifier": "subscription_period_years", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "add_period_grace_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "transfer_period_grace_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "post_transfer_lock_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "renew_period_grace_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "redemption_period_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "deletion_phase_days", "period_minimum": null, "period_maximum": null}
+    ]';
+$upon_termination = 'Zone-specific regulation';
 $registrant_web_id = '';		
 if ($zone_identifier == 'nl')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$max_subscription_period_years = 1;
-	$min_redemption_period_days = 40;
-	$max_redemption_period_days = 40;
-	$min_deletion_phase_days = 0;
-	$max_deletion_phase_days = 0;
+	$periods_json = '[
+        {"period_identifier": "subscription_period_years", "period_minimum": null, "period_maximum": 1},
+        {"period_identifier": "add_period_grace_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "transfer_period_grace_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "post_transfer_lock_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "renew_period_grace_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "redemption_period_days", "period_minimum": 40, "period_maximum": 40},
+        {"period_identifier": "deletion_phase_days", "period_minimum": 0, "period_maximum": 0}
+    ]';	
 	$upon_termination = "40-day quarantine phase (.nl)";
 	$sponsoring_organization_name = '';
 	$country_code_designated_manager = 'Stichting Internet Domeinregistratie Nederland';
@@ -296,10 +299,15 @@ elseif ($zone_identifier == 'eu')	{
 elseif ($zone_identifier == 'de')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$min_redemption_period_days = 0;
-	$max_redemption_period_days = 28;
-	$min_deletion_phase_days = 0;
-	$max_deletion_phase_days = 0;
+	$periods_json = '[
+        {"period_identifier": "subscription_period_years", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "add_period_grace_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "transfer_period_grace_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "post_transfer_lock_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "renew_period_grace_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "redemption_period_days", "period_minimum": 0, "period_maximum": 28},
+        {"period_identifier": "deletion_phase_days", "period_minimum": 0, "period_maximum": 0}
+    ]';	
 	$sponsoring_organization_name = '';
 	$country_code_designated_manager = 'DENIC eG';
 	$registry_operator_organization_name = 'DENIC eG';
@@ -312,10 +320,15 @@ elseif ($zone_identifier == 'de')	{
 elseif ($zone_identifier == 'fr')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$min_redemption_period_days = 30;
-	$max_redemption_period_days = 30;
-	$min_deletion_phase_days = 0;
-	$max_deletion_phase_days = 0;
+	$periods_json = '[
+        {"period_identifier": "subscription_period_years", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "add_period_grace_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "transfer_period_grace_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "post_transfer_lock_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "renew_period_grace_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "redemption_period_days", "period_minimum": 30, "period_maximum": 30},
+        {"period_identifier": "deletion_phase_days", "period_minimum": 0, "period_maximum": 0}
+    ]';	
 	$sponsoring_organization_name = '';
 	$country_code_designated_manager = 'Association Française pour le Nommage Internet en Coopération (A.F.N.I.C.)';
 	$registry_operator_organization_name = 'Association Française pour le Nommage Internet en Coopération (A.F.N.I.C.)';
@@ -328,10 +341,15 @@ elseif ($zone_identifier == 'fr')	{
 elseif ($zone_identifier == 'ch')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$min_redemption_period_days = 40;
-	$max_redemption_period_days = 40;
-	$min_deletion_phase_days = 0;
-	$max_deletion_phase_days = 0;
+	$periods_json = '[
+        {"period_identifier": "subscription_period_years", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "add_period_grace_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "transfer_period_grace_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "post_transfer_lock_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "renew_period_grace_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "redemption_period_days", "period_minimum": 40, "period_maximum": 40},
+        {"period_identifier": "deletion_phase_days", "period_minimum": 0, "period_maximum": 0}
+    ]';	
 	$sponsoring_organization_name = '';
 	$country_code_designated_manager = 'SWITCH Foundation';
 	$registry_operator_organization_name = 'SWITCH Foundation';
@@ -380,12 +398,15 @@ elseif ($zone_identifier == 'lu')	{
 elseif ($zone_identifier == 'uk')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$renew_period_days = 30;
-	$auto_renew_period_days = 30;
-	$min_redemption_period_days = 60;
-	$max_redemption_period_days = 60;
-	$min_deletion_phase_days = 0;
-	$max_deletion_phase_days = 0;
+	$periods_json = '[
+        {"period_identifier": "subscription_period_years", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "add_period_grace_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "transfer_period_grace_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "post_transfer_lock_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "renew_period_grace_days", "period_minimum": 30, "period_maximum": 30},
+        {"period_identifier": "redemption_period_days", "period_minimum": 60, "period_maximum": 60},
+        {"period_identifier": "deletion_phase_days", "period_minimum": 0, "period_maximum": 0}
+    ]';	
 	$sponsoring_organization_name = '';
 	$country_code_designated_manager = 'Nominet UK';
 	$registry_operator_organization_name = 'Nominet UK';
@@ -398,14 +419,15 @@ elseif ($zone_identifier == 'uk')	{
 elseif ($zone_identifier == 'com')	{
 	$tld_category = 'gTLD';
 	$tld_type = 'gTLD';
-	$transfer_period_grace_days = 5;	
-	$post_transfer_lock_days = 60;
-	$min_renew_period_grace_days = 0;
-	$max_renew_period_grace_days = 45;
-	$min_redemption_period_days = 30;
-	$max_redemption_period_days = 30;
-	$min_deletion_phase_days = 5;
-	$max_deletion_phase_days = 5;
+	$periods_json = '[
+        {"period_identifier": "subscription_period_years", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "add_period_grace_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "transfer_period_grace_days", "period_minimum": 5, "period_maximum": 5},
+        {"period_identifier": "post_transfer_lock_days", "period_minimum": 60, "period_maximum": 60},
+        {"period_identifier": "renew_period_grace_days", "period_minimum": 0, "period_maximum": 45},
+        {"period_identifier": "redemption_period_days", "period_minimum": 30, "period_maximum": 30},
+        {"period_identifier": "deletion_phase_days", "period_minimum": 5, "period_maximum": 5}
+    ]';	
 	$sponsoring_organization_name = 'VeriSign Global Registry Services (ICANN?)';
 	$country_code_designated_manager = '';
 	$registry_operator_organization_name = 'VeriSign Global Registry Services';
@@ -418,14 +440,15 @@ elseif ($zone_identifier == 'com')	{
 elseif ($zone_identifier == 'org')	{
 	$tld_category = 'gTLD';
 	$tld_type = 'gTLD';
-	$transfer_period_grace_days = 5;	
-	$post_transfer_lock_days = 60;
-	$min_renew_period_grace_days = 0;
-	$max_renew_period_grace_days = 45;
-	$min_redemption_period_days = 30;
-	$max_redemption_period_days = 30;
-	$min_deletion_phase_days = 5;
-	$max_deletion_phase_days = 5;
+	$periods_json = '[
+        {"period_identifier": "subscription_period_years", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "add_period_grace_days", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "transfer_period_grace_days", "period_minimum": 5, "period_maximum": 5},
+        {"period_identifier": "post_transfer_lock_days", "period_minimum": 60, "period_maximum": 60},
+        {"period_identifier": "renew_period_grace_days", "period_minimum": 0, "period_maximum": 45},
+        {"period_identifier": "redemption_period_days", "period_minimum": 30, "period_maximum": 30},
+        {"period_identifier": "deletion_phase_days", "period_minimum": 5, "period_maximum": 5}
+    ]';
 	$sponsoring_organization_name = 'Public Interest Registry (PIR)';
 	$country_code_designated_manager = '';
 	$registry_operator_organization_name = 'Public Interest Registry (PIR)';
@@ -434,11 +457,16 @@ elseif ($zone_identifier == 'org')	{
 	$backend_operator_presented_name = 'Senior Director, DNS Infrastructure Group';
 	$restrictions_url = '';
 	$menu_url = '';
-}	
+}
 $delegation_url = 'https://www.iana.org/domains/root/db/'.$zone_identifier.'.html';		
 $language_codes = (is_array($obj['lang'])) ? implode(",<br />", $obj['lang']) : $obj['lang'];
 if (!strlen($language_codes))	{
 	$language_codes = 'None Specified';	
+}	
+$decoded = json_decode($periods_json, true);
+$periods = '';    
+foreach ($decoded as $period) {
+	$periods .= $period['period_identifier'] . ': Min: ' . $period['period_minimum'] . ', Max: ' . $period['period_maximum'] . '<br />';
 }	
 $links_0_value = $obj['links'][0]['value'];
 $links_0_related = $obj['links'][0]['rel'];
@@ -1513,16 +1541,7 @@ $arr[$inputdomain]['root_zone']['restrictions_url'] = $restrictions_url;
 $arr[$inputdomain]['root_zone']['menu_url'] = $menu_url;	
 $arr[$inputdomain]['root_zone']['roles'] = $roles;	
 	
-$arr[$inputdomain]['lifecycle']['max_subscription_period_years'] = $max_subscription_period_years;
-$arr[$inputdomain]['lifecycle']['add_period_grace_days'] = $add_period_grace_days;
-$arr[$inputdomain]['lifecycle']['transfer_period_grace_days'] = $transfer_period_grace_days;
-$arr[$inputdomain]['lifecycle']['post_transfer_lock_days'] = $post_transfer_lock_days;		
-$arr[$inputdomain]['lifecycle']['min_renew_period_grace_days'] = $min_renew_period_grace_days;
-$arr[$inputdomain]['lifecycle']['max_renew_period_grace_days'] = $max_renew_period_grace_days;
-$arr[$inputdomain]['lifecycle']['min_redemption_period_days'] = $min_redemption_period_days;
-$arr[$inputdomain]['lifecycle']['max_redemption_period_days'] = $max_redemption_period_days;
-$arr[$inputdomain]['lifecycle']['min_deletion_phase_days'] = $min_deletion_phase_days;
-$arr[$inputdomain]['lifecycle']['max_deletion_phase_days'] = $max_deletion_phase_days;
+$arr[$inputdomain]['lifecycle']['periods'] = $periods;
 $arr[$inputdomain]['lifecycle']['upon_termination'] = $upon_termination;	
 
 $arr[$inputdomain]['metadata']['lookup_endpoints_url'] = $lookup_endpoints_url;
