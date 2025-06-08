@@ -91,7 +91,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 27)	{ // root zone
 		var pre = '27';
-		var max = 14
+		var max = 10
 	}
 	else if (type == 28)	{ // life cycle
 		var pre = '28';
@@ -196,16 +196,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_delegation_url").textContent = proposed;
 		document.getElementById("root_zone_tld_category").textContent = proposed;
 		document.getElementById("root_zone_tld_type").textContent = proposed;
-		document.getElementById("root_zone_sponsoring_organization_name").textContent = proposed;
-		document.getElementById("root_zone_country_code_designated_manager").textContent = proposed;
-		document.getElementById("root_zone_registry_operator_organization_name").textContent = proposed;
-		document.getElementById("root_zone_registry_operator_presented_name").textContent = proposed;
-		document.getElementById("root_zone_backend_operator_organization_name").textContent = proposed;
-		document.getElementById("root_zone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("root_zone_language_codes").textContent = modified;
 		document.getElementById("root_zone_restrictions_url").textContent = proposed;
 		document.getElementById("root_zone_menu_url").textContent = proposed;
-		document.getElementById("root_zone_role_shielding").textContent = proposed;
+		document.getElementById("root_zone_tld_contacts").textContent = proposed;
+		document.getElementById("root_zone_tld_roles").textContent = proposed;
+		document.getElementById("root_zone_domain_roles").textContent = proposed;
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
@@ -288,16 +284,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_delegation_url").textContent = proposed + 'URL die verwijst naar het ICANN-delegatierecord voor de TLD.';
 		document.getElementById("root_zone_tld_category").textContent = proposed + 'Geeft een generieke TLD (gTLD) of een landcode-TLD (ccTLD) aan.';
 		document.getElementById("root_zone_tld_type").textContent = proposed + 'Het TLD-type, bijvoorbeeld gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD of geoTLD.';
-		document.getElementById("root_zone_sponsoring_organization_name").textContent = proposed + 'Definieert de geschiktheid en communityregels voor de TLD.';
-		document.getElementById("root_zone_country_code_designated_manager").textContent = proposed + "ccTLD-beheerders zijn niet noodzakelijkerwijs gebonden aan internationale normen.";
-		document.getElementById("root_zone_registry_operator_organization_name").textContent = proposed + 'De juridische naam van de organisatie die verantwoordelijk is voor de registratieactiviteiten.';
-		document.getElementById("root_zone_registry_operator_presented_name").textContent = proposed;
-		document.getElementById("root_zone_backend_operator_organization_name").textContent = proposed + 'De backend-operator verzorgt de technische infrastructuur van de TLD.';
-		document.getElementById("root_zone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("root_zone_language_codes").textContent = modified + "Geeft ondersteunde talen voor de Root Zone aan.";	
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Beperkingen op gebruik en registratiebeleid zijn te vinden via deze URL.";
 		document.getElementById("root_zone_menu_url").textContent = proposed + 'Een TLD-specifiek informatiemenu, beschikbaar onder een subdomein zoals "regmenu".';
-		document.getElementById("root_zone_role_shielding").textContent = proposed + "'Request-Driven': Aanvrager/TLD/rol vereisen een niet-geclusterde zichtbaarheid.";
+		document.getElementById("root_zone_tld_contacts").textContent = proposed;
+		document.getElementById("root_zone_tld_roles").textContent = proposed;		
+		document.getElementById("root_zone_domain_roles").textContent = proposed + "'Request-Driven': Aanvrager/TLD/rol vereisen een niet-geclusterde zichtbaarheid.";
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;	
@@ -380,16 +372,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_delegation_url").textContent = proposed + 'URL pointing to the ICANN delegation record for the TLD.';
 		document.getElementById("root_zone_tld_category").textContent = proposed + 'Indicates generic TLD (gTLD) or a country-code TLD (ccTLD).';
 		document.getElementById("root_zone_tld_type").textContent = proposed + 'The TLD type, such as gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD, or geoTLD.';
-		document.getElementById("root_zone_sponsoring_organization_name").textContent = proposed + 'Defines eligibility and community rules for the TLD.';
-		document.getElementById("root_zone_country_code_designated_manager").textContent = proposed + 'ccTLD managers are not necessarily bound by international standards.';
-		document.getElementById("root_zone_registry_operator_organization_name").textContent = proposed + 'The legal name of the organization responsible for registration activities.';
-		document.getElementById("root_zone_registry_operator_presented_name").textContent = proposed;
-		document.getElementById("root_zone_backend_operator_organization_name").textContent = proposed + 'The backend operator manages the technical infrastructure of the TLD.';
-		document.getElementById("root_zone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("root_zone_language_codes").textContent = modified + "Indicates supported languages for the Root Zone.";
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Usage and registration restrictions are listed at this URL.";
 		document.getElementById("root_zone_menu_url").textContent = proposed + 'A TLD specific information menu, available under a subdomain such as "regmenu".';
-		document.getElementById("root_zone_role_shielding").textContent = proposed + "Request-Driven: Requester/TLD/role require an unclustered visibility.";
+		document.getElementById("root_zone_tld_contacts").textContent = proposed;
+		document.getElementById("root_zone_tld_roles").textContent = proposed;
+		document.getElementById("root_zone_domain_roles").textContent = proposed + "Request-Driven: Requester/TLD/role require an unclustered visibility.";
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;	
@@ -472,16 +460,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_delegation_url").textContent = proposed + 'URL mit Verweis auf den ICANN-Delegationsdatensatz für die TLD.';
 		document.getElementById("root_zone_tld_category").textContent = proposed + 'Zeigt eine generische TLD (gTLD) oder eine länderspezifische TLD (ccTLD) an.';
 		document.getElementById("root_zone_tld_type").textContent = proposed + 'Der TLD-Typ, z. B. gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD oder geoTLD.';
-		document.getElementById("root_zone_sponsoring_organization_name").textContent = proposed + 'Definiert die Berechtigung und Community-Regeln für die TLD.';
-		document.getElementById("root_zone_country_code_designated_manager").textContent = proposed + 'ccTLD-Manager sind nicht unbedingt an internationale Standards gebunden.';
-		document.getElementById("root_zone_registry_operator_organization_name").textContent = proposed + 'Der offizielle Name der Organisation, die für die Registrierungsaktivitäten verantwortlich ist.';
-		document.getElementById("root_zone_registry_operator_presented_name").textContent = proposed;
-		document.getElementById("root_zone_backend_operator_organization_name").textContent = proposed + 'Der Backend-Betreiber verwaltet die technische Infrastruktur der TLD.';
-		document.getElementById("root_zone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("root_zone_language_codes").textContent = modified + "Gibt die unterstützten Sprachen der Root-Zone an.";
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Nutzungsbeschränkungen und Registrierungsrichtlinien finden Sie unter dieser URL.";		
 		document.getElementById("root_zone_menu_url").textContent = proposed + 'Ein TLD-spezifisches Informationsmenü, verfügbar unter einer Subdomäne wie "regmenu".';
-		document.getElementById("root_zone_role_shielding").textContent = proposed + "'Request-Driven: Anforderer/TLD/Rolle erfordern eine nicht gruppierte Sichtbarkeit.";
+		document.getElementById("root_zone_tld_contacts").textContent = proposed;
+		document.getElementById("root_zone_tld_roles").textContent = proposed;		
+		document.getElementById("root_zone_domain_roles").textContent = proposed + "'Request-Driven: Anforderer/TLD/Rolle erfordern eine nicht gruppierte Sichtbarkeit.";
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
@@ -564,16 +548,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_delegation_url").textContent = proposed + "URL référençant l'enregistrement de délégation de l'ICANN pour le TLD.";	
 		document.getElementById("root_zone_tld_category").textContent = proposed + "Indique un TLD générique (gTLD) ou un TLD de code pays (ccTLD).";
 		document.getElementById("root_zone_tld_type").textContent = proposed + "Le type de TLD, tel que gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD ou geoTLD.";
-		document.getElementById("root_zone_sponsoring_organization_name").textContent = proposed + "Définit l'éligibilité et les règles communautaires pour le TLD.";
-		document.getElementById("root_zone_country_code_designated_manager").textContent = proposed + "Les gestionnaires de ccTLD ne sont pas nécessairement liés par les normes internationales.";
-		document.getElementById("root_zone_registry_operator_organization_name").textContent = proposed + "Le nom légal de l’organisation responsable des activités d’enregistrement.";
-		document.getElementById("root_zone_registry_operator_presented_name").textContent = proposed;
-		document.getElementById("root_zone_backend_operator_organization_name").textContent = proposed + "Le opérateur du backend gère l'infrastructure technique du TLD.";
-		document.getElementById("root_zone_backend_operator_presented_name").textContent = proposed;
 		document.getElementById("root_zone_language_codes").textContent = modified + "Indique les langues prises en charge pour la 'Root Zone'.";
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Les restrictions d’usage et les politiques d’enregistrement sont accessibles via cette URL.";
 		document.getElementById("root_zone_menu_url").textContent = proposed + "Un menu d'informations spécifique au TLD, disponible sous un sous-domaine tel que 'regmenu'.";
-		document.getElementById("root_zone_role_shielding").textContent = proposed + "'Request-Driven': Le demandeur/TLD/le rôle nécessite une visibilité non groupée.";
+		document.getElementById("root_zone_tld_contacts").textContent = proposed;
+		document.getElementById("root_zone_tld_roles").textContent = proposed;
+		document.getElementById("root_zone_domain_roles").textContent = proposed + "'Request-Driven': Le demandeur/TLD/le rôle nécessite une visibilité non groupée.";
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
@@ -731,16 +711,12 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="272" style="display:none"><td>delegation_url</td><td><a href='.$data[$pd]['root_zone']['delegation_url'].' target="_blank">TLD Delegation</a></td><td id="root_zone_delegation_url"></td></tr>';
 	$html_text .= '<tr id="273" style="display:none"><td>tld_category</td><td>'.$data[$pd]['root_zone']['tld_category'].'</td><td id="root_zone_tld_category"></td></tr>';
 	$html_text .= '<tr id="274" style="display:none"><td>tld_type</td><td>'.$data[$pd]['root_zone']['tld_type'].'</td><td id="root_zone_tld_type"></td></tr>';
-	$html_text .= '<tr id="275" style="display:none"><td>sponsoring_organization_name</td><td>'.$data[$pd]['root_zone']['sponsoring_organization_name'].'</td><td id="root_zone_sponsoring_organization_name"></td></tr>';
-	$html_text .= '<tr id="276" style="display:none"><td>country_code_designated_manager</td><td>'.$data[$pd]['root_zone']['country_code_designated_manager'].'</td><td id="root_zone_country_code_designated_manager"></td></tr>';
-	$html_text .= '<tr id="277" style="display:none"><td>registry_operator_organization_name</td><td>'.$data[$pd]['root_zone']['registry_operator_organization_name'].'</td><td id="root_zone_registry_operator_organization_name"></td></tr>';
-	$html_text .= '<tr id="278" style="display:none"><td>registry_operator_presented_name</td><td>'.$data[$pd]['root_zone']['registry_operator_presented_name'].'</td><td id="root_zone_registry_operator_presented_name"></td></tr>';
-	$html_text .= '<tr id="279" style="display:none"><td>backend_operator_organization_name</td><td>'.$data[$pd]['root_zone']['backend_operator_organization_name'].'</td><td id="root_zone_backend_operator_organization_name"></td></tr>';
-	$html_text .= '<tr id="2710" style="display:none"><td>backend_operator_presented_name</td><td>'.$data[$pd]['root_zone']['backend_operator_presented_name'].'</td><td id="root_zone_backend_operator_presented_name"></td></tr>';
-	$html_text .= '<tr id="2711" style="display:none"><td>language_codes</td><td>'.$data[$pd]['root_zone']['language_codes'].'</td><td id="root_zone_language_codes"></td></tr>';
-	$html_text .= '<tr id="2712" style="display:none"><td>restrictions_url</td><td>'.((strlen($data[$pd]['root_zone']['restrictions_url'])) ? '<a href='.$data[$pd]['root_zone']['restrictions_url'].' target="_blank">TLD Restrictions</a>' : '').'</td><td id="root_zone_restrictions_url"></td></tr>';
-	$html_text .= '<tr id="2713" style="display:none"><td>menu_url</td><td>'.((strlen($data[$pd]['root_zone']['menu_url'])) ? '<a href='.$data[$pd]['root_zone']['menu_url'].' target="_blank">TLD Menu</a>' : '').'</td><td id="root_zone_menu_url"></td></tr>';
-	$html_text .= '<tr id="2714" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['roles'].'</td><td id="root_zone_role_shielding"></td></tr>';	
+	$html_text .= '<tr id="275" style="display:none"><td>language_codes</td><td>'.$data[$pd]['root_zone']['language_codes'].'</td><td id="root_zone_language_codes"></td></tr>';
+	$html_text .= '<tr id="276" style="display:none"><td>restrictions_url</td><td>'.((strlen($data[$pd]['root_zone']['restrictions_url'])) ? '<a href='.$data[$pd]['root_zone']['restrictions_url'].' target="_blank">TLD Restrictions</a>' : '').'</td><td id="root_zone_restrictions_url"></td></tr>';
+	$html_text .= '<tr id="277" style="display:none"><td>menu_url</td><td>'.((strlen($data[$pd]['root_zone']['menu_url'])) ? '<a href='.$data[$pd]['root_zone']['menu_url'].' target="_blank">TLD Menu</a>' : '').'</td><td id="root_zone_menu_url"></td></tr>';
+	$html_text .= '<tr id="278" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['tld_contacts'].'</td><td id="root_zone_tld_contacts"></td></tr>';
+	$html_text .= '<tr id="279" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['tld_roles'].'</td><td id="root_zone_tld_roles"></td></tr>';
+	$html_text .= '<tr id="2710" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['domain_roles'].'</td><td id="root_zone_domain_roles"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(28)">Lifecycle Data +/-</button></td><td></td><td id="lifecycle_role"></td></tr>';
 	$html_text .= '<tr id="281" style="display:none;vertical-align:top"><td>active_from: '.$data[$pd]['lifecycle']['active_from'].'</td><td></td><td id="lifecycle_active_from"></td></tr>';
 	$html_text .= '<tr id="282" style="display:none;vertical-align:top"><td>upon_termination: '.$data[$pd]['lifecycle']['upon_termination'].'</td><td></td><td id="lifecycle_upon_termination"></td></tr>';

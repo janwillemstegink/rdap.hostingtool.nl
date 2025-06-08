@@ -188,32 +188,42 @@ $notice_3_links_0_href = $obj['notices'][3]['links'][0]['href'];
 $notice_3_links_0_type = $obj['notices'][3]['links'][0]['type'];
 $tld_category = '';
 $tld_type = '';
-$sponsoring_organization_name = '';
-$country_code_designated_manager = '';
-$registry_operator_organization_name = '';
-$registry_operator_presented_name = '';
-$backend_operator_organization_name = '';
-$backend_operator_presented_name = '';
 $restrictions_url = '';
 $menu_url = '';
+$tld_contacts_json = '[]';	
+$tld_roles_json = '[
+{"tld_role_sequence": 10,"tld_role_identifier": "contracting_authority","tld_role_shielding": ["name", "email", "tel"]},
+{"tld_role_sequence": 20,"tld_role_identifier": "contracting_organization","tld_role_shielding": ["name", "email", "tel"]},
+{"tld_role_sequence": 30,"tld_role_identifier": "sponsoring_organization","tld_role_shielding": ["name", "email", "tel"]},
+{"tld_role_sequence": 40,"tld_role_identifier": "country_code_designated_manager","tld_role_shielding": ["name", "email", "tel"]},
+{"tld_role_sequence": 50,"tld_role_identifier": "registry_operator","tld_role_shielding": ["name", "email", "tel"]},
+{"tld_role_sequence": 60,"tld_role_identifier": "backend_operator","tld_role_shielding": ["name", "email", "tel"]}]';
+$decoded = json_decode($tld_roles_json, true);
+usort($decoded, function ($a, $b) {
+    return $a['tld_role_sequence'] <=> $b['tld_role_sequence'];
+});
+$tld_roles = 'tld_role_sequence, tld_role_identifier, tld_role_shielding<br />';    
+foreach ($decoded as $role) {
+	$tld_roles .= $role['tld_role_sequence'] . ', ' . $role['tld_role_identifier'] . ', [' . implode(', ', $role['tld_role_shielding']) . ']<br />';
+}	
 $active_from = null;	
 $upon_termination = 'Zone-specific regulation';
-$roles_json = '[{"role_sequence": 10,"role_identifier": "abuse","role_shielding": ["name"]},
-{"role_sequence": 20,"role_identifier": "sponsor","role_shielding": ["name", "email", "tel"]},
-{"role_sequence": 30,"role_identifier": "registrant","role_shielding": ["name", "email", "tel", "address"]},
-{"role_sequence": 40,"role_identifier": "administrative","role_shielding": ["web_id", "name", "tel", "address"]},
-{"role_sequence": 50,"role_identifier": "technical","role_shielding": ["web_id", "name", "tel", "address"]},
-{"role_sequence": 60,"role_identifier": "billing","role_shielding": ["web_id", "name", "email", "tel", "address"]},
-{"role_sequence": 70,"role_identifier": "emergency","role_shielding": ["name"]},
-{"role_sequence": 80,"role_identifier": "reseller","role_shielding": ["name", "email", "tel"]},
-{"role_sequence": 90,"role_identifier": "registrar","role_shielding": ["name", "email", "tel"]}]';
-$decoded = json_decode($roles_json, true);
+$domain_roles_json = '[{"domain_role_sequence": 10,"domain_role_identifier": "abuse","domain_role_shielding": ["name"]},
+{"domain_role_sequence": 20,"domain_role_identifier": "sponsor","domain_role_shielding": ["name", "email", "tel"]},
+{"domain_role_sequence": 30,"domain_role_identifier": "registrant","domain_role_shielding": ["name", "email", "tel", "address"]},
+{"domain_role_sequence": 40,"domain_role_identifier": "administrative","domain_role_shielding": ["web_id", "name", "tel", "address"]},
+{"domain_role_sequence": 50,"domain_role_identifier": "technical","domain_role_shielding": ["web_id", "name", "tel", "address"]},
+{"domain_role_sequence": 60,"domain_role_identifier": "billing","domain_role_shielding": ["web_id", "name", "email", "tel", "address"]},
+{"domain_role_sequence": 70,"domain_role_identifier": "emergency","domain_role_shielding": ["name"]},
+{"domain_role_sequence": 80,"domain_role_identifier": "reseller","domain_role_shielding": ["name", "email", "tel"]},
+{"domain_role_sequence": 90,"domain_role_identifier": "registrar","domain_role_shielding": ["name", "email", "tel"]}]';
+$decoded = json_decode($domain_roles_json, true);
 usort($decoded, function ($a, $b) {
-    return $a['role_sequence'] <=> $b['role_sequence'];
+    return $a['domain_role_sequence'] <=> $b['domain_role_sequence'];
 });
-$roles = 'role_sequence, role_identifier, role_shielding<br />';    
+$domain_roles = 'domain_role_sequence, domain_role_identifier, domain_role_shielding<br />';    
 foreach ($decoded as $role) {
-	$roles .= $role['role_sequence'] . ', ' . $role['role_identifier'] . ', [' . implode(', ', $role['role_shielding']) . ']<br />';
+	$domain_roles .= $role['domain_role_sequence'] . ', ' . $role['domain_role_identifier'] . ', [' . implode(', ', $role['domain_role_shielding']) . ']<br />';
 }	
 $periods_json = '[
         {"period_identifier": "subscription_period", "period_minimum": null, "period_maximum": null},
@@ -237,13 +247,15 @@ if ($zone_identifier == 'nl')	{
         {"period_identifier": "renew_period_grace_days", "period_minimum": 0, "period_maximum": 0},
         {"period_identifier": "redemption_period_days", "period_minimum": 40, "period_maximum": 40},
         {"period_identifier": "deletion_phase_days", "period_minimum": 0, "period_maximum": 0}
-    ]';	
-	$sponsoring_organization_name = '';
-	$country_code_designated_manager = 'Stichting Internet Domeinregistratie Nederland';
-	$registry_operator_organization_name = 'Stichting Internet Domeinregistratie Nederland';
-	$registry_operator_presented_name = '';
-	$backend_operator_organization_name = 'SIDN B.V.';
-	$backend_operator_presented_name = 'Afdeling Support';
+    ]';
+	$tld_contacts_json = '[
+        {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
+		{"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "Stichting Internet Domeinregistratie Nederland", "contact_presented_name": null},
+        {"contact_identifier": "registry_operator", "contact_legal_name": "Stichting Internet Domeinregistratie Nederland", "contact_presented_name": null},
+		{"contact_identifier": "backend_operator", "contact_legal_name": "SIDN B.V.", "contact_presented_name": "SIDN, afdeling Support"}
+    ]';
 	$restrictions_url = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
 	$menu_url = 'https://www.sidn.nl/en/theme/domain-names';
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
@@ -251,12 +263,14 @@ if ($zone_identifier == 'nl')	{
 elseif ($zone_identifier == 'frl')	{
 	$tld_category = 'gTLD';
 	$tld_type = 'geoTLD';
-	$sponsoring_organization_name = 'FRLregistry B.V.';
-	$country_code_designated_manager = '';
-	$registry_operator_organization_name = 'FRLregistry B.V.';
-	$registry_operator_presented_name = '';
-	$backend_operator_organization_name = 'Team Internet Group PLC';
-	$backend_operator_presented_name = 'CTO CentralNic';
+	$tld_contacts_json = '[
+		{"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "sponsoring_organization", "contact_legal_name": "FRLregistry B.V.", "contact_presented_name": null},
+        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "registry_operator", "contact_legal_name": "FRLregistry B.V.", "contact_presented_name": null},
+		{"contact_identifier": "backend_operator", "contact_legal_name": "Team Internet Group PLC", "contact_presented_name": "CTO CentralNic"}
+    ]';
 	$restrictions_url = 'https://nic.frl/';
 	$menu_url = 'https://nic.frl/';
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
@@ -264,12 +278,14 @@ elseif ($zone_identifier == 'frl')	{
 elseif ($zone_identifier == 'amsterdam')	{
 	$tld_category = 'gTLD';
 	$tld_type = 'geoTLD';
-	$sponsoring_organization_name = 'Gemeente Amsterdam';
-	$country_code_designated_manager = '';
-	$registry_operator_organization_name = 'Stichting Internet Domeinregistratie Nederland';
-	$registry_operator_presented_name = '';
-	$backend_operator_organization_name = 'SIDN B.V.';
-	$backend_operator_presented_name = 'Afdeling Support';
+	$tld_contacts_json = '[
+		{"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "sponsoring_organization", "contact_legal_name": "Gemeente Amsterdam", "contact_presented_name": null},
+        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "registry_operator", "contact_legal_name": "Stichting Internet Domeinregistratie Nederland", "contact_presented_name": null},
+		{"contact_identifier": "backend_operator", "contact_legal_name": "SIDN B.V.", "contact_presented_name": "SIDN, afdeling Support"}
+    ]';
 	$restrictions_url = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
 	$menu_url = 'https://www.sidn.nl/en/theme/domain-names';
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
@@ -277,12 +293,14 @@ elseif ($zone_identifier == 'amsterdam')	{
 elseif ($zone_identifier == 'politie')	{
 	$tld_category = 'gTLD';
 	$tld_type = 'Brand gTLD';
-	$sponsoring_organization_name = 'Politie Nederland';
-	$country_code_designated_manager = '';
-	$registry_operator_organization_name = 'Stichting Internet Domeinregistratie Nederland';
-	$registry_operator_presented_name = '';
-	$backend_operator_organization_name = 'SIDN B.V.';
-	$backend_operator_presented_name = 'Afdeling Support';
+	$tld_contacts_json = '[
+		{"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "sponsoring_organization", "contact_legal_name": "Politie Nederland", "contact_presented_name": null},
+        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "registry_operator", "contact_legal_name": "Stichting Internet Domeinregistratie Nederland", "contact_presented_name": null},
+		{"contact_identifier": "backend_operator", "contact_legal_name": "SIDN B.V.", "contact_presented_name": "SIDM, afdeling Support"}
+    ]';
 	$restrictions_url = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
 	$menu_url = 'https://www.sidn.nl/en/theme/domain-names';
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
@@ -300,12 +318,14 @@ elseif ($zone_identifier == 'eu')	{
         {"period_identifier": "redemption_period_days", "period_minimum": 40, "period_maximum": 40},
         {"period_identifier": "deletion_phase_days", "period_minimum": 0, "period_maximum": 0}
     ]';
-	$sponsoring_organization_name = '';
-	$country_code_designated_manager = 'EURid vzw/asbl';
-	$registry_operator_organization_name = 'EURid vzw';
-	$registry_operator_presented_name = '';
-	$backend_operator_organization_name = 'EURid vzw';
-	$backend_operator_presented_name = 'Technical Department';
+	$tld_contacts_json = '[
+		{"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "EURid vzw/asbl", "contact_presented_name": null},
+        {"contact_identifier": "registry_operator", "contact_legal_name": "EURid vzw", "contact_presented_name": null},
+		{"contact_identifier": "backend_operator", "contact_legal_name": "EURid vzw", "contact_presented_name": "Technical Department"}
+    ]';
 	$restrictions_url = 'https://help.eurid.eu/hc/en-gb/';
 	$menu_url = 'https://help.eurid.eu/hc/en-gb/';
 }
@@ -321,12 +341,14 @@ elseif ($zone_identifier == 'de')	{
         {"period_identifier": "redemption_period_days", "period_minimum": 0, "period_maximum": 28},
         {"period_identifier": "deletion_phase_days", "period_minimum": 0, "period_maximum": 0}
     ]';	
-	$sponsoring_organization_name = '';
-	$country_code_designated_manager = 'DENIC eG';
-	$registry_operator_organization_name = 'DENIC eG';
-	$registry_operator_presented_name = 'Vorstand';
-	$backend_operator_organization_name = 'DENIC eG';
-	$backend_operator_presented_name = 'Business Services';
+	$tld_contacts_json = '[
+        {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
+		{"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "DENIC eG", "contact_presented_name": null},
+        {"contact_identifier": "registry_operator", "contact_legal_name": "DENIC eG", "contact_presented_name": "Vorstand"},
+		{"contact_identifier": "backend_operator", "contact_legal_name": "DENIC eG", "contact_presented_name": "Business Services"}
+    ]';
 	$restrictions_url = 'https://www.denic.de/';
 	$menu_url = 'https://www.denic.de/';
 }
@@ -341,13 +363,15 @@ elseif ($zone_identifier == 'fr')	{
         {"period_identifier": "renew_period_grace_days", "period_minimum": null, "period_maximum": null},
         {"period_identifier": "redemption_period_days", "period_minimum": 30, "period_maximum": 30},
         {"period_identifier": "deletion_phase_days", "period_minimum": 0, "period_maximum": 0}
+    ]';
+	$tld_contacts_json = '[
+        {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
+		{"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "Association Française pour le Nommage Internet en Coopération", "contact_presented_name": "A.F.N.I.C."},
+        {"contact_identifier": "registry_operator", "contact_legal_name": "Association Française pour le Nommage Internet en Coopération", "contact_presented_name": "A.F.N.I.C."},
+		{"contact_identifier": "backend_operator", "contact_legal_name": "Association Française pour le Nommage Internet en Coopération", "contact_presented_name": "A.F.N.I.C."}
     ]';	
-	$sponsoring_organization_name = '';
-	$country_code_designated_manager = 'Association Française pour le Nommage Internet en Coopération (A.F.N.I.C.)';
-	$registry_operator_organization_name = 'Association Française pour le Nommage Internet en Coopération (A.F.N.I.C.)';
-	$registry_operator_presented_name = '';
-	$backend_operator_organization_name = 'Association Française pour le Nommage Internet en Coopération (A.F.N.I.C.)';
-	$backend_operator_presented_name = '';
 	$restrictions_url = 'https://www.afnic.fr/';
 	$menu_url = 'https://www.afnic.fr/';
 }
@@ -362,49 +386,57 @@ elseif ($zone_identifier == 'ch')	{
         {"period_identifier": "renew_period_grace_days", "period_minimum": null, "period_maximum": null},
         {"period_identifier": "redemption_period_days", "period_minimum": 40, "period_maximum": 40},
         {"period_identifier": "deletion_phase_days", "period_minimum": 0, "period_maximum": 0}
-    ]';	
-	$sponsoring_organization_name = '';
-	$country_code_designated_manager = 'SWITCH Foundation';
-	$registry_operator_organization_name = 'SWITCH Foundation';
-	$registry_operator_presented_name = 'The Swiss Education & Research Network';
-	$backend_operator_organization_name = 'SWITCH Foundation';
-	$backend_operator_presented_name = 'The Swiss Education & Research Network';
+    ]';
+	$tld_contacts_json = '[
+        {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
+		{"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "SWITCH Foundation", "contact_presented_name": null},
+        {"contact_identifier": "registry_operator", "contact_legal_name": "SWITCH Foundation", "contact_presented_name": "The Swiss Education & Research Network"},
+		{"contact_identifier": "backend_operator", "contact_legal_name": "SWITCH Foundation", "contact_presented_name": "The Swiss Education & Research Network"}
+    ]';
 	$restrictions_url = 'https://www.nic.ch/';
 	$menu_url = 'https://www.nic.ch/';
 }	
 elseif ($zone_identifier == 'li')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$sponsoring_organization_name = '';
-	$country_code_designated_manager = 'SWITCH Foundation';
-	$registry_operator_organization_name = 'SWITCH Foundation';
-	$registry_operator_presented_name = 'The Swiss Education & Research Network';
-	$backend_operator_organization_name = 'SWITCH Foundation';
-	$backend_operator_presented_name = 'The Swiss Education & Research Network';
+	$tld_contacts_json = '[
+        {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
+		{"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "SWITCH Foundation", "contact_presented_name": null},
+        {"contact_identifier": "registry_operator", "contact_legal_name": "SWITCH Foundation", "contact_presented_name": "The Swiss Education & Research Network"},
+		{"contact_identifier": "backend_operator", "contact_legal_name": "SWITCH Foundation", "contact_presented_name": "The Swiss Education & Research Network"}
+    ]';
 	$restrictions_url = 'https://www.nic.li/';
 	$menu_url = 'https://www.nic.li/';
 }
 elseif ($zone_identifier == 'be')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$sponsoring_organization_name = '';
-	$country_code_designated_manager = 'DNS Belgium vzw/asbl';
-	$registry_operator_organization_name = 'DNS Belgium vzw/asbl';
-	$registry_operator_presented_name = '';
-	$backend_operator_organization_name = 'DNS Belgium vzw/asbl';
-	$backend_operator_presented_name = '';
+	$tld_contacts_json = '[
+        {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
+		{"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "DNS Belgium vzw/asbl", "contact_presented_name": null},
+        {"contact_identifier": "registry_operator", "contact_legal_name": "DNS Belgium vzw/asbl", "contact_presented_name": null},
+		{"contact_identifier": "backend_operator", "contact_legal_name": "DNS Belgium vzw/asbl", "contact_presented_name": null}
+    ]';
 	$restrictions_url = 'https://www.dnsbelgium.be/';
 	$menu_url = 'https://www.dnsbelgium.be/';
 }
 elseif ($zone_identifier == 'lu')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$sponsoring_organization_name = '';
-	$country_code_designated_manager = 'RESTENA';
-	$registry_operator_organization_name = 'Fondation RESTENA';
-	$registry_operator_presented_name = '';
-	$backend_operator_organization_name = 'Fondation RESTENA';
-	$backend_operator_presented_name = 'NOC';
+	$tld_contacts_json = '[
+        {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
+		{"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "RESTENA", "contact_presented_name": null},
+        {"contact_identifier": "registry_operator", "contact_legal_name": "Fondation RESTENA", "contact_presented_name": null},
+		{"contact_identifier": "backend_operator", "contact_legal_name": "Fondation RESTENA", "contact_presented_name": "NOC"}
+    ]';
 	$restrictions_url = 'https://restena.lu/';
 	$menu_url = 'https://restena.lu/';
 }
@@ -419,13 +451,15 @@ elseif ($zone_identifier == 'uk')	{
         {"period_identifier": "renew_period_grace_days", "period_minimum": 30, "period_maximum": 30},
         {"period_identifier": "redemption_period_days", "period_minimum": 60, "period_maximum": 60},
         {"period_identifier": "deletion_phase_days", "period_minimum": 0, "period_maximum": 0}
-    ]';	
-	$sponsoring_organization_name = '';
-	$country_code_designated_manager = 'Nominet UK';
-	$registry_operator_organization_name = 'Nominet UK';
-	$registry_operator_presented_name = 'TLD Registry Services Management';
-	$backend_operator_organization_name = 'Nominet UK';
-	$backend_operator_presented_name = 'TLD Registry Services Technical';
+    ]';
+	$tld_contacts_json = '[
+        {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
+		{"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "Nominet UK", "contact_presented_name": null},
+        {"contact_identifier": "registry_operator", "contact_legal_name": "Nominet UK", "contact_presented_name": "TLD Registry Services Management"},
+		{"contact_identifier": "backend_operator", "contact_legal_name": "Nominet UK", "contact_presented_name": "TLD Registry Services Technical"}
+    ]';
 	$restrictions_url = 'https://nominet.uk/';
 	$menu_url = 'https://nominet.uk/';
 }
@@ -440,13 +474,15 @@ elseif ($zone_identifier == 'com')	{
         {"period_identifier": "renew_period_grace_days", "period_minimum": 0, "period_maximum": 45},
         {"period_identifier": "redemption_period_days", "period_minimum": 30, "period_maximum": 30},
         {"period_identifier": "deletion_phase_days", "period_minimum": 5, "period_maximum": 5}
+    ]';
+	$tld_contacts_json = '[
+		{"contact_identifier": "contracting_authority", "contact_legal_name": "Internet Corporation for Assigned Names and Numbers", "contact_presented_name": "ICANN"},
+        {"contact_identifier": "contracting_organization", "contact_legal_name": "VeriSign Global Registry Services", "contact_presented_name": null},
+        {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "registry_operator", "contact_legal_name": "VeriSign Global Registry Services", "contact_presented_name": "Registry Customer Service"},
+		{"contact_identifier": "backend_operator", "contact_legal_name": "VeriSign Global Registry Services", "contact_presented_name": "Registry Customer Service"}
     ]';	
-	$sponsoring_organization_name = 'Unsponsored Legacy gTLD – ICANN Contract';
-	$country_code_designated_manager = '';
-	$registry_operator_organization_name = 'VeriSign Global Registry Services';
-	$registry_operator_presented_name = 'Registry Customer Service';
-	$backend_operator_organization_name = 'VeriSign Global Registry Services';
-	$backend_operator_presented_name = 'Registry Customer Service';
 	$restrictions_url = 'https://www.verisigninc.com/';
 	$menu_url = 'https://www.verisigninc.com/';
 }
@@ -462,12 +498,14 @@ elseif ($zone_identifier == 'org')	{
         {"period_identifier": "redemption_period_days", "period_minimum": 30, "period_maximum": 30},
         {"period_identifier": "deletion_phase_days", "period_minimum": 5, "period_maximum": 5}
     ]';
-	$sponsoring_organization_name = 'Unsponsored Legacy gTLD – ICANN Contract';
-	$country_code_designated_manager = '';
-	$registry_operator_organization_name = 'Public Interest Registry (PIR)';
-	$registry_operator_presented_name = 'Director of Operations, Compliance and Customer Support';
-	$backend_operator_organization_name = 'Public Interest Registry (PIR)';
-	$backend_operator_presented_name = 'Senior Director, DNS Infrastructure Group';
+	$tld_contacts_json = '[
+		{"contact_identifier": "contracting_authority", "contact_legal_name": "Internet Corporation for Assigned Names and Numbers", "contact_presented_name": "ICANN"},
+        {"contact_identifier": "contracting_organization", "contact_legal_name": "Public Interest Registry (PIR)", "contact_presented_name": null},
+        {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "registry_operator", "contact_legal_name": "Public Interest Registry (PIR)", "contact_presented_name": "Director of Operations, Compliance and Customer Support"},
+		{"contact_identifier": "backend_operator", "contact_legal_name": "Public Interest Registry (PIR)", "contact_presented_name": "Senior Director, DNS Infrastructure Group"}
+    ]';	
 	$restrictions_url = '';
 	$menu_url = '';
 }
@@ -475,6 +513,16 @@ $delegation_url = 'https://www.iana.org/domains/root/db/'.$zone_identifier.'.htm
 $language_codes = (is_array($obj['lang'])) ? implode(",<br />", $obj['lang']) : $obj['lang'];
 if (!strlen($language_codes))	{
 	$language_codes = 'None Specified';	
+}
+$decoded = json_decode($tld_contacts_json, true);
+$tld_contacts = 'tld_contacts<br />';   
+foreach ($decoded as $contact) {
+	if (strlen($contact['contact_legal_name']))	{
+		$tld_contacts .= $contact['contact_identifier'] . ' - legal_name: ' . $contact['contact_legal_name'] . '<br />';
+	}
+	if (strlen($contact['contact_presented_name']))	{
+		$tld_contacts .= $contact['contact_identifier'] . ' - presented_name: ' . $contact['contact_presented_name'] . '<br />';
+	}
 }	
 $decoded = json_decode($periods_json, true);
 $periods = '';    
@@ -1551,8 +1599,10 @@ $arr[$inputdomain]['root_zone']['backend_operator_organization_name'] = $backend
 $arr[$inputdomain]['root_zone']['backend_operator_presented_name'] = $backend_operator_presented_name;
 $arr[$inputdomain]['root_zone']['language_codes'] = $language_codes;
 $arr[$inputdomain]['root_zone']['restrictions_url'] = $restrictions_url;
-$arr[$inputdomain]['root_zone']['menu_url'] = $menu_url;	
-$arr[$inputdomain]['root_zone']['roles'] = $roles;	
+$arr[$inputdomain]['root_zone']['menu_url'] = $menu_url;
+$arr[$inputdomain]['root_zone']['tld_contacts'] = $tld_contacts;
+$arr[$inputdomain]['root_zone']['tld_roles'] = $tld_roles;
+$arr[$inputdomain]['root_zone']['domain_roles'] = $domain_roles;
 
 $arr[$inputdomain]['lifecycle']['active_from'] = $active_from;
 $arr[$inputdomain]['lifecycle']['upon_termination'] = $upon_termination;
