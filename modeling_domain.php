@@ -95,7 +95,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 28)	{ // life cycle
 		var pre = '28';
-		var max = 2
+		var max = 3
 	}
 	else if (type == 29)	{ // meta
 		var pre = '29';
@@ -206,9 +206,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_restrictions_url").textContent = proposed;
 		document.getElementById("root_zone_menu_url").textContent = proposed;
 		document.getElementById("root_zone_role_shielding").textContent = proposed;
-		document.getElementById("lifecycle_role").textContent = proposed;		
-		document.getElementById("lifecycle_periods").textContent = proposed;
+		document.getElementById("lifecycle_role").textContent = proposed;
+		document.getElementById("lifecycle_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
+		document.getElementById("lifecycle_periods").textContent = proposed;
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed;
 		document.getElementById("metadata_resource_upload_at").textContent = modified;
@@ -279,7 +280,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("instruction").textContent = "Typ een domeinnaam en druk op Enter.";
 		document.getElementById("field").textContent = "Omschrijving";
 		document.getElementById("value").textContent = "Detail";
-		document.getElementById("explanation").textContent = "Een overzicht en toelichting op de structuur en kenmerken van webdomeinen.";
+		document.getElementById("explanation").textContent = "Een overzicht van en toelichting op de structuur en kenmerken van webdomeinen.";
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;		
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
@@ -298,8 +299,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_menu_url").textContent = proposed + 'Een TLD-specifiek informatiemenu, beschikbaar onder een subdomein zoals "regmenu".';
 		document.getElementById("root_zone_role_shielding").textContent = proposed + "'Request-Driven': Aanvrager/TLD/rol vereisen een niet-geclusterde zichtbaarheid.";
 		document.getElementById("lifecycle_role").textContent = proposed;
-		document.getElementById("lifecycle_periods").textContent = proposed + 'De registrar kan de registrant voor meer jaren dan gebruikelijk korting verlenen.';
-		document.getElementById("lifecycle_upon_termination").textContent = proposed;			
+		document.getElementById("lifecycle_active_from").textContent = proposed;
+		document.getElementById("lifecycle_upon_termination").textContent = proposed;	
+		document.getElementById("lifecycle_periods").textContent = proposed + 'Registrars kunnen kortingstarieven aanbieden voor meerdere jaren tegelijk.';		
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed + "Een folder /v1/ ondersteunt ook mogelijke /v2/-responses; zie icann.com.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Datum en tijdstip van de RDAP-database-update in Zoeloe-tijd (UTC).";
@@ -372,7 +374,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "An overview of the structure and key characteristics of domain data.";
 		document.getElementById("notices_role").textContent = accessible;
-		document.getElementById("links_role").textContent = accessible;		
+		document.getElementById("links_role").textContent = accessible;
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_root_zones_url").textContent = proposed + 'A reference to the official list of Root Zones.';
 		document.getElementById("root_zone_delegation_url").textContent = proposed + 'URL pointing to the ICANN delegation record for the TLD.';
@@ -389,8 +391,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_menu_url").textContent = proposed + 'A TLD specific information menu, available under a subdomain such as "regmenu".';
 		document.getElementById("root_zone_role_shielding").textContent = proposed + "Request-Driven: Requester/TLD/role require an unclustered visibility.";
 		document.getElementById("lifecycle_role").textContent = proposed;
-		document.getElementById("lifecycle_periods").textContent = proposed + 'The registrar may grant the registrant a discount for more years than usual.';
-		document.getElementById("lifecycle_upon_termination").textContent = proposed;		
+		document.getElementById("lifecycle_active_from").textContent = proposed;
+		document.getElementById("lifecycle_upon_termination").textContent = proposed;	
+		document.getElementById("lifecycle_periods").textContent = proposed + 'Registrars may offer discounted rates for multiple years at a time.';	
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed + "A /v1/ folder may also support /v2/ responses — see icann.com for details.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Date and time of RDAP database update in Zulu time (UTC).";
@@ -480,8 +483,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_menu_url").textContent = proposed + 'Ein TLD-spezifisches Informationsmenü, verfügbar unter einer Subdomäne wie "regmenu".';
 		document.getElementById("root_zone_role_shielding").textContent = proposed + "'Request-Driven: Anforderer/TLD/Rolle erfordern eine nicht gruppierte Sichtbarkeit.";
 		document.getElementById("lifecycle_role").textContent = proposed;
-		document.getElementById("lifecycle_periods").textContent = proposed + 'Der Registrar kann dem Registranten für mehr Jahre als üblich einen Rabatt gewähren.';
+		document.getElementById("lifecycle_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
+		document.getElementById("lifecycle_periods").textContent = proposed + 'Registrare können ermäßigte Preise für mehrere Jahre gleichzeitig anbieten.';
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed + "Ein /v1/-Ordner unterstützt auch mögliche /v2/-Antworten; siehe icann.com.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Datum und Uhrzeit der RDAP-Datenbankaktualisierung in Zulu-Zeit (UTC).";
@@ -571,8 +575,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_menu_url").textContent = proposed + "Un menu d'informations spécifique au TLD, disponible sous un sous-domaine tel que 'regmenu'.";
 		document.getElementById("root_zone_role_shielding").textContent = proposed + "'Request-Driven': Le demandeur/TLD/le rôle nécessite une visibilité non groupée.";
 		document.getElementById("lifecycle_role").textContent = proposed;
-		document.getElementById("lifecycle_periods").textContent = proposed + "Le registraire peut accorder au titulaire une réduction pour un nombre d'années supérieur à la normale.";
+		document.getElementById("lifecycle_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
+		document.getElementById("lifecycle_periods").textContent = proposed + "Les bureaux d'enregistrement peuvent proposer des tarifs réduits pour plusieurs années à la fois.";
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed + "Un dossier /v1/ prend également en charge les réponses /v2/ possibles ; voir icann.com.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Date et heure de mise à jour de la base de données RDAP en heure Zulu (UTC).";
@@ -736,9 +741,10 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="2712" style="display:none"><td>restrictions_url</td><td>'.((strlen($data[$pd]['root_zone']['restrictions_url'])) ? '<a href='.$data[$pd]['root_zone']['restrictions_url'].' target="_blank">TLD Restrictions</a>' : '').'</td><td id="root_zone_restrictions_url"></td></tr>';
 	$html_text .= '<tr id="2713" style="display:none"><td>menu_url</td><td>'.((strlen($data[$pd]['root_zone']['menu_url'])) ? '<a href='.$data[$pd]['root_zone']['menu_url'].' target="_blank">TLD Menu</a>' : '').'</td><td id="root_zone_menu_url"></td></tr>';
 	$html_text .= '<tr id="2714" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['roles'].'</td><td id="root_zone_role_shielding"></td></tr>';	
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(28)">Lifecycle Data +/-</button></td><td></td><td id="lifecycle_role"></td></tr>';	
-	$html_text .= '<tr id="281" style="display:none"><td>upon_termination</td><td>'.$data[$pd]['lifecycle']['upon_termination'].'</td><td id="lifecycle_upon_termination"></td></tr>';
-	$html_text .= '<tr id="282" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['periods'].'</td><td id="lifecycle_periods"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(28)">Lifecycle Data +/-</button></td><td></td><td id="lifecycle_role"></td></tr>';
+	$html_text .= '<tr id="281" style="display:none;vertical-align:top"><td>active_from: '.$data[$pd]['lifecycle']['active_from'].'</td><td></td><td id="lifecycle_active_from"></td></tr>';
+	$html_text .= '<tr id="282" style="display:none;vertical-align:top"><td>upon_termination: '.$data[$pd]['lifecycle']['upon_termination'].'</td><td></td><td id="lifecycle_upon_termination"></td></tr>';
+	$html_text .= '<tr id="283" style="display:none;vertical-align:top"><td>'.$data[$pd]['lifecycle']['periods'].'</td></td><td><td id="lifecycle_periods"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(29)">Metadata +/-</button></td><td></td><td id="metadata_role"></td></tr>';
 	$html_text .= '<tr id="291" style="display:none"><td>lookup_endpoints_url</td><td><a href='.$data[$pd]['metadata']['lookup_endpoints_url'].' target="_blank">Lookup Endpoints</a></td><td id="metadata_lookup_endpoints_url"></td></tr>';
 	$html_text .= '<tr id="292" style="display:none"><td>resource_upload_at</td><td>'.$data[$pd]['metadata']['resource_upload_at'].'</td><td id="metadata_resource_upload_at"></td></tr>';
