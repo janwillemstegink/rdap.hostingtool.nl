@@ -1,4 +1,6 @@
 <?php
+//ini_set('display_errors', 1);
+//error_reporting(E_ALL);
 //$_GET['domain'] = 'hostingtool.nl';
 //$_GET['domain'] = 'cyberfusion.nl';
 //$_GET['domain'] = 'münchen.de';
@@ -431,7 +433,7 @@ elseif ($zone_identifier == 'com')	{
 	$tld_category = 'gTLD';
 	$tld_type = 'gTLD';
 	$periods_json = '[
-        {"period_identifier": "subscription_period", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "subscription_period", "period_minimum": "1 year", "period_maximum": "10 years"},
         {"period_identifier": "add_period_grace_days", "period_minimum": null, "period_maximum": null},
         {"period_identifier": "transfer_period_grace_days", "period_minimum": 5, "period_maximum": 5},
         {"period_identifier": "post_transfer_lock_days", "period_minimum": 60, "period_maximum": 60},
@@ -439,7 +441,7 @@ elseif ($zone_identifier == 'com')	{
         {"period_identifier": "redemption_period_days", "period_minimum": 30, "period_maximum": 30},
         {"period_identifier": "deletion_phase_days", "period_minimum": 5, "period_maximum": 5}
     ]';	
-	$sponsoring_organization_name = 'VeriSign Global Registry Services (ICANN?)';
+	$sponsoring_organization_name = 'Unsponsored Legacy gTLD – ICANN Contract';
 	$country_code_designated_manager = '';
 	$registry_operator_organization_name = 'VeriSign Global Registry Services';
 	$registry_operator_presented_name = 'Registry Customer Service';
@@ -452,7 +454,7 @@ elseif ($zone_identifier == 'org')	{
 	$tld_category = 'gTLD';
 	$tld_type = 'gTLD';
 	$periods_json = '[
-        {"period_identifier": "subscription_period", "period_minimum": null, "period_maximum": null},
+        {"period_identifier": "subscription_period", "period_minimum": "1 year", "period_maximum": "10 years"},
         {"period_identifier": "add_period_grace_days", "period_minimum": null, "period_maximum": null},
         {"period_identifier": "transfer_period_grace_days", "period_minimum": 5, "period_maximum": 5},
         {"period_identifier": "post_transfer_lock_days", "period_minimum": 60, "period_maximum": 60},
@@ -460,7 +462,7 @@ elseif ($zone_identifier == 'org')	{
         {"period_identifier": "redemption_period_days", "period_minimum": 30, "period_maximum": 30},
         {"period_identifier": "deletion_phase_days", "period_minimum": 5, "period_maximum": 5}
     ]';
-	$sponsoring_organization_name = 'Public Interest Registry (PIR)';
+	$sponsoring_organization_name = 'Unsponsored Legacy gTLD – ICANN Contract';
 	$country_code_designated_manager = '';
 	$registry_operator_organization_name = 'Public Interest Registry (PIR)';
 	$registry_operator_presented_name = 'Director of Operations, Compliance and Customer Support';
@@ -1764,7 +1766,7 @@ $arr[$inputdomain]['name_servers']['dnssec_algorithm'] = $name_servers_dnssec_al
 	
 $arr[$inputdomain]['raw_whois'] = $raw_whois_data;	
 $arr[$inputdomain]['raw_rdap'] = $raw_rdap_data;
-	
+
 return $arr;
 }
 ?>

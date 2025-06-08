@@ -1082,5 +1082,5 @@ function if_not_filled($inputvalue, $inputtrigger)	{
 		}
 	}	
 	return '';
-}							
+}						
 ?>
