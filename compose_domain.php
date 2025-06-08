@@ -295,7 +295,7 @@ elseif ($zone_identifier == 'eu')	{
         {"period_identifier": "transfer_period_grace_days", "period_minimum": 0, "period_maximum": 0},
         {"period_identifier": "post_transfer_lock_days", "period_minimum": 60, "period_maximum": 60},
         {"period_identifier": "renew_period_grace_days", "period_minimum": 0, "period_maximum": 0},
-        {"period_identifier": "redemption_period_days", "period_minimum": 0, "period_maximum": 40},
+        {"period_identifier": "redemption_period_days", "period_minimum": 40, "period_maximum": 40},
         {"period_identifier": "deletion_phase_days", "period_minimum": 0, "period_maximum": 0}
     ]';
 	$sponsoring_organization_name = '';

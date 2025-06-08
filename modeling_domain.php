@@ -301,7 +301,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;	
-		document.getElementById("lifecycle_periods").textContent = proposed + 'Registrars kunnen kortingstarieven aanbieden voor meerdere jaren tegelijk.';		
+		document.getElementById("lifecycle_periods").textContent = proposed + 'Meerjarig registreren mogelijk; maximale periode varieert per TLD en registrar.';		
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed + "Een folder /v1/ ondersteunt ook mogelijke /v2/-responses; zie icann.com.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Datum en tijdstip van de RDAP-database-update in Zoeloe-tijd (UTC).";
@@ -393,7 +393,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;	
-		document.getElementById("lifecycle_periods").textContent = proposed + 'Registrars may offer discounted rates for multiple years at a time.';	
+		document.getElementById("lifecycle_periods").textContent = proposed + 'Multi-year registration possible; max period varies by TLD and registrar.';	
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed + "A /v1/ folder may also support /v2/ responses — see icann.com for details.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Date and time of RDAP database update in Zulu time (UTC).";
@@ -485,7 +485,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
-		document.getElementById("lifecycle_periods").textContent = proposed + 'Registrare können ermäßigte Preise für mehrere Jahre gleichzeitig anbieten.';
+		document.getElementById("lifecycle_periods").textContent = proposed + 'Mehrjährige Registrierung möglich; maximale Laufzeit variiert je nach TLD und Registrar.';
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed + "Ein /v1/-Ordner unterstützt auch mögliche /v2/-Antworten; siehe icann.com.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Datum und Uhrzeit der RDAP-Datenbankaktualisierung in Zulu-Zeit (UTC).";
@@ -577,7 +577,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
-		document.getElementById("lifecycle_periods").textContent = proposed + "Les bureaux d'enregistrement peuvent proposer des tarifs réduits pour plusieurs années à la fois.";
+		document.getElementById("lifecycle_periods").textContent = proposed + "Enregistrement pluriannuel possible ; durée maximale variable selon le TLD et le registrar.";
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed + "Un dossier /v1/ prend également en charge les réponses /v2/ possibles ; voir icann.com.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Date et heure de mise à jour de la base de données RDAP en heure Zulu (UTC).";
@@ -744,7 +744,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(28)">Lifecycle Data +/-</button></td><td></td><td id="lifecycle_role"></td></tr>';
 	$html_text .= '<tr id="281" style="display:none;vertical-align:top"><td>active_from: '.$data[$pd]['lifecycle']['active_from'].'</td><td></td><td id="lifecycle_active_from"></td></tr>';
 	$html_text .= '<tr id="282" style="display:none;vertical-align:top"><td>upon_termination: '.$data[$pd]['lifecycle']['upon_termination'].'</td><td></td><td id="lifecycle_upon_termination"></td></tr>';
-	$html_text .= '<tr id="283" style="display:none;vertical-align:top"><td>'.$data[$pd]['lifecycle']['periods'].'</td></td><td><td id="lifecycle_periods"></td></tr>';
+	$html_text .= '<tr id="283" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['periods'].'</td><td id="lifecycle_periods"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(29)">Metadata +/-</button></td><td></td><td id="metadata_role"></td></tr>';
 	$html_text .= '<tr id="291" style="display:none"><td>lookup_endpoints_url</td><td><a href='.$data[$pd]['metadata']['lookup_endpoints_url'].' target="_blank">Lookup Endpoints</a></td><td id="metadata_lookup_endpoints_url"></td></tr>';
 	$html_text .= '<tr id="292" style="display:none"><td>resource_upload_at</td><td>'.$data[$pd]['metadata']['resource_upload_at'].'</td><td id="metadata_resource_upload_at"></td></tr>';
@@ -761,7 +761,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="299" style="display:none"><td>status_explanation_url</td><td>'.((strlen($data[$pd]['metadata']['status_explanation_url'])) ? '<a href='.$data[$pd]['metadata']['status_explanation_url'].' target="_blank">icann.org/epp</a>' : 'Not Applicable').'</td><td id="metadata_status_explanation_url"></td></tr>';
 	$html_text .= '<tr id="2910" style="display:none"><td>geo_location</td><td>'.$data[$pd]['metadata']['geo_location'].'</td><td></td></tr>';
 	//$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(30)">Domain Data +/-</button></td><td>'.$vd.'</td><td id="domain_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(30)">Domain Data +/-</button></td><td><b>'.$vd.'</b></td><td id="domain_role"></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>domain_handle'.if_not_filled($data[$pd]['domain']['handle'], $data[$pd]['domain']['ascii_name']).'</td><td>'.$data[$pd]['domain']['handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="302" style="display:none"><td>domain_ascii_name (lower case is not a "MUST")</td><td>'.$data[$pd]['domain']['ascii_name'].'</td><td id="domain_ascii_name"></td></tr>';
 	$html_text .= '<tr id="303" style="display:none"><td>domain_unicode_name</td><td>'.$data[$pd]['domain']['unicode_name'].'</td><td id="domain_unicode_name"></td></tr>';
