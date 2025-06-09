@@ -89,17 +89,21 @@ function SwitchDisplay(type) {
 		var pre = '23';
 		var max = 7
 	}
-	else if (type == 27)	{ // root zone
-		var pre = '27';
-		var max = 10
+	else if (type == 26)	{ // common
+		var pre = '26';
+		var max = 4
 	}
-	else if (type == 28)	{ // life cycle
+	else if (type == 27)	{ // zone 
+		var pre = '27';
+		var max = 8
+	}
+	else if (type == 28)	{ // lifecycle
 		var pre = '28';
 		var max = 3
 	}
 	else if (type == 29)	{ // meta
 		var pre = '29';
-		var max = 10
+		var max = 8
 	}
 	else if (type == 30)	{ // domain
 		var pre = '30';
@@ -191,8 +195,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "";
 		document.getElementById("notices_role").textContent = "";
 		document.getElementById("links_role").textContent = "";
+		document.getElementById("common_role").textContent = proposed;
+		document.getElementById("common_root_zones_url").textContent = proposed;
+		document.getElementById("common_lookup_endpoints_url").textContent = proposed;
+		document.getElementById("common_accredited_registrars_url").textContent = proposed;
+		document.getElementById("common_tld_roles").textContent = proposed;
 		document.getElementById("root_zone_role").textContent = proposed;
-		document.getElementById("root_zone_root_zones_url").textContent = proposed;
 		document.getElementById("root_zone_delegation_url").textContent = proposed;
 		document.getElementById("root_zone_tld_category").textContent = proposed;
 		document.getElementById("root_zone_tld_type").textContent = proposed;
@@ -200,19 +208,16 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_restrictions_url").textContent = proposed;
 		document.getElementById("root_zone_menu_url").textContent = proposed;
 		document.getElementById("root_zone_tld_contacts").textContent = proposed;
-		document.getElementById("root_zone_tld_roles").textContent = proposed;
 		document.getElementById("root_zone_domain_roles").textContent = proposed;
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_periods").textContent = proposed;
 		document.getElementById("metadata_role").textContent = proposed;
-		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed;
 		document.getElementById("metadata_resource_upload_at").textContent = modified;
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;		
 		document.getElementById("metadata_registry_source").textContent = modified;
-		document.getElementById("metadata_accredited_registrars_url").textContent = proposed;
 		document.getElementById("metadata_registrar_source").textContent = proposed;
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed;
 		document.getElementById("metadata_status_explanation_url").textContent = proposed;
@@ -278,9 +283,13 @@ function SwitchTranslation(translation)	{
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Een overzicht van en toelichting op de structuur en kenmerken van webdomeinen.";
 		document.getElementById("notices_role").textContent = accessible;
-		document.getElementById("links_role").textContent = accessible;		
+		document.getElementById("links_role").textContent = accessible;
+		document.getElementById("common_role").textContent = proposed;
+		document.getElementById("common_root_zones_url").textContent = proposed + 'URL die verwijst naar de officiële lijst met Root Zones.';
+		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Een folder /v1/ ondersteunt ook mogelijke /v2/-responses; zie icann.com.";
+		document.getElementById("common_accredited_registrars_url").textContent = proposed;
+		document.getElementById("common_tld_roles").textContent = proposed;
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
-		document.getElementById("root_zone_root_zones_url").textContent = proposed + 'Een verwijzing naar de officiële lijst met Root Zones.';
 		document.getElementById("root_zone_delegation_url").textContent = proposed + 'URL die verwijst naar het ICANN-delegatierecord voor de TLD.';
 		document.getElementById("root_zone_tld_category").textContent = proposed + 'Geeft een generieke TLD (gTLD) of een landcode-TLD (ccTLD) aan.';
 		document.getElementById("root_zone_tld_type").textContent = proposed + 'Het TLD-type, bijvoorbeeld gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD of geoTLD.';
@@ -288,19 +297,16 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Beperkingen op gebruik en registratiebeleid zijn te vinden via deze URL.";
 		document.getElementById("root_zone_menu_url").textContent = proposed + 'Een TLD-specifiek informatiemenu, beschikbaar onder een subdomein zoals "regmenu".';
 		document.getElementById("root_zone_tld_contacts").textContent = proposed;
-		document.getElementById("root_zone_tld_roles").textContent = proposed;		
 		document.getElementById("root_zone_domain_roles").textContent = proposed + "'Request-Driven': Aanvrager/TLD/rol vereisen een niet-geclusterde zichtbaarheid.";
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;	
 		document.getElementById("lifecycle_periods").textContent = proposed + 'Meerjarig registreren mogelijk; maximale periode varieert per TLD en registrar.';		
 		document.getElementById("metadata_role").textContent = proposed;
-		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed + "Een folder /v1/ ondersteunt ook mogelijke /v2/-responses; zie icann.com.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Datum en tijdstip van de RDAP-database-update in Zoeloe-tijd (UTC).";
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;		
 		document.getElementById("metadata_registry_source").textContent = modified + "Gepland: Web-ID-zoekopdrachten op wereldwijde RDAP-servers.";
-		document.getElementById("metadata_accredited_registrars_url").textContent = proposed;
 		document.getElementById("metadata_registrar_source").textContent = proposed + 'Er is geen registrarbron-URL opgenomen in het huidige RDAP v1-antwoord.';
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + 'Vereist als de registrar IANA-geaccrediteerd is; wordt gebruikt om klachten van gebruikers door te sturen.';		
 		document.getElementById("metadata_status_explanation_url").textContent = proposed + 'Vereist als de registrar IANA-geaccrediteerd is; bevat uitleg over de statuscode.';
@@ -367,8 +373,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "An overview of the structure and key characteristics of domain data.";
 		document.getElementById("notices_role").textContent = accessible;
 		document.getElementById("links_role").textContent = accessible;
+		document.getElementById("common_role").textContent = proposed;
+		document.getElementById("common_root_zones_url").textContent = proposed + 'URL pointing to the official list of Root Zones.';
+		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "A /v1/ folder may also support /v2/ responses — see icann.com for details.";
+		document.getElementById("common_accredited_registrars_url").textContent = proposed;
+		document.getElementById("common_tld_roles").textContent = proposed;		
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
-		document.getElementById("root_zone_root_zones_url").textContent = proposed + 'A reference to the official list of Root Zones.';
 		document.getElementById("root_zone_delegation_url").textContent = proposed + 'URL pointing to the ICANN delegation record for the TLD.';
 		document.getElementById("root_zone_tld_category").textContent = proposed + 'Indicates generic TLD (gTLD) or a country-code TLD (ccTLD).';
 		document.getElementById("root_zone_tld_type").textContent = proposed + 'The TLD type, such as gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD, or geoTLD.';
@@ -376,19 +386,16 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Usage and registration restrictions are listed at this URL.";
 		document.getElementById("root_zone_menu_url").textContent = proposed + 'A TLD specific information menu, available under a subdomain such as "regmenu".';
 		document.getElementById("root_zone_tld_contacts").textContent = proposed;
-		document.getElementById("root_zone_tld_roles").textContent = proposed;
 		document.getElementById("root_zone_domain_roles").textContent = proposed + "Request-Driven: Requester/TLD/role require an unclustered visibility.";
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;	
 		document.getElementById("lifecycle_periods").textContent = proposed + 'Multi-year registration possible; max period varies by TLD and registrar.';	
 		document.getElementById("metadata_role").textContent = proposed;
-		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed + "A /v1/ folder may also support /v2/ responses — see icann.com for details.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Date and time of RDAP database update in Zulu time (UTC).";
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;		
 		document.getElementById("metadata_registry_source").textContent = modified + "Planned: Web ID searches on global RDAP servers.";
-		document.getElementById("metadata_accredited_registrars_url").textContent = proposed;
 		document.getElementById("metadata_registrar_source").textContent = proposed + 'No registrar source URL is included in the current RDAP v1 response.';
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + 'Required for IANA-accredited registrars; used to direct user complaints.';		
 		document.getElementById("metadata_status_explanation_url").textContent = proposed + 'Required if the registrar is IANA-accredited; provides status code explanations.';
@@ -454,9 +461,13 @@ function SwitchTranslation(translation)	{
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Eine Übersicht und Erklärung zur Struktur und den Eigenschaften von Webdomänen.";
 		document.getElementById("notices_role").textContent = accessible;
-		document.getElementById("links_role").textContent = accessible;		
+		document.getElementById("links_role").textContent = accessible;
+		document.getElementById("common_role").textContent = proposed;
+		document.getElementById("common_root_zones_url").textContent = proposed + 'URL mit Verweis auf die offizielle Liste der Root-Zones.';
+		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Ein /v1/-Ordner unterstützt auch mögliche /v2/-Antworten; siehe icann.com.";
+		document.getElementById("common_accredited_registrars_url").textContent = proposed;
+		document.getElementById("common_tld_roles").textContent = proposed;		
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
-		document.getElementById("root_zone_root_zones_url").textContent = proposed + 'Ein Verweis auf die offizielle Liste der Root-Zones.';	
 		document.getElementById("root_zone_delegation_url").textContent = proposed + 'URL mit Verweis auf den ICANN-Delegationsdatensatz für die TLD.';
 		document.getElementById("root_zone_tld_category").textContent = proposed + 'Zeigt eine generische TLD (gTLD) oder eine länderspezifische TLD (ccTLD) an.';
 		document.getElementById("root_zone_tld_type").textContent = proposed + 'Der TLD-Typ, z. B. gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD oder geoTLD.';
@@ -464,19 +475,16 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Nutzungsbeschränkungen und Registrierungsrichtlinien finden Sie unter dieser URL.";		
 		document.getElementById("root_zone_menu_url").textContent = proposed + 'Ein TLD-spezifisches Informationsmenü, verfügbar unter einer Subdomäne wie "regmenu".';
 		document.getElementById("root_zone_tld_contacts").textContent = proposed;
-		document.getElementById("root_zone_tld_roles").textContent = proposed;		
 		document.getElementById("root_zone_domain_roles").textContent = proposed + "'Request-Driven: Anforderer/TLD/Rolle erfordern eine nicht gruppierte Sichtbarkeit.";
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_periods").textContent = proposed + 'Mehrjährige Registrierung möglich; maximale Laufzeit variiert je nach TLD und Registrar.';
 		document.getElementById("metadata_role").textContent = proposed;
-		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed + "Ein /v1/-Ordner unterstützt auch mögliche /v2/-Antworten; siehe icann.com.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Datum und Uhrzeit der RDAP-Datenbankaktualisierung in Zulu-Zeit (UTC).";
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;		
 		document.getElementById("metadata_registry_source").textContent = modified + "Geplant: Web-ID-Suchen auf globalen RDAP-Servern.";
-		document.getElementById("metadata_accredited_registrars_url").textContent = proposed;
 		document.getElementById("metadata_registrar_source").textContent = proposed + 'Eine Registrar-Quell-URL ist in der aktuellen RDAP v1-Antwort nicht enthalten.';
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + 'Erforderlich, wenn der Registrar IANA-akkreditiert ist; wird verwendet, um Benutzerbeschwerden weiterzuleiten.';
 		document.getElementById("metadata_status_explanation_url").textContent = proposed + 'Erforderlich, wenn der Registrar IANA-akkreditiert ist; bietet Erklärungen zum Statuscode.';
@@ -542,9 +550,13 @@ function SwitchTranslation(translation)	{
 		document.getElementById("value").textContent = "Détail";
 		document.getElementById("explanation").textContent = "Un aperçu et une explication de la structure et des caractéristiques des domaines Web.";
 		document.getElementById("notices_role").textContent = accessible;
-		document.getElementById("links_role").textContent = accessible;		
+		document.getElementById("links_role").textContent = accessible;
+		document.getElementById("common_role").textContent = proposed;
+		document.getElementById("common_root_zones_url").textContent = proposed + "URL référençan la liste officielle des 'Root Zones'.";
+		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Un dossier /v1/ prend également en charge les réponses /v2/ possibles ; voir icann.com.";
+		document.getElementById("common_accredited_registrars_url").textContent = proposed;
+		document.getElementById("common_tld_roles").textContent = proposed;
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
-		document.getElementById("root_zone_root_zones_url").textContent = proposed + "Une référence à la liste officielle des 'Root Zones'.";
 		document.getElementById("root_zone_delegation_url").textContent = proposed + "URL référençant l'enregistrement de délégation de l'ICANN pour le TLD.";	
 		document.getElementById("root_zone_tld_category").textContent = proposed + "Indique un TLD générique (gTLD) ou un TLD de code pays (ccTLD).";
 		document.getElementById("root_zone_tld_type").textContent = proposed + "Le type de TLD, tel que gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD ou geoTLD.";
@@ -552,19 +564,16 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Les restrictions d’usage et les politiques d’enregistrement sont accessibles via cette URL.";
 		document.getElementById("root_zone_menu_url").textContent = proposed + "Un menu d'informations spécifique au TLD, disponible sous un sous-domaine tel que 'regmenu'.";
 		document.getElementById("root_zone_tld_contacts").textContent = proposed;
-		document.getElementById("root_zone_tld_roles").textContent = proposed;
 		document.getElementById("root_zone_domain_roles").textContent = proposed + "'Request-Driven': Le demandeur/TLD/le rôle nécessite une visibilité non groupée.";
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_periods").textContent = proposed + "Enregistrement pluriannuel possible ; durée maximale variable selon le TLD et le registrar.";
 		document.getElementById("metadata_role").textContent = proposed;
-		document.getElementById("metadata_lookup_endpoints_url").textContent = proposed + "Un dossier /v1/ prend également en charge les réponses /v2/ possibles ; voir icann.com.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Date et heure de mise à jour de la base de données RDAP en heure Zulu (UTC).";
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;		
 		document.getElementById("metadata_registry_source").textContent = modified + "Prévue : les recherches d’identifiants Web sur les serveurs RDAP mondiaux.";
-		document.getElementById("metadata_accredited_registrars_url").textContent = proposed;
 		document.getElementById("metadata_registrar_source").textContent = proposed + "L'URL source du bureau d'enregistrement n'est pas incluse dans la réponse RDAP v1 actuelle.";
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + "Obligatoire si le registraire est accrédité par l'IANA ; utilisé pour diriger les plaintes des utilisateurs.";		
 		document.getElementById("metadata_status_explanation_url").textContent = proposed + "Obligatoire si le registraire est accrédité par l'IANA ; fournit des explications sur le code de statut.";
@@ -706,36 +715,38 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="235" style="display:none;vertical-align:top"><td>links_3_title</td><td>'.$data[$pd]['links']['links_3_title'].'</td><td></td></tr>';
 	$html_text .= '<tr id="236" style="display:none;vertical-align:top"><td>links_3_media</td><td>'.$data[$pd]['links']['links_3_media'].'</td><td></td></tr>';
 	$html_text .= '<tr id="237" style="display:none;vertical-align:top"><td>links_3_type</td><td>'.$data[$pd]['links']['links_3_type'].'</td><td></td></tr>';
+	
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(26)">Common Information +/-</button></td><td></td><td id="common_role"></td></tr>';
+	$html_text .= '<tr id="261" style="display:none"><td>root_zones_url</td><td><a href='.$data[$pd]['common']['root_zones_url'].' target="_blank">Root Zones</a></td><td id="common_root_zones_url"></td></tr>';
+	$html_text .= '<tr id="262" style="display:none"><td>lookup_endpoints_url</td><td><a href='.$data[$pd]['common']['lookup_endpoints_url'].' target="_blank">Lookup Endpoints</a></td><td id="common_lookup_endpoints_url"></td></tr>';
+	$html_text .= '<tr id="263" style="display:none"><td>accredited_registrars_url</td><td><a href='.$data[$pd]['common']['accredited_registrars_url'].' target="_blank">IANA Registrars</a></td><td id="common_accredited_registrars_url"></td></tr>';
+	$html_text .= '<tr id="264" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['common']['tld_roles'].'</td><td id="common_tld_roles"></td></tr>';	
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(27)">Root Zone Information +/-</button></td><td><b>'.$data[$pd]['root_zone']['zone_identifier'].'</b></td><td id="root_zone_role"></td></tr>';
-	$html_text .= '<tr id="271" style="display:none"><td>root_zones_url</td><td><a href='.$data[$pd]['root_zone']['root_zones_url'].' target="_blank">Root Zones</a></td><td id="root_zone_root_zones_url"></td></tr>';
-	$html_text .= '<tr id="272" style="display:none"><td>delegation_url</td><td><a href='.$data[$pd]['root_zone']['delegation_url'].' target="_blank">TLD Delegation</a></td><td id="root_zone_delegation_url"></td></tr>';
-	$html_text .= '<tr id="273" style="display:none"><td>tld_category</td><td>'.$data[$pd]['root_zone']['tld_category'].'</td><td id="root_zone_tld_category"></td></tr>';
-	$html_text .= '<tr id="274" style="display:none"><td>tld_type</td><td>'.$data[$pd]['root_zone']['tld_type'].'</td><td id="root_zone_tld_type"></td></tr>';
-	$html_text .= '<tr id="275" style="display:none"><td>language_codes</td><td>'.$data[$pd]['root_zone']['language_codes'].'</td><td id="root_zone_language_codes"></td></tr>';
-	$html_text .= '<tr id="276" style="display:none"><td>restrictions_url</td><td>'.((strlen($data[$pd]['root_zone']['restrictions_url'])) ? '<a href='.$data[$pd]['root_zone']['restrictions_url'].' target="_blank">TLD Restrictions</a>' : '').'</td><td id="root_zone_restrictions_url"></td></tr>';
-	$html_text .= '<tr id="277" style="display:none"><td>menu_url</td><td>'.((strlen($data[$pd]['root_zone']['menu_url'])) ? '<a href='.$data[$pd]['root_zone']['menu_url'].' target="_blank">TLD Menu</a>' : '').'</td><td id="root_zone_menu_url"></td></tr>';
-	$html_text .= '<tr id="278" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['tld_contacts'].'</td><td id="root_zone_tld_contacts"></td></tr>';
-	$html_text .= '<tr id="279" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['tld_roles'].'</td><td id="root_zone_tld_roles"></td></tr>';
-	$html_text .= '<tr id="2710" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['domain_roles'].'</td><td id="root_zone_domain_roles"></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(28)">Lifecycle Data +/-</button></td><td></td><td id="lifecycle_role"></td></tr>';
+	$html_text .= '<tr id="271" style="display:none"><td>delegation_url</td><td><a href='.$data[$pd]['root_zone']['delegation_url'].' target="_blank">TLD Delegation</a></td><td id="root_zone_delegation_url"></td></tr>';
+	$html_text .= '<tr id="272" style="display:none"><td>tld_category</td><td>'.$data[$pd]['root_zone']['tld_category'].'</td><td id="root_zone_tld_category"></td></tr>';
+	$html_text .= '<tr id="273" style="display:none"><td>tld_type</td><td>'.$data[$pd]['root_zone']['tld_type'].'</td><td id="root_zone_tld_type"></td></tr>';
+	$html_text .= '<tr id="274" style="display:none"><td>language_codes</td><td>'.$data[$pd]['root_zone']['language_codes'].'</td><td id="root_zone_language_codes"></td></tr>';
+	$html_text .= '<tr id="275" style="display:none"><td>restrictions_url</td><td>'.((strlen($data[$pd]['root_zone']['restrictions_url'])) ? '<a href='.$data[$pd]['root_zone']['restrictions_url'].' target="_blank">TLD Restrictions</a>' : '').'</td><td id="root_zone_restrictions_url"></td></tr>';
+	$html_text .= '<tr id="276" style="display:none"><td>menu_url</td><td>'.((strlen($data[$pd]['root_zone']['menu_url'])) ? '<a href='.$data[$pd]['root_zone']['menu_url'].' target="_blank">TLD Menu</a>' : '').'</td><td id="root_zone_menu_url"></td></tr>';
+	$html_text .= '<tr id="277" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['tld_contacts'].'</td><td id="root_zone_tld_contacts"></td></tr>';
+	$html_text .= '<tr id="278" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['domain_roles'].'</td><td id="root_zone_domain_roles"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(28)">Lifecycle Information +/-</button></td><td></td><td id="lifecycle_role"></td></tr>';
 	$html_text .= '<tr id="281" style="display:none;vertical-align:top"><td>active_from: '.$data[$pd]['lifecycle']['active_from'].'</td><td></td><td id="lifecycle_active_from"></td></tr>';
 	$html_text .= '<tr id="282" style="display:none;vertical-align:top"><td>upon_termination: '.$data[$pd]['lifecycle']['upon_termination'].'</td><td></td><td id="lifecycle_upon_termination"></td></tr>';
 	$html_text .= '<tr id="283" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['periods'].'</td><td id="lifecycle_periods"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(29)">Metadata +/-</button></td><td></td><td id="metadata_role"></td></tr>';
-	$html_text .= '<tr id="291" style="display:none"><td>lookup_endpoints_url</td><td><a href='.$data[$pd]['metadata']['lookup_endpoints_url'].' target="_blank">Lookup Endpoints</a></td><td id="metadata_lookup_endpoints_url"></td></tr>';
-	$html_text .= '<tr id="292" style="display:none"><td>resource_upload_at</td><td>'.$data[$pd]['metadata']['resource_upload_at'].'</td><td id="metadata_resource_upload_at"></td></tr>';
-	$html_text .= '<tr id="293" style="display:none"><td>object_class_name</td><td>'.$data[$pd]['metadata']['object_class_name'].'</td><td id="metadata_object_class_name"></td></tr>';
-	$html_text .= '<tr id="294" style="display:none; vertical-align:top"><td>object_conformance</td><td>'.$data[$pd]['metadata']['object_conformance'].'</td><td id="metadata_object_conformance"></td></tr>';
+	$html_text .= '<tr id="291" style="display:none"><td>resource_upload_at</td><td>'.$data[$pd]['metadata']['resource_upload_at'].'</td><td id="metadata_resource_upload_at"></td></tr>';
+	$html_text .= '<tr id="292" style="display:none"><td>object_class_name</td><td>'.$data[$pd]['metadata']['object_class_name'].'</td><td id="metadata_object_class_name"></td></tr>';
+	$html_text .= '<tr id="293" style="display:none; vertical-align:top"><td>object_conformance</td><td>'.$data[$pd]['metadata']['object_conformance'].'</td><td id="metadata_object_conformance"></td></tr>';
 	$registry_source = str_replace('https://', '', $data[$pd]['metadata']['registry_source']);
 	$validation_registry = 'https://validator.rdap.org/?url=https://'.$registry_source.'&response-type=domain&server-type=gtld-registry&errors-only=1';	
-	$html_text .= '<tr id="295" style="display:none"><td>registry_source</td><td>'.((strlen($data[$pd]['metadata']['registry_source'])) ? '<a href='.$data[$pd]['metadata']['registry_source'].' target="_blank">Registry Response</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registry_source"></td></tr>';
-	$html_text .= '<tr id="296" style="display:none"><td>accredited_registrars_url</td><td><a href='.$data[$pd]['metadata']['accredited_registrars_url'].' target="_blank">IANA Registrars</a></td><td id="metadata_accredited_registrars_url"></td></tr>';
+	$html_text .= '<tr id="294" style="display:none"><td>registry_source</td><td>'.((strlen($data[$pd]['metadata']['registry_source'])) ? '<a href='.$data[$pd]['metadata']['registry_source'].' target="_blank">Registry Response</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registry_source"></td></tr>';
 	$registrar_source = str_replace('https://', '', $data[$pd]['metadata']['registrar_source']);
 	$validation_registrar = 'https://validator.rdap.org/?url=https://'.$registrar_source.'&response-type=domain&server-type=gtld-registrar&errors-only=1';	
-	$html_text .= '<tr id="297" style="display:none"><td>registrar_source eg. <a style="font-size: 0.9rem" href="https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/icann.com" target="_blank">icann.com</a> <a style="font-size: 0.9rem" href="https://rdap.metaregistrar.com/domain/fryslan.frl" target="_blank">fryslan.frl</a></td><td>'.((strlen($data[$pd]['metadata']['registrar_source'])) ? '<a href='.$data[$pd]['metadata']['registrar_source'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : 'Not Available').'</td><td id="metadata_registrar_source"></td></tr>';
-	$html_text .= '<tr id="298" style="display:none"><td>registrar_complaint_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_complaint_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_complaint_url'].' target="_blank">icann.org/wicf</a>' : 'Not Applicable').'</td><td id="metadata_registrar_complaint_url"></td></tr>';
-	$html_text .= '<tr id="299" style="display:none"><td>status_explanation_url</td><td>'.((strlen($data[$pd]['metadata']['status_explanation_url'])) ? '<a href='.$data[$pd]['metadata']['status_explanation_url'].' target="_blank">icann.org/epp</a>' : 'Not Applicable').'</td><td id="metadata_status_explanation_url"></td></tr>';
-	$html_text .= '<tr id="2910" style="display:none"><td>geo_location</td><td>'.$data[$pd]['metadata']['geo_location'].'</td><td></td></tr>';
+	$html_text .= '<tr id="295" style="display:none"><td>registrar_source eg. <a style="font-size: 0.9rem" href="https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/icann.com" target="_blank">icann.com</a> <a style="font-size: 0.9rem" href="https://rdap.metaregistrar.com/domain/fryslan.frl" target="_blank">fryslan.frl</a></td><td>'.((strlen($data[$pd]['metadata']['registrar_source'])) ? '<a href='.$data[$pd]['metadata']['registrar_source'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : 'Not Available').'</td><td id="metadata_registrar_source"></td></tr>';
+	$html_text .= '<tr id="296" style="display:none"><td>registrar_complaint_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_complaint_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_complaint_url'].' target="_blank">icann.org/wicf</a>' : 'Not Applicable').'</td><td id="metadata_registrar_complaint_url"></td></tr>';
+	$html_text .= '<tr id="297" style="display:none"><td>status_explanation_url</td><td>'.((strlen($data[$pd]['metadata']['status_explanation_url'])) ? '<a href='.$data[$pd]['metadata']['status_explanation_url'].' target="_blank">icann.org/epp</a>' : 'Not Applicable').'</td><td id="metadata_status_explanation_url"></td></tr>';
+	$html_text .= '<tr id="298" style="display:none"><td>geo_location</td><td>'.$data[$pd]['metadata']['geo_location'].'</td><td></td></tr>';
 	//$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(30)">Domain Data +/-</button></td><td><b>'.$vd.'</b></td><td id="domain_role"></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>domain_handle'.if_not_filled($data[$pd]['domain']['handle'], $data[$pd]['domain']['ascii_name']).'</td><td>'.$data[$pd]['domain']['handle'].'</td><td></td></tr>';

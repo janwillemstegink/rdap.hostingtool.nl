@@ -192,12 +192,12 @@ $restrictions_url = '';
 $menu_url = '';
 $tld_contacts_json = '[]';	
 $tld_roles_json = '[
-{"tld_role_sequence": 10,"tld_role_identifier": "contracting_authority","tld_role_shielding": ["name", "email", "tel"]},
-{"tld_role_sequence": 20,"tld_role_identifier": "contracting_organization","tld_role_shielding": ["name", "email", "tel"]},
-{"tld_role_sequence": 30,"tld_role_identifier": "sponsoring_organization","tld_role_shielding": ["name", "email", "tel"]},
-{"tld_role_sequence": 40,"tld_role_identifier": "country_code_designated_manager","tld_role_shielding": ["name", "email", "tel"]},
-{"tld_role_sequence": 50,"tld_role_identifier": "registry_operator","tld_role_shielding": ["name", "email", "tel"]},
-{"tld_role_sequence": 60,"tld_role_identifier": "backend_operator","tld_role_shielding": ["name", "email", "tel"]}]';
+{"tld_role_sequence": 10,"tld_role_identifier": "contracting_authority","tld_role_shielding": ["name", "tel"]},
+{"tld_role_sequence": 20,"tld_role_identifier": "contracting_organization","tld_role_shielding": ["name", "tel"]},
+{"tld_role_sequence": 30,"tld_role_identifier": "sponsoring_organization","tld_role_shielding": ["name", "tel"]},
+{"tld_role_sequence": 40,"tld_role_identifier": "country_code_designated_manager","tld_role_shielding": ["name", "tel"]},
+{"tld_role_sequence": 50,"tld_role_identifier": "registry_operator","tld_role_shielding": ["name", "tel"]},
+{"tld_role_sequence": 60,"tld_role_identifier": "backend_operator","tld_role_shielding": ["name", "tel"]}]';
 $decoded = json_decode($tld_roles_json, true);
 usort($decoded, function ($a, $b) {
     return $a['tld_role_sequence'] <=> $b['tld_role_sequence'];
@@ -299,7 +299,7 @@ elseif ($zone_identifier == 'politie')	{
         {"contact_identifier": "sponsoring_organization", "contact_legal_name": "Politie Nederland", "contact_presented_name": null},
         {"contact_identifier": "country_code_designated_manager", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "registry_operator", "contact_legal_name": "Stichting Internet Domeinregistratie Nederland", "contact_presented_name": null},
-		{"contact_identifier": "backend_operator", "contact_legal_name": "SIDN B.V.", "contact_presented_name": "SIDM, afdeling Support"}
+		{"contact_identifier": "backend_operator", "contact_legal_name": "SIDN B.V.", "contact_presented_name": "SIDN, afdeling Support"}
     ]';
 	$restrictions_url = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
 	$menu_url = 'https://www.sidn.nl/en/theme/domain-names';
@@ -1586,8 +1586,12 @@ $arr[$inputdomain]['links']['links_3_title'] = $links_3_title;
 $arr[$inputdomain]['links']['links_3_media'] = $links_3_media;	
 $arr[$inputdomain]['links']['links_3_type'] = $links_3_type;
 	
+$arr[$inputdomain]['common']['root_zones_url'] = $root_zones_url;
+$arr[$inputdomain]['common']['lookup_endpoints_url'] = $lookup_endpoints_url;
+$arr[$inputdomain]['common']['accredited_registrars_url'] = $accredited_registrars_url;		
+$arr[$inputdomain]['common']['tld_roles'] = $tld_roles;	
+	
 $arr[$inputdomain]['root_zone']['zone_identifier'] = $zone_identifier;
-$arr[$inputdomain]['root_zone']['root_zones_url'] = $root_zones_url;
 $arr[$inputdomain]['root_zone']['delegation_url'] = $delegation_url;		
 $arr[$inputdomain]['root_zone']['tld_category'] = $tld_category;
 $arr[$inputdomain]['root_zone']['tld_type'] = $tld_type;
@@ -1601,19 +1605,16 @@ $arr[$inputdomain]['root_zone']['language_codes'] = $language_codes;
 $arr[$inputdomain]['root_zone']['restrictions_url'] = $restrictions_url;
 $arr[$inputdomain]['root_zone']['menu_url'] = $menu_url;
 $arr[$inputdomain]['root_zone']['tld_contacts'] = $tld_contacts;
-$arr[$inputdomain]['root_zone']['tld_roles'] = $tld_roles;
 $arr[$inputdomain]['root_zone']['domain_roles'] = $domain_roles;
 
 $arr[$inputdomain]['lifecycle']['active_from'] = $active_from;
 $arr[$inputdomain]['lifecycle']['upon_termination'] = $upon_termination;
 $arr[$inputdomain]['lifecycle']['periods'] = $periods;
 
-$arr[$inputdomain]['metadata']['lookup_endpoints_url'] = $lookup_endpoints_url;
 $arr[$inputdomain]['metadata']['resource_upload_at'] = $resource_upload_at;	
 $arr[$inputdomain]['metadata']['object_class_name'] = $object_class_name;
 $arr[$inputdomain]['metadata']['object_conformance'] = $object_conformance;	
 $arr[$inputdomain]['metadata']['registry_source'] = $url;
-$arr[$inputdomain]['metadata']['accredited_registrars_url'] = $accredited_registrars_url;	
 $arr[$inputdomain]['metadata']['registrar_source'] = $url_registrar;
 $arr[$inputdomain]['metadata']['registrar_complaint_url'] = $registrar_complaint_url;		
 $arr[$inputdomain]['metadata']['status_explanation_url'] = $status_explanation_url;
