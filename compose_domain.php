@@ -196,8 +196,8 @@ $tld_roles_json = '[
 {"tld_role_sequence": 20,"tld_role_identifier": "contracting_organization","tld_role_shielding": ["name", "tel"]},
 {"tld_role_sequence": 30,"tld_role_identifier": "sponsoring_organization","tld_role_shielding": ["name", "tel"]},
 {"tld_role_sequence": 40,"tld_role_identifier": "country_code_designated_manager","tld_role_shielding": ["name", "tel"]},
-{"tld_role_sequence": 50,"tld_role_identifier": "registry_operator","tld_role_shielding": ["name", "tel"]},
-{"tld_role_sequence": 60,"tld_role_identifier": "backend_operator","tld_role_shielding": ["name", "tel"]}]';
+{"tld_role_sequence": 50,"tld_role_identifier": "registry_operator","tld_role_shielding": []},
+{"tld_role_sequence": 60,"tld_role_identifier": "backend_operator","tld_role_shielding": []}]';
 $decoded = json_decode($tld_roles_json, true);
 usort($decoded, function ($a, $b) {
     return $a['tld_role_sequence'] <=> $b['tld_role_sequence'];
@@ -208,22 +208,22 @@ foreach ($decoded as $role) {
 }	
 $active_from = null;	
 $upon_termination = 'Zone-specific regulation';
-$domain_roles_json = '[{"domain_role_sequence": 10,"domain_role_identifier": "abuse","domain_role_shielding": ["name"]},
-{"domain_role_sequence": 20,"domain_role_identifier": "sponsor","domain_role_shielding": ["name", "email", "tel"]},
-{"domain_role_sequence": 30,"domain_role_identifier": "registrant","domain_role_shielding": ["name", "email", "tel", "address"]},
-{"domain_role_sequence": 40,"domain_role_identifier": "administrative","domain_role_shielding": ["web_id", "name", "tel", "address"]},
-{"domain_role_sequence": 50,"domain_role_identifier": "technical","domain_role_shielding": ["web_id", "name", "tel", "address"]},
-{"domain_role_sequence": 60,"domain_role_identifier": "billing","domain_role_shielding": ["web_id", "name", "email", "tel", "address"]},
-{"domain_role_sequence": 70,"domain_role_identifier": "emergency","domain_role_shielding": ["name"]},
-{"domain_role_sequence": 80,"domain_role_identifier": "reseller","domain_role_shielding": ["name", "email", "tel"]},
-{"domain_role_sequence": 90,"domain_role_identifier": "registrar","domain_role_shielding": ["name", "email", "tel"]}]';
-$decoded = json_decode($domain_roles_json, true);
+$zone_roles_json = '[{"zone_role_sequence": 10,"zone_role_identifier": "abuse","zone_role_shielding": ["name"]},
+{"zone_role_sequence": 20,"zone_role_identifier": "sponsor","zone_role_shielding": ["name", "email", "tel"]},
+{"zone_role_sequence": 30,"zone_role_identifier": "registrant","zone_role_shielding": ["name", "email", "tel", "address"]},
+{"zone_role_sequence": 40,"zone_role_identifier": "administrative","zone_role_shielding": ["web_id", "name", "tel", "address"]},
+{"zone_role_sequence": 50,"zone_role_identifier": "technical","zone_role_shielding": ["web_id", "name", "tel", "address"]},
+{"zone_role_sequence": 60,"zone_role_identifier": "billing","zone_role_shielding": ["web_id", "name", "email", "tel", "address"]},
+{"zone_role_sequence": 70,"zone_role_identifier": "emergency","zone_role_shielding": ["name"]},
+{"zone_role_sequence": 80,"zone_role_identifier": "reseller","zone_role_shielding": ["name", "email", "tel"]},
+{"zone_role_sequence": 90,"zone_role_identifier": "registrar","zone_role_shielding": ["name", "email", "tel"]}]';
+$decoded = json_decode($zone_roles_json, true);
 usort($decoded, function ($a, $b) {
-    return $a['domain_role_sequence'] <=> $b['domain_role_sequence'];
+    return $a['zone_role_sequence'] <=> $b['zone_role_sequence'];
 });
-$domain_roles = 'domain_role_sequence, domain_role_identifier, domain_role_shielding<br />';    
+$zone_roles = 'zone_role_sequence, zone_role_identifier, zone_role_shielding<br />';    
 foreach ($decoded as $role) {
-	$domain_roles .= $role['domain_role_sequence'] . ', ' . $role['domain_role_identifier'] . ', [' . implode(', ', $role['domain_role_shielding']) . ']<br />';
+	$zone_roles .= $role['zone_role_sequence'] . ', ' . $role['zone_role_identifier'] . ', [' . implode(', ', $role['zone_role_shielding']) . ']<br />';
 }	
 $periods_json = '[
         {"period_identifier": "subscription_period", "period_minimum": null, "period_maximum": null},
@@ -1605,7 +1605,7 @@ $arr[$inputdomain]['root_zone']['language_codes'] = $language_codes;
 $arr[$inputdomain]['root_zone']['restrictions_url'] = $restrictions_url;
 $arr[$inputdomain]['root_zone']['menu_url'] = $menu_url;
 $arr[$inputdomain]['root_zone']['tld_contacts'] = $tld_contacts;
-$arr[$inputdomain]['root_zone']['domain_roles'] = $domain_roles;
+$arr[$inputdomain]['root_zone']['zone_roles'] = $zone_roles;
 
 $arr[$inputdomain]['lifecycle']['active_from'] = $active_from;
 $arr[$inputdomain]['lifecycle']['upon_termination'] = $upon_termination;
