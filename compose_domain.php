@@ -141,7 +141,7 @@ switch ($zone_identifier) {
 }	
 	
 $root_zones_url = 'https://www.iana.org/domains/root/db';
-$accredited_registrars_url = 'https://www.iana.org/assignments/registrar-ids/registrar-ids.xhtml';
+$registrar_accreditations_url = 'https://www.iana.org/assignments/registrar-ids/registrar-ids.xhtml';
 $lookup_endpoints_url = 'https://data.iana.org/rdap/dns.json';
 if (!strlen($url))	{
 	$rdap = json_decode(file_get_contents($lookup_endpoints_url), true);
@@ -164,7 +164,7 @@ if (!strlen($url))	{
 	}
 }
 $url .= 'domain/'.$inputdomain;
-$url_registrar = '';	
+$registrar_json_response_url = '';	
 $obj = json_decode(file_get_contents($url), true);
 $notice_0_title = $obj['notices'][0]['title'];
 $notice_0_description_0 = $obj['notices'][0]['description'][0];	
@@ -563,7 +563,7 @@ $links_3_type = $obj['links'][3]['type'];
 
 $object_class_name = $obj['objectClassName'];
 $object_conformance = (is_array($obj['rdapConformance'])) ? implode(",<br />", $obj['rdapConformance']) : $obj['rdapConformance'];
-$accredited_registrar = '';
+$registrar_accreditation = '';
 $registrar_complaint_url = '';
 $status_explanation_url = '';	
 	
@@ -980,7 +980,7 @@ foreach($obj as $key1 => $value1) {
 						}	
 					}
 					if ($key2 == $entity_registrar and $key3 == 'publicIds')	{
-						$accredited_registrar .= $value4['type'].': '.$value4['identifier']."<br />";
+						$registrar_accreditation .= $value4['type'].': '.$value4['identifier']."<br />";
 					}
 				}
 				foreach($value4 as $key5 => $value5) {
@@ -1588,7 +1588,7 @@ $arr[$inputdomain]['links']['links_3_type'] = $links_3_type;
 	
 $arr[$inputdomain]['common']['root_zones_url'] = $root_zones_url;
 $arr[$inputdomain]['common']['lookup_endpoints_url'] = $lookup_endpoints_url;
-$arr[$inputdomain]['common']['accredited_registrars_url'] = $accredited_registrars_url;		
+$arr[$inputdomain]['common']['registrar_accreditations_url'] = $registrar_accreditations_url;		
 $arr[$inputdomain]['common']['tld_roles'] = $tld_roles;	
 	
 $arr[$inputdomain]['root_zone']['zone_identifier'] = $zone_identifier;
@@ -1614,8 +1614,9 @@ $arr[$inputdomain]['lifecycle']['periods'] = $periods;
 $arr[$inputdomain]['metadata']['resource_upload_at'] = $resource_upload_at;	
 $arr[$inputdomain]['metadata']['object_class_name'] = $object_class_name;
 $arr[$inputdomain]['metadata']['object_conformance'] = $object_conformance;	
-$arr[$inputdomain]['metadata']['registry_source'] = $url;
-$arr[$inputdomain]['metadata']['registrar_source'] = $url_registrar;
+$arr[$inputdomain]['metadata']['registry_json_response_url'] = $url;
+$arr[$inputdomain]['metadata']['registrar_accreditation'] = $registrar_accreditation;		
+$arr[$inputdomain]['metadata']['registrar_json_response_url'] = $registrar_json_response_url;
 $arr[$inputdomain]['metadata']['registrar_complaint_url'] = $registrar_complaint_url;		
 $arr[$inputdomain]['metadata']['status_explanation_url'] = $status_explanation_url;
 $arr[$inputdomain]['metadata']['geo_location'] = '';
@@ -1625,7 +1626,6 @@ $arr[$inputdomain]['domain']['ascii_name'] = $ascii_name;
 $arr[$inputdomain]['domain']['unicode_name'] = $unicode_name;
 $arr[$inputdomain]['domain']['statuses_registry'] = $statuses_registry;
 $arr[$inputdomain]['domain']['statuses_registrar'] = $statuses_registrar;
-$arr[$inputdomain]['domain']['accredited_registrar'] = $accredited_registrar;	
 $arr[$inputdomain]['domain']['created_at'] = $created_at;	
 $arr[$inputdomain]['domain']['latest_transfer_at'] = $latest_transfer_at;
 $arr[$inputdomain]['domain']['latest_update_at'] = $latest_update_at;

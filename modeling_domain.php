@@ -103,11 +103,11 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 29)	{ // meta
 		var pre = '29';
-		var max = 8
+		var max = 10
 	}
 	else if (type == 30)	{ // domain
 		var pre = '30';
-		var max = 12
+		var max = 11
 	}
 	else if (type == 35)	{ // abuse
 		var pre = '35';
@@ -188,7 +188,7 @@ function SwitchTranslation(translation)	{
 		var address = '';
 		var accessible = '';
 		document.getElementById("title").textContent = "Domain Information";
-		document.getElementById("subtitle").textContent = "RDAP-v1-based modeling";
+		document.getElementById("subtitle").textContent = "RDAP v1 based modeling";
 		document.getElementById("instruction").textContent = "Fill in and press Enter to retrieve.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
@@ -198,7 +198,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_role").textContent = proposed;
 		document.getElementById("common_root_zones_url").textContent = proposed;
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed;
-		document.getElementById("common_accredited_registrars_url").textContent = proposed;
+		document.getElementById("common_registrar_accreditations_url").textContent = proposed;
 		document.getElementById("common_tld_roles").textContent = proposed;
 		document.getElementById("root_zone_role").textContent = proposed;
 		document.getElementById("root_zone_delegation_url").textContent = proposed;
@@ -216,9 +216,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_resource_upload_at").textContent = modified;
 		document.getElementById("metadata_object_class_name").textContent = modified;
-		document.getElementById("metadata_object_conformance").textContent = modified;		
-		document.getElementById("metadata_registry_source").textContent = modified;
-		document.getElementById("metadata_registrar_source").textContent = proposed;
+		document.getElementById("metadata_object_conformance").textContent = modified;
+		document.getElementById("metadata_global_json_response_url").textContent = proposed;
+		document.getElementById("metadata_registry_json_response_url").textContent = proposed;
+		document.getElementById("metadata_registrar_accreditation").textContent = modified;
+		document.getElementById("metadata_registrar_json_response_url").textContent = proposed;
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed;
 		document.getElementById("metadata_status_explanation_url").textContent = proposed;
 		document.getElementById("domain_role").textContent = "";
@@ -226,7 +228,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_unicode_name").textContent = "";
 		document.getElementById("domain_statuses_registry").textContent = "";
 		document.getElementById("domain_statuses_registrar").textContent = modified;
-		document.getElementById("domain_accredited_registrar").textContent = modified;
 		document.getElementById("domain_created_at").textContent = "";
 		document.getElementById("domain_expiration_at").textContent = "";
 		document.getElementById("domain_recovery_deadline").textContent = proposed;
@@ -277,7 +278,7 @@ function SwitchTranslation(translation)	{
 		var address = "Het afschermen van adresgegevens zoals bij example.tel, resulteert in rommelige gegevens.";
 		var accessible = 'De voorgestelde velden verbeteren de bruikbaarheid en verhogen de transparantie van RDAP.';
 		document.getElementById("title").textContent = "Domeininformatie";
-		document.getElementById("subtitle").textContent = "RDAP-v1-gebaseerde modellering";
+		document.getElementById("subtitle").textContent = "RDAP v1-gebaseerde modellering";
 		document.getElementById("instruction").textContent = "Typ een domeinnaam en druk op Enter.";
 		document.getElementById("field").textContent = "Omschrijving";
 		document.getElementById("value").textContent = "Detail";
@@ -287,7 +288,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_role").textContent = proposed;
 		document.getElementById("common_root_zones_url").textContent = proposed + 'URL die verwijst naar de officiële lijst met Root Zones.';
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Een folder /v1/ ondersteunt ook mogelijke /v2/-responses; zie icann.com.";
-		document.getElementById("common_accredited_registrars_url").textContent = proposed;
+		document.getElementById("common_registrar_accreditations_url").textContent = proposed;
 		document.getElementById("common_tld_roles").textContent = proposed;
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_delegation_url").textContent = proposed + 'URL die verwijst naar het ICANN-delegatierecord voor de TLD.';
@@ -305,9 +306,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Datum en tijdstip van de RDAP-database-update in Zoeloe-tijd (UTC).";
 		document.getElementById("metadata_object_class_name").textContent = modified;
-		document.getElementById("metadata_object_conformance").textContent = modified;		
-		document.getElementById("metadata_registry_source").textContent = modified + "Gepland: Web-ID-zoekopdrachten op wereldwijde RDAP-servers.";
-		document.getElementById("metadata_registrar_source").textContent = proposed + 'Er is geen registrarbron-URL opgenomen in het huidige RDAP v1-antwoord.';
+		document.getElementById("metadata_object_conformance").textContent = modified;
+		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL van de geplande JSON-respons van de globale RDAP-server (topniveau).";
+		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL van de JSON-respons op registratieniveau.";
+		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Er kan een IANA Registrar Accreditation ID voor gTLD's bestaan. Deze moet correct zijn.";
+		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + 'Als deze aanwezig is, is de resource-URL in de RDAP v1-respons niet machineleesbaar.';
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + 'Vereist als de registrar IANA-geaccrediteerd is; wordt gebruikt om klachten van gebruikers door te sturen.';		
 		document.getElementById("metadata_status_explanation_url").textContent = proposed + 'Vereist als de registrar IANA-geaccrediteerd is; bevat uitleg over de statuscode.';
 		document.getElementById("domain_role").textContent = "Een domein onder TLD-niveau is wereldwijd uniek en kan vrij worden gekozen onder bepaalde regels.";
@@ -315,7 +318,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_unicode_name").textContent = "Hoewel de informatie verduidelijkt, is de unicode-domeinnaam optioneel binnen het RDAP-protocol.";
 		document.getElementById("domain_statuses_registry").textContent = "De status 'redemption period' biedt de mogelijkheid tot herstel. Met 'pending delete' wordt de verwijdering definitief.";
 		document.getElementById("domain_statuses_registrar").textContent = modified;
-		document.getElementById("domain_accredited_registrar").textContent = modified + "Er kan een IANA Registrar Accreditation ID voor gTLD's bestaan. Deze moet correct zijn.";
 		document.getElementById("domain_created_at").textContent = "De datumvelden staan hier in een logische volgorde. Dit is ook eenvoudig in de JSON-array.";
 		document.getElementById("domain_expiration_at").textContent = "Eindtijd voor verlenging of van publicatie, daarna neemt de betrokkenheid van de registrar af.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "Herstel is mogelijk tot 'domain_expiration_at' plus 'redemption_period_days'.";		
@@ -366,7 +368,7 @@ function SwitchTranslation(translation)	{
 		var address = "Shielding address data as with example.tel, results in messy data.";
 		var accessible = 'The proposed fields improve usability and increase transparency of RDAP.';
 		document.getElementById("title").textContent = "Domain Information";
-		document.getElementById("subtitle").textContent = "RDAP-v1-based modeling";
+		document.getElementById("subtitle").textContent = "RDAP v1 based modeling";
 		document.getElementById("instruction").textContent = "Type a domain, then press Enter.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
@@ -376,7 +378,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_role").textContent = proposed;
 		document.getElementById("common_root_zones_url").textContent = proposed + 'URL pointing to the official list of Root Zones.';
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "A /v1/ folder may also support /v2/ responses — see icann.com for details.";
-		document.getElementById("common_accredited_registrars_url").textContent = proposed;
+		document.getElementById("common_registrar_accreditations_url").textContent = proposed;
 		document.getElementById("common_tld_roles").textContent = proposed;		
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_delegation_url").textContent = proposed + 'URL pointing to the ICANN delegation record for the TLD.';
@@ -394,9 +396,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Date and time of RDAP database update in Zulu time (UTC).";
 		document.getElementById("metadata_object_class_name").textContent = modified;
-		document.getElementById("metadata_object_conformance").textContent = modified;		
-		document.getElementById("metadata_registry_source").textContent = modified + "Planned: Web ID searches on global RDAP servers.";
-		document.getElementById("metadata_registrar_source").textContent = proposed + 'No registrar source URL is included in the current RDAP v1 response.';
+		document.getElementById("metadata_object_conformance").textContent = modified;
+		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL of the planned global RDAP server JSON response (top level).";
+		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL of the JSON response at the registry level.";
+		document.getElementById("metadata_registrar_accreditation").textContent = modified + "There may be an IANA Registrar Accreditation ID for gTLDs. It must be correct.";
+		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + 'If present, the resource URL in the RDAP v1 response is not machine-readable.';
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + 'Required for IANA-accredited registrars; used to direct user complaints.';		
 		document.getElementById("metadata_status_explanation_url").textContent = proposed + 'Required if the registrar is IANA-accredited; provides status code explanations.';
 		document.getElementById("domain_role").textContent = "A domain below TLD level is globally unique and can be freely chosen under certain rules.";
@@ -404,7 +408,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_unicode_name").textContent = "Although information clarifies, the unicode domain name is optional within the RDAP protocol.";
 		document.getElementById("domain_statuses_registry").textContent = "Status 'redemption period' allows for recovery. With 'pending delete' deletion becomes final.";
 		document.getElementById("domain_statuses_registrar").textContent = modified;
-		document.getElementById("domain_accredited_registrar").textContent = modified + "There may be an IANA Registrar Accreditation ID for gTLDs. It must be correct.";
 		document.getElementById("domain_created_at").textContent = "The date fields are here in a logical order. This is also easy in the JSON array.";
 		document.getElementById("domain_expiration_at").textContent = "End time for renewal or publication, after which registrar involvement decreases.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "Recovery is possible up to the 'domain_expiration_at' plus 'redemption_period_days'.";
@@ -465,7 +468,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_role").textContent = proposed;
 		document.getElementById("common_root_zones_url").textContent = proposed + 'URL mit Verweis auf die offizielle Liste der Root-Zones.';
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Ein /v1/-Ordner unterstützt auch mögliche /v2/-Antworten; siehe icann.com.";
-		document.getElementById("common_accredited_registrars_url").textContent = proposed;
+		document.getElementById("common_registrar_accreditations_url").textContent = proposed;
 		document.getElementById("common_tld_roles").textContent = proposed;		
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_delegation_url").textContent = proposed + 'URL mit Verweis auf den ICANN-Delegationsdatensatz für die TLD.';
@@ -483,9 +486,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Datum und Uhrzeit der RDAP-Datenbankaktualisierung in Zulu-Zeit (UTC).";
 		document.getElementById("metadata_object_class_name").textContent = modified;
-		document.getElementById("metadata_object_conformance").textContent = modified;		
-		document.getElementById("metadata_registry_source").textContent = modified + "Geplant: Web-ID-Suchen auf globalen RDAP-Servern.";
-		document.getElementById("metadata_registrar_source").textContent = proposed + 'Eine Registrar-Quell-URL ist in der aktuellen RDAP v1-Antwort nicht enthalten.';
+		document.getElementById("metadata_object_conformance").textContent = modified;
+		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL der geplanten JSON-Antwort des globalen RDAP-Servers (oberste Ebene).";
+		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL der JSON-Antwort auf Registry-Ebene.";
+		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Für gTLDs kann eine IANA-Registrar-Akkreditierungs-ID vorhanden sein. Diese muss korrekt sein.";
+		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + 'Falls vorhanden, ist die Resource-URL in der RDAP-v1-Antwort nicht maschinenlesbar.';
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + 'Erforderlich, wenn der Registrar IANA-akkreditiert ist; wird verwendet, um Benutzerbeschwerden weiterzuleiten.';
 		document.getElementById("metadata_status_explanation_url").textContent = proposed + 'Erforderlich, wenn der Registrar IANA-akkreditiert ist; bietet Erklärungen zum Statuscode.';
 		document.getElementById("domain_role").textContent = "Eine Domain unterhalb der TLD-Ebene ist weltweit eindeutig und kann unter bestimmten Regeln frei gewählt werden.";
@@ -493,7 +498,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_unicode_name").textContent = "Obwohl die Informationen klarstellen, ist der Unicode-Domänenname innerhalb des RDAP-Protokolls optional.";
 		document.getElementById("domain_statuses_registry").textContent = "Der Status 'redemption period' ermöglicht eine Wiederherstellung. Mit 'pending delete' wird die Löschung endgültig.";
 		document.getElementById("domain_statuses_registrar").textContent = modified;
-		document.getElementById("domain_accredited_registrar").textContent = modified + "Für gTLDs kann eine IANA-Registrar-Akkreditierungs-ID vorhanden sein. Diese muss korrekt sein.";
 		document.getElementById("domain_created_at").textContent = "Die Datumsfelder stehen hier in einer logischen Reihenfolge. Auch dies ist im JSON-Array einfach.";
 		document.getElementById("domain_expiration_at").textContent = "Endzeitpunkt für Erneuerung oder Veröffentlichung, nach dem die Beteiligung des Registrars abnimmt.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "Eine Wiederherstellung ist bis zum Ablaufdatum plus den Tagen der Einlösungsfrist möglich.";
@@ -544,7 +548,7 @@ function SwitchTranslation(translation)	{
 		var address = "Le blindage des données d'adresse comme avec example.tel, génère des données désordonnées.";
 		var accessible = "Les champs proposés améliorent la convivialité et augmentent la transparence du RDAP.";
 		document.getElementById("title").textContent = "Informations sur le domaine";
-		document.getElementById("subtitle").textContent = "Modélisation basée sur RDAP-v1";
+		document.getElementById("subtitle").textContent = "Modélisation basée sur RDAP v1";
 		document.getElementById("instruction").textContent = "Saisissez un nom de domaine, puis appuyez sur Entrée.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Détail";
@@ -554,7 +558,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_role").textContent = proposed;
 		document.getElementById("common_root_zones_url").textContent = proposed + "URL référençan la liste officielle des 'Root Zones'.";
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Un dossier /v1/ prend également en charge les réponses /v2/ possibles ; voir icann.com.";
-		document.getElementById("common_accredited_registrars_url").textContent = proposed;
+		document.getElementById("common_registrar_accreditations_url").textContent = proposed;
 		document.getElementById("common_tld_roles").textContent = proposed;
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_delegation_url").textContent = proposed + "URL référençant l'enregistrement de délégation de l'ICANN pour le TLD.";	
@@ -572,9 +576,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Date et heure de mise à jour de la base de données RDAP en heure Zulu (UTC).";
 		document.getElementById("metadata_object_class_name").textContent = modified;
-		document.getElementById("metadata_object_conformance").textContent = modified;		
-		document.getElementById("metadata_registry_source").textContent = modified + "Prévue : les recherches d’identifiants Web sur les serveurs RDAP mondiaux.";
-		document.getElementById("metadata_registrar_source").textContent = proposed + "L'URL source du bureau d'enregistrement n'est pas incluse dans la réponse RDAP v1 actuelle.";
+		document.getElementById("metadata_object_conformance").textContent = modified;
+		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL de la réponse JSON prévue du serveur RDAP global (niveau supérieur).";
+		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL de la réponse JSON au niveau du registre.";
+		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Il peut exister un identifiant d'accréditation IANA pour les gTLD. Il doit être correct.";
+		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + "Si elle est présente, l’URL de la ressource dans la réponse RDAP v1 n’est pas lisible par machine.";
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + "Obligatoire si le registraire est accrédité par l'IANA ; utilisé pour diriger les plaintes des utilisateurs.";		
 		document.getElementById("metadata_status_explanation_url").textContent = proposed + "Obligatoire si le registraire est accrédité par l'IANA ; fournit des explications sur le code de statut.";
 		document.getElementById("domain_role").textContent = "Un domaine inférieur au niveau TLD est unique au monde et peut être choisi librement selon certaines règles.";
@@ -582,7 +588,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_unicode_name").textContent = "Bien que les informations soient clarifiées, le nom de domaine Unicode est facultatif dans le protocole RDAP.";
 		document.getElementById("domain_statuses_registry").textContent = "Le statut 'redemption period' permet la récupération. Avec le statut 'pending delete', la suppression devient définitive.";
 		document.getElementById("domain_statuses_registrar").textContent = modified;
-		document.getElementById("domain_accredited_registrar").textContent = modified + "Il peut exister un identifiant d'accréditation IANA pour les gTLD. Il doit être correct.";
 		document.getElementById("domain_created_at").textContent = "Les champs de date sont ici classés dans un ordre logique. C'est également facile dans le tableau JSON.";
 		document.getElementById("domain_expiration_at").textContent = "Date limite de renouvellement ou de publication, après laquelle l'implication du registraire diminue.";
 		document.getElementById("domain_recovery_deadline").textContent = proposed + "La récupération est possible jusqu'à 'domain_expiration_at' plus 'redemption_period_days'.";
@@ -719,7 +724,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(26)">Common Information +/-</button></td><td></td><td id="common_role"></td></tr>';
 	$html_text .= '<tr id="261" style="display:none"><td>root_zones_url</td><td><a href='.$data[$pd]['common']['root_zones_url'].' target="_blank">Root Zones</a></td><td id="common_root_zones_url"></td></tr>';
 	$html_text .= '<tr id="262" style="display:none"><td>lookup_endpoints_url</td><td><a href='.$data[$pd]['common']['lookup_endpoints_url'].' target="_blank">Lookup Endpoints</a></td><td id="common_lookup_endpoints_url"></td></tr>';
-	$html_text .= '<tr id="263" style="display:none"><td>accredited_registrars_url</td><td><a href='.$data[$pd]['common']['accredited_registrars_url'].' target="_blank">IANA Registrars</a></td><td id="common_accredited_registrars_url"></td></tr>';
+	$html_text .= '<tr id="263" style="display:none"><td>registrar_accreditations_url</td><td><a href='.$data[$pd]['common']['registrar_accreditations_url'].' target="_blank">IANA Registrars</a></td><td id="common_registrar_accreditations_url"></td></tr>';
 	$html_text .= '<tr id="264" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['common']['tld_roles'].'</td><td id="common_tld_roles"></td></tr>';	
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(27)">Root Zone Information +/-</button></td><td><b>'.$data[$pd]['root_zone']['zone_identifier'].'</b></td><td id="root_zone_role"></td></tr>';
 	$html_text .= '<tr id="271" style="display:none"><td>delegation_url</td><td><a href='.$data[$pd]['root_zone']['delegation_url'].' target="_blank">TLD Delegation</a></td><td id="root_zone_delegation_url"></td></tr>';
@@ -738,15 +743,17 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="291" style="display:none"><td>resource_upload_at</td><td>'.$data[$pd]['metadata']['resource_upload_at'].'</td><td id="metadata_resource_upload_at"></td></tr>';
 	$html_text .= '<tr id="292" style="display:none"><td>object_class_name</td><td>'.$data[$pd]['metadata']['object_class_name'].'</td><td id="metadata_object_class_name"></td></tr>';
 	$html_text .= '<tr id="293" style="display:none; vertical-align:top"><td>object_conformance</td><td>'.$data[$pd]['metadata']['object_conformance'].'</td><td id="metadata_object_conformance"></td></tr>';
-	$registry_source = str_replace('https://', '', $data[$pd]['metadata']['registry_source']);
-	$validation_registry = 'https://validator.rdap.org/?url=https://'.$registry_source.'&response-type=domain&server-type=gtld-registry&errors-only=1';	
-	$html_text .= '<tr id="294" style="display:none"><td>registry_source</td><td>'.((strlen($data[$pd]['metadata']['registry_source'])) ? '<a href='.$data[$pd]['metadata']['registry_source'].' target="_blank">Registry Response</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registry_source"></td></tr>';
-	$registrar_source = str_replace('https://', '', $data[$pd]['metadata']['registrar_source']);
-	$validation_registrar = 'https://validator.rdap.org/?url=https://'.$registrar_source.'&response-type=domain&server-type=gtld-registrar&errors-only=1';	
-	$html_text .= '<tr id="295" style="display:none"><td>registrar_source eg. <a style="font-size: 0.9rem" href="https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/icann.com" target="_blank">icann.com</a> <a style="font-size: 0.9rem" href="https://rdap.metaregistrar.com/domain/fryslan.frl" target="_blank">fryslan.frl</a></td><td>'.((strlen($data[$pd]['metadata']['registrar_source'])) ? '<a href='.$data[$pd]['metadata']['registrar_source'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : 'Not Available').'</td><td id="metadata_registrar_source"></td></tr>';
-	$html_text .= '<tr id="296" style="display:none"><td>registrar_complaint_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_complaint_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_complaint_url'].' target="_blank">icann.org/wicf</a>' : 'Not Applicable').'</td><td id="metadata_registrar_complaint_url"></td></tr>';
-	$html_text .= '<tr id="297" style="display:none"><td>status_explanation_url</td><td>'.((strlen($data[$pd]['metadata']['status_explanation_url'])) ? '<a href='.$data[$pd]['metadata']['status_explanation_url'].' target="_blank">icann.org/epp</a>' : 'Not Applicable').'</td><td id="metadata_status_explanation_url"></td></tr>';
-	$html_text .= '<tr id="298" style="display:none"><td>geo_location</td><td>'.$data[$pd]['metadata']['geo_location'].'</td><td></td></tr>';
+	$html_text .= '<tr id="294" style="display:none"><td>global_json_response_url</td><td>'.$data[$pd]['metadata']['global_json_response_url'].'</td><td id="metadata_global_json_response_url"></td></tr>';
+	$registry_json_response_url = str_replace('https://', '', $data[$pd]['metadata']['registry_json_response_url']);
+	$validation_registry = 'https://validator.rdap.org/?url=https://'.$registry_json_response_url.'&response-type=domain&server-type=gtld-registry&errors-only=1';	
+	$html_text .= '<tr id="295" style="display:none"><td>registry_json_response_url</td><td>'.((strlen($data[$pd]['metadata']['registry_json_response_url'])) ? '<a href='.$data[$pd]['metadata']['registry_json_response_url'].' target="_blank">Registry Response</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registry_json_response_url"></td></tr>';
+	$html_text .= '<tr id="296" style="display:none"><td>registrar_accreditation</td><td>'.((strlen($data[$pd]['metadata']['registrar_accreditation'])) ? $data[$pd]['metadata']['registrar_accreditation'] : '').'</td><td id="metadata_registrar_accreditation"></td></tr>';
+	$registrar_json_response_url = str_replace('https://', '', $data[$pd]['metadata']['registrar_json_response_url']);
+	$validation_registrar = 'https://validator.rdap.org/?url=https://'.$registrar_json_response_url.'&response-type=domain&server-type=gtld-registrar&errors-only=1';	
+	$html_text .= '<tr id="297" style="display:none"><td>registrar_json_response_url eg. <a style="font-size: 0.9rem" href="https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/icann.com" target="_blank">icann.com</a> <a style="font-size: 0.9rem" href="https://rdap.metaregistrar.com/domain/fryslan.frl" target="_blank">fryslan.frl</a></td><td>'.((strlen($data[$pd]['metadata']['registrar_json_response_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_json_response_url'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : 'Not Available').'</td><td id="metadata_registrar_json_response_url"></td></tr>';
+	$html_text .= '<tr id="298" style="display:none"><td>registrar_complaint_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_complaint_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_complaint_url'].' target="_blank">icann.org/wicf</a>' : 'Not Applicable').'</td><td id="metadata_registrar_complaint_url"></td></tr>';
+	$html_text .= '<tr id="299" style="display:none"><td>status_explanation_url</td><td>'.((strlen($data[$pd]['metadata']['status_explanation_url'])) ? '<a href='.$data[$pd]['metadata']['status_explanation_url'].' target="_blank">icann.org/epp</a>' : 'Not Applicable').'</td><td id="metadata_status_explanation_url"></td></tr>';
+	$html_text .= '<tr id="2910" style="display:none"><td>geo_location</td><td>'.$data[$pd]['metadata']['geo_location'].'</td><td></td></tr>';
 	//$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(30)">Domain Data +/-</button></td><td><b>'.$vd.'</b></td><td id="domain_role"></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>domain_handle'.if_not_filled($data[$pd]['domain']['handle'], $data[$pd]['domain']['ascii_name']).'</td><td>'.$data[$pd]['domain']['handle'].'</td><td></td></tr>';
@@ -754,13 +761,12 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="303" style="display:none"><td>domain_unicode_name</td><td>'.$data[$pd]['domain']['unicode_name'].'</td><td id="domain_unicode_name"></td></tr>';
 	$html_text .= '<tr style="vertical-align:top"><td>domain_statuses_registry</td><td>'.$data[$pd]['domain']['statuses_registry'].'</td><td id="domain_statuses_registry"></td></tr>';
 	$html_text .= '<tr id="304" style="display:none;vertical-align:top"><td>domain_statuses_registrar</td><td>'.$data[$pd]['domain']['statuses_registrar'].'</td><td id="domain_statuses_registrar"></td></tr>';
-	$html_text .= '<tr id="305" style="display:none"><td>domain_accredited_registrar</td><td>'.((strlen($data[$pd]['domain']['accredited_registrar'])) ? $data[$pd]['domain']['accredited_registrar'] : '').'</td><td id="domain_accredited_registrar"></td></tr>';
-	$html_text .= '<tr id="306" style="display:none"><td>domain_created_at</td><td>'.$data[$pd]['domain']['created_at'].'</td><td id="domain_created_at"></td></tr>';
-	$html_text .= '<tr id="307" style="display:none"><td>domain_latest_transfer_at</td><td>'.$data[$pd]['domain']['latest_transfer_at'].'</td><td></td></tr>';
-	$html_text .= '<tr id="308" style="display:none"><td>domain_latest_update_at</td><td>'.$data[$pd]['domain']['latest_update_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="305" style="display:none"><td>domain_created_at</td><td>'.$data[$pd]['domain']['created_at'].'</td><td id="domain_created_at"></td></tr>';
+	$html_text .= '<tr id="306" style="display:none"><td>domain_latest_transfer_at</td><td>'.$data[$pd]['domain']['latest_transfer_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="307" style="display:none"><td>domain_latest_update_at</td><td>'.$data[$pd]['domain']['latest_update_at'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>domain_expiration_at</td><td>'.$data[$pd]['domain']['expiration_at'].'</td><td id="domain_expiration_at"></td></tr>';
-	$html_text .= '<tr id="309" style="display:none"><td>domain_recovery_deadline</td><td>'.$data[$pd]['domain']['recovery_deadline'].'</td><td id="domain_recovery_deadline"></td></tr>';
-	$html_text .= '<tr id="3010" style="display:none"><td>domain_deletion_at</td><td>'.$data[$pd]['domain']['deletion_at'].'</td><td id="domain_deletion_at"></td></tr>';
+	$html_text .= '<tr id="308" style="display:none"><td>domain_recovery_deadline</td><td>'.$data[$pd]['domain']['recovery_deadline'].'</td><td id="domain_recovery_deadline"></td></tr>';
+	$html_text .= '<tr id="309" style="display:none"><td>domain_deletion_at</td><td>'.$data[$pd]['domain']['deletion_at'].'</td><td id="domain_deletion_at"></td></tr>';
 	if (!empty($data[$pd]['domain']['statuses_registry']))	{
 		if (str_contains($data[$pd]['domain']['statuses_registry'], 'pending delete'))	{
 			if (str_contains($data[$pd]['domain']['statuses_registry'], 'redemption period') and str_contains($data[$pd]['domain']['statuses_registry'], 'pending delete'))	{
@@ -789,8 +795,8 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
         	$html_text .= '<tr><td>no globally working RDAP (ccTLDs) ⚠️</td><td>"deletion_at" is '.$days_ago.' days before now</td><td></td></tr>';
 		}
 	}	
-	$html_text .= '<tr id="3011" style="display:none;vertical-align:top"><td>domain_extensions</td><td>'.$data[$pd]['domain']['extensions'].'</td><td id="domain_extensions"></td></tr>';
-	$html_text .= '<tr id="3012" style="display:none;vertical-align:top"><td>domain_remarks</td><td>'.$data[$pd]['domain']['remarks'].'</td><td></td></tr>';
+	$html_text .= '<tr id="3010" style="display:none;vertical-align:top"><td>domain_extensions</td><td>'.$data[$pd]['domain']['extensions'].'</td><td id="domain_extensions"></td></tr>';
+	$html_text .= '<tr id="3011" style="display:none;vertical-align:top"><td>domain_remarks</td><td>'.$data[$pd]['domain']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(35)">Abuse Contact +/-</button></td><td></td><td id="abuse_role"></td></tr>';
 	$html_text .= '<tr id="351" style="display:none"><td>abuse_handle</td><td>'.$data[$pd]['abuse']['handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="352" style="display:none"><td>abuse_organization_type</td><td>'.$data[$pd]['abuse']['organization_type'].'</td><td></td></tr>';
