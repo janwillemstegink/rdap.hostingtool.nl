@@ -577,14 +577,39 @@ if ($notice_1_links_0_href == 'https://icann.org/epp' or $notice_1_links_0_href 
 if ($notice_2_links_0_href == 'https://icann.org/epp' or $notice_2_links_0_href == 'https://icann.org/epp/')	$status_explanation_url = $notice_2_links_0_href;
 if ($notice_3_links_0_href == 'https://icann.org/epp' or $notice_3_links_0_href == 'https://icann.org/epp/')	$status_explanation_url = $notice_3_links_0_href;	
 	
-$statuses_registry = '';
-$statuses_registrar = '';	
+$resource_upload_at = null;
+$zone_status_meanings_json = '[
+    {
+        "redemption period": {
+            "description": "Domain can still be recovered after expiration.",
+            "phase": "post-expiration",
+            "recoverable": true,
+            "final": false
+        },
+        "pending delete": {
+            "description": "Final stage before deletion; recovery no longer possible.",
+            "phase": "pre-deletion",
+            "recoverable": false,
+            "final": true
+        }
+    }
+]';
+$decoded = json_decode($zone_status_meanings_json, true);
+$zone_status_meanings = "zone_status_meanings:<br />";
+foreach ($decoded as $statuses) {
+    foreach ($statuses as $key => $value) {
+        $zone_status_meanings .= htmlspecialchars(ucwords($key)) . ": ";
+        $zone_status_meanings .= htmlspecialchars($value['description']);
+        $zone_status_meanings .= " (" . htmlspecialchars($value['phase']) . " phase)<br />";
+    }
+}	
+$zone_statuses = '';
+$entry_statuses = '';	
 $created_at = null;
 $latest_transfer_at = null;			
 $latest_update_at = null;
 $expiration_at = null;	
-$deletion_at = null;
-$resource_upload_at = null;	
+$deletion_at = null;	
 $extensions = '';
 $remarks = '';	
 $registrant_statuses = '';
@@ -867,7 +892,7 @@ $raw_rdap_data = nl2br(htmlspecialchars($raw_rdap_data));
 $raw_rdap_data = str_replace(' Array','', $raw_rdap_data);
 foreach($obj as $key1 => $value1) {
 	if ($key1 == 'status')	{	
-		$statuses_registry .= (is_array($value1)) ? implode(",<br />", $value1) : $value1;
+		$zone_statuses .= (is_array($value1)) ? implode(",<br />", $value1) : $value1;
 	}
 	if ($key1 == 'extensions')	{	
 		$extensions .= (is_array($value1)) ? implode(",<br />", $value1) : $value1;
@@ -1609,6 +1634,7 @@ $arr[$inputdomain]['root_zone']['zone_roles'] = $zone_roles;
 
 $arr[$inputdomain]['lifecycle']['active_from'] = $active_from;
 $arr[$inputdomain]['lifecycle']['upon_termination'] = $upon_termination;
+$arr[$inputdomain]['lifecycle']['zone_status_meanings'] = $zone_status_meanings;	
 $arr[$inputdomain]['lifecycle']['periods'] = $periods;
 
 $arr[$inputdomain]['metadata']['resource_upload_at'] = $resource_upload_at;	
@@ -1624,8 +1650,8 @@ $arr[$inputdomain]['metadata']['geo_location'] = '';
 $arr[$inputdomain]['domain']['entry_handle'] = $handle;
 $arr[$inputdomain]['domain']['ascii_name'] = $ascii_name;	
 $arr[$inputdomain]['domain']['unicode_name'] = $unicode_name;
-$arr[$inputdomain]['domain']['statuses_registry'] = $statuses_registry;
-$arr[$inputdomain]['domain']['statuses_registrar'] = $statuses_registrar;
+$arr[$inputdomain]['domain']['zone_statuses'] = $zone_statuses;
+$arr[$inputdomain]['domain']['entry_statuses'] = $entry_statuses;
 $arr[$inputdomain]['domain']['created_at'] = $created_at;	
 $arr[$inputdomain]['domain']['latest_transfer_at'] = $latest_transfer_at;
 $arr[$inputdomain]['domain']['latest_update_at'] = $latest_update_at;
