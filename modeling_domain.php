@@ -783,9 +783,11 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	if (!empty($data[$pd]['domain']['expiration_at']) and !empty($data[$pd]['domain']['deletion_at'])) {
     	$expiration = strtotime($data[$pd]['domain']['expiration_at']);
     	$deletion = strtotime($data[$pd]['domain']['deletion_at']);
-    	if ($expiration !== false and $deletion !== false and $expiration > $deletion) {
+    	if ($expiration !== false and $deletion !== false)	{
 			$days_before = floor(($expiration - $deletion) / (60 * 60 * 24));
-       		$html_text .= '<tr><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"deletion_at" '.$days_before.' days before "expiration_at"</td><td></td></tr>';
+			if ($days_before > 0) {
+       			$html_text .= '<tr><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"deletion_at" '.$days_before.' days before "expiration_at"</td><td></td></tr>';
+			}	
     	}
 	}
 	if (!empty($data[$pd]['domain']['deletion_at'])) {

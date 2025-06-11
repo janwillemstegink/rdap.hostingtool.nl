@@ -525,7 +525,7 @@ foreach ($decoded as $contact) {
 	}
 }	
 $decoded = json_decode($periods_json, true);
-$periods = '';    
+$periods = 'periods:<br />';    
 foreach ($decoded as $period) {
 	$periods .= $period['period_identifier'] . ': Min: ' . $period['period_minimum'] . ' Max: ' . $period['period_maximum'] . '<br />';
 }	
@@ -597,8 +597,8 @@ $zone_status_meanings_json = '[
 $decoded = json_decode($zone_status_meanings_json, true);
 $zone_status_meanings = "zone_status_meanings:<br />";
 foreach ($decoded as $statuses) {
-    foreach ($statuses as $key => $value) {
-        $zone_status_meanings .= htmlspecialchars(ucwords($key)) . ": ";
+    foreach ($statuses as $key => $value) {	//ucwords()
+        $zone_status_meanings .= '"' . htmlspecialchars($key) . '": ';
         $zone_status_meanings .= htmlspecialchars($value['description']);
         $zone_status_meanings .= " (" . htmlspecialchars($value['phase']) . " phase)<br />";
     }
