@@ -237,7 +237,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("abuse_telephone").textContent = "";		
 		document.getElementById("sponsor_role").textContent = "";
 		document.getElementById("registrant_role").textContent = "";
-		document.getElementById("registrant_hosting_handle").textContent = "";
+		document.getElementById("registrant_entry_handle").textContent = "";
 		document.getElementById("registrant_web_id").textContent = proposed;
 		document.getElementById("registrant_organization_type").textContent = "";
 		document.getElementById("registrant_organization_name").textContent = "";
@@ -327,7 +327,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("abuse_telephone").textContent = "Een telefoonnummer moet beginnen met het type. Toegestaan zijn in ieder geval 'voice' en 'fax'.";		
 		document.getElementById("sponsor_role").textContent = "De domeinregistratie kan worden beheerd door een sponsor. Zie bijvoorbeeld france.fr.";
 		document.getElementById("registrant_role").textContent = "De domeingebruiker die de daadwerkelijke of effectieve controle heeft voor domeinrecht in het land van vestiging.";
-		document.getElementById("registrant_hosting_handle").textContent = 'De uitvoer van "janwillemstegink.nl" bevat onbedoeld informatie met "STE135420-TRAIP".';
+		document.getElementById("registrant_entry_handle").textContent = 'De uitvoer van "janwillemstegink.nl" bevat onbedoeld informatie met "STE135420-TRAIP".';
 		document.getElementById("registrant_web_id").textContent = proposed + "Webidentificatienummer voor bedrijfsentiteiten en natuurlijke personen.";
 		document.getElementById("registrant_organization_type").textContent = 'De gebruikelijke waarde is "work", of mogelijk "work", "headquarters".';
 		document.getElementById("registrant_organization_name").textContent = "De juridische naam van de organisatie die primair verantwoordelijk is voor het domeinabonnement.";
@@ -417,7 +417,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("abuse_telephone").textContent = "A telephone number must begin with the type. Allowed are anyway 'voice' and 'fax'.";
 		document.getElementById("sponsor_role").textContent = "The domain registration can be managed by a sponsor. See for example france.fr.";
 		document.getElementById("registrant_role").textContent = "The domain user who has the actual or effective control for domain rights in the country of establishment.";
-		document.getElementById("registrant_hosting_handle").textContent = 'The output from "janwillemstegink.nl" unintentionally contains information with "STE135420-TRAIP".';
+		document.getElementById("registrant_entry_handle").textContent = 'The output from "janwillemstegink.nl" unintentionally contains information with "STE135420-TRAIP".';
 		document.getElementById("registrant_web_id").textContent = proposed + "Web Identification number for business entities and natural persons.";
 		document.getElementById("registrant_organization_type").textContent = 'The usual value is "work", or possibly "work", "headquarters".';
 		document.getElementById("registrant_organization_name").textContent = "The legal name of the organization primarily responsible for the domain subscription.";
@@ -507,7 +507,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("abuse_telephone").textContent = "Eine Telefonnummer muss mit dem Typ beginnen. Erlaubt sind grundsätzlich 'voice' und 'fax'.";
 		document.getElementById("sponsor_role").textContent = "Die Domänenregistrierung kann von einem Sponsor verwaltet werden. Siehe beispielsweise france.fr.";
 		document.getElementById("registrant_role").textContent = "Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat für Domainrechte im Wohnsitzland.";
-		document.getElementById("registrant_hosting_handle").textContent = 'Die Ausgabe von "janwillemstegink.nl" enthält unbeabsichtigt Informationen mit "STE135420-TRAIP".';
+		document.getElementById("registrant_entry_handle").textContent = 'Die Ausgabe von "janwillemstegink.nl" enthält unbeabsichtigt Informationen mit "STE135420-TRAIP".';
 		document.getElementById("registrant_web_id").textContent = proposed + "Web-Identifikationsnummer für Unternehmen und natürliche Personen.";
 		document.getElementById("registrant_organization_type").textContent = 'Der übliche Wert ist "work" oder möglicherweise "work", "headquarters".';
 		document.getElementById("registrant_organization_name").textContent = "Der offizielle Name der Organisation, die hauptsächlich für das Domänenabonnement verantwortlich ist.";
@@ -597,7 +597,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("abuse_telephone").textContent = "Un numéro de téléphone doit commencer par le type. Sont autorisés de toute façon 'voice' et 'fax'.";
 		document.getElementById("sponsor_role").textContent = "L'enregistrement du domaine peut être géré par un sponsor. Voir par exemple france.fr.";
 		document.getElementById("registrant_role").textContent = "L'utilisateur du domaine qui a le contrôle réel ou effectif pour les droits de domaine dans le pays de résidence.";
-		document.getElementById("registrant_hosting_handle").textContent = 'La sortie de "janwillemstegink.nl" contient involontairement des informations avec "STE135420-TRAIP"';
+		document.getElementById("registrant_entry_handle").textContent = 'La sortie de "janwillemstegink.nl" contient involontairement des informations avec "STE135420-TRAIP"';
 		document.getElementById("registrant_web_id").textContent = proposed + "Numéro d’identification Web pour les entités commerciales et les personnes physiques.";
 		document.getElementById("registrant_organization_type").textContent = 'La valeur habituelle est "work", ou éventuellement "work", "headquarters".';
 		document.getElementById("registrant_organization_name").textContent = "Le nom légal de l'organisation principalement responsable de l'abonnement au domaine.";
@@ -757,7 +757,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	//$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(30)">Domain Data +/-</button></td><td><b>'.$vd.'</b></td><td id="domain_role"></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>domain_zone_handle</td><td>'.$data[$pd]['domain']['zone_handle'].'</td><td></td></tr>';
-	$html_text .= '<tr id="302" style="display:none"><td>domain_hosting_handle</td><td>'.$data[$pd]['domain']['hosting_handle'].'</td><td></td></tr>';
+	$html_text .= '<tr id="302" style="display:none"><td>domain_entry_handle</td><td>'.$data[$pd]['domain']['entry_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="303" style="display:none"><td>domain_ascii_name (lower case is not a "MUST")</td><td>'.$data[$pd]['domain']['ascii_name'].'</td><td id="domain_ascii_name"></td></tr>';
 	$html_text .= '<tr id="304" style="display:none"><td>domain_unicode_name</td><td>'.$data[$pd]['domain']['unicode_name'].'</td><td id="domain_unicode_name"></td></tr>';
 	$html_text .= '<tr style="vertical-align:top"><td>domain_statuses_registry</td><td>'.$data[$pd]['domain']['statuses_registry'].'</td><td id="domain_statuses_registry"></td></tr>';
@@ -800,7 +800,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="3012" style="display:none;vertical-align:top"><td>domain_remarks</td><td>'.$data[$pd]['domain']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(35)">Abuse Contact +/-</button></td><td></td><td id="abuse_role"></td></tr>';
 	$html_text .= '<tr id="351" style="display:none"><td>abuse_zone_handle</td><td>'.$data[$pd]['abuse']['zone_handle'].'</td><td></td></tr>';
-	$html_text .= '<tr id="352" style="display:none"><td>abuse_hosting_handle</td><td>'.$data[$pd]['abuse']['hosting_handle'].'</td><td></td></tr>';
+	$html_text .= '<tr id="352" style="display:none"><td>abuse_entry_handle</td><td>'.$data[$pd]['abuse']['entry_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="353" style="display:none"><td>abuse_organization_type</td><td>'.$data[$pd]['abuse']['organization_type'].'</td><td></td></tr>';
 	$html_text .= '<tr id="354" style="display:none"><td>abuse_organization_name</td><td>'.$data[$pd]['abuse']['organization_name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="355" style="display:none"><td>abuse_presented_name</td><td>'.$data[$pd]['abuse']['presented_name'].'</td><td></td></tr>';
@@ -811,7 +811,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$sponsor_applicable = (strlen($data[$pd]['sponsor']['organization_name']) or strlen($data[$pd]['sponsor']['presented_name'])) ? 'Sponsor Data Exists' : 'No Sponsor Data';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(39)">Sponsor +/-</button></td><td>'.$sponsor_applicable.'</td><td id="sponsor_role"></td></tr>';
 	$html_text .= '<tr id="391" style="display:none"><td>sponsor_zone_handle</td><td>'.$data[$pd]['sponsor']['zone_handle'].'</td><td></td></tr>';
-	$html_text .= '<tr id="392" style="display:none"><td>sponsor_hosting_handle</td><td>'.$data[$pd]['sponsor']['hosting_handle'].'</td><td></td></tr>';
+	$html_text .= '<tr id="392" style="display:none"><td>sponsor_entry_handle</td><td>'.$data[$pd]['sponsor']['entry_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="393" style="display:none"><td>sponsor_web_id</td><td>'.$data[$pd]['sponsor']['web_id'].'</td><td id="sponsor_web_id"></td></tr>';
 	$html_text .= '<tr id="394" style="display:none"><td>sponsor_organization_type</td><td>'.$data[$pd]['sponsor']['organization_type'].'</td><td></td></tr>';
 	$html_text .= '<tr id="395" style="display:none"><td>sponsor_organization_name</td><td>'.$data[$pd]['sponsor']['organization_name'].'</td><td></td></tr>';
@@ -837,7 +837,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="3925" style="display:none;vertical-align:top"><td>sponsor_remarks</td><td>'.$data[$pd]['sponsor']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(40)">Registrant +/-</button></td><td></td><td id="registrant_role"></td></tr>';
 	$html_text .= '<tr id="401" style="display:none"><td>registrant_zone_handle</td><td>'.$data[$pd]['registrant']['zone_handle'].'</td><td></td></tr>';
-	$html_text .= '<tr id="402" style="display:none"><td>registrant_hosting_handle</td><td>'.$data[$pd]['registrant']['hosting_handle'].'</td><td id="registrant_hosting_handle"></td></tr>';
+	$html_text .= '<tr id="402" style="display:none"><td>registrant_entry_handle</td><td>'.$data[$pd]['registrant']['entry_handle'].'</td><td id="registrant_entry_handle"></td></tr>';
 	$html_text .= '<tr id="403" style="display:none"><td>registrant_web_id</td><td>'.$data[$pd]['registrant']['web_id'].'</td><td id="registrant_web_id"></td></tr>';
 	$html_text .= '<tr id="404" style="display:none"><td>registrant_organization_type</td><td>'.$data[$pd]['registrant']['organization_type'].'</td><td id="registrant_organization_type"></td></tr>';
 	$html_text .= '<tr><td>registrant_organization_name</td><td>'.$data[$pd]['registrant']['organization_name'].'</td><td id="registrant_organization_name"></td></tr>';
@@ -863,7 +863,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4020" style="display:none;vertical-align:top"><td>registrant_remarks</td><td>'.$data[$pd]['registrant']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(41)">Administrative / Decision +/-</button></td><td></td><td id="administrative_role"></td></tr>';
 	$html_text .= '<tr id="411" style="display:none"><td>administrative_zone_handle</td><td>'.$data[$pd]['administrative']['zone_handle'].'</td><td></td></tr>';
-	$html_text .= '<tr id="412" style="display:none"><td>administrative_hosting_handle</td><td>'.$data[$pd]['administrative']['hosting_handle'].'</td><td></td></tr>';
+	$html_text .= '<tr id="412" style="display:none"><td>administrative_entry_handle</td><td>'.$data[$pd]['administrative']['entry_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="413" style="display:none"><td>administrative_web_id</td><td>'.$data[$pd]['administrative']['web_id'].'</td><td id="administrative_web_id"></td></tr>';
 	$html_text .= '<tr id="414" style="display:none"><td>administrative_organization_type</td><td>'.$data[$pd]['administrative']['organization_type'].'</td><td></td></tr>';
 	$html_text .= '<tr id="415" style="display:none"><td>administrative_organization_name</td><td>'.$data[$pd]['administrative']['organization_name'].'</td><td></td></tr>';
@@ -884,7 +884,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4119" style="display:none;vertical-align:top"><td>administrative_remarks</td><td>'.$data[$pd]['administrative']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Technical / Onsite +/-</button></td><td></td><td id="technical_role"></td></tr>';
 	$html_text .= '<tr id="421" style="display:none"><td>technical_zone_handle</td><td>'.$data[$pd]['technical']['zone_handle'].'</td><td></td></tr>';
-	$html_text .= '<tr id="422" style="display:none"><td>technical_hosting_handle</td><td>'.$data[$pd]['technical']['hosting_handle'].'</td><td></td></tr>';
+	$html_text .= '<tr id="422" style="display:none"><td>technical_entry_handle</td><td>'.$data[$pd]['technical']['entry_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="423" style="display:none"><td>technical_web_id</td><td>'.$data[$pd]['technical']['web_id'].'</td><td id="technical_web_id"></td></tr>';
 	$html_text .= '<tr id="424" style="display:none"><td>technical_organization_type</td><td>'.$data[$pd]['technical']['organization_type'].'</td><td></td></tr>';
 	$html_text .= '<tr id="425" style="display:none"><td>technical_organization_name</td><td>'.$data[$pd]['technical']['organization_name'].'</td><td></td></tr>';
@@ -905,7 +905,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4219" style="display:none;vertical-align:top"><td>technical_remarks</td><td>'.$data[$pd]['technical']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(43)">Billing +/-</button></td><td></td><td id="billing_role"></td></tr>';
 	$html_text .= '<tr id="431" style="display:none"><td>billing_zone_handle</td><td>'.$data[$pd]['billing']['zone_handle'].'</td><td></td></tr>';
-	$html_text .= '<tr id="432" style="display:none"><td>billing_hosting_handle</td><td>'.$data[$pd]['billing']['hosting_handle'].'</td><td></td></tr>';
+	$html_text .= '<tr id="432" style="display:none"><td>billing_entry_handle</td><td>'.$data[$pd]['billing']['entry_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="433" style="display:none"><td>billing_web_id</td><td>'.$data[$pd]['billing']['web_id'].'</td><td></td></tr>';
 	$html_text .= '<tr id="434" style="display:none"><td>billing_organization_type</td><td>'.$data[$pd]['billing']['organization_type'].'</td><td></td></tr>';
 	$html_text .= '<tr id="435" style="display:none"><td>billing_organization_name</td><td>'.$data[$pd]['billing']['organization_name'].'</td><td></td></tr>';
@@ -926,7 +926,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4320" style="display:none;vertical-align:top"><td>billing_remarks</td><td>'.$data[$pd]['billing']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Emergency +/-</button></td><td></td><td id="emergency_role"></td></tr>';
 	$html_text .= '<tr id="441" style="display:none"><td>emergency_zone_handle</td><td>'.$data[$pd]['emergency']['zone_handle'].'</td><td></td></tr>';
-	$html_text .= '<tr id="442" style="display:none"><td>emergency_hosting_handle</td><td>'.$data[$pd]['emergency']['hosting_handle'].'</td><td></td></tr>';
+	$html_text .= '<tr id="442" style="display:none"><td>emergency_entry_handle</td><td>'.$data[$pd]['emergency']['entry_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="443" style="display:none"><td>emergency_web_id</td><td>'.$data[$pd]['emergency']['web_id'].'</td><td id="emergency_web_id"></td></tr>';
 	$html_text .= '<tr id="444" style="display:none"><td>emergency_organization_type</td><td>'.$data[$pd]['emergency']['organization_type'].'</td><td></td></tr>';
 	$html_text .= '<tr id="445" style="display:none"><td>emergency_organization_name</td><td>'.$data[$pd]['emergency']['organization_name'].'</td><td></td></tr>';
@@ -948,7 +948,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(50)">Reseller +/-</button></td><td></td><td id="reseller_role"></td></tr>';
 	$html_text .= '<tr id="501" style="display:none"><td>reseller_zone_handle</td><td>'.$data[$pd]['reseller']['zone_handle'].'</td><td></td></tr>';
-	$html_text .= '<tr id="502" style="display:none"><td>reseller_hosting_handle</td><td>'.$data[$pd]['reseller']['hosting_handle'].'</td><td></td></tr>';
+	$html_text .= '<tr id="502" style="display:none"><td>reseller_entry_handle</td><td>'.$data[$pd]['reseller']['entry_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="503" style="display:none"><td>reseller_web_id</td><td>'.$data[$pd]['reseller']['web_id'].'</td><td id="reseller_web_id"></td></tr>';
 	$html_text .= '<tr id="504" style="display:none"><td>reseller_organization_type</td><td>'.$data[$pd]['reseller']['organization_type'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>reseller_organization_name</td><td>'.$data[$pd]['reseller']['organization_name'].'</td><td></td></tr>';
@@ -975,7 +975,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(60)">Registrar +/-</button></td><td></td><td id="registrar_role"></td></tr>';
 	$html_text .= '<tr id="601" style="display:none"><td>registrar_zone_handle</td><td>'.$data[$pd]['registrar']['zone_handle'].'</td><td></td></tr>';
-	$html_text .= '<tr id="602" style="display:none"><td>registrar_hosting_handle</td><td>'.$data[$pd]['registrar']['hosting_handle'].'</td><td></td></tr>';
+	$html_text .= '<tr id="602" style="display:none"><td>registrar_entry_handle</td><td>'.$data[$pd]['registrar']['entry_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="603" style="display:none"><td>registrar_web_id</td><td>'.$data[$pd]['registrar']['web_id'].'</td><td id="registrar_web_id"></td></tr>';
 	$html_text .= '<tr id="604" style="display:none"><td>registrar_organization_type</td><td>'.$data[$pd]['registrar']['organization_type'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>registrar_organization_name</td><td>'.$data[$pd]['registrar']['organization_name'].'</td><td></td></tr>';
@@ -1002,7 +1002,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(63)">Name Servers +/-</button></td><td></td><td></td></tr>';
 	$html_text .= '<tr id="631" style="display:none;vertical-align:top"><td>zone_handles</td><td>'.$data[$pd]['name_servers']['zone_handles'].'</td><td></td></tr>';
-	$html_text .= '<tr id="632" style="display:none;vertical-align:top"><td>hosting_handles</td><td>'.$data[$pd]['name_servers']['hosting_handles'].'</td><td></td></tr>';
+	$html_text .= '<tr id="632" style="display:none;vertical-align:top"><td>entry_handles</td><td>'.$data[$pd]['name_servers']['entry_handles'].'</td><td></td></tr>';
 	$html_text .= '<tr id="633" style="display:none;vertical-align:top"><td>ascii_names</td><td>'.$data[$pd]['name_servers']['ascii_names'].'</td><td></td></tr>';
 	$html_text .= '<tr id="634" style="display:none;vertical-align:top"><td>unicode_names</td><td>'.$data[$pd]['name_servers']['unicode_names'].'</td><td></td></tr>';
 	$html_text .= '<tr id="635" style="display:none;vertical-align:top"><td>ipv4_addresses</td><td>'.$data[$pd]['name_servers']['ipv4_addresses'].'</td><td id="name_servers_ip"></td></tr>';
