@@ -625,7 +625,7 @@ $sponsor_expiration_at = null;
 $sponsor_deletion_at = null;
 $sponsor_properties = '(not tested yet)';
 $sponsor_remarks = '';
-$handle = $obj['handle'];
+$handle = $obj['hosting_handle'];
 $ascii_name = $obj['ldhName'];
 $unicode_name = $obj['unicodeName'];
 $name_servers_dnssec = 'Not Available';
@@ -1621,7 +1621,7 @@ $arr[$inputdomain]['metadata']['registrar_complaint_url'] = $registrar_complaint
 $arr[$inputdomain]['metadata']['status_explanation_url'] = $status_explanation_url;
 $arr[$inputdomain]['metadata']['geo_location'] = '';
 	
-$arr[$inputdomain]['domain']['handle'] = $handle;
+$arr[$inputdomain]['domain']['hosting_handle'] = $handle;
 $arr[$inputdomain]['domain']['ascii_name'] = $ascii_name;	
 $arr[$inputdomain]['domain']['unicode_name'] = $unicode_name;
 $arr[$inputdomain]['domain']['statuses_registry'] = $statuses_registry;
@@ -1634,7 +1634,7 @@ $arr[$inputdomain]['domain']['deletion_at'] = $deletion_at;
 $arr[$inputdomain]['domain']['extensions'] = $extensions;
 $arr[$inputdomain]['domain']['remarks'] = $remarks;	
 	
-$arr[$inputdomain]['abuse']['handle'] = $abuse_handle;
+$arr[$inputdomain]['abuse']['hosting_handle'] = $abuse_handle;
 $arr[$inputdomain]['abuse']['organization_type'] = $abuse_organization_type;
 $arr[$inputdomain]['abuse']['organization_name'] = $abuse_organization_name;	
 $arr[$inputdomain]['abuse']['presented_name'] = $abuse_presented_name;
@@ -1643,7 +1643,7 @@ $arr[$inputdomain]['abuse']['email'] = $abuse_email;
 $arr[$inputdomain]['abuse']['telephone'] = $abuse_telephone;
 $arr[$inputdomain]['abuse']['country_code'] = $abuse_country_code;		
 	
-$arr[$inputdomain]['sponsor']['handle'] = $sponsor_handle;
+$arr[$inputdomain]['sponsor']['hosting_handle'] = $sponsor_handle;
 $arr[$inputdomain]['sponsor']['web_id'] = $sponsor_web_id;		
 $arr[$inputdomain]['sponsor']['organization_type'] = $sponsor_organization_type;	
 $arr[$inputdomain]['sponsor']['organization_name'] = $sponsor_organization_name;	
@@ -1666,7 +1666,7 @@ $arr[$inputdomain]['sponsor']['latest_update_at'] = $sponsor_latest_update_at;
 $arr[$inputdomain]['sponsor']['properties'] = $sponsor_properties;
 $arr[$inputdomain]['sponsor']['remarks'] = $sponsor_remarks;
 	
-$arr[$inputdomain]['registrant']['handle'] = $registrant_handle;
+$arr[$inputdomain]['registrant']['hosting_handle'] = $registrant_handle;
 $arr[$inputdomain]['registrant']['web_id'] = $registrant_web_id;		
 $arr[$inputdomain]['registrant']['organization_type'] = $registrant_organization_type;	
 $arr[$inputdomain]['registrant']['organization_name'] = $registrant_organization_name;	
@@ -1689,7 +1689,7 @@ $arr[$inputdomain]['registrant']['latest_update_at'] = $registrant_latest_update
 $arr[$inputdomain]['registrant']['properties'] = $registrant_properties;
 $arr[$inputdomain]['registrant']['remarks'] = $registrant_remarks;	
 	
-$arr[$inputdomain]['administrative']['handle'] = $administrative_handle;
+$arr[$inputdomain]['administrative']['hosting_handle'] = $administrative_handle;
 $arr[$inputdomain]['administrative']['web_id'] = $administrative_web_id;		
 $arr[$inputdomain]['administrative']['organization_type'] = $administrative_organization_type;	
 $arr[$inputdomain]['administrative']['organization_name'] = $administrative_organization_name;	
@@ -1712,7 +1712,7 @@ $arr[$inputdomain]['administrative']['latest_update_at'] = $administrative_lates
 $arr[$inputdomain]['administrative']['properties'] = $administrative_properties;
 $arr[$inputdomain]['administrative']['remarks'] = $administrative_remarks;	
 
-$arr[$inputdomain]['technical']['handle'] = $technical_handle;
+$arr[$inputdomain]['technical']['hosting_handle'] = $technical_handle;
 $arr[$inputdomain]['technical']['web_id'] = $technical_web_id;		
 $arr[$inputdomain]['technical']['organization_type'] = $technical_organization_type;	
 $arr[$inputdomain]['technical']['organization_name'] = $technical_organization_name;	
@@ -1735,7 +1735,7 @@ $arr[$inputdomain]['technical']['latest_update_at'] = $technical_latest_update_a
 $arr[$inputdomain]['technical']['properties'] = $technical_properties;
 $arr[$inputdomain]['technical']['remarks'] = $technical_remarks;
 	
-$arr[$inputdomain]['billing']['handle'] = $billing_handle;
+$arr[$inputdomain]['billing']['hosting_handle'] = $billing_handle;
 $arr[$inputdomain]['billing']['web_id'] = $billing_web_id;		
 $arr[$inputdomain]['billing']['organization_type'] = $billing_organization_type;	
 $arr[$inputdomain]['billing']['organization_name'] = $billing_organization_name;	
@@ -1758,7 +1758,7 @@ $arr[$inputdomain]['billing']['latest_update_at'] = $billing_latest_update_at;
 $arr[$inputdomain]['billing']['properties'] = $billing_properties;
 $arr[$inputdomain]['billing']['remarks'] = $billing_remarks;
 
-$arr[$inputdomain]['reseller']['handle'] = $reseller_handle;
+$arr[$inputdomain]['reseller']['hosting_handle'] = $reseller_handle;
 $arr[$inputdomain]['reseller']['web_id'] = $reseller_web_id;		
 $arr[$inputdomain]['reseller']['organization_type'] = $reseller_organization_type;	
 $arr[$inputdomain]['reseller']['organization_name'] = $reseller_organization_name;	
@@ -1781,7 +1781,7 @@ $arr[$inputdomain]['reseller']['latest_update_at'] = $reseller_latest_update_at;
 $arr[$inputdomain]['reseller']['properties'] = $reseller_properties;
 $arr[$inputdomain]['reseller']['remarks'] = $reseller_remarks;	
 
-$arr[$inputdomain]['registrar']['handle'] = $registrar_handle;
+$arr[$inputdomain]['registrar']['hosting_handle'] = $registrar_handle;
 $arr[$inputdomain]['registrar']['web_id'] = $registrar_web_id;		
 $arr[$inputdomain]['registrar']['organization_type'] = $registrar_organization_type;	
 $arr[$inputdomain]['registrar']['organization_name'] = $registrar_organization_name;	
@@ -1804,7 +1804,7 @@ $arr[$inputdomain]['registrar']['latest_update_at'] = $registrar_latest_update_a
 $arr[$inputdomain]['registrar']['properties'] = $registrar_properties;
 $arr[$inputdomain]['registrar']['remarks'] = $registrar_remarks;	
 	
-$arr[$inputdomain]['name_servers']['handles'] = $name_servers_handles;
+$arr[$inputdomain]['name_servers']['hosting_handles'] = $name_servers_handles;
 $arr[$inputdomain]['name_servers']['ascii_names'] = $name_servers_ascii;
 $arr[$inputdomain]['name_servers']['unicode_names'] = $name_servers_unicode;	
 $arr[$inputdomain]['name_servers']['ipv4_addresses'] = $name_servers_ipv4;	
