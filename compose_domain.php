@@ -254,7 +254,7 @@ if ($zone_identifier == 'nl')	{
         {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "Stichting Internet Domeinregistratie Nederland", "contact_presented_name": null},
         {"contact_identifier": "registry_operator", "contact_legal_name": "Stichting Internet Domeinregistratie Nederland", "contact_presented_name": null},
-		{"contact_identifier": "backend_operator", "contact_legal_name": "SIDN B.V.", "contact_presented_name": "SIDN, afdeling Support"}
+		{"contact_identifier": "backend_operator", "contact_legal_name": "SIDN B.V.", "contact_presented_name": null}
     ]';
 	$restrictions_url = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
 	$menu_url = 'https://www.sidn.nl/en/theme/domain-names';
@@ -284,7 +284,7 @@ elseif ($zone_identifier == 'amsterdam')	{
         {"contact_identifier": "sponsoring_organization", "contact_legal_name": "Gemeente Amsterdam", "contact_presented_name": null},
         {"contact_identifier": "country_code_designated_manager", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "registry_operator", "contact_legal_name": "Stichting Internet Domeinregistratie Nederland", "contact_presented_name": null},
-		{"contact_identifier": "backend_operator", "contact_legal_name": "SIDN B.V.", "contact_presented_name": "SIDN, afdeling Support"}
+		{"contact_identifier": "backend_operator", "contact_legal_name": "SIDN B.V.", "contact_presented_name": null}
     ]';
 	$restrictions_url = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
 	$menu_url = 'https://www.sidn.nl/en/theme/domain-names';
@@ -299,7 +299,7 @@ elseif ($zone_identifier == 'politie')	{
         {"contact_identifier": "sponsoring_organization", "contact_legal_name": "Politie Nederland", "contact_presented_name": null},
         {"contact_identifier": "country_code_designated_manager", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "registry_operator", "contact_legal_name": "Stichting Internet Domeinregistratie Nederland", "contact_presented_name": null},
-		{"contact_identifier": "backend_operator", "contact_legal_name": "SIDN B.V.", "contact_presented_name": "SIDN, afdeling Support"}
+		{"contact_identifier": "backend_operator", "contact_legal_name": "SIDN B.V.", "contact_presented_name": null}
     ]';
 	$restrictions_url = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
 	$menu_url = 'https://www.sidn.nl/en/theme/domain-names';

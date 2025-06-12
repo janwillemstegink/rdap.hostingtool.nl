@@ -318,7 +318,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_unicode_name").textContent = "Hoewel de informatie verduidelijkt, is de unicode-domeinnaam optioneel binnen het RDAP-protocol.";
 		document.getElementById("domain_zone_statuses").textContent = "Geeft aan of het domein zichtbaar is in de DNS-zone.";
 		document.getElementById("domain_entry_statuses").textContent = modified + "Geeft de domeinstatus op registrar-niveau aan.";
-		document.getElementById("domain_created_at").textContent = "De datumvelden staan hier in een logische volgorde. Dit is ook eenvoudig in de JSON-array.";
+		document.getElementById("domain_created_at").textContent = "De datumvelden staan hier in een logische volgorde. Dit is ook eenvoudig in het JSON-array.";
 		document.getElementById("domain_expiration_at").textContent = "Eindtijd voor verlenging of van publicatie, daarna neemt de betrokkenheid van de registrar af.";
 		document.getElementById("domain_recoverable_until").textContent = proposed + "Herstel is mogelijk tot 'domain_expiration_at' plus 'redemption_period_days'.";		
 		document.getElementById("domain_deletion_at").textContent = "Datum en tijdstip gepland voor volledige verwijdering. Er kan een laatste verwijderingsfase zijn.";
