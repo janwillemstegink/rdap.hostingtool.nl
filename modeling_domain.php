@@ -185,7 +185,6 @@ function SwitchTranslation(translation)	{
 	if (translation == 0)	{
 		var modified = '';
 		var proposed = '';
-		var address = '';
 		var accessible = '';
 		document.getElementById("title").textContent = "Domain Information";
 		document.getElementById("subtitle").textContent = "RDAP v1 based modeling";
@@ -193,8 +192,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "";
-		document.getElementById("notices_role").textContent = "";
-		document.getElementById("links_role").textContent = "";
+		document.getElementById("notices_role").textContent = accessible;
+		document.getElementById("links_role").textContent = accessible;
 		document.getElementById("common_role").textContent = proposed;
 		document.getElementById("common_root_zones_url").textContent = proposed;
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed;
@@ -245,9 +244,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_kind").textContent = "";
 		document.getElementById("registrant_name").textContent = "";
 		document.getElementById("registrant_country_code").textContent = "";
-		document.getElementById("registrant_street_address").textContent = address;
-		document.getElementById("registrant_city").textContent = address;
-		document.getElementById("registrant_postal_code").textContent = address;
+		document.getElementById("registrant_street_address").textContent = "";
+		document.getElementById("registrant_postal_code").textContent = "";
 		document.getElementById("registrant_country_name").textContent = "";
 		document.getElementById("registrant_verification_received_at").textContent = proposed;
 		document.getElementById("registrant_verification_set_at").textContent = proposed;
@@ -275,7 +273,6 @@ function SwitchTranslation(translation)	{
 	else if (translation == 1)	{
 		var modified = '(Gewijzigd) ';
 		var proposed = '(Nieuw) ';
-		var address = "Het afschermen van adresgegevens zoals bij example.tel, resulteert in rommelige gegevens.";
 		var accessible = 'De voorgestelde velden verbeteren de bruikbaarheid en verhogen de transparantie van RDAP.';
 		document.getElementById("title").textContent = "Domeininformatie";
 		document.getElementById("subtitle").textContent = "RDAP v1-gebaseerde modellering";
@@ -318,7 +315,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_unicode_name").textContent = "Hoewel de informatie verduidelijkt, is de unicode-domeinnaam optioneel binnen het RDAP-protocol.";
 		document.getElementById("domain_zone_statuses").textContent = "Geeft aan of het domein zichtbaar is in de DNS-zone.";
 		document.getElementById("domain_entry_statuses").textContent = modified + "Geeft de domeinstatus op registrar-niveau aan.";
-		document.getElementById("domain_created_at").textContent = "De datumvelden staan hier in een logische volgorde. Dit is ook eenvoudig in het JSON-array.";
+		document.getElementById("domain_created_at").textContent = "De datumvelden staan hier in een logische volgorde. Dit is ook eenvoudig in de JSON-array.";
 		document.getElementById("domain_expiration_at").textContent = "Eindtijd voor verlenging of van publicatie, daarna neemt de betrokkenheid van de registrar af.";
 		document.getElementById("domain_recoverable_until").textContent = proposed + "Herstel is mogelijk tot 'domain_expiration_at' plus 'redemption_period_days'.";		
 		document.getElementById("domain_deletion_at").textContent = "Datum en tijdstip gepland voor volledige verwijdering. Er kan een laatste verwijderingsfase zijn.";
@@ -335,10 +332,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_kind").textContent = "Leeg / 'org' / 'individual' (Voor continuïteit: levenstestament + testament + digitale executeur)";
 		document.getElementById("registrant_name").textContent = "Een persoonlijke naam kan openbaar zichtbaar zijn in het veld 'presented_name'. Zie bijvoorbeeld circa.ca.";
 		document.getElementById("registrant_country_code").textContent = "De ISO-2-landcode-indexering werkt, bijvoorbeeld voor het Verenigd Koninkrijk, dat de EU heeft verlaten.";
-		document.getElementById("registrant_street_address").textContent = address;
-		document.getElementById("registrant_city").textContent = address;
-		document.getElementById("registrant_postal_code").textContent = address;
-		document.getElementById("registrant_country_name").textContent = "Een openbaar zichtbare landnaam is beperkt tot een 'Registrar Lookup via RDAP'.";
+		document.getElementById("registrant_street_address").textContent = "Het afschermen van adresgegevens zoals bij example.tel, resulteert in rommelige gegevens.";
+		document.getElementById("registrant_postal_code").textContent = "Indexeren op postcode is in de database noodzakelijk. De vcard-array vormt een obstakel.";
+		document.getElementById("registrant_country_name").textContent = "Een openbaar zichtbare landnaam is beperkt tot een 'Registrar Lookup via RDAP' (ontwerpwijziging).";
 		document.getElementById("registrant_verification_received_at").textContent = proposed + "Na identificatie kan een overeenkomende web-ID worden bevestigd, leeg is intrekking.";
 		document.getElementById("registrant_verification_set_at").textContent = proposed + "Vervolgens verifieert de registry de gegevens bij de landspecifieke webdomeindienst.";
 		document.getElementById("administrative_role").textContent = "Het administratief aanspreekpunt beantwoordt een verzoek en stuurt zo nodig door.";
@@ -365,7 +361,6 @@ function SwitchTranslation(translation)	{
 	else if (translation == 2)	{
 		var modified = '(Modified) ';
 		var proposed = '(New) ';
-		var address = "Shielding address data as with example.tel, results in messy data.";
 		var accessible = 'The proposed fields improve usability and increase transparency of RDAP.';
 		document.getElementById("title").textContent = "Domain Information";
 		document.getElementById("subtitle").textContent = "RDAP v1 based modeling";
@@ -425,10 +420,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_kind").textContent = "Empty / 'org' / 'individual' (For continuity: Living Will + Will + Digital Executor)";
 		document.getElementById("registrant_name").textContent = "A personal name may be publicly visible in the 'presented_name' field. See for example circa.ca.";
 		document.getElementById("registrant_country_code").textContent = "ISO-2 country code indexing works, as for the United Kingdom, which has left the EU.";
-		document.getElementById("registrant_street_address").textContent = address;
-		document.getElementById("registrant_city").textContent = address;
-		document.getElementById("registrant_postal_code").textContent = address;		
-		document.getElementById("registrant_country_name").textContent = "A publicly visible country name is limited to a 'Registrar Lookup via RDAP'.";
+		document.getElementById("registrant_street_address").textContent = "Shielding address data as with example.tel, results in messy data.";
+		document.getElementById("registrant_postal_code").textContent = "Indexing by postal code is necessary in the database. The vcard array is an obstacle.";	
+		document.getElementById("registrant_country_name").textContent = "A publicly visible country name is limited to a 'Registrar Lookup via RDAP' (design change).";
 		document.getElementById("registrant_verification_received_at").textContent = proposed + "After identification, a matching web ID can be confirmed, empty is revocation.";
 		document.getElementById("registrant_verification_set_at").textContent = proposed + "The registry then verifies the data with the country-specific web domain service.";	
 		document.getElementById("administrative_role").textContent = "The administratively responsible desk answers a request, and forwards on if necessary.";
@@ -455,7 +449,6 @@ function SwitchTranslation(translation)	{
 	else if (translation == 3)	{
 		var modified = '(Geändert) ';
 		var proposed = '(Neu) ';
-		var address = "Das Abschirmen von Adressdaten wie bei example.tel, führt zu unordentlichen Daten.";
 		var accessible = 'Die vorgeschlagenen Felder verbessern die Benutzerfreundlichkeit und erhöhen die Transparenz von RDAP.';
 		document.getElementById("title").textContent = "Domaininformationen";
 		document.getElementById("subtitle").textContent = "RDAP-v1-basierte Modellierung";
@@ -515,10 +508,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_kind").textContent = "Leer / 'org' / 'individual' (Für Kontinuität: Patientenverfügung + Testament + digitaler Testamentsvollstrecker)";
 		document.getElementById("registrant_name").textContent = "Ein Personenname kann im Feld 'presented_name' öffentlich sichtbar sei. Siehe beispielsweise circa.ca.";
 		document.getElementById("registrant_country_code").textContent = "Die Indizierung mit dem ISO-2-Ländercode funktioniert, wie für das Vereinigte Königreich, das die EU verlassen hat.";
-		document.getElementById("registrant_street_address").textContent = address;
-		document.getElementById("registrant_city").textContent = address;
-		document.getElementById("registrant_postal_code").textContent = address;		
-		document.getElementById("registrant_country_name").textContent = "Ein öffentlich sichtbarer Ländername ist auf eine 'Registrar Lookup via RDAP' beschränkt.";
+		document.getElementById("registrant_street_address").textContent = "Das Abschirmen von Adressdaten wie bei example.tel, führt zu unordentlichen Daten.";
+		document.getElementById("registrant_postal_code").textContent = "In der Datenbank ist eine Indizierung nach Postleitzahl erforderlich. Das vCard-Array stellt ein Hindernis dar.";	
+		document.getElementById("registrant_country_name").textContent = "Ein öffentlich sichtbarer Ländername ist auf eine 'Registrar Lookup via RDAP' beschränkt (Designänderung).";
 		document.getElementById("registrant_verification_received_at").textContent = proposed + "Nach der Identifizierung kann eine passende Web-ID bestätigt werden, leer ist der Widerruf.";
 		document.getElementById("registrant_verification_set_at").textContent = proposed + "Anschließend verifiziert die Registry die Daten beim länderspezifischen Webdomänendienst.";
 		document.getElementById("administrative_role").textContent = "Die administrativ zuständige Stelle beantwortet eine Anfrage und leitet sie gegebenenfalls weiter.";
@@ -545,7 +537,6 @@ function SwitchTranslation(translation)	{
 	else if (translation == 4)	{
 		var modified = '(Modifié) ';
 		var proposed = '(Nouveau) ';
-		var address = "Le blindage des données d'adresse comme avec example.tel, génère des données désordonnées.";
 		var accessible = "Les champs proposés améliorent la convivialité et augmentent la transparence du RDAP.";
 		document.getElementById("title").textContent = "Informations sur le domaine";
 		document.getElementById("subtitle").textContent = "Modélisation basée sur RDAP v1";
@@ -605,10 +596,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_kind").textContent = "Vide / 'org' / 'individual' (Pour la continuité : testament biologique + testament + exécuteur testamentaire numérique)";
 		document.getElementById("registrant_name").textContent = "Un nom personnel peut être visible publiquement dans le champ 'presented_name'. Voir, par exemple, circa.ca.";
 		document.getElementById("registrant_country_code").textContent = "L'indexation des codes pays ISO-2 fonctionne, comme pour le Royaume-Uni, qui a quitté l'UE.";
-		document.getElementById("registrant_street_address").textContent = address;
-		document.getElementById("registrant_city").textContent = address;
-		document.getElementById("registrant_postal_code").textContent = address;
-		document.getElementById("registrant_country_name").textContent = "Un nom de pays visible publiquement est limité à une 'Registrar Lookup via RDAP'.";
+		document.getElementById("registrant_street_address").textContent = "Le blindage des données d'adresse comme avec example.tel, génère des données désordonnées.";
+		document.getElementById("registrant_postal_code").textContent = "L'indexation par code postal est nécessaire dans la base de données. Le tableau vcard constitue un obstacle.";
+		document.getElementById("registrant_country_name").textContent = "Un nom de pays visible publiquement est limité à une 'Registrar Lookup via RDAP' (changement de conception).";
 		document.getElementById("registrant_verification_received_at").textContent = proposed + "Après identification, un identifiant Web correspondant peut être confirmé, vide signifie révocation.";
 		document.getElementById("registrant_verification_set_at").textContent = proposed + "Le registre vérifie ensuite les données avec le service de domaine Web spécifique au pays.";
 		document.getElementById("administrative_role").textContent = "Le bureau administrativement responsable répond à une demande, et la transmet si nécessaire.";
@@ -850,7 +840,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="408" style="display:none"><td>registrant_telephone</td><td>'.$data[$pd]['registrant']['telephone'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>registrant_country_code (<a style="font-size: 0.9rem" href="https://icann-hamster.nl/ham/soac/ccnso/techday/icann80/2.%20RDAP%20Conformance%20Tool%20-%20Tech%20Day.pdf" target="_blank">"cc" parameter</a>)</td><td>'.$data[$pd]['registrant']['country_code'].'</td><td id="registrant_country_code"></td></tr>';
 	$html_text .= '<tr id="409" style="display:none"><td>registrant_street_address</td><td>'.$data[$pd]['registrant']['street_address'].'</td><td id="registrant_street_address"></td></tr>';
-	$html_text .= '<tr id="4010" style="display:none"><td>registrant_city</td><td>'.$data[$pd]['registrant']['city'].'</td><td id="registrant_city"></td></tr>';
+	$html_text .= '<tr id="4010" style="display:none"><td>registrant_city</td><td>'.$data[$pd]['registrant']['city'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4011" style="display:none"><td>registrant_state_or_province</td><td>'.$data[$pd]['registrant']['state_or_province'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4012" style="display:none"><td>registrant_postal_code</td><td>'.$data[$pd]['registrant']['postal_code'].'</td><td id="registrant_postal_code"></td></tr>';
 	$html_text .= '<tr id="4013" style="display:none"><td>registrant_country_name'.if_filled($data[$pd]['registrant']['country_name']).'</td><td>'.$data[$pd]['registrant']['country_name'].'</td><td id="registrant_country_name"></td></tr>';
