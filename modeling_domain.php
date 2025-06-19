@@ -728,7 +728,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(28)">Lifecycle Information +/-</button></td><td></td><td id="lifecycle_role"></td></tr>';
 	$html_text .= '<tr id="281" style="display:none;vertical-align:top"><td>active_from: '.$data[$pd]['lifecycle']['active_from'].'</td><td></td><td id="lifecycle_active_from"></td></tr>';
 	$html_text .= '<tr id="282" style="display:none;vertical-align:top"><td>upon_termination: '.$data[$pd]['lifecycle']['upon_termination'].'</td><td></td><td id="lifecycle_upon_termination"></td></tr>';
-	$html_text .= '<tr id="283" style="display:none;vertical-align:top"><td colspan="2"<td>'.$data[$pd]['lifecycle']['zone_status_meanings'].'</td><td></td></tr>';
+	$html_text .= '<tr id="283" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['zone_status_meanings'].'</td><td></td></tr>';
 	$html_text .= '<tr id="284" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['periods'].'</td><td id="lifecycle_periods"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(29)">Metadata +/-</button></td><td></td><td id="metadata_role"></td></tr>';
 	$html_text .= '<tr id="291" style="display:none"><td>resource_upload_at</td><td>'.$data[$pd]['metadata']['resource_upload_at'].'</td><td id="metadata_resource_upload_at"></td></tr>';

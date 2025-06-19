@@ -202,7 +202,7 @@ $decoded = json_decode($tld_roles_json, true);
 usort($decoded, function ($a, $b) {
     return $a['tld_role_sequence'] <=> $b['tld_role_sequence'];
 });
-$tld_roles = 'tld_role_sequence, tld_role_identifier, tld_role_shielding<br />';    
+$tld_roles = '<b>tld_role_sequence, tld_role_identifier, tld_role_shielding</b><br />';    
 foreach ($decoded as $role) {
 	$tld_roles .= $role['tld_role_sequence'] . ', ' . $role['tld_role_identifier'] . ', [' . implode(', ', $role['tld_role_shielding']) . ']<br />';
 }	
@@ -221,7 +221,7 @@ $decoded = json_decode($zone_roles_json, true);
 usort($decoded, function ($a, $b) {
     return $a['zone_role_sequence'] <=> $b['zone_role_sequence'];
 });
-$zone_roles = 'zone_role_sequence, zone_role_identifier, zone_role_shielding<br />';    
+$zone_roles = '<b>zone_role_sequence, zone_role_identifier, zone_role_shielding</b><br />';    
 foreach ($decoded as $role) {
 	$zone_roles .= $role['zone_role_sequence'] . ', ' . $role['zone_role_identifier'] . ', [' . implode(', ', $role['zone_role_shielding']) . ']<br />';
 }	
@@ -515,7 +515,7 @@ if (!strlen($language_codes))	{
 	$language_codes = 'None Specified';	
 }
 $decoded = json_decode($tld_contacts_json, true);
-$tld_contacts = 'tld_contacts<br />';   
+$tld_contacts = '<b>tld_contacts</b><br />';   
 foreach ($decoded as $contact) {
 	if (strlen($contact['contact_legal_name']))	{
 		$tld_contacts .= $contact['contact_identifier'] . ' - legal_name: ' . $contact['contact_legal_name'] . '<br />';
@@ -525,7 +525,7 @@ foreach ($decoded as $contact) {
 	}
 }	
 $decoded = json_decode($periods_json, true);
-$periods = 'periods:<br />';    
+$periods = '<b>periods</b><br />';    
 foreach ($decoded as $period) {
 	$periods .= $period['period_identifier'] . ': Min: ' . $period['period_minimum'] . ' Max: ' . $period['period_maximum'] . '<br />';
 }	
@@ -595,7 +595,7 @@ $zone_status_meanings_json = '[
     }
 ]';
 $decoded = json_decode($zone_status_meanings_json, true);
-$zone_status_meanings = "zone_status_meanings:<br />";
+$zone_status_meanings = "<b>zone_status_meanings</b><br />";
 foreach ($decoded as $statuses) {
     foreach ($statuses as $key => $value) {	//ucwords()
         $zone_status_meanings .= '"' . htmlspecialchars($key) . '": ';
