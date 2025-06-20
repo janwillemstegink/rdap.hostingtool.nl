@@ -1,24 +1,22 @@
 <?php
 session_start();  // is needed with no Scriptcase PHP Generator
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
 $datetime = new DateTime('now', new DateTimeZone('UTC'));
 $utc = $datetime->format('Y-m-d H:i:s');
 if (empty($_GET["language"]))	{
 	$browserlanguage = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 	switch ($browserlanguage) {
   		case 'nl':
-    		$viewlanguage = 1;
-    		break;
+   	 		$viewlanguage = 1;
+   	 		break;
   		case 'de':
-    		$viewlanguage = 3;
-    		break;
+   	 		$viewlanguage = 3;
+			break;
   		case 'fr':
     		$viewlanguage = 4;
     		break;
   		default:
     		$viewlanguage = 2;
-	}
+	}		
 }
 else	{
 	$viewlanguage = $_GET["language"];
@@ -172,10 +170,11 @@ function SwitchDisplay(type) {
 
 function SwitchTranslation(translation)	{
 	document.getElementById("language").value = translation;
-	if (translation == 0)	{
+	if (translation == 99)	{
 		var modified = '';
 		var proposed = '';
 		var accessible = '';
+		var legacy = '';
 		document.getElementById("title").textContent = "Domain Information";
 		document.getElementById("subtitle").textContent = "RDAP v1 based modeling";
 		document.getElementById("instruction").textContent = "Fill in and press Enter to retrieve.";
@@ -188,10 +187,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_resource_upload_at").textContent = modified;
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;
-		document.getElementById("metadata_general_terms_and_conditions").textContent = proposed;
+		document.getElementById("metadata_terms_and_conditions").textContent = proposed;
 		document.getElementById("metadata_global_json_response_url").textContent = proposed;
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed;
-		document.getElementById("metadata_registry_language_codes").textContent = modified;
+		document.getElementById("metadata_registry_language_codes").textContent = legacy;
 		document.getElementById("metadata_registrar_accreditation").textContent = modified;
 		document.getElementById("metadata_registrar_json_response_url").textContent = proposed;
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed;
@@ -248,6 +247,7 @@ function SwitchTranslation(translation)	{
 		var modified = '(Gewijzigd) ';
 		var proposed = '(Nieuw) ';
 		var accessible = 'De voorgestelde velden verbeteren de bruikbaarheid en verhogen de transparantie van RDAP.';
+		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domeininformatie";
 		document.getElementById("subtitle").textContent = "RDAP v1-gebaseerde modellering";
 		document.getElementById("instruction").textContent = "Typ een domeinnaam en druk op Enter.";
@@ -260,10 +260,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Datum en tijdstip van de RDAP-database-update in Zoeloe-tijd (UTC).";
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;
-		document.getElementById("metadata_general_terms_and_conditions").textContent = proposed;
+		document.getElementById("metadata_terms_and_conditions").textContent = proposed;
 		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL van de geplande JSON-respons van de globale RDAP-server (topniveau).";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL van de JSON-respons op registratieniveau.";
-		document.getElementById("metadata_registry_language_codes").textContent = modified + "Geeft ondersteunde talen voor de Root Zone aan.";	
+		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Ondanks de update blijft het veld zonder functioneel nut.";	
 		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Er kan een IANA Registrar Accreditation ID voor gTLD's bestaan. Deze moet correct zijn.";
 		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + 'Als deze aanwezig is, is de resource-URL in de RDAP v1-respons niet machineleesbaar.';
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + 'Vereist indien de registrator geaccrediteerd is door IANA, om een ​​klacht in behandeling te kunnen nemen.';		
@@ -320,6 +320,7 @@ function SwitchTranslation(translation)	{
 		var modified = '(Modified) ';
 		var proposed = '(New) ';
 		var accessible = 'The proposed fields improve usability and increase transparency of RDAP.';
+		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domain Information";
 		document.getElementById("subtitle").textContent = "RDAP v1 based modeling";
 		document.getElementById("instruction").textContent = "Type a domain, then press Enter.";
@@ -332,10 +333,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Date and time of RDAP database update in Zulu time (UTC).";
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;
-		document.getElementById("metadata_general_terms_and_conditions").textContent = proposed;
+		document.getElementById("metadata_terms_and_conditions").textContent = proposed;
 		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL of the planned global RDAP server JSON response (top level).";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL of the JSON response at the registry level.";
-		document.getElementById("metadata_registry_language_codes").textContent = modified + "Indicates supported languages for the Root Zone.";
+		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Despite the update, the field remains without functional use.";
 		document.getElementById("metadata_registrar_accreditation").textContent = modified + "There may be an IANA Registrar Accreditation ID for gTLDs. It must be correct.";
 		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + 'If present, the resource URL in the RDAP v1 response is not machine-readable.';
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + 'Required if the registrar is accredited by IANA, in order to have a complaint handled.';		
@@ -392,6 +393,7 @@ function SwitchTranslation(translation)	{
 		var modified = '(Geändert) ';
 		var proposed = '(Neu) ';
 		var accessible = 'Die vorgeschlagenen Felder verbessern die Benutzerfreundlichkeit und erhöhen die Transparenz von RDAP.';
+		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domaininformationen";
 		document.getElementById("subtitle").textContent = "RDAP-v1-basierte Modellierung";
 		document.getElementById("instruction").textContent = "Geben Sie eine Domain ein und drücken Sie Enter.";
@@ -404,10 +406,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Datum und Uhrzeit der RDAP-Datenbankaktualisierung in Zulu-Zeit (UTC).";
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;
-		document.getElementById("metadata_general_terms_and_conditions").textContent = proposed;
+		document.getElementById("metadata_terms_and_conditions").textContent = proposed;
 		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL der geplanten JSON-Antwort des globalen RDAP-Servers (oberste Ebene).";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL der JSON-Antwort auf Registry-Ebene.";
-		document.getElementById("metadata_registry_language_codes").textContent = modified + "Gibt die unterstützten Sprachen der Root-Zone an.";
+		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Trotz der Aktualisierung bleibt das Feld ohne funktionalen Nutzen.";
 		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Für gTLDs kann eine IANA-Registrar-Akkreditierungs-ID vorhanden sein. Diese muss korrekt sein.";
 		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + 'Falls vorhanden, ist die Resource-URL in der RDAP-v1-Antwort nicht maschinenlesbar.';
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + 'Erforderlich, wenn der Registrar von der IANA akkreditiert ist, um eine Beschwerde bearbeiten zu lassen.';
@@ -464,6 +466,7 @@ function SwitchTranslation(translation)	{
 		var modified = '(Modifié) ';
 		var proposed = '(Nouveau) ';
 		var accessible = "Les champs proposés améliorent la convivialité et augmentent la transparence du RDAP.";
+		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Informations sur le domaine";
 		document.getElementById("subtitle").textContent = "Modélisation basée sur RDAP v1";
 		document.getElementById("instruction").textContent = "Saisissez un nom de domaine, puis appuyez sur Entrée.";
@@ -476,10 +479,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Date et heure de mise à jour de la base de données RDAP en heure Zulu (UTC).";
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;
-		document.getElementById("metadata_general_terms_and_conditions").textContent = proposed;
+		document.getElementById("metadata_terms_and_conditions").textContent = proposed;
 		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL de la réponse JSON prévue du serveur RDAP global (niveau supérieur).";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL de la réponse JSON au niveau du registre.";
-		document.getElementById("metadata_registry_language_codes").textContent = modified + "Indique les langues prises en charge pour la 'Root Zone'.";
+		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Malgré la mise à jour, le champ reste sans utilité fonctionnelle.";
 		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Il peut exister un identifiant d'accréditation IANA pour les gTLD. Il doit être correct.";
 		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + "Si elle est présente, l’URL de la ressource dans la réponse RDAP v1 n’est pas lisible par machine.";
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + "Obligatoire si le registraire est accrédité par l'IANA, afin de pouvoir traiter une plainte.";		
@@ -549,10 +552,10 @@ $rdap_url = $server_url.'/compose_domain/index.php?batch=0&domain='.$pd;
 if (@get_headers($rdap_url))	{ // the application to compose data
 	$json = file_get_contents($rdap_url) or die("An entered domain could not be read.");
 	$data = json_decode($json, true);
-	$general_terms_and_conditions = $server_url.'/modeling_tld/index.php?language='.$viewlanguage.'&tld='.$data[$pd]['root_zone']['zone_identifier'];
+	$terms_and_conditions = $server_url.'/modeling_tld/index.php?language='.$viewlanguage.'&tld='.$data[$pd]['root_zone']['zone_identifier'];
 }
 if	(is_null($data))	{
-	$general_terms_and_conditions = '';
+	$terms_and_conditions = '';
 	$reopen = $server_url.'/modeling_domain/index.php?batch=0&domain=hostingtool.nl';
 	sc_redir($reopen);
 }
@@ -563,7 +566,7 @@ $html_text .= '<tr style="font-size: .8rem"><td id="title" style="font-size: 1.3
 $html_text .= '<tr style="font-size: .8rem"><td id="subtitle" style="font-size: 1.0rem;color:blue;font-weight:bold"></td><td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">
 	<input type="hidden" id="language" name="language" value='.$viewlanguage.'>	
 	<input type="text" style="width:90%" id="domain" name="domain" value='.$vd.'></form></td><td>
-	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(0)">None</button> 
+	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(99)">None</button> 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(1)">nl_NL</button> 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(2)">en_US</button> 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(3)">de_DE</button> 
@@ -626,7 +629,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="291" style="display:none"><td>resource_upload_at</td><td>'.$data[$pd]['metadata']['resource_upload_at'].'</td><td id="metadata_resource_upload_at"></td></tr>';
 	$html_text .= '<tr id="292" style="display:none"><td>object_class_name</td><td>'.$data[$pd]['metadata']['object_class_name'].'</td><td id="metadata_object_class_name"></td></tr>';
 	$html_text .= '<tr id="293" style="display:none; vertical-align:top"><td>object_conformance</td><td>'.$data[$pd]['metadata']['object_conformance'].'</td><td id="metadata_object_conformance"></td></tr>';	
-	$html_text .= '<tr id="294" style="display:none"><td>general_terms_and_conditions</td><td>'.((strlen($general_terms_and_conditions)) ? '<a href="'.$general_terms_and_conditions.'" target="_blank">TLD Information</a>' : '').'</td><td id="metadata_general_terms_and_conditions"></td></tr>';	
+	$html_text .= '<tr id="294" style="display:none"><td>terms_and_conditions</td><td>'.((strlen($terms_and_conditions)) ? '<a href="'.$terms_and_conditions.'" target="_blank">TLD Information</a>' : '').'</td><td id="metadata_terms_and_conditions"></td></tr>';	
 	$html_text .= '<tr id="295" style="display:none"><td>global_json_response_url</td><td>'.$data[$pd]['metadata']['global_json_response_url'].'</td><td id="metadata_global_json_response_url"></td></tr>';
 	$registry_json_response_url = str_replace('https://', '', $data[$pd]['metadata']['registry_json_response_url']);
 	$validation_registry = 'https://validator.rdap.org/?url=https://'.$registry_json_response_url.'&response-type=domain&server-type=gtld-registry&errors-only=1';	

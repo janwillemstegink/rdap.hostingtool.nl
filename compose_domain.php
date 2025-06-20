@@ -71,8 +71,14 @@ else	{
 	//$raw_whois_data = shell_exec($command . " " . $inputdomain . " 2>&1");
 	$raw_whois_data = nl2br(htmlspecialchars(shell_exec($command . " " . $inputdomain)));
 }
-$zone_identifier = mb_substr($inputdomain, strrpos($inputdomain, '.') + 1);
-
+	
+$strpos = mb_strpos($inputdomain, '.');
+if ($strpos)	{
+	$zone_identifier = mb_substr($inputdomain, strrpos($inputdomain, '.') + 1);
+}
+else	{
+	$zone_identifier = $inputdomain;
+}
 $url = '';	
 switch ($zone_identifier) {
 	case 'nl':

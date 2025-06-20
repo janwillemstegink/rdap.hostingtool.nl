@@ -5,18 +5,18 @@ $utc = $datetime->format('Y-m-d H:i:s');
 if (empty($_GET["language"]))	{
 	$browserlanguage = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 	switch ($browserlanguage) {
-  		case 'nl':
-    		$viewlanguage = 1;
-    		break;
-  		case 'de':
-    		$viewlanguage = 3;
-    		break;
-  		case 'fr':
-    		$viewlanguage = 4;
-    		break;
-  		default:
-    		$viewlanguage = 2;
-	}
+		case 'nl':
+	 		$viewlanguage = 1;
+	 		break;
+		case 'de':
+	 		$viewlanguage = 3;
+			break;
+		case 'fr':
+   			$viewlanguage = 4;
+   			break;
+		default:
+   			$viewlanguage = 2;		
+	}	
 }
 else	{
 	$viewlanguage = $_GET["language"];
@@ -94,7 +94,7 @@ function SwitchDisplay(type) {
 
 function SwitchTranslation(translation)	{
 	document.getElementById("language").value = translation;
-	if (translation == 0)	{
+	if (translation == 99)	{
 		var modified = '';
 		var proposed = '';
 		document.getElementById("title").textContent = "TLD Information";
@@ -253,7 +253,7 @@ $server_url = isset($_SERVER['HTTPS']) && strcasecmp('off', $_SERVER['HTTPS']) !
 $server_url .= '://'. $_SERVER['HTTP_HOST'];
 $server_url .= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);	
 $server_url = dirname($server_url);
-$rdap_url = $server_url.'/compose_tld/index.php?tld='.$vd;
+$rdap_url = $server_url.'/compose_tld/index.php?tld='.$pd;
 if (@get_headers($rdap_url))	{ // the application to compose data
 	$json = file_get_contents($rdap_url) or die("An entered tld could not be read.");
 	$data = json_decode($json, true);
@@ -268,8 +268,8 @@ $html_text = '<body onload=SwitchTranslation('.$viewlanguage.')><div style="bord
 $html_text .= '<tr style="font-size: .8rem"><td id="title" style="font-size: 1.3rem;color:blue;font-weight:bold"></td><td id="instruction"></td><td></td></tr>';
 $html_text .= '<tr style="font-size: .8rem"><td id="subtitle" style="font-size: 1.0rem;color:blue;font-weight:bold"></td><td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">
 	<input type="hidden" id="language" name="language" value='.$viewlanguage.'>	
-	<input type="text" style="width:90%" id="tld" name="tld" value='.$vd.'></form></td><td>
-	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(0)">None</button> 
+	<input type="text" style="width:90%" id="tld" name="tld" value='.$pd.'></form></td><td>
+	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(99)">None</button> 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(1)">nl_NL</button> 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(2)">en_US</button> 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(3)">de_DE</button> 
@@ -347,12 +347,5 @@ function get_block($ip) {
         }
     }
 	return (strlen($country)) ? $country . '; ' . $orgName : $orgName;	
-}
-
-function if_filled($inputvalue)	{
-	if (!empty($inputvalue))	{
-		return ' (to be empty) ⚠️';
-	}
-	return '';
 }						
 ?>
