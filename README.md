@@ -6,6 +6,8 @@
 
 Domain information modeling: https://rdap.hostingtool.nl/modeling_domain/
 
+TLD information modeling: https://rdap.hostingtool.nl/modeling_tld/
+
 Data by email modeling: https://rdap.hostingtool.nl/modeling_email/
 
 Menu information modeling: https://rdap.hostingtool.nl/modeling_menu/
