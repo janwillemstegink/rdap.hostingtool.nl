@@ -552,7 +552,7 @@ $rdap_url = $server_url.'/compose_domain/index.php?batch=0&domain='.$pd;
 if (@get_headers($rdap_url))	{ // the application to compose data
 	$json = file_get_contents($rdap_url) or die("An entered domain could not be read.");
 	$data = json_decode($json, true);
-	$terms_and_conditions = $server_url.'/modeling_tld/index.php?language='.$viewlanguage.'&tld='.$data[$pd]['root_zone']['zone_identifier'];
+	$terms_and_conditions = $server_url.'/modeling_tld/index.php?language='.$viewlanguage.'&tld='.$data[$pd]['metadata']['zone_identifier'];
 }
 if	(is_null($data))	{
 	$terms_and_conditions = '';
