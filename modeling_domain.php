@@ -963,6 +963,6 @@ function if_filled($inputvalue)	{
 	if (!empty($inputvalue))	{
 		return ' (to be empty) ⚠️';
 	}
-	return '';
+	return ' (to be empty)';
 }						
 ?>
