@@ -261,11 +261,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;
 		document.getElementById("metadata_terms_and_conditions").textContent = proposed + "Voorbereid op machine-leesbare Top-Level Domein (TLD) gegevens.";
-		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL van de geplande JSON-respons van de globale RDAP-server (topniveau).";
+		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL van de geplande JSON-respons van de globale RDAP-server.";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL van de JSON-respons op registratieniveau.";
 		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Ondanks de update blijft het veld zonder functioneel nut.";	
 		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Er kan een IANA Registrar Accreditation ID voor gTLD's bestaan. Deze moet correct zijn.";
-		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + 'Als deze aanwezig is, is de resource-URL in de RDAP v1-respons niet machineleesbaar.';
+		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + 'Indien van toepassing, moet de RDAP-bron-URL van de registrar machine-leesbaar worden.';
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + 'Vereist indien de registrator geaccrediteerd is door IANA, om een ​​klacht in behandeling te kunnen nemen.';		
 		document.getElementById("metadata_status_explanation_url").textContent = proposed + 'Vereist als de registrar IANA-geaccrediteerd is; bevat uitleg over de statuscode.';
 		document.getElementById("domain_role").textContent = "Een domein onder TLD-niveau is wereldwijd uniek en kan vrij worden gekozen onder bepaalde regels.";
@@ -334,11 +334,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;
 		document.getElementById("metadata_terms_and_conditions").textContent = proposed + "Prepared for machine-readable Top-Level Domain (TLD) data.";
-		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL of the planned global RDAP server JSON response (top level).";
+		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL of the planned global RDAP server JSON response.";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL of the JSON response at the registry level.";
 		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Despite the update, the field remains without functional use.";
 		document.getElementById("metadata_registrar_accreditation").textContent = modified + "There may be an IANA Registrar Accreditation ID for gTLDs. It must be correct.";
-		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + 'If present, the resource URL in the RDAP v1 response is not machine-readable.';
+		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + 'If applicable, the RDAP-source registrar URL should become machine-readable.';
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + 'Required if the registrar is accredited by IANA, in order to have a complaint handled.';		
 		document.getElementById("metadata_status_explanation_url").textContent = proposed + 'Required if the registrar is IANA-accredited; provides status code explanations.';
 		document.getElementById("domain_role").textContent = "A domain below TLD level is globally unique and can be freely chosen under certain rules.";
@@ -407,11 +407,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;
 		document.getElementById("metadata_terms_and_conditions").textContent = proposed + "Vorbereitet für maschinenlesbare Top-Level-Domain (TLD) Daten.";
-		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL der geplanten JSON-Antwort des globalen RDAP-Servers (oberste Ebene).";
+		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL der geplanten JSON-Antwort des globalen RDAP-Servers.";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL der JSON-Antwort auf Registry-Ebene.";
 		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Trotz der Aktualisierung bleibt das Feld ohne funktionalen Nutzen.";
 		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Für gTLDs kann eine IANA-Registrar-Akkreditierungs-ID vorhanden sein. Diese muss korrekt sein.";
-		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + 'Falls vorhanden, ist die Resource-URL in der RDAP-v1-Antwort nicht maschinenlesbar.';
+		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + 'Falls zutreffend, sollte die RDAP-Quell-URL des Registrars maschinenlesbar werden.';
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + 'Erforderlich, wenn der Registrar von der IANA akkreditiert ist, um eine Beschwerde bearbeiten zu lassen.';
 		document.getElementById("metadata_status_explanation_url").textContent = proposed + 'Erforderlich, wenn der Registrar IANA-akkreditiert ist; bietet Erklärungen zum Statuscode.';
 		document.getElementById("domain_role").textContent = "Eine Domain unterhalb der TLD-Ebene ist weltweit eindeutig und kann unter bestimmten Regeln frei gewählt werden.";
@@ -480,11 +480,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;
 		document.getElementById("metadata_terms_and_conditions").textContent = proposed + "Préparé pour des données de domaine de premier niveau (TLD) lisibles par machine.";
-		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL de la réponse JSON prévue du serveur RDAP global (niveau supérieur).";
+		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL de la réponse JSON prévue du serveur RDAP global.";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL de la réponse JSON au niveau du registre.";
 		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Malgré la mise à jour, le champ reste sans utilité fonctionnelle.";
 		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Il peut exister un identifiant d'accréditation IANA pour les gTLD. Il doit être correct.";
-		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + "Si elle est présente, l’URL de la ressource dans la réponse RDAP v1 n’est pas lisible par machine.";
+		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + "Le cas échéant, l’URL source RDAP du registraire devrait devenir lisible par machine.";
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + "Obligatoire si le registraire est accrédité par l'IANA, afin de pouvoir traiter une plainte.";		
 		document.getElementById("metadata_status_explanation_url").textContent = proposed + "Obligatoire si le registraire est accrédité par l'IANA ; fournit des explications sur le code de statut.";
 		document.getElementById("domain_role").textContent = "Un domaine inférieur au niveau TLD est unique au monde et peut être choisi librement selon certaines règles.";
@@ -665,7 +665,17 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 					$html_text .= '<tr><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" refers to "redemption period"</td><td></td></tr>';
 				}	
 			}	
-		}	
+		}
+		if (str_contains($data[$pd]['domain']['zone_statuses'], 'redemption period'))	{
+			if (empty($data[$pd]['domain']['expiration_at']) and empty($data[$pd]['domain']['deletion_at'])) {
+				$html_text .= '<tr><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"redemption period" without date-time provided<td><td></td></tr>';
+			}	
+		}
+		elseif (str_contains($data[$pd]['domain']['zone_statuses'], 'pending delete'))	{
+			if (empty($data[$pd]['domain']['expiration_at']) and empty($data[$pd]['domain']['deletion_at'])) {
+				$html_text .= '<tr><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" without date-time provided<td><td></td></tr>';
+			}	
+		}
 	}
 	if (!empty($data[$pd]['domain']['expiration_at']) and !empty($data[$pd]['domain']['deletion_at'])) {
     	$expiration = strtotime($data[$pd]['domain']['expiration_at']);
