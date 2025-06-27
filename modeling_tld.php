@@ -151,7 +151,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
-		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "De beëindigingstatussen uit het verleden zijn vaak misleidend.";
+		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "Een wereldwijde tabeldefinitie is opgesteld, maar ICANN moet nog de leidende rol op zich nemen die het zou moeten vervullen.";
 		document.getElementById("lifecycle_periods").textContent = proposed + 'Meerjarig registreren mogelijk; maximale periode varieert per TLD en registrar.';		
 	}
 	else if (translation == 2)	{
@@ -181,7 +181,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;	
-		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "The termination statuses coming from the past are often misleading.";
+		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "A global table definition has been prepared, but ICANN has yet to step into the leadership role it should play.";
 		document.getElementById("lifecycle_periods").textContent = proposed + 'Multi-year registration possible; max period varies by TLD and registrar.';	
 	}
 	else if (translation == 3)	{
@@ -211,7 +211,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
-		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "Die Kündigungsstände aus der Vergangenheit sind oft irreführend.";
+		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "Eine globale Tabellendefinition wurde erstellt, aber die ICANN hat ihre Führungsrolle noch nicht übernommen, obwohl sie es tun sollte.";
 		document.getElementById("lifecycle_periods").textContent = proposed + 'Mehrjährige Registrierung möglich; maximale Laufzeit variiert je nach TLD und Registrar.';
 	}
 	else if (translation == 4)	{
@@ -241,7 +241,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
-		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "Les statuts de résiliation provenant du passé sont souvent trompeurs.";
+		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "Une définition de table globale a été préparée, mais l’ICANN n’a pas encore assumé le rôle de leadership qui devrait être le sien.";
 		document.getElementById("lifecycle_periods").textContent = proposed + "Enregistrement pluriannuel possible ; durée maximale variable selon le TLD et le registrar.";
 	}
 }	

@@ -369,7 +369,7 @@ $decoded = json_decode($tld_contacts_json, true);
 $tld_contacts = '<b>tld_contacts</b><br />';   
 foreach ($decoded as $contact) {
 	if (strlen($contact['contact_legal_name']) or strlen($contact['contact_presented_name']))	{	
-		$tld_contacts .= '<em>'.$contact['contact_identifier'] . ':</em><br />';
+		$tld_contacts .= '<br /><em>'.$contact['contact_identifier'] . ':</em><br />';
 		if (strlen($contact['contact_legal_name']))	{
 			$tld_contacts .= 'legal_name: ' . $contact['contact_legal_name'] . '<br />';
 		}
