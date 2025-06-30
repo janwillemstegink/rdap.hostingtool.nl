@@ -181,8 +181,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "";
-		document.getElementById("notices_role").textContent = accessible;
-		document.getElementById("links_role").textContent = accessible;
+		document.getElementById("notices_role").textContent = legacy;
+		document.getElementById("links_role").textContent = legacy;
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_resource_upload_at").textContent = modified;
 		document.getElementById("metadata_object_class_name").textContent = modified;
@@ -246,7 +246,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 1)	{
 		var modified = '(Gewijzigd) ';
 		var proposed = '(Nieuw) ';
-		var accessible = 'De voorgestelde velden verbeteren de bruikbaarheid en verhogen de transparantie van RDAP.';
+		var accessible = 'De voorgestelde velden verbeteren de bruikbaarheid en verhogen de transparantie.';
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domeininformatie";
 		document.getElementById("subtitle").textContent = "RDAP v1-gebaseerde modellering";
@@ -254,8 +254,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("field").textContent = "Omschrijving";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Een overzicht van en toelichting op de structuur en kenmerken van webdomeinen.";
-		document.getElementById("notices_role").textContent = accessible;
-		document.getElementById("links_role").textContent = accessible;
+		document.getElementById("notices_role").textContent = legacy + accessible;
+		document.getElementById("links_role").textContent = legacy + accessible;
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Datum en tijdstip van de RDAP-database-update in Zoeloe-tijd (UTC).";
 		document.getElementById("metadata_object_class_name").textContent = modified;
@@ -288,7 +288,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_organization_name").textContent = "De juridische naam van de organisatie die primair verantwoordelijk is voor het domeinabonnement.";
 		document.getElementById("registrant_presented_name").textContent = "Geldig is de naam van een primair verantwoordelijke persoon of een rol binnen de organisatie.";
 		document.getElementById("registrant_kind").textContent = "Leeg / 'org' / 'individual' (Voor continuïteit: levenstestament + testament + digitale executeur)";
-		document.getElementById("registrant_name").textContent = "Een persoonlijke naam kan openbaar zichtbaar zijn in het veld 'presented_name'. Zie bijvoorbeeld circa.ca.";
+		document.getElementById("registrant_name").textContent = "Een persoonlijke naam kan openbaar zichtbaar zijn in het veld 'presented_name'. Zie bijvoorbeeld cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "De ISO-2-landcode-indexering werkt, bijvoorbeeld voor het Verenigd Koninkrijk, dat de EU heeft verlaten.";
 		document.getElementById("registrant_street_address").textContent = "Het afschermen van adresgegevens zoals bij example.tel, resulteert in rommelige gegevens.";
 		document.getElementById("registrant_postal_code").textContent = "Indexeren op postcode is in de database noodzakelijk. De vcard-array vormt een obstakel.";
@@ -319,7 +319,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 2)	{
 		var modified = '(Modified) ';
 		var proposed = '(New) ';
-		var accessible = 'The proposed fields improve usability and increase transparency of RDAP.';
+		var accessible = 'The proposed fields improve usability and increase transparency.';
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domain Information";
 		document.getElementById("subtitle").textContent = "RDAP v1 based modeling";
@@ -327,8 +327,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "An overview of the structure and key characteristics of domain data.";
-		document.getElementById("notices_role").textContent = accessible;
-		document.getElementById("links_role").textContent = accessible;
+		document.getElementById("notices_role").textContent = legacy + accessible;
+		document.getElementById("links_role").textContent = legacy + accessible;
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Date and time of RDAP database update in Zulu time (UTC).";
 		document.getElementById("metadata_object_class_name").textContent = modified;
@@ -361,7 +361,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_organization_name").textContent = "The legal name of the organization primarily responsible for the domain subscription.";
 		document.getElementById("registrant_presented_name").textContent = "Valid is the name of a primarily responsible person or a role within the organization.";
 		document.getElementById("registrant_kind").textContent = "Empty / 'org' / 'individual' (For continuity: Living Will + Will + Digital Executor)";
-		document.getElementById("registrant_name").textContent = "A personal name may be publicly visible in the 'presented_name' field. See for example circa.ca.";
+		document.getElementById("registrant_name").textContent = "A personal name may be publicly visible in the 'presented_name' field. See for example cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "ISO-2 country code indexing works, as for the United Kingdom, which has left the EU.";
 		document.getElementById("registrant_street_address").textContent = "Shielding address data as with example.tel, results in messy data.";
 		document.getElementById("registrant_postal_code").textContent = "Indexing by postal code is necessary in the database. The vcard array is an obstacle.";	
@@ -392,7 +392,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 3)	{
 		var modified = '(Geändert) ';
 		var proposed = '(Neu) ';
-		var accessible = 'Die vorgeschlagenen Felder verbessern die Benutzerfreundlichkeit und erhöhen die Transparenz von RDAP.';
+		var accessible = 'Die vorgeschlagenen Felder verbessern die Benutzerfreundlichkeit und erhöhen die Transparenz.';
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domaininformationen";
 		document.getElementById("subtitle").textContent = "RDAP-v1-basierte Modellierung";
@@ -400,8 +400,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("field").textContent = "Beschreibung";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Eine Übersicht und Erklärung zur Struktur und den Eigenschaften von Webdomänen.";
-		document.getElementById("notices_role").textContent = accessible;
-		document.getElementById("links_role").textContent = accessible;
+		document.getElementById("notices_role").textContent = legacy + accessible;
+		document.getElementById("links_role").textContent = legacy + accessible;
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Datum und Uhrzeit der RDAP-Datenbankaktualisierung in Zulu-Zeit (UTC).";
 		document.getElementById("metadata_object_class_name").textContent = modified;
@@ -434,7 +434,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_organization_name").textContent = "Der offizielle Name der Organisation, die hauptsächlich für das Domänenabonnement verantwortlich ist.";
 		document.getElementById("registrant_presented_name").textContent = "Gültig ist der Name einer hauptverantwortlichen Person oder einer Rolle innerhalb der Organisation.";
 		document.getElementById("registrant_kind").textContent = "Leer / 'org' / 'individual' (Für Kontinuität: Patientenverfügung + Testament + digitaler Testamentsvollstrecker)";
-		document.getElementById("registrant_name").textContent = "Ein Personenname kann im Feld 'presented_name' öffentlich sichtbar sei. Siehe beispielsweise circa.ca.";
+		document.getElementById("registrant_name").textContent = "Ein Personenname kann im Feld 'presented_name' öffentlich sichtbar sei. Siehe beispielsweise cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "Die Indizierung mit dem ISO-2-Ländercode funktioniert, wie für das Vereinigte Königreich, das die EU verlassen hat.";
 		document.getElementById("registrant_street_address").textContent = "Das Abschirmen von Adressdaten wie bei example.tel, führt zu unordentlichen Daten.";
 		document.getElementById("registrant_postal_code").textContent = "In der Datenbank ist eine Indizierung nach Postleitzahl erforderlich. Das vCard-Array stellt ein Hindernis dar.";	
@@ -465,7 +465,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 4)	{
 		var modified = '(Modifié) ';
 		var proposed = '(Nouveau) ';
-		var accessible = "Les champs proposés améliorent la convivialité et augmentent la transparence du RDAP.";
+		var accessible = "Les champs proposés améliorent la convivialité et augmentent la transparence.";
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Informations sur le domaine";
 		document.getElementById("subtitle").textContent = "Modélisation basée sur RDAP v1";
@@ -473,8 +473,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Détail";
 		document.getElementById("explanation").textContent = "Un aperçu et une explication de la structure et des caractéristiques des domaines Web.";
-		document.getElementById("notices_role").textContent = accessible;
-		document.getElementById("links_role").textContent = accessible;
+		document.getElementById("notices_role").textContent = legacy + accessible;
+		document.getElementById("links_role").textContent = legacy + accessible;
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Date et heure de mise à jour de la base de données RDAP en heure Zulu (UTC).";
 		document.getElementById("metadata_object_class_name").textContent = modified;
@@ -507,7 +507,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_organization_name").textContent = "Le nom légal de l'organisation principalement responsable de l'abonnement au domaine.";
 		document.getElementById("registrant_presented_name").textContent = "Valide est le nom d'une personne principalement responsable ou d'un rôle au sein de l'organisation.";
 		document.getElementById("registrant_kind").textContent = "Vide / 'org' / 'individual' (Pour la continuité : testament biologique + testament + exécuteur testamentaire numérique)";
-		document.getElementById("registrant_name").textContent = "Un nom personnel peut être visible publiquement dans le champ 'presented_name'. Voir, par exemple, circa.ca.";
+		document.getElementById("registrant_name").textContent = "Un nom personnel peut être visible publiquement dans le champ 'presented_name'. Voir, par exemple, cira.ca.";
 		document.getElementById("registrant_country_code").textContent = "L'indexation des codes pays ISO-2 fonctionne, comme pour le Royaume-Uni, qui a quitté l'UE.";
 		document.getElementById("registrant_street_address").textContent = "Le blindage des données d'adresse comme avec example.tel, génère des données désordonnées.";
 		document.getElementById("registrant_postal_code").textContent = "L'indexation par code postal est nécessaire dans la base de données. Le tableau vcard constitue un obstacle.";

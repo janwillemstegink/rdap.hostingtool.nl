@@ -67,6 +67,7 @@ foreach ($decoded as $role) {
 $lifecycle_data_active_from = null;	
 $upon_termination = 'Zone-specific regulation';
 $zone_roles_json = '[{"zone_role_sequence": 10,"zone_role_identifier": "abuse","zone_role_shielding": ["name"]},
+{"zone_role_sequence": 11,"zone_role_identifier": "fallback","zone_role_shielding": ["name"]},
 {"zone_role_sequence": 20,"zone_role_identifier": "sponsor","zone_role_shielding": ["name", "email", "tel"]},
 {"zone_role_sequence": 30,"zone_role_identifier": "registrant","zone_role_shielding": ["name", "email", "tel", "address"]},
 {"zone_role_sequence": 40,"zone_role_identifier": "administrative","zone_role_shielding": ["web_id", "name", "tel", "address"]},

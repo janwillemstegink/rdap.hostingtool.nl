@@ -132,7 +132,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("instruction").textContent = "Typ een TLD-naam en druk op Enter.";
 		document.getElementById("field").textContent = "Omschrijving";
 		document.getElementById("value").textContent = "Detail";
-		document.getElementById("explanation").textContent = "Een overzicht van en toelichting op de structuur en kenmerken van TLD's.";
+		document.getElementById("explanation").textContent = "Gestroomlijnde TLD-metadata met een centraal model om redundantie te voorkomen.";
 		document.getElementById("common_role").textContent = proposed;
 		document.getElementById("common_root_zones_url").textContent = proposed + 'URL die verwijst naar de officiële lijst met Root Zones.';
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Een folder /v1/ ondersteunt ook mogelijke /v2/-responses; zie icann.com.";
@@ -141,7 +141,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
 		document.getElementById("root_zone_delegation_url").textContent = proposed + 'URL die verwijst naar het ICANN-delegatierecord voor de TLD.';
-		document.getElementById("root_zone_tld_json_response_url").textContent = proposed;
+		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "IANA moet haar database moderniseren om actuele TLD-gegevens via zo’n URL te leveren.";
 		document.getElementById("root_zone_tld_category").textContent = proposed + 'Geeft een generieke TLD (gTLD) of een landcode-TLD (ccTLD) aan.';
 		document.getElementById("root_zone_tld_type").textContent = proposed + 'Het TLD-type, bijvoorbeeld gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD of geoTLD.';
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Beperkingen op gebruik en registratiebeleid zijn te vinden via deze URL.";
@@ -151,7 +151,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
-		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "Een wereldwijde tabeldefinitie is opgesteld, maar ICANN moet nog de leidende rol op zich nemen die het zou moeten vervullen.";
+		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "Ik heb een globale tabeldefinitie opgesteld, maar ICANN speelt daarin nog geen hoofdrol.";
 		document.getElementById("lifecycle_periods").textContent = proposed + 'Meerjarig registreren mogelijk; maximale periode varieert per TLD en registrar.';		
 	}
 	else if (translation == 2)	{
@@ -162,7 +162,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("instruction").textContent = "Type a TLD name, then press Enter.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
-		document.getElementById("explanation").textContent = "An overview of the structure and key characteristics of TLD data.";
+		document.getElementById("explanation").textContent = "Streamlined TLD metadata using a single-source model to prevent redundancy.";
 		document.getElementById("common_role").textContent = proposed;
 		document.getElementById("common_root_zones_url").textContent = proposed + 'URL pointing to the official list of Root Zones.';
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "A /v1/ folder may also support /v2/ responses — see icann.com for details.";
@@ -171,7 +171,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
 		document.getElementById("root_zone_delegation_url").textContent = proposed + 'URL pointing to the ICANN delegation record for the TLD.';
-		document.getElementById("root_zone_tld_json_response_url").textContent = proposed;
+		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "IANA needs to modernize its database to provide current TLD data via such a URL.";
 		document.getElementById("root_zone_tld_category").textContent = proposed + 'Indicates generic TLD (gTLD) or a country-code TLD (ccTLD).';
 		document.getElementById("root_zone_tld_type").textContent = proposed + 'The TLD type, such as gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD, or geoTLD.';
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Usage and registration restrictions are listed at this URL.";
@@ -181,7 +181,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;	
-		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "A global table definition has been prepared, but ICANN has yet to step into the leadership role it should play.";
+		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "I have prepared a global table definition, but ICANN does not yet play a leading role in it.";
 		document.getElementById("lifecycle_periods").textContent = proposed + 'Multi-year registration possible; max period varies by TLD and registrar.';	
 	}
 	else if (translation == 3)	{
@@ -192,7 +192,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("instruction").textContent = "Geben Sie einen TLD-Namen ein und drücken Sie Enter.";
 		document.getElementById("field").textContent = "Beschreibung";
 		document.getElementById("value").textContent = "Detail";
-		document.getElementById("explanation").textContent = "Eine Übersicht und Erklärung zur Struktur und den Eigenschaften von TLDs.";
+		document.getElementById("explanation").textContent = "Schlanke TLD-Metadaten mit einem Single-Source-Modell zur Vermeidung von Redundanz.";
 		document.getElementById("common_role").textContent = proposed;
 		document.getElementById("common_root_zones_url").textContent = proposed + 'URL mit Verweis auf die offizielle Liste der Root-Zones.';
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Ein /v1/-Ordner unterstützt auch mögliche /v2/-Antworten; siehe icann.com.";
@@ -201,7 +201,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
 		document.getElementById("root_zone_delegation_url").textContent = proposed + 'URL mit Verweis auf den ICANN-Delegationsdatensatz für die TLD.';
-		document.getElementById("root_zone_tld_json_response_url").textContent = proposed;
+		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "IANA muss ihre Datenbank modernisieren, um aktuelle TLD-Daten über eine solche URL bereitzustellen.";
 		document.getElementById("root_zone_tld_category").textContent = proposed + 'Zeigt eine generische TLD (gTLD) oder eine länderspezifische TLD (ccTLD) an.';
 		document.getElementById("root_zone_tld_type").textContent = proposed + 'Der TLD-Typ, z. B. gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD oder geoTLD.';
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Nutzungsbeschränkungen und Registrierungsrichtlinien finden Sie unter dieser URL.";		
@@ -211,7 +211,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
-		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "Eine globale Tabellendefinition wurde erstellt, aber die ICANN hat ihre Führungsrolle noch nicht übernommen, obwohl sie es tun sollte.";
+		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "Ich habe eine globale Tabellendefinition vorbereitet, aber ICANN spielt darin noch keine führende Rolle.";
 		document.getElementById("lifecycle_periods").textContent = proposed + 'Mehrjährige Registrierung möglich; maximale Laufzeit variiert je nach TLD und Registrar.';
 	}
 	else if (translation == 4)	{
@@ -222,7 +222,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("instruction").textContent = "Saisissez un nom TLD, puis appuyez sur Entrée.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Détail";
-		document.getElementById("explanation").textContent = "Un aperçu et une explication de la structure et des caractéristiques des TLD.";
+		document.getElementById("explanation").textContent = "Métadonnées TLD rationalisées utilisant un modèle à source unique pour éviter la redondance.";
 		document.getElementById("common_role").textContent = proposed;
 		document.getElementById("common_root_zones_url").textContent = proposed + "URL référençan la liste officielle des 'Root Zones'.";
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Un dossier /v1/ prend également en charge les réponses /v2/ possibles ; voir icann.com.";
@@ -231,7 +231,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_data_active_from").textContent = proposed;		
 		document.getElementById("root_zone_delegation_url").textContent = proposed + "URL référençant l'enregistrement de délégation de l'ICANN pour le TLD.";
-		document.getElementById("root_zone_tld_json_response_url").textContent = proposed;
+		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "IANA doit moderniser sa base de données pour fournir des données TLD actuelles via une telle URL.";
 		document.getElementById("root_zone_tld_category").textContent = proposed + "Indique un TLD générique (gTLD) ou un TLD de code pays (ccTLD).";
 		document.getElementById("root_zone_tld_type").textContent = proposed + "Le type de TLD, tel que gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD ou geoTLD.";
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Les restrictions d’usage et les politiques d’enregistrement sont accessibles via cette URL.";
@@ -241,7 +241,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
-		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "Une définition de table globale a été préparée, mais l’ICANN n’a pas encore assumé le rôle de leadership qui devrait être le sien.";
+		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "J'ai préparé une définition de table globale, mais l'ICANN n'y joue pas encore un rôle de premier plan.";
 		document.getElementById("lifecycle_periods").textContent = proposed + "Enregistrement pluriannuel possible ; durée maximale variable selon le TLD et le registrar.";
 	}
 }	
