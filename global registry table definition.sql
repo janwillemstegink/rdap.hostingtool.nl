@@ -198,7 +198,7 @@ CREATE TABLE domains (
     domain_latest_transfer_at TIMESTAMPTZ,
     domain_latest_update_at TIMESTAMPTZ,
     domain_expiration_at TIMESTAMPTZ,
-    domain_recovery_deadline TIMESTAMPTZ,
+    domain_recoverable_until TIMESTAMPTZ,
     domain_deletion_at TIMESTAMPTZ,
 	domain_global_json_response_url VARCHAR(511),
 	domain_registry_json_response_url VARCHAR(511),
