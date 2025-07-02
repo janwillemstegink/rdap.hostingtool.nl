@@ -71,6 +71,7 @@ CREATE TABLE zones (
     zone_id SERIAL PRIMARY KEY,
     zone_identifier CITEXT NOT NULL,
 	zone_data_active_from TIMESTAMPTZ,
+	zone_statuses TEXT[],
 	zone_delegation_url VARCHAR(255),
 	zone_tld_category VARCHAR(20) NOT NULL,
     zone_tld_type VARCHAR(20) NOT NULL,
@@ -88,6 +89,7 @@ CREATE TABLE zones (
 		{"zone_role_sequence": 80,"zone_role_identifier": "reseller","zone_role_shielding": ["name", "email", "tel"]},
 		{"zone_role_sequence": 90,"zone_role_identifier": "registrar","zone_role_shielding": ["name", "email", "tel"]},
 		{"zone_role_sequence": 95,"zone_role_identifier": "abuse","zone_role_shielding": ["name"]}]',
+	zone_name_servers JSONB,
 	zone_latest_update_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
 
