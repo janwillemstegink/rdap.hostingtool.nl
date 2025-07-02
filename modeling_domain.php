@@ -45,7 +45,7 @@ if (empty([ip]) or empty([block]))	{
 	[ip] = getClientIP();
 	[block] = get_block([ip]);
 }
-$log_file = "/home/admin/logging/domain_lookup_tool_" . date("Ym") . ".txt";
+$log_file = "/home/admin/logging/domain_lookup_tool_" . $datetime->format('Ym') . ".txt";
 $log_line = $datetime->format('Y-m-d H:i:s') . " UTC, lang" . $viewlanguage . ", " . $vd . ", " . [ip] . ", " . [block] . "\n";
 file_put_contents($log_file, $log_line, FILE_APPEND);
 echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
@@ -97,10 +97,6 @@ function SwitchDisplay(type) {
 		var pre = '30';
 		var max = 12
 	}
-	else if (type == 35)	{ // abuse
-		var pre = '35';
-		var max = 9
-	}
 	else if (type == 39)	{ // sponsor
 		var pre = '39';
 		var max = 25
@@ -125,6 +121,10 @@ function SwitchDisplay(type) {
 		var pre = '44';
 		var max = 20
 	}
+	else if (type == 45)	{ // fallback
+		var pre = '45';
+		var max = 9
+	}
 	else if (type == 50)	{ // reseller
 		var pre = '50';
 		var max = 21
@@ -132,6 +132,10 @@ function SwitchDisplay(type) {
 	else if (type == 60)	{ // registrar
 		var pre = '60';
 		var max = 22
+	}
+	else if (type == 61)	{ // abuse
+		var pre = '61';
+		var max = 9
 	}
 	else if (type == 63)	{ // name servers
 		var pre = '63';
@@ -204,9 +208,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_expiration_at").textContent = "";
 		document.getElementById("domain_recoverable_until").textContent = proposed;
 		document.getElementById("domain_deletion_at").textContent = "";
-		document.getElementById("domain_extensions").textContent = "";
-		document.getElementById("abuse_role").textContent = "";
-		document.getElementById("abuse_telephone").textContent = "";		
+		document.getElementById("domain_extensions").textContent = "";		
 		document.getElementById("sponsor_role").textContent = "";
 		document.getElementById("registrant_role").textContent = "";
 		document.getElementById("registrant_entry_handle").textContent = "";
@@ -229,6 +231,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("billing_role").textContent = "";
 		document.getElementById("emergency_role").textContent = "";
 		document.getElementById("emergency_web_id").textContent = proposed;
+		document.getElementById("fallback_role").textContent = proposed;
 		document.getElementById("reseller_role").textContent = "";
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_verification_received_at").textContent = proposed;
@@ -237,6 +240,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
+		document.getElementById("abuse_role").textContent = "";
+		document.getElementById("abuse_telephone").textContent = "";
 		document.getElementById("name_servers_dnssec").textContent = "";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "";
 		document.getElementById("name_servers_ip").textContent = "";
@@ -277,9 +282,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_expiration_at").textContent = "Eindtijd voor verlenging of van publicatie, daarna neemt de betrokkenheid van de registrar af.";
 		document.getElementById("domain_recoverable_until").textContent = proposed + "Herstel is mogelijk tot 'domain_expiration_at' plus 'redemption_period_days'.";		
 		document.getElementById("domain_deletion_at").textContent = "Datum en tijdstip gepland voor volledige verwijdering. Er kan een laatste verwijderingsfase zijn.";
-		document.getElementById("domain_extensions").textContent = "'Eligibility': Hoe een domein voldoet aan een specifieke vereiste in een topleveldomeinzone.";
-		document.getElementById("abuse_role").textContent = "Informatie over hoe een derde partij contact kan opnemen met de registrar of belaste partij. Zie fryslan.frl.";
-		document.getElementById("abuse_telephone").textContent = "Een telefoonnummer moet beginnen met het type. Toegestaan zijn in ieder geval 'voice' en 'fax'.";		
+		document.getElementById("domain_extensions").textContent = "'Eligibility': Hoe een domein voldoet aan een specifieke vereiste in een topleveldomeinzone.";		
 		document.getElementById("sponsor_role").textContent = "De domeinregistratie kan worden beheerd door een sponsor. Zie bijvoorbeeld france.fr.";
 		document.getElementById("registrant_role").textContent = "De domeingebruiker die de daadwerkelijke of effectieve controle heeft voor domeinrecht in het land van vestiging.";
 		document.getElementById("registrant_entry_handle").textContent = 'De uitvoer van "janwillemstegink.nl" bevat onbedoeld informatie met "STE135420-TRAIP".';
@@ -302,6 +305,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("billing_role").textContent = "Sommige domain registries houden gegevens bij om hun facturering uit te voeren.";
 		document.getElementById("emergency_role").textContent = proposed + "Een verantwoordelijke persoon kan de benodigde toegang verlenen.";
 		document.getElementById("emergency_web_id").textContent = proposed;
+		document.getElementById("fallback_role").textContent = proposed + "Contact gebruikt wanneer rolgegevens niet openbaar zichtbaar zijn.";		
 		document.getElementById("reseller_role").textContent = "De domeinreseller is als tweede verantwoordelijk, ook afhankelijk van de overeenkomst en de regelgeving.";
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_verification_received_at").textContent = proposed;
@@ -309,7 +313,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_role").textContent = "De domeinregistrar is verantwoordelijk voor domeinreserveringen en IP-adresroutering.";
 		document.getElementById("registrar_web_id").textContent = proposed
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
-		document.getElementById("registrar_verification_set_at").textContent = proposed;		
+		document.getElementById("registrar_verification_set_at").textContent = proposed;
+		document.getElementById("abuse_role").textContent = "Informatie over hoe een derde partij contact kan opnemen met de registrar of belaste partij. Zie fryslan.frl.";
+		document.getElementById("abuse_telephone").textContent = "Een telefoonnummer moet beginnen met het type. Toegestaan zijn in ieder geval 'voice' en 'fax'.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
@@ -351,8 +357,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_recoverable_until").textContent = proposed + "Recovery is possible up to the 'domain_expiration_at' plus 'redemption_period_days'.";
 		document.getElementById("domain_deletion_at").textContent = "Date and time scheduled for complete deletion. A final deletion phase may exist.";
 		document.getElementById("domain_extensions").textContent = "'Eligibility': How a domain fulfills a specific requirement in a top-level domain root zone.";
-		document.getElementById("abuse_role").textContent = "Information on how a third party can contact the registrar or entrusted party. See fryslan.frl.";
-		document.getElementById("abuse_telephone").textContent = "A telephone number must begin with the type. Allowed are anyway 'voice' and 'fax'.";
 		document.getElementById("sponsor_role").textContent = "The domain registration can be managed by a sponsor. See for example france.fr.";
 		document.getElementById("registrant_role").textContent = "The domain user who has the actual or effective control for domain rights in the country of establishment.";
 		document.getElementById("registrant_entry_handle").textContent = 'The output from "janwillemstegink.nl" unintentionally contains information with "STE135420-TRAIP".';
@@ -375,6 +379,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("billing_role").textContent = "Some domain registries maintain records to perform their billing.";
 		document.getElementById("emergency_role").textContent = proposed + "A responsible person can provide the necessary access.";
 		document.getElementById("emergency_web_id").textContent = proposed;
+		document.getElementById("fallback_role").textContent = proposed + "Contact used if role data is not publicly visible.";
 		document.getElementById("reseller_role").textContent = "The domain reseller is secondly responsible, also depending on the agreement and regulations.";
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_verification_received_at").textContent = proposed;
@@ -382,7 +387,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_role").textContent = "The domain registrar is responsible for domain reservations and IP address routing.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
-		document.getElementById("registrar_verification_set_at").textContent = proposed;		
+		document.getElementById("registrar_verification_set_at").textContent = proposed;
+		document.getElementById("abuse_role").textContent = "Information on how a third party can contact the registrar or entrusted party. See fryslan.frl.";
+		document.getElementById("abuse_telephone").textContent = "A telephone number must begin with the type. Allowed are anyway 'voice' and 'fax'.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
@@ -424,8 +431,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_recoverable_until").textContent = proposed + "Eine Wiederherstellung ist bis zum Ablaufdatum plus den Tagen der Einlösungsfrist möglich.";
 		document.getElementById("domain_deletion_at").textContent = "Datum und Uhrzeit für die vollständige Löschung geplant. Es kann eine abschließende Löschphase geben.";
 		document.getElementById("domain_extensions").textContent = "'Eligibility': Wie eine Domäne eine bestimmte Anforderung in einer Top-Level-Domänenzone erfüllt.";
-		document.getElementById("abuse_role").textContent = "Informationen darüber, wie Dritte den Registrar oder die beauftragte Partei kontaktieren können. Siehe fryslan.frl.";
-		document.getElementById("abuse_telephone").textContent = "Eine Telefonnummer muss mit dem Typ beginnen. Erlaubt sind grundsätzlich 'voice' und 'fax'.";
 		document.getElementById("sponsor_role").textContent = "Die Domänenregistrierung kann von einem Sponsor verwaltet werden. Siehe beispielsweise france.fr.";
 		document.getElementById("registrant_role").textContent = "Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat für Domainrechte im Wohnsitzland.";
 		document.getElementById("registrant_entry_handle").textContent = 'Die Ausgabe von "janwillemstegink.nl" enthält unbeabsichtigt Informationen mit "STE135420-TRAIP".';
@@ -448,6 +453,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("billing_role").textContent = "Einige Domänenregistrierungen führen Aufzeichnungen, um ihre Abrechnung durchzuführen.";
 		document.getElementById("emergency_role").textContent = proposed + "Die erforderlichen Zugänge kann eine verantwortliche Person bereitstellen.";
 		document.getElementById("emergency_web_id").textContent = proposed;
+		document.getElementById("fallback_role").textContent = proposed + "Kontakt, der verwendet wird, wenn Rollendaten nicht öffentlich sichtbar sind.";
 		document.getElementById("reseller_role").textContent = "In zweiter Linie ist der Domain-Reseller, ebenfalls je nach Vereinbarung und Regelungen, verantwortlich.";
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_verification_received_at").textContent = proposed;
@@ -455,7 +461,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_role").textContent = "Der Domänenregistrar ist für die Domänenreservierung und das IP-Adressrouting verantwortlich.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
-		document.getElementById("registrar_verification_set_at").textContent = proposed;		
+		document.getElementById("registrar_verification_set_at").textContent = proposed;
+		document.getElementById("abuse_role").textContent = "Informationen darüber, wie Dritte den Registrar oder die beauftragte Partei kontaktieren können. Siehe fryslan.frl.";
+		document.getElementById("abuse_telephone").textContent = "Eine Telefonnummer muss mit dem Typ beginnen. Erlaubt sind grundsätzlich 'voice' und 'fax'.";		
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 		document.getElementById("name_servers_ip").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
@@ -497,8 +505,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_recoverable_until").textContent = proposed + "La récupération est possible jusqu'à 'domain_expiration_at' plus 'redemption_period_days'.";
 		document.getElementById("domain_deletion_at").textContent = "Date et heure prévues pour la suppression complète. Une phase de suppression finale peut exister.";
 		document.getElementById("domain_extensions").textContent = "'Eligibility' : comment un domaine répond à une exigence spécifique dans une zone de domaine de premier niveau.";
-		document.getElementById("abuse_role").textContent = "Informations sur la manière dont un tiers peut contacter le registraire ou la partie mandatée. Voir fryslan.frl.";
-		document.getElementById("abuse_telephone").textContent = "Un numéro de téléphone doit commencer par le type. Sont autorisés de toute façon 'voice' et 'fax'.";
 		document.getElementById("sponsor_role").textContent = "L'enregistrement du domaine peut être géré par un sponsor. Voir par exemple france.fr.";
 		document.getElementById("registrant_role").textContent = "L'utilisateur du domaine qui a le contrôle réel ou effectif pour les droits de domaine dans le pays de résidence.";
 		document.getElementById("registrant_entry_handle").textContent = 'La sortie de "janwillemstegink.nl" contient involontairement des informations avec "STE135420-TRAIP"';
@@ -521,6 +527,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("billing_role").textContent = "Certains registres de domaine conservent des enregistrements pour effectuer leur facturation.";
 		document.getElementById("emergency_role").textContent = proposed + "Une personne responsable peut fournir l'accès nécessaire.";
 		document.getElementById("emergency_web_id").textContent = proposed;
+		document.getElementById("fallback_role").textContent = proposed + "Contact utilisé lorsque les données de rôle ne sont pas visibles publiquement.";
 		document.getElementById("reseller_role").textContent = "Le revendeur de domaine est en second lieu responsable, également en fonction de l'accord et des réglementations.";
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_verification_received_at").textContent = proposed;
@@ -528,7 +535,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_role").textContent = "Le registraire de domaine est responsable des réservations de domaines et du routage des adresses IP.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
-		document.getElementById("registrar_verification_set_at").textContent = proposed;		
+		document.getElementById("registrar_verification_set_at").textContent = proposed;
+		document.getElementById("abuse_role").textContent = "Informations sur la manière dont un tiers peut contacter le registraire ou la partie mandatée. Voir fryslan.frl.";
+		document.getElementById("abuse_telephone").textContent = "Un numéro de téléphone doit commencer par le type. Sont autorisés de toute façon 'voice' et 'fax'.";
 		document.getElementById("name_servers_dnssec").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 		document.getElementById("name_servers_ip").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
@@ -642,6 +651,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="299" style="display:none"><td>registrar_complaint_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_complaint_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_complaint_url'].' target="_blank">icann.org/wicf</a>' : '(if accredited)').'</td><td id="metadata_registrar_complaint_url"></td></tr>';
 	$html_text .= '<tr id="2910" style="display:none"><td>status_explanation_url</td><td>'.((strlen($data[$pd]['metadata']['status_explanation_url'])) ? '<a href='.$data[$pd]['metadata']['status_explanation_url'].' target="_blank">icann.org/epp</a>' : '(if accredited)').'</td><td id="metadata_status_explanation_url"></td></tr>';
 	$html_text .= '<tr id="2911" style="display:none"><td>geo_location</td><td>'.$data[$pd]['metadata']['geo_location'].'</td><td></td></tr>';
+	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(30)">Domain Data +/-</button></td><td><b>'.$vd.'</b></td><td id="domain_role"></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>domain_zone_handle</td><td>'.$data[$pd]['domain']['zone_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="302" style="display:none"><td>domain_entry_handle</td><td>'.$data[$pd]['domain']['entry_handle'].'</td><td></td></tr>';
@@ -697,16 +707,6 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	}	
 	$html_text .= '<tr id="3011" style="display:none;vertical-align:top"><td>domain_extensions</td><td>'.$data[$pd]['domain']['extensions'].'</td><td id="domain_extensions"></td></tr>';
 	$html_text .= '<tr id="3012" style="display:none;vertical-align:top"><td>domain_remarks</td><td>'.$data[$pd]['domain']['remarks'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(35)">Abuse Contact +/-</button></td><td></td><td id="abuse_role"></td></tr>';
-	$html_text .= '<tr id="351" style="display:none"><td>abuse_zone_handle</td><td>'.$data[$pd]['abuse']['zone_handle'].'</td><td></td></tr>';
-	$html_text .= '<tr id="352" style="display:none"><td>abuse_entry_handle</td><td>'.$data[$pd]['abuse']['entry_handle'].'</td><td></td></tr>';
-	$html_text .= '<tr id="353" style="display:none"><td>abuse_organization_type</td><td>'.$data[$pd]['abuse']['organization_type'].'</td><td></td></tr>';
-	$html_text .= '<tr id="354" style="display:none"><td>abuse_organization_name</td><td>'.$data[$pd]['abuse']['organization_name'].'</td><td></td></tr>';
-	$html_text .= '<tr id="355" style="display:none"><td>abuse_presented_name</td><td>'.$data[$pd]['abuse']['presented_name'].'</td><td></td></tr>';
-	$html_text .= '<tr id="356" style="display:none"><td>abuse_kind</td><td>'.$data[$pd]['abuse']['kind'].'</td><td></td></tr>';
-	$html_text .= '<tr id="357" style="display:none"><td>abuse_email</td><td>'.$data[$pd]['abuse']['email'].'</td><td></td></tr>';
-	$html_text .= '<tr id="358" style="display:none"><td>abuse_telephone</td><td>'.$data[$pd]['abuse']['telephone'].'</td><td id="abuse_telephone"></td></tr>';
-	$html_text .= '<tr id="359" style="display:none"><td>abuse_country_code</td><td>'.$data[$pd]['abuse']['country_code'].'</td><td id="abuse_country_code"></td></tr>';
 	$sponsor_applicable = (strlen($data[$pd]['sponsor']['organization_name']) or strlen($data[$pd]['sponsor']['presented_name'])) ? 'Sponsor Data Exists' : 'No Sponsor Data';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(39)">Sponsor +/-</button></td><td>'.$sponsor_applicable.'</td><td id="sponsor_role"></td></tr>';
 	$html_text .= '<tr id="391" style="display:none"><td>sponsor_zone_handle</td><td>'.$data[$pd]['sponsor']['zone_handle'].'</td><td></td></tr>';
@@ -844,6 +844,16 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4418" style="display:none"><td>emergency_language_pref_2</td><td>'.$data[$pd]['emergency']['language_pref_2'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4419" style="display:none;vertical-align:top"><td>emergency_properties</td><td>'.$data[$pd]['emergency']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4420" style="display:none;vertical-align:top"><td>emergency_remarks</td><td>'.$data[$pd]['emergency']['remarks'].'</td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(45)">Fallback Contact +/-</button></td><td></td><td id="fallback_role"></td></tr>';
+	$html_text .= '<tr id="451" style="display:none"><td>fallback_zone_handle</td><td>'.$data[$pd]['fallback']['zone_handle'].'</td><td></td></tr>';
+	$html_text .= '<tr id="452" style="display:none"><td>fallback_entry_handle</td><td>'.$data[$pd]['fallback']['entry_handle'].'</td><td></td></tr>';
+	$html_text .= '<tr id="453" style="display:none"><td>fallback_organization_type</td><td>'.$data[$pd]['fallback']['organization_type'].'</td><td></td></tr>';
+	$html_text .= '<tr id="454" style="display:none"><td>fallback_organization_name</td><td>'.$data[$pd]['fallback']['organization_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="455" style="display:none"><td>fallback_presented_name</td><td>'.$data[$pd]['fallback']['presented_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="456" style="display:none"><td>fallback_kind</td><td>'.$data[$pd]['fallback']['kind'].'</td><td></td></tr>';
+	$html_text .= '<tr id="457" style="display:none"><td>fallback_email</td><td>'.$data[$pd]['fallback']['email'].'</td><td></td></tr>';
+	$html_text .= '<tr id="458" style="display:none"><td>fallback_telephone</td><td>'.$data[$pd]['fallback']['telephone'].'</td><td></td></tr>';
+	$html_text .= '<tr id="459" style="display:none"><td>fallback_country_code</td><td>'.$data[$pd]['fallback']['country_code'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(50)">Reseller +/-</button></td><td></td><td id="reseller_role"></td></tr>';
 	$html_text .= '<tr id="501" style="display:none"><td>reseller_zone_handle</td><td>'.$data[$pd]['reseller']['zone_handle'].'</td><td></td></tr>';
@@ -871,7 +881,6 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="5020" style="display:none"><td>reseller_verification_set_at</td><td>'.$data[$pd]['reseller']['verification_set_at'].'</td><td id="reseller_verification_set_at"></td></tr>';
 	$html_text .= '<tr id="5021" style="display:none;vertical-align:top"><td>reseller_properties</td><td>'.$data[$pd]['reseller']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="5022" style="display:none;vertical-align:top"><td>reseller_remarks</td><td>'.$data[$pd]['reseller']['remarks'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(60)">Registrar +/-</button></td><td></td><td id="registrar_role"></td></tr>';
 	$html_text .= '<tr id="601" style="display:none"><td>registrar_zone_handle</td><td>'.$data[$pd]['registrar']['zone_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="602" style="display:none"><td>registrar_entry_handle</td><td>'.$data[$pd]['registrar']['entry_handle'].'</td><td></td></tr>';
@@ -898,6 +907,16 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="6020" style="display:none"><td>registrar_verification_set_at</td><td>'.$data[$pd]['registrar']['verification_set_at'].'</td><td id="registrar_verification_set_at"></td></tr>';
 	$html_text .= '<tr id="6021" style="display:none;vertical-align:top"><td>registrar_properties</td><td>'.$data[$pd]['registrar']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="6022" style="display:none;vertical-align:top"><td>registrar_remarks</td><td>'.$data[$pd]['registrar']['remarks'].'</td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Abuse Contact +/-</button></td><td></td><td id="abuse_role"></td></tr>';
+	$html_text .= '<tr id="611" style="display:none"><td>abuse_zone_handle</td><td>'.$data[$pd]['abuse']['zone_handle'].'</td><td></td></tr>';
+	$html_text .= '<tr id="612" style="display:none"><td>abuse_entry_handle</td><td>'.$data[$pd]['abuse']['entry_handle'].'</td><td></td></tr>';
+	$html_text .= '<tr id="613" style="display:none"><td>abuse_organization_type</td><td>'.$data[$pd]['abuse']['organization_type'].'</td><td></td></tr>';
+	$html_text .= '<tr id="614" style="display:none"><td>abuse_organization_name</td><td>'.$data[$pd]['abuse']['organization_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="615" style="display:none"><td>abuse_presented_name</td><td>'.$data[$pd]['abuse']['presented_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="616" style="display:none"><td>abuse_kind</td><td>'.$data[$pd]['abuse']['kind'].'</td><td></td></tr>';
+	$html_text .= '<tr id="617" style="display:none"><td>abuse_email</td><td>'.$data[$pd]['abuse']['email'].'</td><td></td></tr>';
+	$html_text .= '<tr id="618" style="display:none"><td>abuse_telephone</td><td>'.$data[$pd]['abuse']['telephone'].'</td><td id="abuse_telephone"></td></tr>';
+	$html_text .= '<tr id="619" style="display:none"><td>abuse_country_code</td><td>'.$data[$pd]['abuse']['country_code'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(63)">Name Servers +/-</button></td><td></td><td></td></tr>';
 	$html_text .= '<tr id="631" style="display:none;vertical-align:top"><td>zone_handles</td><td>'.$data[$pd]['name_servers']['zone_handles'].'</td><td></td></tr>';

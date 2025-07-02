@@ -66,16 +66,16 @@ foreach ($decoded as $role) {
 }	
 $lifecycle_data_active_from = null;	
 $upon_termination = 'Zone-specific regulation';
-$zone_roles_json = '[{"zone_role_sequence": 10,"zone_role_identifier": "abuse","zone_role_shielding": ["name"]},
-{"zone_role_sequence": 11,"zone_role_identifier": "fallback","zone_role_shielding": ["name"]},
-{"zone_role_sequence": 20,"zone_role_identifier": "sponsor","zone_role_shielding": ["name", "email", "tel"]},
-{"zone_role_sequence": 30,"zone_role_identifier": "registrant","zone_role_shielding": ["name", "email", "tel", "address"]},
-{"zone_role_sequence": 40,"zone_role_identifier": "administrative","zone_role_shielding": ["web_id", "name", "tel", "address"]},
-{"zone_role_sequence": 50,"zone_role_identifier": "technical","zone_role_shielding": ["web_id", "name", "tel", "address"]},
-{"zone_role_sequence": 60,"zone_role_identifier": "billing","zone_role_shielding": ["web_id", "name", "email", "tel", "address"]},
-{"zone_role_sequence": 70,"zone_role_identifier": "emergency","zone_role_shielding": ["name"]},
+$zone_roles_json = '[{"zone_role_sequence": 10,"zone_role_identifier": "sponsor","zone_role_shielding": ["name", "email", "tel"]},
+{"zone_role_sequence": 20,"zone_role_identifier": "registrant","zone_role_shielding": ["name", "email", "tel", "address"]},
+{"zone_role_sequence": 30,"zone_role_identifier": "administrative","zone_role_shielding": ["web_id", "name", "tel", "address"]},
+{"zone_role_sequence": 40,"zone_role_identifier": "technical","zone_role_shielding": ["web_id", "name", "tel", "address"]},
+{"zone_role_sequence": 50,"zone_role_identifier": "billing","zone_role_shielding": ["web_id", "name", "email", "tel", "address"]},
+{"zone_role_sequence": 60,"zone_role_identifier": "emergency","zone_role_shielding": ["name"]},
+{"zone_role_sequence": 70,"zone_role_identifier": "fallback","zone_role_shielding": ["name"]},
 {"zone_role_sequence": 80,"zone_role_identifier": "reseller","zone_role_shielding": ["name", "email", "tel"]},
-{"zone_role_sequence": 90,"zone_role_identifier": "registrar","zone_role_shielding": ["name", "email", "tel"]}]';
+{"zone_role_sequence": 90,"zone_role_identifier": "registrar","zone_role_shielding": ["name", "email", "tel"]},
+{"zone_role_sequence": 95,"zone_role_identifier": "abuse","zone_role_shielding": ["name"]}]';
 $decoded = json_decode($zone_roles_json, true);
 usort($decoded, function ($a, $b) {
     return $a['zone_role_sequence'] <=> $b['zone_role_sequence'];

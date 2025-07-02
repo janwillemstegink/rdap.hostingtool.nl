@@ -1269,16 +1269,7 @@ $arr[$inputdomain]['domain']['latest_update_at'] = $latest_update_at;
 $arr[$inputdomain]['domain']['expiration_at'] = $expiration_at;
 $arr[$inputdomain]['domain']['deletion_at'] = $deletion_at;
 $arr[$inputdomain]['domain']['extensions'] = $extensions;
-$arr[$inputdomain]['domain']['remarks'] = $remarks;	
-	
-$arr[$inputdomain]['abuse']['entry_handle'] = $abuse_handle;
-$arr[$inputdomain]['abuse']['organization_type'] = $abuse_organization_type;
-$arr[$inputdomain]['abuse']['organization_name'] = $abuse_organization_name;	
-$arr[$inputdomain]['abuse']['presented_name'] = $abuse_presented_name;
-$arr[$inputdomain]['abuse']['kind'] = $abuse_kind;
-$arr[$inputdomain]['abuse']['email'] = $abuse_email;	
-$arr[$inputdomain]['abuse']['telephone'] = $abuse_telephone;
-$arr[$inputdomain]['abuse']['country_code'] = $abuse_country_code;		
+$arr[$inputdomain]['domain']['remarks'] = $remarks;			
 	
 $arr[$inputdomain]['sponsor']['entry_handle'] = $sponsor_handle;
 $arr[$inputdomain]['sponsor']['web_id'] = $sponsor_web_id;		
@@ -1439,7 +1430,16 @@ $arr[$inputdomain]['registrar']['statuses'] = $registrar_statuses;
 $arr[$inputdomain]['registrar']['created_at'] = $registrar_created_at;
 $arr[$inputdomain]['registrar']['latest_update_at'] = $registrar_latest_update_at;
 $arr[$inputdomain]['registrar']['properties'] = $registrar_properties;
-$arr[$inputdomain]['registrar']['remarks'] = $registrar_remarks;	
+$arr[$inputdomain]['registrar']['remarks'] = $registrar_remarks;
+	
+$arr[$inputdomain]['abuse']['entry_handle'] = $abuse_handle;
+$arr[$inputdomain]['abuse']['organization_type'] = $abuse_organization_type;
+$arr[$inputdomain]['abuse']['organization_name'] = $abuse_organization_name;	
+$arr[$inputdomain]['abuse']['presented_name'] = $abuse_presented_name;
+$arr[$inputdomain]['abuse']['kind'] = $abuse_kind;
+$arr[$inputdomain]['abuse']['email'] = $abuse_email;	
+$arr[$inputdomain]['abuse']['telephone'] = $abuse_telephone;
+$arr[$inputdomain]['abuse']['country_code'] = $abuse_country_code;	
 	
 $arr[$inputdomain]['name_servers']['entry_handles'] = $name_servers_handles;
 $arr[$inputdomain]['name_servers']['ascii_names'] = $name_servers_ascii;
