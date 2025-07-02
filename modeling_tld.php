@@ -1,5 +1,7 @@
 <?php
 session_start();  // is needed with no Scriptcase PHP Generator
+//ini_set('display_errors', 1);
+//error_reporting(E_ALL);
 $datetime = new DateTime('now', new DateTimeZone('UTC'));
 $utc = $datetime->format('Y-m-d H:i:s');
 if (empty($_GET["language"]))	{
@@ -57,7 +59,39 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 ?><script>
 	
 function SwitchDisplay(type) {
-	if (type == 26)	{ 	// common
+	if (type == 11)	{ // notice 0
+		var pre = '11';
+		var max = 5
+	}
+	else if (type == 12)	{ // notice 1
+		var pre = '12';
+		var max = 5
+	}
+	else if (type == 13)	{ // notice 2
+		var pre = '13';
+		var max = 5
+	}
+	else if (type == 14)	{ // notice 3
+		var pre = '14';
+		var max = 5
+	}
+	else if (type == 20)	{ // links 0
+		var pre = '20';
+		var max = 7
+	}
+	else if (type == 21)	{ // links 1
+		var pre = '21';
+		var max = 7
+	}
+	else if (type == 22)	{ // links 2
+		var pre = '22';
+		var max = 7
+	}
+	else if (type == 23)	{ // links 3
+		var pre = '23';
+		var max = 7
+	}
+	else if (type == 26)	{ // common
 		var pre = '26';
 		var max = 1
 	}
@@ -67,7 +101,11 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 28)	{ // lifecycle
 		var pre = '28';
-		var max = 1
+		var max = 2
+	}
+	else if (type == 63)	{ // name servers
+		var pre = '63';
+		var max = 6
 	}
 	else	{
 		return;	
@@ -97,12 +135,15 @@ function SwitchTranslation(translation)	{
 	if (translation == 99)	{
 		var modified = '';
 		var proposed = '';
+		var legacy = '';
 		document.getElementById("title").textContent = "TLD Information";
 		document.getElementById("subtitle").textContent = "RDAP v1 based modeling";
 		document.getElementById("instruction").textContent = "Fill in and press Enter to retrieve.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "";
+		document.getElementById("notices_role").textContent = legacy;
+		document.getElementById("links_role").textContent = legacy;		
 		document.getElementById("common_role").textContent = proposed;
 		document.getElementById("common_root_zones_url").textContent = proposed;
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed;
@@ -110,7 +151,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_tld_roles").textContent = proposed;
 		document.getElementById("root_zone_role").textContent = proposed;
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
-		document.getElementById("root_zone_delegation_url").textContent = proposed;
+		document.getElementById("root_zone_tld_statuses").textContent = modified;
+		document.getElementById("root_zone_tld_delegation_url").textContent = proposed;
 		document.getElementById("root_zone_tld_json_response_url").textContent = proposed;
 		document.getElementById("root_zone_tld_category").textContent = proposed;
 		document.getElementById("root_zone_tld_type").textContent = proposed;
@@ -127,12 +169,15 @@ function SwitchTranslation(translation)	{
 	else if (translation == 1)	{
 		var modified = '(Gewijzigd) ';
 		var proposed = '(Nieuw) ';
+		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "TLD-informatie";
 		document.getElementById("subtitle").textContent = "RDAP v1-gebaseerde modellering";
 		document.getElementById("instruction").textContent = "Typ een TLD-naam en druk op Enter.";
 		document.getElementById("field").textContent = "Omschrijving";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Gestroomlijnde TLD-metadata met een centraal model om redundantie te voorkomen.";
+		document.getElementById("notices_role").textContent = legacy;
+		document.getElementById("links_role").textContent = legacy;
 		document.getElementById("common_role").textContent = proposed;
 		document.getElementById("common_root_zones_url").textContent = proposed + 'URL die verwijst naar de officiële lijst met Root Zones.';
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Een folder /v1/ ondersteunt ook mogelijke /v2/-responses; zie icann.com.";
@@ -140,8 +185,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_tld_roles").textContent = proposed;
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
-		document.getElementById("root_zone_delegation_url").textContent = proposed + 'URL die verwijst naar het ICANN-delegatierecord voor de TLD.';
-		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "IANA moet haar database moderniseren om actuele TLD-gegevens via zo’n URL te leveren.";
+		document.getElementById("root_zone_tld_statuses").textContent = modified;		
+		document.getElementById("root_zone_tld_delegation_url").textContent = proposed + 'URL die verwijst naar het ICANN-delegatierecord voor de TLD.';
+		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "IANA kan overstappen op een moderne database voor de TLD-rollen en levenscyclus.";
 		document.getElementById("root_zone_tld_category").textContent = proposed + 'Geeft een generieke TLD (gTLD) of een landcode-TLD (ccTLD) aan.';
 		document.getElementById("root_zone_tld_type").textContent = proposed + 'Het TLD-type, bijvoorbeeld gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD of geoTLD.';
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Beperkingen op gebruik en registratiebeleid zijn te vinden via deze URL.";
@@ -157,12 +203,15 @@ function SwitchTranslation(translation)	{
 	else if (translation == 2)	{
 		var modified = '(Modified) ';
 		var proposed = '(New) ';
+		var legacy = '(Legacy) ';		
 		document.getElementById("title").textContent = "TLD Information";
 		document.getElementById("subtitle").textContent = "RDAP v1 based modeling";
 		document.getElementById("instruction").textContent = "Type a TLD name, then press Enter.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Streamlined TLD metadata using a single-source model to prevent redundancy.";
+		document.getElementById("notices_role").textContent = legacy;
+		document.getElementById("links_role").textContent = legacy;		
 		document.getElementById("common_role").textContent = proposed;
 		document.getElementById("common_root_zones_url").textContent = proposed + 'URL pointing to the official list of Root Zones.';
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "A /v1/ folder may also support /v2/ responses — see icann.com for details.";
@@ -170,8 +219,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_tld_roles").textContent = proposed;		
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
-		document.getElementById("root_zone_delegation_url").textContent = proposed + 'URL pointing to the ICANN delegation record for the TLD.';
-		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "IANA needs to modernize its database to provide current TLD data via such a URL.";
+		document.getElementById("root_zone_tld_statuses").textContent = modified;
+		document.getElementById("root_zone_tld_delegation_url").textContent = proposed + 'URL pointing to the ICANN delegation record for the TLD.';
+		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "IANA can move to a modern database for the TLD roles and lifecycle.";
 		document.getElementById("root_zone_tld_category").textContent = proposed + 'Indicates generic TLD (gTLD) or a country-code TLD (ccTLD).';
 		document.getElementById("root_zone_tld_type").textContent = proposed + 'The TLD type, such as gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD, or geoTLD.';
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Usage and registration restrictions are listed at this URL.";
@@ -187,12 +237,15 @@ function SwitchTranslation(translation)	{
 	else if (translation == 3)	{
 		var modified = '(Geändert) ';
 		var proposed = '(Neu) ';
+		var legacy = '(Legacy) ';		
 		document.getElementById("title").textContent = "TLD-Informationen";
 		document.getElementById("subtitle").textContent = "RDAP-v1-basierte Modellierung";
 		document.getElementById("instruction").textContent = "Geben Sie einen TLD-Namen ein und drücken Sie Enter.";
 		document.getElementById("field").textContent = "Beschreibung";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Schlanke TLD-Metadaten mit einem Single-Source-Modell zur Vermeidung von Redundanz.";
+		document.getElementById("notices_role").textContent = legacy;
+		document.getElementById("links_role").textContent = legacy;		
 		document.getElementById("common_role").textContent = proposed;
 		document.getElementById("common_root_zones_url").textContent = proposed + 'URL mit Verweis auf die offizielle Liste der Root-Zones.';
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Ein /v1/-Ordner unterstützt auch mögliche /v2/-Antworten; siehe icann.com.";
@@ -200,8 +253,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_tld_roles").textContent = proposed;		
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
-		document.getElementById("root_zone_delegation_url").textContent = proposed + 'URL mit Verweis auf den ICANN-Delegationsdatensatz für die TLD.';
-		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "IANA muss ihre Datenbank modernisieren, um aktuelle TLD-Daten über eine solche URL bereitzustellen.";
+		document.getElementById("root_zone_tld_statuses").textContent = modified;
+		document.getElementById("root_zone_tld_delegation_url").textContent = proposed + 'URL mit Verweis auf den ICANN-Delegationsdatensatz für die TLD.';
+		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "IANA kann für die TLD-Rollen und den Lebenszyklus auf eine moderne Datenbank umsteigen.";
 		document.getElementById("root_zone_tld_category").textContent = proposed + 'Zeigt eine generische TLD (gTLD) oder eine länderspezifische TLD (ccTLD) an.';
 		document.getElementById("root_zone_tld_type").textContent = proposed + 'Der TLD-Typ, z. B. gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD oder geoTLD.';
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Nutzungsbeschränkungen und Registrierungsrichtlinien finden Sie unter dieser URL.";		
@@ -217,21 +271,25 @@ function SwitchTranslation(translation)	{
 	else if (translation == 4)	{
 		var modified = '(Modifié) ';
 		var proposed = '(Nouveau) ';
+		var legacy = '(Legacy) ';		
 		document.getElementById("title").textContent = "Informations sur le TLD";
 		document.getElementById("subtitle").textContent = "Modélisation basée sur RDAP v1";
 		document.getElementById("instruction").textContent = "Saisissez un nom TLD, puis appuyez sur Entrée.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Détail";
 		document.getElementById("explanation").textContent = "Métadonnées TLD rationalisées utilisant un modèle à source unique pour éviter la redondance.";
+		document.getElementById("notices_role").textContent = legacy;
+		document.getElementById("links_role").textContent = legacy;		
 		document.getElementById("common_role").textContent = proposed;
 		document.getElementById("common_root_zones_url").textContent = proposed + "URL référençan la liste officielle des 'Root Zones'.";
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Un dossier /v1/ prend également en charge les réponses /v2/ possibles ; voir icann.com.";
 		document.getElementById("common_registrar_accreditations_url").textContent = proposed;
 		document.getElementById("common_tld_roles").textContent = proposed;
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
-		document.getElementById("root_zone_data_active_from").textContent = proposed;		
-		document.getElementById("root_zone_delegation_url").textContent = proposed + "URL référençant l'enregistrement de délégation de l'ICANN pour le TLD.";
-		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "IANA doit moderniser sa base de données pour fournir des données TLD actuelles via une telle URL.";
+		document.getElementById("root_zone_data_active_from").textContent = proposed;
+		document.getElementById("root_zone_tld_statuses").textContent = modified;
+		document.getElementById("root_zone_tld_delegation_url").textContent = proposed + "URL référençant l'enregistrement de délégation de l'ICANN pour le TLD.";
+		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "L'IANA peut passer à une base de données moderne pour les rôles et le cycle de vie des TLD.";
 		document.getElementById("root_zone_tld_category").textContent = proposed + "Indique un TLD générique (gTLD) ou un TLD de code pays (ccTLD).";
 		document.getElementById("root_zone_tld_type").textContent = proposed + "Le type de TLD, tel que gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD ou geoTLD.";
 		document.getElementById("root_zone_restrictions_url").textContent = proposed + "Les restrictions d’usage et les politiques d’enregistrement sont accessibles via cette URL.";
@@ -282,6 +340,56 @@ $html_text .= '<tr style="font-size: .8rem"><td id="subtitle" style="font-size: 
 	<a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_menu" target="_blank">menu modeling</a> - <a style="font-size: 0.9rem" href="https://github.com/janwillemstegink/rdap.hostingtool.nl" target="_blank">code/issues on GitHub</a> - <a style="font-size: 0.9rem" href="https://janwillemstegink.nl/" target="_blank">janwillemstegink.nl</a></td></tr>';
 if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($data[$pd]['domain']['ascii_name']))	{
 	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td id="value"><td id="explanation"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(11)">Notice0 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(12)">Notice1 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(13)">Notice2 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(14)">Notice3 +/-</button></td><td></td><td id="notices_role"></td></tr>';
+	$html_text .= '<tr id="111" style="display:none;vertical-align:top"><td>notice_0_title</td><td>'.$data[$pd]['notices']['notice_0_title'].'</td><td></td></tr>';
+	$html_text .= '<tr id="112" style="display:none;vertical-align:top"><td>notice_0_description_0</td><td>'.$data[$pd]['notices']['notice_0_description_0'].'</td><td></td></tr>';
+	$html_text .= '<tr id="113" style="display:none;vertical-align:top"><td>notice_0_description_1</td><td>'.$data[$pd]['notices']['notice_0_description_1'].'</td><td></td></tr>';
+	$html_text .= '<tr id="114" style="display:none;vertical-align:top"><td>notice_0_links_0_href</td><td>'.$data[$pd]['notices']['notice_0_links_0_href'].'</td><td></td></tr>';
+	$html_text .= '<tr id="115" style="display:none;vertical-align:top"><td>notice_0_links_0_type</td><td>'.$data[$pd]['notices']['notice_0_links_0_type'].'</td><td></td></tr>';
+	$html_text .= '<tr id="121" style="display:none;vertical-align:top"><td>notice_1_title</td><td>'.$data[$pd]['notices']['notice_1_title'].'</td><td></td></tr>';
+	$html_text .= '<tr id="122" style="display:none;vertical-align:top"><td>notice_1_description_0</td><td>'.$data[$pd]['notices']['notice_1_description_0'].'</td><td></td></tr>';
+	$html_text .= '<tr id="123" style="display:none;vertical-align:top"><td>notice_1_description_1</td><td>'.$data[$pd]['notices']['notice_1_description_1'].'</td><td></td></tr>';
+	$html_text .= '<tr id="124" style="display:none;vertical-align:top"><td>notice_1_links_0_href</td><td>'.$data[$pd]['notices']['notice_1_links_0_href'].'</td><td></td></tr>';
+	$html_text .= '<tr id="125" style="display:none;vertical-align:top"><td>notice_1_links_0_type</td><td>'.$data[$pd]['notices']['notice_1_links_0_type'].'</td><td></td></tr>';
+	$html_text .= '<tr id="131" style="display:none;vertical-align:top"><td>notice_2_title</td><td>'.$data[$pd]['notices']['notice_2_title'].'</td><td></td></tr>';
+	$html_text .= '<tr id="132" style="display:none;vertical-align:top"><td>notice_2_description_0</td><td>'.$data[$pd]['notices']['notice_2_description_0'].'</td><td></td></tr>';
+	$html_text .= '<tr id="133" style="display:none;vertical-align:top"><td>notice_2_description_1</td><td>'.$data[$pd]['notices']['notice_2_description_1'].'</td><td></td></tr>';
+	$html_text .= '<tr id="134" style="display:none;vertical-align:top"><td>notice_2_links_0_href</td><td>'.$data[$pd]['notices']['notice_2_links_0_href'].'</td><td></td></tr>';
+	$html_text .= '<tr id="135" style="display:none;vertical-align:top"><td>notice_2_links_0_type</td><td>'.$data[$pd]['notices']['notice_2_links_0_type'].'</td><td></td></tr>';
+	$html_text .= '<tr id="141" style="display:none;vertical-align:top"><td>notice_3_title</td><td>'.$data[$pd]['notices']['notice_3_title'].'</td><td></td></tr>';
+	$html_text .= '<tr id="142" style="display:none;vertical-align:top"><td>notice_3_description_0</td><td>'.$data[$pd]['notices']['notice_3_description_0'].'</td><td></td></tr>';
+	$html_text .= '<tr id="143" style="display:none;vertical-align:top"><td>notice_3_description_1</td><td>'.$data[$pd]['notices']['notice_3_description_1'].'</td><td></td></tr>';
+	$html_text .= '<tr id="144" style="display:none;vertical-align:top"><td>notice_3_links_0_href</td><td>'.$data[$pd]['notices']['notice_3_links_0_href'].'</td><td></td></tr>';
+	$html_text .= '<tr id="145" style="display:none;vertical-align:top"><td>notice_3_links_0_type</td><td>'.$data[$pd]['notices']['notice_3_links_0_type'].'</td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.95rem" onclick="SwitchDisplay(20)">Links0 +/-</button> <button style="cursor:pointer;font-size:.95rem" onclick="SwitchDisplay(21)">Links1 +/-</button> <button style="cursor:pointer;font-size:.95rem" onclick="SwitchDisplay(22)">Links2 +/-</button> <button style="cursor:pointer;font-size:.95rem" onclick="SwitchDisplay(23)">Links3 +/-</button></td><td></td><td id="links_role"></td></tr>';
+	$html_text .= '<tr id="201" style="display:none;vertical-align:top"><td>links_0_value</td><td>'.$data[$pd]['links']['links_0_value'].'</td><td></td></tr>';
+	$html_text .= '<tr id="202" style="display:none;vertical-align:top"><td>links_0_related</td><td>'.$data[$pd]['links']['links_0_related'].'</td><td></td></tr>';
+	$html_text .= '<tr id="203" style="display:none;vertical-align:top"><td>links_0_href</td><td>'.$data[$pd]['links']['links_0_href'].'</td><td></td></tr>';
+	$html_text .= '<tr id="204" style="display:none;vertical-align:top"><td>links_0_href_lang</td><td>'.$data[$pd]['links']['links_0_href_lang'].'</td><td></td></tr>';
+	$html_text .= '<tr id="205" style="display:none;vertical-align:top"><td>links_0_title</td><td>'.$data[$pd]['links']['links_0_title'].'</td><td></td></tr>';
+	$html_text .= '<tr id="206" style="display:none;vertical-align:top"><td>links_0_media</td><td>'.$data[$pd]['links']['links_0_media'].'</td><td></td></tr>';
+	$html_text .= '<tr id="207" style="display:none;vertical-align:top"><td>links_0_type</td><td>'.$data[$pd]['links']['links_0_type'].'</td><td></td></tr>';
+	$html_text .= '<tr id="211" style="display:none;vertical-align:top"><td>links_1_value</td><td>'.$data[$pd]['links']['links_1_value'].'</td><td></td></tr>';
+	$html_text .= '<tr id="212" style="display:none;vertical-align:top"><td>links_1_related</td><td>'.$data[$pd]['links']['links_1_related'].'</td><td></td></tr>';
+	$html_text .= '<tr id="213" style="display:none;vertical-align:top"><td>links_1_href</td><td>'.$data[$pd]['links']['links_1_href'].'</td><td></td></tr>';
+	$html_text .= '<tr id="214" style="display:none;vertical-align:top"><td>links_1_href_lang</td><td>'.$data[$pd]['links']['links_1_href_lang'].'</td><td></td></tr>';
+	$html_text .= '<tr id="215" style="display:none;vertical-align:top"><td>links_1_title</td><td>'.$data[$pd]['links']['links_1_title'].'</td><td></td></tr>';
+	$html_text .= '<tr id="216" style="display:none;vertical-align:top"><td>links_1_media</td><td>'.$data[$pd]['links']['links_1_media'].'</td><td></td></tr>';
+	$html_text .= '<tr id="217" style="display:none;vertical-align:top"><td>links_1_type</td><td>'.$data[$pd]['links']['links_1_type'].'</td><td></td></tr>';
+	$html_text .= '<tr id="221" style="display:none;vertical-align:top"><td>links_2_value</td><td>'.$data[$pd]['links']['links_2_value'].'</td><td></td></tr>';
+	$html_text .= '<tr id="222" style="display:none;vertical-align:top"><td>links_2_related</td><td>'.$data[$pd]['links']['links_2_related'].'</td><td></td></tr>';
+	$html_text .= '<tr id="223" style="display:none;vertical-align:top"><td>links_2_href</td><td>'.$data[$pd]['links']['links_2_href'].'</td><td></td></tr>';
+	$html_text .= '<tr id="224" style="display:none;vertical-align:top"><td>links_2_href_lang</td><td>'.$data[$pd]['links']['links_2_href_lang'].'</td><td></td></tr>';
+	$html_text .= '<tr id="225" style="display:none;vertical-align:top"><td>links_2_title</td><td>'.$data[$pd]['links']['links_2_title'].'</td><td></td></tr>';
+	$html_text .= '<tr id="226" style="display:none;vertical-align:top"><td>links_2_media</td><td>'.$data[$pd]['links']['links_2_media'].'</td><td></td></tr>';
+	$html_text .= '<tr id="227" style="display:none;vertical-align:top"><td>links_2_type</td><td>'.$data[$pd]['links']['links_2_type'].'</td><td></td></tr>';
+	$html_text .= '<tr id="231" style="display:none;vertical-align:top"><td>links_3_value</td><td>'.$data[$pd]['links']['links_3_value'].'</td><td></td></tr>';
+	$html_text .= '<tr id="232" style="display:none;vertical-align:top"><td>links_3_related</td><td>'.$data[$pd]['links']['links_3_related'].'</td><td></td></tr>';
+	$html_text .= '<tr id="233" style="display:none;vertical-align:top"><td>links_3_href</td><td>'.$data[$pd]['links']['links_3_href'].'</td><td></td></tr>';
+	$html_text .= '<tr id="234" style="display:none;vertical-align:top"><td>links_3_href_lang</td><td>'.$data[$pd]['links']['links_3_href_lang'].'</td><td></td></tr>';
+	$html_text .= '<tr id="235" style="display:none;vertical-align:top"><td>links_3_title</td><td>'.$data[$pd]['links']['links_3_title'].'</td><td></td></tr>';
+	$html_text .= '<tr id="236" style="display:none;vertical-align:top"><td>links_3_media</td><td>'.$data[$pd]['links']['links_3_media'].'</td><td></td></tr>';
+	$html_text .= '<tr id="237" style="display:none;vertical-align:top"><td>links_3_type</td><td>'.$data[$pd]['links']['links_3_type'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(26)">Common Information +/-</button></td><td></td><td id="common_role"></td></tr>';
 	$html_text .= '<tr><td>root_zones_url</td><td><a href='.$data[$pd]['common']['root_zones_url'].' target="_blank">Root Zones</a></td><td id="common_root_zones_url"></td></tr>';
@@ -290,11 +398,12 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="261" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['common']['tld_roles'].'</td><td id="common_tld_roles"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(27)">Root Zone Information +/-</button></td><td><b>'.$data[$pd]['root_zone']['zone_identifier'].'</b></td><td id="root_zone_role"></td></tr>';
-	$html_text .= '<tr style="vertical-align:top"><td>data_active_from</td><td> '.$data[$pd]['root_zone']['data_active_from'].'</td><td id="root_zone_data_active_from"></td></tr>';
-	$html_text .= '<tr><td>delegation_url</td><td><a href='.$data[$pd]['root_zone']['delegation_url'].' target="_blank">TLD Delegation</a></td><td id="root_zone_delegation_url"></td></tr>';
+	$html_text .= '<tr><td>data_active_from</td><td> '.$data[$pd]['root_zone']['data_active_from'].'</td><td id="root_zone_data_active_from"></td></tr>';
+	$html_text .= '<tr style="vertical-align:top"><td>tld_statuses</td><td> '.$data[$pd]['root_zone']['tld_statuses'].'</td><td id="root_zone_tld_statuses"></td></tr>';
+	$html_text .= '<tr><td>tld_delegation_url</td><td><a href='.$data[$pd]['root_zone']['tld_delegation_url'].' target="_blank">TLD Delegation</a></td><td id="root_zone_tld_delegation_url"></td></tr>';
 	$html_text .= '<tr><td>tld_category</td><td>'.$data[$pd]['root_zone']['tld_category'].'</td><td id="root_zone_tld_category"></td></tr>';
 	$html_text .= '<tr><td>tld_type</td><td>'.$data[$pd]['root_zone']['tld_type'].'</td><td id="root_zone_tld_type"></td></tr>';
-	$html_text .= '<tr><td>tld_json_response_url</td><td>'.$data[$pd]['root_zone']['tld_json_response_url'].'</td><td id="root_zone_tld_json_response_url"></td></tr>';
+	$html_text .= '<tr><td>tld_json_response_url</td><td>'.((strlen($data[$pd]['root_zone']['tld_json_response_url'])) ? '<a href='.$data[$pd]['root_zone']['tld_json_response_url'].' target="_blank">TLD Data</a>' : '').'</td><td id="root_zone_tld_json_response_url"></td></tr>';
 	$html_text .= '<tr><td>restrictions_url</td><td>'.((strlen($data[$pd]['root_zone']['restrictions_url'])) ? '<a href='.$data[$pd]['root_zone']['restrictions_url'].' target="_blank">TLD Restrictions</a>' : '').'</td><td id="root_zone_restrictions_url"></td></tr>';
 	$html_text .= '<tr><td>menu_url</td><td>'.((strlen($data[$pd]['root_zone']['menu_url'])) ? '<a href='.$data[$pd]['root_zone']['menu_url'].' target="_blank">TLD Menu</a>' : '').'</td><td id="root_zone_menu_url"></td></tr>';
 	$html_text .= '<tr style="vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['tld_contacts'].'</td><td id="root_zone_tld_contacts"></td></tr>';
@@ -303,8 +412,18 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(28)">Lifecycle Information +/-</button></td><td></td><td id="lifecycle_role"></td></tr>';
 	$html_text .= '<tr style="vertical-align:top"><td>data_active_from</td><td>'.$data[$pd]['lifecycle']['data_active_from'].'</td><td id="lifecycle_data_active_from"></td></tr>';
 	$html_text .= '<tr style="vertical-align:top;vertical-align:top"><td>upon_termination</td><td>'.$data[$pd]['lifecycle']['upon_termination'].'</td><td id="lifecycle_upon_termination"></td></tr>';
-	$html_text .= '<tr style="vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['zone_status_meanings'].'</td><td id="lifecycle_zone_status_meanings"></td></tr>';
-	$html_text .= '<tr id="281" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['periods'].'</td><td id="lifecycle_periods"></td></tr>';
+	$html_text .= '<tr id="281" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['zone_status_meanings'].'</td><td id="lifecycle_zone_status_meanings"></td></tr>';
+	$html_text .= '<tr id="282" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['periods'].'</td><td id="lifecycle_periods"></td></tr>';
+	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(63)">Name Servers +/-</button></td><td></td><td></td></tr>';
+	$html_text .= '<tr id="631" style="display:none;vertical-align:top"><td>zone_handles</td><td>'.$data[$pd]['name_servers']['zone_handles'].'</td><td></td></tr>';
+	$html_text .= '<tr id="632" style="display:none;vertical-align:top"><td>entry_handles</td><td>'.$data[$pd]['name_servers']['entry_handles'].'</td><td></td></tr>';
+	$html_text .= '<tr id="633" style="display:none;vertical-align:top"><td>ascii_names</td><td>'.$data[$pd]['name_servers']['ascii_names'].'</td><td></td></tr>';
+	$html_text .= '<tr id="634" style="display:none;vertical-align:top"><td>unicode_names</td><td>'.$data[$pd]['name_servers']['unicode_names'].'</td><td></td></tr>';
+	$html_text .= '<tr id="635" style="display:none;vertical-align:top"><td>ipv4_addresses</td><td>'.$data[$pd]['name_servers']['ipv4_addresses'].'</td><td id="name_servers_ip"></td></tr>';
+	$html_text .= '<tr id="636" style="display:none;vertical-align:top"><td>ipv6_addresses</td><td>'.$data[$pd]['name_servers']['ipv6_addresses'].'</td><td></td></tr>';
+	$html_text .= '<tr><td>dnssec</td><td>'.$data[$pd]['name_servers']['dnssec'].'</td><td id="name_servers_dnssec"></td></tr>';
+	$html_text .= '<tr><td>dnssec_algorithm</td><td>'.$data[$pd]['name_servers']['dnssec_algorithm'].'</td><td id="name_servers_dnssec_algorithm"></td></tr>';		
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 }
 $html_text .= '</table></div></body></html>';
