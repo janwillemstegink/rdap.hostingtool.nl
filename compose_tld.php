@@ -151,6 +151,7 @@ foreach($obj as $key1 => $value1) {
 	}
 }
 $root_zone_data_active_from = null;
+$root_services_url = 'https://www.iana.org';	
 $root_zones_url = 'https://www.iana.org/domains/root/db';
 $registrar_accreditations_url = 'https://www.iana.org/assignments/registrar-ids/registrar-ids.xhtml';
 $lookup_endpoints_url = 'https://data.iana.org/rdap/dns.json';
@@ -481,7 +482,7 @@ elseif ($inputtld == 'org')	{
 	$tld_privacy_policy_url = 'https://www.icann.org/privacy/policy';
 	$tld_menu_url = '';
 }
-$delegation_url = 'https://www.iana.org/domains/root/db/'.$inputtld.'.html';		
+$tld_delegation_url = 'https://www.iana.org/domains/root/db/'.$inputtld.'.html';		
 $decoded = json_decode($tld_contacts_json, true);
 $tld_contacts = '<b>tld_contacts</b><br />';   
 foreach ($decoded as $contact) {
@@ -586,6 +587,7 @@ $arr[$inputtld]['links']['links_3_title'] = $links_3_title;
 $arr[$inputtld]['links']['links_3_media'] = $links_3_media;	
 $arr[$inputtld]['links']['links_3_type'] = $links_3_type;	
 	
+$arr[$inputtld]['common']['root_services_url'] = $root_services_url;
 $arr[$inputtld]['common']['root_zones_url'] = $root_zones_url;
 $arr[$inputtld]['common']['lookup_endpoints_url'] = $lookup_endpoints_url;
 $arr[$inputtld]['common']['registrar_accreditations_url'] = $registrar_accreditations_url;		
@@ -593,10 +595,10 @@ $arr[$inputtld]['common']['tld_roles'] = $tld_roles;
 	
 $arr[$inputtld]['root_zone']['zone_identifier'] = $inputtld;
 $arr[$inputtld]['root_zone']['data_active_from'] = $root_zone_data_active_from;	
-$arr[$inputtld]['root_zone']['tld_statuses'] = $root_zone_statuses;	
-$arr[$inputtld]['root_zone']['tld_delegation_url'] = $delegation_url;
 $arr[$inputtld]['root_zone']['tld_category'] = $tld_category;
 $arr[$inputtld]['root_zone']['tld_type'] = $tld_type;
+$arr[$inputtld]['root_zone']['tld_statuses'] = $root_zone_statuses;		
+$arr[$inputtld]['root_zone']['tld_delegation_url'] = $tld_delegation_url;	
 $arr[$inputtld]['root_zone']['tld_json_response_url'] = $tld_json_response_url;
 $arr[$inputtld]['root_zone']['tld_terms_of_service_url'] = $tld_terms_of_service_url;
 $arr[$inputtld]['root_zone']['tld_privacy_policy_url'] = $tld_privacy_policy_url;
