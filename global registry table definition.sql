@@ -26,6 +26,7 @@ CREATE TABLE tld_types (
 -- =======================
 CREATE TABLE common (
   common_id SERIAL PRIMARY KEY,
+  common_root_services_url VARCHAR(255),
   common_root_zones_url VARCHAR(255),
   common_accredited_registrars_url VARCHAR(255),
   common_tld_roles JSONB DEFAULT 
@@ -71,10 +72,10 @@ CREATE TABLE zones (
     zone_id SERIAL PRIMARY KEY,
     zone_identifier CITEXT NOT NULL,
 	zone_data_active_from TIMESTAMPTZ,
-	zone_tld_statuses TEXT[],
-	zone_tld_delegation_url VARCHAR(255),
 	zone_tld_category VARCHAR(20) NOT NULL,
     zone_tld_type VARCHAR(20) NOT NULL,
+	zone_tld_statuses TEXT[],
+	zone_tld_delegation_url VARCHAR(255),
 	zone_tld_json_response_url VARCHAR(255),
 	zone_tld_terms_of_service_url VARCHAR(255),
 	zone_tld_privacy_policy_url VARCHAR(255),
