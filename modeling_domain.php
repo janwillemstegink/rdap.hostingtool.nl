@@ -251,7 +251,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 1)	{
 		var modified = '(Gewijzigd) ';
 		var proposed = '(Nieuw) ';
-		var accessible = 'De voorgestelde velden verbeteren de bruikbaarheid en verhogen de transparantie.';
+		var accessible = 'Nieuwe velden moeten de bruikbaarheid vergroten en voor duidelijkheid zorgen.';
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domeininformatie";
 		document.getElementById("subtitle").textContent = "RDAP v1-gebaseerde modellering";
@@ -261,11 +261,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Een overzicht van en toelichting op de structuur en kenmerken van webdomeinen.";
 		document.getElementById("notices_role").textContent = legacy + accessible;
 		document.getElementById("links_role").textContent = legacy + accessible;
-		document.getElementById("metadata_role").textContent = proposed;
+		document.getElementById("metadata_role").textContent = proposed + "Metadata bieden context en details over data-elementen.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Datum en tijdstip van de RDAP-database-update in Zoeloe-tijd (UTC).";
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;
-		document.getElementById("metadata_terms_and_conditions").textContent = proposed + "Voorbereid op machine-leesbare Top-Level Domein (TLD) gegevens.";
+		document.getElementById("metadata_terms_and_conditions").textContent = proposed + "Verbeterde machineleesbare IANA TLD-gegevens (PostgreSQL JSON-gestructureerd)";
 		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL van de geplande JSON-respons van de globale RDAP-server.";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL van de JSON-respons op registratieniveau.";
 		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Ondanks de update blijft het veld zonder functioneel nut.";	
@@ -325,7 +325,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 2)	{
 		var modified = '(Modified) ';
 		var proposed = '(New) ';
-		var accessible = 'The proposed fields improve usability and increase transparency.';
+		var accessible = 'New fields should boost usability and bring clarity.';
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domain Information";
 		document.getElementById("subtitle").textContent = "RDAP v1 based modeling";
@@ -335,11 +335,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "An overview of the structure and key characteristics of domain data.";
 		document.getElementById("notices_role").textContent = legacy + accessible;
 		document.getElementById("links_role").textContent = legacy + accessible;
-		document.getElementById("metadata_role").textContent = proposed;
+		document.getElementById("metadata_role").textContent = proposed + "Metadata provides context and details about data elements.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Date and time of RDAP database update in Zulu time (UTC).";
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;
-		document.getElementById("metadata_terms_and_conditions").textContent = proposed + "Prepared for machine-readable Top-Level Domain (TLD) data.";
+		document.getElementById("metadata_terms_and_conditions").textContent = proposed + "Improved Machine-Readable IANA TLD Data (PostgreSQL JSON-Structured)";
 		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL of the planned global RDAP server JSON response.";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL of the JSON response at the registry level.";
 		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Despite the update, the field remains without functional use.";
@@ -399,7 +399,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 3)	{
 		var modified = '(Geändert) ';
 		var proposed = '(Neu) ';
-		var accessible = 'Die vorgeschlagenen Felder verbessern die Benutzerfreundlichkeit und erhöhen die Transparenz.';
+		var accessible = 'Neue Felder sollten die Benutzerfreundlichkeit verbessern und für Klarheit sorgen.';
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domaininformationen";
 		document.getElementById("subtitle").textContent = "RDAP-v1-basierte Modellierung";
@@ -409,11 +409,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Eine Übersicht und Erklärung zur Struktur und den Eigenschaften von Webdomänen.";
 		document.getElementById("notices_role").textContent = legacy + accessible;
 		document.getElementById("links_role").textContent = legacy + accessible;
-		document.getElementById("metadata_role").textContent = proposed;
+		document.getElementById("metadata_role").textContent = proposed + "Metadaten liefern Kontext und Details zu Datenelementen.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Datum und Uhrzeit der RDAP-Datenbankaktualisierung in Zulu-Zeit (UTC).";
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;
-		document.getElementById("metadata_terms_and_conditions").textContent = proposed + "Vorbereitet für maschinenlesbare Top-Level-Domain (TLD) Daten.";
+		document.getElementById("metadata_terms_and_conditions").textContent = proposed + "Verbesserte maschinenlesbare IANA-TLD-Daten (PostgreSQL-JSON-strukturiert)";
 		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL der geplanten JSON-Antwort des globalen RDAP-Servers.";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL der JSON-Antwort auf Registry-Ebene.";
 		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Trotz der Aktualisierung bleibt das Feld ohne funktionalen Nutzen.";
@@ -473,7 +473,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 4)	{
 		var modified = '(Modifié) ';
 		var proposed = '(Nouveau) ';
-		var accessible = "Les champs proposés améliorent la convivialité et augmentent la transparence.";
+		var accessible = "Les nouveaux champs devraient améliorer l’utilisabilité et apporter de la clarté.";
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Informations sur le domaine";
 		document.getElementById("subtitle").textContent = "Modélisation basée sur RDAP v1";
@@ -483,11 +483,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Un aperçu et une explication de la structure et des caractéristiques des domaines Web.";
 		document.getElementById("notices_role").textContent = legacy + accessible;
 		document.getElementById("links_role").textContent = legacy + accessible;
-		document.getElementById("metadata_role").textContent = proposed;
+		document.getElementById("metadata_role").textContent = proposed + "Les métadonnées fournissent le contexte et des détails sur les éléments de données.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Date et heure de mise à jour de la base de données RDAP en heure Zulu (UTC).";
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;
-		document.getElementById("metadata_terms_and_conditions").textContent = proposed + "Préparé pour des données de domaine de premier niveau (TLD) lisibles par machine.";
+		document.getElementById("metadata_terms_and_conditions").textContent = proposed + "Données TLD IANA améliorées et lisibles par machine (structurées en JSON pour PostgreSQL)";
 		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL de la réponse JSON prévue du serveur RDAP global.";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL de la réponse JSON au niveau du registre.";
 		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Malgré la mise à jour, le champ reste sans utilité fonctionnelle.";
