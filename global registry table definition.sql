@@ -76,8 +76,9 @@ CREATE TABLE zones (
 	zone_tld_category VARCHAR(20) NOT NULL,
     zone_tld_type VARCHAR(20) NOT NULL,
 	zone_tld_json_response_url VARCHAR(255),
-    zone_restrictions_url VARCHAR(255),
-    zone_menu_url VARCHAR(255),
+	zone_tld_terms_of_service_url VARCHAR(255),
+	zone_tld_privacy_policy_url VARCHAR(255),
+    zone_tld_menu_url VARCHAR(255),
 	zone_zone_roles JSONB DEFAULT 
 		'[{"zone_role_sequence": 10,"zone_role_identifier": "sponsor","zone_role_shielding": ["name", "email", "tel"]},
 		{"zone_role_sequence": 20,"zone_role_identifier": "registrant","zone_role_shielding": ["name", "email", "tel", "address"]},
