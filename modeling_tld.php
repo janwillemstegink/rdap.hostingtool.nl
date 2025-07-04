@@ -192,7 +192,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_tld_type").textContent = proposed + 'Het TLD-type, bijvoorbeeld gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD of geoTLD.';
 		document.getElementById("root_zone_tld_statuses").textContent = modified;		
 		document.getElementById("root_zone_tld_delegation_url").textContent = proposed + 'URL die verwijst naar het ICANN-delegatierecord voor de TLD.';
-		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "IANA kan overstappen op een moderne database voor de TLD-rollen en levenscyclus.";
+		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "IANA kan overstappen op een moderne database voor de rollen en levenscyclus.";
 		document.getElementById("root_zone_tld_terms_of_service_url").textContent = proposed;
 		document.getElementById("root_zone_tld_privacy_policy_url").textContent = proposed;
 		document.getElementById("root_zone_tld_menu_url").textContent = proposed + 'Een TLD-specifiek informatiemenu, beschikbaar onder een subdomein zoals "regmenu".';
@@ -228,7 +228,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_tld_type").textContent = proposed + 'The TLD type, such as gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD, or geoTLD.';
 		document.getElementById("root_zone_tld_statuses").textContent = modified;
 		document.getElementById("root_zone_tld_delegation_url").textContent = proposed + 'URL pointing to the ICANN delegation record for the TLD.';
-		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "IANA can move to a modern database for the TLD roles and lifecycle.";
+		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "IANA can move to a modern database for the roles and lifecycle.";
 		document.getElementById("root_zone_tld_terms_of_service_url").textContent = proposed;
 		document.getElementById("root_zone_tld_privacy_policy_url").textContent = proposed;		
 		document.getElementById("root_zone_tld_menu_url").textContent = proposed + 'A TLD specific information menu, available under a subdomain such as "regmenu".';
@@ -260,7 +260,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_tld_roles").textContent = proposed;		
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
-		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "IANA kann für die TLD-Rollen und den Lebenszyklus auf eine moderne Datenbank umsteigen.";
+		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "IANA kann für die Rollen und den Lebenszyklus auf eine moderne Datenbank umsteigen.";
 		document.getElementById("root_zone_tld_category").textContent = proposed + 'Zeigt eine generische TLD (gTLD) oder eine länderspezifische TLD (ccTLD) an.';
 		document.getElementById("root_zone_tld_type").textContent = proposed + 'Der TLD-Typ, z. B. gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD oder geoTLD.';
 		document.getElementById("root_zone_tld_statuses").textContent = modified;
@@ -300,7 +300,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_tld_type").textContent = proposed + "Le type de TLD, tel que gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD ou geoTLD.";
 		document.getElementById("root_zone_tld_statuses").textContent = modified;
 		document.getElementById("root_zone_tld_delegation_url").textContent = proposed + "URL référençant l'enregistrement de délégation de l'ICANN pour le TLD.";
-		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "L'IANA peut passer à une base de données moderne pour les rôles et le cycle de vie des TLD.";
+		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "L'IANA peut passer à une base de données moderne pour les rôles et le cycle de vie.";
 		document.getElementById("root_zone_tld_terms_of_service_url").textContent = proposed;
 		document.getElementById("root_zone_tld_privacy_policy_url").textContent = proposed;		
 		document.getElementById("root_zone_tld_menu_url").textContent = proposed + "Un menu d'informations spécifique au TLD, disponible sous un sous-domaine tel que 'regmenu'.";

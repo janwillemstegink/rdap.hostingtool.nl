@@ -202,7 +202,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "";
 		document.getElementById("domain_ascii_name").textContent = "";
 		document.getElementById("domain_unicode_name").textContent = "";
-		document.getElementById("domain_zone_statuses").textContent = "";
+		document.getElementById("domain_zone_statuses").textContent = modified;
 		document.getElementById("domain_entry_statuses").textContent = modified;
 		document.getElementById("domain_created_at").textContent = "";
 		document.getElementById("domain_expiration_at").textContent = "";
@@ -276,7 +276,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "Een domein onder TLD-niveau is wereldwijd uniek en kan vrij worden gekozen onder bepaalde regels.";
 		document.getElementById("domain_ascii_name").textContent = "Voor speciale tekens bevatten de ASCII-tekenreeksen Punycode-transcriptie.";
 		document.getElementById("domain_unicode_name").textContent = "Hoewel de informatie verduidelijkt, is de unicode-domeinnaam optioneel binnen het RDAP-protocol.";
-		document.getElementById("domain_zone_statuses").textContent = "Geeft aan of het domein zichtbaar is in de DNS-zone.";
+		document.getElementById("domain_zone_statuses").textContent = modified + "Geeft aan of het domein zichtbaar is in de DNS-zone.";
 		document.getElementById("domain_entry_statuses").textContent = modified + "Geeft de domeinstatus op registrar-niveau aan.";
 		document.getElementById("domain_created_at").textContent = "De datumvelden staan hier in een logische volgorde. Dit is ook eenvoudig in de JSON-array.";
 		document.getElementById("domain_expiration_at").textContent = "Eindtijd voor verlenging of van publicatie, daarna neemt de betrokkenheid van de registrar af.";
@@ -350,7 +350,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "A domain below TLD level is globally unique and can be freely chosen under certain rules.";
 		document.getElementById("domain_ascii_name").textContent = "For special characters, the ASCII character strings contain Punycode transcription.";
 		document.getElementById("domain_unicode_name").textContent = "Although information clarifies, the unicode domain name is optional within the RDAP protocol.";
-		document.getElementById("domain_zone_statuses").textContent = "Indicates the domain’s visibility in the DNS zone.";
+		document.getElementById("domain_zone_statuses").textContent = modified + "Indicates the domain’s visibility in the DNS zone.";
 		document.getElementById("domain_entry_statuses").textContent = modified + "Indicates registrar-level domain status.";
 		document.getElementById("domain_created_at").textContent = "The date fields are here in a logical order. This is also easy in the JSON array.";
 		document.getElementById("domain_expiration_at").textContent = "End time for renewal or publication, after which registrar involvement decreases.";
@@ -424,7 +424,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "Eine Domain unterhalb der TLD-Ebene ist weltweit eindeutig und kann unter bestimmten Regeln frei gewählt werden.";
 		document.getElementById("domain_ascii_name").textContent = "Für Sonderzeichen enthalten die ASCII-Zeichenfolgen eine Punycode-Transkription.";
 		document.getElementById("domain_unicode_name").textContent = "Obwohl die Informationen klarstellen, ist der Unicode-Domänenname innerhalb des RDAP-Protokolls optional.";
-		document.getElementById("domain_zone_statuses").textContent = "Zeigt die Sichtbarkeit der Domain in der DNS-Zone an.";
+		document.getElementById("domain_zone_statuses").textContent = modified + "Zeigt die Sichtbarkeit der Domain in der DNS-Zone an.";
 		document.getElementById("domain_entry_statuses").textContent = modified + "Zeigt den Domain-Status auf Registrar-Ebene an.";
 		document.getElementById("domain_created_at").textContent = "Die Datumsfelder stehen hier in einer logischen Reihenfolge. Auch dies ist im JSON-Array einfach.";
 		document.getElementById("domain_expiration_at").textContent = "Endzeitpunkt für Erneuerung oder Veröffentlichung, nach dem die Beteiligung des Registrars abnimmt.";
@@ -498,7 +498,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "Un domaine inférieur au niveau TLD est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_ascii_name").textContent = "Pour les caractères spéciaux, les chaînes de caractères ASCII contiennent une transcription Punycode.";
 		document.getElementById("domain_unicode_name").textContent = "Bien que les informations soient clarifiées, le nom de domaine Unicode est facultatif dans le protocole RDAP.";
-		document.getElementById("domain_zone_statuses").textContent = "Indique la visibilité du domaine dans la zone DNS.";
+		document.getElementById("domain_zone_statuses").textContent = modified + "Indique la visibilité du domaine dans la zone DNS.";
 		document.getElementById("domain_entry_statuses").textContent = modified + "Indique le statut du domaine au niveau du bureau d’enregistrement.";
 		document.getElementById("domain_created_at").textContent = "Les champs de date sont ici classés dans un ordre logique. C'est également facile dans le tableau JSON.";
 		document.getElementById("domain_expiration_at").textContent = "Date limite de renouvellement ou de publication, après laquelle l'implication du registraire diminue.";
