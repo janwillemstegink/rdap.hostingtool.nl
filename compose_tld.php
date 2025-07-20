@@ -160,7 +160,7 @@ $tld_type = '';
 $tld_terms_of_service_url = '';
 $tld_privacy_policy_url = '';	
 $tld_menu_url = '';
-$tld_contacts_json = '[]';	
+$tld_contacts_json = '[]';
 $tld_roles_json = '[
 {"tld_role_sequence": 10,"tld_role_identifier": "contracting_authority","tld_role_shielding": ["name", "tel"]},
 {"tld_role_sequence": 20,"tld_role_identifier": "contracting_organization","tld_role_shielding": ["name", "tel"]},
@@ -175,6 +175,31 @@ usort($decoded, function ($a, $b) {
 $tld_roles = '<b>tld_role_sequence, tld_role_identifier, tld_role_shielding</b><br />';    
 foreach ($decoded as $role) {
 	$tld_roles .= $role['tld_role_sequence'] . ', ' . $role['tld_role_identifier'] . ', [' . implode(', ', $role['tld_role_shielding']) . ']<br />';
+}
+$root_accepted_workload_json = '[{
+	"public_status_requests": {
+		"max_per_day": null,
+		"max_per_minute": null,
+		"max_per_second": null,
+		"caching_in_seconds": null
+	},
+ 		"public_object_requests": {
+   		"max_per_day": null,
+   		"max_per_minute": null,
+   		"max_per_second": null,
+   		"caching_in_seconds": null
+	}
+}]';
+$decoded = json_decode($root_accepted_workload_json, true);
+$root_accepted_workload = '<b>root_accepted_workload</b><br />';    
+foreach ($decoded as $workload_entry) {
+    foreach ($workload_entry as $request_type => $limits) {
+        $root_accepted_workload .= '<b>&bull; </b><em>' . htmlspecialchars($request_type) . ':</em><br />';
+        foreach ($limits as $limit_type => $limit_value) {
+            $display_value = $limit_value !== null ? htmlspecialchars($limit_value) : 'none';
+            $root_accepted_workload .= htmlspecialchars($limit_type) . ': ' . $display_value . '<br />';
+        }	
+    }	
 }	
 $lifecycle_data_active_from = null;	
 $upon_termination = 'Zone-specific regulation';
@@ -205,10 +230,24 @@ $periods_json = '[
         {"period_identifier": "redemption_period_days", "period_minimum": null, "period_maximum": null},
         {"period_identifier": "deletion_phase_days", "period_minimum": null, "period_maximum": null}
     ]';
+$zone_accepted_workload_json = '[{
+	"public_status_requests": {
+		"max_per_day": null,
+		"max_per_minute": null,
+		"max_per_second": null,
+		"caching_in_seconds": null
+	},
+ 		"public_object_requests": {
+   		"max_per_day": null,
+   		"max_per_minute": null,
+   		"max_per_second": null,
+   		"caching_in_seconds": null
+	}
+}]';	
 if ($inputtld == 'nl')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$upon_termination = "40-day quarantine phase (.nl)";
+	$upon_termination = "40-day quarantine phase for .nl domains.";
 	$periods_json = '[
         {"period_identifier": "subscription_period", "period_minimum": "1 year", "period_maximum": "1 year"},
         {"period_identifier": "add_period_grace_days", "period_minimum": 0, "period_maximum": 0},
@@ -226,6 +265,20 @@ if ($inputtld == 'nl')	{
         {"contact_identifier": "registry_operator", "contact_legal_name": "Stichting Internet Domeinregistratie Nederland", "contact_presented_name": null},
 		{"contact_identifier": "backend_operator", "contact_legal_name": "SIDN B.V.", "contact_presented_name": "SIDN"}
     ]';
+	$zone_accepted_workload_json = '[{
+		"public_status_requests": {
+    		"max_per_day": 50000,
+    		"max_per_minute": null,
+    		"max_per_second": 10,
+    		"caching_in_seconds": 420
+  		},
+  		"public_object_requests": {
+    		"max_per_day": 2000,
+    		"max_per_minute": null,
+    		"max_per_second": 1,
+    		"caching_in_seconds": 60
+  		}
+	}]';
 	$tld_terms_of_service_url = 'https://www.sidn.nl/en/nl-domain-name/general-terms-and-conditions-for-nl-registrants';
 	$tld_privacy_policy_url = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
 	$tld_menu_url = 'https://www.sidn.nl/en/theme/domain-names';
@@ -279,7 +332,7 @@ elseif ($inputtld == 'politie')	{
 elseif ($inputtld == 'eu')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$upon_termination = "40-day quarantine phase (.eu)";
+	$upon_termination = "40-day quarantine phase for .eu domains.";
 	$periods_json = '[
         {"period_identifier": "subscription_period", "period_minimum": "1 year", "period_maximum": "1 year"},
         {"period_identifier": "add_period_grace_days", "period_minimum": 0, "period_maximum": 5},
@@ -527,8 +580,20 @@ foreach ($decoded as $statuses) {
         $zone_status_meanings .= htmlspecialchars($value['description']);
         $zone_status_meanings .= " (" . htmlspecialchars($value['phase']) . " phase)<br />";
     }
+}	
+	
+$decoded = json_decode($zone_accepted_workload_json, true);
+$zone_accepted_workload = '<b>zone_accepted_workload</b><br />';    
+foreach ($decoded as $workload_entry) {
+    foreach ($workload_entry as $request_type => $limits) {
+        $zone_accepted_workload .= '<b>&bull; </b><em>' . htmlspecialchars($request_type) . ':</em><br />';
+        foreach ($limits as $limit_type => $limit_value) {
+            $display_value = $limit_value !== null ? htmlspecialchars($limit_value) : 'none';
+            $zone_accepted_workload .= htmlspecialchars($limit_type) . ': ' . $display_value . '<br />';
+        }	
+    }	
 }
-
+	
 $arr = array();
 	
 $arr[$inputtld]['notices']['notice_0_title'] = $notice_0_title;	
@@ -591,7 +656,8 @@ $arr[$inputtld]['common']['root_services_url'] = $root_services_url;
 $arr[$inputtld]['common']['root_zones_url'] = $root_zones_url;
 $arr[$inputtld]['common']['lookup_endpoints_url'] = $lookup_endpoints_url;
 $arr[$inputtld]['common']['registrar_accreditations_url'] = $registrar_accreditations_url;		
-$arr[$inputtld]['common']['tld_roles'] = $tld_roles;	
+$arr[$inputtld]['common']['tld_roles'] = $tld_roles;
+$arr[$inputtld]['common']['root_accepted_workload'] = $root_accepted_workload;	
 	
 $arr[$inputtld]['root_zone']['zone_identifier'] = $inputtld;
 $arr[$inputtld]['root_zone']['data_active_from'] = $root_zone_data_active_from;	
@@ -605,6 +671,7 @@ $arr[$inputtld]['root_zone']['tld_privacy_policy_url'] = $tld_privacy_policy_url
 $arr[$inputtld]['root_zone']['tld_menu_url'] = $tld_menu_url;
 $arr[$inputtld]['root_zone']['tld_contacts'] = $tld_contacts;
 $arr[$inputtld]['root_zone']['zone_roles'] = $zone_roles;
+$arr[$inputtld]['root_zone']['zone_accepted_workload'] = $zone_accepted_workload;
 
 $arr[$inputtld]['lifecycle']['data_active_from'] = $lifecycle_data_active_from;
 $arr[$inputtld]['lifecycle']['upon_termination'] = $upon_termination;

@@ -9,33 +9,52 @@
 CREATE EXTENSION IF NOT EXISTS citext;
 
 CREATE TABLE tld_categories (
-  tld_category_id SERIAL PRIMARY KEY,
-  tld_category_identifier VARCHAR(20) UNIQUE
+	tld_category_id SERIAL PRIMARY KEY,
+	tld_category_identifier VARCHAR(20) UNIQUE
 );
 
 -- =======================
 -- Table: tld_types
 -- =======================
 CREATE TABLE tld_types (
-  tld_type_id SERIAL PRIMARY KEY,
-  tld_type_identifier VARCHAR(20) UNIQUE
+	tld_type_id SERIAL PRIMARY KEY,
+	tld_type_identifier VARCHAR(20) UNIQUE
 );
 
 -- =======================
 -- Table: common
 -- =======================
 CREATE TABLE common (
-  common_id SERIAL PRIMARY KEY,
-  common_root_services_url VARCHAR(255),
-  common_root_zones_url VARCHAR(255),
-  common_accredited_registrars_url VARCHAR(255),
-  common_tld_roles JSONB DEFAULT 
-	'[{"tld_role_sequence": 10,"tld_role_identifier": "contracting_authority","tld_role_shielding": ["name", "tel"]},
-	{"tld_role_sequence": 20,"tld_role_identifier": "contracting_organization","tld_role_shielding": ["name", "tel"]},
-	{"tld_role_sequence": 30,"tld_role_identifier": "sponsoring_organization","tld_role_shielding": ["name", "tel"]},
-	{"tld_role_sequence": 40,"tld_role_identifier": "country_code_designated_manager","tld_role_shielding": ["name", "tel"]},
-	{"tld_role_sequence": 50,"tld_role_identifier": "registry_operator","tld_role_shielding": []},
-	{"tld_role_sequence": 60,"tld_role_identifier": "backend_operator","tld_role_shielding": []}]'
+	common_id SERIAL PRIMARY KEY,
+	common_root_services_url TEXT,
+	common_root_zones_url TEXT,
+	common_accredited_registrars_url TEXT,
+	common_tld_roles JSONB DEFAULT 
+		'[
+			{"tld_role_sequence": 10,"tld_role_identifier": "contracting_authority","tld_role_shielding": ["name","tel"]},
+			{"tld_role_sequence": 20,"tld_role_identifier": "contracting_organization","tld_role_shielding": ["name", "tel"]},
+			{"tld_role_sequence": 30,"tld_role_identifier": "sponsoring_organization","tld_role_shielding": ["name", "tel"]},
+			{"tld_role_sequence": 40,"tld_role_identifier": "country_code_designated_manager","tld_role_shielding": ["name", "tel"]},
+			{"tld_role_sequence": 50,"tld_role_identifier": "registry_operator","tld_role_shielding": []},
+			{"tld_role_sequence": 60,"tld_role_identifier": "backend_operator","tld_role_shielding": []}
+		]',
+	common_root_accepted_workload JSONB DEFAULT 
+		'[
+			{
+				"public_status_requests": {
+					"max_per_day": null,
+					"max_per_minute": null,
+					"max_per_second": null,
+					"caching_in_seconds": null
+				},
+				"public_object_requests": {
+					"max_per_day": null,
+					"max_per_minute": null,
+					"max_per_second": null,
+					"caching_in_seconds": null
+				}
+			}
+		]'
 );
 
 -- =======================
@@ -43,20 +62,20 @@ CREATE TABLE common (
 -- =======================
 CREATE TABLE contacts (
     contact_id SERIAL PRIMARY KEY,
-	contact_handle VARCHAR(255) NOT NULL UNIQUE,
+	contact_handle TEXT NOT NULL UNIQUE,
 	contact_web_id VARCHAR(34),
     contact_organization_name VARCHAR(511),
 	contact_presented_name VARCHAR(511),
-    contact_name VARCHAR(255),
+    contact_name TEXT,
     contact_email CITEXT,
     contact_phone VARCHAR(50),
     contact_fax VARCHAR(50),
     contact_country_code CHAR(2),
     contact_street_address TEXT,
-    contact_city VARCHAR(255),
-    contact_state_or_province VARCHAR(255),
+    contact_city TEXT,
+    contact_state_or_province TEXT,
     contact_postal_code VARCHAR(20),
-    contact_country_name VARCHAR(255),
+    contact_country_name TEXT,
     contact_latest_update_at TIMESTAMPTZ
 );
 
@@ -75,27 +94,49 @@ CREATE TABLE zones (
 	zone_tld_category VARCHAR(20) NOT NULL,
     zone_tld_type VARCHAR(20) NOT NULL,
 	zone_tld_statuses TEXT[],
-	zone_tld_delegation_url VARCHAR(255),
-	zone_tld_json_response_url VARCHAR(255),
-	zone_tld_terms_of_service_url VARCHAR(255),
-	zone_tld_privacy_policy_url VARCHAR(255),
-    zone_tld_menu_url VARCHAR(255),
-	zone_zone_roles JSONB DEFAULT 
-		'[{"zone_role_sequence": 10,"zone_role_identifier": "sponsor","zone_role_shielding": ["name", "email", "tel"]},
-		{"zone_role_sequence": 20,"zone_role_identifier": "registrant","zone_role_shielding": ["name", "email", "tel", "address"]},
-		{"zone_role_sequence": 30,"zone_role_identifier": "administrative","zone_role_shielding": ["web_id", "name", "tel", "address"]},
-		{"zone_role_sequence": 40,"zone_role_identifier": "technical","zone_role_shielding": ["web_id", "name", "tel", "address"]},
-		{"zone_role_sequence": 50,"zone_role_identifier": "billing","zone_role_shielding": ["web_id", "name", "email", "tel", "address"]},
-		{"zone_role_sequence": 60,"zone_role_identifier": "emergency","zone_role_shielding": ["name"]},
-		{"zone_role_sequence": 70,"zone_role_identifier": "fallback","zone_role_shielding": ["name"]},
-		{"zone_role_sequence": 80,"zone_role_identifier": "reseller","zone_role_shielding": ["name", "email", "tel"]},
-		{"zone_role_sequence": 90,"zone_role_identifier": "registrar","zone_role_shielding": ["name", "email", "tel"]},
-		{"zone_role_sequence": 95,"zone_role_identifier": "abuse","zone_role_shielding": ["name"]}]',
+	zone_tld_delegation_url TEXT,
+	zone_tld_json_response_url TEXT,
+	zone_tld_terms_of_service_url TEXT,
+	zone_tld_privacy_policy_url TEXT,
+    zone_tld_menu_url TEXT,
+    zone_zone_roles JSONB DEFAULT 
+        '[
+            {"zone_role_sequence": 10, "zone_role_identifier": "sponsor", "zone_role_shielding": ["name", "email", "tel"]},
+            {"zone_role_sequence": 20, "zone_role_identifier": "registrant", "zone_role_shielding": ["name", "email", "tel", "address"]},
+            {"zone_role_sequence": 30, "zone_role_identifier": "administrative", "zone_role_shielding": ["web_id", "name", "tel", "address"]},
+            {"zone_role_sequence": 40, "zone_role_identifier": "technical", "zone_role_shielding": ["web_id", "name", "tel", "address"]},
+            {"zone_role_sequence": 50, "zone_role_identifier": "billing", "zone_role_shielding": ["web_id", "name", "email", "tel", "address"]},
+            {"zone_role_sequence": 60, "zone_role_identifier": "emergency", "zone_role_shielding": ["name"]},
+            {"zone_role_sequence": 70, "zone_role_identifier": "fallback", "zone_role_shielding": ["name"]},
+            {"zone_role_sequence": 80, "zone_role_identifier": "reseller", "zone_role_shielding": ["name", "email", "tel"]},
+            {"zone_role_sequence": 90, "zone_role_identifier": "registrar", "zone_role_shielding": ["name", "email", "tel"]},
+            {"zone_role_sequence": 95, "zone_role_identifier": "abuse", "zone_role_shielding": ["name"]}
+        ]',
+	zone_zone_accepted_workload JSONB DEFAULT 
+		'[
+			{
+				"public_status_requests": {
+					"max_per_day": null,
+					"max_per_minute": null,
+					"max_per_second": null,
+					"caching_in_seconds": null
+				},
+				"public_object_requests": {
+					"max_per_day": null,
+					"max_per_minute": null,
+					"max_per_second": null,
+					"caching_in_seconds": null
+				}
+			}
+		]',
 	zone_name_servers JSONB,
 	zone_latest_update_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
+-- Perhaps stabilizing: FOREIGN KEY (zone_tld_category) REFERENCES tld_categories(tld_category_identifier)
+-- Perhaps stabilizing: FOREIGN KEY (zone_tld_type) REFERENCES tld_types(tld_type_identifier)
 
-CREATE UNIQUE INDEX idx_zone_data_active_from ON lifecycles(zone_identifier, zone_data_active_from);
+CREATE UNIQUE INDEX idx_lifecycle_zone_data_active_from 
+ON lifecycles(lifecycle_zone, lifecycle_data_active_from);
 
 -- Trigger Function: Update zone_latest_update_at on UPDATE
 CREATE OR REPLACE FUNCTION update_zone_latest_update_at()
@@ -153,8 +194,8 @@ CREATE TABLE lifecycles (
     lifecycle_id SERIAL PRIMARY KEY,
     lifecycle_zone VARCHAR(63) NOT NULL,
     lifecycle_data_active_from TIMESTAMPTZ,
-	lifecycle_upon_termination VARCHAR(255), -- Optional: e.g., "40-day quarantine phase (.nl)"
-	lifecycle_zone_status_meanings JSOB DEFAULT '[{
+	lifecycle_upon_termination TEXT, -- Optional: e.g., "40-day quarantine phase (.nl)"
+	lifecycle_zone_status_meanings JSONB DEFAULT '[{
 		"redemption period": {
             "description": "Domain can still be recovered after expiration.",
             "phase": "post-expiration",
@@ -192,8 +233,9 @@ ON lifecycles(lifecycle_zone, lifecycle_data_active_from);
 -- =======================
 CREATE TABLE domains (
     domain_id BIGSERIAL PRIMARY KEY,
-    domain_zone_handle VARCHAR(255) NOT NULL UNIQUE, -- starts with the zone identifier ending with e.g. '_'.
-	domain_entry_handle VARCHAR(255),
+	domain_zone CITEXT NOT NULL,
+    domain_zone_handle TEXT NOT NULL UNIQUE, -- starts with the zone identifier ending with e.g. '_'.
+	domain_entry_handle TEXT,
 	domain_ascii_name VARCHAR(511) NOT NULL,
     domain_unicode_name VARCHAR(511) NOT NULL,
 	domain_zone_statuses TEXT[], -- EPP status codes applied by registry 
@@ -206,11 +248,11 @@ CREATE TABLE domains (
     domain_deletion_at TIMESTAMPTZ,
 	domain_global_json_response_url VARCHAR(511),
 	domain_registry_json_response_url VARCHAR(511),
-	domain_registry_language_codes VARCHAR(255), -- This field remains without functional use.
+	domain_registry_language_codes TEXT, -- This field remains without functional use.
 	domain_registrar_accreditation JSONB DEFAULT '[]',
 	domain_registrar_json_response_url VARCHAR(511),
-	domain_registrar_complaint_url VARCHAR(255),
-	domain_status_explanation_url VARCHAR(255),
+	domain_registrar_complaint_url TEXT,
+	domain_status_explanation_url TEXT,
 	domain_geo_location JSONB,
     domain_extensions JSONB DEFAULT '[]', -- to phase out
 	domain_remarks JSONB DEFAULT '[]' -- to phase out
@@ -249,23 +291,23 @@ $$ LANGUAGE plpgsql;
 -- =======================
 CREATE TABLE entities (
     entity_id BIGSERIAL PRIMARY KEY,
-	entity_zone_handle VARCHAR(255) NOT NULL UNIQUE,
-    entity_entry_handle VARCHAR(255),
+	entity_zone_handle TEXT NOT NULL UNIQUE,
+    entity_entry_handle TEXT,
 	entity_web_id VARCHAR(34),
-    entity_organization_type VARCHAR(255),
+    entity_organization_type TEXT,
     entity_organization_name VARCHAR(511),
     entity_presented_name VARCHAR(511),
-    entity_kind VARCHAR(255),
-    entity_name VARCHAR(255),
+    entity_kind TEXT,
+    entity_name TEXT,
     entity_email CITEXT,
     entity_phone VARCHAR(50),
     entity_fax VARCHAR(50),
     entity_country_code CHAR(2),
     entity_street_address TEXT,
-    entity_city VARCHAR(255),
-    entity_state_or_province VARCHAR(255),
+    entity_city TEXT,
+    entity_state_or_province TEXT,
     entity_postal_code VARCHAR(20),
-    entity_country_name VARCHAR(255),
+    entity_country_name TEXT,
 	entity_language_pref1 VARCHAR(5),
 	entity_language_pref2 VARCHAR(5),
     entity_statuses TEXT[],    
@@ -299,10 +341,10 @@ EXECUTE FUNCTION update_entities_latest_update_at();
 -- =======================
 CREATE TABLE nameservers (
     nameserver_id BIGSERIAL PRIMARY KEY,
-	nameserver_zone_handle VARCHAR(255) NOT NULL UNIQUE,
-    nameserver_entry_handle VARCHAR(255),
-    nameserver_ascii_name VARCHAR(255) NOT NULL,
-    nameserver_unicode_name VARCHAR(255),
+	nameserver_zone_handle TEXT NOT NULL UNIQUE,
+    nameserver_entry_handle TEXT,
+    nameserver_ascii_name TEXT NOT NULL,
+    nameserver_unicode_name TEXT,
     nameserver_ipv4_addresses inet[],
     nameserver_ipv6_addresses inet[],
     nameserver_statuses TEXT[],
@@ -339,12 +381,12 @@ CREATE TABLE ip_network_versions (
 -- =======================
 CREATE TABLE ip_networks (
     ip_network_id BIGSERIAL PRIMARY KEY,
-	ip_network_zone_handle VARCHAR(255) NOT NULL UNIQUE,
-    ip_network_entry_handle VARCHAR(255),	
+	ip_network_zone_handle TEXT NOT NULL UNIQUE,
+    ip_network_entry_handle TEXT,	
     ip_network_start_address VARCHAR(50),
     ip_network_end_address VARCHAR(50),
     ip_network_version INT REFERENCES ip_network_versions(ip_network_version_id),
-    ip_network_name VARCHAR(255),
+    ip_network_name TEXT,
     ip_network_type VARCHAR(100),
     ip_network_country_code CHAR(2),
     ip_network_statuses TEXT[],
@@ -370,11 +412,11 @@ EXECUTE FUNCTION update_ip_networks_latest_update_at();
 -- =======================
 CREATE TABLE autnums (
     autnum_id BIGSERIAL PRIMARY KEY,
-	autnum_zone_handle VARCHAR(255) NOT NULL UNIQUE,
-    autnum_entry_handle VARCHAR(255),
+	autnum_zone_handle TEXT NOT NULL UNIQUE,
+    autnum_entry_handle TEXT,
     autnum_start BIGINT,
     autnum_end BIGINT,
-    autnum_name VARCHAR(255),
+    autnum_name TEXT,
     autnum_type VARCHAR(100),
     autnum_country_code CHAR(2),
     autnum_status TEXT[],
@@ -420,7 +462,7 @@ CREATE TABLE events (
 		)
 	),
     event_date TIMESTAMPTZ,
-    event_actor VARCHAR(255)
+    event_actor TEXT
 );
 
 -- =======================
