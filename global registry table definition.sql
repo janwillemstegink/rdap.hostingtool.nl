@@ -42,13 +42,13 @@ CREATE TABLE common (
 		'[
 			{
 				"public_status_requests": {
-					"max_per_day": null,
+					"max_per_utc_day": null,
 					"max_per_minute": null,
 					"max_per_second": null,
 					"caching_in_seconds": null
 				},
 				"public_object_requests": {
-					"max_per_day": null,
+					"max_per_utc_day": null,
 					"max_per_minute": null,
 					"max_per_second": null,
 					"caching_in_seconds": null
@@ -116,13 +116,13 @@ CREATE TABLE zones (
 		'[
 			{
 				"public_status_requests": {
-					"max_per_day": null,
+					"max_per_utc_day": null,
 					"max_per_minute": null,
 					"max_per_second": null,
 					"caching_in_seconds": null
 				},
 				"public_object_requests": {
-					"max_per_day": null,
+					"max_per_utc_day": null,
 					"max_per_minute": null,
 					"max_per_second": null,
 					"caching_in_seconds": null

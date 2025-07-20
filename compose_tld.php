@@ -178,13 +178,13 @@ foreach ($decoded as $role) {
 }
 $root_accepted_workload_json = '[{
 	"public_status_requests": {
-		"max_per_day": null,
+		"max_per_utc_day": null,
 		"max_per_minute": null,
 		"max_per_second": null,
 		"caching_in_seconds": null
 	},
  		"public_object_requests": {
-   		"max_per_day": null,
+   		"max_per_utc_day": null,
    		"max_per_minute": null,
    		"max_per_second": null,
    		"caching_in_seconds": null
@@ -232,13 +232,13 @@ $periods_json = '[
     ]';
 $zone_accepted_workload_json = '[{
 	"public_status_requests": {
-		"max_per_day": null,
+		"max_per_utc_day": null,
 		"max_per_minute": null,
 		"max_per_second": null,
 		"caching_in_seconds": null
 	},
  		"public_object_requests": {
-   		"max_per_day": null,
+   		"max_per_utc_day": null,
    		"max_per_minute": null,
    		"max_per_second": null,
    		"caching_in_seconds": null
@@ -267,13 +267,13 @@ if ($inputtld == 'nl')	{
     ]';
 	$zone_accepted_workload_json = '[{
 		"public_status_requests": {
-    		"max_per_day": 50000,
+    		"max_per_utc_day": 50000,
     		"max_per_minute": null,
     		"max_per_second": 10,
     		"caching_in_seconds": 420
   		},
   		"public_object_requests": {
-    		"max_per_day": 2000,
+    		"max_per_utc_day": 2000,
     		"max_per_minute": null,
     		"max_per_second": 1,
     		"caching_in_seconds": 60
