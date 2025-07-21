@@ -4,7 +4,11 @@ session_start();  // is needed with no Scriptcase PHP Generator
 //error_reporting(E_ALL);
 $datetime = new DateTime('now', new DateTimeZone('UTC'));
 $utc = $datetime->format('Y-m-d H:i:s');
-if (empty($_GET["language"]))	{
+if (!empty($_GET["language"]))	{
+	$_GET["language"] = intval($_GET["language"]);
+	$viewlanguage = $_GET["language"];
+}
+if (empty($_GET["language"]))	{	
 	$browserlanguage = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 	switch ($browserlanguage) {
 		case 'nl':
@@ -14,18 +18,16 @@ if (empty($_GET["language"]))	{
 	 		$viewlanguage = 3;
 			break;
 		case 'fr':
-   			$viewlanguage = 4;
-   			break;
+  			$viewlanguage = 4;
+			break;
 		default:
-   			$viewlanguage = 2;		
-	}	
-}
-else	{
-	$viewlanguage = $_GET["language"];
+   			$viewlanguage = 2;
+	}
 }
 if (!empty(trim($_GET['tld'])))	{
-	$vd = trim($_GET['tld']);
-	$vd = mb_strtolower($vd);
+	$_GET["tld"] = trim($_GET['tld']);
+	$_GET["tld"] = str_replace("'", "", $_GET["tld"]);
+	$vd = mb_strtolower($_GET["tld"]);
 	$vd = str_replace('http://','', $vd);
 	$vd = str_replace('https://','', $vd);
 	if (substr_count($vd, '.') > 1)	{

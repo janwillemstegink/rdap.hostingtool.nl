@@ -2,28 +2,30 @@
 session_start();  // is needed with no Scriptcase PHP Generator
 $datetime = new DateTime('now', new DateTimeZone('UTC'));
 $utc = $datetime->format('Y-m-d H:i:s');
-if (empty($_GET["language"]))	{
-	$browserlanguage = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-	switch ($browserlanguage) {
-  		case 'nl':
-   	 		$viewlanguage = 1;
-   	 		break;
-  		case 'de':
-   	 		$viewlanguage = 3;
-			break;
-  		case 'fr':
-    		$viewlanguage = 4;
-    		break;
-  		default:
-    		$viewlanguage = 2;
-	}		
-}
-else	{
+if (!empty($_GET["language"]))	{
+	$_GET["language"] = intval($_GET["language"]);
 	$viewlanguage = $_GET["language"];
 }
+if (empty($_GET["language"]))	{	
+	$browserlanguage = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+	switch ($browserlanguage) {
+		case 'nl':
+	 		$viewlanguage = 1;
+	 		break;
+		case 'de':
+	 		$viewlanguage = 3;
+			break;
+		case 'fr':
+  			$viewlanguage = 4;
+			break;
+		default:
+   			$viewlanguage = 2;
+	}
+}
 if (!empty(trim($_GET['domain'])))	{
-	$vd = trim($_GET['domain']);
-	$vd = mb_strtolower($vd);
+	$_GET["domain"] = trim($_GET['domain']);
+	$_GET["domain"] = str_replace("'", "", $_GET["domain"]);
+	$vd = mb_strtolower($_GET["domain"]);
 	$vd = str_replace('http://','', $vd);
 	$vd = str_replace('https://','', $vd);
 	if (substr_count($vd, '.') > 1)	{
@@ -39,7 +41,7 @@ if (!empty(trim($_GET['domain'])))	{
 	}
 }
 else	{
-	$vd = 'hostingtool.nl';
+	$vd = 'domain';
 }	
 if (empty([ip]) or empty([block]))	{
 	[ip] = getClientIP();
@@ -95,7 +97,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 30)	{ // domain
 		var pre = '30';
-		var max = 12
+		var max = 19
 	}
 	else if (type == 39)	{ // sponsor
 		var pre = '39';
@@ -278,7 +280,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_expiration_at").textContent = "Eindtijd voor verlenging of van publicatie, daarna neemt de betrokkenheid van de registrar af.";
 		document.getElementById("domain_recoverable_until").textContent = proposed + "Herstel is mogelijk tot 'domain_expiration_at' plus 'redemption_period_days'.";		
 		document.getElementById("domain_deletion_at").textContent = "Datum en tijdstip gepland voor volledige verwijdering. Er kan een laatste verwijderingsfase zijn.";
-		document.getElementById("domain_extensions").textContent = "'Eligibility': Hoe een domein voldoet aan een specifieke vereiste in een topleveldomeinzone.";		
+		document.getElementById("domain_extensions").textContent = "'Eligibility': Hoe het domein voldoet aan specifieke eisen van de TLD-rootzone.";		
 		document.getElementById("sponsor_role").textContent = "De domeinregistratie kan worden beheerd door een sponsor. Zie bijvoorbeeld france.fr.";
 		document.getElementById("registrant_role").textContent = "De domeingebruiker die de daadwerkelijke of effectieve controle heeft voor domeinrecht in het land van vestiging.";
 		document.getElementById("registrant_entry_handle").textContent = 'De uitvoer van "janwillemstegink.nl" bevat onbedoeld informatie met "STE135420-TRAIP".';
@@ -352,7 +354,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_expiration_at").textContent = "End time for renewal or publication, after which registrar involvement decreases.";
 		document.getElementById("domain_recoverable_until").textContent = proposed + "Recovery is possible up to the 'domain_expiration_at' plus 'redemption_period_days'.";
 		document.getElementById("domain_deletion_at").textContent = "Date and time scheduled for complete deletion. A final deletion phase may exist.";
-		document.getElementById("domain_extensions").textContent = "'Eligibility': How a domain fulfills a specific requirement in a top-level domain root zone.";
+		document.getElementById("domain_extensions").textContent = "'Eligibility': How the domain meets specific TLD root zone requirements.";
 		document.getElementById("sponsor_role").textContent = "The domain registration can be managed by a sponsor. See for example france.fr.";
 		document.getElementById("registrant_role").textContent = "The domain user who has the actual or effective control for domain rights in the country of establishment.";
 		document.getElementById("registrant_entry_handle").textContent = 'The output from "janwillemstegink.nl" unintentionally contains information with "STE135420-TRAIP".';
@@ -426,7 +428,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_expiration_at").textContent = "Endzeitpunkt für Erneuerung oder Veröffentlichung, nach dem die Beteiligung des Registrars abnimmt.";
 		document.getElementById("domain_recoverable_until").textContent = proposed + "Eine Wiederherstellung ist bis zum Ablaufdatum plus den Tagen der Einlösungsfrist möglich.";
 		document.getElementById("domain_deletion_at").textContent = "Datum und Uhrzeit für die vollständige Löschung geplant. Es kann eine abschließende Löschphase geben.";
-		document.getElementById("domain_extensions").textContent = "'Eligibility': Wie eine Domäne eine bestimmte Anforderung in einer Top-Level-Domänenzone erfüllt.";
+		document.getElementById("domain_extensions").textContent = "'Eligibility': Wie die Domain die spezifischen Anforderungen der TLD-Rootzone erfüllt.";
 		document.getElementById("sponsor_role").textContent = "Die Domänenregistrierung kann von einem Sponsor verwaltet werden. Siehe beispielsweise france.fr.";
 		document.getElementById("registrant_role").textContent = "Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat für Domainrechte im Wohnsitzland.";
 		document.getElementById("registrant_entry_handle").textContent = 'Die Ausgabe von "janwillemstegink.nl" enthält unbeabsichtigt Informationen mit "STE135420-TRAIP".';
@@ -500,7 +502,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_expiration_at").textContent = "Date limite de renouvellement ou de publication, après laquelle l'implication du registraire diminue.";
 		document.getElementById("domain_recoverable_until").textContent = proposed + "La récupération est possible jusqu'à 'domain_expiration_at' plus 'redemption_period_days'.";
 		document.getElementById("domain_deletion_at").textContent = "Date et heure prévues pour la suppression complète. Une phase de suppression finale peut exister.";
-		document.getElementById("domain_extensions").textContent = "'Eligibility' : comment un domaine répond à une exigence spécifique dans une zone de domaine de premier niveau.";
+		document.getElementById("domain_extensions").textContent = "'Eligibility' : comment le domaine répond aux exigences spécifiques de la zone racine TLD.";
 		document.getElementById("sponsor_role").textContent = "L'enregistrement du domaine peut être géré par un sponsor. Voir par exemple france.fr.";
 		document.getElementById("registrant_role").textContent = "L'utilisateur du domaine qui a le contrôle réel ou effectif pour les droits de domaine dans le pays de résidence.";
 		document.getElementById("registrant_entry_handle").textContent = 'La sortie de "janwillemstegink.nl" contient involontairement des informations avec "STE135420-TRAIP"';
@@ -563,7 +565,7 @@ if (@get_headers($rdap_url))	{ // the application to compose data
 if	(is_null($data))	{
 	$terms_and_conditions = '';
 	$raw_whois = '';
-	$reopen = $server_url.'/modeling_domain/index.php?batch=0&domain=hostingtool.nl';
+	$reopen = $server_url.'/modeling_domain/index.php?batch=0&domain=domain';
 	sc_redir($reopen);
 }
 $html_text = '<body onload=SwitchTranslation('.$viewlanguage.')><div style="border-collapse:collapse; line-height:120%">
@@ -656,35 +658,42 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(30)">Domain Data +/-</button></td><td><b>'.$vd.'</b></td><td id="domain_role"></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>domain_zone_handle</td><td>'.$data[$pd]['domain']['zone_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="302" style="display:none"><td>domain_entry_handle</td><td>'.$data[$pd]['domain']['entry_handle'].'</td><td></td></tr>';
-	$html_text .= '<tr id="303" style="display:none"><td>domain_ascii_name (lower case is not a "MUST")</td><td>'.$data[$pd]['domain']['ascii_name'].'</td><td id="domain_ascii_name"></td></tr>';
+	$html_text .= '<tr id="303" style="display:none"><td>domain_ascii_name (lowercase is not a "MUST")</td><td>'.$data[$pd]['domain']['ascii_name'].'</td><td id="domain_ascii_name"></td></tr>';
 	$html_text .= '<tr id="304" style="display:none"><td>domain_unicode_name</td><td>'.$data[$pd]['domain']['unicode_name'].'</td><td id="domain_unicode_name"></td></tr>';
 	$html_text .= '<tr style="vertical-align:top"><td>domain_zone_statuses</td><td>'.$data[$pd]['domain']['zone_statuses'].'</td><td id="domain_zone_statuses"></td></tr>';
-	$html_text .= '<tr id="305" style="display:none;vertical-align:top"><td>domain_entry_statuses</td><td>'.$data[$pd]['domain']['entry_statuses'].'</td><td id="domain_entry_statuses"></td></tr>';
-	$html_text .= '<tr id="306" style="display:none"><td>domain_created_at</td><td>'.$data[$pd]['domain']['created_at'].'</td><td id="domain_created_at"></td></tr>';
-	$html_text .= '<tr id="307" style="display:none"><td>domain_latest_transfer_at</td><td>'.$data[$pd]['domain']['latest_transfer_at'].'</td><td></td></tr>';
-	$html_text .= '<tr id="308" style="display:none"><td>domain_latest_update_at</td><td>'.$data[$pd]['domain']['latest_update_at'].'</td><td></td></tr>';
+	if (!empty($data[$pd]['domain']['zone_statuses']))	{
+		if (!str_contains($data[$pd]['domain']['zone_statuses'], 'inactive'))	{
+			if (str_contains($data[$pd]['domain']['zone_statuses'], 'active'))	{
+				$html_text .= '<tr id="305" style="display:none"><td>(customized on top of RDAP)</td><td>"active" is a custom label for "ok"<td><td></td></tr>';
+			}	
+		}
+	}	
+	$html_text .= '<tr id="306" style="display:none;vertical-align:top"><td>domain_entry_statuses</td><td>'.$data[$pd]['domain']['entry_statuses'].'</td><td id="domain_entry_statuses"></td></tr>';
+	$html_text .= '<tr id="307" style="display:none"><td>domain_created_at</td><td>'.$data[$pd]['domain']['created_at'].'</td><td id="domain_created_at"></td></tr>';
+	$html_text .= '<tr id="308" style="display:none"><td>domain_latest_transfer_at</td><td>'.$data[$pd]['domain']['latest_transfer_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="309" style="display:none"><td>domain_latest_update_at</td><td>'.$data[$pd]['domain']['latest_update_at'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>domain_expiration_at</td><td>'.$data[$pd]['domain']['expiration_at'].'</td><td id="domain_expiration_at"></td></tr>';
-	$html_text .= '<tr id="309" style="display:none"><td>domain_recoverable_until</td><td>'.$data[$pd]['domain']['recoverable_until'].'</td><td id="domain_recoverable_until"></td></tr>';
-	$html_text .= '<tr id="3010" style="display:none"><td>domain_deletion_at</td><td>'.$data[$pd]['domain']['deletion_at'].'</td><td id="domain_deletion_at"></td></tr>';
+	$html_text .= '<tr id="3010" style="display:none"><td>domain_recoverable_until</td><td>'.$data[$pd]['domain']['recoverable_until'].'</td><td id="domain_recoverable_until"></td></tr>';
+	$html_text .= '<tr id="3011" style="display:none"><td>domain_deletion_at</td><td>'.$data[$pd]['domain']['deletion_at'].'</td><td id="domain_deletion_at"></td></tr>';
 	if (!empty($data[$pd]['domain']['zone_statuses']))	{
 		if (str_contains($data[$pd]['domain']['zone_statuses'], 'pending delete'))	{
 			if (str_contains($data[$pd]['domain']['zone_statuses'], 'redemption period') and str_contains($data[$pd]['domain']['zone_statuses'], 'pending delete'))	{
-				$html_text .= '<tr><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" disregards redemption grace<td><td></td></tr>';
+				$html_text .= '<tr id="3012" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" disregards redemption grace<td><td></td></tr>';
 			}	
 			elseif (!empty($data[$pd]['metadata']['zone_identifier']))	{
 				if ($data[$pd]['metadata']['zone_identifier'] == 'nl')	{
-					$html_text .= '<tr><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" refers to "redemption period"</td><td></td></tr>';
+					$html_text .= '<tr id="3013" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" refers to "redemption period"</td><td></td></tr>';
 				}	
 			}	
 		}
 		if (str_contains($data[$pd]['domain']['zone_statuses'], 'redemption period'))	{
 			if (empty($data[$pd]['domain']['expiration_at']) and empty($data[$pd]['domain']['deletion_at'])) {
-				$html_text .= '<tr><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"redemption period" without date-time provided<td><td></td></tr>';
+				$html_text .= '<tr id="3014" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"redemption period" without date-time provided<td><td></td></tr>';
 			}	
 		}
 		elseif (str_contains($data[$pd]['domain']['zone_statuses'], 'pending delete'))	{
 			if (empty($data[$pd]['domain']['expiration_at']) and empty($data[$pd]['domain']['deletion_at'])) {
-				$html_text .= '<tr><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" without date-time provided<td><td></td></tr>';
+				$html_text .= '<tr id="3015" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" without date-time provided<td><td></td></tr>';
 			}	
 		}
 	}
@@ -694,7 +703,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
     	if ($expiration !== false and $deletion !== false)	{
 			$days_before = floor(($expiration - $deletion) / (60 * 60 * 24));
 			if ($days_before > 0) {
-       			$html_text .= '<tr><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"deletion_at" '.$days_before.' days before "expiration_at"</td><td></td></tr>';
+       			$html_text .= '<tr id="3016" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"deletion_at" '.$days_before.' days before "expiration_at"</td><td></td></tr>';
 			}	
     	}
 	}
@@ -703,11 +712,11 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 		$deletion = strtotime($data[$pd]['domain']['deletion_at']);
     	if ($current !== false and $deletion !== false and $current > $deletion) {
 			$days_ago = floor(($current - $deletion) / (60 * 60 * 24));
-        	$html_text .= '<tr><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"deletion_at" was '.$days_ago.' days ago?</td><td></td></tr>';
+        	$html_text .= '<tr id="3017" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"deletion_at" was '.$days_ago.' days ago?</td><td></td></tr>';
 		}
 	}	
-	$html_text .= '<tr id="3011" style="display:none;vertical-align:top"><td>domain_extensions</td><td>'.$data[$pd]['domain']['extensions'].'</td><td id="domain_extensions"></td></tr>';
-	$html_text .= '<tr id="3012" style="display:none;vertical-align:top"><td>domain_remarks</td><td>'.$data[$pd]['domain']['remarks'].'</td><td></td></tr>';
+	$html_text .= '<tr id="3018" style="display:none;vertical-align:top"><td>domain_extensions</td><td>'.$data[$pd]['domain']['extensions'].'</td><td id="domain_extensions"></td></tr>';
+	$html_text .= '<tr id="3019" style="display:none;vertical-align:top"><td>domain_remarks</td><td>'.$data[$pd]['domain']['remarks'].'</td><td></td></tr>';
 	$sponsor_applicable = (strlen($data[$pd]['sponsor']['organization_name']) or strlen($data[$pd]['sponsor']['presented_name'])) ? 'Sponsor Data Exists' : 'No Sponsor Data';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(39)">Sponsor +/-</button></td><td>'.$sponsor_applicable.'</td><td id="sponsor_role"></td></tr>';
 	$html_text .= '<tr id="391" style="display:none"><td>sponsor_zone_handle</td><td>'.$data[$pd]['sponsor']['zone_handle'].'</td><td></td></tr>';

@@ -63,15 +63,17 @@ function toPunycodeIfNeeded($inputdomain) {
 }
 
 function write_file($inputdomain, $inputbatch)	{
-	
-$time_start = microtime(true);
+
+$arr = array();	
 $strpos = mb_strpos($inputdomain, '.');
-if ($strpos)	{
-	$zone_identifier = mb_substr($inputdomain, strrpos($inputdomain, '.') + 1);
+if ($strpos !== false)	{
+	$zone_identifier = mb_substr($inputdomain, mb_strrpos($inputdomain, '.') + 1);
 }
 else	{
-	$zone_identifier = $inputdomain;
+	$arr[$inputdomain]['metadata']['zone_identifier'] = 'tld';
+	return $arr;
 }
+$time_start = microtime(true);	
 $url = '';	
 switch ($zone_identifier) {
 	case 'nl':
@@ -177,7 +179,6 @@ if (isset($http_response_header)) {
         $http_code = (int)$matches[1];
     }
 }
-$arr = array();
 $arr[$inputdomain]['http_error'] = "";	
 if ($http_code === 429) {
 	$arr[$inputdomain]['http_error'] = "429 - Rate limit exceeded";
@@ -193,7 +194,7 @@ if ($http_code === 200) {
     }
 }
 else {
-	$arr[$inputdomain]['http_error'] = strval($http_code) . " - Unexpected HTTP response";
+	$arr[$inputdomain]['http_error'] = strval($http_code) . " - Insufficient HTTP response";
 	return $arr;
 }
 $notice_0_title = $obj['notices'][0]['title'];
