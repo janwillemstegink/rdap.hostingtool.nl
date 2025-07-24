@@ -97,7 +97,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 30)	{ // domain
 		var pre = '30';
-		var max = 19
+		var max = 20
 	}
 	else if (type == 39)	{ // sponsor
 		var pre = '39';
@@ -269,16 +269,16 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Ondanks de update blijft het veld zonder functioneel nut.";	
 		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Er kan een IANA Registrar Accreditation ID voor gTLD's bestaan. Deze moet correct zijn.";
 		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + 'Indien van toepassing, moet de RDAP-bron-URL van de registrar machine-leesbaar worden.';
-		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + 'Vereist indien de registrator geaccrediteerd is door IANA, om een ​​klacht in behandeling te kunnen nemen.';		
+		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + 'Vereist indien de registrator geaccrediteerd is door IANA, om een klacht in behandeling te kunnen nemen.';		
 		document.getElementById("metadata_status_explanation_url").textContent = proposed + 'Vereist als de registrar IANA-geaccrediteerd is; bevat uitleg over de statuscode.';
 		document.getElementById("domain_role").textContent = "Een domein onder TLD-niveau is wereldwijd uniek en kan vrij worden gekozen onder bepaalde regels.";
 		document.getElementById("domain_ascii_name").textContent = "Voor speciale tekens bevatten de ASCII-tekenreeksen Punycode-transcriptie.";
-		document.getElementById("domain_unicode_name").textContent = "Hoewel de informatie verduidelijkt, is de unicode-domeinnaam optioneel binnen het RDAP-protocol.";
+		document.getElementById("domain_unicode_name").textContent = "Optioneel veld dat, indien van toepassing, de Unicode-weergave van het domein biedt.";
 		document.getElementById("domain_zone_statuses").textContent = modified + "Geeft aan of het domein zichtbaar is in de DNS-zone.";
 		document.getElementById("domain_entry_statuses").textContent = modified + "Geeft de domeinstatus op registrar-niveau aan.";
 		document.getElementById("domain_created_at").textContent = "De datumvelden staan hier in een logische volgorde. Dit is ook eenvoudig in de JSON-array.";
 		document.getElementById("domain_expiration_at").textContent = "Eindtijd voor verlenging of van publicatie, daarna neemt de betrokkenheid van de registrar af.";
-		document.getElementById("domain_recoverable_until").textContent = proposed + "Herstel is mogelijk tot 'domain_expiration_at' plus 'redemption_period_days'.";		
+		document.getElementById("domain_recoverable_until").textContent = proposed + "Laatste hersteldatum, gebaseerd op domain_expiration_at + redemption_period_days.";
 		document.getElementById("domain_deletion_at").textContent = "Datum en tijdstip gepland voor volledige verwijdering. Er kan een laatste verwijderingsfase zijn.";
 		document.getElementById("domain_extensions").textContent = "'Eligibility': Hoe het domein voldoet aan specifieke eisen van de TLD-rootzone.";		
 		document.getElementById("sponsor_role").textContent = "De domeinregistratie kan worden beheerd door een sponsor. Zie bijvoorbeeld france.fr.";
@@ -347,12 +347,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_status_explanation_url").textContent = proposed + 'Required if the registrar is IANA-accredited; provides status code explanations.';
 		document.getElementById("domain_role").textContent = "A domain below TLD level is globally unique and can be freely chosen under certain rules.";
 		document.getElementById("domain_ascii_name").textContent = "For special characters, the ASCII character strings contain Punycode transcription.";
-		document.getElementById("domain_unicode_name").textContent = "Although information clarifies, the unicode domain name is optional within the RDAP protocol.";
+		document.getElementById("domain_unicode_name").textContent = "Optional field that provides the Unicode representation of the domain, if applicable.";
 		document.getElementById("domain_zone_statuses").textContent = modified + "Indicates the domain’s visibility in the DNS zone.";
 		document.getElementById("domain_entry_statuses").textContent = modified + "Indicates registrar-level domain status.";
 		document.getElementById("domain_created_at").textContent = "The date fields are here in a logical order. This is also easy in the JSON array.";
 		document.getElementById("domain_expiration_at").textContent = "End time for renewal or publication, after which registrar involvement decreases.";
-		document.getElementById("domain_recoverable_until").textContent = proposed + "Recovery is possible up to the 'domain_expiration_at' plus 'redemption_period_days'.";
+		document.getElementById("domain_recoverable_until").textContent = proposed + "Last date recovery is allowed, based on domain_expiration_at + redemption_period_days.";
 		document.getElementById("domain_deletion_at").textContent = "Date and time scheduled for complete deletion. A final deletion phase may exist.";
 		document.getElementById("domain_extensions").textContent = "'Eligibility': How the domain meets specific TLD root zone requirements.";
 		document.getElementById("sponsor_role").textContent = "The domain registration can be managed by a sponsor. See for example france.fr.";
@@ -421,12 +421,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_status_explanation_url").textContent = proposed + 'Erforderlich, wenn der Registrar IANA-akkreditiert ist; bietet Erklärungen zum Statuscode.';
 		document.getElementById("domain_role").textContent = "Eine Domain unterhalb der TLD-Ebene ist weltweit eindeutig und kann unter bestimmten Regeln frei gewählt werden.";
 		document.getElementById("domain_ascii_name").textContent = "Für Sonderzeichen enthalten die ASCII-Zeichenfolgen eine Punycode-Transkription.";
-		document.getElementById("domain_unicode_name").textContent = "Obwohl die Informationen klarstellen, ist der Unicode-Domänenname innerhalb des RDAP-Protokolls optional.";
+		document.getElementById("domain_unicode_name").textContent = "Optionales Feld, das gegebenenfalls die Unicode-Darstellung der Domäne bereitstellt.";
 		document.getElementById("domain_zone_statuses").textContent = modified + "Zeigt die Sichtbarkeit der Domain in der DNS-Zone an.";
 		document.getElementById("domain_entry_statuses").textContent = modified + "Zeigt den Domain-Status auf Registrar-Ebene an.";
 		document.getElementById("domain_created_at").textContent = "Die Datumsfelder stehen hier in einer logischen Reihenfolge. Auch dies ist im JSON-Array einfach.";
-		document.getElementById("domain_expiration_at").textContent = "Endzeitpunkt für Erneuerung oder Veröffentlichung, nach dem die Beteiligung des Registrars abnimmt.";
-		document.getElementById("domain_recoverable_until").textContent = proposed + "Eine Wiederherstellung ist bis zum Ablaufdatum plus den Tagen der Einlösungsfrist möglich.";
+		document.getElementById("domain_expiration_at").textContent = "Eine Wiederherstellung ist erst ab dem Ablaufdatum der Domain + Tagen der Rücknahmefrist möglich.";
+		document.getElementById("domain_recoverable_until").textContent = proposed + "Letzter möglicher Wiederherstellungstag, basierend auf domain_expiration_at + redemption_period_days.";
 		document.getElementById("domain_deletion_at").textContent = "Datum und Uhrzeit für die vollständige Löschung geplant. Es kann eine abschließende Löschphase geben.";
 		document.getElementById("domain_extensions").textContent = "'Eligibility': Wie die Domain die spezifischen Anforderungen der TLD-Rootzone erfüllt.";
 		document.getElementById("sponsor_role").textContent = "Die Domänenregistrierung kann von einem Sponsor verwaltet werden. Siehe beispielsweise france.fr.";
@@ -491,16 +491,16 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Malgré la mise à jour, le champ reste sans utilité fonctionnelle.";
 		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Il peut exister un identifiant d'accréditation IANA pour les gTLD. Il doit être correct.";
 		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + "Le cas échéant, l’URL source RDAP du registraire devrait devenir lisible par machine.";
-		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + "Obligatoire si le registraire est accrédité par l'IANA, afin de pouvoir traiter une plainte.";		
+		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + "Obligatoire si le registraire est accrédité par l'IANA, afin de pouvoir traiter une plainte.";
 		document.getElementById("metadata_status_explanation_url").textContent = proposed + "Obligatoire si le registraire est accrédité par l'IANA ; fournit des explications sur le code de statut.";
 		document.getElementById("domain_role").textContent = "Un domaine inférieur au niveau TLD est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_ascii_name").textContent = "Pour les caractères spéciaux, les chaînes de caractères ASCII contiennent une transcription Punycode.";
-		document.getElementById("domain_unicode_name").textContent = "Bien que les informations soient clarifiées, le nom de domaine Unicode est facultatif dans le protocole RDAP.";
+		document.getElementById("domain_unicode_name").textContent = "Champ facultatif qui fournit la représentation Unicode du domaine, le cas échéant.";
 		document.getElementById("domain_zone_statuses").textContent = modified + "Indique la visibilité du domaine dans la zone DNS.";
 		document.getElementById("domain_entry_statuses").textContent = modified + "Indique le statut du domaine au niveau du bureau d’enregistrement.";
 		document.getElementById("domain_created_at").textContent = "Les champs de date sont ici classés dans un ordre logique. C'est également facile dans le tableau JSON.";
 		document.getElementById("domain_expiration_at").textContent = "Date limite de renouvellement ou de publication, après laquelle l'implication du registraire diminue.";
-		document.getElementById("domain_recoverable_until").textContent = proposed + "La récupération est possible jusqu'à 'domain_expiration_at' plus 'redemption_period_days'.";
+		document.getElementById("domain_recoverable_until").textContent = proposed + "Dernier jour de récupération, basé sur domain_expiration_at + redemption_period_days.";
 		document.getElementById("domain_deletion_at").textContent = "Date et heure prévues pour la suppression complète. Une phase de suppression finale peut exister.";
 		document.getElementById("domain_extensions").textContent = "'Eligibility' : comment le domaine répond aux exigences spécifiques de la zone racine TLD.";
 		document.getElementById("sponsor_role").textContent = "L'enregistrement du domaine peut être géré par un sponsor. Voir par exemple france.fr.";
@@ -638,7 +638,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="291" style="display:none"><td>resource_upload_at</td><td>'.$data[$pd]['metadata']['resource_upload_at'].'</td><td id="metadata_resource_upload_at"></td></tr>';
 	$html_text .= '<tr id="292" style="display:none"><td>object_class_name</td><td>'.$data[$pd]['metadata']['object_class_name'].'</td><td id="metadata_object_class_name"></td></tr>';
 	$html_text .= '<tr id="293" style="display:none; vertical-align:top"><td>object_conformance</td><td>'.$data[$pd]['metadata']['object_conformance'].'</td><td id="metadata_object_conformance"></td></tr>';	
-	$html_text .= '<tr><td>terms_and_conditions</td><td>'.((strlen($terms_and_conditions)) ? '<a href="'.$terms_and_conditions.'" target="_blank">.'.$data[$pd]['metadata']['zone_identifier'].' Data</a>' : '').'</td><td id="metadata_terms_and_conditions"></td></tr>';	
+	$html_text .= '<tr><td>terms_and_conditions</td><td>'.((strlen($terms_and_conditions)) ? '<a href="'.$terms_and_conditions.'" target="_blank">.'.$data[$pd]['metadata']['zone_identifier'].' TLD Data</a>' : '').'</td><td id="metadata_terms_and_conditions"></td></tr>';	
 	$html_text .= '<tr id="294" style="display:none"><td>global_json_response_url</td><td>'.$data[$pd]['metadata']['global_json_response_url'].'</td><td id="metadata_global_json_response_url"></td></tr>';
 	$registry_json_response_url = str_replace('https://', '', $data[$pd]['metadata']['registry_json_response_url']);
 	$validation_registry = 'https://validator.rdap.org/?url=https://'.$registry_json_response_url.'&response-type=domain&server-type=gtld-registry&errors-only=1';	
@@ -662,38 +662,43 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="304" style="display:none"><td>domain_unicode_name</td><td>'.$data[$pd]['domain']['unicode_name'].'</td><td id="domain_unicode_name"></td></tr>';
 	$html_text .= '<tr style="vertical-align:top"><td>domain_zone_statuses</td><td>'.$data[$pd]['domain']['zone_statuses'].'</td><td id="domain_zone_statuses"></td></tr>';
 	if (!empty($data[$pd]['domain']['zone_statuses']))	{
+		if (str_contains($data[$pd]['domain']['zone_statuses'], 'locked'))	{
+			$html_text .= '<tr id="305" style="display:none"><td>(customized on top of RDAP)</td><td>"locked" indicates prevented modification<td><td></td></tr>';
+		}	
+	}
+	if (!empty($data[$pd]['domain']['zone_statuses']))	{
 		if (!str_contains($data[$pd]['domain']['zone_statuses'], 'inactive'))	{
 			if (str_contains($data[$pd]['domain']['zone_statuses'], 'active'))	{
-				$html_text .= '<tr id="305" style="display:none"><td>(customized on top of RDAP)</td><td>"active" is a custom label for "ok"<td><td></td></tr>';
+				$html_text .= '<tr id="306" style="display:none"><td>(registry-side RDAP clarification)</td><td>"active" maps to EPP ok<td><td></td></tr>';
 			}	
 		}
 	}	
-	$html_text .= '<tr id="306" style="display:none;vertical-align:top"><td>domain_entry_statuses</td><td>'.$data[$pd]['domain']['entry_statuses'].'</td><td id="domain_entry_statuses"></td></tr>';
-	$html_text .= '<tr id="307" style="display:none"><td>domain_created_at</td><td>'.$data[$pd]['domain']['created_at'].'</td><td id="domain_created_at"></td></tr>';
-	$html_text .= '<tr id="308" style="display:none"><td>domain_latest_transfer_at</td><td>'.$data[$pd]['domain']['latest_transfer_at'].'</td><td></td></tr>';
-	$html_text .= '<tr id="309" style="display:none"><td>domain_latest_update_at</td><td>'.$data[$pd]['domain']['latest_update_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="307" style="display:none;vertical-align:top"><td>domain_entry_statuses</td><td>'.$data[$pd]['domain']['entry_statuses'].'</td><td id="domain_entry_statuses"></td></tr>';
+	$html_text .= '<tr id="308" style="display:none"><td>domain_created_at</td><td>'.$data[$pd]['domain']['created_at'].'</td><td id="domain_created_at"></td></tr>';
+	$html_text .= '<tr id="309" style="display:none"><td>domain_latest_transfer_at</td><td>'.$data[$pd]['domain']['latest_transfer_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="3010" style="display:none"><td>domain_latest_update_at</td><td>'.$data[$pd]['domain']['latest_update_at'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>domain_expiration_at</td><td>'.$data[$pd]['domain']['expiration_at'].'</td><td id="domain_expiration_at"></td></tr>';
-	$html_text .= '<tr id="3010" style="display:none"><td>domain_recoverable_until</td><td>'.$data[$pd]['domain']['recoverable_until'].'</td><td id="domain_recoverable_until"></td></tr>';
-	$html_text .= '<tr id="3011" style="display:none"><td>domain_deletion_at</td><td>'.$data[$pd]['domain']['deletion_at'].'</td><td id="domain_deletion_at"></td></tr>';
+	$html_text .= '<tr id="3011" style="display:none"><td>domain_recoverable_until</td><td>'.$data[$pd]['domain']['recoverable_until'].'</td><td id="domain_recoverable_until"></td></tr>';
+	$html_text .= '<tr id="3012" style="display:none"><td>domain_deletion_at</td><td>'.$data[$pd]['domain']['deletion_at'].'</td><td id="domain_deletion_at"></td></tr>';
 	if (!empty($data[$pd]['domain']['zone_statuses']))	{
 		if (str_contains($data[$pd]['domain']['zone_statuses'], 'pending delete'))	{
 			if (str_contains($data[$pd]['domain']['zone_statuses'], 'redemption period') and str_contains($data[$pd]['domain']['zone_statuses'], 'pending delete'))	{
-				$html_text .= '<tr id="3012" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" disregards redemption grace<td><td></td></tr>';
+				$html_text .= '<tr id="3013" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" disregards redemption grace<td><td></td></tr>';
 			}	
 			elseif (!empty($data[$pd]['metadata']['zone_identifier']))	{
 				if ($data[$pd]['metadata']['zone_identifier'] == 'nl')	{
-					$html_text .= '<tr id="3013" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" refers to "redemption period"</td><td></td></tr>';
+					$html_text .= '<tr id="3014" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" refers to "redemption period"</td><td></td></tr>';
 				}	
 			}	
 		}
 		if (str_contains($data[$pd]['domain']['zone_statuses'], 'redemption period'))	{
 			if (empty($data[$pd]['domain']['expiration_at']) and empty($data[$pd]['domain']['deletion_at'])) {
-				$html_text .= '<tr id="3014" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"redemption period" without date-time provided<td><td></td></tr>';
+				$html_text .= '<tr id="3015" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"redemption period" without date-time provided<td><td></td></tr>';
 			}	
 		}
 		elseif (str_contains($data[$pd]['domain']['zone_statuses'], 'pending delete'))	{
 			if (empty($data[$pd]['domain']['expiration_at']) and empty($data[$pd]['domain']['deletion_at'])) {
-				$html_text .= '<tr id="3015" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" without date-time provided<td><td></td></tr>';
+				$html_text .= '<tr id="3016" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" without date-time provided<td><td></td></tr>';
 			}	
 		}
 	}
@@ -703,7 +708,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
     	if ($expiration !== false and $deletion !== false)	{
 			$days_before = floor(($expiration - $deletion) / (60 * 60 * 24));
 			if ($days_before > 0) {
-       			$html_text .= '<tr id="3016" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"deletion_at" '.$days_before.' days before "expiration_at"</td><td></td></tr>';
+       			$html_text .= '<tr id="3017" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"deletion_at" '.$days_before.' days before "expiration_at"</td><td></td></tr>';
 			}	
     	}
 	}
@@ -712,11 +717,11 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 		$deletion = strtotime($data[$pd]['domain']['deletion_at']);
     	if ($current !== false and $deletion !== false and $current > $deletion) {
 			$days_ago = floor(($current - $deletion) / (60 * 60 * 24));
-        	$html_text .= '<tr id="3017" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"deletion_at" was '.$days_ago.' days ago?</td><td></td></tr>';
+        	$html_text .= '<tr id="3018" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"deletion_at" was '.$days_ago.' days ago?</td><td></td></tr>';
 		}
 	}	
-	$html_text .= '<tr id="3018" style="display:none;vertical-align:top"><td>domain_extensions</td><td>'.$data[$pd]['domain']['extensions'].'</td><td id="domain_extensions"></td></tr>';
-	$html_text .= '<tr id="3019" style="display:none;vertical-align:top"><td>domain_remarks</td><td>'.$data[$pd]['domain']['remarks'].'</td><td></td></tr>';
+	$html_text .= '<tr id="3019" style="display:none;vertical-align:top"><td>domain_extensions</td><td>'.$data[$pd]['domain']['extensions'].'</td><td id="domain_extensions"></td></tr>';
+	$html_text .= '<tr id="3020" style="display:none;vertical-align:top"><td>domain_remarks</td><td>'.$data[$pd]['domain']['remarks'].'</td><td></td></tr>';
 	$sponsor_applicable = (strlen($data[$pd]['sponsor']['organization_name']) or strlen($data[$pd]['sponsor']['presented_name'])) ? 'Sponsor Data Exists' : 'No Sponsor Data';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(39)">Sponsor +/-</button></td><td>'.$sponsor_applicable.'</td><td id="sponsor_role"></td></tr>';
 	$html_text .= '<tr id="391" style="display:none"><td>sponsor_zone_handle</td><td>'.$data[$pd]['sponsor']['zone_handle'].'</td><td></td></tr>';
