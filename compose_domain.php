@@ -324,23 +324,9 @@ $sponsor_remarks = '';
 $handle = $obj['handle'];
 $ascii_name = $obj['ldhName'];
 $unicode_name = $obj['unicodeName'];
-$name_servers_dnssec = 'Not Available';
-$name_servers_dnssec_algorithm = 'Not Applicable';
-if (empty($obj['secureDNS']['delegationSigned']))	{
-}	
-elseif ($obj['secureDNS']['delegationSigned'] === true)	{
-	$name_servers_dnssec = 'yes';
-	$algorithm = $obj['secureDNS']['dsData'][0]['algorithm'];
-	if (strlen($algorithm))	{
-		$name_servers_dnssec_algorithm = $algorithm;
-	}
-	else	{
-		$name_servers_dnssec_algorithm = 'Not Available';
-	}	
-}
-elseif ($obj['secureDNS']['delegation_urlSigned'] === false)	{
-	$name_servers_dnssec = 'no';	
-}
+$name_servers_dnssec_signed = '';
+$name_servers_dnssec_algorithm = '';
+$name_servers_dnssec_record = '';
 $abuse_handle = '';	
 $abuse_organization_type = '';
 $abuse_organization_name = '';
@@ -569,6 +555,19 @@ foreach($obj as $key1 => $value1) {
 		$extensions .= (is_array($value1)) ? implode(",<br />", $value1) : $value1;
 	}
 	foreach($value1 as $key2 => $value2) {
+		if ($key1 == 'secureDNS')	{
+			if ($key2 == 'delegationSigned') {
+				if ($value2 === true)	{
+					$name_servers_dnssec_signed .= 'Yes'."<br />";
+				}	
+				elseif ($value2 === false)	{
+					$name_servers_dnssec_signed .= 'No'."<br />";
+				}
+				else	{
+					$name_servers_dnssec_signed .= 'Not Applicable'."<br />";					
+				}	
+			}
+		}
 		foreach($value2 as $key3 => $value3) {
 			if ($key1 == 'remarks')	{
 				if (strlen($remarks))	{
@@ -649,7 +648,12 @@ foreach($obj as $key1 => $value1) {
 				elseif ($key3 == 'unicodeName')	{
 					$name_servers_unicode .= $key2.': '.$value3."<br />";
 				}
-			}	
+			}
+			if ($key1 == 'secureDNS')	{
+				if ($key2 == 'dsData') {
+					$name_servers_dnssec_algorithm .= $key3.': '.$value3['algorithm']."<br />";	
+					$name_servers_dnssec_record .= $key3.': '.$inputdomain.'. IN DS '.$value3['keyTag'].' '.$value3['algorithm'].' '.$value3['digestType'].' '.$value3['digest']."<br />";							}				
+			}
 			foreach($value3 as $key4 => $value4) {
 				if ($key1 == 'entities')	{
 					if ($key3 == 'properties')	{
@@ -1485,8 +1489,9 @@ $arr[$inputdomain]['name_servers']['ipv6_addresses'] = $name_servers_ipv6;
 $arr[$inputdomain]['name_servers']['statuses'] = $name_servers_statuses;	
 $arr[$inputdomain]['name_servers']['delegation_checks'] = $name_servers_delegation_check;
 $arr[$inputdomain]['name_servers']['latest_correct_delegation_checks'] = $name_servers_latest_correct_delegation_check;	
-$arr[$inputdomain]['name_servers']['dnssec'] = $name_servers_dnssec;
+$arr[$inputdomain]['name_servers']['dnssec_signed'] = $name_servers_dnssec_signed;
 $arr[$inputdomain]['name_servers']['dnssec_algorithm'] = $name_servers_dnssec_algorithm;
+$arr[$inputdomain]['name_servers']['dnssec_record'] = $name_servers_dnssec_record;
 	
 $arr[$inputdomain]['raw_rdap'] = $raw_rdap_data;
 

@@ -141,7 +141,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 63)	{ // name servers
 		var pre = '63';
-		var max = 9
+		var max = 10
 	}
 	else if (type == 75)	{ // raw rdap data
 		var pre = '75';
@@ -240,7 +240,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
 		document.getElementById("abuse_role").textContent = "";
 		document.getElementById("abuse_telephone").textContent = "";
-		document.getElementById("name_servers_dnssec").textContent = "";
+		document.getElementById("name_servers_dnssec_signed").textContent = "";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "";
 		document.getElementById("name_servers_ip").textContent = "";
 		document.getElementById("br_zone").textContent = "";
@@ -314,7 +314,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
 		document.getElementById("abuse_role").textContent = "Informatie over hoe een derde partij contact kan opnemen met de registrar of belaste partij. Zie fryslan.frl.";
 		document.getElementById("abuse_telephone").textContent = "Een telefoonnummer moet beginnen met het type. Toegestaan zijn in ieder geval 'voice' en 'fax'.";
-		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
+		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP-waarden in een glue record alleen als de nameservers van de registrar niet worden gebruikt.";
 		document.getElementById("br_zone").textContent = "TLD .br: De RDAP-gegevens zijn aangepast met nameservervalidatie.";
@@ -388,7 +388,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
 		document.getElementById("abuse_role").textContent = "Information on how a third party can contact the registrar or entrusted party. See fryslan.frl.";
 		document.getElementById("abuse_telephone").textContent = "A telephone number must begin with the type. Allowed are anyway 'voice' and 'fax'.";
-		document.getElementById("name_servers_dnssec").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
+		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP values in a glue record only if the registrar's name servers are not used.";
 		document.getElementById("br_zone").textContent = "TLD .br: The RDAP data has been modified with name server validation.";
@@ -462,7 +462,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
 		document.getElementById("abuse_role").textContent = "Informationen darüber, wie Dritte den Registrar oder die beauftragte Partei kontaktieren können. Siehe fryslan.frl.";
 		document.getElementById("abuse_telephone").textContent = "Eine Telefonnummer muss mit dem Typ beginnen. Erlaubt sind grundsätzlich 'voice' und 'fax'.";		
-		document.getElementById("name_servers_dnssec").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
+		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 		document.getElementById("name_servers_ip").textContent = "IP-Werte in einem Glue-Record nur, wenn die Nameserver des Registrars nicht verwendet werden.";
 		document.getElementById("br_zone").textContent = "TLD .br: Die RDAP-Daten wurden mit der Nameserver-Validierung angepasst.";
@@ -536,7 +536,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
 		document.getElementById("abuse_role").textContent = "Informations sur la manière dont un tiers peut contacter le registraire ou la partie mandatée. Voir fryslan.frl.";
 		document.getElementById("abuse_telephone").textContent = "Un numéro de téléphone doit commencer par le type. Sont autorisés de toute façon 'voice' et 'fax'.";
-		document.getElementById("name_servers_dnssec").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
+		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 		document.getElementById("name_servers_ip").textContent = "Valeurs IP dans un enregistrement de colle uniquement si les serveurs de noms du registraire ne sont pas utilisés.";
 		document.getElementById("br_zone").textContent = "TLD .br: Les données RDAP ont été ajustées avec la validation du serveur de noms.";
@@ -943,8 +943,9 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="637" style="display:none;vertical-align:top"><td>statuses</td><td>'.$data[$pd]['name_servers']['statuses'].'</td><td></td></tr>';
 	$html_text .= '<tr id="638" style="display:none;vertical-align:top"><td>delegation_checks</td><td>'.$data[$pd]['name_servers']['delegation_checks'].'</td><td id="br_zone"></td></tr>';
 	$html_text .= '<tr id="639" style="display:none;vertical-align:top"><td>latest_correct_delegation_checks</td><td>'.$data[$pd]['name_servers']['latest_correct_delegation_checks'].'</td><td></td></tr>';
-	$html_text .= '<tr><td>dnssec</td><td>'.$data[$pd]['name_servers']['dnssec'].'</td><td id="name_servers_dnssec"></td></tr>';
+	$html_text .= '<tr><td>dnssec_signed</td><td>'.$data[$pd]['name_servers']['dnssec_signed'].'</td><td id="name_servers_dnssec_signed"></td></tr>';
 	$html_text .= '<tr><td>dnssec_algorithm</td><td>'.$data[$pd]['name_servers']['dnssec_algorithm'].'</td><td id="name_servers_dnssec_algorithm"></td></tr>';
+	$html_text .= '<tr id="6310" style="display:none;vertical-align:top"><td>dnssec_record</td><td colspan="2">'.$data[$pd]['name_servers']['dnssec_record'].'</td></tr>';	
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td>raw_whois</td><td>'.((strlen($raw_whois)) ? '<a href="'.$raw_whois.'" target="_blank">Whois Data</a>' : '').'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(75)">Raw RDAP +/-</button></td><td id="raw_data_next" colspan="2"></td></tr>';

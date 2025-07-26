@@ -2,6 +2,7 @@
 //ini_set('display_errors', 1);
 //error_reporting(E_ALL);
 //$_GET['tld'] = 'nl';
+//$_GET['tld'] = 'vermögensberater';
 
 if (!empty($_GET['tld']))	{
 	if (strlen($_GET['tld']))	{
@@ -19,6 +20,7 @@ if (!empty($_GET['tld']))	{
 		if ($strpos)	{
 			$tld = mb_substr($tld, 0, $strpos);
 		}
+		$tld = toPunycodeIfNeeded($tld);
 		header('Content-Type: application/json');
 		echo json_encode(write_file($tld), JSON_PRETTY_PRINT);
 		die();
@@ -36,6 +38,19 @@ function detect_country_code($inputdefault, $inputCC, $inputcc)	{
 	if (strlen($inputCC))	$outputcc = $inputCC.' "CC"=>"cc"';
 	if (strlen($inputcc))	$outputcc = $inputcc;
 	return $outputcc;
+}
+
+function toPunycodeIfNeeded($inputtld) {
+    if (strpos($inputtld, 'xn--') === false) {
+        $punycode = idn_to_ascii($inputtld, IDNA_DEFAULT, INTL_IDNA_VARIANT_UTS46);
+        if ($punycode !== false) {
+            return $punycode;
+        }
+		else {
+            die("Invalid tld: $inputtld");
+        }
+    }
+    return $inputtld;
 }
 
 function write_file($inputtld)	{
@@ -94,33 +109,32 @@ $links_3_title = $obj['links'][3]['title'];
 $links_3_media = $obj['links'][3]['media'];
 $links_3_type = $obj['links'][3]['type'];
 $root_zone_statuses = '';	
-$name_servers_dnssec = 'Not Available';
-$name_servers_dnssec_algorithm = 'Not Applicable';
-if (empty($obj['secureDNS']['delegationSigned']))	{
-}	
-elseif ($obj['secureDNS']['delegationSigned'] === true)	{
-	$name_servers_dnssec = 'yes';
-	$algorithm = $obj['secureDNS']['dsData'][0]['algorithm'];
-	if (strlen($algorithm))	{
-		$name_servers_dnssec_algorithm = $algorithm;
-	}
-	else	{
-		$name_servers_dnssec_algorithm = 'Not Available';
-	}	
-}
-elseif ($obj['secureDNS']['delegation_urlSigned'] === false)	{
-	$name_servers_dnssec = 'no';	
-}
 $name_servers_handles = '';
 $name_servers_ascii = '';
 $name_servers_unicode = '';
 $name_servers_ipv4 = '';
 $name_servers_ipv6 = '';
+$name_servers_dnssec_signed = '';
+$name_servers_dnssec_algorithm = '';
+$name_servers_dnssec_record = '';
 foreach($obj as $key1 => $value1) {
 	if ($key1 == 'status')	{	
 		$root_zone_statuses .= (is_array($value1)) ? implode(",<br />", $value1) : $value1;
 	}
 	foreach($value1 as $key2 => $value2) {
+		if ($key1 == 'secureDNS')	{
+			if ($key2 == 'delegationSigned') {
+				if ($value2 === true)	{
+					$name_servers_dnssec_signed .= 'Yes'."<br />";
+				}	
+				elseif ($value2 === false)	{
+					$name_servers_dnssec_signed .= 'No'."<br />";
+				}
+				else	{
+					$name_servers_dnssec_signed .= 'Not Applicable'."<br />";					
+				}	
+			}
+		}	
 		foreach($value2 as $key3 => $value3) {
 			if ($key1 == 'nameservers')	{
 				if ($key3 == 'handle') {
@@ -132,8 +146,13 @@ foreach($obj as $key1 => $value1) {
 				elseif ($key3 == 'unicodeName')	{
 					$name_servers_unicode .= $key2.': '.$value3."<br />";
 				}
-			}	
-			foreach($value3 as $key4 => $value4) {
+			}
+			if ($key1 == 'secureDNS')	{
+				if ($key2 == 'dsData') {
+					$name_servers_dnssec_algorithm .= $key3.': '.$value3['algorithm']."<br />";	
+					$name_servers_dnssec_record .= $key3.': '.$inputtld.'. IN DS '.$value3['keyTag'].' '.$value3['algorithm'].' '.$value3['digestType'].' '.$value3['digest']."<br />";							}				
+			}
+			foreach($value3 as $key4 => $value4) {		
 				foreach($value4 as $key5 => $value5) {		
 					if ($key1 == 'nameservers')	{							
 						if ($key3 == 'ipAddresses') {
@@ -683,8 +702,9 @@ $arr[$inputtld]['name_servers']['ascii_names'] = $name_servers_ascii;
 $arr[$inputtld]['name_servers']['unicode_names'] = $name_servers_unicode;	
 $arr[$inputtld]['name_servers']['ipv4_addresses'] = $name_servers_ipv4;	
 $arr[$inputtld]['name_servers']['ipv6_addresses'] = $name_servers_ipv6;	
-$arr[$inputtld]['name_servers']['dnssec'] = $name_servers_dnssec;
-$arr[$inputtld]['name_servers']['dnssec_algorithm'] = $name_servers_dnssec_algorithm;	
+$arr[$inputtld]['name_servers']['dnssec_signed'] = $name_servers_dnssec_signed;
+$arr[$inputtld]['name_servers']['dnssec_algorithm'] = $name_servers_dnssec_algorithm;
+$arr[$inputtld]['name_servers']['dnssec_record'] = $name_servers_dnssec_record;
 
 return $arr;
 }

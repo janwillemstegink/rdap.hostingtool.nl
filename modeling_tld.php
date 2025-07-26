@@ -107,7 +107,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 63)	{ // name servers
 		var pre = '63';
-		var max = 6
+		var max = 7
 	}
 	else	{
 		return;	
@@ -171,6 +171,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed;
 		document.getElementById("lifecycle_periods").textContent = proposed;
+		document.getElementById("name_servers_dnssec_algorithm").textContent = "";
 	}
 	else if (translation == 1)	{
 		var modified = '(Gewijzigd) ';
@@ -208,7 +209,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "FYI: Ik heb een globale tabeldefinitie opgesteld, maar ICANN speelt daarin nog geen hoofdrol.";
-		document.getElementById("lifecycle_periods").textContent = proposed + 'Meerjarig registreren mogelijk; maximale periode varieert per TLD en registrar.';		
+		document.getElementById("lifecycle_periods").textContent = proposed + 'Meerjarig registreren mogelijk; maximale periode varieert per TLD en registrar.';
+		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
 	}
 	else if (translation == 2)	{
 		var modified = '(Modified) ';
@@ -246,7 +248,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;	
 		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "FYI: I have prepared a global table definition, but ICANN does not yet play a leading role in it.";
-		document.getElementById("lifecycle_periods").textContent = proposed + 'Multi-year registration possible; max period varies by TLD and registrar.';	
+		document.getElementById("lifecycle_periods").textContent = proposed + 'Multi-year registration possible; max period varies by TLD and registrar.';
+		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 	}
 	else if (translation == 3)	{
 		var modified = '(Geändert) ';
@@ -285,6 +288,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "FYI: Ich habe eine globale Tabellendefinition vorbereitet, aber ICANN spielt darin noch keine führende Rolle.";
 		document.getElementById("lifecycle_periods").textContent = proposed + 'Mehrjährige Registrierung möglich; maximale Laufzeit variiert je nach TLD und Registrar.';
+		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 	}
 	else if (translation == 4)	{
 		var modified = '(Modifié) ';
@@ -323,6 +327,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "FYI: J'ai préparé une définition de table globale, mais l'ICANN n'y joue pas encore un rôle de premier plan.";
 		document.getElementById("lifecycle_periods").textContent = proposed + "Enregistrement pluriannuel possible ; durée maximale variable selon le TLD et le registrar.";
+		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 	}
 }	
 </script><?php
@@ -332,8 +337,7 @@ if (ini_get("allow_url_fopen") == 1)	{
 else	{	
 	die('allow_url_fopen does not work.'); 	
 }
-//$pd = idn_to_ascii($vd, IDNA_DEFAULT, INTL_IDNA_VARIANT_UTS46);
-$pd = $vd;
+$pd = idn_to_ascii($vd, IDNA_DEFAULT, INTL_IDNA_VARIANT_UTS46);
 $server_url = isset($_SERVER['HTTPS']) && strcasecmp('off', $_SERVER['HTTPS']) !== 0 ? "https" : "http";
 $server_url .= '://'. $_SERVER['HTTP_HOST'];
 $server_url .= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);	
@@ -446,10 +450,11 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="632" style="display:none;vertical-align:top"><td>entry_handles</td><td>'.$data[$pd]['name_servers']['entry_handles'].'</td><td></td></tr>';
 	$html_text .= '<tr id="633" style="display:none;vertical-align:top"><td>ascii_names</td><td>'.$data[$pd]['name_servers']['ascii_names'].'</td><td></td></tr>';
 	$html_text .= '<tr id="634" style="display:none;vertical-align:top"><td>unicode_names</td><td>'.$data[$pd]['name_servers']['unicode_names'].'</td><td></td></tr>';
-	$html_text .= '<tr id="635" style="display:none;vertical-align:top"><td>ipv4_addresses</td><td>'.$data[$pd]['name_servers']['ipv4_addresses'].'</td><td id="name_servers_ip"></td></tr>';
+	$html_text .= '<tr id="635" style="display:none;vertical-align:top"><td>ipv4_addresses</td><td>'.$data[$pd]['name_servers']['ipv4_addresses'].'</td><td></td></tr>';
 	$html_text .= '<tr id="636" style="display:none;vertical-align:top"><td>ipv6_addresses</td><td>'.$data[$pd]['name_servers']['ipv6_addresses'].'</td><td></td></tr>';
-	$html_text .= '<tr><td>dnssec</td><td>'.$data[$pd]['name_servers']['dnssec'].'</td><td id="name_servers_dnssec"></td></tr>';
-	$html_text .= '<tr><td>dnssec_algorithm</td><td>'.$data[$pd]['name_servers']['dnssec_algorithm'].'</td><td id="name_servers_dnssec_algorithm"></td></tr>';		
+	$html_text .= '<tr><td>dnssec_signed</td><td>'.$data[$pd]['name_servers']['dnssec_signed'].'</td><td></td></tr>';
+	$html_text .= '<tr><td>dnssec_algorithm</td><td>'.$data[$pd]['name_servers']['dnssec_algorithm'].'</td><td id="name_servers_dnssec_algorithm"></td></tr>';	
+	$html_text .= '<tr id="637" style="display:none;vertical-align:top"><td>dnssec_record</td><td colspan="2">'.$data[$pd]['name_servers']['dnssec_record'].'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 }
 $html_text .= '</table></div></body></html>';
