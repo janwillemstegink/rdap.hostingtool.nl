@@ -38,6 +38,15 @@ CREATE TABLE common (
 			{"tld_role_sequence": 50,"tld_role_identifier": "registry_operator","tld_role_shielding": []},
 			{"tld_role_sequence": 60,"tld_role_identifier": "backend_operator","tld_role_shielding": []}
 		]',
+	common_best_practices_periods JSONB DEFAULT '[
+		{"period_identifier": "subscription_years", "lowest": 1, "highest": 10, "optimal": 1},
+		{"period_identifier": "add_grace_days", "lowest": 5, "highest": 7, "optimal": 5},
+		{"period_identifier": "transfer_grace_days", "lowest": 5, "highest": 7, "optimal": 5},
+		{"period_identifier": "renew_grace_days", "lowest": 7, "highest": 14, "optimal": 7},
+		{"period_identifier": "post_transfer_lock_days", "lowest": 0, "highest": 30, "optimal": 30},
+		{"period_identifier": "redemption_days", "lowest": 30, "highest": 40, "optimal": 30},
+		{"period_identifier": "pending_delete_days", "lowest": 5, "highest": 7, "optimal": 5}
+    ]',
 	common_root_accepted_workload JSONB DEFAULT 
 		'[
 			{
@@ -209,15 +218,15 @@ CREATE TABLE lifecycles (
             "final": true
         }
 	}]';	
-    lifecycle_periods JSONB DEFAULT '[
-        {"period_identifier": "subscription_period", "period_minimum": "1 year", "period_maximum": "1 year"},
-        {"period_identifier": "add_period_grace_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "transfer_period_grace_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "post_transfer_lock_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "renew_period_grace_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "redemption_period_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "deletion_phase_days", "period_minimum": null, "period_maximum": null}
-    ]',
+	lifecycle_zone_periods JSONB DEFAULT '[
+		{"period_identifier": "subscription_years", "period_maximum": null},
+		{"period_identifier": "add_grace_days", "period_maximum": null},
+		{"period_identifier": "transfer_grace_days", "period_maximum": null},
+		{"period_identifier": "renew_grace_days", "period_maximum": null},
+		{"period_identifier": "post_transfer_lock_days", "period_maximum": null},
+		{"period_identifier": "redemption_days", "period_maximum": null},
+		{"period_identifier": "pending_delete_days", "period_maximum": null}
+	]',
     lifecycle_latest_update_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
 

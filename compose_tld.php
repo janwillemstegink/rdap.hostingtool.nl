@@ -197,6 +197,20 @@ $tld_roles = '<b>tld_role_sequence, tld_role_identifier, tld_role_shielding</b><
 foreach ($decoded as $role) {
 	$tld_roles .= $role['tld_role_sequence'] . ', ' . $role['tld_role_identifier'] . ', [' . implode(', ', $role['tld_role_shielding']) . ']<br />';
 }
+$best_practices_periods_json = '[
+	{"period_identifier": "subscription_years", "lowest": 1, "highest": 10, "optimal": 1},
+	{"period_identifier": "add_grace_days", "lowest": 5, "highest": 7, "optimal": 5},
+	{"period_identifier": "transfer_grace_days", "lowest": 5, "highest": 7, "optimal": 5},
+	{"period_identifier": "renew_grace_days", "lowest": 7, "highest": 14, "optimal": 7},
+	{"period_identifier": "post_transfer_lock_days", "lowest": 0, "highest": 30, "optimal": 30},
+	{"period_identifier": "redemption_days", "lowest": 30, "highest": 40, "optimal": 30},
+	{"period_identifier": "pending_delete_days", "lowest": 5, "highest": 7, "optimal": 5}
+]';
+$decoded = json_decode($best_practices_periods_json, true);
+$best_practices_periods = '<b>best_practices_periods</b><br />';    
+foreach ($decoded as $period) {
+	$best_practices_periods .= $period['period_identifier'] . ': lowest: ' . $period['lowest'] . ' highest: ' . $period['highest'] .  ' optimal: ' . $period['optimal'] . '<br />';
+}	
 $root_accepted_workload_json = '[{
 	"public_status_requests": {
 		"max_per_utc_day": null,
@@ -242,15 +256,15 @@ $zone_roles = '<b>zone_role_sequence, zone_role_identifier, zone_role_shielding<
 foreach ($decoded as $role) {
 	$zone_roles .= $role['zone_role_sequence'] . ', ' . $role['zone_role_identifier'] . ', [' . implode(', ', $role['zone_role_shielding']) . ']<br />';
 }	
-$periods_json = '[
-        {"period_identifier": "subscription_period", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "add_period_grace_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "transfer_period_grace_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "post_transfer_lock_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "renew_period_grace_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "redemption_period_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "deletion_phase_days", "period_minimum": null, "period_maximum": null}
-    ]';
+$zone_periods_json = '[
+	{"period_identifier": "subscription_years", "period_maximum": null},
+	{"period_identifier": "add_grace_days", "period_maximum": null},
+	{"period_identifier": "transfer_grace_days", "period_maximum": null},
+	{"period_identifier": "renew_grace_days", "period_maximum": null},
+	{"period_identifier": "post_transfer_lock_days", "period_maximum": null},
+	{"period_identifier": "redemption_days", "period_maximum": null},
+	{"period_identifier": "pending_delete_days", "period_maximum": null}
+]';	
 $zone_accepted_workload_json = '[{
 	"public_status_requests": {
 		"max_per_utc_day": null,
@@ -269,15 +283,15 @@ if ($inputtld == 'nl')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
 	$upon_termination = "40-day quarantine phase for .nl domains.";
-	$periods_json = '[
-        {"period_identifier": "subscription_period", "period_minimum": "1 year", "period_maximum": "1 year"},
-        {"period_identifier": "add_period_grace_days", "period_minimum": 0, "period_maximum": 0},
-        {"period_identifier": "transfer_period_grace_days", "period_minimum": 0, "period_maximum": 0},
-        {"period_identifier": "post_transfer_lock_days", "period_minimum": 0, "period_maximum": 0},
-        {"period_identifier": "renew_period_grace_days", "period_minimum": 0, "period_maximum": 0},
-        {"period_identifier": "redemption_period_days", "period_minimum": 40, "period_maximum": 40},
-        {"period_identifier": "deletion_phase_days", "period_minimum": 0, "period_maximum": 0}
-    ]';
+	$zone_periods_json = '[
+		{"period_identifier": "subscription_years", "period_maximum": 1},
+		{"period_identifier": "add_grace_days", "period_maximum": null},
+		{"period_identifier": "transfer_grace_days", "period_maximum": null},
+		{"period_identifier": "renew_grace_days", "period_maximum": null},
+		{"period_identifier": "post_transfer_lock_days", "period_maximum": null},
+		{"period_identifier": "redemption_days", "period_maximum": 40},
+		{"period_identifier": "pending_delete_days", "period_maximum": 0}
+	]';
 	$tld_contacts_json = '[
         {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
 		{"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
@@ -354,15 +368,15 @@ elseif ($inputtld == 'eu')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
 	$upon_termination = "40-day quarantine phase for .eu domains.";
-	$periods_json = '[
-        {"period_identifier": "subscription_period", "period_minimum": "1 year", "period_maximum": "1 year"},
-        {"period_identifier": "add_period_grace_days", "period_minimum": 0, "period_maximum": 5},
-        {"period_identifier": "transfer_period_grace_days", "period_minimum": 0, "period_maximum": 0},
-        {"period_identifier": "post_transfer_lock_days", "period_minimum": 60, "period_maximum": 60},
-        {"period_identifier": "renew_period_grace_days", "period_minimum": 0, "period_maximum": 0},
-        {"period_identifier": "redemption_period_days", "period_minimum": 40, "period_maximum": 40},
-        {"period_identifier": "deletion_phase_days", "period_minimum": 0, "period_maximum": 0}
-    ]';
+	$zone_periods_json = '[
+		{"period_identifier": "subscription_years", "period_maximum": 1},
+		{"period_identifier": "add_grace_days", "period_maximum": 5},
+		{"period_identifier": "transfer_grace_days", "period_maximum": null},
+		{"period_identifier": "renew_grace_days", "period_maximum": null},
+		{"period_identifier": "post_transfer_lock_days", "period_maximum": 60},
+		{"period_identifier": "redemption_days", "period_maximum": 40},
+		{"period_identifier": "pending_delete_days", "period_maximum": 0}
+	]';
 	$tld_contacts_json = '[
 		{"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
@@ -377,15 +391,15 @@ elseif ($inputtld == 'eu')	{
 elseif ($inputtld == 'de')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$periods_json = '[
-        {"period_identifier": "subscription_period", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "add_period_grace_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "transfer_period_grace_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "post_transfer_lock_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "renew_period_grace_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "redemption_period_days", "period_minimum": 0, "period_maximum": 28},
-        {"period_identifier": "deletion_phase_days", "period_minimum": 0, "period_maximum": 0}
-    ]';	
+	$zone_periods_json = '[
+		{"period_identifier": "subscription_years", "period_maximum": null},
+		{"period_identifier": "add_grace_days", "period_maximum": null},
+		{"period_identifier": "transfer_grace_days", "period_maximum": null},
+		{"period_identifier": "renew_grace_days", "period_maximum": null},
+		{"period_identifier": "post_transfer_lock_days", "period_maximum": null},
+		{"period_identifier": "redemption_days", "period_maximum": 28},
+		{"period_identifier": "pending_delete_days", "period_maximum": 0}
+	]';
 	$tld_contacts_json = '[
         {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
 		{"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
@@ -400,15 +414,15 @@ elseif ($inputtld == 'de')	{
 elseif ($inputtld == 'fr')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$periods_json = '[
-        {"period_identifier": "subscription_period", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "add_period_grace_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "transfer_period_grace_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "post_transfer_lock_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "renew_period_grace_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "redemption_period_days", "period_minimum": 30, "period_maximum": 30},
-        {"period_identifier": "deletion_phase_days", "period_minimum": 0, "period_maximum": 0}
-    ]';
+	$zone_periods_json = '[
+		{"period_identifier": "subscription_years", "period_maximum": null},
+		{"period_identifier": "add_grace_days", "period_maximum": null},
+		{"period_identifier": "transfer_grace_days", "period_maximum": null},
+		{"period_identifier": "renew_grace_days", "period_maximum": null},
+		{"period_identifier": "post_transfer_lock_days", "period_maximum": null},
+		{"period_identifier": "redemption_days", "period_maximum": 30},
+		{"period_identifier": "pending_delete_days", "period_maximum": 0}
+	]';
 	$tld_contacts_json = '[
         {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
 		{"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
@@ -423,15 +437,15 @@ elseif ($inputtld == 'fr')	{
 elseif ($inputtld == 'ch')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$periods_json = '[
-        {"period_identifier": "subscription_period", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "add_period_grace_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "transfer_period_grace_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "post_transfer_lock_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "renew_period_grace_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "redemption_period_days", "period_minimum": 40, "period_maximum": 40},
-        {"period_identifier": "deletion_phase_days", "period_minimum": 0, "period_maximum": 0}
-    ]';
+	$zone_periods_json = '[
+		{"period_identifier": "subscription_years", "period_maximum": null},
+		{"period_identifier": "add_grace_days", "period_maximum": null},
+		{"period_identifier": "transfer_grace_days", "period_maximum": null},
+		{"period_identifier": "renew_grace_days", "period_maximum": null},
+		{"period_identifier": "post_transfer_lock_days", "period_maximum": null},
+		{"period_identifier": "redemption_days", "period_maximum": 40},
+		{"period_identifier": "pending_delete_days", "period_maximum": 0}
+	]';
 	$tld_contacts_json = '[
         {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
 		{"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
@@ -488,15 +502,15 @@ elseif ($inputtld == 'lu')	{
 elseif ($inputtld == 'uk')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$periods_json = '[
-        {"period_identifier": "subscription_period", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "add_period_grace_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "transfer_period_grace_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "post_transfer_lock_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "renew_period_grace_days", "period_minimum": 30, "period_maximum": 30},
-        {"period_identifier": "redemption_period_days", "period_minimum": 60, "period_maximum": 60},
-        {"period_identifier": "deletion_phase_days", "period_minimum": 0, "period_maximum": 0}
-    ]';
+	$zone_periods_json = '[
+		{"period_identifier": "subscription_years", "period_maximum": null},
+		{"period_identifier": "add_grace_days", "period_maximum": null},
+		{"period_identifier": "transfer_grace_days", "period_maximum": null},
+		{"period_identifier": "renew_grace_days", "period_maximum": 30},
+		{"period_identifier": "post_transfer_lock_days", "period_maximum": null},
+		{"period_identifier": "redemption_days", "period_maximum": 60},
+		{"period_identifier": "pending_delete_days", "period_maximum": 0}
+	]';
 	$tld_contacts_json = '[
         {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
 		{"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
@@ -511,15 +525,15 @@ elseif ($inputtld == 'uk')	{
 elseif ($inputtld == 'com')	{
 	$tld_category = 'gTLD';
 	$tld_type = 'gTLD';
-	$periods_json = '[
-        {"period_identifier": "subscription_period", "period_minimum": "1 year", "period_maximum": "10 years"},
-        {"period_identifier": "add_period_grace_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "transfer_period_grace_days", "period_minimum": 5, "period_maximum": 5},
-        {"period_identifier": "post_transfer_lock_days", "period_minimum": 60, "period_maximum": 60},
-        {"period_identifier": "renew_period_grace_days", "period_minimum": 0, "period_maximum": 45},
-        {"period_identifier": "redemption_period_days", "period_minimum": 30, "period_maximum": 30},
-        {"period_identifier": "deletion_phase_days", "period_minimum": 5, "period_maximum": 5}
-    ]';
+	$zone_periods_json = '[
+		{"period_identifier": "subscription_years", "period_maximum": 10},
+		{"period_identifier": "add_grace_days", "period_maximum": 5},
+		{"period_identifier": "transfer_grace_days", "period_maximum": 5},
+		{"period_identifier": "renew_grace_days", "period_maximum": 45},
+		{"period_identifier": "post_transfer_lock_days", "period_maximum": 60},
+		{"period_identifier": "redemption_days", "period_maximum": 30},
+		{"period_identifier": "pending_delete_days", "period_maximum": 5}
+	]';
 	$tld_contacts_json = '[
 		{"contact_identifier": "contracting_authority", "contact_legal_name": "Internet Corporation for Assigned Names and Numbers", "contact_presented_name": "ICANN"},
         {"contact_identifier": "contracting_organization", "contact_legal_name": "VeriSign Global Registry Services", "contact_presented_name": null},
@@ -535,15 +549,15 @@ elseif ($inputtld == 'com')	{
 elseif ($inputtld == 'org')	{
 	$tld_category = 'gTLD';
 	$tld_type = 'gTLD';
-	$periods_json = '[
-        {"period_identifier": "subscription_period", "period_minimum": "1 year", "period_maximum": "10 years"},
-        {"period_identifier": "add_period_grace_days", "period_minimum": null, "period_maximum": null},
-        {"period_identifier": "transfer_period_grace_days", "period_minimum": 5, "period_maximum": 5},
-        {"period_identifier": "post_transfer_lock_days", "period_minimum": 60, "period_maximum": 60},
-        {"period_identifier": "renew_period_grace_days", "period_minimum": 0, "period_maximum": 45},
-        {"period_identifier": "redemption_period_days", "period_minimum": 30, "period_maximum": 30},
-        {"period_identifier": "deletion_phase_days", "period_minimum": 5, "period_maximum": 5}
-    ]';
+	$zone_periods_json = '[
+		{"period_identifier": "subscription_years", "period_maximum": 10},
+		{"period_identifier": "add_grace_days", "period_maximum": 5},
+		{"period_identifier": "transfer_grace_days", "period_maximum": 5},
+		{"period_identifier": "renew_grace_days", "period_maximum": 45},
+		{"period_identifier": "post_transfer_lock_days", "period_maximum": 60},
+		{"period_identifier": "redemption_days", "period_maximum": 30},
+		{"period_identifier": "pending_delete_days", "period_maximum": 5}
+	]';
 	$tld_contacts_json = '[
 		{"contact_identifier": "contracting_authority", "contact_legal_name": "Internet Corporation for Assigned Names and Numbers", "contact_presented_name": "ICANN"},
         {"contact_identifier": "contracting_organization", "contact_legal_name": "Public Interest Registry (PIR)", "contact_presented_name": null},
@@ -570,12 +584,11 @@ foreach ($decoded as $contact) {
 		}
 	}	
 }
-$decoded = json_decode($periods_json, true);
-$periods = '<b>periods</b><br />';    
+$decoded = json_decode($zone_periods_json, true);
+$zone_periods = '<b>zone_periods</b><br />';    
 foreach ($decoded as $period) {
-	$periods .= $period['period_identifier'] . ': Min: ' . $period['period_minimum'] . ' Max: ' . $period['period_maximum'] . '<br />';
+	$zone_periods .= $period['period_identifier'] . ': ' . $period['period_maximum'] . '<br />';
 }	
-	
 $resource_upload_at = null;
 $zone_status_meanings_json = '[
     {
@@ -676,8 +689,9 @@ $arr[$inputtld]['links']['links_3_type'] = $links_3_type;
 $arr[$inputtld]['common']['root_services_url'] = $root_services_url;
 $arr[$inputtld]['common']['root_zones_url'] = $root_zones_url;
 $arr[$inputtld]['common']['lookup_endpoints_url'] = $lookup_endpoints_url;
-$arr[$inputtld]['common']['registrar_accreditations_url'] = $registrar_accreditations_url;		
+$arr[$inputtld]['common']['registrar_accreditations_url'] = $registrar_accreditations_url;	
 $arr[$inputtld]['common']['tld_roles'] = $tld_roles;
+$arr[$inputtld]['common']['best_practices_periods'] = $best_practices_periods;		
 $arr[$inputtld]['common']['root_accepted_workload'] = $root_accepted_workload;	
 	
 $arr[$inputtld]['root_zone']['zone_identifier'] = $inputtld;
@@ -699,7 +713,7 @@ $arr[$inputtld]['root_zone']['zone_accepted_workload'] = $zone_accepted_workload
 $arr[$inputtld]['lifecycle']['data_active_from'] = $lifecycle_data_active_from;
 $arr[$inputtld]['lifecycle']['upon_termination'] = $upon_termination;
 $arr[$inputtld]['lifecycle']['zone_status_meanings'] = $zone_status_meanings;	
-$arr[$inputtld]['lifecycle']['periods'] = $periods;
+$arr[$inputtld]['lifecycle']['zone_periods'] = $zone_periods;
 	
 $arr[$inputtld]['name_servers']['entry_handles'] = $name_servers_handles;
 $arr[$inputtld]['name_servers']['ascii_names'] = $name_servers_ascii;

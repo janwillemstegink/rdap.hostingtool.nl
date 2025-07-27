@@ -95,7 +95,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 26)	{ // common
 		var pre = '26';
-		var max = 2
+		var max = 3
 	}
 	else if (type == 27)	{ // zone 
 		var pre = '27';
@@ -152,6 +152,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed;
 		document.getElementById("common_registrar_accreditations_url").textContent = proposed;
 		document.getElementById("common_tld_roles").textContent = proposed;
+		document.getElementById("common_best_practices_periods").textContent = proposed;
 		document.getElementById("common_root_accepted_workload").textContent = proposed;
 		document.getElementById("root_zone_role").textContent = proposed;
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
@@ -170,7 +171,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed;
-		document.getElementById("lifecycle_periods").textContent = proposed;
+		document.getElementById("lifecycle_zone_periods").textContent = proposed;
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "";
 	}
 	else if (translation == 1)	{
@@ -191,6 +192,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Een API-endpoint onder /v1/ kan een nieuwere versie onder /v2/ ondersteunen — zie icann.com.";
 		document.getElementById("common_registrar_accreditations_url").textContent = proposed + "Officiële lijst van geaccrediteerde registrars, beheerd door IANA onder ICANN-beleid.";
 		document.getElementById("common_tld_roles").textContent = proposed;
+		document.getElementById("common_best_practices_periods").textContent = proposed;
 		document.getElementById("common_root_accepted_workload").textContent = proposed;
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
@@ -209,7 +211,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "FYI: Ik heb een globale tabeldefinitie opgesteld, maar ICANN speelt daarin nog geen hoofdrol.";
-		document.getElementById("lifecycle_periods").textContent = proposed + 'Meerjarig registreren mogelijk; maximale periode varieert per TLD en registrar.';
+		document.getElementById("lifecycle_zone_periods").textContent = proposed + 'Meerjarig registreren mogelijk; maximale periode varieert per TLD en registrar.';
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
 	}
 	else if (translation == 2)	{
@@ -230,6 +232,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "An API endpoint under /v1/ may support a newer version under /v2/ — as seen on icann.com.";
 		document.getElementById("common_registrar_accreditations_url").textContent = proposed + "Official list of accredited registrars maintained by IANA under ICANN policy.";
 		document.getElementById("common_tld_roles").textContent = proposed;
+		document.getElementById("common_best_practices_periods").textContent = proposed;
 		document.getElementById("common_root_accepted_workload").textContent = proposed;
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
@@ -248,7 +251,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;	
 		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "FYI: I have prepared a global table definition, but ICANN does not yet play a leading role in it.";
-		document.getElementById("lifecycle_periods").textContent = proposed + 'Multi-year registration possible; max period varies by TLD and registrar.';
+		document.getElementById("lifecycle_zone_periods").textContent = proposed + 'Multi-year registration possible; max period varies by TLD and registrar.';
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 	}
 	else if (translation == 3)	{
@@ -269,6 +272,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Ein API-Endpunkt unter /v1/ kann eine neuere Version unter /v2/ unterstützen — siehe icann.com.";
 		document.getElementById("common_registrar_accreditations_url").textContent = proposed + "Offizielle Liste der akkreditierten Registrar, verwaltet von IANA unter ICANN-Richtlinien.";
 		document.getElementById("common_tld_roles").textContent = proposed;
+		document.getElementById("common_best_practices_periods").textContent = proposed;
 		document.getElementById("common_root_accepted_workload").textContent = proposed;
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
@@ -287,7 +291,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "FYI: Ich habe eine globale Tabellendefinition vorbereitet, aber ICANN spielt darin noch keine führende Rolle.";
-		document.getElementById("lifecycle_periods").textContent = proposed + 'Mehrjährige Registrierung möglich; maximale Laufzeit variiert je nach TLD und Registrar.';
+		document.getElementById("lifecycle_zone_periods").textContent = proposed + 'Mehrjährige Registrierung möglich; maximale Laufzeit variiert je nach TLD und Registrar.';
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 	}
 	else if (translation == 4)	{
@@ -308,6 +312,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Un endpoint API sous /v1/ peut supporter une version plus récente sous /v2/ — voir icann.com.";
 		document.getElementById("common_registrar_accreditations_url").textContent = proposed + "Liste officielle des bureaux d’enregistrement accrédités, gérée par l’IANA selon la politique de l’ICANN.";
 		document.getElementById("common_tld_roles").textContent = proposed;
+		document.getElementById("common_best_practices_periods").textContent = proposed;
 		document.getElementById("common_root_accepted_workload").textContent = proposed;
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
@@ -326,7 +331,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "FYI: J'ai préparé une définition de table globale, mais l'ICANN n'y joue pas encore un rôle de premier plan.";
-		document.getElementById("lifecycle_periods").textContent = proposed + "Enregistrement pluriannuel possible ; durée maximale variable selon le TLD et le registrar.";
+		document.getElementById("lifecycle_zone_periods").textContent = proposed + "Enregistrement pluriannuel possible ; durée maximale variable selon le TLD et le registrar.";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 	}
 }	
@@ -423,7 +428,8 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr><td>lookup_endpoints_url</td><td><a href='.$data[$pd]['common']['lookup_endpoints_url'].' target="_blank">Lookup Endpoints</a></td><td id="common_lookup_endpoints_url"></td></tr>';
 	$html_text .= '<tr><td>registrar_accreditations_url</td><td><a href='.$data[$pd]['common']['registrar_accreditations_url'].' target="_blank">IANA Registrars</a></td><td id="common_registrar_accreditations_url"></td></tr>';
 	$html_text .= '<tr id="261" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['common']['tld_roles'].'</td><td id="common_tld_roles"></td></tr>';
-	$html_text .= '<tr id="262" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['common']['root_accepted_workload'].'</td><td id="common_root_accepted_workload"></td></tr>';
+	$html_text .= '<tr id="262" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['common']['best_practices_periods'].'</td><td id="common_best_practices_periods"></td></tr>';
+	$html_text .= '<tr id="263" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['common']['root_accepted_workload'].'</td><td id="common_root_accepted_workload"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(27)">Root Zone Information +/-</button></td><td><b>'.$vd.'</b></td><td id="root_zone_role"></td></tr>';
 	$html_text .= '<tr><td>data_active_from</td><td> '.$data[$pd]['root_zone']['data_active_from'].'</td><td id="root_zone_data_active_from"></td></tr>';
@@ -445,7 +451,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr style="vertical-align:top"><td>data_active_from</td><td>'.$data[$pd]['lifecycle']['data_active_from'].'</td><td id="lifecycle_data_active_from"></td></tr>';
 	$html_text .= '<tr style="vertical-align:top;vertical-align:top"><td>upon_termination</td><td>'.$data[$pd]['lifecycle']['upon_termination'].'</td><td id="lifecycle_upon_termination"></td></tr>';
 	$html_text .= '<tr id="281" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['zone_status_meanings'].'</td><td id="lifecycle_zone_status_meanings"></td></tr>';
-	$html_text .= '<tr id="282" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['periods'].'</td><td id="lifecycle_periods"></td></tr>';
+	$html_text .= '<tr id="282" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['zone_periods'].'</td><td id="lifecycle_zone_periods"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(63)">Name Servers +/-</button></td><td></td><td></td></tr>';
 	$html_text .= '<tr id="631" style="display:none;vertical-align:top"><td>zone_handles</td><td>'.$data[$pd]['name_servers']['zone_handles'].'</td><td></td></tr>';
