@@ -97,7 +97,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 30)	{ // domain
 		var pre = '30';
-		var max = 20
+		var max = 21
 	}
 	else if (type == 39)	{ // sponsor
 		var pre = '39';
@@ -662,43 +662,44 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="304" style="display:none"><td>domain_unicode_name</td><td>'.$data[$pd]['domain']['unicode_name'].'</td><td id="domain_unicode_name"></td></tr>';
 	$html_text .= '<tr style="vertical-align:top"><td>domain_zone_statuses</td><td>'.$data[$pd]['domain']['zone_statuses'].'</td><td id="domain_zone_statuses"></td></tr>';
 	if (!empty($data[$pd]['domain']['zone_statuses']))	{
-		if (str_contains($data[$pd]['domain']['zone_statuses'], 'locked'))	{
-			$html_text .= '<tr id="305" style="display:none"><td>(customized on top of RDAP)</td><td>"locked" indicates prevented modification<td><td></td></tr>';
-		}	
+		if (str_contains($data[$pd]['domain']['zone_statuses'], 'inactive'))	{
+			$html_text .= '<tr id="305" style="display:none"><td>(Registry-side RDAP use)</td><td>"inactive" indicates a non-published domain<td><td></td></tr>';
+		}
+		elseif (str_contains($data[$pd]['domain']['zone_statuses'], 'active'))	{
+			$html_text .= '<tr id="306" style="display:none"><td>(Registry-side RDAP use)</td><td>"active" maps to EPP ok<td><td></td></tr>';	
+		}
 	}
 	if (!empty($data[$pd]['domain']['zone_statuses']))	{
-		if (!str_contains($data[$pd]['domain']['zone_statuses'], 'inactive'))	{
-			if (str_contains($data[$pd]['domain']['zone_statuses'], 'active'))	{
-				$html_text .= '<tr id="306" style="display:none"><td>(registry-side RDAP clarification)</td><td>"active" maps to EPP ok<td><td></td></tr>';
-			}	
-		}
-	}	
-	$html_text .= '<tr id="307" style="display:none;vertical-align:top"><td>domain_entry_statuses</td><td>'.$data[$pd]['domain']['entry_statuses'].'</td><td id="domain_entry_statuses"></td></tr>';
-	$html_text .= '<tr id="308" style="display:none"><td>domain_created_at</td><td>'.$data[$pd]['domain']['created_at'].'</td><td id="domain_created_at"></td></tr>';
-	$html_text .= '<tr id="309" style="display:none"><td>domain_latest_transfer_at</td><td>'.$data[$pd]['domain']['latest_transfer_at'].'</td><td></td></tr>';
-	$html_text .= '<tr id="3010" style="display:none"><td>domain_latest_update_at</td><td>'.$data[$pd]['domain']['latest_update_at'].'</td><td></td></tr>';
+		if (str_contains($data[$pd]['domain']['zone_statuses'], 'locked'))	{
+			$html_text .= '<tr id="307" style="display:none"><td>(Registry-side RDAP use)</td><td>"locked" means restricted from modification<td><td></td></tr>';
+		}	
+	}
+	$html_text .= '<tr id="308" style="display:none;vertical-align:top"><td>domain_entry_statuses</td><td>'.$data[$pd]['domain']['entry_statuses'].'</td><td id="domain_entry_statuses"></td></tr>';
+	$html_text .= '<tr id="309" style="display:none"><td>domain_created_at</td><td>'.$data[$pd]['domain']['created_at'].'</td><td id="domain_created_at"></td></tr>';
+	$html_text .= '<tr id="3010" style="display:none"><td>domain_latest_transfer_at</td><td>'.$data[$pd]['domain']['latest_transfer_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="3011" style="display:none"><td>domain_latest_update_at</td><td>'.$data[$pd]['domain']['latest_update_at'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>domain_expiration_at</td><td>'.$data[$pd]['domain']['expiration_at'].'</td><td id="domain_expiration_at"></td></tr>';
-	$html_text .= '<tr id="3011" style="display:none"><td>domain_recoverable_until</td><td>'.$data[$pd]['domain']['recoverable_until'].'</td><td id="domain_recoverable_until"></td></tr>';
-	$html_text .= '<tr id="3012" style="display:none"><td>domain_deletion_at</td><td>'.$data[$pd]['domain']['deletion_at'].'</td><td id="domain_deletion_at"></td></tr>';
+	$html_text .= '<tr id="3012" style="display:none"><td>domain_recoverable_until</td><td>'.$data[$pd]['domain']['recoverable_until'].'</td><td id="domain_recoverable_until"></td></tr>';
+	$html_text .= '<tr id="3013" style="display:none"><td>domain_deletion_at</td><td>'.$data[$pd]['domain']['deletion_at'].'</td><td id="domain_deletion_at"></td></tr>';
 	if (!empty($data[$pd]['domain']['zone_statuses']))	{
 		if (str_contains($data[$pd]['domain']['zone_statuses'], 'pending delete'))	{
 			if (str_contains($data[$pd]['domain']['zone_statuses'], 'redemption period') and str_contains($data[$pd]['domain']['zone_statuses'], 'pending delete'))	{
-				$html_text .= '<tr id="3013" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" disregards redemption grace<td><td></td></tr>';
+				$html_text .= '<tr id="3014" style="display:none"><td>No globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" disregards redemption grace<td><td></td></tr>';
 			}	
 			elseif (!empty($data[$pd]['metadata']['zone_identifier']))	{
 				if ($data[$pd]['metadata']['zone_identifier'] == 'nl')	{
-					$html_text .= '<tr id="3014" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" refers to "redemption period"</td><td></td></tr>';
+					$html_text .= '<tr id="3015" style="display:none"><td>No globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" refers to "redemption period"</td><td></td></tr>';
 				}	
 			}	
 		}
 		if (str_contains($data[$pd]['domain']['zone_statuses'], 'redemption period'))	{
 			if (empty($data[$pd]['domain']['expiration_at']) and empty($data[$pd]['domain']['deletion_at'])) {
-				$html_text .= '<tr id="3015" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"redemption period" without date-time provided<td><td></td></tr>';
+				$html_text .= '<tr id="3016" style="display:none"><td>No globally working RDAP (ccTLD behaviour) ⚠️</td><td>"redemption period" without date-time provided<td><td></td></tr>';
 			}	
 		}
 		elseif (str_contains($data[$pd]['domain']['zone_statuses'], 'pending delete'))	{
 			if (empty($data[$pd]['domain']['expiration_at']) and empty($data[$pd]['domain']['deletion_at'])) {
-				$html_text .= '<tr id="3016" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" without date-time provided<td><td></td></tr>';
+				$html_text .= '<tr id="3017" style="display:none"><td>No globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" without date-time provided<td><td></td></tr>';
 			}	
 		}
 	}
@@ -708,7 +709,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
     	if ($expiration !== false and $deletion !== false)	{
 			$days_before = floor(($expiration - $deletion) / (60 * 60 * 24));
 			if ($days_before > 0) {
-       			$html_text .= '<tr id="3017" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"deletion_at" '.$days_before.' days before "expiration_at"</td><td></td></tr>';
+       			$html_text .= '<tr id="3018" style="display:none"><td>No globally working RDAP (ccTLD behaviour) ⚠️</td><td>"deletion_at" '.$days_before.' days before "expiration_at"</td><td></td></tr>';
 			}	
     	}
 	}
@@ -717,11 +718,11 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 		$deletion = strtotime($data[$pd]['domain']['deletion_at']);
     	if ($current !== false and $deletion !== false and $current > $deletion) {
 			$days_ago = floor(($current - $deletion) / (60 * 60 * 24));
-        	$html_text .= '<tr id="3018" style="display:none"><td>no globally working RDAP (ccTLD behaviour) ⚠️</td><td>"deletion_at" was '.$days_ago.' days ago?</td><td></td></tr>';
+        	$html_text .= '<tr id="3019" style="display:none"><td>No globally working RDAP (ccTLD behaviour) ⚠️</td><td>"deletion_at" was '.$days_ago.' days ago?</td><td></td></tr>';
 		}
 	}	
-	$html_text .= '<tr id="3019" style="display:none;vertical-align:top"><td>domain_extensions</td><td>'.$data[$pd]['domain']['extensions'].'</td><td id="domain_extensions"></td></tr>';
-	$html_text .= '<tr id="3020" style="display:none;vertical-align:top"><td>domain_remarks</td><td>'.$data[$pd]['domain']['remarks'].'</td><td></td></tr>';
+	$html_text .= '<tr id="3020" style="display:none;vertical-align:top"><td>domain_extensions</td><td>'.$data[$pd]['domain']['extensions'].'</td><td id="domain_extensions"></td></tr>';
+	$html_text .= '<tr id="3021" style="display:none;vertical-align:top"><td>domain_remarks</td><td>'.$data[$pd]['domain']['remarks'].'</td><td></td></tr>';
 	$sponsor_applicable = (strlen($data[$pd]['sponsor']['organization_name']) or strlen($data[$pd]['sponsor']['presented_name'])) ? 'Sponsor Data Exists' : 'No Sponsor Data';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(39)">Sponsor +/-</button></td><td>'.$sponsor_applicable.'</td><td id="sponsor_role"></td></tr>';
 	$html_text .= '<tr id="391" style="display:none"><td>sponsor_zone_handle</td><td>'.$data[$pd]['sponsor']['zone_handle'].'</td><td></td></tr>';
