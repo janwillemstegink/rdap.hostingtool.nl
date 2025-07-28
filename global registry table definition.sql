@@ -219,13 +219,13 @@ CREATE TABLE lifecycles (
         }
 	}]';	
 	lifecycle_zone_periods JSONB DEFAULT '[
-		{"period_identifier": "subscription_years", "period_maximum": null},
-		{"period_identifier": "add_grace_days", "period_maximum": null},
-		{"period_identifier": "transfer_grace_days", "period_maximum": null},
-		{"period_identifier": "renew_grace_days", "period_maximum": null},
-		{"period_identifier": "post_transfer_lock_days", "period_maximum": null},
-		{"period_identifier": "redemption_days", "period_maximum": null},
-		{"period_identifier": "pending_delete_days", "period_maximum": null}
+		{"period_identifier": "subscription_years", "default": null, "allowed": null},
+		{"period_identifier": "add_grace_days", "default": null, "allowed": null},
+		{"period_identifier": "transfer_grace_days", "default": null, "allowed": null},
+		{"period_identifier": "renew_grace_days", "default": null, "allowed": null},
+		{"period_identifier": "post_transfer_lock_days", "default": null, "allowed": null},
+		{"period_identifier": "redemption_days", "default": null, "allowed": null},
+		{"period_identifier": "pending_delete_days", "default": null, "allowed": null}
 	]',
     lifecycle_latest_update_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
