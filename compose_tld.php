@@ -587,12 +587,13 @@ foreach ($decoded as $contact) {
 $decoded = json_decode($zone_periods_json, true);
 $zone_periods = '<b>zone_periods</b><br />';
 foreach ($decoded as $period) {
-	$zone_periods .= $period['period_identifier'].': default ';
+	$zone_periods .= $period['period_identifier'] . ':';
 	if ($period['default'] !== null)	{
+		$zone_periods .= ' default ';
 		$zone_periods .= (is_array($period['default'])) ? implode(',', $period['default']) : $period['default'];
 	}
-	$zone_periods .= ', allowed ';
 	if ($period['allowed'] !== null)	{
+		$zone_periods .= ', allowed ';
 		$zone_periods .= (is_array($period['allowed'])) ? implode(',', $period['allowed']): $period['allowed'];
 	}
 	$zone_periods .= '<br />';
