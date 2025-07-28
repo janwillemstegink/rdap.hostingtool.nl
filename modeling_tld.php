@@ -107,7 +107,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 63)	{ // name servers
 		var pre = '63';
-		var max = 7
+		var max = 10
 	}
 	else	{
 		return;	
@@ -172,7 +172,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed;
 		document.getElementById("lifecycle_zone_periods").textContent = proposed;
+		document.getElementById("name_servers_dnssec_signed").textContent = "";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "";
+		document.getElementById("name_servers_ip").textContent = "";
 	}
 	else if (translation == 1)	{
 		var modified = '(Gewijzigd) ';
@@ -191,9 +193,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_root_zones_url").textContent = proposed + 'Officiële Root Zones-lijst, beheerd door IANA, de DNS-rootautoriteit.';
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Een API-endpoint onder /v1/ kan een nieuwere versie onder /v2/ ondersteunen — zie icann.com.";
 		document.getElementById("common_registrar_accreditations_url").textContent = proposed + "Officiële lijst van geaccrediteerde registrars, beheerd door IANA onder ICANN-beleid.";
-		document.getElementById("common_tld_roles").textContent = proposed;
-		document.getElementById("common_best_practices_periods").textContent = proposed;
-		document.getElementById("common_root_accepted_workload").textContent = proposed;
+		document.getElementById("common_tld_roles").textContent = proposed + "Deze rolbenamingen zijn voorlopig. Ze kunnen nog veranderen.";
+		document.getElementById("common_best_practices_periods").textContent = proposed + "Registries kunnen baat hebben bij gedeelde richtlijnen.";
+		document.getElementById("common_root_accepted_workload").textContent = proposed + "IANA-servers kunnen in de toekomst limieten toepassen.";
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
 		document.getElementById("root_zone_tld_category").textContent = proposed + 'Geeft een generieke TLD (gTLD) of een landcode-TLD (ccTLD) aan.';
@@ -212,7 +214,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "FYI: Ik heb een globale tabeldefinitie opgesteld, maar ICANN speelt daarin nog geen hoofdrol.";
 		document.getElementById("lifecycle_zone_periods").textContent = proposed + 'Meerjarig registreren mogelijk; maximale periode varieert per TLD en registrar.';
+		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
+		document.getElementById("name_servers_ip").textContent = "Bij glue-records worden de nameservers van de registrar niet gebruikt.";
 	}
 	else if (translation == 2)	{
 		var modified = '(Modified) ';
@@ -231,9 +235,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_root_zones_url").textContent = proposed + 'Official Root Zones list maintained by IANA, the DNS root authority.';
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "An API endpoint under /v1/ may support a newer version under /v2/ — as seen on icann.com.";
 		document.getElementById("common_registrar_accreditations_url").textContent = proposed + "Official list of accredited registrars maintained by IANA under ICANN policy.";
-		document.getElementById("common_tld_roles").textContent = proposed;
-		document.getElementById("common_best_practices_periods").textContent = proposed;
-		document.getElementById("common_root_accepted_workload").textContent = proposed;
+		document.getElementById("common_tld_roles").textContent = proposed + "These role names are draft. They may change.";
+		document.getElementById("common_best_practices_periods").textContent = proposed + "Registries may benefit from shared timing guidelines.";
+		document.getElementById("common_root_accepted_workload").textContent = proposed + "IANA servers may apply limits in the future.";
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
 		document.getElementById("root_zone_tld_category").textContent = proposed + 'Indicates generic TLD (gTLD) or a country-code TLD (ccTLD).';
@@ -252,7 +256,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;	
 		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "FYI: I have prepared a global table definition, but ICANN does not yet play a leading role in it.";
 		document.getElementById("lifecycle_zone_periods").textContent = proposed + 'Multi-year registration possible; max period varies by TLD and registrar.';
+		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
+		document.getElementById("name_servers_ip").textContent = "With glue records, the registrar's nameservers are not used.";
 	}
 	else if (translation == 3)	{
 		var modified = '(Geändert) ';
@@ -271,9 +277,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_root_zones_url").textContent = proposed + 'Offizielle Root-Zonenliste, verwaltet von IANA, der DNS-Root-Behörde.';
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Ein API-Endpunkt unter /v1/ kann eine neuere Version unter /v2/ unterstützen — siehe icann.com.";
 		document.getElementById("common_registrar_accreditations_url").textContent = proposed + "Offizielle Liste der akkreditierten Registrar, verwaltet von IANA unter ICANN-Richtlinien.";
-		document.getElementById("common_tld_roles").textContent = proposed;
-		document.getElementById("common_best_practices_periods").textContent = proposed;
-		document.getElementById("common_root_accepted_workload").textContent = proposed;
+		document.getElementById("common_tld_roles").textContent = proposed + "Diese Rollennamen sind vorläufig und können sich ändern.";
+		document.getElementById("common_best_practices_periods").textContent = proposed + "Viele Registries können von gemeinsamen Regeln profitieren.";
+		document.getElementById("common_root_accepted_workload").textContent = proposed + "IANA kann zukünftig Limits festlegen.";
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
 		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "IANA kann für die Rollen und den Lebenszyklus auf eine moderne Datenbank umsteigen.";
@@ -292,7 +298,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "FYI: Ich habe eine globale Tabellendefinition vorbereitet, aber ICANN spielt darin noch keine führende Rolle.";
 		document.getElementById("lifecycle_zone_periods").textContent = proposed + 'Mehrjährige Registrierung möglich; maximale Laufzeit variiert je nach TLD und Registrar.';
+		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
+		document.getElementById("name_servers_ip").textContent = "Bei Glue-Records werden die Nameserver des Registrars nicht verwendet.";
 	}
 	else if (translation == 4)	{
 		var modified = '(Modifié) ';
@@ -311,9 +319,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_root_zones_url").textContent = proposed + "Liste officielle des zones racines, gérée par l’IANA, l’autorité racine du DNS.";
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Un endpoint API sous /v1/ peut supporter une version plus récente sous /v2/ — voir icann.com.";
 		document.getElementById("common_registrar_accreditations_url").textContent = proposed + "Liste officielle des bureaux d’enregistrement accrédités, gérée par l’IANA selon la politique de l’ICANN.";
-		document.getElementById("common_tld_roles").textContent = proposed;
-		document.getElementById("common_best_practices_periods").textContent = proposed;
-		document.getElementById("common_root_accepted_workload").textContent = proposed;
+		document.getElementById("common_tld_roles").textContent = proposed + "Ces noms de rôles sont provisoires. Ils peuvent changer.";
+		document.getElementById("common_best_practices_periods").textContent = proposed + "Les registres peuvent profiter de lignes directrices communes.";
+		document.getElementById("common_root_accepted_workload").textContent = proposed + "Les serveurs IANA pourront appliquer des limites.";
 		document.getElementById("root_zone_role").textContent = proposed + "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
 		document.getElementById("root_zone_tld_category").textContent = proposed + "Indique un TLD générique (gTLD) ou un TLD de code pays (ccTLD).";
@@ -332,7 +340,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_zone_status_meanings").textContent = proposed + "FYI: J'ai préparé une définition de table globale, mais l'ICANN n'y joue pas encore un rôle de premier plan.";
 		document.getElementById("lifecycle_zone_periods").textContent = proposed + "Enregistrement pluriannuel possible ; durée maximale variable selon le TLD et le registrar.";
+		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
+		document.getElementById("name_servers_ip").textContent = "Avec les glue records, les serveurs de noms du registrar ne sont pas utilisés.";
 	}
 }	
 </script><?php
@@ -458,11 +468,14 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="632" style="display:none;vertical-align:top"><td>entry_handles</td><td>'.$data[$pd]['name_servers']['entry_handles'].'</td><td></td></tr>';
 	$html_text .= '<tr id="633" style="display:none;vertical-align:top"><td>ascii_names</td><td>'.$data[$pd]['name_servers']['ascii_names'].'</td><td></td></tr>';
 	$html_text .= '<tr id="634" style="display:none;vertical-align:top"><td>unicode_names</td><td>'.$data[$pd]['name_servers']['unicode_names'].'</td><td></td></tr>';
-	$html_text .= '<tr id="635" style="display:none;vertical-align:top"><td>ipv4_addresses</td><td>'.$data[$pd]['name_servers']['ipv4_addresses'].'</td><td></td></tr>';
+	$html_text .= '<tr id="635" style="display:none;vertical-align:top"><td>ipv4_addresses</td><td>'.$data[$pd]['name_servers']['ipv4_addresses'].'</td><td id="name_servers_ip"></td></tr>';
 	$html_text .= '<tr id="636" style="display:none;vertical-align:top"><td>ipv6_addresses</td><td>'.$data[$pd]['name_servers']['ipv6_addresses'].'</td><td></td></tr>';
-	$html_text .= '<tr><td>dnssec_signed</td><td>'.$data[$pd]['name_servers']['dnssec_signed'].'</td><td></td></tr>';
+	$html_text .= '<tr id="637" style="display:none;vertical-align:top"><td>statuses</td><td>'.$data[$pd]['name_servers']['statuses'].'</td><td></td></tr>';
+	$html_text .= '<tr><td>dnssec_signed</td><td>'.$data[$pd]['name_servers']['dnssec_signed'].'</td><td id="name_servers_dnssec_signed"></td></tr>';
+	$html_text .= '<tr id="638" style="display:none;vertical-align:top"><td>dnssec_key_tag</td><td>'.$data[$pd]['name_servers']['dnssec_key_tag'].'</td><td></td></tr>';
 	$html_text .= '<tr style="vertical-align:top"><td>dnssec_algorithm</td><td>'.$data[$pd]['name_servers']['dnssec_algorithm'].'</td><td id="name_servers_dnssec_algorithm"></td></tr>';	
-	$html_text .= '<tr id="637" style="display:none;vertical-align:top"><td>dnssec_record</td><td colspan="2">'.$data[$pd]['name_servers']['dnssec_record'].'</td></tr>';
+	$html_text .= '<tr id="639" style="display:none;vertical-align:top"><td>dnssec_digest_type</td><td>'.$data[$pd]['name_servers']['dnssec_digest_type'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6310" style="display:none;vertical-align:top"><td>dnssec_digest</td><td colspan="2">'.$data[$pd]['name_servers']['dnssec_digest'].'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 }
 $html_text .= '</table></div></body></html>';

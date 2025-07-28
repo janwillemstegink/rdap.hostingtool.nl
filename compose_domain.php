@@ -325,8 +325,10 @@ $handle = $obj['handle'];
 $ascii_name = $obj['ldhName'];
 $unicode_name = $obj['unicodeName'];
 $name_servers_dnssec_signed = '';
+$name_servers_dnssec_key_tag = '';	
 $name_servers_dnssec_algorithm = '';
-$name_servers_dnssec_record = '';
+$name_servers_dnssec_digest_type = '';
+$name_servers_dnssec_digest = '';	
 $abuse_handle = '';	
 $abuse_organization_type = '';
 $abuse_organization_name = '';
@@ -648,11 +650,17 @@ foreach($obj as $key1 => $value1) {
 				elseif ($key3 == 'unicodeName')	{
 					$name_servers_unicode .= $key2.': '.$value3."<br />";
 				}
+				elseif ($key3 == 'status')	{
+					$name_servers_statuses .= $key2.': '.$value3[0]."<br />";	
+				}
 			}
 			if ($key1 == 'secureDNS')	{
 				if ($key2 == 'dsData') {
+					$name_servers_dnssec_key_tag .= $key3.': '.$value3['keyTag']."<br />";	
 					$name_servers_dnssec_algorithm .= $key3.': '.$value3['algorithm']."<br />";	
-					$name_servers_dnssec_record .= $key3.': '.$inputdomain.'. IN DS '.$value3['keyTag'].' '.$value3['algorithm'].' '.$value3['digestType'].' '.$value3['digest']."<br />";							}				
+					$name_servers_dnssec_digest_type .= $key3.': '.$value3['digestType']."<br />";	
+					$name_servers_dnssec_digest .= $key3.': '.$value3['digest']."<br />";
+				}				
 			}
 			foreach($value3 as $key4 => $value4) {
 				if ($key1 == 'entities')	{
@@ -813,9 +821,6 @@ foreach($obj as $key1 => $value1) {
 							if ($key4 == 0)	{	
 								if ($key5 == 'eventAction' and $value5 == 'delegation check')	{
 									$name_servers_delegation_check .= $key2.': '.$value4['eventDate']."<br />";
-								}
-								if ($key5 == 'status')	{
-									$name_servers_statuses .= $key2.': '.$value5[0]."<br />";	
 								}
 							}	
 							elseif ($key4 == 1)	{	
@@ -1490,8 +1495,10 @@ $arr[$inputdomain]['name_servers']['statuses'] = $name_servers_statuses;
 $arr[$inputdomain]['name_servers']['delegation_checks'] = $name_servers_delegation_check;
 $arr[$inputdomain]['name_servers']['latest_correct_delegation_checks'] = $name_servers_latest_correct_delegation_check;	
 $arr[$inputdomain]['name_servers']['dnssec_signed'] = $name_servers_dnssec_signed;
+$arr[$inputdomain]['name_servers']['dnssec_key_tag'] = $name_servers_dnssec_key_tag;
 $arr[$inputdomain]['name_servers']['dnssec_algorithm'] = $name_servers_dnssec_algorithm;
-$arr[$inputdomain]['name_servers']['dnssec_record'] = $name_servers_dnssec_record;
+$arr[$inputdomain]['name_servers']['dnssec_digest_type'] = $name_servers_dnssec_digest_type;
+$arr[$inputdomain]['name_servers']['dnssec_digest'] = $name_servers_dnssec_digest;
 	
 $arr[$inputdomain]['raw_rdap'] = $raw_rdap_data;
 

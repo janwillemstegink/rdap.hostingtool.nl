@@ -116,9 +116,12 @@ $name_servers_ascii = '';
 $name_servers_unicode = '';
 $name_servers_ipv4 = '';
 $name_servers_ipv6 = '';
+$name_servers_statuses = '';	
 $name_servers_dnssec_signed = '';
+$name_servers_dnssec_key_tag = '';	
 $name_servers_dnssec_algorithm = '';
-$name_servers_dnssec_record = '';
+$name_servers_dnssec_digest_type = '';
+$name_servers_dnssec_digest = '';	
 foreach($obj as $key1 => $value1) {
 	if ($key1 == 'status')	{	
 		$root_zone_statuses .= (is_array($value1)) ? implode(",<br />", $value1) : $value1;
@@ -148,11 +151,17 @@ foreach($obj as $key1 => $value1) {
 				elseif ($key3 == 'unicodeName')	{
 					$name_servers_unicode .= $key2.': '.$value3."<br />";
 				}
+				elseif ($key3 == 'status')	{
+					$name_servers_statuses .= $key2.': '.$value3[0]."<br />";	
+				}
 			}
 			if ($key1 == 'secureDNS')	{
 				if ($key2 == 'dsData') {
+					$name_servers_dnssec_key_tag .= $key3.': '.$value3['keyTag']."<br />";	
 					$name_servers_dnssec_algorithm .= $key3.': '.$value3['algorithm']."<br />";	
-					$name_servers_dnssec_record .= $key3.': '.$inputtld.'. IN DS '.$value3['keyTag'].' '.$value3['algorithm'].' '.$value3['digestType'].' '.$value3['digest']."<br />";							}				
+					$name_servers_dnssec_digest_type .= $key3.': '.$value3['digestType']."<br />";	
+					$name_servers_dnssec_digest .= $key3.': '.$value3['digest']."<br />";
+				}				
 			}
 			foreach($value3 as $key4 => $value4) {		
 				foreach($value4 as $key5 => $value5) {		
@@ -728,10 +737,13 @@ $arr[$inputtld]['name_servers']['entry_handles'] = $name_servers_handles;
 $arr[$inputtld]['name_servers']['ascii_names'] = $name_servers_ascii;
 $arr[$inputtld]['name_servers']['unicode_names'] = $name_servers_unicode;	
 $arr[$inputtld]['name_servers']['ipv4_addresses'] = $name_servers_ipv4;	
-$arr[$inputtld]['name_servers']['ipv6_addresses'] = $name_servers_ipv6;	
+$arr[$inputtld]['name_servers']['ipv6_addresses'] = $name_servers_ipv6;
+$arr[$inputtld]['name_servers']['statuses'] = $name_servers_statuses;
 $arr[$inputtld]['name_servers']['dnssec_signed'] = $name_servers_dnssec_signed;
+$arr[$inputtld]['name_servers']['dnssec_key_tag'] = $name_servers_dnssec_key_tag;
 $arr[$inputtld]['name_servers']['dnssec_algorithm'] = $name_servers_dnssec_algorithm;
-$arr[$inputtld]['name_servers']['dnssec_record'] = $name_servers_dnssec_record;
+$arr[$inputtld]['name_servers']['dnssec_digest_type'] = $name_servers_dnssec_digest_type;
+$arr[$inputtld]['name_servers']['dnssec_digest'] = $name_servers_dnssec_digest;
 
 return $arr;
 }
