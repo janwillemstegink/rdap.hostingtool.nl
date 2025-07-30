@@ -519,7 +519,8 @@ CREATE TABLE tld_contacts (
     tc_zone INT NOT NULL REFERENCES zones(zone_id) ON DELETE CASCADE,
 	tc_role VARCHAR(50), -- holding role identifier
 	tc_data_active_from TIMESTAMPTZ,
-    tc_contact INT NOT NULL REFERENCES contacts(contact_id) ON DELETE CASCADE
+    tc_contact INT NOT NULL REFERENCES contacts(contact_id) ON DELETE CASCADE,
+	tc_latest_update_at TIMESTAMPTZ
 );
 CREATE INDEX idx_tc_zone ON tld_contacts(tc_zone);
 CREATE INDEX idx_tc_contact ON tld_contacts(tc_contact);

@@ -216,7 +216,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_zone_periods").textContent = proposed + 'Meerjarig registreren mogelijk; maximale periode varieert per TLD en registrar.';
 		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
-		document.getElementById("name_servers_ip").textContent = "Bij glue-records worden de nameservers van de registrar niet gebruikt.";
+		document.getElementById("name_servers_ip").textContent = "IP-adressen zijn zichtbaar indien van toepassing en ook opgenomen in het RDAP-bestand.";
 	}
 	else if (translation == 2)	{
 		var modified = '(Modified) ';
@@ -258,7 +258,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_zone_periods").textContent = proposed + 'Multi-year registration possible; max period varies by TLD and registrar.';
 		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
-		document.getElementById("name_servers_ip").textContent = "With glue records, the registrar's nameservers are not used.";
+		document.getElementById("name_servers_ip").textContent = "IP addresses are visible if applicable and also included in the RDAP file.";
 	}
 	else if (translation == 3)	{
 		var modified = '(Geändert) ';
@@ -300,7 +300,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_zone_periods").textContent = proposed + 'Mehrjährige Registrierung möglich; maximale Laufzeit variiert je nach TLD und Registrar.';
 		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
-		document.getElementById("name_servers_ip").textContent = "Bei Glue-Records werden die Nameserver des Registrars nicht verwendet.";
+		document.getElementById("name_servers_ip").textContent = "IP-Adressen sind sichtbar, sofern zutreffend, und auch in der RDAP-Datei enthalten.";
 	}
 	else if (translation == 4)	{
 		var modified = '(Modifié) ';
@@ -342,7 +342,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_zone_periods").textContent = proposed + "Enregistrement pluriannuel possible ; durée maximale variable selon le TLD et le registrar.";
 		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
-		document.getElementById("name_servers_ip").textContent = "Avec les glue records, les serveurs de noms du registrar ne sont pas utilisés.";
+		document.getElementById("name_servers_ip").textContent = "Les adresses IP sont visibles si cela s’applique et sont également fournies dans le fichier RDAP.";
 	}
 }	
 </script><?php
@@ -464,10 +464,10 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="282" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['zone_periods'].'</td><td id="lifecycle_zone_periods"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(63)">Name Servers +/-</button></td><td></td><td></td></tr>';
-	$html_text .= '<tr id="631" style="display:none;vertical-align:top"><td>zone_handles</td><td>'.$data[$pd]['name_servers']['zone_handles'].'</td><td></td></tr>';
-	$html_text .= '<tr id="632" style="display:none;vertical-align:top"><td>entry_handles</td><td>'.$data[$pd]['name_servers']['entry_handles'].'</td><td></td></tr>';
-	$html_text .= '<tr id="633" style="display:none;vertical-align:top"><td>ascii_names</td><td>'.$data[$pd]['name_servers']['ascii_names'].'</td><td></td></tr>';
-	$html_text .= '<tr id="634" style="display:none;vertical-align:top"><td>unicode_names</td><td>'.$data[$pd]['name_servers']['unicode_names'].'</td><td></td></tr>';
+	$html_text .= '<tr id="631" style="display:none;vertical-align:top"><td>zone_handles</td><td colspan="2">'.$data[$pd]['name_servers']['zone_handles'].'</td></tr>';
+	$html_text .= '<tr id="632" style="display:none;vertical-align:top"><td>entry_handles</td><td colspan="2">'.$data[$pd]['name_servers']['entry_handles'].'</td></tr>';
+	$html_text .= '<tr id="633" style="display:none;vertical-align:top"><td>ascii_names</td><td colspan="2">'.$data[$pd]['name_servers']['ascii_names'].'</td></tr>';
+	$html_text .= '<tr id="634" style="display:none;vertical-align:top"><td>unicode_names</td><td colspan="2">'.$data[$pd]['name_servers']['unicode_names'].'</td></tr>';
 	$html_text .= '<tr id="635" style="display:none;vertical-align:top"><td>ipv4_addresses</td><td>'.$data[$pd]['name_servers']['ipv4_addresses'].'</td><td id="name_servers_ip"></td></tr>';
 	$html_text .= '<tr id="636" style="display:none;vertical-align:top"><td>ipv6_addresses</td><td>'.$data[$pd]['name_servers']['ipv6_addresses'].'</td><td></td></tr>';
 	$html_text .= '<tr id="637" style="display:none;vertical-align:top"><td>statuses</td><td>'.$data[$pd]['name_servers']['statuses'].'</td><td></td></tr>';
