@@ -258,24 +258,24 @@ if (!strlen($language_codes))	{
 }	
 $registrar_accreditation = '';
 $registrar_complaint_url = '';
-$status_explanation_url = '';	
+$flag_explanation_url = '';	
 	
 if ($notice_0_links_0_href == 'https://icann.org/wicf' or $notice_0_links_0_href == 'https://icann.org/wicf/')	$registrar_complaint_url = $notice_0_links_0_href;
 if ($notice_1_links_0_href == 'https://icann.org/wicf' or $notice_1_links_0_href == 'https://icann.org/wicf/')	$registrar_complaint_url = $notice_1_links_0_href;
 if ($notice_2_links_0_href == 'https://icann.org/wicf' or $notice_2_links_0_href == 'https://icann.org/wicf/')	$registrar_complaint_url = $notice_2_links_0_href;
 if ($notice_3_links_0_href == 'https://icann.org/wicf' or $notice_3_links_0_href == 'https://icann.org/wicf/')	$registrar_complaint_url = $notice_3_links_0_href;
 	
-if ($notice_0_links_0_href == 'https://icann.org/epp' or $notice_0_links_0_href == 'https://icann.org/epp/')	$status_explanation_url = $notice_0_links_0_href;
-if ($notice_1_links_0_href == 'https://icann.org/epp' or $notice_1_links_0_href == 'https://icann.org/epp/')	$status_explanation_url = $notice_1_links_0_href;
-if ($notice_2_links_0_href == 'https://icann.org/epp' or $notice_2_links_0_href == 'https://icann.org/epp/')	$status_explanation_url = $notice_2_links_0_href;
-if ($notice_3_links_0_href == 'https://icann.org/epp' or $notice_3_links_0_href == 'https://icann.org/epp/')	$status_explanation_url = $notice_3_links_0_href;
+if ($notice_0_links_0_href == 'https://icann.org/epp' or $notice_0_links_0_href == 'https://icann.org/epp/')	$flag_explanation_url = $notice_0_links_0_href;
+if ($notice_1_links_0_href == 'https://icann.org/epp' or $notice_1_links_0_href == 'https://icann.org/epp/')	$flag_explanation_url = $notice_1_links_0_href;
+if ($notice_2_links_0_href == 'https://icann.org/epp' or $notice_2_links_0_href == 'https://icann.org/epp/')	$flag_explanation_url = $notice_2_links_0_href;
+if ($notice_3_links_0_href == 'https://icann.org/epp' or $notice_3_links_0_href == 'https://icann.org/epp/')	$flag_explanation_url = $notice_3_links_0_href;
 
 $registrant_web_id = '';
 if ($zone_identifier == 'nl' or $zone_identifier == 'frl')	{		
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';	
 }
-$zone_statuses = '';
-$entry_statuses = '';	
+$zone_flags = '';
+$client_flags = '';	
 $created_at = null;
 $latest_transfer_at = null;			
 $latest_update_at = null;
@@ -283,7 +283,7 @@ $expiration_at = null;
 $deletion_at = null;	
 $extensions = '';
 $remarks = '';	
-$registrant_statuses = '';
+$registrant_flags = '';
 $registrant_created_at = null;
 $registrant_latest_transfer_at = null;	
 $registrant_latest_update_at = null;
@@ -297,7 +297,7 @@ $technical_properties = '(not tested yet)';
 $technical_remarks = '';
 $billing_properties = '(not tested yet)';
 $billing_remarks = '';		
-$reseller_statuses = '';
+$reseller_flags = '';
 $reseller_created_at = null;
 $reseller_latest_transfer_at = null;	
 $reseller_latest_update_at = null;
@@ -305,7 +305,7 @@ $reseller_expiration_at = null;
 $reseller_deletion_at = null;
 $reseller_properties = '(not tested yet)';	
 $reseller_remarks = '';		
-$registrar_statuses = '';	
+$registrar_flags = '';	
 $registrar_created_at = null;
 $registrar_latest_transfer_at = null;	
 $registrar_latest_update_at = null;
@@ -313,7 +313,7 @@ $registrar_expiration_at = null;
 $registrar_deletion_at = null;		
 $registrar_properties = '(not tested yet)';	
 $registrar_remarks = '';		
-$sponsor_statuses = '';
+$sponsor_flags = '';
 $sponsor_created_at = null;
 $sponsor_latest_transfer_at = null;	
 $sponsor_latest_update_at = null;
@@ -453,7 +453,7 @@ $name_servers_ascii = '';
 $name_servers_unicode = '';
 $name_servers_ipv4 = '';
 $name_servers_ipv6 = '';
-$name_servers_statuses = '';
+$name_servers_flags = '';
 $name_servers_delegation_check = '';
 $name_servers_latest_correct_delegation_check = '';	
 	
@@ -550,13 +550,18 @@ foreach($obj as $key1 => $value1) {
 $raw_rdap_data = nl2br(htmlspecialchars($raw_rdap_data));	
 $raw_rdap_data = str_replace(' Array','', $raw_rdap_data);
 foreach($obj as $key1 => $value1) {
-	if ($key1 == 'status')	{	
-		$zone_statuses .= (is_array($value1)) ? implode(",<br />", $value1) : $value1;
-	}
 	if ($key1 == 'extensions')	{	
 		$extensions .= (is_array($value1)) ? implode(",<br />", $value1) : $value1;
 	}
 	foreach($value1 as $key2 => $value2) {
+		if ($key1 == 'status')	{
+			if (str_starts_with($value2, 'client'))	{
+				$client_flags .= $value2 . "<br />";
+			}
+			else	{
+				$zone_flags .= $value2 . "<br />";
+			}
+		}
 		if ($key1 == 'secureDNS')	{
 			if ($key2 == 'delegationSigned') {
 				if ($value2 === true)	{
@@ -626,17 +631,17 @@ foreach($obj as $key1 => $value1) {
 				}
 				if ($key3 == 'status')	{
 					if ($key2 == $entity_registrant)	{
-						$registrant_statuses .= (is_array($value3)) ? implode(",<br />", $value3) : $value3;
-						//$registrant_statuses .= $key1.'#'.$value1.'#'.$key2.'#'.$value2.'#'.$key3.'#'.$value3.'#'.$key4.'#'.$value4;
+						$registrant_flags .= (is_array($value3)) ? implode(",<br />", $value3) : $value3;
+						//$registrant_flags .= $key1.'#'.$value1.'#'.$key2.'#'.$value2.'#'.$key3.'#'.$value3.'#'.$key4.'#'.$value4;
 					}
 					if ($key2 == $entity_reseller)	{
-						$reseller_statuses .= (is_array($value3)) ? implode(",<br />", $value3) : $value3;
+						$reseller_flags .= (is_array($value3)) ? implode(",<br />", $value3) : $value3;
 					}
 					if ($key2 == $entity_registrar)	{
-						$registrar_statuses .= (is_array($value3)) ? implode(",<br />", $value3) : $value3;
+						$registrar_flags .= (is_array($value3)) ? implode(",<br />", $value3) : $value3;
 					}
 					if ($key2 == $entity_sponsor)	{
-						$sponsor_statuses .= (is_array($value3)) ? implode(",<br />", $value3) : $value3;
+						$sponsor_flags .= (is_array($value3)) ? implode(",<br />", $value3) : $value3;
 					}
 				}
 			}	
@@ -651,7 +656,7 @@ foreach($obj as $key1 => $value1) {
 					$name_servers_unicode .= $key2.': '.$value3."<br />";
 				}
 				elseif ($key3 == 'status')	{
-					$name_servers_statuses .= $key2.': '.$value3[0]."<br />";	
+					$name_servers_flags .= $key2.': '.$value3[0]."<br />";	
 				}
 			}
 			if ($key1 == 'secureDNS')	{
@@ -1300,14 +1305,14 @@ $arr[$inputdomain]['metadata']['registry_language_codes'] = $language_codes;
 $arr[$inputdomain]['metadata']['registrar_accreditation'] = $registrar_accreditation;		
 $arr[$inputdomain]['metadata']['registrar_json_response_url'] = $registrar_json_response_url;
 $arr[$inputdomain]['metadata']['registrar_complaint_url'] = $registrar_complaint_url;		
-$arr[$inputdomain]['metadata']['status_explanation_url'] = $status_explanation_url;
+$arr[$inputdomain]['metadata']['flag_explanation_url'] = $flag_explanation_url;
 $arr[$inputdomain]['metadata']['geo_location'] = '';
 	
-$arr[$inputdomain]['domain']['entry_handle'] = $handle;
+$arr[$inputdomain]['domain']['client_handle'] = $handle;
 $arr[$inputdomain]['domain']['ascii_name'] = $ascii_name;	
 $arr[$inputdomain]['domain']['unicode_name'] = $unicode_name;
-$arr[$inputdomain]['domain']['zone_statuses'] = $zone_statuses;
-$arr[$inputdomain]['domain']['entry_statuses'] = $entry_statuses;
+$arr[$inputdomain]['domain']['zone_flags'] = $zone_flags;
+$arr[$inputdomain]['domain']['client_flags'] = $client_flags;
 $arr[$inputdomain]['domain']['created_at'] = $created_at;	
 $arr[$inputdomain]['domain']['latest_transfer_at'] = $latest_transfer_at;
 $arr[$inputdomain]['domain']['latest_update_at'] = $latest_update_at;
@@ -1316,7 +1321,7 @@ $arr[$inputdomain]['domain']['deletion_at'] = $deletion_at;
 $arr[$inputdomain]['domain']['extensions'] = $extensions;
 $arr[$inputdomain]['domain']['remarks'] = $remarks;			
 	
-$arr[$inputdomain]['sponsor']['entry_handle'] = $sponsor_handle;
+$arr[$inputdomain]['sponsor']['client_handle'] = $sponsor_handle;
 $arr[$inputdomain]['sponsor']['web_id'] = $sponsor_web_id;		
 $arr[$inputdomain]['sponsor']['organization_type'] = $sponsor_organization_type;	
 $arr[$inputdomain]['sponsor']['organization_name'] = $sponsor_organization_name;	
@@ -1333,13 +1338,13 @@ $arr[$inputdomain]['sponsor']['postal_code'] = $sponsor_postal_code;
 $arr[$inputdomain]['sponsor']['country_name'] = $sponsor_country_name;	
 $arr[$inputdomain]['sponsor']['language_pref_1'] = $sponsor_language_pref_1;	
 $arr[$inputdomain]['sponsor']['language_pref_2'] = $sponsor_language_pref_2;
-$arr[$inputdomain]['sponsor']['statuses'] = $sponsor_statuses;
+$arr[$inputdomain]['sponsor']['flags'] = $sponsor_flags;
 $arr[$inputdomain]['sponsor']['created_at'] = $sponsor_created_at;
 $arr[$inputdomain]['sponsor']['latest_update_at'] = $sponsor_latest_update_at;
 $arr[$inputdomain]['sponsor']['properties'] = $sponsor_properties;
 $arr[$inputdomain]['sponsor']['remarks'] = $sponsor_remarks;
 	
-$arr[$inputdomain]['registrant']['entry_handle'] = $registrant_handle;
+$arr[$inputdomain]['registrant']['client_handle'] = $registrant_handle;
 $arr[$inputdomain]['registrant']['web_id'] = $registrant_web_id;		
 $arr[$inputdomain]['registrant']['organization_type'] = $registrant_organization_type;	
 $arr[$inputdomain]['registrant']['organization_name'] = $registrant_organization_name;	
@@ -1356,13 +1361,13 @@ $arr[$inputdomain]['registrant']['postal_code'] = $registrant_postal_code;
 $arr[$inputdomain]['registrant']['country_name'] = $registrant_country_name;	
 $arr[$inputdomain]['registrant']['language_pref_1'] = $registrant_language_pref_1;	
 $arr[$inputdomain]['registrant']['language_pref_2'] = $registrant_language_pref_2;
-$arr[$inputdomain]['registrant']['statuses'] = $registrant_statuses;
+$arr[$inputdomain]['registrant']['flags'] = $registrant_flags;
 $arr[$inputdomain]['registrant']['created_at'] = $registrant_created_at;
 $arr[$inputdomain]['registrant']['latest_update_at'] = $registrant_latest_update_at;
 $arr[$inputdomain]['registrant']['properties'] = $registrant_properties;
 $arr[$inputdomain]['registrant']['remarks'] = $registrant_remarks;	
 	
-$arr[$inputdomain]['administrative']['entry_handle'] = $administrative_handle;
+$arr[$inputdomain]['administrative']['client_handle'] = $administrative_handle;
 $arr[$inputdomain]['administrative']['web_id'] = $administrative_web_id;		
 $arr[$inputdomain]['administrative']['organization_type'] = $administrative_organization_type;	
 $arr[$inputdomain]['administrative']['organization_name'] = $administrative_organization_name;	
@@ -1379,13 +1384,13 @@ $arr[$inputdomain]['administrative']['postal_code'] = $administrative_postal_cod
 $arr[$inputdomain]['administrative']['country_name'] = $administrative_country_name;	
 $arr[$inputdomain]['administrative']['language_pref_1'] = $administrative_language_pref_1;	
 $arr[$inputdomain]['administrative']['language_pref_2'] = $administrative_language_pref_2;
-$arr[$inputdomain]['administrative']['statuses'] = $administrative_statuses;
+$arr[$inputdomain]['administrative']['flags'] = $administrative_flags;
 $arr[$inputdomain]['administrative']['created_at'] = $administrative_created_at;
 $arr[$inputdomain]['administrative']['latest_update_at'] = $administrative_latest_update_at;
 $arr[$inputdomain]['administrative']['properties'] = $administrative_properties;
 $arr[$inputdomain]['administrative']['remarks'] = $administrative_remarks;	
 
-$arr[$inputdomain]['technical']['entry_handle'] = $technical_handle;
+$arr[$inputdomain]['technical']['client_handle'] = $technical_handle;
 $arr[$inputdomain]['technical']['web_id'] = $technical_web_id;		
 $arr[$inputdomain]['technical']['organization_type'] = $technical_organization_type;	
 $arr[$inputdomain]['technical']['organization_name'] = $technical_organization_name;	
@@ -1402,13 +1407,13 @@ $arr[$inputdomain]['technical']['postal_code'] = $technical_postal_code;
 $arr[$inputdomain]['technical']['country_name'] = $technical_country_name;	
 $arr[$inputdomain]['technical']['language_pref_1'] = $technical_language_pref_1;	
 $arr[$inputdomain]['technical']['language_pref_2'] = $technical_language_pref_2;
-$arr[$inputdomain]['technical']['statuses'] = $technical_statuses;
+$arr[$inputdomain]['technical']['flags'] = $technical_flags;
 $arr[$inputdomain]['technical']['created_at'] = $technical_created_at;
 $arr[$inputdomain]['technical']['latest_update_at'] = $technical_latest_update_at;
 $arr[$inputdomain]['technical']['properties'] = $technical_properties;
 $arr[$inputdomain]['technical']['remarks'] = $technical_remarks;
 	
-$arr[$inputdomain]['billing']['entry_handle'] = $billing_handle;
+$arr[$inputdomain]['billing']['client_handle'] = $billing_handle;
 $arr[$inputdomain]['billing']['web_id'] = $billing_web_id;		
 $arr[$inputdomain]['billing']['organization_type'] = $billing_organization_type;	
 $arr[$inputdomain]['billing']['organization_name'] = $billing_organization_name;	
@@ -1425,13 +1430,13 @@ $arr[$inputdomain]['billing']['postal_code'] = $billing_postal_code;
 $arr[$inputdomain]['billing']['country_name'] = $billing_country_name;	
 $arr[$inputdomain]['billing']['language_pref_1'] = $billing_language_pref_1;	
 $arr[$inputdomain]['billing']['language_pref_2'] = $billing_language_pref_2;
-$arr[$inputdomain]['billing']['statuses'] = $billing_statuses;
+$arr[$inputdomain]['billing']['flags'] = $billing_flags;
 $arr[$inputdomain]['billing']['created_at'] = $billing_created_at;
 $arr[$inputdomain]['billing']['latest_update_at'] = $billing_latest_update_at;
 $arr[$inputdomain]['billing']['properties'] = $billing_properties;
 $arr[$inputdomain]['billing']['remarks'] = $billing_remarks;
 
-$arr[$inputdomain]['reseller']['entry_handle'] = $reseller_handle;
+$arr[$inputdomain]['reseller']['client_handle'] = $reseller_handle;
 $arr[$inputdomain]['reseller']['web_id'] = $reseller_web_id;		
 $arr[$inputdomain]['reseller']['organization_type'] = $reseller_organization_type;	
 $arr[$inputdomain]['reseller']['organization_name'] = $reseller_organization_name;	
@@ -1448,13 +1453,13 @@ $arr[$inputdomain]['reseller']['postal_code'] = $reseller_postal_code;
 $arr[$inputdomain]['reseller']['country_name'] = $reseller_country_name;	
 $arr[$inputdomain]['reseller']['language_pref_1'] = $reseller_language_pref_1;	
 $arr[$inputdomain]['reseller']['language_pref_2'] = $reseller_language_pref_2;
-$arr[$inputdomain]['reseller']['statuses'] = $reseller_statuses;
+$arr[$inputdomain]['reseller']['flags'] = $reseller_flags;
 $arr[$inputdomain]['reseller']['created_at'] = $reseller_created_at;
 $arr[$inputdomain]['reseller']['latest_update_at'] = $reseller_latest_update_at;
 $arr[$inputdomain]['reseller']['properties'] = $reseller_properties;
 $arr[$inputdomain]['reseller']['remarks'] = $reseller_remarks;	
 
-$arr[$inputdomain]['registrar']['entry_handle'] = $registrar_handle;
+$arr[$inputdomain]['registrar']['client_handle'] = $registrar_handle;
 $arr[$inputdomain]['registrar']['web_id'] = $registrar_web_id;		
 $arr[$inputdomain]['registrar']['organization_type'] = $registrar_organization_type;	
 $arr[$inputdomain]['registrar']['organization_name'] = $registrar_organization_name;	
@@ -1471,13 +1476,13 @@ $arr[$inputdomain]['registrar']['postal_code'] = $registrar_postal_code;
 $arr[$inputdomain]['registrar']['country_name'] = $registrar_country_name;	
 $arr[$inputdomain]['registrar']['language_pref_1'] = $registrar_language_pref_1;	
 $arr[$inputdomain]['registrar']['language_pref_2'] = $registrar_language_pref_2;
-$arr[$inputdomain]['registrar']['statuses'] = $registrar_statuses;
+$arr[$inputdomain]['registrar']['flags'] = $registrar_flags;
 $arr[$inputdomain]['registrar']['created_at'] = $registrar_created_at;
 $arr[$inputdomain]['registrar']['latest_update_at'] = $registrar_latest_update_at;
 $arr[$inputdomain]['registrar']['properties'] = $registrar_properties;
 $arr[$inputdomain]['registrar']['remarks'] = $registrar_remarks;
 	
-$arr[$inputdomain]['abuse']['entry_handle'] = $abuse_handle;
+$arr[$inputdomain]['abuse']['client_handle'] = $abuse_handle;
 $arr[$inputdomain]['abuse']['organization_type'] = $abuse_organization_type;
 $arr[$inputdomain]['abuse']['organization_name'] = $abuse_organization_name;	
 $arr[$inputdomain]['abuse']['presented_name'] = $abuse_presented_name;
@@ -1486,12 +1491,12 @@ $arr[$inputdomain]['abuse']['email'] = $abuse_email;
 $arr[$inputdomain]['abuse']['telephone'] = $abuse_telephone;
 $arr[$inputdomain]['abuse']['country_code'] = $abuse_country_code;	
 	
-$arr[$inputdomain]['name_servers']['entry_handles'] = $name_servers_handles;
+$arr[$inputdomain]['name_servers']['client_handles'] = $name_servers_handles;
 $arr[$inputdomain]['name_servers']['ascii_names'] = $name_servers_ascii;
 $arr[$inputdomain]['name_servers']['unicode_names'] = $name_servers_unicode;	
 $arr[$inputdomain]['name_servers']['ipv4_addresses'] = $name_servers_ipv4;	
 $arr[$inputdomain]['name_servers']['ipv6_addresses'] = $name_servers_ipv6;	
-$arr[$inputdomain]['name_servers']['statuses'] = $name_servers_statuses;	
+$arr[$inputdomain]['name_servers']['flags'] = $name_servers_flags;	
 $arr[$inputdomain]['name_servers']['delegation_checks'] = $name_servers_delegation_check;
 $arr[$inputdomain]['name_servers']['latest_correct_delegation_checks'] = $name_servers_latest_correct_delegation_check;	
 $arr[$inputdomain]['name_servers']['dnssec_signed'] = $name_servers_dnssec_signed;

@@ -110,13 +110,13 @@ $links_3_media = $obj['links'][3]['media'];
 $links_3_type = $obj['links'][3]['type'];
 $tld_ascii_name = $obj['ldhName'];
 $tld_unicode_name = $obj['unicodeName'];		
-$root_zone_statuses = '';	
+$root_zone_flags = '';	
 $name_servers_handles = '';
 $name_servers_ascii = '';
 $name_servers_unicode = '';
 $name_servers_ipv4 = '';
 $name_servers_ipv6 = '';
-$name_servers_statuses = '';	
+$name_servers_flags = '';	
 $name_servers_dnssec_signed = '';
 $name_servers_dnssec_key_tag = '';	
 $name_servers_dnssec_algorithm = '';
@@ -124,7 +124,7 @@ $name_servers_dnssec_digest_type = '';
 $name_servers_dnssec_digest = '';	
 foreach($obj as $key1 => $value1) {
 	if ($key1 == 'status')	{	
-		$root_zone_statuses .= (is_array($value1)) ? implode(",<br />", $value1) : $value1;
+		$root_zone_flags .= (is_array($value1)) ? implode(",<br />", $value1) : $value1;
 	}
 	foreach($value1 as $key2 => $value2) {
 		if ($key1 == 'secureDNS')	{
@@ -152,7 +152,7 @@ foreach($obj as $key1 => $value1) {
 					$name_servers_unicode .= $key2.': '.$value3."<br />";
 				}
 				elseif ($key3 == 'status')	{
-					$name_servers_statuses .= $key2.': '.$value3[0]."<br />";	
+					$name_servers_flags .= $key2.': '.$value3[0]."<br />";	
 				}
 			}
 			if ($key1 == 'secureDNS')	{
@@ -608,7 +608,7 @@ foreach ($decoded as $period) {
 	$zone_periods .= '<br />';
 }	
 $resource_upload_at = null;
-$zone_status_meanings_json = '[
+$zone_flag_meanings_json = '[
     {
         "redemption period": {
             "description": "Domain can still be recovered after expiration.",
@@ -624,13 +624,13 @@ $zone_status_meanings_json = '[
         }
     }
 ]';
-$decoded = json_decode($zone_status_meanings_json, true);
-$zone_status_meanings = "<b>zone_status_meanings</b><br />";
-foreach ($decoded as $statuses) {
-    foreach ($statuses as $key => $value) {	//ucwords()
-        $zone_status_meanings .= '"' . htmlspecialchars($key) . '": ';
-        $zone_status_meanings .= htmlspecialchars($value['description']);
-        $zone_status_meanings .= " (" . htmlspecialchars($value['phase']) . " phase)<br />";
+$decoded = json_decode($zone_flag_meanings_json, true);
+$zone_flag_meanings = "<b>zone_flag_meanings</b><br />";
+foreach ($decoded as $flags) {
+    foreach ($flags as $key => $value) {	//ucwords()
+        $zone_flag_meanings .= '"' . htmlspecialchars($key) . '": ';
+        $zone_flag_meanings .= htmlspecialchars($value['description']);
+        $zone_flag_meanings .= " (" . htmlspecialchars($value['phase']) . " phase)<br />";
     }
 }	
 	
@@ -718,7 +718,7 @@ $arr[$inputtld]['root_zone']['tld_category'] = $tld_category;
 $arr[$inputtld]['root_zone']['tld_type'] = $tld_type;
 $arr[$inputtld]['root_zone']['tld_ascii_name'] = $tld_ascii_name;
 $arr[$inputtld]['root_zone']['tld_unicode_name'] = $tld_unicode_name;	
-$arr[$inputtld]['root_zone']['tld_statuses'] = $root_zone_statuses;		
+$arr[$inputtld]['root_zone']['tld_flags'] = $root_zone_flags;		
 $arr[$inputtld]['root_zone']['tld_delegation_url'] = $tld_delegation_url;	
 $arr[$inputtld]['root_zone']['tld_json_response_url'] = $tld_json_response_url;
 $arr[$inputtld]['root_zone']['tld_terms_of_service_url'] = $tld_terms_of_service_url;
@@ -730,7 +730,7 @@ $arr[$inputtld]['root_zone']['zone_accepted_workload'] = $zone_accepted_workload
 
 $arr[$inputtld]['lifecycle']['data_active_from'] = $lifecycle_data_active_from;
 $arr[$inputtld]['lifecycle']['upon_termination'] = $upon_termination;
-$arr[$inputtld]['lifecycle']['zone_status_meanings'] = $zone_status_meanings;	
+$arr[$inputtld]['lifecycle']['zone_flag_meanings'] = $zone_flag_meanings;	
 $arr[$inputtld]['lifecycle']['zone_periods'] = $zone_periods;
 	
 $arr[$inputtld]['name_servers']['entry_handles'] = $name_servers_handles;
@@ -738,7 +738,7 @@ $arr[$inputtld]['name_servers']['ascii_names'] = $name_servers_ascii;
 $arr[$inputtld]['name_servers']['unicode_names'] = $name_servers_unicode;	
 $arr[$inputtld]['name_servers']['ipv4_addresses'] = $name_servers_ipv4;	
 $arr[$inputtld]['name_servers']['ipv6_addresses'] = $name_servers_ipv6;
-$arr[$inputtld]['name_servers']['statuses'] = $name_servers_statuses;
+$arr[$inputtld]['name_servers']['flags'] = $name_servers_flags;
 $arr[$inputtld]['name_servers']['dnssec_signed'] = $name_servers_dnssec_signed;
 $arr[$inputtld]['name_servers']['dnssec_key_tag'] = $name_servers_dnssec_key_tag;
 $arr[$inputtld]['name_servers']['dnssec_algorithm'] = $name_servers_dnssec_algorithm;

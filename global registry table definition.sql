@@ -102,7 +102,7 @@ CREATE TABLE zones (
 	zone_data_active_from TIMESTAMPTZ,
 	zone_tld_category VARCHAR(20) NOT NULL,
     zone_tld_type VARCHAR(20) NOT NULL,
-	zone_tld_statuses TEXT[],
+	zone_tld_flags TEXT[],
 	zone_tld_delegation_url TEXT,
 	zone_tld_json_response_url TEXT,
 	zone_tld_terms_of_service_url TEXT,
@@ -238,17 +238,17 @@ ON lifecycles(lifecycle_zone, lifecycle_data_active_from);
 -- JSON field specifying registrar accreditation info, e.g.,
 -- [{"type": "IANA Registrar ID","identifier": "2288"}]
 -- domain_extensions: Additional domain-specific data in JSON format.
--- entity_entry_handle: optional handle reference used by the registrar (or for outsourced name servers).
+-- entity_client_handle: optional handle reference used by the registrar (or for outsourced name servers).
 -- =======================
 CREATE TABLE domains (
     domain_id BIGSERIAL PRIMARY KEY,
 	domain_zone CITEXT NOT NULL,
     domain_zone_handle TEXT NOT NULL UNIQUE, -- starts with the zone identifier ending with e.g. '_'.
-	domain_entry_handle TEXT,
+	domain_client_handle TEXT,
 	domain_ascii_name VARCHAR(511) NOT NULL,
     domain_unicode_name VARCHAR(511) NOT NULL,
-	domain_zone_statuses TEXT[], -- EPP status codes applied by registry 
-    domain_entry_statuses TEXT[], -- EPP status codes applied by registrar
+	domain_zone_flags TEXT[], -- EPP status codes applied by registry 
+    domain_client_flags TEXT[], -- EPP status codes applied by registrar
     domain_created_at TIMESTAMPTZ,
     domain_latest_transfer_at TIMESTAMPTZ,
     domain_latest_update_at TIMESTAMPTZ,
@@ -301,7 +301,7 @@ $$ LANGUAGE plpgsql;
 CREATE TABLE entities (
     entity_id BIGSERIAL PRIMARY KEY,
 	entity_zone_handle TEXT NOT NULL UNIQUE,
-    entity_entry_handle TEXT,
+    entity_client_handle TEXT,
 	entity_web_id VARCHAR(34),
     entity_organization_type TEXT,
     entity_organization_name VARCHAR(511),
@@ -319,7 +319,7 @@ CREATE TABLE entities (
     entity_country_name TEXT,
 	entity_language_pref1 VARCHAR(5),
 	entity_language_pref2 VARCHAR(5),
-    entity_statuses TEXT[],    
+    entity_flags TEXT[],    
     entity_created_at TIMESTAMPTZ,
     entity_latest_update_at TIMESTAMPTZ,
     entity_verification_received_at TIMESTAMPTZ,
@@ -351,12 +351,12 @@ EXECUTE FUNCTION update_entities_latest_update_at();
 CREATE TABLE nameservers (
     nameserver_id BIGSERIAL PRIMARY KEY,
 	nameserver_zone_handle TEXT NOT NULL UNIQUE,
-    nameserver_entry_handle TEXT,
+    nameserver_client_handle TEXT,
     nameserver_ascii_name TEXT NOT NULL,
     nameserver_unicode_name TEXT,
     nameserver_ipv4_addresses inet[],
     nameserver_ipv6_addresses inet[],
-    nameserver_statuses TEXT[],
+    nameserver_flags TEXT[],
 	nameserver_delegation_check TIMESTAMPTZ,
 	nameserver_latest_correct_delegation_check TIMESTAMPTZ,
     nameserver_latest_update_at TIMESTAMPTZ
@@ -391,14 +391,14 @@ CREATE TABLE ip_network_versions (
 CREATE TABLE ip_networks (
     ip_network_id BIGSERIAL PRIMARY KEY,
 	ip_network_zone_handle TEXT NOT NULL UNIQUE,
-    ip_network_entry_handle TEXT,	
+    ip_network_client_handle TEXT,	
     ip_network_start_address VARCHAR(50),
     ip_network_end_address VARCHAR(50),
     ip_network_version INT REFERENCES ip_network_versions(ip_network_version_id),
     ip_network_name TEXT,
     ip_network_type VARCHAR(100),
     ip_network_country_code CHAR(2),
-    ip_network_statuses TEXT[],
+    ip_network_flags TEXT[],
     ip_network_latest_update_at TIMESTAMPTZ
 );
 
@@ -422,7 +422,7 @@ EXECUTE FUNCTION update_ip_networks_latest_update_at();
 CREATE TABLE autnums (
     autnum_id BIGSERIAL PRIMARY KEY,
 	autnum_zone_handle TEXT NOT NULL UNIQUE,
-    autnum_entry_handle TEXT,
+    autnum_client_handle TEXT,
     autnum_start BIGINT,
     autnum_end BIGINT,
     autnum_name TEXT,
