@@ -668,16 +668,16 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr style="vertical-align:top"><td>domain_zone_flags</td><td>'.$data[$pd]['domain']['zone_flags'].'</td><td id="domain_zone_flags"></td></tr>';
 	if (!empty($data[$pd]['domain']['zone_flags']))	{
 		if (str_contains($data[$pd]['domain']['zone_flags'], 'inactive'))	{
-			$html_text .= '<tr id="305" style="display:none"><td>(Registry-side RDAP use)</td><td>"inactive" means no nameservers assigned<td><td></td></tr>';
+			$html_text .= '<tr id="305" style="display:none"><td>(Registry-side RDAP use)</td><td>"inactive" means no nameservers assigned</td><td></td></tr>';
 		}
 		elseif (str_contains($data[$pd]['domain']['zone_flags'], 'active'))	{
-			$html_text .= '<tr id="306" style="display:none"><td>(Registry-side RDAP use)</td><td>"active" means lifecycle renewal (EPP "ok")<td><td></td></tr>';	
+			$html_text .= '<tr id="306" style="display:none"><td>(Registry-side RDAP use)</td><td>"active" means lifecycle renewal (EPP "ok")</td><td></td></tr>';	
 		}
 		if (str_contains($data[$pd]['domain']['zone_flags'], 'locked'))	{
-			$html_text .= '<tr id="307" style="display:none"><td>(Registry-side RDAP use)</td><td>"locked" means free from lifecycle changes<td><td></td></tr>';
+			$html_text .= '<tr id="307" style="display:none"><td>(Registry-side RDAP use)</td><td>"locked" means free from lifecycle changes</td><td></td></tr>';
 		}
 		if (str_contains($data[$pd]['domain']['zone_flags'], 'excluded'))	{
-			$html_text .= '<tr id="308" style="display:none"><td>(Registry-side RDAP use)</td><td>"excluded" means no DNS zone registration<td><td></td></tr>';
+			$html_text .= '<tr id="308" style="display:none"><td>(Registry-side RDAP use)</td><td>"excluded" means no DNS zone registration</td><td></td></tr>';
 		}		
 	}
 	$html_text .= '<tr id="309" style="display:none;vertical-align:top"><td>domain_client_flags</td><td>'.$data[$pd]['domain']['client_flags'].'</td><td id="domain_client_flags"></td></tr>';
@@ -690,7 +690,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	if (!empty($data[$pd]['domain']['zone_flags']))	{
 		if (str_contains($data[$pd]['domain']['zone_flags'], 'pending delete'))	{
 			if (str_contains($data[$pd]['domain']['zone_flags'], 'redemption period') and str_contains($data[$pd]['domain']['zone_flags'], 'pending delete'))	{
-				$html_text .= '<tr id="3015" style="display:none"><td>No globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" disregards redemption grace<td><td></td></tr>';
+				$html_text .= '<tr id="3015" style="display:none"><td>No globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" disregards redemption grace</td><td></td></tr>';
 			}	
 			elseif (!empty($data[$pd]['metadata']['zone_identifier']))	{
 				if ($data[$pd]['metadata']['zone_identifier'] == 'nl')	{
@@ -700,12 +700,12 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 		}
 		if (str_contains($data[$pd]['domain']['zone_flags'], 'redemption period'))	{
 			if (empty($data[$pd]['domain']['expiration_at']) and empty($data[$pd]['domain']['deletion_at'])) {
-				$html_text .= '<tr id="3017" style="display:none"><td>No globally working RDAP (ccTLD behaviour) ⚠️</td><td>"redemption period" without date-time provided<td><td></td></tr>';
+				$html_text .= '<tr id="3017" style="display:none"><td>No globally working RDAP (ccTLD behaviour) ⚠️</td><td>"redemption period" without date-time provided</td><td></td></tr>';
 			}	
 		}
 		elseif (str_contains($data[$pd]['domain']['zone_flags'], 'pending delete'))	{
 			if (empty($data[$pd]['domain']['expiration_at']) and empty($data[$pd]['domain']['deletion_at'])) {
-				$html_text .= '<tr id="3018" style="display:none"><td>No globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" without date-time provided<td><td></td></tr>';
+				$html_text .= '<tr id="3018" style="display:none"><td>No globally working RDAP (ccTLD behaviour) ⚠️</td><td>"pending delete" without date-time provided</td><td></td></tr>';
 			}	
 		}
 	}
