@@ -212,7 +212,7 @@ $best_practices_periods_json = '[
 	{"period_identifier": "transfer_grace_days", "lowest": 5, "highest": 7, "optimal": 5},
 	{"period_identifier": "renew_grace_days", "lowest": 7, "highest": 14, "optimal": 7},
 	{"period_identifier": "post_transfer_lock_days", "lowest": 0, "highest": 30, "optimal": 30},
-	{"period_identifier": "redemption_days", "lowest": 30, "highest": 40, "optimal": 30},
+	{"period_identifier": "pending_redemption_days", "lowest": 30, "highest": 40, "optimal": 30},
 	{"period_identifier": "pending_delete_days", "lowest": 5, "highest": 7, "optimal": 5}
 ]';
 $decoded = json_decode($best_practices_periods_json, true);
@@ -271,7 +271,7 @@ $operational_periods_json = '[
 	{"period_identifier": "transfer_grace_days", "default": null, "allowed": null},
 	{"period_identifier": "renew_grace_days", "default": null, "allowed": null},
 	{"period_identifier": "post_transfer_lock_days", "default": null, "allowed": null},
-	{"period_identifier": "redemption_days", "default": null, "allowed": null},
+	{"period_identifier": "pending_redemption_days", "default": null, "allowed": null},
 	{"period_identifier": "pending_delete_days", "default": null, "allowed": null}
 ]';
 $zone_accepted_workload_json = '[{
@@ -291,14 +291,14 @@ $zone_accepted_workload_json = '[{
 if ($inputtld == 'nl')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$upon_termination = "40-day quarantine phase for .nl domains.";
+	$upon_termination = "40-day quarantine for .nl";
 	$operational_periods_json = '[
 		{"period_identifier": "subscription_years", "default": 1, "allowed": [1]},
 		{"period_identifier": "add_grace_days", "default": null, "allowed": null},
 		{"period_identifier": "transfer_grace_days", "default": null, "allowed": null},
 		{"period_identifier": "renew_grace_days", "default": null, "allowed": null},
 		{"period_identifier": "post_transfer_lock_days", "default": null, "allowed": null},
-		{"period_identifier": "redemption_days", "default": 40, "allowed": [40]},
+		{"period_identifier": "pending_redemption_days", "default": 40, "allowed": [40]},
 		{"period_identifier": "pending_delete_days", "default": 0, "allowed": [0]}
 	]';
 	$tld_contacts_json = '[
@@ -376,14 +376,14 @@ elseif ($inputtld == 'politie')	{
 elseif ($inputtld == 'eu')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$upon_termination = "40-day quarantine phase for .eu domains.";
+	$upon_termination = "40-day quarantine for .eu";
 	$operational_periods_json = '[
 		{"period_identifier": "subscription_years", "default": 1, "allowed": [1]},
 		{"period_identifier": "add_grace_days", "default": 5, "allowed": [5]},
 		{"period_identifier": "transfer_grace_days", "default": null, "allowed": null},
 		{"period_identifier": "renew_grace_days", "default": null, "allowed": null},
 		{"period_identifier": "post_transfer_lock_days", "default": 60, "allowed": [60]},
-		{"period_identifier": "redemption_days", "default": 40, "allowed": [40]},
+		{"period_identifier": "pending_redemption_days", "default": 40, "allowed": [40]},
 		{"period_identifier": "pending_delete_days", "default": 0, "allowed": [0]}
 	]';
 	$tld_contacts_json = '[
@@ -406,7 +406,7 @@ elseif ($inputtld == 'de')	{
 		{"period_identifier": "transfer_grace_days", "default": null, "allowed": null},
 		{"period_identifier": "renew_grace_days", "default": null, "allowed": null},
 		{"period_identifier": "post_transfer_lock_days", "default": null, "allowed": null},
-		{"period_identifier": "redemption_days", "default": 28, "allowed": [28]},
+		{"period_identifier": "pending_redemption_days", "default": 28, "allowed": [28]},
 		{"period_identifier": "pending_delete_days", "default": 0, "allowed": [0]}
 	]';
 	$tld_contacts_json = '[
@@ -429,7 +429,7 @@ elseif ($inputtld == 'fr')	{
 		{"period_identifier": "transfer_grace_days", "default": null, "allowed": null},
 		{"period_identifier": "renew_grace_days", "default": null, "allowed": null},
 		{"period_identifier": "post_transfer_lock_days", "default": null, "allowed": null},
-		{"period_identifier": "redemption_days", "default": 30, "allowed": [30]},
+		{"period_identifier": "pending_redemption_days", "default": 30, "allowed": [30]},
 		{"period_identifier": "pending_delete_days", "default": 0, "allowed": [0]}
 	]';
 	$tld_contacts_json = '[
@@ -452,7 +452,7 @@ elseif ($inputtld == 'ch')	{
 		{"period_identifier": "transfer_grace_days", "default": null, "allowed": null},
 		{"period_identifier": "renew_grace_days", "default": null, "allowed": null},
 		{"period_identifier": "post_transfer_lock_days", "default": null, "allowed": null},
-		{"period_identifier": "redemption_days", "default": 40, "allowed": [40]},
+		{"period_identifier": "pending_redemption_days", "default": 40, "allowed": [40]},
 		{"period_identifier": "pending_delete_days", "default": 0, "allowed": [0]}
 	]';
 	$tld_contacts_json = '[
@@ -517,7 +517,7 @@ elseif ($inputtld == 'uk')	{
 		{"period_identifier": "transfer_grace_days", "default": null, "allowed": null},
 		{"period_identifier": "renew_grace_days", "default": 30, "allowed": [30]},
 		{"period_identifier": "post_transfer_lock_days", "default": null, "allowed": null},
-		{"period_identifier": "redemption_days", "default": 60, "allowed": [60]},
+		{"period_identifier": "pending_redemption_days", "default": 60, "allowed": [60]},
 		{"period_identifier": "pending_delete_days", "default": 0, "allowed": [0]}
 	]';
 	$tld_contacts_json = '[
@@ -540,7 +540,7 @@ elseif ($inputtld == 'com')	{
 		{"period_identifier": "transfer_grace_days", "default": 5, "allowed": [5]},
 		{"period_identifier": "renew_grace_days", "default": 45, "allowed": [45]},
 		{"period_identifier": "post_transfer_lock_days", "default": 60, "allowed": [60]},
-		{"period_identifier": "redemption_days", "default": 30, "allowed": [30]},
+		{"period_identifier": "pending_redemption_days", "default": 30, "allowed": [30]},
 		{"period_identifier": "pending_delete_days", "default": 5, "allowed": [5]}
 	]';
 	$tld_contacts_json = '[
@@ -564,7 +564,7 @@ elseif ($inputtld == 'org')	{
 		{"period_identifier": "transfer_grace_days", "default": 5, "allowed": [5]},
 		{"period_identifier": "renew_grace_days", "default": 45, "allowed": [45]},
 		{"period_identifier": "post_transfer_lock_days", "default": 60, "allowed": [60]},
-		{"period_identifier": "redemption_days", "default": 30, "allowed": [30]},
+		{"period_identifier": "pending_redemption_days", "default": 30, "allowed": [30]},
 		{"period_identifier": "pending_delete_days", "default": 5, "allowed": [5]}
 	]';
 	$tld_contacts_json = '[
@@ -605,25 +605,28 @@ foreach ($decoded as $period) {
 		$operational_periods .= ', allowed ';
 		$operational_periods .= (is_array($period['allowed'])) ? implode(',', $period['allowed']): $period['allowed'];
 	}
+	if ($period['default'] == null and $period['allowed'] == null)	{
+		$operational_periods .= ' n/a';
+	}	
 	$operational_periods .= '<br />';
 }	
 $resource_upload_at = null;
 $flag_meanings_json = '[
     {
-        "redemption period": {
-            "description": "Domain can still be recovered after expiration.",
+        "pending_redemption": {
+            "description": "Recoverable",
             "phase": "post-expiration",
             "recoverable": true,
             "final": false
         },
-        "pending delete": {
-            "description": "Final stage before deletion; recovery no longer possible.",
+        "pending_delete": {
+            "description": "Final stage",
             "phase": "pre-deletion",
             "recoverable": false,
             "final": true
         }
     }
-]';
+]';	
 $decoded = json_decode($flag_meanings_json, true);
 $flag_meanings = "<b>flag_meanings</b><br />";
 foreach ($decoded as $flags) {

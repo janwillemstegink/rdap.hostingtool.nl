@@ -6,6 +6,7 @@
 //$_GET['domain'] = 'münchen.de';
 //$_GET['domain'] = 'example.tel';
 //$_GET['domain'] = 'ledigheid.nl';
+//$_GET['domain'] = 'rdap.org';
 
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
@@ -275,9 +276,9 @@ $registrant_web_id = '';
 if ($zone_identifier == 'nl' or $zone_identifier == 'frl')	{		
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';	
 }
-$dns_flags = '';
-$lifecycle_flags = ''; 	
-$client_flags = '';	
+$domain_dns_flags = '';
+$domain_lifecycle_flags = '';	
+$domain_client_flags = '';
 $created_at = null;
 $latest_transfer_at = null;			
 $latest_update_at = null;
@@ -559,16 +560,16 @@ foreach($obj as $key1 => $value1) {
 	foreach($value1 as $key2 => $value2) {
 		if ($key1 == 'status')	{
 			if (str_starts_with($value2, 'client'))	{
-				$client_flags .= $value2 . "<br />";
+				$domain_client_flags .= $value2 . "<br />";
 			}
 			elseif (str_starts_with($value2, 'pending'))	{
-				$lifecycle_flags .= $value2 . "<br />";
+				$domain_lifecycle_flags .= $value2 . "<br />";
 			}
 			elseif (str_contains($value2, 'redemption'))	{
-				$lifecycle_flags .= $value2 . "<br />";
+				$domain_lifecycle_flags .= $value2 . "<br />";
 			}			
 			else	{
-				$dns_flags .= $value2 . "<br />";
+				$domain_dns_flags .= $value2 . "<br />";
 			}
 		}
 		if ($key1 == 'secureDNS')	{
@@ -1321,9 +1322,7 @@ $arr[$inputdomain]['domain']['dns_handle'] = $dns_handle;
 $arr[$inputdomain]['domain']['client_handle'] = $client_handle;
 $arr[$inputdomain]['domain']['ascii_name'] = $ascii_name;	
 $arr[$inputdomain]['domain']['unicode_name'] = $unicode_name;
-$arr[$inputdomain]['domain']['dns_flags'] = $dns_flags;
-$arr[$inputdomain]['domain']['lifecycle_flags'] = $lifecycle_flags;
-$arr[$inputdomain]['domain']['client_flags'] = $client_flags;
+$arr[$inputdomain]['domain']['flags'] = $domain_dns_flags . $domain_lifecycle_flags . $domain_client_flags;
 $arr[$inputdomain]['domain']['created_at'] = $created_at;	
 $arr[$inputdomain]['domain']['latest_transfer_at'] = $latest_transfer_at;
 $arr[$inputdomain]['domain']['latest_update_at'] = $latest_update_at;

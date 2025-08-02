@@ -44,7 +44,7 @@ CREATE TABLE common (
 		{"period_identifier": "transfer_grace_days", "lowest": 5, "highest": 7, "optimal": 5},
 		{"period_identifier": "renew_grace_days", "lowest": 7, "highest": 14, "optimal": 7},
 		{"period_identifier": "post_transfer_lock_days", "lowest": 0, "highest": 30, "optimal": 30},
-		{"period_identifier": "redemption_days", "lowest": 30, "highest": 40, "optimal": 30},
+		{"period_identifier": "pending_redemption_days", "lowest": 30, "highest": 40, "optimal": 30},
 		{"period_identifier": "pending_delete_days", "lowest": 5, "highest": 7, "optimal": 5}
     ]',
 	common_root_accepted_workload JSONB DEFAULT 
@@ -203,16 +203,16 @@ CREATE TABLE lifecycles (
     lifecycle_id SERIAL PRIMARY KEY,
     lifecycle_zone VARCHAR(63) NOT NULL,
     lifecycle_data_active_from TIMESTAMPTZ,
-	lifecycle_upon_termination TEXT, -- Optional: e.g., "40-day quarantine phase (.nl)"
+	lifecycle_upon_termination TEXT, -- Optional: e.g., "40-day quarantine for .nl"
 	lifecycle_flag_meanings JSONB DEFAULT '[{
-		"redemption period": {
-            "description": "Domain can still be recovered after expiration.",
+		"pending_redemption": {
+            "description": "Recoverable",
             "phase": "post-expiration",
             "recoverable": true,
             "final": false
         },
-        "pending delete": {
-            "description": "Final stage before deletion; recovery no longer possible.",
+        "pending_delete": {
+            "description": "Final stage",
             "phase": "pre-deletion",
             "recoverable": false,
             "final": true
@@ -224,7 +224,7 @@ CREATE TABLE lifecycles (
 		{"period_identifier": "transfer_grace_days", "default": null, "allowed": null},
 		{"period_identifier": "renew_grace_days", "default": null, "allowed": null},
 		{"period_identifier": "post_transfer_lock_days", "default": null, "allowed": null},
-		{"period_identifier": "redemption_days", "default": null, "allowed": null},
+		{"period_identifier": "pending_redemption_days", "default": null, "allowed": null},
 		{"period_identifier": "pending_delete_days", "default": null, "allowed": null}
 	]',
     lifecycle_latest_update_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
@@ -247,9 +247,7 @@ CREATE TABLE domains (
 	domain_client_handle TEXT,
 	domain_ascii_name VARCHAR(511) NOT NULL,
     domain_unicode_name VARCHAR(511) NOT NULL,
-	domain_dns_flags TEXT[],
-	domain_lifecycle_flags TEXT[],
-    domain_client_flags TEXT[], -- EPP status codes applied by registrar
+	domain_flags TEXT[],
     domain_created_at TIMESTAMPTZ,
     domain_latest_transfer_at TIMESTAMPTZ,
     domain_latest_update_at TIMESTAMPTZ,
