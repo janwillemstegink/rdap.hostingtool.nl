@@ -204,7 +204,7 @@ CREATE TABLE lifecycles (
     lifecycle_zone VARCHAR(63) NOT NULL,
     lifecycle_data_active_from TIMESTAMPTZ,
 	lifecycle_upon_termination TEXT, -- Optional: e.g., "40-day quarantine phase (.nl)"
-	lifecycle_zone_status_meanings JSONB DEFAULT '[{
+	lifecycle_flag_meanings JSONB DEFAULT '[{
 		"redemption period": {
             "description": "Domain can still be recovered after expiration.",
             "phase": "post-expiration",
@@ -218,7 +218,7 @@ CREATE TABLE lifecycles (
             "final": true
         }
 	}]';	
-	lifecycle_zone_periods JSONB DEFAULT '[
+	lifecycle_operational_periods JSONB DEFAULT '[
 		{"period_identifier": "subscription_years", "default": null, "allowed": null},
 		{"period_identifier": "add_grace_days", "default": null, "allowed": null},
 		{"period_identifier": "transfer_grace_days", "default": null, "allowed": null},
@@ -243,11 +243,11 @@ ON lifecycles(lifecycle_zone, lifecycle_data_active_from);
 CREATE TABLE domains (
     domain_id BIGSERIAL PRIMARY KEY,
 	domain_zone CITEXT NOT NULL,
-    domain_zone_handle TEXT NOT NULL UNIQUE, -- starts with the zone identifier ending with e.g. '_'.
+    domain_dns_handle TEXT NOT NULL UNIQUE, -- starts with the zone identifier ending with e.g. '_'.
 	domain_client_handle TEXT,
 	domain_ascii_name VARCHAR(511) NOT NULL,
     domain_unicode_name VARCHAR(511) NOT NULL,
-	domain_zone_flags TEXT[], -- EPP status codes applied by registry 
+	domain_dns_flags TEXT[], -- EPP status codes applied by registry 
     domain_client_flags TEXT[], -- EPP status codes applied by registrar
     domain_created_at TIMESTAMPTZ,
     domain_latest_transfer_at TIMESTAMPTZ,
@@ -300,7 +300,7 @@ $$ LANGUAGE plpgsql;
 -- =======================
 CREATE TABLE entities (
     entity_id BIGSERIAL PRIMARY KEY,
-	entity_zone_handle TEXT NOT NULL UNIQUE,
+	entity_dns_handle TEXT NOT NULL UNIQUE,
     entity_client_handle TEXT,
 	entity_web_id VARCHAR(34),
     entity_organization_type TEXT,
@@ -350,7 +350,7 @@ EXECUTE FUNCTION update_entities_latest_update_at();
 -- =======================
 CREATE TABLE nameservers (
     nameserver_id BIGSERIAL PRIMARY KEY,
-	nameserver_zone_handle TEXT NOT NULL UNIQUE,
+	nameserver_dns_handle TEXT NOT NULL UNIQUE,
     nameserver_client_handle TEXT,
     nameserver_ascii_name TEXT NOT NULL,
     nameserver_unicode_name TEXT,
@@ -390,7 +390,7 @@ CREATE TABLE ip_network_versions (
 -- =======================
 CREATE TABLE ip_networks (
     ip_network_id BIGSERIAL PRIMARY KEY,
-	ip_network_zone_handle TEXT NOT NULL UNIQUE,
+	ip_network_dns_handle TEXT NOT NULL UNIQUE,
     ip_network_client_handle TEXT,	
     ip_network_start_address VARCHAR(50),
     ip_network_end_address VARCHAR(50),
@@ -421,7 +421,7 @@ EXECUTE FUNCTION update_ip_networks_latest_update_at();
 -- =======================
 CREATE TABLE autnums (
     autnum_id BIGSERIAL PRIMARY KEY,
-	autnum_zone_handle TEXT NOT NULL UNIQUE,
+	autnum_dns_handle TEXT NOT NULL UNIQUE,
     autnum_client_handle TEXT,
     autnum_start BIGINT,
     autnum_end BIGINT,

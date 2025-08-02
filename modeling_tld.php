@@ -107,7 +107,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 63)	{ // name servers
 		var pre = '63';
-		var max = 10
+		var max = 9
 	}
 	else	{
 		return;	
@@ -170,8 +170,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
-		document.getElementById("lifecycle_zone_flag_meanings").textContent = proposed;
-		document.getElementById("lifecycle_zone_periods").textContent = proposed;
+		document.getElementById("lifecycle_flag_meanings").textContent = proposed;
+		document.getElementById("lifecycle_operational_periods").textContent = proposed;
 		document.getElementById("name_servers_dnssec_signed").textContent = "";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "";
 		document.getElementById("name_servers_ip").textContent = "";
@@ -212,8 +212,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
-		document.getElementById("lifecycle_zone_flag_meanings").textContent = proposed + "FYI: Ik heb een globale tabeldefinitie opgesteld, maar ICANN speelt daarin nog geen hoofdrol.";
-		document.getElementById("lifecycle_zone_periods").textContent = proposed + 'Meerjarig registreren mogelijk; maximale periode varieert per TLD en registrar.';
+		document.getElementById("lifecycle_flag_meanings").textContent = proposed + "FYI: Ik heb een globale tabeldefinitie opgesteld, maar ICANN speelt daarin nog geen hoofdrol.";
+		document.getElementById("lifecycle_operational_periods").textContent = proposed + 'Meerjarig registreren mogelijk; maximale periode varieert per TLD en registrar.';
 		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP-adressen zijn zichtbaar indien van toepassing en ook opgenomen in het RDAP-bestand.";
@@ -254,8 +254,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;	
-		document.getElementById("lifecycle_zone_flag_meanings").textContent = proposed + "FYI: I have prepared a global table definition, but ICANN does not yet play a leading role in it.";
-		document.getElementById("lifecycle_zone_periods").textContent = proposed + 'Multi-year registration possible; max period varies by TLD and registrar.';
+		document.getElementById("lifecycle_flag_meanings").textContent = proposed + "FYI: I have prepared a global table definition, but ICANN does not yet play a leading role in it.";
+		document.getElementById("lifecycle_operational_periods").textContent = proposed + 'Multi-year registration possible; max period varies by TLD and registrar.';
 		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
 		document.getElementById("name_servers_ip").textContent = "IP addresses are visible if applicable and also included in the RDAP file.";
@@ -296,8 +296,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
-		document.getElementById("lifecycle_zone_flag_meanings").textContent = proposed + "FYI: Ich habe eine globale Tabellendefinition vorbereitet, aber ICANN spielt darin noch keine führende Rolle.";
-		document.getElementById("lifecycle_zone_periods").textContent = proposed + 'Mehrjährige Registrierung möglich; maximale Laufzeit variiert je nach TLD und Registrar.';
+		document.getElementById("lifecycle_flag_meanings").textContent = proposed + "FYI: Ich habe eine globale Tabellendefinition vorbereitet, aber ICANN spielt darin noch keine führende Rolle.";
+		document.getElementById("lifecycle_operational_periods").textContent = proposed + 'Mehrjährige Registrierung möglich; maximale Laufzeit variiert je nach TLD und Registrar.';
 		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
 		document.getElementById("name_servers_ip").textContent = "IP-Adressen sind sichtbar, sofern zutreffend, und auch in der RDAP-Datei enthalten.";
@@ -338,8 +338,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
-		document.getElementById("lifecycle_zone_flag_meanings").textContent = proposed + "FYI: J'ai préparé une définition de table globale, mais l'ICANN n'y joue pas encore un rôle de premier plan.";
-		document.getElementById("lifecycle_zone_periods").textContent = proposed + "Enregistrement pluriannuel possible ; durée maximale variable selon le TLD et le registrar.";
+		document.getElementById("lifecycle_flag_meanings").textContent = proposed + "FYI: J'ai préparé une définition de table globale, mais l'ICANN n'y joue pas encore un rôle de premier plan.";
+		document.getElementById("lifecycle_operational_periods").textContent = proposed + "Enregistrement pluriannuel possible ; durée maximale variable selon le TLD et le registrar.";
 		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
 		document.getElementById("name_servers_ip").textContent = "Les adresses IP sont visibles si cela s’applique et sont également fournies dans le fichier RDAP.";
@@ -460,22 +460,21 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(28)">Lifecycle Information +/-</button></td><td></td><td id="lifecycle_role"></td></tr>';
 	$html_text .= '<tr style="vertical-align:top"><td>data_active_from</td><td>'.$data[$pd]['lifecycle']['data_active_from'].'</td><td id="lifecycle_data_active_from"></td></tr>';
 	$html_text .= '<tr style="vertical-align:top;vertical-align:top"><td>upon_termination</td><td>'.$data[$pd]['lifecycle']['upon_termination'].'</td><td id="lifecycle_upon_termination"></td></tr>';
-	$html_text .= '<tr id="281" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['zone_flag_meanings'].'</td><td id="lifecycle_zone_flag_meanings"></td></tr>';
-	$html_text .= '<tr id="282" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['zone_periods'].'</td><td id="lifecycle_zone_periods"></td></tr>';
+	$html_text .= '<tr id="281" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['flag_meanings'].'</td><td id="lifecycle_flag_meanings"></td></tr>';
+	$html_text .= '<tr id="282" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['operational_periods'].'</td><td id="lifecycle_operational_periods"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(63)">Name Servers +/-</button></td><td></td><td></td></tr>';
-	$html_text .= '<tr id="631" style="display:none;vertical-align:top"><td>zone_handles</td><td colspan="2">'.$data[$pd]['name_servers']['zone_handles'].'</td></tr>';
-	$html_text .= '<tr id="632" style="display:none;vertical-align:top"><td>entry_handles</td><td colspan="2">'.$data[$pd]['name_servers']['entry_handles'].'</td></tr>';
-	$html_text .= '<tr id="633" style="display:none;vertical-align:top"><td>ascii_names</td><td colspan="2">'.$data[$pd]['name_servers']['ascii_names'].'</td></tr>';
-	$html_text .= '<tr id="634" style="display:none;vertical-align:top"><td>unicode_names</td><td colspan="2">'.$data[$pd]['name_servers']['unicode_names'].'</td></tr>';
-	$html_text .= '<tr id="635" style="display:none;vertical-align:top"><td>ipv4_addresses</td><td>'.$data[$pd]['name_servers']['ipv4_addresses'].'</td><td id="name_servers_ip"></td></tr>';
-	$html_text .= '<tr id="636" style="display:none;vertical-align:top"><td>ipv6_addresses</td><td>'.$data[$pd]['name_servers']['ipv6_addresses'].'</td><td></td></tr>';
-	$html_text .= '<tr id="637" style="display:none;vertical-align:top"><td>flags</td><td>'.$data[$pd]['name_servers']['flags'].'</td><td></td></tr>';
+	$html_text .= '<tr id="631" style="display:none;vertical-align:top"><td>handles</td><td colspan="2">'.$data[$pd]['name_servers']['handles'].'</td></tr>';
+	$html_text .= '<tr id="632" style="display:none;vertical-align:top"><td>ascii_names</td><td colspan="2">'.$data[$pd]['name_servers']['ascii_names'].'</td></tr>';
+	$html_text .= '<tr id="633" style="display:none;vertical-align:top"><td>unicode_names</td><td colspan="2">'.$data[$pd]['name_servers']['unicode_names'].'</td></tr>';
+	$html_text .= '<tr id="634" style="display:none;vertical-align:top"><td>ipv4_addresses</td><td>'.$data[$pd]['name_servers']['ipv4_addresses'].'</td><td id="name_servers_ip"></td></tr>';
+	$html_text .= '<tr id="635" style="display:none;vertical-align:top"><td>ipv6_addresses</td><td>'.$data[$pd]['name_servers']['ipv6_addresses'].'</td><td></td></tr>';
+	$html_text .= '<tr id="636" style="display:none;vertical-align:top"><td>flags</td><td>'.$data[$pd]['name_servers']['flags'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>dnssec_signed</td><td>'.$data[$pd]['name_servers']['dnssec_signed'].'</td><td id="name_servers_dnssec_signed"></td></tr>';
-	$html_text .= '<tr id="638" style="display:none;vertical-align:top"><td>dnssec_key_tag</td><td>'.$data[$pd]['name_servers']['dnssec_key_tag'].'</td><td></td></tr>';
+	$html_text .= '<tr id="637" style="display:none;vertical-align:top"><td>dnssec_key_tag</td><td>'.$data[$pd]['name_servers']['dnssec_key_tag'].'</td><td></td></tr>';
 	$html_text .= '<tr style="vertical-align:top"><td>dnssec_algorithm</td><td>'.$data[$pd]['name_servers']['dnssec_algorithm'].'</td><td id="name_servers_dnssec_algorithm"></td></tr>';	
-	$html_text .= '<tr id="639" style="display:none;vertical-align:top"><td>dnssec_digest_type</td><td>'.$data[$pd]['name_servers']['dnssec_digest_type'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6310" style="display:none;vertical-align:top"><td>dnssec_digest</td><td colspan="2">'.$data[$pd]['name_servers']['dnssec_digest'].'</td></tr>';
+	$html_text .= '<tr id="638" style="display:none;vertical-align:top"><td>dnssec_digest_type</td><td>'.$data[$pd]['name_servers']['dnssec_digest_type'].'</td><td></td></tr>';
+	$html_text .= '<tr id="639" style="display:none;vertical-align:top"><td>dnssec_digest</td><td colspan="2">'.$data[$pd]['name_servers']['dnssec_digest'].'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 }
 $html_text .= '</table></div></body></html>';

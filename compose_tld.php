@@ -265,7 +265,7 @@ $zone_roles = '<b>zone_role_sequence, zone_role_identifier, zone_role_shielding<
 foreach ($decoded as $role) {
 	$zone_roles .= $role['zone_role_sequence'] . ', ' . $role['zone_role_identifier'] . ', [' . implode(', ', $role['zone_role_shielding']) . ']<br />';
 }	
-$zone_periods_json = '[
+$operational_periods_json = '[
 	{"period_identifier": "subscription_years", "default": null, "allowed": null},
 	{"period_identifier": "add_grace_days", "default": null, "allowed": null},
 	{"period_identifier": "transfer_grace_days", "default": null, "allowed": null},
@@ -292,7 +292,7 @@ if ($inputtld == 'nl')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
 	$upon_termination = "40-day quarantine phase for .nl domains.";
-	$zone_periods_json = '[
+	$operational_periods_json = '[
 		{"period_identifier": "subscription_years", "default": 1, "allowed": [1]},
 		{"period_identifier": "add_grace_days", "default": null, "allowed": null},
 		{"period_identifier": "transfer_grace_days", "default": null, "allowed": null},
@@ -377,7 +377,7 @@ elseif ($inputtld == 'eu')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
 	$upon_termination = "40-day quarantine phase for .eu domains.";
-	$zone_periods_json = '[
+	$operational_periods_json = '[
 		{"period_identifier": "subscription_years", "default": 1, "allowed": [1]},
 		{"period_identifier": "add_grace_days", "default": 5, "allowed": [5]},
 		{"period_identifier": "transfer_grace_days", "default": null, "allowed": null},
@@ -400,7 +400,7 @@ elseif ($inputtld == 'eu')	{
 elseif ($inputtld == 'de')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$zone_periods_json = '[
+	$operational_periods_json = '[
 		{"period_identifier": "subscription_years", "default": null, "allowed": null},
 		{"period_identifier": "add_grace_days", "default": null, "allowed": null},
 		{"period_identifier": "transfer_grace_days", "default": null, "allowed": null},
@@ -423,7 +423,7 @@ elseif ($inputtld == 'de')	{
 elseif ($inputtld == 'fr')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$zone_periods_json = '[
+	$operational_periods_json = '[
 		{"period_identifier": "subscription_years", "default": null, "allowed": null},
 		{"period_identifier": "add_grace_days", "default": null, "allowed": null},
 		{"period_identifier": "transfer_grace_days", "default": null, "allowed": null},
@@ -446,7 +446,7 @@ elseif ($inputtld == 'fr')	{
 elseif ($inputtld == 'ch')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$zone_periods_json = '[
+	$operational_periods_json = '[
 		{"period_identifier": "subscription_years", "default": null, "allowed": null},
 		{"period_identifier": "add_grace_days", "default": null, "allowed": null},
 		{"period_identifier": "transfer_grace_days", "default": null, "allowed": null},
@@ -511,7 +511,7 @@ elseif ($inputtld == 'lu')	{
 elseif ($inputtld == 'uk')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$zone_periods_json = '[
+	$operational_periods_json = '[
 		{"period_identifier": "subscription_years", "default": null, "allowed": null},
 		{"period_identifier": "add_grace_days", "default": null, "allowed": null},
 		{"period_identifier": "transfer_grace_days", "default": null, "allowed": null},
@@ -534,7 +534,7 @@ elseif ($inputtld == 'uk')	{
 elseif ($inputtld == 'com')	{
 	$tld_category = 'gTLD';
 	$tld_type = 'gTLD';
-	$zone_periods_json = '[
+	$operational_periods_json = '[
 		{"period_identifier": "subscription_years", "default": 1, "allowed": [1,10]},
 		{"period_identifier": "add_grace_days", "default": 5, "allowed": [5]},
 		{"period_identifier": "transfer_grace_days", "default": 5, "allowed": [5]},
@@ -558,7 +558,7 @@ elseif ($inputtld == 'com')	{
 elseif ($inputtld == 'org')	{
 	$tld_category = 'gTLD';
 	$tld_type = 'gTLD';
-	$zone_periods_json = '[
+	$operational_periods_json = '[
 		{"period_identifier": "subscription_years", "default": 1, "allowed": [1,10]},
 		{"period_identifier": "add_grace_days", "default": 5, "allowed": [5]},
 		{"period_identifier": "transfer_grace_days", "default": 5, "allowed": [5]},
@@ -593,22 +593,22 @@ foreach ($decoded as $contact) {
 		}
 	}	
 }
-$decoded = json_decode($zone_periods_json, true);
-$zone_periods = '<b>zone_periods</b><br />';
+$decoded = json_decode($operational_periods_json, true);
+$operational_periods = '<b>operational_periods</b><br />';
 foreach ($decoded as $period) {
-	$zone_periods .= $period['period_identifier'] . ':';
+	$operational_periods .= $period['period_identifier'] . ':';
 	if ($period['default'] !== null)	{
-		$zone_periods .= ' default ';
-		$zone_periods .= (is_array($period['default'])) ? implode(',', $period['default']) : $period['default'];
+		$operational_periods .= ' default ';
+		$operational_periods .= (is_array($period['default'])) ? implode(',', $period['default']) : $period['default'];
 	}
 	if ($period['allowed'] !== null)	{
-		$zone_periods .= ', allowed ';
-		$zone_periods .= (is_array($period['allowed'])) ? implode(',', $period['allowed']): $period['allowed'];
+		$operational_periods .= ', allowed ';
+		$operational_periods .= (is_array($period['allowed'])) ? implode(',', $period['allowed']): $period['allowed'];
 	}
-	$zone_periods .= '<br />';
+	$operational_periods .= '<br />';
 }	
 $resource_upload_at = null;
-$zone_flag_meanings_json = '[
+$flag_meanings_json = '[
     {
         "redemption period": {
             "description": "Domain can still be recovered after expiration.",
@@ -624,13 +624,13 @@ $zone_flag_meanings_json = '[
         }
     }
 ]';
-$decoded = json_decode($zone_flag_meanings_json, true);
-$zone_flag_meanings = "<b>zone_flag_meanings</b><br />";
+$decoded = json_decode($flag_meanings_json, true);
+$flag_meanings = "<b>flag_meanings</b><br />";
 foreach ($decoded as $flags) {
     foreach ($flags as $key => $value) {	//ucwords()
-        $zone_flag_meanings .= '"' . htmlspecialchars($key) . '": ';
-        $zone_flag_meanings .= htmlspecialchars($value['description']);
-        $zone_flag_meanings .= " (" . htmlspecialchars($value['phase']) . " phase)<br />";
+        $flag_meanings .= '"' . htmlspecialchars($key) . '": ';
+        $flag_meanings .= htmlspecialchars($value['description']);
+        $flag_meanings .= " (" . htmlspecialchars($value['phase']) . " phase)<br />";
     }
 }	
 	
@@ -730,10 +730,10 @@ $arr[$inputtld]['root_zone']['zone_accepted_workload'] = $zone_accepted_workload
 
 $arr[$inputtld]['lifecycle']['data_active_from'] = $lifecycle_data_active_from;
 $arr[$inputtld]['lifecycle']['upon_termination'] = $upon_termination;
-$arr[$inputtld]['lifecycle']['zone_flag_meanings'] = $zone_flag_meanings;	
-$arr[$inputtld]['lifecycle']['zone_periods'] = $zone_periods;
+$arr[$inputtld]['lifecycle']['flag_meanings'] = $flag_meanings;	
+$arr[$inputtld]['lifecycle']['operational_periods'] = $operational_periods;
 	
-$arr[$inputtld]['name_servers']['entry_handles'] = $name_servers_handles;
+$arr[$inputtld]['name_servers']['handles'] = $name_servers_handles;
 $arr[$inputtld]['name_servers']['ascii_names'] = $name_servers_ascii;
 $arr[$inputtld]['name_servers']['unicode_names'] = $name_servers_unicode;	
 $arr[$inputtld]['name_servers']['ipv4_addresses'] = $name_servers_ipv4;	
