@@ -247,7 +247,8 @@ CREATE TABLE domains (
 	domain_client_handle TEXT,
 	domain_ascii_name VARCHAR(511) NOT NULL,
     domain_unicode_name VARCHAR(511) NOT NULL,
-	domain_dns_flags TEXT[], -- EPP status codes applied by registry 
+	domain_dns_flags TEXT[],
+	domain_lifecycle_flags TEXT[],
     domain_client_flags TEXT[], -- EPP status codes applied by registrar
     domain_created_at TIMESTAMPTZ,
     domain_latest_transfer_at TIMESTAMPTZ,
