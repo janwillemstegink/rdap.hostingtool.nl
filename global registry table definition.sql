@@ -102,7 +102,7 @@ CREATE TABLE zones (
 	zone_data_active_from TIMESTAMPTZ,
 	zone_tld_category VARCHAR(20) NOT NULL,
     zone_tld_type VARCHAR(20) NOT NULL,
-	zone_tld_flags TEXT[],
+	zone_tld_statuses TEXT[],
 	zone_tld_delegation_url TEXT,
 	zone_tld_json_response_url TEXT,
 	zone_tld_terms_of_service_url TEXT,
@@ -204,7 +204,7 @@ CREATE TABLE lifecycles (
     lifecycle_zone VARCHAR(63) NOT NULL,
     lifecycle_data_active_from TIMESTAMPTZ,
 	lifecycle_upon_termination TEXT, -- Optional: e.g., "40-day quarantine for .nl"
-	lifecycle_flag_meanings JSONB DEFAULT '[{
+	lifecycle_status_meanings JSONB DEFAULT '[{
 		"pending_redemption": {
             "description": "Recoverable",
             "phase": "post-expiration",
@@ -247,7 +247,7 @@ CREATE TABLE domains (
 	domain_client_handle TEXT,
 	domain_ascii_name VARCHAR(511) NOT NULL,
     domain_unicode_name VARCHAR(511) NOT NULL,
-	domain_flags TEXT[],
+	domain_statuses TEXT[],
     domain_created_at TIMESTAMPTZ,
     domain_latest_transfer_at TIMESTAMPTZ,
     domain_latest_update_at TIMESTAMPTZ,
@@ -318,7 +318,7 @@ CREATE TABLE entities (
     entity_country_name TEXT,
 	entity_language_pref1 VARCHAR(5),
 	entity_language_pref2 VARCHAR(5),
-    entity_flags TEXT[],    
+    entity_statuses TEXT[],    
     entity_created_at TIMESTAMPTZ,
     entity_latest_update_at TIMESTAMPTZ,
     entity_verification_received_at TIMESTAMPTZ,
@@ -355,7 +355,7 @@ CREATE TABLE nameservers (
     nameserver_unicode_name TEXT,
     nameserver_ipv4_addresses inet[],
     nameserver_ipv6_addresses inet[],
-    nameserver_flags TEXT[],
+    nameserver_statuses TEXT[],
 	nameserver_delegation_check TIMESTAMPTZ,
 	nameserver_latest_correct_delegation_check TIMESTAMPTZ,
     nameserver_latest_update_at TIMESTAMPTZ
@@ -397,7 +397,7 @@ CREATE TABLE ip_networks (
     ip_network_name TEXT,
     ip_network_type VARCHAR(100),
     ip_network_country_code CHAR(2),
-    ip_network_flags TEXT[],
+    ip_network_statuses TEXT[],
     ip_network_latest_update_at TIMESTAMPTZ
 );
 

@@ -1,5 +1,5 @@
 <?php
-session_start();  // is needed with no Scriptcase PHP Generator
+session_start();  // without Scriptcase PHP Generator
 $datetime = new DateTime('now', new DateTimeZone('UTC'));
 $utc = $datetime->format('Y-m-d H:i:s');
 if (!empty($_GET["language"]))	{
@@ -196,11 +196,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_registrar_accreditation").textContent = modified;
 		document.getElementById("metadata_registrar_json_response_url").textContent = proposed;
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed;
-		document.getElementById("metadata_flag_explanation_url").textContent = proposed;
+		document.getElementById("metadata_status_explanation_url").textContent = proposed;
 		document.getElementById("domain_role").textContent = "";
 		document.getElementById("domain_ascii_name").textContent = "";
 		document.getElementById("domain_unicode_name").textContent = "";
-		document.getElementById("domain_flags").textContent = modified;
+		document.getElementById("domain_statuses").textContent = modified;
 		document.getElementById("domain_created_at").textContent = "";
 		document.getElementById("domain_expiration_at").textContent = "";
 		document.getElementById("domain_recoverable_until").textContent = proposed;
@@ -270,11 +270,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Er kan een IANA Registrar Accreditation ID voor gTLD's bestaan. Deze moet correct zijn.";
 		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + 'Indien van toepassing, moet de RDAP-bron-URL van de registrar machine-leesbaar worden.';
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + 'Vereist indien de registrator geaccrediteerd is door IANA, om een klacht in behandeling te kunnen nemen.';		
-		document.getElementById("metadata_flag_explanation_url").textContent = proposed + 'Vereist als de registrar IANA-geaccrediteerd is; bevat uitleg over de statuscode.';
+		document.getElementById("metadata_status_explanation_url").textContent = proposed + 'Vereist als de registrar IANA-geaccrediteerd is; bevat uitleg over de statuscode.';
 		document.getElementById("domain_role").textContent = "Een domein onder TLD-niveau is wereldwijd uniek en kan vrij worden gekozen onder bepaalde regels.";
 		document.getElementById("domain_ascii_name").textContent = "Voor speciale tekens bevatten de ASCII-tekenreeksen Punycode-transcriptie.";
 		document.getElementById("domain_unicode_name").textContent = "Optioneel veld dat, indien van toepassing, de Unicode-weergave van het domein biedt.";
-		document.getElementById("domain_flags").textContent = modified + "Vlaggen vallen onder niveaus: DNS (server ...), levenscyclus (pending ...), registrar (client ...).";
+		document.getElementById("domain_statuses").textContent = modified + "Statussen hebben niveaus: DNS (server ...), registrar (client ...), cyclus (pending ...), overig.";
 		document.getElementById("domain_created_at").textContent = "De datumvelden staan hier in een logische volgorde. Dit is ook eenvoudig in de JSON-array.";
 		document.getElementById("domain_expiration_at").textContent = "Eindtijd voor verlenging of van publicatie, daarna neemt de betrokkenheid van de registrar af.";
 		document.getElementById("domain_recoverable_until").textContent = proposed + "Laatste hersteldatum, gebaseerd op domain_expiration_at + pending_redemption_days.";
@@ -344,11 +344,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_registrar_accreditation").textContent = modified + "There may be an IANA Registrar Accreditation ID for gTLDs. It must be correct.";
 		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + 'If applicable, the RDAP-source registrar URL should become machine-readable.';
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + 'Required if the registrar is accredited by IANA, in order to have a complaint handled.';		
-		document.getElementById("metadata_flag_explanation_url").textContent = proposed + 'Required if the registrar is IANA-accredited; provides status code explanations.';
+		document.getElementById("metadata_status_explanation_url").textContent = proposed + 'Required if the registrar is IANA-accredited; provides status code explanations.';
 		document.getElementById("domain_role").textContent = "A domain below TLD level is globally unique and can be freely chosen under certain rules.";
 		document.getElementById("domain_ascii_name").textContent = "For special characters, the ASCII character strings contain Punycode transcription.";
 		document.getElementById("domain_unicode_name").textContent = "Optional field that provides the Unicode representation of the domain, if applicable.";
-		document.getElementById("domain_flags").textContent = modified + "Flags fall into levels: DNS (server ...), lifecycle (pending ...), registrar (client ...).";
+		document.getElementById("domain_statuses").textContent = modified + "Statuses have levels: DNS (server ...), registrar (client ...), lifecycle (pending ...), other.";
 		document.getElementById("domain_created_at").textContent = "The date fields are here in a logical order. This is also easy in the JSON array.";
 		document.getElementById("domain_expiration_at").textContent = "End time for renewal or publication, after which registrar involvement decreases.";
 		document.getElementById("domain_recoverable_until").textContent = proposed + "Last date recovery is allowed, based on domain_expiration_at + pending_redemption_days.";
@@ -418,11 +418,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Für gTLDs kann eine IANA-Registrar-Akkreditierungs-ID vorhanden sein. Diese muss korrekt sein.";
 		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + 'Falls zutreffend, sollte die RDAP-Quell-URL des Registrars maschinenlesbar werden.';
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + 'Erforderlich, wenn der Registrar von der IANA akkreditiert ist, um eine Beschwerde bearbeiten zu lassen.';
-		document.getElementById("metadata_flag_explanation_url").textContent = proposed + 'Erforderlich, wenn der Registrar IANA-akkreditiert ist; bietet Erklärungen zum Statuscode.';
+		document.getElementById("metadata_status_explanation_url").textContent = proposed + 'Erforderlich, wenn der Registrar IANA-akkreditiert ist; bietet Erklärungen zum Statuscode.';
 		document.getElementById("domain_role").textContent = "Eine Domain unterhalb der TLD-Ebene ist weltweit eindeutig und kann unter bestimmten Regeln frei gewählt werden.";
 		document.getElementById("domain_ascii_name").textContent = "Für Sonderzeichen enthalten die ASCII-Zeichenfolgen eine Punycode-Transkription.";
 		document.getElementById("domain_unicode_name").textContent = "Optionales Feld, das gegebenenfalls die Unicode-Darstellung der Domäne bereitstellt.";
-		document.getElementById("domain_flags").textContent = modified + "Flags fallen in Ebenen: DNS (server ...), Lebenszyklus (pending ...), Registrar (client ...).";
+		document.getElementById("domain_statuses").textContent = modified + "Statuswerte haben Ebenen: DNS (server ...), Registrar (client ...), Zyklus (pending ...), Sonstige.";
 		document.getElementById("domain_created_at").textContent = "Die Datumsfelder stehen hier in einer logischen Reihenfolge. Auch dies ist im JSON-Array einfach.";
 		document.getElementById("domain_expiration_at").textContent = "Eine Wiederherstellung ist erst ab dem Ablaufdatum der Domain + Tagen der Rücknahmefrist möglich.";
 		document.getElementById("domain_recoverable_until").textContent = proposed + "Letzter möglicher Wiederherstellungstag, basierend auf domain_expiration_at + pending_redemption_days.";
@@ -492,11 +492,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Il peut exister un identifiant d'accréditation IANA pour les gTLD. Il doit être correct.";
 		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + "Le cas échéant, l’URL source RDAP du registraire devrait devenir lisible par machine.";
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + "Obligatoire si le registraire est accrédité par l'IANA, afin de pouvoir traiter une plainte.";
-		document.getElementById("metadata_flag_explanation_url").textContent = proposed + "Obligatoire si le registraire est accrédité par l'IANA ; fournit des explications sur le code de statut.";
+		document.getElementById("metadata_status_explanation_url").textContent = proposed + "Obligatoire si le registraire est accrédité par l'IANA ; fournit des explications sur le code de statut.";
 		document.getElementById("domain_role").textContent = "Un domaine inférieur au niveau TLD est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_ascii_name").textContent = "Pour les caractères spéciaux, les chaînes de caractères ASCII contiennent une transcription Punycode.";
 		document.getElementById("domain_unicode_name").textContent = "Champ facultatif qui fournit la représentation Unicode du domaine, le cas échéant.";
-		document.getElementById("domain_flags").textContent = modified + "Les indicateurs se répartissent en niveaux : DNS (server ...), cycle de vie (pending ...), registrar (client ...).";
+		document.getElementById("domain_statuses").textContent = modified + "Les statuts ont des niveaux : DNS (server ...), registrar (client ...), cycle (pending ...), autres.";
 		document.getElementById("domain_created_at").textContent = "Les champs de date sont ici classés dans un ordre logique. C'est également facile dans le tableau JSON.";
 		document.getElementById("domain_expiration_at").textContent = "Date limite de renouvellement ou de publication, après laquelle l'implication du registraire diminue.";
 		document.getElementById("domain_recoverable_until").textContent = proposed + "Dernier jour de récupération, basé sur domain_expiration_at + pending_redemption_days.";
@@ -649,7 +649,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$validation_registrar = 'https://validator.rdap.org/?url=https://'.$registrar_json_response_url.'&response-type=domain&server-type=gtld-registrar&errors-only=1';	
 	$html_text .= '<tr id="298" style="display:none"><td>registrar_json_response_url eg. <a style="font-size: 0.9rem" href="https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/icann.com" target="_blank">icann.com</a> <a style="font-size: 0.9rem" href="https://rdap.metaregistrar.com/domain/fryslan.frl" target="_blank">fryslan.frl</a></td><td>'.((strlen($data[$pd]['metadata']['registrar_json_response_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_json_response_url'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registrar_json_response_url"></td></tr>';
 	$html_text .= '<tr id="299" style="display:none"><td>registrar_complaint_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_complaint_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_complaint_url'].' target="_blank">icann.org/wicf</a>' : '(if accredited)').'</td><td id="metadata_registrar_complaint_url"></td></tr>';
-	$html_text .= '<tr id="2910" style="display:none"><td>flag_explanation_url</td><td>'.((strlen($data[$pd]['metadata']['flag_explanation_url'])) ? '<a href='.$data[$pd]['metadata']['flag_explanation_url'].' target="_blank">icann.org/epp</a>' : '(if accredited)').'</td><td id="metadata_flag_explanation_url"></td></tr>';
+	$html_text .= '<tr id="2910" style="display:none"><td>status_explanation_url</td><td>'.((strlen($data[$pd]['metadata']['status_explanation_url'])) ? '<a href='.$data[$pd]['metadata']['status_explanation_url'].' target="_blank">icann.org/epp</a>' : '(if accredited)').'</td><td id="metadata_status_explanation_url"></td></tr>';
 	$html_text .= '<tr id="2911" style="display:none"><td>geo_location</td><td>'.$data[$pd]['metadata']['geo_location'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	if (strlen($data[$pd]['http_error']))	{
@@ -660,29 +660,29 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="302" style="display:none"><td>domain_client_handle</td><td colspan="2">'.$data[$pd]['domain']['client_handle'].'</td></tr>';
 	$html_text .= '<tr id="303" style="display:none"><td>domain_ascii_name (lowercase is not a "MUST")</td><td>'.$data[$pd]['domain']['ascii_name'].'</td><td id="domain_ascii_name"></td></tr>';
 	$html_text .= '<tr id="304" style="display:none"><td>domain_unicode_name</td><td>'.$data[$pd]['domain']['unicode_name'].'</td><td id="domain_unicode_name"></td></tr>';
-	$domain_flags = (!empty($data[$pd]['domain']['flags'])) ? $data[$pd]['domain']['flags'] : '';
-	$domain_flags = str_replace('excluded','excluded => excluded_from_dns_zone', $domain_flags);
-	$domain_flags = str_replace('locked','locked => protected_state', $domain_flags);
-	$domain_flags = str_replace('server hold','server hold => server_hold', $domain_flags);
-	if (str_contains($data[$pd]['domain']['flags'], 'inactive'))	{
-		$domain_flags = str_replace('inactive','inactive => no_nameservers_assigned', $domain_flags);
+	$domain_statuses = (!empty($data[$pd]['domain']['statuses'])) ? $data[$pd]['domain']['statuses'] : '';
+	$domain_statuses = str_replace('excluded','excluded => excluded_from_dns_zone', $domain_statuses);
+	$domain_statuses = str_replace('locked','locked => protected_state', $domain_statuses);
+	$domain_statuses = str_replace('server hold','server hold => server_hold', $domain_statuses);
+	if (str_contains($data[$pd]['domain']['statuses'], 'inactive'))	{
+		$domain_statuses = str_replace('inactive','inactive => no_nameservers_assigned', $domain_statuses);
 	}	
-	elseif (str_contains($data[$pd]['domain']['flags'], 'active'))	{
-		$domain_flags = str_replace('active','active => dns_operational', $domain_flags);
+	elseif (str_contains($data[$pd]['domain']['statuses'], 'active'))	{
+		$domain_statuses = str_replace('active','active => dns_operational', $domain_statuses);
 	}
-	$domain_flags = str_replace('redemption period','redemption period => pending_redemption', $domain_flags);
-	$domain_flags = str_replace('pending delete','pending delete => pending_delete', $domain_flags);
-	$domain_flags = str_replace('client hold','client hold => client_hold', $domain_flags);			
-	$html_text .= '<tr style="vertical-align:top"><td>domain_flags</td><td>'.$domain_flags.'</td><td id="domain_flags"></td></tr>';
+	$domain_statuses = str_replace('redemption period','redemption period => pending_redemption', $domain_statuses);
+	$domain_statuses = str_replace('pending delete','pending delete => pending_delete', $domain_statuses);
+	$domain_statuses = str_replace('client hold','client hold => client_hold', $domain_statuses);			
+	$html_text .= '<tr style="vertical-align:top"><td>domain_statuses</td><td>'.$domain_statuses.'</td><td id="domain_statuses"></td></tr>';
 	$html_text .= '<tr id="305" style="display:none"><td>domain_created_at</td><td>'.$data[$pd]['domain']['created_at'].'</td><td id="domain_created_at"></td></tr>';
 	$html_text .= '<tr id="306" style="display:none"><td>domain_latest_transfer_at</td><td>'.$data[$pd]['domain']['latest_transfer_at'].'</td><td></td></tr>';
 	$html_text .= '<tr id="307" style="display:none"><td>domain_latest_update_at</td><td>'.$data[$pd]['domain']['latest_update_at'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>domain_expiration_at</td><td>'.$data[$pd]['domain']['expiration_at'].'</td><td id="domain_expiration_at"></td></tr>';
 	$html_text .= '<tr id="308" style="display:none"><td>domain_recoverable_until</td><td>'.$data[$pd]['domain']['recoverable_until'].'</td><td id="domain_recoverable_until"></td></tr>';
 	$html_text .= '<tr id="309" style="display:none"><td>domain_deletion_at</td><td>'.$data[$pd]['domain']['deletion_at'].'</td><td id="domain_deletion_at"></td></tr>';
-	if (!empty($data[$pd]['domain']['flags']))	{
-		if (str_contains($data[$pd]['domain']['flags'], 'pending delete'))	{
-			if (str_contains($data[$pd]['domain']['flags'], 'redemption period') and str_contains($data[$pd]['domain']['flags'], 'pending delete'))	{
+	if (!empty($data[$pd]['domain']['statuses']))	{
+		if (str_contains($data[$pd]['domain']['statuses'], 'pending delete'))	{
+			if (str_contains($data[$pd]['domain']['statuses'], 'redemption period') and str_contains($data[$pd]['domain']['statuses'], 'pending delete'))	{
 				$html_text .= '<tr id="3010" style="display:none"><td>(Global table definitions address ccTLD variation)</td><td>"pending delete" disregards in redemption</td><td></td></tr>';
 			}	
 			elseif (!empty($data[$pd]['metadata']['zone_identifier']))	{
@@ -691,12 +691,12 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 				}	
 			}	
 		}
-		if (str_contains($data[$pd]['domain']['flags'], 'redemption period'))	{
+		if (str_contains($data[$pd]['domain']['statuses'], 'redemption period'))	{
 			if (empty($data[$pd]['domain']['expiration_at']) and empty($data[$pd]['domain']['deletion_at'])) {
 				$html_text .= '<tr id="3012" style="display:none"><td>(Global table definitions address ccTLD variation)</td><td>"redemption" without date-time provided</td><td></td></tr>';
 			}	
 		}
-		elseif (str_contains($data[$pd]['domain']['flags'], 'pending delete'))	{
+		elseif (str_contains($data[$pd]['domain']['statuses'], 'pending delete'))	{
 			if (empty($data[$pd]['domain']['expiration_at']) and empty($data[$pd]['domain']['deletion_at'])) {
 				$html_text .= '<tr id="3013" style="display:none"><td>(Global table definitions address ccTLD variation)</td><td>"pending delete" without date-time provided</td><td></td></tr>';
 			}	
@@ -742,7 +742,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="3916" style="display:none"><td>sponsor_country_name'.if_filled($data[$pd]['sponsor']['country_name']).'</td><td>'.$data[$pd]['sponsor']['country_name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="3917" style="display:none"><td>sponsor_language_pref_1</td><td>'.$data[$pd]['sponsor']['language_pref_1'].'</td><td></td></tr>';
 	$html_text .= '<tr id="3918" style="display:none"><td>sponsor_language_pref_2</td><td>'.$data[$pd]['sponsor']['language_pref_2'].'</td><td></td></tr>';
-	$html_text .= '<tr id="3919" style="display:none;vertical-align:top"><td>sponsor_flags</td><td>'.$data[$pd]['sponsor']['flags'].'</td><td></td></tr>';
+	$html_text .= '<tr id="3919" style="display:none;vertical-align:top"><td>sponsor_statuses</td><td>'.$data[$pd]['sponsor']['statuses'].'</td><td></td></tr>';
 	$html_text .= '<tr id="3920" style="display:none"><td>sponsor_created_at</td><td>'.$data[$pd]['sponsor']['created_at'].'</td><td></td></tr>';
 	$html_text .= '<tr id="3921" style="display:none"><td>sponsor_latest_update_at</td><td>'.$data[$pd]['sponsor']['latest_update_at'].'</td><td></td></tr>';
 	$html_text .= '<tr id="3922" style="display:none"><td>sponsor_verification_received_at</td><td>'.$data[$pd]['sponsor']['verification_received_at'].'</td><td id="sponsor_verification_received_at"></td></tr>';
@@ -768,7 +768,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4013" style="display:none"><td>registrant_country_name'.if_filled($data[$pd]['registrant']['country_name']).'</td><td>'.$data[$pd]['registrant']['country_name'].'</td><td id="registrant_country_name"></td></tr>';
 	$html_text .= '<tr id="4014" style="display:none"><td>registrant_language_pref_1</td><td>'.$data[$pd]['registrant']['language_pref_1'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4015" style="display:none"><td>registrant_language_pref_2</td><td>'.$data[$pd]['registrant']['language_pref_2'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4016" style="display:none;vertical-align:top"><td>registrant_flags</td><td>'.$data[$pd]['registrant']['flags'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4016" style="display:none;vertical-align:top"><td>registrant_statuses</td><td>'.$data[$pd]['registrant']['statuses'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4017" style="display:none"><td>registrant_created_at</td><td>'.$data[$pd]['registrant']['created_at'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4018" style="display:none"><td>registrant_latest_update_at</td><td>'.$data[$pd]['registrant']['latest_update_at'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>registrant_verification_received_at</td><td>'.$data[$pd]['registrant']['verification_received_at'].'</td><td id="registrant_verification_received_at"></td></tr>';
@@ -889,7 +889,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="5013" style="display:none"><td>reseller_country_name'.if_filled($data[$pd]['reseller']['country_name']).'</td><td>'.$data[$pd]['reseller']['country_name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="5014" style="display:none"><td>reseller_language_pref_1</td><td>'.$data[$pd]['reseller']['language_pref_1'].'</td><td></td></tr>';
 	$html_text .= '<tr id="5015" style="display:none"><td>reseller_language_pref_2</td><td>'.$data[$pd]['reseller']['language_pref_2'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5016" style="display:none;vertical-align:top"><td>reseller_flags</td><td>'.$data[$pd]['reseller']['flags'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5016" style="display:none;vertical-align:top"><td>reseller_statuses</td><td>'.$data[$pd]['reseller']['statuses'].'</td><td></td></tr>';
 	$html_text .= '<tr id="5017" style="display:none"><td>reseller_created_at</td><td>'.$data[$pd]['reseller']['created_at'].'</td><td></td></tr>';
 	$html_text .= '<tr id="5018" style="display:none"><td>reseller_latest_update_at</td><td>'.$data[$pd]['reseller']['latest_update_at'].'</td><td></td></tr>';
 	$html_text .= '<tr id="5019" style="display:none"><td>reseller_verification_received_at</td><td>'.$data[$pd]['reseller']['verification_received_at'].'</td><td id="reseller_verification_received_at"></td></tr>';
@@ -915,7 +915,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="6013" style="display:none"><td>registrar_country_name'.if_filled($data[$pd]['registrar']['country_name']).'</td><td>'.$data[$pd]['registrar']['country_name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="6014" style="display:none"><td>registrar_language_pref_1</td><td>'.$data[$pd]['registrar']['language_pref_1'].'</td><td></td></tr>';
 	$html_text .= '<tr id="6015" style="display:none"><td>registrar_language_pref_2</td><td>'.$data[$pd]['registrar']['language_pref_2'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6016" style="display:none;vertical-align:top"><td>registrar_flags</td><td>'.$data[$pd]['registrar']['flags'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6016" style="display:none;vertical-align:top"><td>registrar_statuses</td><td>'.$data[$pd]['registrar']['statuses'].'</td><td></td></tr>';
 	$html_text .= '<tr id="6017" style="display:none"><td>registrar_created_at</td><td>'.$data[$pd]['registrar']['created_at'].'</td><td></td></tr>';
 	$html_text .= '<tr id="6018" style="display:none"><td>registrar_latest_update_at</td><td>'.$data[$pd]['registrar']['latest_update_at'].'</td><td></td></tr>';
 	$html_text .= '<tr id="6019" style="display:none"><td>registrar_verification_received_at</td><td>'.$data[$pd]['registrar']['verification_received_at'].'</td><td id="registrar_verification_received_at"></td></tr>';
@@ -940,7 +940,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="634" style="display:none;vertical-align:top"><td>unicode_names</td><td colspan="2">'.$data[$pd]['name_servers']['unicode_names'].'</td></tr>';
 	$html_text .= '<tr id="635" style="display:none;vertical-align:top"><td>ipv4_addresses</td><td>'.$data[$pd]['name_servers']['ipv4_addresses'].'</td><td style="vertical-align:bottom" id="name_servers_ipv4_addresses"></td></tr>';
 	$html_text .= '<tr id="636" style="display:none;vertical-align:top"><td>ipv6_addresses</td><td>'.$data[$pd]['name_servers']['ipv6_addresses'].'</td><td id="name_servers_ipv6_addresses"></td></tr>';
-	$html_text .= '<tr id="637" style="display:none;vertical-align:top"><td>flags</td><td>'.$data[$pd]['name_servers']['flags'].'</td><td></td></tr>';
+	$html_text .= '<tr id="637" style="display:none;vertical-align:top"><td>statuses</td><td>'.$data[$pd]['name_servers']['statuses'].'</td><td></td></tr>';
 	$html_text .= '<tr id="638" style="display:none;vertical-align:top"><td>delegation_checks</td><td>'.$data[$pd]['name_servers']['delegation_checks'].'</td><td id="br_zone"></td></tr>';
 	$html_text .= '<tr id="639" style="display:none;vertical-align:top"><td>latest_correct_delegation_checks</td><td>'.$data[$pd]['name_servers']['latest_correct_delegation_checks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>dnssec_signed</td><td>'.$data[$pd]['name_servers']['dnssec_signed'].'</td><td id="name_servers_dnssec_signed"></td></tr>';
