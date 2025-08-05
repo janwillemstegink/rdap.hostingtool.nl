@@ -191,7 +191,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_role").textContent = proposed;
 		document.getElementById("common_root_services_url").textContent = proposed + "IANA beheert, voor ICANN, TLD’s en wijst IP-blokken en AS-nummers toe aan regionale registries.";
 		document.getElementById("common_root_zones_url").textContent = proposed + 'Officiële Root Zones-lijst, beheerd door IANA, de DNS-rootautoriteit.';
-		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Een API-endpoint onder /v1/ kan een nieuwere versie onder /v2/ ondersteunen — zie icann.com.";
+		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Een API-endpoint onder /v1/ kan een nieuwere versie onder /v2/ ondersteunen — zie com.";
 		document.getElementById("common_registrar_accreditations_url").textContent = proposed + "Officiële lijst van geaccrediteerde registrars, beheerd door IANA onder ICANN-beleid.";
 		document.getElementById("common_tld_roles").textContent = proposed + "Deze rolbenamingen zijn voorlopig. Ze kunnen nog veranderen.";
 		document.getElementById("common_best_practices_periods").textContent = proposed + "Registries kunnen baat hebben bij gedeelde richtlijnen.";
@@ -233,7 +233,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_role").textContent = proposed;
 		document.getElementById("common_root_services_url").textContent = proposed + "IANA manages, for ICANN, TLDs and allocates IP blocks and AS numbers to regional registries.";
 		document.getElementById("common_root_zones_url").textContent = proposed + 'Official Root Zones list maintained by IANA, the DNS root authority.';
-		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "An API endpoint under /v1/ may support a newer version under /v2/ — as seen on icann.com.";
+		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "An API endpoint under /v1/ may support a newer version under /v2/ — as seen on com.";
 		document.getElementById("common_registrar_accreditations_url").textContent = proposed + "Official list of accredited registrars maintained by IANA under ICANN policy.";
 		document.getElementById("common_tld_roles").textContent = proposed + "These role names are draft. They may change.";
 		document.getElementById("common_best_practices_periods").textContent = proposed + "Registries may benefit from shared timing guidelines.";
@@ -275,7 +275,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_role").textContent = proposed;
 		document.getElementById("common_root_services_url").textContent = proposed + "IANA verwaltet, für ICANN, TLDs und weist IP-Blöcke sowie AS-Nummern an regionale Registries zu.";		
 		document.getElementById("common_root_zones_url").textContent = proposed + 'Offizielle Root-Zonenliste, verwaltet von IANA, der DNS-Root-Behörde.';
-		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Ein API-Endpunkt unter /v1/ kann eine neuere Version unter /v2/ unterstützen — siehe icann.com.";
+		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Ein API-Endpunkt unter /v1/ kann eine neuere Version unter /v2/ unterstützen — siehe com.";
 		document.getElementById("common_registrar_accreditations_url").textContent = proposed + "Offizielle Liste der akkreditierten Registrar, verwaltet von IANA unter ICANN-Richtlinien.";
 		document.getElementById("common_tld_roles").textContent = proposed + "Diese Rollennamen sind vorläufig und können sich ändern.";
 		document.getElementById("common_best_practices_periods").textContent = proposed + "Viele Registries können von gemeinsamen Regeln profitieren.";
@@ -317,7 +317,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_role").textContent = proposed;
 		document.getElementById("common_root_services_url").textContent = proposed + "L’IANA gère pour l’ICANN les TLD et alloue les blocs IP ainsi que les numéros AS aux registres régionaux.";
 		document.getElementById("common_root_zones_url").textContent = proposed + "Liste officielle des zones racines, gérée par l’IANA, l’autorité racine du DNS.";
-		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Un endpoint API sous /v1/ peut supporter une version plus récente sous /v2/ — voir icann.com.";
+		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Un endpoint API sous /v1/ peut supporter une version plus récente sous /v2/ — voir com.";
 		document.getElementById("common_registrar_accreditations_url").textContent = proposed + "Liste officielle des bureaux d’enregistrement accrédités, gérée par l’IANA selon la politique de l’ICANN.";
 		document.getElementById("common_tld_roles").textContent = proposed + "Ces noms de rôles sont provisoires. Ils peuvent changer.";
 		document.getElementById("common_best_practices_periods").textContent = proposed + "Les registres peuvent profiter de lignes directrices communes.";

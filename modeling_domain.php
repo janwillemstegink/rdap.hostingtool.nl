@@ -274,7 +274,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "Een domein onder TLD-niveau is wereldwijd uniek en kan vrij worden gekozen onder bepaalde regels.";
 		document.getElementById("domain_ascii_name").textContent = "Voor speciale tekens bevatten de ASCII-tekenreeksen Punycode-transcriptie.";
 		document.getElementById("domain_unicode_name").textContent = "Optioneel veld dat, indien van toepassing, de Unicode-weergave van het domein biedt.";
-		document.getElementById("domain_statuses").textContent = modified + "Statussen hebben niveaus: DNS (server ...), registrar (client ...), cyclus (pending ...), overig.";
+		document.getElementById("domain_statuses").textContent = modified + "Statuskeuze vereist verantwoordelijkheid bij registry (server), registrar (client) of levenscyclus.";
 		document.getElementById("domain_created_at").textContent = "De datumvelden staan hier in een logische volgorde. Dit is ook eenvoudig in de JSON-array.";
 		document.getElementById("domain_expiration_at").textContent = "Eindtijd voor verlenging of van publicatie, daarna neemt de betrokkenheid van de registrar af.";
 		document.getElementById("domain_recoverable_until").textContent = proposed + "Laatste hersteldatum, gebaseerd op domain_expiration_at + pending_redemption_days.";
@@ -348,7 +348,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "A domain below TLD level is globally unique and can be freely chosen under certain rules.";
 		document.getElementById("domain_ascii_name").textContent = "For special characters, the ASCII character strings contain Punycode transcription.";
 		document.getElementById("domain_unicode_name").textContent = "Optional field that provides the Unicode representation of the domain, if applicable.";
-		document.getElementById("domain_statuses").textContent = modified + "Statuses have levels: DNS (server ...), registrar (client ...), lifecycle (pending ...), other.";
+		document.getElementById("domain_statuses").textContent = modified + "Status choice requires accountability linked to registry (server), registrar (client), or lifecycle.";
 		document.getElementById("domain_created_at").textContent = "The date fields are here in a logical order. This is also easy in the JSON array.";
 		document.getElementById("domain_expiration_at").textContent = "End time for renewal or publication, after which registrar involvement decreases.";
 		document.getElementById("domain_recoverable_until").textContent = proposed + "Last date recovery is allowed, based on domain_expiration_at + pending_redemption_days.";
@@ -422,7 +422,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "Eine Domain unterhalb der TLD-Ebene ist weltweit eindeutig und kann unter bestimmten Regeln frei gewählt werden.";
 		document.getElementById("domain_ascii_name").textContent = "Für Sonderzeichen enthalten die ASCII-Zeichenfolgen eine Punycode-Transkription.";
 		document.getElementById("domain_unicode_name").textContent = "Optionales Feld, das gegebenenfalls die Unicode-Darstellung der Domäne bereitstellt.";
-		document.getElementById("domain_statuses").textContent = modified + "Statuswerte haben Ebenen: DNS (server ...), Registrar (client ...), Zyklus (pending ...), Sonstige.";
+		document.getElementById("domain_statuses").textContent = modified + "Statusauswahl erfordert Verantwortung bei Registry (Server), Registrar (Client) oder Lebenszyklus.";
 		document.getElementById("domain_created_at").textContent = "Die Datumsfelder stehen hier in einer logischen Reihenfolge. Auch dies ist im JSON-Array einfach.";
 		document.getElementById("domain_expiration_at").textContent = "Eine Wiederherstellung ist erst ab dem Ablaufdatum der Domain + Tagen der Rücknahmefrist möglich.";
 		document.getElementById("domain_recoverable_until").textContent = proposed + "Letzter möglicher Wiederherstellungstag, basierend auf domain_expiration_at + pending_redemption_days.";
@@ -496,7 +496,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_role").textContent = "Un domaine inférieur au niveau TLD est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("domain_ascii_name").textContent = "Pour les caractères spéciaux, les chaînes de caractères ASCII contiennent une transcription Punycode.";
 		document.getElementById("domain_unicode_name").textContent = "Champ facultatif qui fournit la représentation Unicode du domaine, le cas échéant.";
-		document.getElementById("domain_statuses").textContent = modified + "Les statuts ont des niveaux : DNS (server ...), registrar (client ...), cycle (pending ...), autres.";
+		document.getElementById("domain_statuses").textContent = modified + "Le choix du statut exige une responsabilité liée au registre (serveur), registrar (client) ou cycle de vie.";
 		document.getElementById("domain_created_at").textContent = "Les champs de date sont ici classés dans un ordre logique. C'est également facile dans le tableau JSON.";
 		document.getElementById("domain_expiration_at").textContent = "Date limite de renouvellement ou de publication, après laquelle l'implication du registraire diminue.";
 		document.getElementById("domain_recoverable_until").textContent = proposed + "Dernier jour de récupération, basé sur domain_expiration_at + pending_redemption_days.";
@@ -661,18 +661,38 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="303" style="display:none"><td>domain_ascii_name (lowercase is not a "MUST")</td><td>'.$data[$pd]['domain']['ascii_name'].'</td><td id="domain_ascii_name"></td></tr>';
 	$html_text .= '<tr id="304" style="display:none"><td>domain_unicode_name</td><td>'.$data[$pd]['domain']['unicode_name'].'</td><td id="domain_unicode_name"></td></tr>';
 	$domain_statuses = (!empty($data[$pd]['domain']['statuses'])) ? $data[$pd]['domain']['statuses'] : '';
-	$domain_statuses = str_replace('excluded','excluded => excluded_from_dns_zone', $domain_statuses);
+	$domain_statuses = str_replace('excluded','excluded => registration_restricted', $domain_statuses);
 	$domain_statuses = str_replace('locked','locked => protected_state', $domain_statuses);
 	$domain_statuses = str_replace('server hold','server hold => server_hold', $domain_statuses);
 	if (str_contains($data[$pd]['domain']['statuses'], 'inactive'))	{
-		$domain_statuses = str_replace('inactive','inactive => no_nameservers_assigned', $domain_statuses);
+		$domain_statuses = str_replace('inactive','inactive => dns_no_nameservers', $domain_statuses);
 	}	
 	elseif (str_contains($data[$pd]['domain']['statuses'], 'active'))	{
-		$domain_statuses = str_replace('active','active => dns_operational', $domain_statuses);
+		$domain_statuses = str_replace('active','active => dns_active', $domain_statuses);
 	}
 	$domain_statuses = str_replace('redemption period','redemption period => pending_redemption', $domain_statuses);
 	$domain_statuses = str_replace('pending delete','pending delete => pending_delete', $domain_statuses);
-	$domain_statuses = str_replace('client hold','client hold => client_hold', $domain_statuses);			
+	$domain_statuses = str_replace('client hold','client hold => client_hold', $domain_statuses);
+	if (str_contains($data[$pd]['domain']['statuses'], 'renew prohibited'))	{
+		if (!str_contains($data[$pd]['domain']['statuses'], 'server renew prohibited') and !str_contains($data[$pd]['domain']['statuses'], 'client renew prohibited'))	{
+			$domain_statuses = str_replace('renew prohibited','renew prohibited - server-side or client-side?', $domain_statuses);
+		}
+	}
+	if (str_contains($data[$pd]['domain']['statuses'], 'update prohibited'))	{
+		if (!str_contains($data[$pd]['domain']['statuses'], 'server update prohibited') and !str_contains($data[$pd]['domain']['statuses'], 'client update prohibited'))	{
+			$domain_statuses = str_replace('update prohibited','update prohibited - server-side or client-side?', $domain_statuses);
+		}
+	}
+	if (str_contains($data[$pd]['domain']['statuses'], 'transfer prohibited'))	{
+		if (!str_contains($data[$pd]['domain']['statuses'], 'server transfer prohibited') and !str_contains($data[$pd]['domain']['statuses'], 'client transfer prohibited'))	{
+			$domain_statuses = str_replace('transfer prohibited','transfer prohibited - server-side or client-side?', $domain_statuses);
+		}
+	}	
+	if (str_contains($data[$pd]['domain']['statuses'], 'delete prohibited'))	{
+		if (!str_contains($data[$pd]['domain']['statuses'], 'server delete prohibited') and !str_contains($data[$pd]['domain']['statuses'], 'client delete prohibited'))	{
+			$domain_statuses = str_replace('delete prohibited','delete prohibited - server-side or client-side?', $domain_statuses);
+		}
+	}	
 	$html_text .= '<tr style="vertical-align:top"><td>domain_statuses</td><td>'.$domain_statuses.'</td><td id="domain_statuses"></td></tr>';
 	$html_text .= '<tr id="305" style="display:none"><td>domain_created_at</td><td>'.$data[$pd]['domain']['created_at'].'</td><td id="domain_created_at"></td></tr>';
 	$html_text .= '<tr id="306" style="display:none"><td>domain_latest_transfer_at</td><td>'.$data[$pd]['domain']['latest_transfer_at'].'</td><td></td></tr>';
@@ -683,22 +703,22 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	if (!empty($data[$pd]['domain']['statuses']))	{
 		if (str_contains($data[$pd]['domain']['statuses'], 'pending delete'))	{
 			if (str_contains($data[$pd]['domain']['statuses'], 'redemption period') and str_contains($data[$pd]['domain']['statuses'], 'pending delete'))	{
-				$html_text .= '<tr id="3010" style="display:none"><td>(Global table definitions address ccTLD variation)</td><td>"pending delete" disregards in redemption</td><td></td></tr>';
+				$html_text .= '<tr id="3010" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"pending delete" disregards redemption grace</td><td></td></tr>';
 			}	
 			elseif (!empty($data[$pd]['metadata']['zone_identifier']))	{
 				if ($data[$pd]['metadata']['zone_identifier'] == 'nl')	{
-					$html_text .= '<tr id="3011" style="display:none"><td>(Global table definitions address ccTLD variation)</td><td>"pending delete" refers to "redemption period"</td><td></td></tr>';
+					$html_text .= '<tr id="3011" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"pending delete" refers to "redemption period"</td><td></td></tr>';
 				}	
 			}	
 		}
 		if (str_contains($data[$pd]['domain']['statuses'], 'redemption period'))	{
 			if (empty($data[$pd]['domain']['expiration_at']) and empty($data[$pd]['domain']['deletion_at'])) {
-				$html_text .= '<tr id="3012" style="display:none"><td>(Global table definitions address ccTLD variation)</td><td>"redemption" without date-time provided</td><td></td></tr>';
+				$html_text .= '<tr id="3012" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"redemption" without date-time provided</td><td></td></tr>';
 			}	
 		}
 		elseif (str_contains($data[$pd]['domain']['statuses'], 'pending delete'))	{
 			if (empty($data[$pd]['domain']['expiration_at']) and empty($data[$pd]['domain']['deletion_at'])) {
-				$html_text .= '<tr id="3013" style="display:none"><td>(Global table definitions address ccTLD variation)</td><td>"pending delete" without date-time provided</td><td></td></tr>';
+				$html_text .= '<tr id="3013" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"pending delete" without date-time provided</td><td></td></tr>';
 			}	
 		}
 	}
@@ -708,7 +728,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
     	if ($expiration !== false and $deletion !== false)	{
 			$days_before = floor(($expiration - $deletion) / (60 * 60 * 24));
 			if ($days_before > 0) {
-       			$html_text .= '<tr id="3014" style="display:none"><td>(Global table definitions address ccTLD variation)</td><td>"deletion_at" '.$days_before.' days before "expiration_at"</td><td></td></tr>';
+       			$html_text .= '<tr id="3014" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"deletion_at" '.$days_before.' days before "expiration_at"</td><td></td></tr>';
 			}	
     	}
 	}
@@ -717,7 +737,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 		$deletion = strtotime($data[$pd]['domain']['deletion_at']);
     	if ($current !== false and $deletion !== false and $current > $deletion) {
 			$days_ago = floor(($current - $deletion) / (60 * 60 * 24));
-        	$html_text .= '<tr id="3015" style="display:none"><td>(Global table definitions address ccTLD variation)</td><td>"deletion_at" was '.$days_ago.' days ago?</td><td></td></tr>';
+        	$html_text .= '<tr id="3015" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"deletion_at" was '.$days_ago.' days ago?</td><td></td></tr>';
 		}
 	}	
 	$html_text .= '<tr id="3016" style="display:none;vertical-align:top"><td>domain_extensions</td><td>'.$data[$pd]['domain']['extensions'].'</td><td id="domain_extensions"></td></tr>';
