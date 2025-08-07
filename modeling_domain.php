@@ -313,8 +313,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
 		document.getElementById("abuse_role").textContent = "Informatie over hoe een derde partij contact kan opnemen met de registrar of belaste partij. Zie fryslan.frl.";
 		document.getElementById("abuse_telephone").textContent = "Een telefoonnummer moet beginnen met het type. Toegestaan zijn in ieder geval 'voice' en 'fax'.";
-		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
-		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
+		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC beveiligt DNS tegen spoofing en cachevergiftiging.";
+		document.getElementById("name_servers_dnssec_algorithm").textContent = "Algoritmen 13, 14, 15 en 16 vormen de aanbevolen basislijn voor DNSSEC-compliance.";
 		document.getElementById("name_servers_ipv4_addresses").textContent = "Een glue-record is een DNS-record dat wordt meegegeven door de bovenliggende zone, ook al is die daar niet";
 		document.getElementById("name_servers_ipv6_addresses").textContent = "autoritatief voor, om cirkelafhankelijke resoluties van nameservers binnen de onderliggende zone te voorkomen.";
 		document.getElementById("br_zone").textContent = "TLD .br: De RDAP-gegevens zijn aangepast met nameservervalidatie.";
@@ -387,8 +387,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
 		document.getElementById("abuse_role").textContent = "Information on how a third party can contact the registrar or entrusted party. See fryslan.frl.";
 		document.getElementById("abuse_telephone").textContent = "A telephone number must begin with the type. Allowed are anyway 'voice' and 'fax'.";
-		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
-		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
+		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC secures DNS against spoofing and cache poisoning.";
+		document.getElementById("name_servers_dnssec_algorithm").textContent = "Algorithms 13, 14, 15, and 16 are the recommended baseline for DNSSEC compliance.";
 		document.getElementById("name_servers_ipv4_addresses").textContent = "A glue record is a DNS record provided by the parent zone, even though it is not authoritative for it,";
 		document.getElementById("name_servers_ipv6_addresses").textContent = "to prevent circular dependencies when resolving nameservers within the child zone.";
 		document.getElementById("br_zone").textContent = "TLD .br: The RDAP data has been modified with name server validation.";
@@ -461,8 +461,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
 		document.getElementById("abuse_role").textContent = "Informationen darüber, wie Dritte den Registrar oder die beauftragte Partei kontaktieren können. Siehe fryslan.frl.";
 		document.getElementById("abuse_telephone").textContent = "Eine Telefonnummer muss mit dem Typ beginnen. Erlaubt sind grundsätzlich 'voice' und 'fax'.";		
-		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
-		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
+		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC sichert DNS gegen Spoofing und Cache-Poisoning.";
+		document.getElementById("name_servers_dnssec_algorithm").textContent = "Die Algorithmen 13, 14, 15 und 16 sind die empfohlene Basis für DNSSEC-Compliance.";
 		document.getElementById("name_servers_ipv4_addresses").textContent = "Ein Glue-Record ist ein DNS-Eintrag, den die übergeordnete Zone bereitstellt, obwohl sie nicht autoritativ ist,";
 		document.getElementById("name_servers_ipv6_addresses").textContent = "um zirkuläre Abhängigkeiten bei der Auflösung von Nameservern in der untergeordneten Zone zu verhindern.";		
 		document.getElementById("br_zone").textContent = "TLD .br: Die RDAP-Daten wurden mit der Nameserver-Validierung angepasst.";
@@ -535,8 +535,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
 		document.getElementById("abuse_role").textContent = "Informations sur la manière dont un tiers peut contacter le registraire ou la partie mandatée. Voir fryslan.frl.";
 		document.getElementById("abuse_telephone").textContent = "Un numéro de téléphone doit commencer par le type. Sont autorisés de toute façon 'voice' et 'fax'.";
-		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
-		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
+		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC sécurise le DNS contre le spoofing et l’empoisonnement.";
+		document.getElementById("name_servers_dnssec_algorithm").textContent = "Les algorithmes 13, 14, 15 et 16 constituent la base recommandée pour la conformité DNSSEC.";
 		document.getElementById("name_servers_ipv4_addresses").textContent = "Un glue record est un enregistrement DNS fourni par la zone parente, bien qu’elle n’en soit pas autoritaire,";
 		document.getElementById("name_servers_ipv6_addresses").textContent = "afin d’éviter les dépendances circulaires lors de la résolution des serveurs de noms de la zone enfant.";		
 		document.getElementById("br_zone").textContent = "TLD .br: Les données RDAP ont été ajustées avec la validation du serveur de noms.";
@@ -661,9 +661,8 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="303" style="display:none"><td>domain_ascii_name (lowercase is not a "MUST")</td><td>'.$data[$pd]['domain']['ascii_name'].'</td><td id="domain_ascii_name"></td></tr>';
 	$html_text .= '<tr id="304" style="display:none"><td>domain_unicode_name</td><td>'.$data[$pd]['domain']['unicode_name'].'</td><td id="domain_unicode_name"></td></tr>';
 	$domain_statuses = (!empty($data[$pd]['domain']['statuses'])) ? $data[$pd]['domain']['statuses'] : '';
-	$domain_statuses = str_replace('excluded','excluded => registration_restricted', $domain_statuses);
-	$domain_statuses = str_replace('locked','locked => protected_state', $domain_statuses);
-	$domain_statuses = str_replace('server hold','server hold => server_hold', $domain_statuses);
+	$domain_statuses = str_replace('excluded','excluded ⚠️ => server_registration_restricted', $domain_statuses);
+	$domain_statuses = str_replace('locked','locked => server_protected_state', $domain_statuses);
 	if (str_contains($data[$pd]['domain']['statuses'], 'inactive'))	{
 		$domain_statuses = str_replace('inactive','inactive => dns_no_nameservers', $domain_statuses);
 	}	
@@ -671,8 +670,6 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 		$domain_statuses = str_replace('active','active => dns_active', $domain_statuses);
 	}
 	$domain_statuses = str_replace('redemption period','redemption period => pending_redemption', $domain_statuses);
-	$domain_statuses = str_replace('pending delete','pending delete => pending_delete', $domain_statuses);
-	$domain_statuses = str_replace('client hold','client hold => client_hold', $domain_statuses);
 	if (str_contains($data[$pd]['domain']['statuses'], 'renew prohibited'))	{
 		if (!str_contains($data[$pd]['domain']['statuses'], 'server renew prohibited') and !str_contains($data[$pd]['domain']['statuses'], 'client renew prohibited'))	{
 			$domain_statuses = str_replace('renew prohibited','renew prohibited - server-side or client-side?', $domain_statuses);
