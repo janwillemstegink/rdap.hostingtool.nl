@@ -38,6 +38,20 @@ CREATE TABLE common (
 			{"tld_role_sequence": 50,"tld_role_identifier": "registry_operator","tld_role_shielding": []},
 			{"tld_role_sequence": 60,"tld_role_identifier": "backend_operator","tld_role_shielding": []}
 		]',
+	common_indeterminate_rdap_statuses JSONB DEFAULT '{
+		"indeterminate_rdap_statuses": [
+			"locked",
+			"renew prohibited",
+			"transfer prohibited",
+			"update prohibited",
+			"delete prohibited",
+			"removed",
+			"obscured",
+			"private",
+			"proxy",
+			"associated"
+		]
+	}',
 	common_best_practices_periods JSONB DEFAULT '[
 		{"period_identifier": "subscription_years", "lowest": 1, "highest": 10, "optimal": 1},
 		{"period_identifier": "add_grace_days", "lowest": 5, "highest": 7, "optimal": 5},
@@ -141,11 +155,11 @@ CREATE TABLE zones (
 	zone_name_servers JSONB,
 	zone_latest_update_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
+-- one version per (zone_identifier, active_from)
+CREATE UNIQUE INDEX uniq_zone_effective
+  ON zones (zone_identifier, zone_data_active_from);
 -- Perhaps stabilizing: FOREIGN KEY (zone_tld_category) REFERENCES tld_categories(tld_category_identifier)
 -- Perhaps stabilizing: FOREIGN KEY (zone_tld_type) REFERENCES tld_types(tld_type_identifier)
-
-CREATE UNIQUE INDEX idx_lifecycle_zone_data_active_from 
-ON lifecycles(lifecycle_zone, lifecycle_data_active_from);
 
 -- Trigger Function: Update zone_latest_update_at on UPDATE
 CREATE OR REPLACE FUNCTION update_zone_latest_update_at()
@@ -171,7 +185,6 @@ DECLARE
     suffix TEXT;
     parts TEXT[];
     i INT;
-    candidate TEXT;
     match_identifier VARCHAR;
 BEGIN
     -- Split domain into parts by dots
@@ -184,15 +197,17 @@ BEGIN
 		SELECT zone_identifier INTO match_identifier
 		FROM zones
 		WHERE zone_identifier = suffix
-		ORDER BY LENGTH(zone_identifier) DESC
+		AND (zone_data_active_from IS NULL
+		OR (zone_data_active_from AT TIME ZONE 'UTC') <= (CURRENT_TIMESTAMP AT TIME ZONE 'UTC')
+		)
+		ORDER BY zone_data_active_from DESC NULLS LAST
 		LIMIT 1;
 
-        IF match_identifier IS NOT NULL THEN
-            RETURN match_identifier;
-        END IF;
-    END LOOP;
-
-    RETURN NULL; -- No matching zone found
+		IF match_identifier IS NOT NULL THEN
+			RETURN match_identifier;
+		END IF;
+	END LOOP;
+	RETURN NULL; -- No matching zone found
 END;
 $$ LANGUAGE plpgsql;
 
@@ -217,7 +232,7 @@ CREATE TABLE lifecycles (
             "recoverable": false,
             "final": true
         }
-	}]';	
+	}]',
 	lifecycle_operational_periods JSONB DEFAULT '[
 		{"period_identifier": "subscription_years", "default": null, "allowed": null},
 		{"period_identifier": "add_grace_days", "default": null, "allowed": null},
@@ -266,11 +281,6 @@ CREATE TABLE domains (
 	domain_remarks JSONB DEFAULT '[]' -- to phase out
 );
 
-CREATE TRIGGER trg_set_domain_zone
-BEFORE INSERT OR UPDATE ON domains
-FOR EACH ROW
-EXECUTE FUNCTION set_domain_zone();
-
 -- Trigger Function: Update domain_latest_update_at on UPDATE
 CREATE OR REPLACE FUNCTION update_domains_latest_update_at()
 RETURNS TRIGGER AS $$
@@ -293,6 +303,12 @@ BEGIN
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
+
+-- Now the trigger that uses it
+CREATE TRIGGER trg_set_domain_zone
+BEFORE INSERT OR UPDATE ON domains
+FOR EACH ROW
+EXECUTE FUNCTION set_domain_zone();
 
 -- =======================
 -- Table: entities

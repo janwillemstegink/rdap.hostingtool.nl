@@ -206,6 +206,23 @@ $tld_roles = '<b>tld_role_sequence, tld_role_identifier, tld_role_shielding</b><
 foreach ($decoded as $role) {
 	$tld_roles .= $role['tld_role_sequence'] . ', ' . $role['tld_role_identifier'] . ', [' . implode(', ', $role['tld_role_shielding']) . ']<br />';
 }
+$indeterminate_rdap_statuses_json = '{
+  "indeterminate_rdap_statuses": [
+    "locked",
+    "renew prohibited",
+    "transfer prohibited",
+    "update prohibited",
+    "delete prohibited",
+    "removed",
+    "obscured",
+    "private",
+    "proxy",
+    "associated"
+  ]
+}';
+$decoded = json_decode($indeterminate_rdap_statuses_json, true);
+$indeterminate_rdap_statuses = '<b>indeterminate_rdap_statuses</b><br />'; 
+$indeterminate_rdap_statuses .=	implode('<br />', $decoded['indeterminate_rdap_statuses']);
 $best_practices_periods_json = '[
 	{"period_identifier": "subscription_years", "lowest": 1, "highest": 10, "optimal": 1},
 	{"period_identifier": "add_grace_days", "lowest": 5, "highest": 7, "optimal": 5},
@@ -215,7 +232,7 @@ $best_practices_periods_json = '[
 	{"period_identifier": "pending_redemption_days", "lowest": 30, "highest": 40, "optimal": 30},
 	{"period_identifier": "pending_delete_days", "lowest": 5, "highest": 7, "optimal": 5}
 ]';
-$decoded = json_decode($best_practices_periods_json, true);
+$decoded = json_decode($best_practices_periods_json, true);	
 $best_practices_periods = '<b>best_practices_periods</b><br />';    
 foreach ($decoded as $period) {
 	$best_practices_periods .= $period['period_identifier'] . ': lowest ' . $period['lowest'] . ', highest ' . $period['highest'] .  ', optimal ' . $period['optimal'] . '<br />';
@@ -624,9 +641,27 @@ $status_meanings_json = '[
             "phase": "pre-deletion",
             "recoverable": false,
             "final": true
-        }
+		}	
     }
-]';	
+]';
+		//"transfer prohibited": {
+        //   "description": "server_transfer_prohibited",
+        //    "phase": "active"
+        //},
+		//"locked": {
+        //    "description": "server_protected_state",
+        //    "phase": "active"
+        //},		
+		//"inactive": {
+        //    "description": "dns_glue_tld_nameservers",
+        //    "phase": "active"
+        //},		
+		//"excluded": {
+        //    "description": "server_registration_restricted",
+		//	"phase": "inactive"
+        //}	
+	
+	
 $decoded = json_decode($status_meanings_json, true);
 $status_meanings = "<b>status_meanings</b><br />";
 foreach ($decoded as $statuses) {
@@ -712,6 +747,7 @@ $arr[$inputtld]['common']['root_zones_url'] = $root_zones_url;
 $arr[$inputtld]['common']['lookup_endpoints_url'] = $lookup_endpoints_url;
 $arr[$inputtld]['common']['registrar_accreditations_url'] = $registrar_accreditations_url;	
 $arr[$inputtld]['common']['tld_roles'] = $tld_roles;
+$arr[$inputtld]['common']['indeterminate_rdap_statuses'] = $indeterminate_rdap_statuses;
 $arr[$inputtld]['common']['best_practices_periods'] = $best_practices_periods;		
 $arr[$inputtld]['common']['root_accepted_workload'] = $root_accepted_workload;	
 	

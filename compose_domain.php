@@ -560,16 +560,16 @@ foreach($obj as $key1 => $value1) {
 	foreach($value1 as $key2 => $value2) {
 		if ($key1 == 'status')	{
 			if (str_starts_with($value2, 'client'))	{
-				$domain_client_statuses .= $value2 . "<br />";
+				$domain_client_statuses .= $value2 . ",";
 			}
 			elseif (str_starts_with($value2, 'pending'))	{
-				$domain_lifecycle_statuses .= $value2 . "<br />";
+				$domain_lifecycle_statuses .= $value2 . ",";
 			}
 			elseif (str_contains($value2, 'redemption'))	{
-				$domain_lifecycle_statuses .= $value2 . "<br />";
+				$domain_lifecycle_statuses .= $value2 . ",";
 			}			
 			else	{
-				$domain_dns_statuses .= $value2 . "<br />";
+				$domain_dns_statuses .= $value2 . ",";
 			}
 		}
 		if ($key1 == 'secureDNS')	{
@@ -671,10 +671,10 @@ foreach($obj as $key1 => $value1) {
 			}
 			if ($key1 == 'secureDNS')	{
 				if ($key2 == 'dsData') {
-					$name_servers_dnssec_key_tag .= $key3.': '.$value3['keyTag']."<br />";	
-					$name_servers_dnssec_algorithm .= $key3.': '.$value3['algorithm']."<br />";	
-					$name_servers_dnssec_digest_type .= $key3.': '.$value3['digestType']."<br />";	
-					$name_servers_dnssec_digest .= $key3.': '.$value3['digest']."<br />";
+					$name_servers_dnssec_key_tag .= $key3.': '.$value3['keyTag'].",";	
+					$name_servers_dnssec_algorithm .= $key3.': '.$value3['algorithm'].",";	
+					$name_servers_dnssec_digest_type .= $key3.': '.$value3['digestType'].",";	
+					$name_servers_dnssec_digest .= $key3.': '.$value3['digest'].",";
 				}				
 			}
 			foreach($value3 as $key4 => $value4) {
@@ -1306,7 +1306,6 @@ $arr[$inputdomain]['links']['links_3_media'] = $links_3_media;
 $arr[$inputdomain]['links']['links_3_type'] = $links_3_type;
 	
 $arr[$inputdomain]['metadata']['zone_identifier'] = $zone_identifier;	
-$arr[$inputdomain]['metadata']['resource_upload_at'] = $resource_upload_at;	
 $arr[$inputdomain]['metadata']['object_class_name'] = $object_class_name;
 $arr[$inputdomain]['metadata']['object_conformance'] = $object_conformance;
 $arr[$inputdomain]['metadata']['tld_information_url'] = $tld_information_url;
@@ -1317,12 +1316,13 @@ $arr[$inputdomain]['metadata']['registrar_json_response_url'] = $registrar_json_
 $arr[$inputdomain]['metadata']['registrar_complaint_url'] = $registrar_complaint_url;		
 $arr[$inputdomain]['metadata']['status_explanation_url'] = $status_explanation_url;
 $arr[$inputdomain]['metadata']['geo_location'] = '';
+$arr[$inputdomain]['metadata']['resource_upload_at'] = $resource_upload_at;		
 	
 $arr[$inputdomain]['domain']['dns_handle'] = $dns_handle;
 $arr[$inputdomain]['domain']['client_handle'] = $client_handle;
 $arr[$inputdomain]['domain']['ascii_name'] = $ascii_name;	
 $arr[$inputdomain]['domain']['unicode_name'] = $unicode_name;
-$arr[$inputdomain]['domain']['statuses'] = $domain_dns_statuses . $domain_client_statuses . $domain_lifecycle_statuses;
+$arr[$inputdomain]['domain']['statuses'] = rtrim($domain_dns_statuses . $domain_client_statuses . $domain_lifecycle_statuses, ",");
 $arr[$inputdomain]['domain']['created_at'] = $created_at;	
 $arr[$inputdomain]['domain']['latest_transfer_at'] = $latest_transfer_at;
 $arr[$inputdomain]['domain']['latest_update_at'] = $latest_update_at;
@@ -1510,10 +1510,10 @@ $arr[$inputdomain]['name_servers']['statuses'] = $name_servers_statuses;
 $arr[$inputdomain]['name_servers']['delegation_checks'] = $name_servers_delegation_check;
 $arr[$inputdomain]['name_servers']['latest_correct_delegation_checks'] = $name_servers_latest_correct_delegation_check;	
 $arr[$inputdomain]['name_servers']['dnssec_signed'] = $name_servers_dnssec_signed;
-$arr[$inputdomain]['name_servers']['dnssec_key_tag'] = $name_servers_dnssec_key_tag;
-$arr[$inputdomain]['name_servers']['dnssec_algorithm'] = $name_servers_dnssec_algorithm;
-$arr[$inputdomain]['name_servers']['dnssec_digest_type'] = $name_servers_dnssec_digest_type;
-$arr[$inputdomain]['name_servers']['dnssec_digest'] = $name_servers_dnssec_digest;
+$arr[$inputdomain]['name_servers']['dnssec_key_tag'] = rtrim($name_servers_dnssec_key_tag, ",");
+$arr[$inputdomain]['name_servers']['dnssec_algorithm'] = rtrim($name_servers_dnssec_algorithm, ",");
+$arr[$inputdomain]['name_servers']['dnssec_digest_type'] = rtrim($name_servers_dnssec_digest_type, ",");
+$arr[$inputdomain]['name_servers']['dnssec_digest'] = rtrim($name_servers_dnssec_digest, ",");
 	
 $arr[$inputdomain]['raw_rdap'] = $raw_rdap_data;
 
