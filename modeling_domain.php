@@ -178,8 +178,9 @@ function SwitchTranslation(translation)	{
 		var accessible = '';
 		var legacy = '';
 		document.getElementById("title").textContent = "Domain Information";
-		document.getElementById("subtitle").textContent = "RDAP v1 based modeling";
+		document.getElementById("subtitle").textContent = "RDAPv1 based modeling";
 		document.getElementById("instruction").textContent = "Fill in and press Enter to retrieve.";
+		document.getElementById("modeling").textContent = "";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "";
@@ -252,8 +253,9 @@ function SwitchTranslation(translation)	{
 		var accessible = 'Nieuwe velden moeten de bruikbaarheid vergroten en voor duidelijkheid zorgen.';
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domeininformatie";
-		document.getElementById("subtitle").textContent = "RDAP v1-gebaseerde modellering";
+		document.getElementById("subtitle").textContent = "RDAPv1-gebaseerde modellering";
 		document.getElementById("instruction").textContent = "Typ een domeinnaam en druk op Enter.";
+		document.getElementById("modeling").textContent = "RDAPv2 moet onbepaalde statussen elimineren en ccTLD-proof zijn via een nieuwe globale tabeldefinitie in snake_case.";
 		document.getElementById("field").textContent = "Omschrijving";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Een overzicht van en toelichting op de structuur en kenmerken van webdomeinen.";
@@ -326,8 +328,9 @@ function SwitchTranslation(translation)	{
 		var accessible = 'New fields should boost usability and bring clarity.';
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domain Information";
-		document.getElementById("subtitle").textContent = "RDAP v1 based modeling";
+		document.getElementById("subtitle").textContent = "RDAPv1 based modeling";
 		document.getElementById("instruction").textContent = "Type a domain, then press Enter.";
+		document.getElementById("modeling").textContent = "RDAPv2 must eliminate indeterminate statuses and be ccTLD-proof via a new global table definition in snake_case.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "An overview of the structure and key characteristics of domain data.";
@@ -400,8 +403,9 @@ function SwitchTranslation(translation)	{
 		var accessible = 'Neue Felder sollten die Benutzerfreundlichkeit verbessern und für Klarheit sorgen.';
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domaininformationen";
-		document.getElementById("subtitle").textContent = "RDAP-v1-basierte Modellierung";
+		document.getElementById("subtitle").textContent = "RDAPv1-basierte Modellierung";
 		document.getElementById("instruction").textContent = "Geben Sie eine Domain ein und drücken Sie Enter.";
+		document.getElementById("modeling").textContent = "RDAPv2 muss unbestimmte Statuswerte eliminieren und ccTLD-sicher sein durch eine neue globale Tabellendefinition in snake_case.";
 		document.getElementById("field").textContent = "Beschreibung";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Eine Übersicht und Erklärung zur Struktur und den Eigenschaften von Webdomänen.";
@@ -474,8 +478,9 @@ function SwitchTranslation(translation)	{
 		var accessible = "Les nouveaux champs devraient améliorer l’utilisabilité et apporter de la clarté.";
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Informations sur le domaine";
-		document.getElementById("subtitle").textContent = "Modélisation basée sur RDAP v1";
+		document.getElementById("subtitle").textContent = "Modélisation basée sur RDAPv1";
 		document.getElementById("instruction").textContent = "Saisissez un nom de domaine, puis appuyez sur Entrée.";
+		document.getElementById("modeling").textContent = "RDAPv2 doit éliminer les statuts indéterminés et être ccTLD-compatible en adoptant une nouvelle définition globale de table en snake_case.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Détail";
 		document.getElementById("explanation").textContent = "Un aperçu et une explication de la structure et des caractéristiques des domaines Web.";
@@ -571,7 +576,7 @@ if	(is_null($data))	{
 $html_text = '<body onload=SwitchTranslation('.$viewlanguage.')><div style="border-collapse:collapse; line-height:120%">
 <table style="font-family:Helvetica, Arial, sans-serif; font-size: 1rem; table-layout: fixed; width:1375px">
 <tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th></tr>';
-$html_text .= '<tr style="font-size: .8rem"><td id="title" style="font-size: 1.3rem;color:blue;font-weight:bold"></td><td id="instruction"></td><td></td></tr>';
+$html_text .= '<tr style="font-size: .8rem"><td id="title" style="font-size: 1.3rem;color:blue;font-weight:bold"></td><td id="instruction"></td><td id="modeling"></td></tr>';
 $html_text .= '<tr style="font-size: .8rem"><td id="subtitle" style="font-size: 1.0rem;color:blue;font-weight:bold"></td><td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">
 	<input type="hidden" id="language" name="language" value='.$viewlanguage.'>	
 	<input type="text" style="width:90%" id="domain" name="domain" value='.$vd.'></form></td><td>

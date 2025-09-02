@@ -139,8 +139,9 @@ function SwitchTranslation(translation)	{
 		var proposed = '';
 		var legacy = '';
 		document.getElementById("title").textContent = "TLD Information";
-		document.getElementById("subtitle").textContent = "RDAP v1 based modeling";
+		document.getElementById("subtitle").textContent = "RDAPv1 based modeling";
 		document.getElementById("instruction").textContent = "Fill in and press Enter to retrieve.";
+		document.getElementById("modeling").textContent = "";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "";
@@ -182,8 +183,9 @@ function SwitchTranslation(translation)	{
 		var proposed = '(Nieuw) ';
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "TLD-informatie";
-		document.getElementById("subtitle").textContent = "RDAP v1-gebaseerde modellering";
+		document.getElementById("subtitle").textContent = "RDAPv1-gebaseerde modellering";
 		document.getElementById("instruction").textContent = "Typ een TLD-naam en druk op Enter.";
+		document.getElementById("modeling").textContent = "RDAPv2 moet onbepaalde statussen elimineren en ccTLD-proof zijn via een nieuwe globale tabeldefinitie in snake_case.";
 		document.getElementById("field").textContent = "Omschrijving";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Gestroomlijnde TLD-metadata met een centraal model om redundantie te voorkomen.";
@@ -225,8 +227,9 @@ function SwitchTranslation(translation)	{
 		var proposed = '(New) ';
 		var legacy = '(Legacy) ';		
 		document.getElementById("title").textContent = "TLD Information";
-		document.getElementById("subtitle").textContent = "RDAP v1 based modeling";
+		document.getElementById("subtitle").textContent = "RDAPv1 based modeling";
 		document.getElementById("instruction").textContent = "Type a TLD name, then press Enter.";
+		document.getElementById("modeling").textContent = "RDAPv2 must eliminate indeterminate statuses and be ccTLD-proof via a new global table definition in snake_case.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Streamlined TLD metadata using a single-source model to prevent redundancy.";
@@ -268,8 +271,9 @@ function SwitchTranslation(translation)	{
 		var proposed = '(Neu) ';
 		var legacy = '(Legacy) ';		
 		document.getElementById("title").textContent = "TLD-Informationen";
-		document.getElementById("subtitle").textContent = "RDAP-v1-basierte Modellierung";
+		document.getElementById("subtitle").textContent = "RDAPv1-basierte Modellierung";
 		document.getElementById("instruction").textContent = "Geben Sie einen TLD-Namen ein und drücken Sie Enter.";
+		document.getElementById("modeling").textContent = "RDAPv2 muss unbestimmte Statuswerte eliminieren und ccTLD-sicher sein durch eine neue globale Tabellendefinition in snake_case.";
 		document.getElementById("field").textContent = "Beschreibung";
 		document.getElementById("value").textContent = "Detail";
 		document.getElementById("explanation").textContent = "Schlanke TLD-Metadaten mit einem Single-Source-Modell zur Vermeidung von Redundanz.";
@@ -311,8 +315,9 @@ function SwitchTranslation(translation)	{
 		var proposed = '(Nouveau) ';
 		var legacy = '(Legacy) ';		
 		document.getElementById("title").textContent = "Informations sur le TLD";
-		document.getElementById("subtitle").textContent = "Modélisation basée sur RDAP v1";
+		document.getElementById("subtitle").textContent = "Modélisation basée sur RDAPv1";
 		document.getElementById("instruction").textContent = "Saisissez un nom TLD, puis appuyez sur Entrée.";
+		document.getElementById("modeling").textContent = "RDAPv2 doit éliminer les statuts indéterminés et être ccTLD-compatible en adoptant une nouvelle définition globale de table en snake_case.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Détail";
 		document.getElementById("explanation").textContent = "Métadonnées TLD rationalisées utilisant un modèle à source unique pour éviter la redondance.";
@@ -374,7 +379,7 @@ if	(is_null($data))	{
 $html_text = '<body onload=SwitchTranslation('.$viewlanguage.')><div style="border-collapse:collapse; line-height:120%">
 <table style="font-family:Helvetica, Arial, sans-serif; font-size: 1rem; table-layout: fixed; width:1375px">
 <tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th></tr>';
-$html_text .= '<tr style="font-size: .8rem"><td id="title" style="font-size: 1.3rem;color:blue;font-weight:bold"></td><td id="instruction"></td><td></td></tr>';
+$html_text .= '<tr style="font-size: .8rem"><td id="title" style="font-size: 1.3rem;color:blue;font-weight:bold"></td><td id="instruction"></td><td id="modeling"></td></tr>';
 $html_text .= '<tr style="font-size: .8rem"><td id="subtitle" style="font-size: 1.0rem;color:blue;font-weight:bold"></td><td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">
 	<input type="hidden" id="language" name="language" value='.$viewlanguage.'>	
 	<input type="text" style="width:90%" id="tld" name="tld" value='.$pd.'></form></td><td>
