@@ -324,7 +324,7 @@ $sponsor_expiration_at = null;
 $sponsor_deletion_at = null;
 $sponsor_properties = '(not tested yet)';
 $sponsor_remarks = '';
-$dns_handle	= '';
+$server_handle	= '';
 $client_handle = $obj['handle'];
 $ascii_name = $obj['ldhName'];
 $unicode_name = $obj['unicodeName'];
@@ -1318,7 +1318,7 @@ $arr[$inputdomain]['metadata']['status_explanation_url'] = $status_explanation_u
 $arr[$inputdomain]['metadata']['geo_location'] = '';
 $arr[$inputdomain]['metadata']['resource_upload_at'] = $resource_upload_at;		
 	
-$arr[$inputdomain]['domain']['dns_handle'] = $dns_handle;
+$arr[$inputdomain]['domain']['server_handle'] = $server_handle;
 $arr[$inputdomain]['domain']['client_handle'] = $client_handle;
 $arr[$inputdomain]['domain']['ascii_name'] = $ascii_name;	
 $arr[$inputdomain]['domain']['unicode_name'] = $unicode_name;

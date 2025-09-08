@@ -258,7 +258,7 @@ ON lifecycles(lifecycle_zone, lifecycle_data_active_from);
 CREATE TABLE domains (
     domain_id BIGSERIAL PRIMARY KEY,
 	domain_zone CITEXT NOT NULL,
-    domain_dns_handle TEXT NOT NULL UNIQUE, -- starts with the zone identifier ending with e.g. '_'.
+    domain_server_handle TEXT NOT NULL UNIQUE, -- starts with the zone identifier ending with e.g. '_'.
 	domain_client_handle TEXT,
 	domain_ascii_name VARCHAR(511) NOT NULL,
     domain_unicode_name VARCHAR(511) NOT NULL,
@@ -315,7 +315,7 @@ EXECUTE FUNCTION set_domain_zone();
 -- =======================
 CREATE TABLE entities (
     entity_id BIGSERIAL PRIMARY KEY,
-	entity_dns_handle TEXT NOT NULL UNIQUE,
+	entity_server_handle TEXT NOT NULL UNIQUE,
     entity_client_handle TEXT,
 	entity_web_id VARCHAR(34),
     entity_organization_type TEXT,
@@ -365,7 +365,7 @@ EXECUTE FUNCTION update_entities_latest_update_at();
 -- =======================
 CREATE TABLE nameservers (
     nameserver_id BIGSERIAL PRIMARY KEY,
-	nameserver_dns_handle TEXT NOT NULL UNIQUE,
+	nameserver_server_handle TEXT NOT NULL UNIQUE,
     nameserver_client_handle TEXT,
     nameserver_ascii_name TEXT NOT NULL,
     nameserver_unicode_name TEXT,
@@ -405,7 +405,7 @@ CREATE TABLE ip_network_versions (
 -- =======================
 CREATE TABLE ip_networks (
     ip_network_id BIGSERIAL PRIMARY KEY,
-	ip_network_dns_handle TEXT NOT NULL UNIQUE,
+	ip_network_server_handle TEXT NOT NULL UNIQUE,
     ip_network_client_handle TEXT,	
     ip_network_start_address VARCHAR(50),
     ip_network_end_address VARCHAR(50),
@@ -436,7 +436,7 @@ EXECUTE FUNCTION update_ip_networks_latest_update_at();
 -- =======================
 CREATE TABLE autnums (
     autnum_id BIGSERIAL PRIMARY KEY,
-	autnum_dns_handle TEXT NOT NULL UNIQUE,
+	autnum_server_handle TEXT NOT NULL UNIQUE,
     autnum_client_handle TEXT,
     autnum_start BIGINT,
     autnum_end BIGINT,
