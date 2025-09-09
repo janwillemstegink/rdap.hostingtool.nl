@@ -45,7 +45,8 @@ if (empty([ip]) or empty([block]))	{
 	[ip] = getClientIP();
 	[block] = get_block([ip]);
 }
-$log_file = "/home/admin/logging/domain_whois_tool_" . $datetime->format('Ym') . ".txt";
+$internal = (str_contains([block],'Freedom')) ? 'internal_' : '';
+$log_file = "/home/admin/logging/domain_whois_tool_" . $internal . $datetime->format('Ym') . ".txt";
 $log_line = $datetime->format('Y-m-d H:i:s') . " UTC, lang" . $viewlanguage . ", " . $vd . ", " . [ip] . ", " . [block] . "\n";
 file_put_contents($log_file, $log_line, FILE_APPEND);
 echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>

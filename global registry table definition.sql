@@ -54,12 +54,12 @@ CREATE TABLE common (
 	}',
 	common_best_practices_periods JSONB DEFAULT '[
 		{"period_identifier": "subscription_years", "lowest": 1, "highest": 10, "optimal": 1},
-		{"period_identifier": "add_grace_days", "lowest": 5, "highest": 7, "optimal": 5},
-		{"period_identifier": "transfer_grace_days", "lowest": 5, "highest": 7, "optimal": 5},
+		{"period_identifier": "add_grace_days", "lowest": 5, "highest": 7, "optimal": 7},
+		{"period_identifier": "transfer_grace_days", "lowest": 5, "highest": 7, "optimal": 7},
 		{"period_identifier": "renew_grace_days", "lowest": 7, "highest": 14, "optimal": 7},
-		{"period_identifier": "post_transfer_lock_days", "lowest": 0, "highest": 30, "optimal": 30},
-		{"period_identifier": "pending_redemption_days", "lowest": 30, "highest": 40, "optimal": 30},
-		{"period_identifier": "pending_delete_days", "lowest": 5, "highest": 7, "optimal": 5}
+		{"period_identifier": "post_transfer_lock_days", "lowest": 0, "highest": 30, "optimal": 7},
+		{"period_identifier": "pending_redemption_days", "lowest": 25, "highest": 40, "optimal": 28},
+		{"period_identifier": "pending_delete_days", "lowest": 5, "highest": 7, "optimal": 7}
     ]',
 	common_root_accepted_workload JSONB DEFAULT 
 		'[
