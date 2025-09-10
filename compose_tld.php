@@ -224,18 +224,18 @@ $decoded = json_decode($indeterminate_rdap_statuses_json, true);
 $indeterminate_rdap_statuses = '<b>indeterminate_rdap_statuses</b><br />'; 
 $indeterminate_rdap_statuses .=	implode('<br />', $decoded['indeterminate_rdap_statuses']);
 $best_practices_periods_json = '[
-	{"period_identifier": "subscription_years", "lowest": 1, "highest": 10, "optimal": 1},
-	{"period_identifier": "add_grace_days", "lowest": 5, "highest": 7, "optimal": 7},
-	{"period_identifier": "transfer_grace_days", "lowest": 5, "highest": 7, "optimal": 7},
-	{"period_identifier": "renew_grace_days", "lowest": 7, "highest": 14, "optimal": 7},
-	{"period_identifier": "post_transfer_lock_days", "lowest": 0, "highest": 30, "optimal": 7},
-	{"period_identifier": "pending_redemption_days", "lowest": 25, "highest": 40, "optimal": 28},
-	{"period_identifier": "pending_delete_days", "lowest": 5, "highest": 7, "optimal": 7}
+	{"period_identifier": "subscription_years", "minimum": 1, "maximum": 10, "optimal": 1},
+	{"period_identifier": "add_grace_days", "minimum": 5, "maximum": 5, "optimal": 5},
+	{"period_identifier": "transfer_grace_days", "minimum": 5, "maximum": 5, "optimal": 5},
+	{"period_identifier": "renew_grace_days", "minimum": 5, "maximum": 45, "optimal": 30},
+	{"period_identifier": "post_transfer_lock_days", "minimum": 60, "maximum": 60, "optimal": 60},
+	{"period_identifier": "pending_redemption_days", "minimum": 30, "maximum": 30, "optimal": 30},
+	{"period_identifier": "pending_delete_days", "minimum": 5, "maximum": 5, "optimal": 5}
 ]';
 $decoded = json_decode($best_practices_periods_json, true);	
 $best_practices_periods = '<b>best_practices_periods</b><br />';    
 foreach ($decoded as $period) {
-	$best_practices_periods .= $period['period_identifier'] . ': lowest ' . $period['lowest'] . ', highest ' . $period['highest'] .  ', optimal ' . $period['optimal'] . '<br />';
+	$best_practices_periods .= $period['period_identifier'] . ': minimum ' . $period['minimum'] . ', maximum ' . $period['maximum'] .  ', optimal ' . $period['optimal'] . '<br />';
 }	
 $root_accepted_workload_json = '[{
 	"public_status_requests": {
