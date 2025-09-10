@@ -167,6 +167,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_tld_terms_of_service_url").textContent = proposed;
 		document.getElementById("root_zone_tld_privacy_policy_url").textContent = proposed;
 		document.getElementById("root_zone_tld_menu_url").textContent = proposed;
+		document.getElementById("root_zone_tld_search_engine_deletion_phase_ready").textContent = proposed;
 		document.getElementById("root_zone_tld_contacts").textContent = proposed;
 		document.getElementById("root_zone_zone_roles").textContent = proposed;
 		document.getElementById("root_zone_zone_accepted_workload").textContent = proposed;
@@ -211,6 +212,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_tld_terms_of_service_url").textContent = proposed;
 		document.getElementById("root_zone_tld_privacy_policy_url").textContent = proposed;
 		document.getElementById("root_zone_tld_menu_url").textContent = proposed + 'Een TLD-specifiek informatiemenu, beschikbaar onder een subdomein zoals "regmenu".';
+		document.getElementById("root_zone_tld_search_engine_deletion_phase_ready").textContent = proposed + 'Of zoekmachines op pending delete mogen vertrouwen om resultaten te wissen.';
 		document.getElementById("root_zone_tld_contacts").textContent = proposed;
 		document.getElementById("root_zone_zone_roles").textContent = proposed + "'Request-Driven': Aanvrager/TLD/rol vereisen een niet-geclusterde zichtbaarheid.";
 		document.getElementById("root_zone_zone_accepted_workload").textContent = proposed + "Deze modellering ondersteunt de modernisering van IANA-databasetabellen.";
@@ -255,6 +257,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_tld_terms_of_service_url").textContent = proposed;
 		document.getElementById("root_zone_tld_privacy_policy_url").textContent = proposed;		
 		document.getElementById("root_zone_tld_menu_url").textContent = proposed + 'A TLD specific information menu, available under a subdomain such as "regmenu".';
+		document.getElementById("root_zone_tld_search_engine_deletion_phase_ready").textContent = proposed + 'If search engines may rely on pending delete to delete results.';
 		document.getElementById("root_zone_tld_contacts").textContent = proposed;
 		document.getElementById("root_zone_zone_roles").textContent = proposed + "Request-Driven: Requester/TLD/role require an unclustered visibility.";
 		document.getElementById("root_zone_zone_accepted_workload").textContent = proposed + "This modeling supports IANA database table modernization efforts.";
@@ -299,6 +302,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_tld_terms_of_service_url").textContent = proposed;
 		document.getElementById("root_zone_tld_privacy_policy_url").textContent = proposed;		
 		document.getElementById("root_zone_tld_menu_url").textContent = proposed + 'Ein TLD-spezifisches Informationsmenü, verfügbar unter einer Subdomäne wie "regmenu".';
+		document.getElementById("root_zone_tld_search_engine_deletion_phase_ready").textContent = proposed + 'Ob Suchmaschinen auf Pending Delete vertrauen dürfen, um Ergebnisse zu löschen.';
 		document.getElementById("root_zone_tld_contacts").textContent = proposed;
 		document.getElementById("root_zone_zone_roles").textContent = proposed + "'Request-Driven: Anforderer/TLD/Rolle erfordern eine nicht gruppierte Sichtbarkeit.";
 		document.getElementById("root_zone_zone_accepted_workload").textContent = proposed + "Dieses Modell unterstützt die Modernisierung der IANA-Datenbanktabellen.";
@@ -343,6 +347,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_tld_terms_of_service_url").textContent = proposed;
 		document.getElementById("root_zone_tld_privacy_policy_url").textContent = proposed;		
 		document.getElementById("root_zone_tld_menu_url").textContent = proposed + "Un menu d'informations spécifique au TLD, disponible sous un sous-domaine tel que 'regmenu'.";
+		document.getElementById("root_zone_tld_search_engine_deletion_phase_ready").textContent = proposed + "Si les moteurs peuvent se fier à pending delete pour supprimer des résultats.";
 		document.getElementById("root_zone_tld_contacts").textContent = proposed;
 		document.getElementById("root_zone_zone_roles").textContent = proposed + "'Request-Driven': Le demandeur/TLD/le rôle nécessite une visibilité non groupée.";
 		document.getElementById("root_zone_zone_accepted_workload").textContent = proposed + "Cette modélisation soutient la modernisation des tables de la base de données IANA.";
@@ -465,6 +470,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr><td>tld_terms_of_service_url</td><td>'.((strlen($data[$pd]['root_zone']['tld_terms_of_service_url'])) ? '<a href='.$data[$pd]['root_zone']['tld_terms_of_service_url'].' target="_blank">TLD Terms</a>' : '').'</td><td id="root_zone_tld_terms_of_service_url"></td></tr>';
 	$html_text .= '<tr><td>tld_privacy_policy_url</td><td>'.((strlen($data[$pd]['root_zone']['tld_privacy_policy_url'])) ? '<a href='.$data[$pd]['root_zone']['tld_privacy_policy_url'].' target="_blank">TLD Privacy</a>' : '').'</td><td id="root_zone_tld_privacy_policy_url"></td></tr>';
 	$html_text .= '<tr><td>tld_menu_url</td><td>'.((strlen($data[$pd]['root_zone']['tld_menu_url'])) ? '<a href='.$data[$pd]['root_zone']['tld_menu_url'].' target="_blank">TLD Menu</a>' : '').'</td><td id="root_zone_tld_menu_url"></td></tr>';
+	$html_text .= '<tr style="vertical-align:top"><td>tld_search_engine_deletion_phase_ready</td><td>'.$data[$pd]['root_zone']['tld_search_engine_deletion_phase_ready'].'</td><td id="root_zone_tld_search_engine_deletion_phase_ready"></td></tr>';
 	$html_text .= '<tr style="vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['tld_contacts'].'</td><td id="root_zone_tld_contacts"></td></tr>';
 	$html_text .= '<tr id="271" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['zone_roles'].'</td><td id="root_zone_zone_roles"></td></tr>';
 	$html_text .= '<tr id="272" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['zone_accepted_workload'].'</td><td id="root_zone_zone_accepted_workload"></td></tr>';

@@ -111,18 +111,19 @@ CREATE TABLE contacts (
 -- Clustered roles are deprecated in RDAP output to allow proper role_shielding of fields.
 -- =======================
 CREATE TABLE zones (
-    zone_id SERIAL PRIMARY KEY,
-    zone_identifier CITEXT NOT NULL,
+	zone_id SERIAL PRIMARY KEY,
+	zone_identifier CITEXT NOT NULL,
 	zone_data_active_from TIMESTAMPTZ,
 	zone_tld_category VARCHAR(20) NOT NULL,
-    zone_tld_type VARCHAR(20) NOT NULL,
+	zone_tld_type VARCHAR(20) NOT NULL,
 	zone_tld_statuses TEXT[],
 	zone_tld_delegation_url TEXT,
 	zone_tld_json_response_url TEXT,
 	zone_tld_terms_of_service_url TEXT,
 	zone_tld_privacy_policy_url TEXT,
-    zone_tld_menu_url TEXT,
-    zone_zone_roles JSONB DEFAULT 
+	zone_tld_menu_url TEXT,
+	zone_tld_search_engine_deletion_phase_ready BOOLEAN NOT NULL DEFAULT FALSE,
+	zone_zone_roles JSONB DEFAULT 
         '[
             {"zone_role_sequence": 10, "zone_role_identifier": "sponsor", "zone_role_shielding": ["name", "email", "tel"]},
             {"zone_role_sequence": 20, "zone_role_identifier": "registrant", "zone_role_shielding": ["name", "email", "tel", "address"]},

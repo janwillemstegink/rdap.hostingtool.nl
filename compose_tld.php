@@ -190,6 +190,7 @@ $tld_type = '';
 $tld_terms_of_service_url = '';
 $tld_privacy_policy_url = '';	
 $tld_menu_url = '';
+$tld_search_engine_deletion_phase_ready = 'no';	
 $tld_contacts_json = '[]';
 $tld_roles_json = '[
 {"tld_role_sequence": 10,"tld_role_identifier": "contracting_authority","tld_role_shielding": ["name", "tel"]},
@@ -763,6 +764,7 @@ $arr[$inputtld]['root_zone']['tld_json_response_url'] = $tld_json_response_url;
 $arr[$inputtld]['root_zone']['tld_terms_of_service_url'] = $tld_terms_of_service_url;
 $arr[$inputtld]['root_zone']['tld_privacy_policy_url'] = $tld_privacy_policy_url;
 $arr[$inputtld]['root_zone']['tld_menu_url'] = $tld_menu_url;
+$arr[$inputtld]['root_zone']['tld_search_engine_deletion_phase_ready'] = $tld_search_engine_deletion_phase_ready;
 $arr[$inputtld]['root_zone']['tld_contacts'] = $tld_contacts;
 $arr[$inputtld]['root_zone']['zone_roles'] = $zone_roles;
 $arr[$inputtld]['root_zone']['zone_accepted_workload'] = $zone_accepted_workload;
