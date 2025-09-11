@@ -225,30 +225,30 @@ $decoded = json_decode($indeterminate_rdap_statuses_json, true);
 $indeterminate_rdap_statuses = '<b>indeterminate_rdap_statuses</b><br />'; 
 $indeterminate_rdap_statuses .=	implode('<br />', $decoded['indeterminate_rdap_statuses']);
 $best_practices_periods_json = '[
-	{"period_identifier": "subscription_years", "minimum": 1, "maximum": 10, "optimal": 1},
-	{"period_identifier": "add_grace_days", "minimum": 5, "maximum": 5, "optimal": 5},
-	{"period_identifier": "transfer_grace_days", "minimum": 5, "maximum": 5, "optimal": 5},
-	{"period_identifier": "renew_grace_days", "minimum": 5, "maximum": 45, "optimal": 30},
-	{"period_identifier": "post_transfer_lock_days", "minimum": 60, "maximum": 60, "optimal": 60},
-	{"period_identifier": "pending_redemption_days", "minimum": 30, "maximum": 30, "optimal": 30},
-	{"period_identifier": "pending_delete_days", "minimum": 5, "maximum": 5, "optimal": 5}
+	{"period_identifier": "subscription_years", "min": 1, "max": 10, "optimal": 1},
+	{"period_identifier": "add_grace_days", "min": 5, "max": 5, "optimal": 5},
+	{"period_identifier": "transfer_grace_days", "min": 5, "max": 5, "optimal": 5},
+	{"period_identifier": "renew_grace_days", "min": 5, "max": 45, "optimal": 30},
+	{"period_identifier": "post_transfer_lock_days", "min": 60, "max": 60, "optimal": 60},
+	{"period_identifier": "pending_redemption_days", "min": 30, "max": 30, "optimal": 30},
+	{"period_identifier": "pending_delete_days", "min": 5, "max": 5, "optimal": 5}
 ]';
 $decoded = json_decode($best_practices_periods_json, true);	
 $best_practices_periods = '<b>best_practices_periods</b><br />';    
 foreach ($decoded as $period) {
-	$best_practices_periods .= $period['period_identifier'] . ': minimum ' . $period['minimum'] . ', maximum ' . $period['maximum'] .  ', optimal ' . $period['optimal'] . '<br />';
+	$best_practices_periods .= $period['period_identifier'] . ': min ' . $period['min'] . ', max ' . $period['max'] .  ', optimal ' . $period['optimal'] . '<br />';
 }	
 $root_accepted_workload_json = '[{
 	"public_status_requests": {
-		"max_per_utc_day": null,
-		"max_per_minute": null,
-		"max_per_second": null,
+		"maximum_per_utc_day": null,
+		"maximum_per_minute": null,
+		"maximum_per_second": null,
 		"caching_in_seconds": null
 	},
  		"public_object_requests": {
-   		"max_per_utc_day": null,
-   		"max_per_minute": null,
-   		"max_per_second": null,
+   		"maximum_per_utc_day": null,
+   		"maximum_per_minute": null,
+   		"maximum_per_second": null,
    		"caching_in_seconds": null
 	}
 }]';
@@ -294,15 +294,15 @@ $operational_periods_json = '[
 ]';
 $zone_accepted_workload_json = '[{
 	"public_status_requests": {
-		"max_per_utc_day": null,
-		"max_per_minute": null,
-		"max_per_second": null,
+		"maximum_per_utc_day": null,
+		"maximum_per_minute": null,
+		"maximum_per_second": null,
 		"caching_in_seconds": null
 	},
  		"public_object_requests": {
-   		"max_per_utc_day": null,
-   		"max_per_minute": null,
-   		"max_per_second": null,
+   		"maximum_per_utc_day": null,
+   		"maximum_per_minute": null,
+   		"maximum_per_second": null,
    		"caching_in_seconds": null
 	}
 }]';	
@@ -329,15 +329,15 @@ if ($inputtld == 'nl')	{
     ]';
 	$zone_accepted_workload_json = '[{
 		"public_status_requests": {
-    		"max_per_utc_day": 50000,
-    		"max_per_minute": null,
-    		"max_per_second": 10,
+    		"maximum_per_utc_day": 50000,
+    		"maximum_per_minute": null,
+    		"maximum_per_second": 10,
     		"caching_in_seconds": 420
   		},
   		"public_object_requests": {
-    		"max_per_utc_day": 2000,
-    		"max_per_minute": null,
-    		"max_per_second": 1,
+    		"maximum_per_utc_day": 2000,
+    		"maximum_per_minute": null,
+    		"maximum_per_second": 1,
     		"caching_in_seconds": 60
   		}
 	}]';

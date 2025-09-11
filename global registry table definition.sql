@@ -53,13 +53,13 @@ CREATE TABLE common (
 		]
 	}',
 	common_best_practices_periods JSONB DEFAULT '[
-		{"period_identifier": "subscription_years", "minimum": 1, "maximum": 10, "optimal": 1},
-		{"period_identifier": "add_grace_days", "minimum": 5, "maximum": 5, "optimal": 5},
-		{"period_identifier": "transfer_grace_days", "minimum": 5, "maximum": 5, "optimal": 5},
-		{"period_identifier": "renew_grace_days", "minimum": 5, "maximum": 45, "optimal": 30},
-		{"period_identifier": "post_transfer_lock_days", "minimum": 60, "maximum": 60, "optimal": 60},
-		{"period_identifier": "pending_redemption_days", "minimum": 30, "maximum": 30, "optimal": 30},
-		{"period_identifier": "pending_delete_days", "minimum": 5, "maximum": 5, "optimal": 5}
+		{"period_identifier": "subscription_years", "min": 1, "max": 10, "optimal": 1},
+		{"period_identifier": "add_grace_days", "min": 5, "max": 5, "optimal": 5},
+		{"period_identifier": "transfer_grace_days", "min": 5, "max": 5, "optimal": 5},
+		{"period_identifier": "renew_grace_days", "min": 5, "max": 45, "optimal": 30},
+		{"period_identifier": "post_transfer_lock_days", "min": 60, "max": 60, "optimal": 60},
+		{"period_identifier": "pending_redemption_days", "min": 30, "max": 30, "optimal": 30},
+		{"period_identifier": "pending_delete_days", "min": 5, "max": 5, "optimal": 5}
 		]',
 	common_root_accepted_workload JSONB DEFAULT 
 		'[
