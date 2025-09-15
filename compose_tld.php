@@ -190,7 +190,7 @@ $tld_type = '';
 $tld_terms_of_service_url = '';
 $tld_privacy_policy_url = '';	
 $tld_menu_url = '';
-$tld_search_engine_deletion_phase_ready = 'no';	
+$tld_search_engine_deletion_phase_ready = 'n/a';	
 $tld_contacts_json = '[]';
 $tld_roles_json = '[
 {"tld_role_sequence": 10,"tld_role_identifier": "contracting_authority","tld_role_shielding": ["name", "tel"]},
@@ -222,7 +222,7 @@ $indeterminate_rdap_statuses_json = '{
   ]
 }';
 $decoded = json_decode($indeterminate_rdap_statuses_json, true);
-$indeterminate_rdap_statuses = '<b>indeterminate_rdap_statuses</b><br />'; 
+$indeterminate_rdap_statuses = ''; 
 $indeterminate_rdap_statuses .=	implode('<br />', $decoded['indeterminate_rdap_statuses']);
 $best_practices_periods_json = '[
 	{"period_identifier": "subscription_years", "min": 1, "max": 10, "optimal": 1},
@@ -234,7 +234,7 @@ $best_practices_periods_json = '[
 	{"period_identifier": "pending_delete_days", "min": 5, "max": 5, "optimal": 5}
 ]';
 $decoded = json_decode($best_practices_periods_json, true);	
-$best_practices_periods = '<b>best_practices_periods</b><br />';    
+$best_practices_periods = '';    
 foreach ($decoded as $period) {
 	$best_practices_periods .= $period['period_identifier'] . ': min ' . $period['min'] . ', max ' . $period['max'] .  ', optimal ' . $period['optimal'] . '<br />';
 }	
@@ -253,12 +253,12 @@ $root_accepted_workload_json = '[{
 	}
 }]';
 $decoded = json_decode($root_accepted_workload_json, true);
-$root_accepted_workload = '<b>root_accepted_workload</b><br />';    
+$root_accepted_workload = '';    
 foreach ($decoded as $workload_entry) {
     foreach ($workload_entry as $request_type => $limits) {
         $root_accepted_workload .= '<b>&bull; </b><em>' . htmlspecialchars($request_type) . ':</em><br />';
         foreach ($limits as $limit_type => $limit_value) {
-            $display_value = $limit_value !== null ? htmlspecialchars($limit_value) : 'none';
+            $display_value = $limit_value !== null ? htmlspecialchars($limit_value) : 'n/a';
             $root_accepted_workload .= htmlspecialchars($limit_type) . ': ' . $display_value . '<br />';
         }	
     }	
@@ -599,7 +599,7 @@ elseif ($inputtld == 'org')	{
 }
 $tld_delegation_url = 'https://www.iana.org/domains/root/db/'.$inputtld.'.html';		
 $decoded = json_decode($tld_contacts_json, true);
-$tld_contacts = '<b>tld_contacts</b><br />';   
+$tld_contacts = '';   
 foreach ($decoded as $contact) {
 	if (strlen($contact['contact_legal_name']) or strlen($contact['contact_presented_name']))	{	
 		$tld_contacts .= '<b>&bull; </b><em>'.$contact['contact_identifier'] . ':</em><br />';
@@ -612,7 +612,7 @@ foreach ($decoded as $contact) {
 	}	
 }
 $decoded = json_decode($operational_periods_json, true);
-$operational_periods = '<b>operational_periods</b><br />';
+$operational_periods = '';
 foreach ($decoded as $period) {
 	$operational_periods .= $period['period_identifier'] . ':';
 	if ($period['default'] !== null)	{
@@ -664,7 +664,7 @@ $status_meanings_json = '[
 	
 	
 $decoded = json_decode($status_meanings_json, true);
-$status_meanings = "<b>status_meanings</b><br />";
+$status_meanings = '';
 foreach ($decoded as $statuses) {
     foreach ($statuses as $key => $value) {	//ucwords()
         $status_meanings .= '"' . htmlspecialchars($key) . '": ';
@@ -674,12 +674,12 @@ foreach ($decoded as $statuses) {
 }	
 	
 $decoded = json_decode($zone_accepted_workload_json, true);
-$zone_accepted_workload = '<b>zone_accepted_workload</b><br />';    
+$zone_accepted_workload = '';    
 foreach ($decoded as $workload_entry) {
     foreach ($workload_entry as $request_type => $limits) {
         $zone_accepted_workload .= '<b>&bull; </b><em>' . htmlspecialchars($request_type) . ':</em><br />';
         foreach ($limits as $limit_type => $limit_value) {
-            $display_value = $limit_value !== null ? htmlspecialchars($limit_value) : 'none';
+            $display_value = $limit_value !== null ? htmlspecialchars($limit_value) : 'n/a';
             $zone_accepted_workload .= htmlspecialchars($limit_type) . ': ' . $display_value . '<br />';
         }	
     }	
