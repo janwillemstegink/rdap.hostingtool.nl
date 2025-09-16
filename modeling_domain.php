@@ -674,6 +674,11 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$domain_statuses = (!empty($data[$pd]['domain']['statuses'])) ? str_replace(',','<br />', $data[$pd]['domain']['statuses']) : '';
 	$domain_statuses = str_replace('excluded','excluded (no DNS, no SPF email defense)', $domain_statuses);
 	$domain_statuses = str_replace('locked','locked (indeterminate RDAP status)', $domain_statuses);
+	$domain_statuses = str_replace('removed','removed (indeterminate RDAP status)', $domain_statuses);
+	$domain_statuses = str_replace('obscured','obscured (indeterminate RDAP status)', $domain_statuses);
+	$domain_statuses = str_replace('private','private (indeterminate RDAP status)', $domain_statuses);
+	$domain_statuses = str_replace('proxy','proxy (indeterminate RDAP status)', $domain_statuses);
+	$domain_statuses = str_replace('associated','associated (indeterminate RDAP status)', $domain_statuses);
 	if (str_contains($data[$pd]['domain']['statuses'], 'inactive'))	{
 		$domain_statuses = str_replace('inactive','inactive (no DNS, no SPF email defense)', $domain_statuses);
 	}	
