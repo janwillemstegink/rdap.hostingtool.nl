@@ -672,10 +672,10 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="303" style="display:none"><td>domain_ascii_name (lowercase is not a "MUST")</td><td>'.$data[$pd]['domain']['ascii_name'].'</td><td id="domain_ascii_name"></td></tr>';
 	$html_text .= '<tr id="304" style="display:none"><td>domain_unicode_name</td><td>'.$data[$pd]['domain']['unicode_name'].'</td><td id="domain_unicode_name"></td></tr>';
 	$domain_statuses = (!empty($data[$pd]['domain']['statuses'])) ? str_replace(',','<br />', $data[$pd]['domain']['statuses']) : '';
-	$domain_statuses = str_replace('excluded','excluded ⚠️ => server_registration_restricted', $domain_statuses);
-	$domain_statuses = str_replace('locked','locked => server_protected_state', $domain_statuses);
+	$domain_statuses = str_replace('excluded','excluded (no DNS, no SPF email defense)', $domain_statuses);
+	$domain_statuses = str_replace('locked','locked (indeterminate RDAP status)', $domain_statuses);
 	if (str_contains($data[$pd]['domain']['statuses'], 'inactive'))	{
-		$domain_statuses = str_replace('inactive','inactive => dns_glue_tld_nameservers', $domain_statuses);
+		$domain_statuses = str_replace('inactive','inactive (no DNS, no SPF email defense)', $domain_statuses);
 	}	
 	elseif (str_contains($data[$pd]['domain']['statuses'], 'active'))	{
 		$domain_statuses = str_replace('active','active => dns_active', $domain_statuses);
