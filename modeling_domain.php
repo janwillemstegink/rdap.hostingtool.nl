@@ -672,38 +672,38 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="303" style="display:none"><td>domain_ascii_name (lowercase is not a "MUST")</td><td>'.$data[$pd]['domain']['ascii_name'].'</td><td id="domain_ascii_name"></td></tr>';
 	$html_text .= '<tr id="304" style="display:none"><td>domain_unicode_name</td><td>'.$data[$pd]['domain']['unicode_name'].'</td><td id="domain_unicode_name"></td></tr>';
 	$domain_statuses = (!empty($data[$pd]['domain']['statuses'])) ? str_replace(',','<br />', $data[$pd]['domain']['statuses']) : '';
-	$domain_statuses = str_replace('excluded','excluded (no DNS, no SPF email defense)', $domain_statuses);
-	$domain_statuses = str_replace('locked','locked (indeterminate RDAP status)', $domain_statuses);
-	$domain_statuses = str_replace('removed','removed (indeterminate RDAP status)', $domain_statuses);
-	$domain_statuses = str_replace('obscured','obscured (indeterminate RDAP status)', $domain_statuses);
-	$domain_statuses = str_replace('private','private (indeterminate RDAP status)', $domain_statuses);
-	$domain_statuses = str_replace('proxy','proxy (indeterminate RDAP status)', $domain_statuses);
-	$domain_statuses = str_replace('associated','associated (indeterminate RDAP status)', $domain_statuses);
+	$domain_statuses = str_replace('excluded','excluded (without DNS no email protection)', $domain_statuses);
+	$domain_statuses = str_replace('locked','locked (indeterminate RDAPv1)', $domain_statuses);
+	$domain_statuses = str_replace('removed','removed (indeterminate RDAPv1)', $domain_statuses);
+	$domain_statuses = str_replace('obscured','obscured (indeterminate RDAPv1)', $domain_statuses);
+	$domain_statuses = str_replace('private','private (indeterminate RDAPv1)', $domain_statuses);
+	$domain_statuses = str_replace('proxy','proxy (indeterminate RDAPv1)', $domain_statuses);
+	$domain_statuses = str_replace('associated','associated (indeterminate RDAPv1)', $domain_statuses);
 	if (str_contains($data[$pd]['domain']['statuses'], 'inactive'))	{
-		$domain_statuses = str_replace('inactive','inactive (no DNS, no SPF email defense)', $domain_statuses);
+		$domain_statuses = str_replace('inactive','inactive (without DNS no email protection)', $domain_statuses);
 	}	
 	elseif (str_contains($data[$pd]['domain']['statuses'], 'active'))	{
-		$domain_statuses = str_replace('active','active => dns_active', $domain_statuses);
+		$domain_statuses = str_replace('active','active (EPP: ok => RDAPv2: dns_active)', $domain_statuses);
 	}
-	$domain_statuses = str_replace('redemption period','redemption period => pending_redemption', $domain_statuses);
+	$domain_statuses = str_replace('redemption period','redemption period (=> pending_redemption)', $domain_statuses);
 	if (str_contains($data[$pd]['domain']['statuses'], 'renew prohibited'))	{
 		if (!str_contains($data[$pd]['domain']['statuses'], 'server renew prohibited') and !str_contains($data[$pd]['domain']['statuses'], 'client renew prohibited'))	{
-			$domain_statuses = str_replace('renew prohibited','renew prohibited - server-side or client-side?', $domain_statuses);
+			$domain_statuses = str_replace('renew prohibited','renew prohibited (indeterminate RDAPv1)', $domain_statuses);
 		}
 	}
 	if (str_contains($data[$pd]['domain']['statuses'], 'update prohibited'))	{
 		if (!str_contains($data[$pd]['domain']['statuses'], 'server update prohibited') and !str_contains($data[$pd]['domain']['statuses'], 'client update prohibited'))	{
-			$domain_statuses = str_replace('update prohibited','update prohibited - server-side or client-side?', $domain_statuses);
+			$domain_statuses = str_replace('update prohibited','update prohibited (indeterminate RDAPv1)', $domain_statuses);
 		}
 	}
 	if (str_contains($data[$pd]['domain']['statuses'], 'transfer prohibited'))	{
 		if (!str_contains($data[$pd]['domain']['statuses'], 'server transfer prohibited') and !str_contains($data[$pd]['domain']['statuses'], 'client transfer prohibited'))	{
-			$domain_statuses = str_replace('transfer prohibited','transfer prohibited - server-side or client-side?', $domain_statuses);
+			$domain_statuses = str_replace('transfer prohibited','transfer prohibited (indeterminate RDAPv1)', $domain_statuses);
 		}
 	}	
 	if (str_contains($data[$pd]['domain']['statuses'], 'delete prohibited'))	{
 		if (!str_contains($data[$pd]['domain']['statuses'], 'server delete prohibited') and !str_contains($data[$pd]['domain']['statuses'], 'client delete prohibited'))	{
-			$domain_statuses = str_replace('delete prohibited','delete prohibited - server-side or client-side?', $domain_statuses);
+			$domain_statuses = str_replace('delete prohibited','delete prohibited (indeterminate RDAPv1)', $domain_statuses);
 		}
 	}	
 	$html_text .= '<tr style="vertical-align:top"><td>domain_statuses</td><td>'.$domain_statuses.'</td><td id="domain_statuses"></td></tr>';
