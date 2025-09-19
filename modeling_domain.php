@@ -683,7 +683,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 		$domain_statuses = str_replace('inactive','inactive (without DNS no email protection)', $domain_statuses);
 	}	
 	elseif (str_contains($data[$pd]['domain']['statuses'], 'active'))	{
-		$domain_statuses = str_replace('active','active (EPP: ok => RDAPv2: dns_active)', $domain_statuses);
+		$domain_statuses = str_replace('active','active (RDAPv2 => dns_active)', $domain_statuses);
 	}
 	$domain_statuses = str_replace('redemption period','redemption period (=> pending_redemption)', $domain_statuses);
 	if (str_contains($data[$pd]['domain']['statuses'], 'renew prohibited'))	{
