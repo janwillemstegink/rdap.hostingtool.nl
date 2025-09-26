@@ -459,7 +459,8 @@ $name_servers_ipv4 = '';
 $name_servers_ipv6 = '';
 $name_servers_statuses = '';
 $name_servers_delegation_check = '';
-$name_servers_latest_correct_delegation_check = '';	
+$name_servers_latest_correct_delegation_check = '';
+$dns_delegation = '0';	
 	
 $entity_sponsor = -1;	
 $entity_registrant = -1;
@@ -661,9 +662,11 @@ foreach($obj as $key1 => $value1) {
 				}
 				elseif ($key3 == 'ldhName') {
 					$name_servers_ascii .= $key2.': '.$value3."<br />";
+					$dns_delegation = '1';
 				}
 				elseif ($key3 == 'unicodeName')	{
 					$name_servers_unicode .= $key2.': '.$value3."<br />";
+					$dns_delegation = '1';
 				}
 				elseif ($key3 == 'status')	{
 					$name_servers_statuses .= $key2.': '.$value3[0]."<br />";	
@@ -848,9 +851,11 @@ foreach($obj as $key1 => $value1) {
 						if ($key3 == 'ipAddresses') {
 							if ($key4 == 'v4') {
 								$name_servers_ipv4 .= $key2.': '.$value5."<br />";
+								$dns_delegation = '1';
 							}
 							elseif ($key4 == 'v6') {
 								$name_servers_ipv6 .= $key2.': '.$value5."<br />";
+								$dns_delegation = '1';
 							}
 						}					
 					}
@@ -1514,6 +1519,7 @@ $arr[$inputdomain]['name_servers']['dnssec_key_tag'] = rtrim($name_servers_dnsse
 $arr[$inputdomain]['name_servers']['dnssec_algorithm'] = rtrim($name_servers_dnssec_algorithm, ",");
 $arr[$inputdomain]['name_servers']['dnssec_digest_type'] = rtrim($name_servers_dnssec_digest_type, ",");
 $arr[$inputdomain]['name_servers']['dnssec_digest'] = rtrim($name_servers_dnssec_digest, ",");
+$arr[$inputdomain]['name_servers']['dns_delegation'] = $dns_delegation;
 	
 $arr[$inputdomain]['raw_rdap'] = $raw_rdap_data;
 

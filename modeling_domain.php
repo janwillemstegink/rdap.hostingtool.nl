@@ -47,8 +47,8 @@ if (empty([ip]) or empty([block]))	{
 	[ip] = getClientIP();
 	[block] = get_block([ip]);
 }
-$internal = (str_contains([block],'Freedom')) ? 'internal_' : '';
-$log_file = "/home/admin/logging/domain_lookup_tool_" . $internal . $datetime->format('Ym') . ".txt";
+$internal = (str_contains([block],'Freedom')) ? '_internal_' : '';
+$log_file = "/home/admin/logging/" . $internal . "domain_lookup_tool_" . $datetime->format('Ym') . ".txt";
 $log_line = $datetime->format('Y-m-d H:i:s') . " UTC, lang" . $viewlanguage . ", " . $vd . ", " . [ip] . ", " . [block] . "\n";
 file_put_contents($log_file, $log_line, FILE_APPEND);
 echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
@@ -680,10 +680,15 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$domain_statuses = str_replace('proxy','proxy (indeterminate RDAPv1)', $domain_statuses);
 	$domain_statuses = str_replace('associated','associated (indeterminate RDAPv1)', $domain_statuses);
 	if (str_contains($data[$pd]['domain']['statuses'], 'inactive'))	{
-		$domain_statuses = str_replace('inactive','inactive (without DNS no email protection)', $domain_statuses);
+		$domain_statuses = str_replace('inactive','inactive (no DNS; email protection unavailable)', $domain_statuses);
 	}	
 	elseif (str_contains($data[$pd]['domain']['statuses'], 'active'))	{
-		$domain_statuses = str_replace('active','active (RDAPv2 => dns_active)', $domain_statuses);
+		if ($data[$pd]['name_servers']['dns_delegation'] == '1')	{
+			$domain_statuses = str_replace('active','active (DNS is delegated)', $domain_statuses);
+		}
+		else	{
+			$domain_statuses = str_replace('active','active (DNS is not delegated)', $domain_statuses);
+		}	
 	}
 	$domain_statuses = str_replace('redemption period','redemption period (=> pending_redemption)', $domain_statuses);
 	if (str_contains($data[$pd]['domain']['statuses'], 'renew prohibited'))	{
