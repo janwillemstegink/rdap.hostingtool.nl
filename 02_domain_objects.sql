@@ -1,9 +1,10 @@
 -- ========================================
--- Domain / RDAP Objects Schema (run SECOND)
--- Depends on: zones + get_matching_zone_identifier()
+-- Domain / RDAP Objects Schema (run THIRD)
+-- Depends on: zones + get_matching_zone_identifier() from 01
+-- Shared tables (events/links/remarks/notices) now in 03_shared_metadata.sql
 -- ========================================
 
--- Extensions
+-- Extensions (harmless if already loaded in 01)
 CREATE EXTENSION IF NOT EXISTS citext;
 
 -- ========================================
@@ -50,7 +51,7 @@ BEFORE UPDATE ON domains
 FOR EACH ROW
 EXECUTE FUNCTION update_domains_latest_update_at();
 
--- Trigger Function: Set domain_zone using get_matching_zone_identifier (from TLD script)
+-- Trigger Function: Set domain_zone using get_matching_zone_identifier (from 01)
 CREATE OR REPLACE FUNCTION set_domain_zone()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -222,68 +223,6 @@ CREATE TRIGGER trg_update_autnums_latest_update_at
 BEFORE UPDATE ON autnums
 FOR EACH ROW
 EXECUTE FUNCTION update_autnums_latest_update_at();
-
--- ========================================
--- Table: events
--- ========================================
-CREATE TABLE IF NOT EXISTS events (
-    event_id BIGSERIAL PRIMARY KEY,
-    event_object_type VARCHAR(50) CHECK (event_object_type IN ('domain', 'entity', 'zone', 'autnum', 'ip_network')),
-    event_object_id INT,
-    event_action VARCHAR(100) CHECK (
-        event_action IN (
-            'registration',
-            'last changed',
-            'deletion',
-            'expiration',
-            'transfer',
-            'locked',
-            'unlocked',
-            'restored',
-            'reassigned',
-            'suspended'
-        )
-    ),
-    event_date TIMESTAMPTZ,
-    event_actor TEXT
-);
-
--- ========================================
--- Table: links
--- ========================================
-CREATE TABLE IF NOT EXISTS links (
-    link_id BIGSERIAL PRIMARY KEY,
-    link_object_type VARCHAR(50) CHECK (link_object_type IN ('domain', 'entity', 'zone', 'autnum', 'ip_network')),
-    link_object_id INT,
-    link_href TEXT,
-    link_rel VARCHAR(100),
-    link_type VARCHAR(100),
-    link_title TEXT
-);
-
--- ========================================
--- Table: remarks
--- ========================================
-CREATE TABLE IF NOT EXISTS remarks (
-    remark_id BIGSERIAL PRIMARY KEY,
-    remark_object_type VARCHAR(50) CHECK (remark_object_type IN ('domain', 'entity', 'zone', 'autnum', 'ip_network')),
-    remark_object_id INT,
-    remark_title TEXT,
-    remark_description TEXT,
-    remark_type TEXT
-);
-
--- ========================================
--- Table: notices
--- ========================================
-CREATE TABLE IF NOT EXISTS notices (
-    notice_id BIGSERIAL PRIMARY KEY,
-    notice_object_type VARCHAR(50) CHECK (notice_object_type IN ('domain', 'entity', 'zone', 'autnum', 'ip_network')),
-    notice_object_id INT,
-    notice_title TEXT,
-    notice_description TEXT,
-    notice_type TEXT
-);
 
 -- ========================================
 -- Table: domain_entities (link domains<->entities with role)
