@@ -7,6 +7,7 @@
 //$_GET['domain'] = 'example.tel';
 //$_GET['domain'] = 'ledigheid.nl';
 //$_GET['domain'] = 'rdap.org';
+//$_GET['domain'] = 'france.fr';
 
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
@@ -63,6 +64,49 @@ function toPunycodeIfNeeded($inputdomain) {
     }
     return $inputdomain;
 }
+
+function interprete_remark($inputkey, $inputvalue) {
+    $esc = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8');
+    $out = '';
+
+    if ($inputkey === 'title' && $inputvalue !== '') {
+        $out .= '<strong>'.$esc($inputvalue).'</strong> ';
+    }
+    elseif ($inputkey === 'type' && $inputvalue !== '') {
+        // We'll add a colon, but we’ll also include a cleanup step at the caller to strip it if nothing follows.
+        $out .= '<em>'.$esc($inputvalue).'</em>: ';
+    }
+    elseif ($inputkey === 'description') {
+        if (is_array($inputvalue)) {
+            $out .= implode('<br />', array_map($esc, $inputvalue));
+        }
+		elseif ($inputvalue !== null && $inputvalue !== '') {
+            $out .= $esc($inputvalue);
+        }
+    }
+    elseif ($inputkey === 'links' && is_array($inputvalue)) {
+        // Collect and join to avoid a trailing <br />
+        $links = [];
+        foreach ($inputvalue as $link) {
+            if (!empty($link['href'])) {
+                $text = $link['value'] ?? $link['href'];
+                $links[] = '<a href="'.$esc($link['href']).'" target="_blank" rel="noopener">'.$esc($text).'</a>';
+            }
+        }
+        if ($links) {
+            $out .= implode('<br />', $links);
+        }
+    }
+    else {
+        // Fallback for unexpected fields
+        if ($inputvalue !== null && $inputvalue !== '') {
+            $out .= $esc($inputvalue);
+        }
+    }
+
+    return $out;
+}
+
 
 function write_file($inputdomain, $inputbatch)	{
 
@@ -285,7 +329,7 @@ $latest_update_at = null;
 $expiration_at = null;	
 $deletion_at = null;	
 $extensions = '';
-$remarks = '';	
+$remarks = '';
 $registrant_statuses = '';
 $registrant_created_at = null;
 $registrant_latest_transfer_at = null;	
@@ -586,18 +630,13 @@ foreach($obj as $key1 => $value1) {
 				}	
 			}
 		}
-		foreach($value2 as $key3 => $value3) {
+		foreach($value2 as $key3 => $value3) {			
 			if ($key1 == 'remarks')	{
 				if (strlen($remarks))	{
 					$remarks .= "<br />";				
 				}
-				if (!is_array($value3))	{
-					$remarks .= $key3 . ': ' . $value3;
-				}
-				else	{
-					$remarks .= $value3;
-				}				
-			}
+				$remarks .= interprete_remark($key3, $value3);
+			}			
 			if ($key1 == 'events')	{
 				if ($key3 == 'eventAction' and $value3 == 'registration')	{
 					$created_at = $value2['eventDate'];
@@ -791,47 +830,47 @@ foreach($obj as $key1 => $value1) {
 								$sponsor_resource_upload_at = $value4['eventDate'];				
 							}
 						}
+						if ($key2 == $entity_sponsor and $key3 == 'remarks')	{
+							if (strlen($sponsor_remarks))	{
+								$sponsor_remarks .= "<br />";				
+							}
+            				$sponsor_remarks .= interprete_remark($key5, $value5);
+						}
 						if ($key2 == $entity_registrant and $key3 == 'remarks')	{
 							if (strlen($registrant_remarks))	{
 								$registrant_remarks .= "<br />";				
 							}
-							$registrant_remarks .= (is_array($value5)) ? $key5.': '.$value5 : $value5;	
+		        			$registrant_remarks .= interprete_remark($key5, $value5);
 						}
 						if ($key2 == $entity_administrative and $key3 == 'remarks')	{
 							if (strlen($administrative_remarks))	{
 								$administrative_remarks .= "<br />";				
 							}
-							$administrative_remarks .= (is_array($value5)) ? $key5.': '.$value5 : $value5;	
+		        			$administrative_remarks .= interprete_remark($key5, $value5);
 						}
 						if ($key2 == $entity_technical and $key3 == 'remarks')	{
 							if (strlen($technical_remarks))	{
 								$technical_remarks .= "<br />";				
 							}
-							$technical_remarks .= (is_array($value5)) ? $key5.': '.$value5 : $value5;
+		        			$technical_remarks .= interprete_remark($key5, $value5);
 						}
 						if ($key2 == $entity_billing and $key3 == 'remarks')	{
 							if (strlen($billing_remarks))	{
 								$billing_remarks .= "<br />";				
 							}
-							$billing_remarks .= (is_array($value5)) ? $key5.': '.$value5 : $value5;	
+		        			$billing_remarks .= interprete_remark($key5, $value5);
 						}
 						if ($key2 == $entity_reseller and $key3 == 'remarks')	{
 							if (strlen($reseller_remarks))	{
 								$reseller_remarks .= "<br />";				
 							}
-							$reseller_remarks .= (is_array($value5)) ? $key5.': '.$value5 : $value5;
+		        			$reseller_remarks .= interprete_remark($key5, $value5);
 						}
 						if ($key2 == $entity_registrar and $key3 == 'remarks')	{
 							if (strlen($registrar_remarks))	{
 								$registrar_remarks .= "<br />";				
 							}
-							$registrar_remarks .= (is_array($value5)) ? $key5.': '.$value5 : $value5;
-						}
-						if ($key2 == $entity_sponsor and $key3 == 'remarks')	{
-							if (strlen($sponsor_remarks))	{
-								$sponsor_remarks .= "<br />";				
-							}
-							$sponsor_remarks .= (is_array($value5)) ? $key5.': '.$value5 : $value5;
+							$registrar_remarks .= interprete_remark($key5, $value5);	
 						}
 					}		
 					if ($key1 == 'nameservers')	{							
@@ -1145,18 +1184,6 @@ foreach($obj as $key1 => $value1) {
 								$sponsor_postal_code = (is_array($value6[5])) ? implode(",<br />",$value6[5]) : $value6[5];
 								$sponsor_country_name = (is_array($value6[6])) ? implode(",<br />",$value6[6]) : $value6[6];
 							}
-						}	
-						if ($key2 == $entity_registrant and $key3 == 'remarks')	{
-							$registrant_remarks .= "<br />" . $value6 . ';';		
-						}
-						if ($key2 == $entity_reseller and $key3 == 'remarks')	{
-							$reseller_remarks .= "<br />" . $value6 . ';';	
-						}
-						if ($key2 == $entity_registrar and $key3 == 'remarks')	{
-							$registrar_remarks .= "<br />" . $value6 . ';';	
-						}
-						if ($key2 == $entity_sponsor and $key3 == 'remarks')	{
-							$sponsor_remarks .= "<br />" . $value6 . ';';	
 						}
 						foreach($value6 as $key7 => $value7)	{
 							foreach($value7 as $key8 => $value8) {
