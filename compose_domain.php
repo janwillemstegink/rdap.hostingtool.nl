@@ -293,7 +293,9 @@ $links_3_href = $obj['links'][3]['href'];
 $links_3_href_lang_1 = $obj['links'][3]['hreflang'];
 $links_3_title = $obj['links'][3]['title'];
 $links_3_media = $obj['links'][3]['media'];
-$links_3_type = $obj['links'][3]['type'];	
+$links_3_type = $obj['links'][3]['type'];
+	
+$redacted = '';
 
 $resource_upload_at = null;
 $object_class_name = $obj['objectClassName'];
@@ -629,6 +631,14 @@ foreach($obj as $key1 => $value1) {
 					$name_servers_dnssec_signed .= 'Not Applicable'."<br />";					
 				}	
 			}
+		}
+		if ($key1 == 'redacted')	{
+			$redacted .= $key2;
+			$redacted .= (!empty($value2['name']['description'])) ? ", name: " . $value2['name']['description'] : '';
+			$redacted .= (!empty($value2['name']['type'])) ? ", type: " . $value2['name']['type'] : '';
+			$redacted .= (!empty($value2['method'])) ? ", method: " . $value2['method'] : '';
+			$redacted .= (!empty($value2['reason']['description'])) ? ", reason: " . $value2['reason']['description'] : '';
+			$redacted .= "<br />";
 		}
 		foreach($value2 as $key3 => $value3) {			
 			if ($key1 == 'remarks')	{
@@ -1336,6 +1346,8 @@ $arr[$inputdomain]['links']['links_3_href_lang'] = $links_3_href_lang;
 $arr[$inputdomain]['links']['links_3_title'] = $links_3_title;	
 $arr[$inputdomain]['links']['links_3_media'] = $links_3_media;	
 $arr[$inputdomain]['links']['links_3_type'] = $links_3_type;
+	
+$arr[$inputdomain]['redacted'] = $redacted;	
 	
 $arr[$inputdomain]['metadata']['zone_identifier'] = $zone_identifier;	
 $arr[$inputdomain]['metadata']['object_class_name'] = $object_class_name;

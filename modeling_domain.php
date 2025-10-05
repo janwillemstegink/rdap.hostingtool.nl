@@ -1,7 +1,7 @@
 <?php
 session_start();  // without Scriptcase PHP Generator
-//ini_set('display_errors', 1);
-//error_reporting(E_ALL);
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 $datetime = new DateTime('now', new DateTimeZone('UTC'));
 $utc = $datetime->format('Y-m-d H:i:s');
 if (!empty($_GET["language"]))	{
@@ -94,6 +94,10 @@ function SwitchDisplay(type) {
 		var pre = '23';
 		var max = 7
 	}
+	else if (type == 26)	{ // redacted
+		var pre = '26';
+		var max = 1
+	}
 	else if (type == 29)	{ // metadata
 		var pre = '29';
 		var max = 9
@@ -144,7 +148,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 63)	{ // name servers
 		var pre = '63';
-		var max = 12
+		var max = 13
 	}
 	else if (type == 75)	{ // raw rdap data
 		var pre = '75';
@@ -189,6 +193,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "";
 		document.getElementById("notices_role").textContent = legacy;
 		document.getElementById("links_role").textContent = legacy;
+		document.getElementById("redacted").textContent = "";
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;
@@ -265,6 +270,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Een overzicht van en toelichting op de structuur en kenmerken van webdomeinen.";
 		document.getElementById("notices_role").textContent = legacy + accessible;
 		document.getElementById("links_role").textContent = legacy + accessible;
+		document.getElementById("redacted").textContent = "Bij gTLD’s is het verbergen van registrantnamen standaard; ccTLD’s zoals .nl tonen bedrijfsnamen.";
 		document.getElementById("metadata_role").textContent = proposed + "Metadata bieden context en details over data-elementen.";
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;
@@ -341,6 +347,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "An overview of the structure and key characteristics of domain data.";
 		document.getElementById("notices_role").textContent = legacy + accessible;
 		document.getElementById("links_role").textContent = legacy + accessible;
+		document.getElementById("redacted").textContent = "For gTLDs, hiding registrant names is default; ccTLDs like .nl show a business user name.";
 		document.getElementById("metadata_role").textContent = proposed + "Metadata provides context and details about data elements.";
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;
@@ -417,6 +424,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Eine Übersicht und Erklärung zur Struktur und den Eigenschaften von Webdomänen.";
 		document.getElementById("notices_role").textContent = legacy + accessible;
 		document.getElementById("links_role").textContent = legacy + accessible;
+		document.getElementById("redacted").textContent = "Bei gTLDs ist das Ausblenden von Registrantennamen Standard; ccTLDs wie .nl zeigen Firmennamen.";
 		document.getElementById("metadata_role").textContent = proposed + "Metadaten liefern Kontext und Details zu Datenelementen.";
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;
@@ -493,6 +501,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Un aperçu et une explication de la structure et des caractéristiques des domaines Web.";
 		document.getElementById("notices_role").textContent = legacy + accessible;
 		document.getElementById("links_role").textContent = legacy + accessible;
+		document.getElementById("redacted").textContent = "Pour les gTLD, le masquage des titulaires est la règle ; les ccTLD comme .nl affichent les entreprises.";
 		document.getElementById("metadata_role").textContent = proposed + "Les métadonnées fournissent le contexte et des détails sur les éléments de données.";
 		document.getElementById("metadata_object_class_name").textContent = modified;
 		document.getElementById("metadata_object_conformance").textContent = modified;
@@ -647,6 +656,8 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="235" style="display:none;vertical-align:top"><td>links_3_title</td><td>'.$data[$pd]['links']['links_3_title'].'</td><td></td></tr>';
 	$html_text .= '<tr id="236" style="display:none;vertical-align:top"><td>links_3_media</td><td>'.$data[$pd]['links']['links_3_media'].'</td><td></td></tr>';
 	$html_text .= '<tr id="237" style="display:none;vertical-align:top"><td>links_3_type</td><td>'.$data[$pd]['links']['links_3_type'].'</td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(26)">Redacted Values +/-</button></td><td></td><td id="redacted"></td></tr>';
+	$html_text .= '<tr id="261" style="display:none;vertical-align:top"><td colspan="3">'.$data[$pd]['redacted'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(29)">Metadata +/-</button></td><td></td><td id="metadata_role"></td></tr>';
 	$html_text .= '<tr id="291" style="display:none"><td>object_class_name</td><td>'.$data[$pd]['metadata']['object_class_name'].'</td><td id="metadata_object_class_name"></td></tr>';
 	$html_text .= '<tr id="292" style="display:none; vertical-align:top"><td>object_conformance</td><td>'.$data[$pd]['metadata']['object_conformance'].'</td><td id="metadata_object_conformance"></td></tr>';	
@@ -983,11 +994,11 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="637" style="display:none;vertical-align:top"><td>statuses</td><td>'.$data[$pd]['name_servers']['statuses'].'</td><td></td></tr>';
 	$html_text .= '<tr id="638" style="display:none;vertical-align:top"><td>delegation_checks</td><td>'.$data[$pd]['name_servers']['delegation_checks'].'</td><td id="br_zone"></td></tr>';
 	$html_text .= '<tr id="639" style="display:none;vertical-align:top"><td>latest_correct_delegation_checks</td><td>'.$data[$pd]['name_servers']['latest_correct_delegation_checks'].'</td><td></td></tr>';
-	$html_text .= '<tr><td>dnssec_signed</td><td>'.$data[$pd]['name_servers']['dnssec_signed'].'</td><td id="name_servers_dnssec_signed"></td></tr>';
-	$html_text .= '<tr id="6310" style="display:none;vertical-align:top"><td>dnssec_key_tag</td><td>'.str_replace(',',',<br />',$data[$pd]['name_servers']['dnssec_key_tag']).'</td><td></td></tr>';
+	$html_text .= '<tr id="6310" style="display:none;vertical-align:top"><td>dnssec_signed</td><td>'.$data[$pd]['name_servers']['dnssec_signed'].'</td><td id="name_servers_dnssec_signed"></td></tr>';
+	$html_text .= '<tr id="6311" style="display:none;vertical-align:top"><td>dnssec_key_tag</td><td>'.str_replace(',',',<br />',$data[$pd]['name_servers']['dnssec_key_tag']).'</td><td></td></tr>';
 	$html_text .= '<tr style="vertical-align:top"><td>dnssec_algorithm</td><td>'.str_replace(',',',<br />',$data[$pd]['name_servers']['dnssec_algorithm']).'</td><td id="name_servers_dnssec_algorithm"></td></tr>';	
-	$html_text .= '<tr id="6311" style="display:none;vertical-align:top"><td>dnssec_digest_type</td><td>'.str_replace(',',',<br />',$data[$pd]['name_servers']['dnssec_digest_type']).'</td><td></td></tr>';
-	$html_text .= '<tr id="6312" style="display:none;vertical-align:top"><td>dnssec_digest</td><td colspan="2">'.str_replace(',',',<br />',$data[$pd]['name_servers']['dnssec_digest']).'</td></tr>';
+	$html_text .= '<tr id="6312" style="display:none;vertical-align:top"><td>dnssec_digest_type</td><td>'.str_replace(',',',<br />',$data[$pd]['name_servers']['dnssec_digest_type']).'</td><td></td></tr>';
+	$html_text .= '<tr id="6313" style="display:none;vertical-align:top"><td>dnssec_digest</td><td colspan="2">'.str_replace(',',',<br />',$data[$pd]['name_servers']['dnssec_digest']).'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(75)">Raw RDAP +/-</button> | ' . ((strlen($raw_whois)) ? '<a href="'.$raw_whois.'" target="_blank">Whois Data</a>' : 'No Whois Data').'</td><td id="raw_data_next" colspan="2"></td></tr>';
 	$html_text .= '<tr id="751" style="display:none"><td colspan="3">'.$data[$pd]['raw_rdap'].'</td></tr>';
