@@ -50,7 +50,7 @@ if (empty([ip]) or empty([block]))	{
 	[block] = get_block([ip]);
 }
 $internal = (str_contains([block],'Freedom')) ? '_internal_' : '';
-$log_file = "/home/admin/logging/" . $internal . "tld_lookup_tool_" . $datetime->format('Ym') . ".txt";
+$log_file = "/home/admin/logging/" . $internal . "tld_tool_" . $datetime->format('Ym') . ".txt";
 $log_line = $datetime->format('Y-m-d H:i:s') . " UTC, lang" . $viewlanguage . ", " . $vd . ", " . [ip] . ", " . [block] . "\n";
 file_put_contents($log_file, $log_line, FILE_APPEND);
 echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
@@ -144,7 +144,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 61)	{ // name servers
 		var pre = '61';
-		var max = 9
+		var max = 10
 	}
 	else	{
 		return;	
@@ -255,8 +255,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_status_meanings").textContent = proposed + "Let op: Er bestaat een globale tabeldefinitie; ICANN speelt nog geen leidende rol.";
 		document.getElementById("lifecycle_operational_periods").textContent = proposed + 'Meerjarige registratie soms mogelijk; max. verschilt per TLD en registrar.';
-		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC is een web-route-beveiligingsvoorziening op het DNS (Domain Name System).";
-		document.getElementById("name_servers_dnssec_algorithm").textContent = "Een DNSSEC-algoritme vanaf versie 13 is up-to-date.";
+		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC beveiligt DNS tegen spoofing en cachevergiftiging.";
+		document.getElementById("name_servers_dnssec_algorithm").textContent = "Algoritmen 13, 14, 15 en 16 vormen de aanbevolen basislijn voor DNSSEC-compliance.";
 		document.getElementById("name_servers_ip").textContent = "IP-adressen zijn zichtbaar indien van toepassing en ook opgenomen in het RDAP-bestand.";
 	}
 	else if (translation == 2)	{
@@ -299,8 +299,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;	
 		document.getElementById("lifecycle_status_meanings").textContent = proposed + "Note: A global table definition exists; ICANN is not yet in a leading role.";
 		document.getElementById("lifecycle_operational_periods").textContent = proposed + 'Multi-year registration sometimes possible; max varies by TLD & registrar.';
-		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC is a web route security feature on the DNS (Domain Name System).";
-		document.getElementById("name_servers_dnssec_algorithm").textContent = "A DNSSEC algorithm starting from version 13 is up-to-date.";
+		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC secures DNS against spoofing and cache poisoning.";
+		document.getElementById("name_servers_dnssec_algorithm").textContent = "Algorithms 13, 14, 15, and 16 are the recommended baseline for DNSSEC compliance.";
 		document.getElementById("name_servers_ip").textContent = "IP addresses are visible if applicable and also included in the RDAP file.";
 	}
 	else if (translation == 3)	{
@@ -343,8 +343,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_status_meanings").textContent = proposed + "Hinweis: Eine globale Tabellendefinition existiert; ICANN übernimmt noch keine führende Rolle.";
 		document.getElementById("lifecycle_operational_periods").textContent = proposed + 'Mehrjährige Registrierung teils möglich; max. variiert je nach TLD und Registrar.';
-		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC ist eine Sicherheitsfunktion für Webrouten im DNS (Domain Name System).";
-		document.getElementById("name_servers_dnssec_algorithm").textContent = "Ein DNSSEC-Algorithmus ab Version 13 ist auf dem neuesten Stand.";
+		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC sichert DNS gegen Spoofing und Cache-Poisoning.";
+		document.getElementById("name_servers_dnssec_algorithm").textContent = "Die Algorithmen 13, 14, 15 und 16 sind die empfohlene Basis für DNSSEC-Compliance.";
 		document.getElementById("name_servers_ip").textContent = "IP-Adressen sind sichtbar, sofern zutreffend, und auch in der RDAP-Datei enthalten.";
 	}
 	else if (translation == 4)	{
@@ -387,8 +387,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_status_meanings").textContent = proposed + "Remarque : Une définition de table globale existe ; l’ICANN ne joue pas encore un rôle de premier plan.";
 		document.getElementById("lifecycle_operational_periods").textContent = proposed + "Enregistrement pluriannuel parfois possible ; max. selon TLD et bureau d’enregistrement.";
-		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC est une fonctionnalité de sécurité de route Web sur le DNS (Domain Name System).";
-		document.getElementById("name_servers_dnssec_algorithm").textContent = "Un algorithme DNSSEC à partir de la version 13 est à jour.";
+		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC sécurise le DNS contre le spoofing et l’empoisonnement.";
+		document.getElementById("name_servers_dnssec_algorithm").textContent = "Les algorithmes 13, 14, 15 et 16 constituent la base recommandée pour la conformité DNSSEC.";
 		document.getElementById("name_servers_ip").textContent = "Les adresses IP sont visibles si cela s’applique et sont également fournies dans le fichier RDAP.";
 	}
 }	
@@ -528,11 +528,11 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="614" style="display:none;vertical-align:top"><td>ipv4_addresses</td><td>'.$data[$pd]['name_servers']['ipv4_addresses'].'</td><td id="name_servers_ip"></td></tr>';
 	$html_text .= '<tr id="615" style="display:none;vertical-align:top"><td>ipv6_addresses</td><td>'.$data[$pd]['name_servers']['ipv6_addresses'].'</td><td></td></tr>';
 	$html_text .= '<tr id="616" style="display:none;vertical-align:top"><td>statuses</td><td>'.$data[$pd]['name_servers']['statuses'].'</td><td></td></tr>';
-	$html_text .= '<tr><td>dnssec_signed</td><td>'.$data[$pd]['name_servers']['dnssec_signed'].'</td><td id="name_servers_dnssec_signed"></td></tr>';
-	$html_text .= '<tr id="617" style="display:none;vertical-align:top"><td>dnssec_key_tag</td><td>'.$data[$pd]['name_servers']['dnssec_key_tag'].'</td><td></td></tr>';
+	$html_text .= '<tr id="617" style="display:none;vertical-align:top"><td>dnssec_signed</td><td>'.$data[$pd]['name_servers']['dnssec_signed'].'</td><td id="name_servers_dnssec_signed"></td></tr>';
+	$html_text .= '<tr id="618" style="display:none;vertical-align:top"><td>dnssec_key_tag</td><td>'.$data[$pd]['name_servers']['dnssec_key_tag'].'</td><td></td></tr>';
 	$html_text .= '<tr style="vertical-align:top"><td>dnssec_algorithm</td><td>'.$data[$pd]['name_servers']['dnssec_algorithm'].'</td><td id="name_servers_dnssec_algorithm"></td></tr>';	
-	$html_text .= '<tr id="618" style="display:none;vertical-align:top"><td>dnssec_digest_type</td><td>'.$data[$pd]['name_servers']['dnssec_digest_type'].'</td><td></td></tr>';
-	$html_text .= '<tr id="619" style="display:none;vertical-align:top"><td>dnssec_digest</td><td colspan="2">'.$data[$pd]['name_servers']['dnssec_digest'].'</td></tr>';
+	$html_text .= '<tr id="619" style="display:none;vertical-align:top"><td>dnssec_digest_type</td><td>'.$data[$pd]['name_servers']['dnssec_digest_type'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6110" style="display:none;vertical-align:top"><td>dnssec_digest</td><td colspan="2">'.$data[$pd]['name_servers']['dnssec_digest'].'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 }
 $html_text .= '</table></div></body></html>';
