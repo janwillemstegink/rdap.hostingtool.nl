@@ -697,10 +697,10 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	}	
 	elseif (str_contains($data[$pd]['domain']['statuses'], 'active'))	{
 		if ($data[$pd]['name_servers']['dns_delegation'] == '1')	{
-			$domain_statuses = str_replace('active','active (DNS is delegated)', $domain_statuses);
+			$domain_statuses = str_replace('active','active (DNS delegated)', $domain_statuses);
 		}
 		else	{
-			$domain_statuses = str_replace('active','active (DNS is not delegated)', $domain_statuses);
+			$domain_statuses = str_replace('active','active (DNS not delegated)', $domain_statuses);
 		}	
 	}
 	$domain_statuses = str_replace('redemption period','redemption period (=> pending_redemption)', $domain_statuses);

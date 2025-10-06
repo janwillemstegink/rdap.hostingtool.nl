@@ -164,6 +164,9 @@ switch ($zone_identifier) {
 	case 'politie':
     	$url = 'https://rdap.nic.politie/';
     	break;
+	case 'aw':
+    	$url = 'https://rdap.nic.aw/';
+    	break;	
 	case 'frl':
     	$url = 'https://rdap.centralnic.com/frl/';
     	break;
