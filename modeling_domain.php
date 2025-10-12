@@ -142,7 +142,7 @@ function SwitchDisplay(type) {
 		var pre = '60';
 		var max = 22
 	}
-	else if (type == 61)	{ // abuse
+	else if (type == 61)	{ // registrar abuse
 		var pre = '61';
 		var max = 9
 	}
@@ -247,8 +247,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
-		document.getElementById("abuse_role").textContent = "";
-		document.getElementById("abuse_telephone").textContent = "";
+		document.getElementById("registrar_abuse_role").textContent = "";
+		document.getElementById("registrar_abuse_telephone").textContent = "";
 		document.getElementById("name_servers_dnssec_signed").textContent = "";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "";
 		document.getElementById("name_servers_ipv4_addresses").textContent = "";
@@ -324,8 +324,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_web_id").textContent = proposed
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
-		document.getElementById("abuse_role").textContent = "Informatie over hoe een derde partij contact kan opnemen met de registrar of belaste partij. Zie fryslan.frl.";
-		document.getElementById("abuse_telephone").textContent = "Een telefoonnummer moet beginnen met het type. Toegestaan zijn in ieder geval 'voice' en 'fax'.";
+		document.getElementById("registrar_abuse_role").textContent = "Informatie over hoe een derde partij contact kan opnemen met de registrar of belaste partij. Zie fryslan.frl.";
+		document.getElementById("registrar_abuse_telephone").textContent = "Een telefoonnummer moet beginnen met het type. Toegestaan zijn in ieder geval 'voice' en 'fax'.";
 		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC beveiligt DNS tegen spoofing en cachevergiftiging.";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Algoritmen 13, 14, 15 en 16 vormen de aanbevolen basislijn voor DNSSEC-compliance.";
 		document.getElementById("name_servers_ipv4_addresses").textContent = "Een glue-record is een DNS-record dat wordt meegegeven door de bovenliggende zone, ook al is die daar niet";
@@ -401,8 +401,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
-		document.getElementById("abuse_role").textContent = "Information on how a third party can contact the registrar or entrusted party. See fryslan.frl.";
-		document.getElementById("abuse_telephone").textContent = "A telephone number must begin with the type. Allowed are anyway 'voice' and 'fax'.";
+		document.getElementById("registrar_abuse_role").textContent = "Information on how a third party can contact the registrar or entrusted party. See fryslan.frl.";
+		document.getElementById("registrar_abuse_telephone").textContent = "A telephone number must begin with the type. Allowed are anyway 'voice' and 'fax'.";
 		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC secures DNS against spoofing and cache poisoning.";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Algorithms 13, 14, 15, and 16 are the recommended baseline for DNSSEC compliance.";
 		document.getElementById("name_servers_ipv4_addresses").textContent = "A glue record is a DNS record provided by the parent zone, even though it is not authoritative for it,";
@@ -478,8 +478,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
-		document.getElementById("abuse_role").textContent = "Informationen darüber, wie Dritte den Registrar oder die beauftragte Partei kontaktieren können. Siehe fryslan.frl.";
-		document.getElementById("abuse_telephone").textContent = "Eine Telefonnummer muss mit dem Typ beginnen. Erlaubt sind grundsätzlich 'voice' und 'fax'.";		
+		document.getElementById("registrar_abuse_role").textContent = "Informationen darüber, wie Dritte den Registrar oder die beauftragte Partei kontaktieren können. Siehe fryslan.frl.";
+		document.getElementById("registrar_abuse_telephone").textContent = "Eine Telefonnummer muss mit dem Typ beginnen. Erlaubt sind grundsätzlich 'voice' und 'fax'.";		
 		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC sichert DNS gegen Spoofing und Cache-Poisoning.";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Die Algorithmen 13, 14, 15 und 16 sind die empfohlene Basis für DNSSEC-Compliance.";
 		document.getElementById("name_servers_ipv4_addresses").textContent = "Ein Glue-Record ist ein DNS-Eintrag, den die übergeordnete Zone bereitstellt, obwohl sie nicht autoritativ ist,";
@@ -555,8 +555,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
-		document.getElementById("abuse_role").textContent = "Informations sur la manière dont un tiers peut contacter le registraire ou la partie mandatée. Voir fryslan.frl.";
-		document.getElementById("abuse_telephone").textContent = "Un numéro de téléphone doit commencer par le type. Sont autorisés de toute façon 'voice' et 'fax'.";
+		document.getElementById("registrar_abuse_role").textContent = "Informations sur la manière dont un tiers peut contacter le registraire ou la partie mandatée. Voir fryslan.frl.";
+		document.getElementById("registrar_abuse_telephone").textContent = "Un numéro de téléphone doit commencer par le type. Sont autorisés de toute façon 'voice' et 'fax'.";
 		document.getElementById("name_servers_dnssec_signed").textContent = "DNSSEC sécurise le DNS contre le spoofing et l’empoisonnement.";
 		document.getElementById("name_servers_dnssec_algorithm").textContent = "Les algorithmes 13, 14, 15 et 16 constituent la base recommandée pour la conformité DNSSEC.";
 		document.getElementById("name_servers_ipv4_addresses").textContent = "Un glue record est un enregistrement DNS fourni par la zone parente, bien qu’elle n’en soit pas autoritaire,";
@@ -826,7 +826,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr><td>registrant_verification_set_at</td><td>'.$data[$pd]['registrant']['verification_set_at'].'</td><td id="registrant_verification_set_at"></td></tr>';
 	$html_text .= '<tr id="4019" style="display:none;vertical-align:top"><td>registrant_properties</td><td>'.$data[$pd]['registrant']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4020" style="display:none;vertical-align:top"><td>registrant_remarks</td><td>'.$data[$pd]['registrant']['remarks'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(41)">Administrative / Decision +/-</button></td><td></td><td id="administrative_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(41)">Administrative / Decision Contact +/-</button></td><td></td><td id="administrative_role"></td></tr>';
 	$html_text .= '<tr id="411" style="display:none"><td>administrative_server_handle</td><td>'.$data[$pd]['administrative']['server_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="412" style="display:none"><td>administrative_client_handle</td><td>'.$data[$pd]['administrative']['client_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="413" style="display:none"><td>administrative_web_id</td><td>'.$data[$pd]['administrative']['web_id'].'</td><td id="administrative_web_id"></td></tr>';
@@ -847,7 +847,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4117" style="display:none"><td>administrative_language_pref_2</td><td>'.$data[$pd]['administrative']['language_pref_2'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4118" style="display:none;vertical-align:top"><td>administrative_properties</td><td>'.$data[$pd]['administrative']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4119" style="display:none;vertical-align:top"><td>administrative_remarks</td><td>'.$data[$pd]['administrative']['remarks'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Technical / Onsite +/-</button></td><td></td><td id="technical_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Technical / Onsite Contact +/-</button></td><td></td><td id="technical_role"></td></tr>';
 	$html_text .= '<tr id="421" style="display:none"><td>technical_server_handle</td><td>'.$data[$pd]['technical']['server_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="422" style="display:none"><td>technical_client_handle</td><td>'.$data[$pd]['technical']['client_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="423" style="display:none"><td>technical_web_id</td><td>'.$data[$pd]['technical']['web_id'].'</td><td id="technical_web_id"></td></tr>';
@@ -889,7 +889,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4318" style="display:none"><td>billing_language_pref_2</td><td>'.$data[$pd]['billing']['language_pref_2'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4319" style="display:none;vertical-align:top"><td>billing_properties</td><td>'.$data[$pd]['billing']['properties'].'</td><td></td></tr>';	
 	$html_text .= '<tr id="4320" style="display:none;vertical-align:top"><td>billing_remarks</td><td>'.$data[$pd]['billing']['remarks'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Emergency +/-</button></td><td></td><td id="emergency_role"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Emergency Contact +/-</button></td><td></td><td id="emergency_role"></td></tr>';
 	$html_text .= '<tr id="441" style="display:none"><td>emergency_server_handle</td><td>'.$data[$pd]['emergency']['server_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="442" style="display:none"><td>emergency_client_handle</td><td>'.$data[$pd]['emergency']['client_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="443" style="display:none"><td>emergency_web_id</td><td>'.$data[$pd]['emergency']['web_id'].'</td><td id="emergency_web_id"></td></tr>';
@@ -973,16 +973,16 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="6020" style="display:none"><td>registrar_verification_set_at</td><td>'.$data[$pd]['registrar']['verification_set_at'].'</td><td id="registrar_verification_set_at"></td></tr>';
 	$html_text .= '<tr id="6021" style="display:none;vertical-align:top"><td>registrar_properties</td><td>'.$data[$pd]['registrar']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="6022" style="display:none;vertical-align:top"><td>registrar_remarks</td><td>'.$data[$pd]['registrar']['remarks'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Abuse Contact +/-</button></td><td></td><td id="abuse_role"></td></tr>';
-	$html_text .= '<tr id="611" style="display:none"><td>abuse_server_handle</td><td>'.$data[$pd]['abuse']['server_handle'].'</td><td></td></tr>';
-	$html_text .= '<tr id="612" style="display:none"><td>abuse_client_handle</td><td>'.$data[$pd]['abuse']['client_handle'].'</td><td></td></tr>';
-	$html_text .= '<tr id="613" style="display:none"><td>abuse_organization_type</td><td>'.$data[$pd]['abuse']['organization_type'].'</td><td></td></tr>';
-	$html_text .= '<tr id="614" style="display:none"><td>abuse_organization_name</td><td>'.$data[$pd]['abuse']['organization_name'].'</td><td></td></tr>';
-	$html_text .= '<tr id="615" style="display:none"><td>abuse_presented_name</td><td>'.$data[$pd]['abuse']['presented_name'].'</td><td></td></tr>';
-	$html_text .= '<tr id="616" style="display:none"><td>abuse_kind</td><td>'.$data[$pd]['abuse']['kind'].'</td><td></td></tr>';
-	$html_text .= '<tr id="617" style="display:none"><td>abuse_email</td><td>'.$data[$pd]['abuse']['email'].'</td><td></td></tr>';
-	$html_text .= '<tr id="618" style="display:none"><td>abuse_telephone</td><td>'.$data[$pd]['abuse']['telephone'].'</td><td id="abuse_telephone"></td></tr>';
-	$html_text .= '<tr id="619" style="display:none"><td>abuse_country_code</td><td>'.$data[$pd]['abuse']['country_code'].'</td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Registrar Abuse Contact +/-</button></td><td></td><td id="registrar_abuse_role"></td></tr>';
+	$html_text .= '<tr id="611" style="display:none"><td>registrar_abuse_server_handle</td><td>'.$data[$pd]['registrar_abuse']['server_handle'].'</td><td></td></tr>';
+	$html_text .= '<tr id="612" style="display:none"><td>registrar_abuse_client_handle</td><td>'.$data[$pd]['registrar_abuse']['client_handle'].'</td><td></td></tr>';
+	$html_text .= '<tr id="613" style="display:none"><td>registrar_abuse_organization_type</td><td>'.$data[$pd]['registrar_abuse']['organization_type'].'</td><td></td></tr>';
+	$html_text .= '<tr id="614" style="display:none"><td>registrar_abuse_organization_name</td><td>'.$data[$pd]['registrar_abuse']['organization_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="615" style="display:none"><td>registrar_abuse_presented_name</td><td>'.$data[$pd]['registrar_abuse']['presented_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="616" style="display:none"><td>registrar_abuse_kind</td><td>'.$data[$pd]['registrar_abuse']['kind'].'</td><td></td></tr>';
+	$html_text .= '<tr id="617" style="display:none"><td>registrar_abuse_email</td><td>'.$data[$pd]['registrar_abuse']['email'].'</td><td></td></tr>';
+	$html_text .= '<tr id="618" style="display:none"><td>registrar_abuse_telephone</td><td>'.$data[$pd]['registrar_abuse']['telephone'].'</td><td id="registrar_abuse_telephone"></td></tr>';
+	$html_text .= '<tr id="619" style="display:none"><td>registrar_abuse_country_code</td><td>'.$data[$pd]['registrar_abuse']['country_code'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(63)">Name Servers +/-</button></td><td></td><td></td></tr>';
 	$html_text .= '<tr id="631" style="display:none;vertical-align:top"><td>server_handles</td><td colspan="2">'.$data[$pd]['name_servers']['server_handles'].'</td></tr>';

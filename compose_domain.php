@@ -1539,14 +1539,14 @@ $arr[$inputdomain]['registrar']['latest_update_at'] = $registrar_latest_update_a
 $arr[$inputdomain]['registrar']['properties'] = $registrar_properties;
 $arr[$inputdomain]['registrar']['remarks'] = $registrar_remarks;
 	
-$arr[$inputdomain]['abuse']['client_handle'] = $abuse_handle;
-$arr[$inputdomain]['abuse']['organization_type'] = $abuse_organization_type;
-$arr[$inputdomain]['abuse']['organization_name'] = $abuse_organization_name;	
-$arr[$inputdomain]['abuse']['presented_name'] = $abuse_presented_name;
-$arr[$inputdomain]['abuse']['kind'] = $abuse_kind;
-$arr[$inputdomain]['abuse']['email'] = $abuse_email;	
-$arr[$inputdomain]['abuse']['telephone'] = $abuse_telephone;
-$arr[$inputdomain]['abuse']['country_code'] = $abuse_country_code;	
+$arr[$inputdomain]['registrar_abuse']['client_handle'] = $abuse_handle;
+$arr[$inputdomain]['registrar_abuse']['organization_type'] = $abuse_organization_type;
+$arr[$inputdomain]['registrar_abuse']['organization_name'] = $abuse_organization_name;	
+$arr[$inputdomain]['registrar_abuse']['presented_name'] = $abuse_presented_name;
+$arr[$inputdomain]['registrar_abuse']['kind'] = $abuse_kind;
+$arr[$inputdomain]['registrar_abuse']['email'] = $abuse_email;	
+$arr[$inputdomain]['registrar_abuse']['telephone'] = $abuse_telephone;
+$arr[$inputdomain]['registrar_abuse']['country_code'] = $abuse_country_code;	
 	
 $arr[$inputdomain]['name_servers']['client_handles'] = $name_servers_handles;
 $arr[$inputdomain]['name_servers']['ascii_names'] = $name_servers_ascii;
