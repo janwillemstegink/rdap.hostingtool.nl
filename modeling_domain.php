@@ -1,7 +1,7 @@
 <?php
 session_start();  // without Scriptcase PHP Generator
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+//ini_set('display_errors', 1);
+//error_reporting(E_ALL);
 $datetime = new DateTime('now', new DateTimeZone('UTC'));
 $utc = $datetime->format('Y-m-d H:i:s');
 if (!empty($_GET["language"]))	{
@@ -693,7 +693,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$domain_statuses = str_replace('proxy','proxy (indeterminate RDAPv1)', $domain_statuses);
 	$domain_statuses = str_replace('associated','associated (indeterminate RDAPv1)', $domain_statuses);
 	if (str_contains($data[$pd]['domain']['statuses'], 'inactive'))	{
-		$domain_statuses = str_replace('inactive','inactive (no DNS; email protection unavailable)', $domain_statuses);
+		$domain_statuses = str_replace('inactive','inactive (without DNS no email protection)', $domain_statuses);
 	}	
 	elseif (str_contains($data[$pd]['domain']['statuses'], 'active'))	{
 		if ($data[$pd]['name_servers']['dns_delegation'] == '1')	{
