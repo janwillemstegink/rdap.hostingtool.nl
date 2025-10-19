@@ -49,13 +49,13 @@ CREATE TABLE IF NOT EXISTS domains (
     domain_global_json_response_url VARCHAR(511),
     domain_registry_json_response_url VARCHAR(511),
     domain_registry_language_codes TEXT,
-    domain_registrar_accreditation JSONB DEFAULT '[]',
+    domain_registrar_accreditation JSONB DEFAULT '[]'::jsonb,
     domain_registrar_json_response_url VARCHAR(511),
     domain_registrar_complaint_url TEXT,
     domain_status_explanation_url TEXT,
-    domain_geo_location JSONB,
-    domain_extensions JSONB DEFAULT '[]',
-    domain_remarks JSONB DEFAULT '[]'
+    domain_geo_location JSONB::jsonb,
+    domain_extensions JSONB DEFAULT '[]'::jsonb,
+    domain_remarks JSONB DEFAULT '[]'::jsonb
 );
 
 -- Trigger Function: Update domain_latest_update_at on UPDATE
@@ -117,8 +117,8 @@ CREATE TABLE IF NOT EXISTS entities (
     entity_latest_update_at TIMESTAMPTZ,
     entity_verification_received_at TIMESTAMPTZ,
     entity_verification_set_at TIMESTAMPTZ,
-    entity_properties JSONB DEFAULT '[]',
-    entity_remarks JSONB DEFAULT '[]'
+    entity_properties JSONB DEFAULT '[]'::jsonb,
+    entity_remarks JSONB DEFAULT '[]'::jsonb
 );
 
 CREATE INDEX IF NOT EXISTS idx_entity_postal_code ON entities(entity_postal_code);

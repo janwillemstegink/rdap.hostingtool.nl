@@ -55,7 +55,31 @@ CREATE TABLE IF NOT EXISTS common (
             {"tld_role_sequence": 40,"tld_role_identifier": "country_code_designated_manager","tld_role_shielding": ["name", "tel"]},
             {"tld_role_sequence": 50,"tld_role_identifier": "registry_operator","tld_role_shielding": []},
             {"tld_role_sequence": 60,"tld_role_identifier": "backend_operator","tld_role_shielding": []}
-        ]',
+        ]'::jsonb,
+	common_tld_statuses JSONB DEFAULT 
+	'{
+	"ok":{"rdap_v1":"active","rdap_v2":"dns_delegated","snake_case":"dns_delegated"},
+	"inactive":{"rdap_v1":"inactive","rdap_v2":"no_dns","snake_case":"no_dns"},
+	"pendingCreate":{"rdap_v1":"pending create","rdap_v2":"pending_create","snake_case":"pending_create"},
+	"pendingDelete":{"rdap_v1":"pending delete","rdap_v2":"pending_delete","snake_case":"pending_delete"},
+	"pendingRenew":{"rdap_v1":"pending renew","rdap_v2":"pending_renew","snake_case":"pending_renew"},
+	"pendingTransfer":{"rdap_v1":"pending transfer","rdap_v2":"pending_transfer","snake_case":"pending_transfer"},
+	"pendingUpdate":{"rdap_v1":"pending update","rdap_v2":"pending_update","snake_case":"pending_update"},
+	"clientDeleteProhibited":{"rdap_v1":"client delete prohibited","rdap_v2":"client_delete_prohibited","snake_case":"client_delete_prohibited"},
+	"serverDeleteProhibited":{"rdap_v1":"server delete prohibited","rdap_v2":"server_delete_prohibited","snake_case":"server_delete_prohibited"},
+	"clientHold":{"rdap_v1":"client hold","rdap_v2":"client_hold","snake_case":"client_hold"},
+	"serverHold":{"rdap_v1":"server hold","rdap_v2":"server_hold","snake_case":"server_hold"},
+	"clientRenewProhibited":{"rdap_v1":"client renew prohibited","rdap_v2":"client_renew_prohibited","snake_case":"client_renew_prohibited"},
+	"serverRenewProhibited":{"rdap_v1":"server renew prohibited","rdap_v2":"server_renew_prohibited","snake_case":"server_renew_prohibited"},
+	"clientTransferProhibited":{"rdap_v1":"client transfer prohibited","rdap_v2":"client_transfer_prohibited","snake_case":"client_transfer_prohibited"},
+	"serverTransferProhibited":{"rdap_v1":"server transfer prohibited","rdap_v2":"server_transfer_prohibited","snake_case":"server_transfer_prohibited"},
+	"clientUpdateProhibited":{"rdap_v1":"client update prohibited","rdap_v2":"client_update_prohibited","snake_case":"client_update_prohibited"},
+	"serverUpdateProhibited":{"rdap_v1":"server update prohibited","rdap_v2":"server_update_prohibited","snake_case":"server_update_prohibited"},
+	"redemptionPeriod":{"rdap_v1":"redemption period","rdap_v2":"pending_redemption","snake_case":"pending_redemption"},
+	"pendingRestore":{"rdap_v1":"pending restore","rdap_v2":"pending_restore","snake_case":"pending_restore"},
+	"linked":{"rdap_v1":"linked","rdap_v2":"linked","snake_case":"linked"},
+	"pendingValidation":{"rdap_v1":"pending validation","rdap_v2":"pending_validation","snake_case":"pending_validation"}
+	}'::jsonb,		
     common_indeterminate_rdap_statuses JSONB DEFAULT '{
         "indeterminate_rdap_statuses": [
             "locked",
@@ -69,7 +93,7 @@ CREATE TABLE IF NOT EXISTS common (
             "proxy",
             "associated"
         ]
-    }',
+    }'::jsonb,
     common_best_practices_periods JSONB DEFAULT '[
         {"period_identifier": "subscription_years", "min": 1, "max": 10, "optimal": 1},
         {"period_identifier": "add_grace_days", "min": 5, "max": 5, "optimal": 5},
@@ -78,7 +102,7 @@ CREATE TABLE IF NOT EXISTS common (
         {"period_identifier": "post_transfer_lock_days", "min": 60, "max": 60, "optimal": 60},
         {"period_identifier": "pending_redemption_days", "min": 30, "max": 30, "optimal": 30},
         {"period_identifier": "pending_delete_days", "min": 5, "max": 5, "optimal": 5}
-    ]',
+    ]'::jsonb,
     common_root_accepted_workload JSONB DEFAULT 
         '[
             {
@@ -95,7 +119,7 @@ CREATE TABLE IF NOT EXISTS common (
                     "caching_in_seconds": null
                 }
             }
-        ]'
+        ]'::jsonb
 );
 
 -- ========================================
@@ -148,7 +172,7 @@ CREATE TABLE IF NOT EXISTS zones (
             {"zone_role_sequence": 80, "zone_role_identifier": "reseller", "zone_role_shielding": ["name", "email", "tel"]},
             {"zone_role_sequence": 90, "zone_role_identifier": "registrar", "zone_role_shielding": ["name", "email", "tel"]},
             {"zone_role_sequence": 95, "zone_role_identifier": "abuse", "zone_role_shielding": ["name"]}
-        ]',
+        ]'::jsonb,
     zone_zone_accepted_workload JSONB DEFAULT 
         '[
             {
@@ -165,8 +189,8 @@ CREATE TABLE IF NOT EXISTS zones (
                     "caching_in_seconds": null
                 }
             }
-        ]',
-    zone_name_servers JSONB,
+        ]'::jsonb,
+    zone_name_servers JSONB::jsonb,
     zone_latest_update_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -241,7 +265,7 @@ CREATE TABLE IF NOT EXISTS lifecycles (
             "recoverable": false,
             "final": true
         }
-    }]',
+    }]'::jsonb,
     lifecycle_operational_periods JSONB DEFAULT '[
         {"period_identifier": "subscription_years", "default": null, "allowed": null},
         {"period_identifier": "add_grace_days", "default": null, "allowed": null},
@@ -250,7 +274,7 @@ CREATE TABLE IF NOT EXISTS lifecycles (
         {"period_identifier": "post_transfer_lock_days", "default": null, "allowed": null},
         {"period_identifier": "pending_redemption_days", "default": null, "allowed": null},
         {"period_identifier": "pending_delete_days", "default": null, "allowed": null}
-    ]',
+    ]'::jsonb,
     lifecycle_latest_update_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
 
