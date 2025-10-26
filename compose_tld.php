@@ -183,6 +183,8 @@ foreach($obj as $key1 => $value1) {
 $root_zone_data_active_from = null;
 $root_services_url = 'https://www.iana.org';	
 $root_zones_url = 'https://www.iana.org/domains/root/db';
+$root_terms_of_service_url = 'https://www.icann.org/en/data-protection/terms-of-service';
+$root_privacy_policy_url = 'https://www.icann.org/privacy/policy';	
 $registrar_accreditations_url = 'https://www.iana.org/assignments/registrar-ids/registrar-ids.xhtml';
 $lookup_endpoints_url = 'https://data.iana.org/rdap/dns.json';
 $tld_category = '';
@@ -745,6 +747,8 @@ $arr[$inputtld]['links']['links_3_type'] = $links_3_type;
 	
 $arr[$inputtld]['common']['root_services_url'] = $root_services_url;
 $arr[$inputtld]['common']['root_zones_url'] = $root_zones_url;
+$arr[$inputtld]['common']['root_terms_of_service_url'] = $root_terms_of_service_url;
+$arr[$inputtld]['common']['root_privacy_policy_url'] = $root_privacy_policy_url;	
 $arr[$inputtld]['common']['lookup_endpoints_url'] = $lookup_endpoints_url;
 $arr[$inputtld]['common']['registrar_accreditations_url'] = $registrar_accreditations_url;	
 $arr[$inputtld]['common']['tld_roles'] = $tld_roles;

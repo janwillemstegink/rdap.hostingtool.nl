@@ -96,7 +96,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 31)	{ // common URLs
 		var pre = '31';
-		var max = 4
+		var max = 6
 	}
 	else if (type == 32)	{ // roles
 		var pre = '32';
@@ -186,6 +186,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("links_role").textContent = legacy;		
 		document.getElementById("common_root_services_url").textContent = proposed;
 		document.getElementById("common_root_zones_url").textContent = proposed;
+		document.getElementById("common_root_terms_of_service_url").textContent = proposed;
+		document.getElementById("common_root_privacy_policy_url").textContent = proposed;
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed;
 		document.getElementById("common_registrar_accreditations_url").textContent = proposed;
 		document.getElementById("common_tld_roles").textContent = proposed;
@@ -230,6 +232,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("links_role").textContent = legacy;
 		document.getElementById("common_root_services_url").textContent = proposed + "IANA beheert, voor ICANN, TLD’s en wijst IP-blokken en AS-nummers toe aan regionale registries.";
 		document.getElementById("common_root_zones_url").textContent = proposed + 'Officiële Root Zones-lijst, beheerd door IANA, de DNS-rootautoriteit.';
+		document.getElementById("common_root_terms_of_service_url").textContent = proposed;
+		document.getElementById("common_root_privacy_policy_url").textContent = proposed;
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Een API-endpoint onder /v1/ kan een nieuwere versie onder /v2/ ondersteunen — zie com.";
 		document.getElementById("common_registrar_accreditations_url").textContent = proposed + "Officiële lijst van geaccrediteerde registrars, beheerd door IANA onder ICANN-beleid.";
 		document.getElementById("common_tld_roles").textContent = proposed + "Deze rolbenamingen zijn voorlopig. Ze kunnen nog veranderen.";
@@ -274,6 +278,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("links_role").textContent = legacy;		
 		document.getElementById("common_root_services_url").textContent = proposed + "IANA manages, for ICANN, TLDs and allocates IP blocks and AS numbers to regional registries.";
 		document.getElementById("common_root_zones_url").textContent = proposed + 'Official Root Zones list maintained by IANA, the DNS root authority.';
+		document.getElementById("common_root_terms_of_service_url").textContent = proposed;
+		document.getElementById("common_root_privacy_policy_url").textContent = proposed;		
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "An API endpoint under /v1/ may support a newer version under /v2/ — as seen on com.";
 		document.getElementById("common_registrar_accreditations_url").textContent = proposed + "Official list of accredited registrars maintained by IANA under ICANN policy.";
 		document.getElementById("common_tld_roles").textContent = proposed + "These role names are draft. They may change.";
@@ -316,8 +322,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Schlanke TLD-Metadaten mit einem Single-Source-Modell zur Vermeidung von Redundanz.";
 		document.getElementById("notices_role").textContent = legacy;
 		document.getElementById("links_role").textContent = legacy;		
-		document.getElementById("common_root_services_url").textContent = proposed + "IANA verwaltet, für ICANN, TLDs und weist IP-Blöcke sowie AS-Nummern an regionale Registries zu.";		
+		document.getElementById("common_root_services_url").textContent = proposed + "IANA verwaltet, für ICANN, TLDs und weist IP-Blöcke sowie AS-Nummern an regionale Registries zu.";
 		document.getElementById("common_root_zones_url").textContent = proposed + 'Offizielle Root-Zonenliste, verwaltet von IANA, der DNS-Root-Behörde.';
+		document.getElementById("common_root_terms_of_service_url").textContent = proposed;
+		document.getElementById("common_root_privacy_policy_url").textContent = proposed;		
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Ein API-Endpunkt unter /v1/ kann eine neuere Version unter /v2/ unterstützen — siehe com.";
 		document.getElementById("common_registrar_accreditations_url").textContent = proposed + "Offizielle Liste der akkreditierten Registrar, verwaltet von IANA unter ICANN-Richtlinien.";
 		document.getElementById("common_tld_roles").textContent = proposed + "Diese Rollennamen sind vorläufig und können sich ändern.";
@@ -362,6 +370,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("links_role").textContent = legacy;		
 		document.getElementById("common_root_services_url").textContent = proposed + "L’IANA gère pour l’ICANN les TLD et alloue les blocs IP ainsi que les numéros AS aux registres régionaux.";
 		document.getElementById("common_root_zones_url").textContent = proposed + "Liste officielle des zones racines, gérée par l’IANA, l’autorité racine du DNS.";
+		document.getElementById("common_root_terms_of_service_url").textContent = proposed;
+		document.getElementById("common_root_privacy_policy_url").textContent = proposed;
 		document.getElementById("common_lookup_endpoints_url").textContent = proposed + "Un endpoint API sous /v1/ peut supporter une version plus récente sous /v2/ — voir com.";
 		document.getElementById("common_registrar_accreditations_url").textContent = proposed + "Liste officielle des bureaux d’enregistrement accrédités, gérée par l’IANA selon la politique de l’ICANN.";
 		document.getElementById("common_tld_roles").textContent = proposed + "Ces noms de rôles sont provisoires. Ils peuvent changer.";
@@ -482,8 +492,10 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(31)">Common URLs +/-</button></td><td></td><td id="common_role"></td></tr>';
 	$html_text .= '<tr id="311" style="display:table-row"><td>root_services_url</td><td><a href='.$data[$pd]['common']['root_services_url'].' target="_blank">Root Services</a></td><td id="common_root_services_url"></td></tr>';
 	$html_text .= '<tr id="312" style="display:table-row"><td>root_zones_url</td><td><a href='.$data[$pd]['common']['root_zones_url'].' target="_blank">Root Zones</a></td><td id="common_root_zones_url"></td></tr>';
-	$html_text .= '<tr id="313" style="display:table-row"><td>lookup_endpoints_url</td><td><a href='.$data[$pd]['common']['lookup_endpoints_url'].' target="_blank">Lookup Endpoints</a></td><td id="common_lookup_endpoints_url"></td></tr>';
-	$html_text .= '<tr id="314" style="display:table-row"><td>registrar_accreditations_url</td><td><a href='.$data[$pd]['common']['registrar_accreditations_url'].' target="_blank">IANA Registrars</a></td><td id="common_registrar_accreditations_url"></td></tr>';
+	$html_text .= '<tr id="313" style="display:table-row"><td>root_terms_of_service_url</td><td>'.((strlen($data[$pd]['common']['root_terms_of_service_url'])) ? '<a href='.$data[$pd]['common']['root_terms_of_service_url'].' target="_blank">Root Terms</a>' : '').'</td><td id="common_root_terms_of_service_url"></td></tr>';
+	$html_text .= '<tr id="314" style="display:table-row"><td>root_privacy_policy_url</td><td>'.((strlen($data[$pd]['common']['root_privacy_policy_url'])) ? '<a href='.$data[$pd]['common']['root_privacy_policy_url'].' target="_blank">Root Privacy</a>' : '').'</td><td id="common_root_privacy_policy_url"></td></tr>';
+	$html_text .= '<tr id="315" style="display:table-row"><td>lookup_endpoints_url</td><td><a href='.$data[$pd]['common']['lookup_endpoints_url'].' target="_blank">Lookup Endpoints</a></td><td id="common_lookup_endpoints_url"></td></tr>';
+	$html_text .= '<tr id="316" style="display:table-row"><td>registrar_accreditations_url</td><td><a href='.$data[$pd]['common']['registrar_accreditations_url'].' target="_blank">IANA Registrars</a></td><td id="common_registrar_accreditations_url"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(32)">Common roles +/-</button></td><td></td><td id="common_tld_roles"></td></tr>';
 	$html_text .= '<tr id="321" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['common']['tld_roles'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(33)">Indeterminate RDAP statuses +/-</button></td><td></td><td id="common_indeterminate_rdap_statuses"></td></tr>';
