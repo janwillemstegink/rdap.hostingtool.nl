@@ -203,7 +203,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_tld_json_response_url").textContent = proposed;
 		document.getElementById("root_zone_tld_terms_of_service_url").textContent = proposed;
 		document.getElementById("root_zone_tld_privacy_policy_url").textContent = proposed;
-		document.getElementById("root_zone_tld_menu_url").textContent = proposed;
+		document.getElementById("root_zone_tld_services_url").textContent = proposed;
 		document.getElementById("root_zone_tld_search_engine_deletion_phase_ready").textContent = proposed;
 		document.getElementById("root_zone_tld_contacts").textContent = proposed;
 		document.getElementById("root_zone_zone_roles").textContent = proposed;
@@ -249,7 +249,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "IANA kan overstappen op een moderne database voor de rollen en levenscyclus.";
 		document.getElementById("root_zone_tld_terms_of_service_url").textContent = proposed;
 		document.getElementById("root_zone_tld_privacy_policy_url").textContent = proposed;
-		document.getElementById("root_zone_tld_menu_url").textContent = proposed + 'Een TLD-specifiek informatiemenu, beschikbaar onder een subdomein zoals "regmenu".';
+		document.getElementById("root_zone_tld_services_url").textContent = proposed + 'Een TLD-specifiek informatiemenu, beschikbaar onder een subdomein zoals "regmenu".';
 		document.getElementById("root_zone_tld_search_engine_deletion_phase_ready").textContent = proposed + 'Of zoekmachines op pending delete mogen vertrouwen om resultaten te wissen.';
 		document.getElementById("root_zone_tld_contacts").textContent = proposed;
 		document.getElementById("root_zone_zone_roles").textContent = proposed + "'Request-Driven': Aanvrager/TLD/rol vereisen een niet-geclusterde zichtbaarheid.";
@@ -295,7 +295,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "IANA can move to a modern database for the roles and lifecycle.";
 		document.getElementById("root_zone_tld_terms_of_service_url").textContent = proposed;
 		document.getElementById("root_zone_tld_privacy_policy_url").textContent = proposed;		
-		document.getElementById("root_zone_tld_menu_url").textContent = proposed + 'A TLD specific information menu, available under a subdomain such as "regmenu".';
+		document.getElementById("root_zone_tld_services_url").textContent = proposed + 'A TLD specific information menu, available under a subdomain such as "regmenu".';
 		document.getElementById("root_zone_tld_search_engine_deletion_phase_ready").textContent = proposed + 'If search engines may rely on pending delete to delete results.';
 		document.getElementById("root_zone_tld_contacts").textContent = proposed;
 		document.getElementById("root_zone_zone_roles").textContent = proposed + "Request-Driven: Requester/TLD/role require an unclustered visibility.";
@@ -341,7 +341,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_tld_delegation_url").textContent = proposed + 'URL mit Verweis auf den ICANN-Delegationsdatensatz für die TLD.';
 		document.getElementById("root_zone_tld_terms_of_service_url").textContent = proposed;
 		document.getElementById("root_zone_tld_privacy_policy_url").textContent = proposed;		
-		document.getElementById("root_zone_tld_menu_url").textContent = proposed + 'Ein TLD-spezifisches Informationsmenü, verfügbar unter einer Subdomäne wie "regmenu".';
+		document.getElementById("root_zone_tld_services_url").textContent = proposed + 'Ein TLD-spezifisches Informationsmenü, verfügbar unter einer Subdomäne wie "regmenu".';
 		document.getElementById("root_zone_tld_search_engine_deletion_phase_ready").textContent = proposed + 'Ob Suchmaschinen auf Pending Delete vertrauen dürfen, um Ergebnisse zu löschen.';
 		document.getElementById("root_zone_tld_contacts").textContent = proposed;
 		document.getElementById("root_zone_zone_roles").textContent = proposed + "'Request-Driven: Anforderer/TLD/Rolle erfordern eine nicht gruppierte Sichtbarkeit.";
@@ -387,7 +387,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_tld_json_response_url").textContent = proposed + "L'IANA peut passer à une base de données moderne pour les rôles et le cycle de vie.";
 		document.getElementById("root_zone_tld_terms_of_service_url").textContent = proposed;
 		document.getElementById("root_zone_tld_privacy_policy_url").textContent = proposed;		
-		document.getElementById("root_zone_tld_menu_url").textContent = proposed + "Un menu d'informations spécifique au TLD, disponible sous un sous-domaine tel que 'regmenu'.";
+		document.getElementById("root_zone_tld_services_url").textContent = proposed + "Un menu d'informations spécifique au TLD, disponible sous un sous-domaine tel que 'regmenu'.";
 		document.getElementById("root_zone_tld_search_engine_deletion_phase_ready").textContent = proposed + "Si les moteurs peuvent se fier à pending delete pour supprimer des résultats.";
 		document.getElementById("root_zone_tld_contacts").textContent = proposed;
 		document.getElementById("root_zone_zone_roles").textContent = proposed + "'Request-Driven': Le demandeur/TLD/le rôle nécessite une visibilité non groupée.";
@@ -512,11 +512,11 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="414" style="display:table-row"><td>tld_ascii_name</td><td>'.$data[$pd]['root_zone']['tld_ascii_name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="415" style="display:table-row"><td>tld_unicode_name</td><td>'.$data[$pd]['root_zone']['tld_unicode_name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="416" style="display:table-row"><td>tld_statuses</td><td> '.$data[$pd]['root_zone']['tld_statuses'].'</td><td id="root_zone_tld_statuses"></td></tr>';
-	$html_text .= '<tr id="417" style="display:table-row"><td>tld_delegation_url</td><td><a href='.$data[$pd]['root_zone']['tld_delegation_url'].' target="_blank">TLD Delegation</a></td><td id="root_zone_tld_delegation_url"></td></tr>';
-	$html_text .= '<tr id="418" style="display:table-row"><td>tld_json_response_url</td><td>'.((strlen($data[$pd]['root_zone']['tld_json_response_url'])) ? '<a href='.$data[$pd]['root_zone']['tld_json_response_url'].' target="_blank">TLD Data</a>' : '').'</td><td id="root_zone_tld_json_response_url"></td></tr>';
-	$html_text .= '<tr id="419" style="display:table-row"><td>tld_terms_of_service_url</td><td>'.((strlen($data[$pd]['root_zone']['tld_terms_of_service_url'])) ? '<a href='.$data[$pd]['root_zone']['tld_terms_of_service_url'].' target="_blank">TLD Terms</a>' : '').'</td><td id="root_zone_tld_terms_of_service_url"></td></tr>';
-	$html_text .= '<tr id="4110" style="display:table-row"><td>tld_privacy_policy_url</td><td>'.((strlen($data[$pd]['root_zone']['tld_privacy_policy_url'])) ? '<a href='.$data[$pd]['root_zone']['tld_privacy_policy_url'].' target="_blank">TLD Privacy</a>' : '').'</td><td id="root_zone_tld_privacy_policy_url"></td></tr>';
-	$html_text .= '<tr id="4111" style="display:table-row"><td>tld_menu_url</td><td>'.((strlen($data[$pd]['root_zone']['tld_menu_url'])) ? '<a href='.$data[$pd]['root_zone']['tld_menu_url'].' target="_blank">TLD Menu</a>' : '').'</td><td id="root_zone_tld_menu_url"></td></tr>';
+	$html_text .= '<tr id="417" style="display:table-row"><td>tld_services_url</td><td>'.((strlen($data[$pd]['root_zone']['tld_services_url'])) ? '<a href='.$data[$pd]['root_zone']['tld_services_url'].' target="_blank">TLD Services</a>' : '').'</td><td id="root_zone_tld_services_url"></td></tr>';
+	$html_text .= '<tr id="418" style="display:table-row"><td>tld_delegation_url</td><td><a href='.$data[$pd]['root_zone']['tld_delegation_url'].' target="_blank">TLD Delegation</a></td><td id="root_zone_tld_delegation_url"></td></tr>';
+	$html_text .= '<tr id="419" style="display:table-row"><td>tld_json_response_url</td><td>'.((strlen($data[$pd]['root_zone']['tld_json_response_url'])) ? '<a href='.$data[$pd]['root_zone']['tld_json_response_url'].' target="_blank">TLD Data</a>' : '').'</td><td id="root_zone_tld_json_response_url"></td></tr>';
+	$html_text .= '<tr id="4110" style="display:table-row"><td>tld_terms_of_service_url</td><td>'.((strlen($data[$pd]['root_zone']['tld_terms_of_service_url'])) ? '<a href='.$data[$pd]['root_zone']['tld_terms_of_service_url'].' target="_blank">TLD Terms</a>' : '').'</td><td id="root_zone_tld_terms_of_service_url"></td></tr>';
+	$html_text .= '<tr id="4111" style="display:table-row"><td>tld_privacy_policy_url</td><td>'.((strlen($data[$pd]['root_zone']['tld_privacy_policy_url'])) ? '<a href='.$data[$pd]['root_zone']['tld_privacy_policy_url'].' target="_blank">TLD Privacy</a>' : '').'</td><td id="root_zone_tld_privacy_policy_url"></td></tr>';
 	$html_text .= '<tr  id="4112" style="display:table-row"><td>tld_search_engine_deletion_phase_ready</td><td>'.$data[$pd]['root_zone']['tld_search_engine_deletion_phase_ready'].'</td><td id="root_zone_tld_search_engine_deletion_phase_ready"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Zone contacts +/-</button></td><td></td><td id="root_zone_tld_contacts"></td></tr>';
 	$html_text .= '<tr id="421" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['tld_contacts'].'</td><td id="root_zone_tld_contacts"></td></tr>';
