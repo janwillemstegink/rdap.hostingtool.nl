@@ -301,8 +301,8 @@ $links_3_type = $obj['links'][3]['type'];
 $redacted = '';
 
 $resource_upload_at = null;
-$object_class_name = $obj['objectClassName'];
-$object_conformance = (is_array($obj['rdapConformance'])) ? implode(",<br />", $obj['rdapConformance']) : $obj['rdapConformance'];
+$object_type = $obj['objectClassName'];
+$conformance = (is_array($obj['rdapConformance'])) ? implode(",<br />", $obj['rdapConformance']) : $obj['rdapConformance'];
 $language_codes = (is_array($obj['lang'])) ? implode(",<br />", $obj['lang']) : $obj['lang'];
 if (!strlen($language_codes))	{
 	$language_codes = 'None Specified';	
@@ -1353,8 +1353,8 @@ $arr[$inputdomain]['links']['links_3_type'] = $links_3_type;
 $arr[$inputdomain]['redacted'] = $redacted;	
 	
 $arr[$inputdomain]['metadata']['zone_identifier'] = $zone_identifier;	
-$arr[$inputdomain]['metadata']['object_class_name'] = $object_class_name;
-$arr[$inputdomain]['metadata']['object_conformance'] = $object_conformance;
+$arr[$inputdomain]['metadata']['object_type'] = $object_type;
+$arr[$inputdomain]['metadata']['conformance'] = $conformance;
 $arr[$inputdomain]['metadata']['tld_information_url'] = $tld_information_url;
 $arr[$inputdomain]['metadata']['registry_json_response_url'] = $url;
 $arr[$inputdomain]['metadata']['registry_language_codes'] = $language_codes;	
@@ -1365,18 +1365,18 @@ $arr[$inputdomain]['metadata']['status_explanation_url'] = $status_explanation_u
 $arr[$inputdomain]['metadata']['geo_location'] = '';
 $arr[$inputdomain]['metadata']['resource_upload_at'] = $resource_upload_at;		
 	
-$arr[$inputdomain]['domain']['server_handle'] = $server_handle;
-$arr[$inputdomain]['domain']['client_handle'] = $client_handle;
-$arr[$inputdomain]['domain']['ascii_name'] = $ascii_name;	
-$arr[$inputdomain]['domain']['unicode_name'] = $unicode_name;
-$arr[$inputdomain]['domain']['statuses'] = rtrim($domain_dns_statuses . $domain_client_statuses . $domain_lifecycle_statuses, ",");
-$arr[$inputdomain]['domain']['created_at'] = $created_at;	
-$arr[$inputdomain]['domain']['latest_transfer_at'] = $latest_transfer_at;
-$arr[$inputdomain]['domain']['latest_update_at'] = $latest_update_at;
-$arr[$inputdomain]['domain']['expiration_at'] = $expiration_at;
-$arr[$inputdomain]['domain']['deletion_at'] = $deletion_at;
-$arr[$inputdomain]['domain']['extensions'] = $extensions;
-$arr[$inputdomain]['domain']['remarks'] = $remarks;			
+$arr[$inputdomain]['properties']['server_handle'] = $server_handle;
+$arr[$inputdomain]['properties']['client_handle'] = $client_handle;
+$arr[$inputdomain]['properties']['ascii_name'] = $ascii_name;	
+$arr[$inputdomain]['properties']['unicode_name'] = $unicode_name;
+$arr[$inputdomain]['properties']['statuses'] = rtrim($domain_dns_statuses . $domain_client_statuses . $domain_lifecycle_statuses, ",");
+$arr[$inputdomain]['properties']['created_at'] = $created_at;	
+$arr[$inputdomain]['properties']['latest_transfer_at'] = $latest_transfer_at;
+$arr[$inputdomain]['properties']['latest_update_at'] = $latest_update_at;
+$arr[$inputdomain]['properties']['expiration_at'] = $expiration_at;
+$arr[$inputdomain]['properties']['deletion_at'] = $deletion_at;
+$arr[$inputdomain]['properties']['extensions'] = $extensions;
+$arr[$inputdomain]['properties']['remarks'] = $remarks;			
 	
 $arr[$inputdomain]['sponsor']['client_handle'] = $sponsor_handle;
 $arr[$inputdomain]['sponsor']['web_id'] = $sponsor_web_id;		
