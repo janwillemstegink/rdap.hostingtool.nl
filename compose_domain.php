@@ -302,7 +302,7 @@ $redacted = '';
 
 $resource_upload_at = null;
 $object_type = $obj['objectClassName'];
-$conformance = (is_array($obj['rdapConformance'])) ? implode(",<br />", $obj['rdapConformance']) : $obj['rdapConformance'];
+$rdap_conformance = (is_array($obj['rdapConformance'])) ? implode(",<br />", $obj['rdapConformance']) : $obj['rdapConformance'];
 $language_codes = (is_array($obj['lang'])) ? implode(",<br />", $obj['lang']) : $obj['lang'];
 if (!strlen($language_codes))	{
 	$language_codes = 'None Specified';	
@@ -1354,7 +1354,7 @@ $arr[$inputdomain]['redacted'] = $redacted;
 	
 $arr[$inputdomain]['metadata']['zone_identifier'] = $zone_identifier;	
 $arr[$inputdomain]['metadata']['object_type'] = $object_type;
-$arr[$inputdomain]['metadata']['conformance'] = $conformance;
+$arr[$inputdomain]['metadata']['rdap_conformance'] = $rdap_conformance;
 $arr[$inputdomain]['metadata']['tld_information_url'] = $tld_information_url;
 $arr[$inputdomain]['metadata']['registry_json_response_url'] = $url;
 $arr[$inputdomain]['metadata']['registry_language_codes'] = $language_codes;	

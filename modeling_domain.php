@@ -196,7 +196,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("redacted").textContent = "";
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_object_type").textContent = modified;
-		document.getElementById("metadata_conformance").textContent = modified;
+		document.getElementById("metadata_rdap_conformance").textContent = modified;
 		document.getElementById("metadata_terms_and_conditions").textContent = proposed;
 		document.getElementById("metadata_global_json_response_url").textContent = proposed;
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed;
@@ -273,7 +273,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("redacted").textContent = "Bij gTLD’s is het verbergen van registrantnamen standaard; ccTLD’s zoals .nl tonen bedrijfsnamen.";
 		document.getElementById("metadata_role").textContent = proposed + "Metadata bieden context en details over data-elementen.";
 		document.getElementById("metadata_object_type").textContent = modified;
-		document.getElementById("metadata_conformance").textContent = modified;
+		document.getElementById("metadata_rdap_conformance").textContent = modified;
 		document.getElementById("metadata_terms_and_conditions").textContent = proposed + "Verbeterde machineleesbare IANA TLD-gegevens (PostgreSQL JSON-gestructureerd)";
 		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL van de geplande JSON-respons van de globale RDAP-server.";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL van de JSON-respons op registratieniveau.";
@@ -350,7 +350,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("redacted").textContent = "For gTLDs, hiding registrant names is default; ccTLDs like .nl show a business user name.";
 		document.getElementById("metadata_role").textContent = proposed + "Metadata provides context and details about data elements.";
 		document.getElementById("metadata_object_type").textContent = modified;
-		document.getElementById("metadata_conformance").textContent = modified;
+		document.getElementById("metadata_rdap_conformance").textContent = modified;
 		document.getElementById("metadata_terms_and_conditions").textContent = proposed + "Improved Machine-Readable IANA TLD Data (PostgreSQL JSON-Structured)";
 		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL of the planned global RDAP server JSON response.";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL of the JSON response at the registry level.";
@@ -427,7 +427,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("redacted").textContent = "Bei gTLDs ist das Ausblenden von Registrantennamen Standard; ccTLDs wie .nl zeigen Firmennamen.";
 		document.getElementById("metadata_role").textContent = proposed + "Metadaten liefern Kontext und Details zu Datenelementen.";
 		document.getElementById("metadata_object_type").textContent = modified;
-		document.getElementById("metadata_conformance").textContent = modified;
+		document.getElementById("metadata_rdap_conformance").textContent = modified;
 		document.getElementById("metadata_terms_and_conditions").textContent = proposed + "Verbesserte maschinenlesbare IANA-TLD-Daten (PostgreSQL-JSON-strukturiert)";
 		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL der geplanten JSON-Antwort des globalen RDAP-Servers.";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL der JSON-Antwort auf Registry-Ebene.";
@@ -504,7 +504,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("redacted").textContent = "Pour les gTLD, le masquage des titulaires est la règle ; les ccTLD comme .nl affichent les entreprises.";
 		document.getElementById("metadata_role").textContent = proposed + "Les métadonnées fournissent le contexte et des détails sur les éléments de données.";
 		document.getElementById("metadata_object_type").textContent = modified;
-		document.getElementById("metadata_conformance").textContent = modified;
+		document.getElementById("metadata_rdap_conformance").textContent = modified;
 		document.getElementById("metadata_terms_and_conditions").textContent = proposed + "Données TLD IANA améliorées et lisibles par machine (structurées en JSON pour PostgreSQL)";
 		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL de la réponse JSON prévue du serveur RDAP global.";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL de la réponse JSON au niveau du registre.";
@@ -660,7 +660,7 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="261" style="display:none;vertical-align:top"><td colspan="3">'.$data[$pd]['redacted'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(29)">Metadata +/-</button></td><td></td><td id="metadata_role"></td></tr>';
 	$html_text .= '<tr id="291" style="display:none"><td>object_type</td><td>'.$data[$pd]['metadata']['object_type'].'</td><td id="metadata_object_type"></td></tr>';
-	$html_text .= '<tr id="292" style="display:none; vertical-align:top"><td>conformance</td><td>'.$data[$pd]['metadata']['conformance'].'</td><td id="metadata_conformance"></td></tr>';	
+	$html_text .= '<tr id="292" style="display:none; vertical-align:top"><td>rdap_conformance</td><td>'.$data[$pd]['metadata']['rdap_conformance'].'</td><td id="metadata_rdap_conformance"></td></tr>';	
 	$html_text .= '<tr><td>terms_and_conditions</td><td>'.((strlen($terms_and_conditions)) ? '<a href="'.$terms_and_conditions.'" target="_blank">.'.$data[$pd]['metadata']['zone_identifier'].' TLD Data</a>' : '').'</td><td id="metadata_terms_and_conditions"></td></tr>';	
 	$html_text .= '<tr id="293" style="display:none"><td>global_json_response_url</td><td>'.$data[$pd]['metadata']['global_json_response_url'].'</td><td id="metadata_global_json_response_url"></td></tr>';
 	$registry_json_response_url = str_replace('https://', '', $data[$pd]['metadata']['registry_json_response_url']);
@@ -682,7 +682,7 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(30)">Properties +/-</button></td><td><b>'.$vd.'</b></td><td id="properties_role"></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>properties_server_handle</td><td colspan="2">'.$data[$pd]['properties']['server_handle'].'</td></tr>';
 	$html_text .= '<tr id="302" style="display:none"><td>properties_client_handle</td><td colspan="2">'.$data[$pd]['properties']['client_handle'].'</td></tr>';
-	$html_text .= '<tr id="303" style="display:none"><td>properties_ascii_name (lowercase no "MUST")</td><td>'.$data[$pd]['properties']['ascii_name'].'</td><td id="properties_ascii_name"></td></tr>';
+	$html_text .= '<tr id="303" style="display:none"><td>properties_ascii_name (lowercase is no "MUST")</td><td>'.$data[$pd]['properties']['ascii_name'].'</td><td id="properties_ascii_name"></td></tr>';
 	$html_text .= '<tr id="304" style="display:none"><td>properties_unicode_name</td><td>'.$data[$pd]['properties']['unicode_name'].'</td><td id="properties_unicode_name"></td></tr>';
 	$properties_statuses = (!empty($data[$pd]['properties']['statuses'])) ? str_replace(',','<br />', $data[$pd]['properties']['statuses']) : '';
 	$properties_statuses = str_replace('excluded','excluded (without DNS no email protection)', $properties_statusesdo);
