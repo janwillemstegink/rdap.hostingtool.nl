@@ -685,13 +685,13 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="303" style="display:none"><td>properties_ascii_name (lowercase is no "MUST")</td><td>'.$data[$pd]['properties']['ascii_name'].'</td><td id="properties_ascii_name"></td></tr>';
 	$html_text .= '<tr id="304" style="display:none"><td>properties_unicode_name</td><td>'.$data[$pd]['properties']['unicode_name'].'</td><td id="properties_unicode_name"></td></tr>';
 	$properties_statuses = (!empty($data[$pd]['properties']['statuses'])) ? str_replace(',','<br />', $data[$pd]['properties']['statuses']) : '';
-	$properties_statuses = str_replace('excluded','excluded (without DNS no email protection)', $properties_statusesdo);
-	$properties_statuses = str_replace('locked','locked (indeterminate RDAPv1)', $properties_statuses);
-	$properties_statuses = str_replace('removed','removed (indeterminate RDAPv1)', $properties_statuses);
-	$properties_statuses = str_replace('obscured','obscured (indeterminate RDAPv1)', $properties_statuses);
-	$properties_statuses = str_replace('private','private (indeterminate RDAPv1)', $properties_statuses);
-	$properties_statuses = str_replace('proxy','proxy (indeterminate RDAPv1)', $properties_statuses);
-	$properties_statuses = str_replace('associated','associated (indeterminate RDAPv1)', $properties_statuses);
+	$properties_statuses = str_replace('excluded','excluded (without DNS no email protection)', $properties_statuses);
+	$properties_statuses = str_replace('locked','locked (indeterminate RDAP use)', $properties_statuses);
+	$properties_statuses = str_replace('removed','removed (indeterminate RDAP use)', $properties_statuses);
+	$properties_statuses = str_replace('obscured','obscured (indeterminate RDAP use)', $properties_statuses);
+	$properties_statuses = str_replace('private','private (indeterminate RDAP use)', $properties_statuses);
+	$properties_statuses = str_replace('proxy','proxy (indeterminate RDAP use)', $properties_statuses);
+	$properties_statuses = str_replace('associated','associated (indeterminate RDAP use)', $properties_statuses);
 	if (str_contains($data[$pd]['properties']['statuses'], 'inactive'))	{
 		$properties_statuses = str_replace('inactive','inactive (without DNS no email protection)', $properties_statuses);
 	}	
@@ -706,22 +706,22 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$properties_statuses = str_replace('redemption period','redemption period (=> pending_redemption)', $properties_statuses);
 	if (str_contains($data[$pd]['properties']['statuses'], 'renew prohibited'))	{
 		if (!str_contains($data[$pd]['properties']['statuses'], 'server renew prohibited') and !str_contains($data[$pd]['properties']['statuses'], 'client renew prohibited'))	{
-			$properties_statuses = str_replace('renew prohibited','renew prohibited (indeterminate RDAPv1)', $properties_statuses);
+			$properties_statuses = str_replace('renew prohibited','renew prohibited (indeterminate RDAP use)', $properties_statuses);
 		}
 	}
 	if (str_contains($data[$pd]['properties']['statuses'], 'update prohibited'))	{
 		if (!str_contains($data[$pd]['properties']['statuses'], 'server update prohibited') and !str_contains($data[$pd]['properties']['statuses'], 'client update prohibited'))	{
-			$properties_statuses = str_replace('update prohibited','update prohibited (indeterminate RDAPv1)', $properties_statuses);
+			$properties_statuses = str_replace('update prohibited','update prohibited (indeterminate RDAP use)', $properties_statuses);
 		}
 	}
 	if (str_contains($data[$pd]['properties']['statuses'], 'transfer prohibited'))	{
 		if (!str_contains($data[$pd]['properties']['statuses'], 'server transfer prohibited') and !str_contains($data[$pd]['properties']['statuses'], 'client transfer prohibited'))	{
-			$properties_statuses = str_replace('transfer prohibited','transfer prohibited (indeterminate RDAPv1)', $properties_statuses);
+			$properties_statuses = str_replace('transfer prohibited','transfer prohibited (indeterminate RDAP use)', $properties_statuses);
 		}
 	}	
 	if (str_contains($data[$pd]['properties']['statuses'], 'delete prohibited'))	{
 		if (!str_contains($data[$pd]['properties']['statuses'], 'server delete prohibited') and !str_contains($data[$pd]['properties']['statuses'], 'client delete prohibited'))	{
-			$properties_statuses = str_replace('delete prohibited','delete prohibited (indeterminate RDAPv1)', $properties_statuses);
+			$properties_statuses = str_replace('delete prohibited','delete prohibited (indeterminate RDAP use)', $properties_statuses);
 		}
 	}	
 	$html_text .= '<tr style="vertical-align:top"><td>properties_statuses</td><td>'.$properties_statuses.'</td><td id="properties_statuses"></td></tr>';
