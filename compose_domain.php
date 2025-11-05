@@ -1,4 +1,5 @@
 <?php
+//<?php
 //ini_set('display_errors', 1);
 //error_reporting(E_ALL);
 //$_GET['domain'] = 'hostingtool.nl';
@@ -109,8 +110,9 @@ function interprete_remark($inputkey, $inputvalue) {
 
 
 function write_file($inputdomain, $inputbatch)	{
-
-$arr = array();	
+	
+$arr = array();
+$arr[$inputdomain]['http_error'] = "";	
 $strpos = mb_strpos($inputdomain, '.');
 if ($strpos !== false)	{
 	$zone_identifier = mb_substr($inputdomain, mb_strrpos($inputdomain, '.') + 1);
@@ -200,6 +202,10 @@ if (!strlen($url))	{
 		}
 	}
 }
+if (!strlen($url))	{
+	$arr[$inputdomain]['http_error'] = $zone_identifier . " - Operational RDAP unknown";
+	return $arr;
+}	
 $url .= 'domain/'.$inputdomain;
 $registrar_json_response_url = '';
 $options = [
@@ -227,8 +233,7 @@ if (isset($http_response_header)) {
     if (preg_match('#HTTP/\d+\.\d+\s+(\d+)#', $http_response_header[0], $matches)) {
         $http_code = (int)$matches[1];
     }
-}
-$arr[$inputdomain]['http_error'] = "";	
+}	
 if ($http_code === 429) {
 	$arr[$inputdomain]['http_error'] = "429 - Rate limit exceeded";
 	return $arr;
@@ -1567,4 +1572,5 @@ $arr[$inputdomain]['raw_rdap'] = $raw_rdap_data;
 
 return $arr;
 }
+//?>
 ?>
