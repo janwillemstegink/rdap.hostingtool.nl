@@ -293,7 +293,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("properties_deletion_at").textContent = "Datum en tijdstip gepland voor volledige verwijdering. Er kan een laatste verwijderingsfase zijn.";
 		document.getElementById("properties_extensions").textContent = "'Eligibility': Hoe het domein voldoet aan specifieke eisen van de TLD-rootzone.";		
 		document.getElementById("sponsor_role").textContent = "De domeinregistratie kan worden beheerd door een sponsor. Zie bijvoorbeeld france.fr.";
-		document.getElementById("registrant_role").textContent = "De domeingebruiker die de daadwerkelijke of effectieve controle heeft voor domeinrecht in het land van vestiging.";
+		document.getElementById("registrant_role").textContent = "Partij die het domein rechtmatig benut en bepalend is voor rechtsvinding volgens het recht van het land van vestiging.";
 		document.getElementById("registrant_server_handle").textContent = proposed + "Zonder deze identificatie kan een wereldwijde RDAP-server niet worden bijgewerkt.";
 		document.getElementById("registrant_client_handle").textContent = 'Bij "janwillemstegink.nl" toont de registrar vertrouwelijke informatie met "STE135420-TRAP".';
 		document.getElementById("registrant_web_id").textContent = proposed + "Webidentificatienummer voor bedrijfsentiteiten en natuurlijke personen.";
@@ -370,7 +370,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("properties_deletion_at").textContent = "Date and time scheduled for complete deletion. A final deletion phase may exist.";
 		document.getElementById("properties_extensions").textContent = "'Eligibility': How the domain meets specific TLD root zone requirements.";
 		document.getElementById("sponsor_role").textContent = "The domain registration can be managed by a sponsor. See for example france.fr.";
-		document.getElementById("registrant_role").textContent = "The domain user who has the actual or effective control for domain rights in the country of establishment.";
+		document.getElementById("registrant_role").textContent = "Party that lawfully uses the domain and is decisive for determining the applicable law in the country of establishment.";
 		document.getElementById("registrant_server_handle").textContent = proposed + "Without this identifier, a global RDAP server cannot be updated.";
 		document.getElementById("registrant_client_handle").textContent = 'At "janwillemstegink.nl" the registrar shows confidential information with "STE135420-TRAP".';
 		document.getElementById("registrant_web_id").textContent = proposed + "Web Identification number for business entities and natural persons.";
@@ -447,7 +447,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("properties_deletion_at").textContent = "Datum und Uhrzeit für die vollständige Löschung geplant. Es kann eine abschließende Löschphase geben.";
 		document.getElementById("properties_extensions").textContent = "'Eligibility': Wie die Domain die spezifischen Anforderungen der TLD-Rootzone erfüllt.";
 		document.getElementById("sponsor_role").textContent = "Die Domänenregistrierung kann von einem Sponsor verwaltet werden. Siehe beispielsweise france.fr.";
-		document.getElementById("registrant_role").textContent = "Der Domänenbenutzer, der die tatsächliche oder effektive Kontrolle hat für Domainrechte im Wohnsitzland.";
+		document.getElementById("registrant_role").textContent = "Partei, die die Domain rechtmäßig nutzt und für die Rechtsfindung nach dem Recht des Sitzlandes maßgeblich ist.";
 		document.getElementById("registrant_server_handle").textContent = proposed + "Ohne diese Kennung kann ein globaler RDAP-Server nicht aktualisiert werden.";
 		document.getElementById("registrant_client_handle").textContent = 'Bei "janwillemstegink.nl" zeigt der Registrar vertrauliche Informationen mit "STE135420-TRAP" an.';
 		document.getElementById("registrant_web_id").textContent = proposed + "Web-Identifikationsnummer für Unternehmen und natürliche Personen.";
@@ -525,7 +525,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("properties_extensions").textContent = "'Eligibility' : comment le domaine répond aux exigences spécifiques de la zone racine TLD.";
 		document.getElementById("sponsor_role").textContent = "L'enregistrement du domaine peut être géré par un sponsor. Voir par exemple france.fr.";
 		document.getElementById("registrant_server_handle").textContent = proposed + "Sans cet identifiant, un serveur RDAP global ne peut pas être mis à jour.";
-		document.getElementById("registrant_role").textContent = "L'utilisateur du domaine qui a le contrôle réel ou effectif pour les droits de domaine dans le pays de résidence.";
+		document.getElementById("registrant_role").textContent = "Partie utilisant légitimement le domaine et déterminante pour la compétence juridique dans le pays d’établissement.";
 		document.getElementById("registrant_client_handle").textContent = 'Sur "janwillemstegink.nl", le registraire affiche des informations confidentielles avec "STE135420-TRAP".';
 		document.getElementById("registrant_web_id").textContent = proposed + "Numéro d’identification Web pour les entités commerciales et les personnes physiques.";
 		document.getElementById("registrant_organization_type").textContent = 'La valeur habituelle est "work", ou éventuellement "work", "headquarters".';
