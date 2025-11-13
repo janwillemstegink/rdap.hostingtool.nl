@@ -1,4 +1,5 @@
 <?php
+//<?php
 //ini_set('display_errors', 1);
 //error_reporting(E_ALL);
 //$_GET['tld'] = 'nl';
@@ -111,17 +112,17 @@ $links_3_type = $obj['links'][3]['type'];
 $tld_ascii_name = $obj['ldhName'];
 $tld_unicode_name = $obj['unicodeName'];		
 $root_zone_statuses = '';	
-$name_servers_handles = '';
-$name_servers_ascii = '';
-$name_servers_unicode = '';
-$name_servers_ipv4 = '';
-$name_servers_ipv6 = '';
-$name_servers_statuses = '';	
-$name_servers_dnssec_signed = '';
-$name_servers_dnssec_key_tag = '';	
-$name_servers_dnssec_algorithm = '';
-$name_servers_dnssec_digest_type = '';
-$name_servers_dnssec_digest = '';	
+$nameservers_handles = '';
+$nameservers_ascii = '';
+$nameservers_unicode = '';
+$nameservers_ipv4 = '';
+$nameservers_ipv6 = '';
+$nameservers_statuses = '';	
+$nameservers_dnssec_signed = '';
+$nameservers_dnssec_key_tag = '';	
+$nameservers_dnssec_algorithm = '';
+$nameservers_dnssec_digest_type = '';
+$nameservers_dnssec_digest = '';	
 foreach($obj as $key1 => $value1) {
 	if ($key1 == 'status')	{	
 		$root_zone_statuses .= (is_array($value1)) ? implode(",<br />", $value1) : $value1;
@@ -130,37 +131,37 @@ foreach($obj as $key1 => $value1) {
 		if ($key1 == 'secureDNS')	{
 			if ($key2 == 'delegationSigned') {
 				if ($value2 === true)	{
-					$name_servers_dnssec_signed .= 'Yes'."<br />";
+					$nameservers_dnssec_signed .= 'Yes'."<br />";
 				}	
 				elseif ($value2 === false)	{
-					$name_servers_dnssec_signed .= 'No'."<br />";
+					$nameservers_dnssec_signed .= 'No'."<br />";
 				}
 				else	{
-					$name_servers_dnssec_signed .= 'Not Applicable'."<br />";					
+					$nameservers_dnssec_signed .= 'Not Applicable'."<br />";					
 				}	
 			}
 		}	
 		foreach($value2 as $key3 => $value3) {
 			if ($key1 == 'nameservers')	{
 				if ($key3 == 'handle') {
-					$name_servers_handles .= $key2.': '.$value3."<br />";
+					$nameservers_handles .= $key2.': '.$value3."<br />";
 				}
 				elseif ($key3 == 'ldhName') {
-					$name_servers_ascii .= $key2.': '.$value3."<br />";
+					$nameservers_ascii .= $key2.': '.$value3."<br />";
 				}
 				elseif ($key3 == 'unicodeName')	{
-					$name_servers_unicode .= $key2.': '.$value3."<br />";
+					$nameservers_unicode .= $key2.': '.$value3."<br />";
 				}
 				elseif ($key3 == 'status')	{
-					$name_servers_statuses .= $key2.': '.$value3[0]."<br />";	
+					$nameservers_statuses .= $key2.': '.$value3[0]."<br />";	
 				}
 			}
 			if ($key1 == 'secureDNS')	{
 				if ($key2 == 'dsData') {
-					$name_servers_dnssec_key_tag .= $key3.': '.$value3['keyTag']."<br />";	
-					$name_servers_dnssec_algorithm .= $key3.': '.$value3['algorithm']."<br />";	
-					$name_servers_dnssec_digest_type .= $key3.': '.$value3['digestType']."<br />";	
-					$name_servers_dnssec_digest .= $key3.': '.$value3['digest']."<br />";
+					$nameservers_dnssec_key_tag .= $key3.': '.$value3['keyTag']."<br />";	
+					$nameservers_dnssec_algorithm .= $key3.': '.$value3['algorithm']."<br />";	
+					$nameservers_dnssec_digest_type .= $key3.': '.$value3['digestType']."<br />";	
+					$nameservers_dnssec_digest .= $key3.': '.$value3['digest']."<br />";
 				}				
 			}
 			foreach($value3 as $key4 => $value4) {		
@@ -168,10 +169,10 @@ foreach($obj as $key1 => $value1) {
 					if ($key1 == 'nameservers')	{							
 						if ($key3 == 'ipAddresses') {
 							if ($key4 == 'v4') {
-								$name_servers_ipv4 .= $key2.': '.$value5."<br />";
+								$nameservers_ipv4 .= $key2.': '.$value5."<br />";
 							}
 							elseif ($key4 == 'v6') {
-								$name_servers_ipv6 .= $key2.': '.$value5."<br />";
+								$nameservers_ipv6 .= $key2.': '.$value5."<br />";
 							}
 						}														
 					}					
@@ -778,18 +779,19 @@ $arr[$inputtld]['lifecycle']['upon_termination'] = $upon_termination;
 $arr[$inputtld]['lifecycle']['status_meanings'] = $status_meanings;	
 $arr[$inputtld]['lifecycle']['operational_periods'] = $operational_periods;
 	
-$arr[$inputtld]['name_servers']['handles'] = $name_servers_handles;
-$arr[$inputtld]['name_servers']['ascii_names'] = $name_servers_ascii;
-$arr[$inputtld]['name_servers']['unicode_names'] = $name_servers_unicode;	
-$arr[$inputtld]['name_servers']['ipv4_addresses'] = $name_servers_ipv4;	
-$arr[$inputtld]['name_servers']['ipv6_addresses'] = $name_servers_ipv6;
-$arr[$inputtld]['name_servers']['statuses'] = $name_servers_statuses;
-$arr[$inputtld]['name_servers']['dnssec_signed'] = $name_servers_dnssec_signed;
-$arr[$inputtld]['name_servers']['dnssec_key_tag'] = $name_servers_dnssec_key_tag;
-$arr[$inputtld]['name_servers']['dnssec_algorithm'] = $name_servers_dnssec_algorithm;
-$arr[$inputtld]['name_servers']['dnssec_digest_type'] = $name_servers_dnssec_digest_type;
-$arr[$inputtld]['name_servers']['dnssec_digest'] = $name_servers_dnssec_digest;
+$arr[$inputtld]['nameservers']['handles'] = $nameservers_handles;
+$arr[$inputtld]['nameservers']['ascii_names'] = $nameservers_ascii;
+$arr[$inputtld]['nameservers']['unicode_names'] = $nameservers_unicode;	
+$arr[$inputtld]['nameservers']['ipv4_addresses'] = $nameservers_ipv4;	
+$arr[$inputtld]['nameservers']['ipv6_addresses'] = $nameservers_ipv6;
+$arr[$inputtld]['nameservers']['statuses'] = $nameservers_statuses;
+$arr[$inputtld]['nameservers']['dnssec_signed'] = $nameservers_dnssec_signed;
+$arr[$inputtld]['nameservers']['dnssec_key_tag'] = $nameservers_dnssec_key_tag;
+$arr[$inputtld]['nameservers']['dnssec_algorithm'] = $nameservers_dnssec_algorithm;
+$arr[$inputtld]['nameservers']['dnssec_digest_type'] = $nameservers_dnssec_digest_type;
+$arr[$inputtld]['nameservers']['dnssec_digest'] = $nameservers_dnssec_digest;
 
 return $arr;
 }
+//?>
 ?>

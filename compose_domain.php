@@ -382,11 +382,11 @@ $server_handle	= '';
 $client_handle = $obj['handle'];
 $ascii_name = $obj['ldhName'];
 $unicode_name = $obj['unicodeName'];
-$name_servers_dnssec_signed = '';
-$name_servers_dnssec_key_tag = '';	
-$name_servers_dnssec_algorithm = '';
-$name_servers_dnssec_digest_type = '';
-$name_servers_dnssec_digest = '';	
+$nameservers_dnssec_signed = '';
+$nameservers_dnssec_key_tag = '';	
+$nameservers_dnssec_algorithm = '';
+$nameservers_dnssec_digest_type = '';
+$nameservers_dnssec_digest = '';	
 $abuse_handle = '';	
 $abuse_organization_type = '';
 $abuse_organization_name = '';
@@ -506,14 +506,14 @@ $registrar_country_name = '';
 $registrar_language_pref_1 = '';
 $registrar_language_pref_2 = '';
 	
-$name_servers_handles = '';
-$name_servers_ascii = '';
-$name_servers_unicode = '';
-$name_servers_ipv4 = '';
-$name_servers_ipv6 = '';
-$name_servers_statuses = '';
-$name_servers_delegation_check = '';
-$name_servers_latest_correct_delegation_check = '';
+$nameservers_handles = '';
+$nameservers_ascii = '';
+$nameservers_unicode = '';
+$nameservers_ipv4 = '';
+$nameservers_ipv6 = '';
+$nameservers_statuses = '';
+$nameservers_delegation_check = '';
+$nameservers_latest_correct_delegation_check = '';
 $dns_delegation = '0';	
 	
 $entity_sponsor = -1;	
@@ -630,13 +630,13 @@ foreach($obj as $key1 => $value1) {
 		if ($key1 == 'secureDNS')	{
 			if ($key2 == 'delegationSigned') {
 				if ($value2 === true)	{
-					$name_servers_dnssec_signed .= 'Yes'."<br />";
+					$nameservers_dnssec_signed .= 'Yes'."<br />";
 				}	
 				elseif ($value2 === false)	{
-					$name_servers_dnssec_signed .= 'No'."<br />";
+					$nameservers_dnssec_signed .= 'No'."<br />";
 				}
 				else	{
-					$name_servers_dnssec_signed .= 'Not Applicable'."<br />";					
+					$nameservers_dnssec_signed .= 'Not Applicable'."<br />";					
 				}	
 			}
 		}
@@ -715,26 +715,26 @@ foreach($obj as $key1 => $value1) {
 			}	
 			if ($key1 == 'nameservers')	{
 				if ($key3 == 'handle') {
-					$name_servers_handles .= $key2.': '.$value3."<br />";
+					$nameservers_handles .= $key2.': '.$value3."<br />";
 				}
 				elseif ($key3 == 'ldhName') {
-					$name_servers_ascii .= $key2.': '.$value3."<br />";
+					$nameservers_ascii .= $key2.': '.$value3."<br />";
 					$dns_delegation = '1';
 				}
 				elseif ($key3 == 'unicodeName')	{
-					$name_servers_unicode .= $key2.': '.$value3."<br />";
+					$nameservers_unicode .= $key2.': '.$value3."<br />";
 					$dns_delegation = '1';
 				}
 				elseif ($key3 == 'status')	{
-					$name_servers_statuses .= $key2.': '.$value3[0]."<br />";	
+					$nameservers_statuses .= $key2.': '.$value3[0]."<br />";	
 				}
 			}
 			if ($key1 == 'secureDNS')	{
 				if ($key2 == 'dsData') {
-					$name_servers_dnssec_key_tag .= $key3.': '.$value3['keyTag'].",";	
-					$name_servers_dnssec_algorithm .= $key3.': '.$value3['algorithm'].",";	
-					$name_servers_dnssec_digest_type .= $key3.': '.$value3['digestType'].",";	
-					$name_servers_dnssec_digest .= $key3.': '.$value3['digest'].",";
+					$nameservers_dnssec_key_tag .= $key3.': '.$value3['keyTag'].",";	
+					$nameservers_dnssec_algorithm .= $key3.': '.$value3['algorithm'].",";	
+					$nameservers_dnssec_digest_type .= $key3.': '.$value3['digestType'].",";	
+					$nameservers_dnssec_digest .= $key3.': '.$value3['digest'].",";
 				}				
 			}
 			foreach($value3 as $key4 => $value4) {
@@ -895,23 +895,23 @@ foreach($obj as $key1 => $value1) {
 						if ($key3 == 'events')	{
 							if ($key4 == 0)	{	
 								if ($key5 == 'eventAction' and $value5 == 'delegation check')	{
-									$name_servers_delegation_check .= $key2.': '.$value4['eventDate']."<br />";
+									$nameservers_delegation_check .= $key2.': '.$value4['eventDate']."<br />";
 								}
 							}	
 							elseif ($key4 == 1)	{	
 								if ($key5 == 'eventAction' and $value5 == 'last correct delegation check')	{
-									$name_servers_latest_correct_delegation_check .= $key2.': '.$value4['eventDate']."<br />";
+									$nameservers_latest_correct_delegation_check .= $key2.': '.$value4['eventDate']."<br />";
 								}
 							}					
 						
 						}
 						if ($key3 == 'ipAddresses') {
 							if ($key4 == 'v4') {
-								$name_servers_ipv4 .= $key2.': '.$value5."<br />";
+								$nameservers_ipv4 .= $key2.': '.$value5."<br />";
 								$dns_delegation = '1';
 							}
 							elseif ($key4 == 'v6') {
-								$name_servers_ipv6 .= $key2.': '.$value5."<br />";
+								$nameservers_ipv6 .= $key2.': '.$value5."<br />";
 								$dns_delegation = '1';
 							}
 						}					
@@ -1553,20 +1553,20 @@ $arr[$inputdomain]['registrar_abuse']['email'] = $abuse_email;
 $arr[$inputdomain]['registrar_abuse']['telephone'] = $abuse_telephone;
 $arr[$inputdomain]['registrar_abuse']['country_code'] = $abuse_country_code;	
 	
-$arr[$inputdomain]['name_servers']['client_handles'] = $name_servers_handles;
-$arr[$inputdomain]['name_servers']['ascii_names'] = $name_servers_ascii;
-$arr[$inputdomain]['name_servers']['unicode_names'] = $name_servers_unicode;	
-$arr[$inputdomain]['name_servers']['ipv4_addresses'] = $name_servers_ipv4;	
-$arr[$inputdomain]['name_servers']['ipv6_addresses'] = $name_servers_ipv6;	
-$arr[$inputdomain]['name_servers']['statuses'] = $name_servers_statuses;	
-$arr[$inputdomain]['name_servers']['delegation_checks'] = $name_servers_delegation_check;
-$arr[$inputdomain]['name_servers']['latest_correct_delegation_checks'] = $name_servers_latest_correct_delegation_check;	
-$arr[$inputdomain]['name_servers']['dnssec_signed'] = $name_servers_dnssec_signed;
-$arr[$inputdomain]['name_servers']['dnssec_key_tag'] = rtrim($name_servers_dnssec_key_tag, ",");
-$arr[$inputdomain]['name_servers']['dnssec_algorithm'] = rtrim($name_servers_dnssec_algorithm, ",");
-$arr[$inputdomain]['name_servers']['dnssec_digest_type'] = rtrim($name_servers_dnssec_digest_type, ",");
-$arr[$inputdomain]['name_servers']['dnssec_digest'] = rtrim($name_servers_dnssec_digest, ",");
-$arr[$inputdomain]['name_servers']['dns_delegation'] = $dns_delegation;
+$arr[$inputdomain]['nameservers']['client_handles'] = $nameservers_handles;
+$arr[$inputdomain]['nameservers']['ascii_names'] = $nameservers_ascii;
+$arr[$inputdomain]['nameservers']['unicode_names'] = $nameservers_unicode;	
+$arr[$inputdomain]['nameservers']['ipv4_addresses'] = $nameservers_ipv4;	
+$arr[$inputdomain]['nameservers']['ipv6_addresses'] = $nameservers_ipv6;	
+$arr[$inputdomain]['nameservers']['statuses'] = $nameservers_statuses;	
+$arr[$inputdomain]['nameservers']['delegation_checks'] = $nameservers_delegation_check;
+$arr[$inputdomain]['nameservers']['latest_correct_delegation_checks'] = $nameservers_latest_correct_delegation_check;	
+$arr[$inputdomain]['nameservers']['dnssec_signed'] = $nameservers_dnssec_signed;
+$arr[$inputdomain]['nameservers']['dnssec_key_tag'] = rtrim($nameservers_dnssec_key_tag, ",");
+$arr[$inputdomain]['nameservers']['dnssec_algorithm'] = rtrim($nameservers_dnssec_algorithm, ",");
+$arr[$inputdomain]['nameservers']['dnssec_digest_type'] = rtrim($nameservers_dnssec_digest_type, ",");
+$arr[$inputdomain]['nameservers']['dnssec_digest'] = rtrim($nameservers_dnssec_digest, ",");
+$arr[$inputdomain]['nameservers']['dns_delegation'] = $dns_delegation;
 	
 $arr[$inputdomain]['raw_rdap'] = $raw_rdap_data;
 
