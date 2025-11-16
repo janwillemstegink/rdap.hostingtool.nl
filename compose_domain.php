@@ -312,7 +312,7 @@ $language_codes = (is_array($obj['lang'])) ? implode(",<br />", $obj['lang']) : 
 if (!strlen($language_codes))	{
 	$language_codes = 'None Specified';	
 }	
-$registrar_accreditation = '';
+$registrar_accreditation_id = '';
 $registrar_complaint_url = '';
 $status_explanation_url = '';	
 	
@@ -763,7 +763,7 @@ foreach($obj as $key1 => $value1) {
 						}	
 					}
 					if ($key2 == $entity_registrar and $key3 == 'publicIds')	{
-						$registrar_accreditation .= $value4['type'].': '.$value4['identifier']."<br />";
+						$registrar_accreditation_id .= $value4['type'].': '.$value4['identifier']."<br />";
 					}
 				}
 				foreach($value4 as $key5 => $value5) {
@@ -1363,7 +1363,7 @@ $arr[$inputdomain]['metadata']['rdap_conformance'] = $rdap_conformance;
 $arr[$inputdomain]['metadata']['tld_information_url'] = $tld_information_url;
 $arr[$inputdomain]['metadata']['registry_json_response_url'] = $url;
 $arr[$inputdomain]['metadata']['registry_language_codes'] = $language_codes;	
-$arr[$inputdomain]['metadata']['registrar_accreditation'] = $registrar_accreditation;		
+$arr[$inputdomain]['metadata']['registrar_accreditation_id'] = $registrar_accreditation_id;		
 $arr[$inputdomain]['metadata']['registrar_json_response_url'] = $registrar_json_response_url;
 $arr[$inputdomain]['metadata']['registrar_complaint_url'] = $registrar_complaint_url;		
 $arr[$inputdomain]['metadata']['status_explanation_url'] = $status_explanation_url;

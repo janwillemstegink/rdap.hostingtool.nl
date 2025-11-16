@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS domains (
     domain_global_json_response_url VARCHAR(511),
     domain_registry_json_response_url VARCHAR(511),
     domain_registry_language_codes TEXT,
-    domain_registrar_accreditation JSONB DEFAULT '[]'::jsonb,
+    domain_registrar_accreditation_id JSONB DEFAULT '[]'::jsonb,
     domain_registrar_json_response_url VARCHAR(511),
     domain_registrar_complaint_url TEXT,
     domain_status_explanation_url TEXT,
