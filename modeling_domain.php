@@ -201,7 +201,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_global_json_response_url").textContent = proposed;
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed;
 		document.getElementById("metadata_registry_language_codes").textContent = legacy;
-		document.getElementById("metadata_registrar_accreditation_id").textContent = modified;
+		document.getElementById("metadata_registrar_accreditation").textContent = modified;
 		document.getElementById("metadata_registrar_json_response_url").textContent = proposed;
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed;
 		document.getElementById("metadata_status_explanation_url").textContent = proposed;
@@ -278,7 +278,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL van de geplande JSON-respons van de globale RDAP-server.";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL van de JSON-respons op registratieniveau.";
 		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Ondanks de update blijft het veld zonder functioneel nut.";	
-		document.getElementById("metadata_registrar_accreditation_id").textContent = modified + "Er kan een IANA Registrar Accreditation ID voor gTLD's bestaan. Deze moet correct zijn.";
+		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Er kan een IANA Registrar Accreditation ID voor gTLD's bestaan. Deze moet correct zijn.";
 		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + 'Indien van toepassing, moet de RDAP-bron-URL van de registrar machine-leesbaar worden.';
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + 'Vereist indien de registrator geaccrediteerd is door IANA, om een klacht in behandeling te kunnen nemen.';		
 		document.getElementById("metadata_status_explanation_url").textContent = proposed + 'Vereist als de registrar IANA-geaccrediteerd is; bevat uitleg over de statuscode.';
@@ -355,7 +355,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL of the planned global RDAP server JSON response.";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL of the JSON response at the registry level.";
 		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Despite the update, the field remains without functional use.";
-		document.getElementById("metadata_registrar_accreditation_id").textContent = modified + "There may be an IANA Registrar Accreditation ID for gTLDs. It must be correct.";
+		document.getElementById("metadata_registrar_accreditation").textContent = modified + "There may be an IANA Registrar Accreditation ID for gTLDs. It must be correct.";
 		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + 'If applicable, the RDAP-source registrar URL should become machine-readable.';
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + 'Required if the registrar is accredited by IANA, in order to have a complaint handled.';		
 		document.getElementById("metadata_status_explanation_url").textContent = proposed + 'Required if the registrar is IANA-accredited; provides status code explanations.';
@@ -432,7 +432,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL der geplanten JSON-Antwort des globalen RDAP-Servers.";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL der JSON-Antwort auf Registry-Ebene.";
 		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Trotz der Aktualisierung bleibt das Feld ohne funktionalen Nutzen.";
-		document.getElementById("metadata_registrar_accreditation_id").textContent = modified + "Für gTLDs kann eine IANA-Registrar-Akkreditierungs-ID vorhanden sein. Diese muss korrekt sein.";
+		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Für gTLDs kann eine IANA-Registrar-Akkreditierungs-ID vorhanden sein. Diese muss korrekt sein.";
 		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + 'Falls zutreffend, sollte die RDAP-Quell-URL des Registrars maschinenlesbar werden.';
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + 'Erforderlich, wenn der Registrar von der IANA akkreditiert ist, um eine Beschwerde bearbeiten zu lassen.';
 		document.getElementById("metadata_status_explanation_url").textContent = proposed + 'Erforderlich, wenn der Registrar IANA-akkreditiert ist; bietet Erklärungen zum Statuscode.';
@@ -509,7 +509,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL de la réponse JSON prévue du serveur RDAP global.";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL de la réponse JSON au niveau du registre.";
 		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Malgré la mise à jour, le champ reste sans utilité fonctionnelle.";
-		document.getElementById("metadata_registrar_accreditation_id").textContent = modified + "Il peut exister un identifiant d'accréditation IANA pour les gTLD. Il doit être correct.";
+		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Il peut exister un identifiant d'accréditation IANA pour les gTLD. Il doit être correct.";
 		document.getElementById("metadata_registrar_json_response_url").textContent = proposed + "Le cas échéant, l’URL source RDAP du registraire devrait devenir lisible par machine.";
 		document.getElementById("metadata_registrar_complaint_url").textContent = proposed + "Obligatoire si le registraire est accrédité par l'IANA, afin de pouvoir traiter une plainte.";
 		document.getElementById("metadata_status_explanation_url").textContent = proposed + "Obligatoire si le registraire est accrédité par l'IANA ; fournit des explications sur le code de statut.";
@@ -667,7 +667,7 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$validation_registry = 'https://validator.rdap.org/?url=https://'.$registry_json_response_url.'&response-type=domain&server-type=gtld-registry&errors-only=1';	
 	$html_text .= '<tr><td>registry_json_response_url</td><td>'.((strlen($data[$pd]['metadata']['registry_json_response_url'])) ? '<a href='.$data[$pd]['metadata']['registry_json_response_url'].' target="_blank">Registry Response</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registry_json_response_url"></td></tr>';
 	$html_text .= '<tr id="294" style="display:none"><td>registry_language_codes</td><td>'.$data[$pd]['metadata']['registry_language_codes'].'</td><td id="metadata_registry_language_codes"></td></tr>';
-	$html_text .= '<tr id="295" style="display:none"><td>registrar_accreditation_id</td><td>'.((strlen($data[$pd]['metadata']['registrar_accreditation_id'])) ? $data[$pd]['metadata']['registrar_accreditation_id'] : '').'</td><td id="metadata_registrar_accreditation_id"></td></tr>';
+	$html_text .= '<tr id="295" style="display:none"><td>registrar_accreditation</td><td>'.((strlen($data[$pd]['metadata']['registrar_accreditation'])) ? $data[$pd]['metadata']['registrar_accreditation'] : '').'</td><td id="metadata_registrar_accreditation"></td></tr>';
 	$registrar_json_response_url = str_replace('https://', '', $data[$pd]['metadata']['registrar_json_response_url']);
 	$validation_registrar = 'https://validator.rdap.org/?url=https://'.$registrar_json_response_url.'&response-type=domain&server-type=gtld-registrar&errors-only=1';	
 	$html_text .= '<tr id="296" style="display:none"><td>registrar_json_response_url eg. <a style="font-size: 0.9rem" href="https://rdap.cscglobal.com/dbs/rdap-api/v1/domain/icann.com" target="_blank">icann.com</a> <a style="font-size: 0.9rem" href="https://rdap.metaregistrar.com/domain/fryslan.frl" target="_blank">fryslan.frl</a></td><td>'.((strlen($data[$pd]['metadata']['registrar_json_response_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_json_response_url'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registrar_json_response_url"></td></tr>';
