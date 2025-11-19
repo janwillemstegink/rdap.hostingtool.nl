@@ -118,7 +118,10 @@ CREATE TABLE IF NOT EXISTS entities (
     entity_verification_received_at TIMESTAMPTZ,
     entity_verification_set_at TIMESTAMPTZ,
     entity_properties JSONB DEFAULT '[]'::jsonb,
-    entity_remarks JSONB DEFAULT '[]'::jsonb
+    entity_remarks JSONB DEFAULT '[]'::jsonb,
+    entity_accreditation JSONB DEFAULT '[]'::jsonb,
+    entity_links JSONB DEFAULT '[]'::jsonb,
+    entity_json_response_url TEXT
 );
 
 CREATE INDEX IF NOT EXISTS idx_entity_postal_code ON entities(entity_postal_code);
