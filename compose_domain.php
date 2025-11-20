@@ -9,6 +9,7 @@
 //$_GET['domain'] = 'ledigheid.nl';
 //$_GET['domain'] = 'rdap.org';
 //$_GET['domain'] = 'france.fr';
+//$_GET['domain'] = 'domaincontrolregister.org';
 
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
@@ -273,7 +274,10 @@ $notice_3_links_0_href = $obj['notices'][3]['links'][0]['href'];
 $notice_3_links_0_type = $obj['notices'][3]['links'][0]['type'];
 $links_0_value = $obj['links'][0]['value'];
 $links_0_related = $obj['links'][0]['rel'];
-$links_0_href = $obj['links'][0]['href'];
+$links_0_href = $obj['links'][0]['href'];	
+if ($obj['links'][0]['rel'] == 'related')	{
+	$registrar_json_response_url = $obj['links'][0]['href'];
+}		
 $links_0_href_lang = $obj['links'][0]['hreflang'];
 $links_0_title = $obj['links'][0]['title'];
 $links_0_media = $obj['links'][0]['media'];
@@ -282,6 +286,9 @@ $links_0_type = $obj['links'][0]['type'];
 $links_1_value = $obj['links'][1]['value'];
 $links_1_related = $obj['links'][1]['rel'];
 $links_1_href = $obj['links'][1]['href'];
+if ($obj['links'][1]['rel'] == 'related')	{
+	$registrar_json_response_url = $obj['links'][1]['href'];
+}	
 $links_1_href_lang_1 = $obj['links'][1]['hreflang'];
 $links_1_title = $obj['links'][1]['title'];
 $links_1_media = $obj['links'][1]['media'];
@@ -290,6 +297,9 @@ $links_1_type = $obj['links'][1]['type'];
 $links_2_value = $obj['links'][2]['value'];
 $links_2_related = $obj['links'][2]['rel'];
 $links_2_href = $obj['links'][2]['href'];
+if ($obj['links'][2]['rel'] == 'related')	{
+	$registrar_json_response_url = $obj['links'][2]['href'];
+}
 $links_2_href_lang = $obj['links'][2]['hreflang'];
 $links_2_title = $obj['links'][2]['title'];
 $links_2_media = $obj['links'][2]['media'];
@@ -298,6 +308,9 @@ $links_2_type = $obj['links'][2]['type'];
 $links_3_value = $obj['links'][3]['value'];
 $links_3_related = $obj['links'][3]['rel'];
 $links_3_href = $obj['links'][3]['href'];
+if ($obj['links'][3]['rel'] == 'related')	{
+	$registrar_json_response_url = $obj['links'][3]['href'];
+}	
 $links_3_href_lang_1 = $obj['links'][3]['hreflang'];
 $links_3_title = $obj['links'][3]['title'];
 $links_3_media = $obj['links'][3]['media'];
@@ -1302,7 +1315,6 @@ foreach($obj as $key1 => $value1) {
 if ($inputbatch)	{
 	$raw_rdap_data = '';
 }
-	
 $arr[$inputdomain]['notices']['notice_0_title'] = $notice_0_title;	
 $arr[$inputdomain]['notices']['notice_0_description_0'] = $notice_0_description_0;
 $arr[$inputdomain]['notices']['notice_0_description_1'] = $notice_0_description_1;
