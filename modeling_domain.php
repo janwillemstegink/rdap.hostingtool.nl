@@ -62,44 +62,20 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 ?><script>
 	
 function SwitchDisplay(type) {
-	if (type == 11)	{ // notice 0
+	if (type == 11)	{ // notice
 		var pre = '11';
-		var max = 5
-	}
-	else if (type == 12)	{ // notice 1
-		var pre = '12';
-		var max = 5
-	}
-	else if (type == 13)	{ // notice 2
-		var pre = '13';
-		var max = 5
-	}
-	else if (type == 14)	{ // notice 3
-		var pre = '14';
-		var max = 5
-	}
-	else if (type == 20)	{ // links 0
-		var pre = '20';
-		var max = 7
-	}
-	else if (type == 21)	{ // links 1
-		var pre = '21';
-		var max = 7
-	}
-	else if (type == 22)	{ // links 2
-		var pre = '22';
-		var max = 7
-	}
-	else if (type == 23)	{ // links 3
-		var pre = '23';
-		var max = 7
-	}
-	else if (type == 26)	{ // redacted
-		var pre = '26';
 		var max = 1
 	}
-	else if (type == 29)	{ // metadata
-		var pre = '29';
+	else if (type == 12)	{ // links
+		var pre = '12';
+		var max = 1
+	}
+	else if (type == 13)	{ // redacted
+		var pre = '13';
+		var max = 1
+	}
+	else if (type == 20)	{ // metadata
+		var pre = '20';
 		var max = 10
 	}
 	else if (type == 30)	{ // properties
@@ -606,75 +582,29 @@ $html_text .= '<tr style="font-size: .8rem"><td id="subtitle" style="font-size: 
 //echo $pd.'#'.$data[$pd]['properties']['ascii_name'];
 if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empty($data[$pd]['properties']['ascii_name']))	{
 	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td id="value"><td id="explanation"></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(11)">Notice0 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(12)">Notice1 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(13)">Notice2 +/-</button> <button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(14)">Notice3 +/-</button></td><td></td><td id="notices_role"></td></tr>';
-	$html_text .= '<tr id="111" style="display:none;vertical-align:top"><td>notice_0_title</td><td colspan="2">'.$data[$pd]['notices']['notice_0_title'].'</td></tr>';
-	$html_text .= '<tr id="112" style="display:none;vertical-align:top"><td>notice_0_description_0</td><td colspan="2">'.$data[$pd]['notices']['notice_0_description_0'].'</td></tr>';
-	$html_text .= '<tr id="113" style="display:none;vertical-align:top"><td>notice_0_description_1</td><td colspan="2">'.$data[$pd]['notices']['notice_0_description_1'].'</td></tr>';
-	$html_text .= '<tr id="114" style="display:none;vertical-align:top"><td>notice_0_links_0_href</td><td colspan="2">'.$data[$pd]['notices']['notice_0_links_0_href'].'</td></tr>';
-	$html_text .= '<tr id="115" style="display:none;vertical-align:top"><td>notice_0_links_0_type</td><td colspan="2">'.$data[$pd]['notices']['notice_0_links_0_type'].'</td></tr>';
-	$html_text .= '<tr id="121" style="display:none;vertical-align:top"><td>notice_1_title</td><td colspan="2">'.$data[$pd]['notices']['notice_1_title'].'</td></tr>';
-	$html_text .= '<tr id="122" style="display:none;vertical-align:top"><td>notice_1_description_0</td><td colspan="2">'.$data[$pd]['notices']['notice_1_description_0'].'</td></tr>';
-	$html_text .= '<tr id="123" style="display:none;vertical-align:top"><td>notice_1_description_1</td><td colspan="2">'.$data[$pd]['notices']['notice_1_description_1'].'</td></tr>';
-	$html_text .= '<tr id="124" style="display:none;vertical-align:top"><td>notice_1_links_0_href</td><td colspan="2">'.$data[$pd]['notices']['notice_1_links_0_href'].'</td></tr>';
-	$html_text .= '<tr id="125" style="display:none;vertical-align:top"><td>notice_1_links_0_type</td><td colspan="2">'.$data[$pd]['notices']['notice_1_links_0_type'].'</td></tr>';
-	$html_text .= '<tr id="131" style="display:none;vertical-align:top"><td>notice_2_title</td><td colspan="2">'.$data[$pd]['notices']['notice_2_title'].'</td></tr>';
-	$html_text .= '<tr id="132" style="display:none;vertical-align:top"><td>notice_2_description_0</td><td colspan="2">'.$data[$pd]['notices']['notice_2_description_0'].'</td></tr>';
-	$html_text .= '<tr id="133" style="display:none;vertical-align:top"><td>notice_2_description_1</td><td colspan="2">'.$data[$pd]['notices']['notice_2_description_1'].'</td></tr>';
-	$html_text .= '<tr id="134" style="display:none;vertical-align:top"><td>notice_2_links_0_href</td><td colspan="2">'.$data[$pd]['notices']['notice_2_links_0_href'].'</td></tr>';
-	$html_text .= '<tr id="135" style="display:none;vertical-align:top"><td>notice_2_links_0_type</td><td colspan="2">'.$data[$pd]['notices']['notice_2_links_0_type'].'</td></tr>';
-	$html_text .= '<tr id="141" style="display:none;vertical-align:top"><td>notice_3_title</td><td colspan="2">'.$data[$pd]['notices']['notice_3_title'].'</td></tr>';
-	$html_text .= '<tr id="142" style="display:none;vertical-align:top"><td>notice_3_description_0</td><td colspan="2">'.$data[$pd]['notices']['notice_3_description_0'].'</td></tr>';
-	$html_text .= '<tr id="143" style="display:none;vertical-align:top"><td>notice_3_description_1</td><td colspan="2">'.$data[$pd]['notices']['notice_3_description_1'].'</td></tr>';
-	$html_text .= '<tr id="144" style="display:none;vertical-align:top"><td>notice_3_links_0_href</td><td colspan="2">'.$data[$pd]['notices']['notice_3_links_0_href'].'</td></tr>';
-	$html_text .= '<tr id="145" style="display:none;vertical-align:top"><td>notice_3_links_0_type</td><td colspan="2">'.$data[$pd]['notices']['notice_3_links_0_type'].'</td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.95rem" onclick="SwitchDisplay(20)">Links0 +/-</button> <button style="cursor:pointer;font-size:.95rem" onclick="SwitchDisplay(21)">Links1 +/-</button> <button style="cursor:pointer;font-size:.95rem" onclick="SwitchDisplay(22)">Links2 +/-</button> <button style="cursor:pointer;font-size:.95rem" onclick="SwitchDisplay(23)">Links3 +/-</button></td><td></td><td id="links_role"></td></tr>';
-	$html_text .= '<tr id="201" style="display:none;vertical-align:top"><td>links_0_value</td><td colspan="2">'.$data[$pd]['links']['links_0_value'].'</td></tr>';
-	$html_text .= '<tr id="202" style="display:none;vertical-align:top"><td>links_0_related</td><td colspan="2">'.$data[$pd]['links']['links_0_related'].'</td></tr>';
-	$html_text .= '<tr id="203" style="display:none;vertical-align:top"><td>links_0_href</td><td colspan="2">'.$data[$pd]['links']['links_0_href'].'</td></tr>';
-	$html_text .= '<tr id="204" style="display:none;vertical-align:top"><td>links_0_href_lang</td><td colspan="2">'.$data[$pd]['links']['links_0_href_lang'].'</td></tr>';
-	$html_text .= '<tr id="205" style="display:none;vertical-align:top"><td>links_0_title</td><td colspan="2">'.$data[$pd]['links']['links_0_title'].'</td></tr>';
-	$html_text .= '<tr id="206" style="display:none;vertical-align:top"><td>links_0_media</td><td colspan="2">'.$data[$pd]['links']['links_0_media'].'</td></tr>';
-	$html_text .= '<tr id="207" style="display:none;vertical-align:top"><td>links_0_type</td><td colspan="2">'.$data[$pd]['links']['links_0_type'].'</td></tr>';
-	$html_text .= '<tr id="211" style="display:none;vertical-align:top"><td>links_1_value</td><td colspan="2">'.$data[$pd]['links']['links_1_value'].'</td></tr>';
-	$html_text .= '<tr id="212" style="display:none;vertical-align:top"><td>links_1_related</td><td colspan="2">'.$data[$pd]['links']['links_1_related'].'</td></tr>';
-	$html_text .= '<tr id="213" style="display:none;vertical-align:top"><td>links_1_href</td><td colspan="2">'.$data[$pd]['links']['links_1_href'].'</td></tr>';
-	$html_text .= '<tr id="214" style="display:none;vertical-align:top"><td>links_1_href_lang</td><td colspan="2">'.$data[$pd]['links']['links_1_href_lang'].'</td></tr>';
-	$html_text .= '<tr id="215" style="display:none;vertical-align:top"><td>links_1_title</td><td colspan="2">'.$data[$pd]['links']['links_1_title'].'</td></tr>';
-	$html_text .= '<tr id="216" style="display:none;vertical-align:top"><td>links_1_media</td><td colspan="2">'.$data[$pd]['links']['links_1_media'].'</td></tr>';
-	$html_text .= '<tr id="217" style="display:none;vertical-align:top"><td>links_1_type</td><td colspan="2">'.$data[$pd]['links']['links_1_type'].'</td></tr>';
-	$html_text .= '<tr id="221" style="display:none;vertical-align:top"><td>links_2_value</td><td colspan="2">'.$data[$pd]['links']['links_2_value'].'</td></tr>';
-	$html_text .= '<tr id="222" style="display:none;vertical-align:top"><td>links_2_related</td><td colspan="2">'.$data[$pd]['links']['links_2_related'].'</td></tr>';
-	$html_text .= '<tr id="223" style="display:none;vertical-align:top"><td>links_2_href</td><td colspan="2">'.$data[$pd]['links']['links_2_href'].'</td></tr>';
-	$html_text .= '<tr id="224" style="display:none;vertical-align:top"><td>links_2_href_lang</td><td colspan="2">'.$data[$pd]['links']['links_2_href_lang'].'</td></tr>';
-	$html_text .= '<tr id="225" style="display:none;vertical-align:top"><td>links_2_title</td><td colspan="2">'.$data[$pd]['links']['links_2_title'].'</td></tr>';
-	$html_text .= '<tr id="226" style="display:none;vertical-align:top"><td>links_2_media</td><td colspan="2">'.$data[$pd]['links']['links_2_media'].'</td></tr>';
-	$html_text .= '<tr id="227" style="display:none;vertical-align:top"><td>links_2_type</td><td colspan="2">'.$data[$pd]['links']['links_2_type'].'</td></tr>';
-	$html_text .= '<tr id="231" style="display:none;vertical-align:top"><td>links_3_value</td><td colspan="2">'.$data[$pd]['links']['links_3_value'].'</td></tr>';
-	$html_text .= '<tr id="232" style="display:none;vertical-align:top"><td>links_3_related</td><td colspan="2">'.$data[$pd]['links']['links_3_related'].'</td></tr>';
-	$html_text .= '<tr id="233" style="display:none;vertical-align:top"><td>links_3_href</td><td colspan="2">'.$data[$pd]['links']['links_3_href'].'</td></tr>';
-	$html_text .= '<tr id="234" style="display:none;vertical-align:top"><td>links_3_href_lang</td><td colspan="2">'.$data[$pd]['links']['links_3_href_lang'].'</td></tr>';
-	$html_text .= '<tr id="235" style="display:none;vertical-align:top"><td>links_3_title</td><td colspan="2">'.$data[$pd]['links']['links_3_title'].'</td></tr>';
-	$html_text .= '<tr id="236" style="display:none;vertical-align:top"><td>links_3_media</td><td colspan="2">'.$data[$pd]['links']['links_3_media'].'</td></tr>';
-	$html_text .= '<tr id="237" style="display:none;vertical-align:top"><td>links_3_type</td><td colspan="2">'.$data[$pd]['links']['links_3_type'].'</td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(26)">Redacted Values +/-</button></td><td></td><td id="redacted"></td></tr>';
-	$html_text .= '<tr id="261" style="display:none;vertical-align:top"><td colspan="3">'.$data[$pd]['redacted'].'</td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(29)">Metadata +/-</button></td><td></td><td id="metadata_role"></td></tr>';
-	$html_text .= '<tr id="291" style="display:none"><td>object_type</td><td>'.$data[$pd]['metadata']['object_type'].'</td><td id="metadata_object_type"></td></tr>';
-	$html_text .= '<tr id="292" style="display:none; vertical-align:top"><td>rdap_conformance</td><td colspan="2">'.$data[$pd]['metadata']['rdap_conformance'].'</td></tr>';	
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(11)">Notices +/-</button><td></td><td id="notices_role"></td></tr>';
+	$html_text .= '<tr id="111" style="display:none;vertical-align:top"><td colspan="3">'.$data[$pd]['notices'].'</td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.95rem" onclick="SwitchDisplay(12)">Links +/-</button><td></td><td id="links_role"></td></tr>';
+	$html_text .= '<tr id="121" style="display:none;vertical-align:top"><td colspan="3">'.$data[$pd]['links'].'</td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(13)">Redacted Values +/-</button></td><td></td><td id="redacted"></td></tr>';
+	$html_text .= '<tr id="131" style="display:none;vertical-align:top"><td colspan="3">'.$data[$pd]['redacted'].'</td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(20)">Metadata +/-</button></td><td></td><td id="metadata_role"></td></tr>';
+	$html_text .= '<tr id="201" style="display:none"><td>object_type</td><td>'.$data[$pd]['metadata']['object_type'].'</td><td id="metadata_object_type"></td></tr>';
+	$html_text .= '<tr id="202" style="display:none; vertical-align:top"><td>rdap_conformance</td><td colspan="2">'.$data[$pd]['metadata']['rdap_conformance'].'</td></tr>';	
 	$html_text .= '<tr><td>terms_and_conditions_url</td><td>'.((strlen($terms_and_conditions_url)) ? '<a href="'.$terms_and_conditions_url.'" target="_blank">.'.$data[$pd]['metadata']['zone_identifier'].' TLD Data</a>' : '').'</td><td id="metadata_terms_and_conditions_url"></td></tr>';	
-	$html_text .= '<tr id="293" style="display:none"><td>global_json_response_url</td><td>'.$data[$pd]['metadata']['global_json_response_url'].'</td><td id="metadata_global_json_response_url"></td></tr>';
+	$html_text .= '<tr id="203" style="display:none"><td>global_json_response_url</td><td>'.$data[$pd]['metadata']['global_json_response_url'].'</td><td id="metadata_global_json_response_url"></td></tr>';
 	$registry_json_response_url = str_replace('https://', '', $data[$pd]['metadata']['registry_json_response_url']);
 	$validation_registry = 'https://validator.rdap.org/?url=https://'.$registry_json_response_url.'&response-type=domain&server-type=gtld-registry&errors-only=1';	
 	$html_text .= '<tr><td>registry_json_response_url</td><td>'.((strlen($data[$pd]['metadata']['registry_json_response_url'])) ? '<a href='.$data[$pd]['metadata']['registry_json_response_url'].' target="_blank">Registry Response</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registry_json_response_url"></td></tr>';
-	$html_text .= '<tr id="294" style="display:none"><td>registry_language_codes</td><td>'.$data[$pd]['metadata']['registry_language_codes'].'</td><td id="metadata_registry_language_codes"></td></tr>';
-	$html_text .= '<tr id="295" style="display:none"><td>registrar_accreditation</td><td>'.((strlen($data[$pd]['metadata']['registrar_accreditation'])) ? $data[$pd]['metadata']['registrar_accreditation'] : '').'</td><td id="metadata_registrar_accreditation"></td></tr>';
-	$html_text .= '<tr id="296" style="display:none;vertical-align:top"><td>registrar_links</td><td colspan="2">'.$data[$pd]['metadata']['registrar_links'].'</td></tr>';
+	$html_text .= '<tr id="204" style="display:none"><td>registry_language_codes</td><td>'.$data[$pd]['metadata']['registry_language_codes'].'</td><td id="metadata_registry_language_codes"></td></tr>';
+	$html_text .= '<tr id="205" style="display:none"><td>registrar_accreditation</td><td>'.((strlen($data[$pd]['metadata']['registrar_accreditation'])) ? $data[$pd]['metadata']['registrar_accreditation'] : '').'</td><td id="metadata_registrar_accreditation"></td></tr>';
+	$html_text .= '<tr id="206" style="display:none;vertical-align:top"><td>registrar_links</td><td colspan="2">'.$data[$pd]['metadata']['registrar_links'].'</td></tr>';
 	$registrar_json_response_url = str_replace('https://', '', $data[$pd]['metadata']['registrar_json_response_url']);
 	$validation_registrar = 'https://validator.rdap.org/?url=https://'.$registrar_json_response_url.'&response-type=domain&server-type=gtld-registrar&errors-only=1';	
-	$html_text .= '<tr id="297" style="display:none"><td>registrar_json_response_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_json_response_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_json_response_url'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registrar_json_response_url"></td></tr>';
-	$html_text .= '<tr id="298" style="display:none"><td>registrar_complaint_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_complaint_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_complaint_url'].' target="_blank">icann.org/wicf</a>' : '(if accredited)').'</td><td id="metadata_registrar_complaint_url"></td></tr>';
-	$html_text .= '<tr id="299" style="display:none"><td>status_explanation_url</td><td>'.((strlen($data[$pd]['metadata']['status_explanation_url'])) ? '<a href='.$data[$pd]['metadata']['status_explanation_url'].' target="_blank">icann.org/epp</a>' : '(if accredited)').'</td><td id="metadata_status_explanation_url"></td></tr>';
-	$html_text .= '<tr id="2910" style="display:none"><td>geo_location</td><td>'.$data[$pd]['metadata']['geo_location'].'</td><td></td></tr>';
+	$html_text .= '<tr id="207" style="display:none"><td>registrar_json_response_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_json_response_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_json_response_url'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registrar_json_response_url"></td></tr>';
+	$html_text .= '<tr id="208" style="display:none"><td>registrar_complaint_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_complaint_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_complaint_url'].' target="_blank">icann.org/wicf</a>' : '').'</td><td id="metadata_registrar_complaint_url"></td></tr>';
+	$html_text .= '<tr id="209" style="display:none"><td>status_explanation_url</td><td>'.((strlen($data[$pd]['metadata']['status_explanation_url'])) ? '<a href='.$data[$pd]['metadata']['status_explanation_url'].' target="_blank">icann.org/epp</a>' : '').'</td><td id="metadata_status_explanation_url"></td></tr>';
+	$html_text .= '<tr id="2010" style="display:none"><td>geo_location</td><td>'.$data[$pd]['metadata']['geo_location'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>resource_upload_at</td><td>'.$data[$pd]['metadata']['resource_upload_at'].'</td><td id="metadata_resource_upload_at"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	if (strlen($data[$pd]['http_error']))	{

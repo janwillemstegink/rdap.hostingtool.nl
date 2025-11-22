@@ -58,57 +58,8 @@ function write_file($inputtld)	{
 	
 $tld_json_response_url = 'https://rdap.iana.org/domain/'.$inputtld;
 $obj = json_decode(file_get_contents($tld_json_response_url), true);
-$notice_0_title = $obj['notices'][0]['title'];
-$notice_0_description_0 = $obj['notices'][0]['description'][0];	
-$notice_0_description_1 = $obj['notices'][0]['description'][1];
-$notice_0_links_0_href = $obj['notices'][0]['links'][0]['href'];
-$notice_0_links_0_type = $obj['notices'][0]['links'][0]['type'];
-$notice_1_title = $obj['notices'][1]['title'];
-$notice_1_description_0 = $obj['notices'][1]['description'][0];
-$notice_1_description_1 = $obj['notices'][1]['description'][1];
-$notice_1_links_0_href = $obj['notices'][1]['links'][0]['href'];
-$notice_1_links_0_type = $obj['notices'][1]['links'][0]['type'];	
-$notice_2_title = $obj['notices'][2]['title'];	
-$notice_2_description_0 = $obj['notices'][2]['description'][0];
-$notice_2_description_1 = $obj['notices'][2]['description'][1];
-$notice_2_links_0_href = $obj['notices'][2]['links'][0]['href'];
-$notice_2_links_0_type = $obj['notices'][2]['links'][0]['type'];
-$notice_3_title = $obj['notices'][3]['title'];	
-$notice_3_description_0 = $obj['notices'][3]['description'][0];
-$notice_3_description_1 = $obj['notices'][3]['description'][1];
-$notice_3_links_0_href = $obj['notices'][3]['links'][0]['href'];
-$notice_3_links_0_type = $obj['notices'][3]['links'][0]['type'];
-$links_0_value = $obj['links'][0]['value'];
-$links_0_related = $obj['links'][0]['rel'];
-$links_0_href = $obj['links'][0]['href'];
-$links_0_href_lang = $obj['links'][0]['hreflang'];
-$links_0_title = $obj['links'][0]['title'];
-$links_0_media = $obj['links'][0]['media'];
-$links_0_type = $obj['links'][0]['type'];
-	
-$links_1_value = $obj['links'][1]['value'];
-$links_1_related = $obj['links'][1]['rel'];
-$links_1_href = $obj['links'][1]['href'];
-$links_1_href_lang_1 = $obj['links'][1]['hreflang'];
-$links_1_title = $obj['links'][1]['title'];
-$links_1_media = $obj['links'][1]['media'];
-$links_1_type = $obj['links'][1]['type'];
-	
-$links_2_value = $obj['links'][2]['value'];
-$links_2_related = $obj['links'][2]['rel'];
-$links_2_href = $obj['links'][2]['href'];
-$links_2_href_lang = $obj['links'][2]['hreflang'];
-$links_2_title = $obj['links'][2]['title'];
-$links_2_media = $obj['links'][2]['media'];
-$links_2_type = $obj['links'][2]['type'];
-	
-$links_3_value = $obj['links'][3]['value'];
-$links_3_related = $obj['links'][3]['rel'];
-$links_3_href = $obj['links'][3]['href'];
-$links_3_href_lang_1 = $obj['links'][3]['hreflang'];
-$links_3_title = $obj['links'][3]['title'];
-$links_3_media = $obj['links'][3]['media'];
-$links_3_type = $obj['links'][3]['type'];
+$notices = '';	
+$links = '';	
 $tld_ascii_name = $obj['ldhName'];
 $tld_unicode_name = $obj['unicodeName'];		
 $root_zone_statuses = '';	
@@ -142,6 +93,14 @@ foreach($obj as $key1 => $value1) {
 			}
 		}	
 		foreach($value2 as $key3 => $value3) {
+			if ($key1 == 'notices')	{
+				if (!is_array($value3))	{
+					$notices .= $key2.', '.$key3.': '.$value3."<br />";		
+				}
+			}				
+			if ($key1 == 'links')	{
+				$links .= $key2.': '.$key3.': '.$value3."<br />";					
+			}
 			if ($key1 == 'nameservers')	{
 				if ($key3 == 'handle') {
 					$nameservers_handles .= $key2.': '.$value3."<br />";
@@ -164,8 +123,18 @@ foreach($obj as $key1 => $value1) {
 					$nameservers_dnssec_digest .= $key3.': '.$value3['digest']."<br />";
 				}				
 			}
-			foreach($value3 as $key4 => $value4) {		
-				foreach($value4 as $key5 => $value5) {		
+			foreach($value3 as $key4 => $value4) {
+				if ($key1 == 'notices')	{
+					if (!is_array($value4))	{
+						$notices .= $key2.', '.$key3.': '.$key4.': '.$value4."<br />";				
+					}
+				}
+				foreach($value4 as $key5 => $value5) {
+					if ($key1 == 'notices')	{
+						if (!is_array($value5))	{
+							$notices .= $key2.', '.$key3.': '.$key4.': '.$key5.': '.$value5."<br />";
+						}	
+					}
 					if ($key1 == 'nameservers')	{							
 						if ($key3 == 'ipAddresses') {
 							if ($key4 == 'v4') {
@@ -175,7 +144,14 @@ foreach($obj as $key1 => $value1) {
 								$nameservers_ipv6 .= $key2.': '.$value5."<br />";
 							}
 						}														
-					}					
+					}
+					foreach($value5 as $key6 => $value6) {
+						if ($key1 == 'notices')	{
+							if (!is_array($value6))	{
+								$notices .= $key2.', '.$key3.': '.$key4.': '.$key5.': '.$key6.': '.$value6."<br />";
+							}	
+						}	
+					}
 				}
 			}
 		}
@@ -690,61 +666,8 @@ foreach ($decoded as $workload_entry) {
 	
 $arr = array();
 	
-$arr[$inputtld]['notices']['notice_0_title'] = $notice_0_title;	
-$arr[$inputtld]['notices']['notice_0_description_0'] = $notice_0_description_0;
-$arr[$inputtld]['notices']['notice_0_description_1'] = $notice_0_description_1;
-$arr[$inputtld]['notices']['notice_0_links_0_href'] = $notice_0_links_0_href;
-$arr[$inputtld]['notices']['notice_0_links_0_type'] = $notice_0_links_0_type;
-	
-$arr[$inputtld]['notices']['notice_1_title'] = $notice_1_title;	
-$arr[$inputtld]['notices']['notice_1_description_0'] = $notice_1_description_0;
-$arr[$inputtld]['notices']['notice_1_description_1'] = $notice_1_description_1;
-$arr[$inputtld]['notices']['notice_1_links_0_href'] = $notice_1_links_0_href;
-$arr[$inputtld]['notices']['notice_1_links_0_type'] = $notice_1_links_0_type;
-	
-$arr[$inputtld]['notices']['notice_2_title'] = $notice_2_title;	
-$arr[$inputtld]['notices']['notice_2_description_0'] = $notice_2_description_0;
-$arr[$inputtld]['notices']['notice_2_description_1'] = $notice_2_description_1;
-$arr[$inputtld]['notices']['notice_2_links_0_href'] = $notice_2_links_0_href;
-$arr[$inputtld]['notices']['notice_2_links_0_type'] = $notice_2_links_0_type;
-	
-$arr[$inputtld]['notices']['notice_3_title'] = $notice_3_title;	
-$arr[$inputtld]['notices']['notice_3_description_0'] = $notice_3_description_0;
-$arr[$inputtld]['notices']['notice_3_description_1'] = $notice_3_description_1;
-$arr[$inputtld]['notices']['notice_3_links_0_href'] = $notice_3_links_0_href;
-$arr[$inputtld]['notices']['notice_3_links_0_type'] = $notice_3_links_0_type;	
-	
-$arr[$inputtld]['links']['links_0_value'] = $links_0_value;		
-$arr[$inputtld]['links']['links_0_related'] = $links_0_related;		
-$arr[$inputtld]['links']['links_0_href'] = $links_0_href;		
-$arr[$inputtld]['links']['links_0_href_lang'] = $links_0_href_lang;			
-$arr[$inputtld]['links']['links_0_title'] = $links_0_title;	
-$arr[$inputtld]['links']['links_0_media'] = $links_0_media;	
-$arr[$inputtld]['links']['links_0_type'] = $links_0_type;
-
-$arr[$inputtld]['links']['links_1_value'] = $links_1_value;		
-$arr[$inputtld]['links']['links_1_related'] = $links_1_related;		
-$arr[$inputtld]['links']['links_1_href'] = $links_1_href;		
-$arr[$inputtld]['links']['links_1_href_lang'] = $links_1_href_lang;			
-$arr[$inputtld]['links']['links_1_title'] = $links_1_title;	
-$arr[$inputtld]['links']['links_1_media'] = $links_1_media;	
-$arr[$inputtld]['links']['links_1_type'] = $links_1_type;
-	
-$arr[$inputtld]['links']['links_2_value'] = $links_2_value;		
-$arr[$inputtld]['links']['links_2_related'] = $links_2_related;		
-$arr[$inputtld]['links']['links_2_href'] = $links_2_href;		
-$arr[$inputtld]['links']['links_2_href_lang'] = $links_2_href_lang;			
-$arr[$inputtld]['links']['links_2_title'] = $links_2_title;	
-$arr[$inputtld]['links']['links_2_media'] = $links_2_media;	
-$arr[$inputtld]['links']['links_2_type'] = $links_2_type;
-	
-$arr[$inputtld]['links']['links_3_value'] = $links_3_value;		
-$arr[$inputtld]['links']['links_3_related'] = $links_3_related;		
-$arr[$inputtld]['links']['links_3_href'] = $links_3_href;		
-$arr[$inputtld]['links']['links_3_href_lang'] = $links_3_href_lang;			
-$arr[$inputtld]['links']['links_3_title'] = $links_3_title;	
-$arr[$inputtld]['links']['links_3_media'] = $links_3_media;	
-$arr[$inputtld]['links']['links_3_type'] = $links_3_type;	
+$arr[$inputtld]['notices'] = $notices;
+$arr[$inputtld]['links'] = $links;	
 	
 $arr[$inputtld]['common']['root_services_url'] = $root_services_url;
 $arr[$inputtld]['common']['root_zones_url'] = $root_zones_url;
