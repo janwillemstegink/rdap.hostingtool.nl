@@ -258,12 +258,12 @@ CREATE TABLE IF NOT EXISTS domain_entities (
     de_role VARCHAR(50),
     de_shielding JSONB DEFAULT '[
         {
-            "organization_name": "no",
-            "presented_name": "no",
+            "organization_name": "yes",
+            "presented_name": "yes",
             "name": "yes",
             "email": "yes",
             "tel": "yes",
-            "country_code": "no",
+            "country_code": "yes",
             "address": "yes"
         }
     ]'::jsonb,
@@ -312,12 +312,12 @@ CREATE TABLE IF NOT EXISTS entity_entities (
     ee_child_role VARCHAR(50),
     ee_shielding JSONB DEFAULT '[
         {
-            "organization_name": "no",
-            "presented_name": "no",
+            "organization_name": "yes",
+            "presented_name": "yes",
             "name": "yes",
-            "email": "no",
-            "tel": "no",
-            "country_code": "no",
+            "email": "yes",
+            "tel": "yes",
+            "country_code": "yes",
             "address": "yes"
         }
     ]'::jsonb,
