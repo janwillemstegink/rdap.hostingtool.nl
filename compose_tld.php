@@ -95,7 +95,7 @@ foreach($obj as $key1 => $value1) {
 		foreach($value2 as $key3 => $value3) {
 			if ($key1 == 'notices')	{
 				if (!is_array($value3))	{
-					$notices .= $key2.', '.$key3.': '.$value3."<br />";		
+					$notices .= $key2.': '.$key3.': '.$value3."<br />";		
 				}
 			}				
 			if ($key1 == 'links')	{
@@ -126,13 +126,13 @@ foreach($obj as $key1 => $value1) {
 			foreach($value3 as $key4 => $value4) {
 				if ($key1 == 'notices')	{
 					if (!is_array($value4))	{
-						$notices .= $key2.', '.$key3.': '.$key4.': '.$value4."<br />";				
+						$notices .= $key2.': '.$key3.': '.$key4.': '.$value4."<br />";				
 					}
 				}
 				foreach($value4 as $key5 => $value5) {
 					if ($key1 == 'notices')	{
 						if (!is_array($value5))	{
-							$notices .= $key2.', '.$key3.': '.$key4.': '.$key5.': '.$value5."<br />";
+							$notices .= $key2.': '.$key3.': '.$key4.': '.$key5.': '.$value5."<br />";
 						}	
 					}
 					if ($key1 == 'nameservers')	{							
@@ -148,7 +148,7 @@ foreach($obj as $key1 => $value1) {
 					foreach($value5 as $key6 => $value6) {
 						if ($key1 == 'notices')	{
 							if (!is_array($value6))	{
-								$notices .= $key2.', '.$key3.': '.$key4.': '.$key5.': '.$key6.': '.$value6."<br />";
+								$notices .= $key2.': '.$key3.': '.$key4.': '.$key5.': '.$key6.': '.$value6."<br />";
 							}	
 						}	
 					}
@@ -244,24 +244,6 @@ foreach ($decoded as $workload_entry) {
 }	
 $lifecycle_data_active_from = null;	
 $upon_termination = 'Zone-specific regulation';
-$zone_roles_json = '[{"zone_role_sequence": 10,"zone_role_identifier": "sponsor","zone_role_shielding": ["name", "email", "tel"]},
-{"zone_role_sequence": 20,"zone_role_identifier": "registrant","zone_role_shielding": ["name", "email", "tel", "address"]},
-{"zone_role_sequence": 30,"zone_role_identifier": "administrative","zone_role_shielding": ["web_id", "name", "tel", "address"]},
-{"zone_role_sequence": 40,"zone_role_identifier": "technical","zone_role_shielding": ["web_id", "name", "tel", "address"]},
-{"zone_role_sequence": 50,"zone_role_identifier": "billing","zone_role_shielding": ["web_id", "name", "email", "tel", "address"]},
-{"zone_role_sequence": 60,"zone_role_identifier": "emergency","zone_role_shielding": ["name"]},
-{"zone_role_sequence": 70,"zone_role_identifier": "fallback","zone_role_shielding": ["name"]},
-{"zone_role_sequence": 80,"zone_role_identifier": "reseller","zone_role_shielding": ["name", "email", "tel"]},
-{"zone_role_sequence": 90,"zone_role_identifier": "registrar","zone_role_shielding": ["name", "email", "tel"]},
-{"zone_role_sequence": 95,"zone_role_identifier": "abuse","zone_role_shielding": ["name"]}]';
-$decoded = json_decode($zone_roles_json, true);
-usort($decoded, function ($a, $b) {
-    return $a['zone_role_sequence'] <=> $b['zone_role_sequence'];
-});
-$zone_roles = '<b>zone_role_sequence, zone_role_identifier, zone_role_shielding</b><br />';    
-foreach ($decoded as $role) {
-	$zone_roles .= $role['zone_role_sequence'] . ', ' . $role['zone_role_identifier'] . ', [' . implode(', ', $role['zone_role_shielding']) . ']<br />';
-}	
 $operational_periods_json = '[
 	{"period_identifier": "subscription_years", "default": null, "allowed": null},
 	{"period_identifier": "add_grace_days", "default": null, "allowed": null},
@@ -694,7 +676,6 @@ $arr[$inputtld]['root_zone']['tld_terms_of_service_url'] = $tld_terms_of_service
 $arr[$inputtld]['root_zone']['tld_privacy_policy_url'] = $tld_privacy_policy_url;
 $arr[$inputtld]['root_zone']['tld_search_engine_deletion_phase_ready'] = $tld_search_engine_deletion_phase_ready;
 $arr[$inputtld]['root_zone']['tld_contacts'] = $tld_contacts;
-$arr[$inputtld]['root_zone']['zone_roles'] = $zone_roles;
 $arr[$inputtld]['root_zone']['zone_accepted_workload'] = $zone_accepted_workload;
 
 $arr[$inputtld]['lifecycle']['data_active_from'] = $lifecycle_data_active_from;

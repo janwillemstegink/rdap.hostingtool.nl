@@ -235,7 +235,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 1)	{
 		var modified = '(Gewijzigd) ';
 		var proposed = '(Nieuw) ';
-		var accessible = 'Nieuwe velden moeten de bruikbaarheid vergroten en voor duidelijkheid zorgen.';
+		var accessible = 'Voor het gebruiksgemak en de duidelijkheid kunnen nieuwe velden worden toegevoegd.';
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domein Gegevens opvragen";
 		document.getElementById("subtitle").textContent = "RDAPv1-gebaseerde modellering";
@@ -312,7 +312,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 2)	{
 		var modified = '(Modified) ';
 		var proposed = '(New) ';
-		var accessible = 'New fields should boost usability and bring clarity.';
+		var accessible = 'For ease of use and clarity, new fields can be added.';
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domain Data Request";
 		document.getElementById("subtitle").textContent = "RDAPv1 based modeling";
@@ -389,7 +389,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 3)	{
 		var modified = '(Geändert) ';
 		var proposed = '(Neu) ';
-		var accessible = 'Neue Felder sollten die Benutzerfreundlichkeit verbessern und für Klarheit sorgen.';
+		var accessible = 'Zur Vereinfachung und besseren Übersichtlichkeit können neue Felder hinzugefügt werden.';
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domänendatenanforderung";
 		document.getElementById("subtitle").textContent = "RDAPv1-basierte Modellierung";
@@ -466,7 +466,7 @@ function SwitchTranslation(translation)	{
 	else if (translation == 4)	{
 		var modified = '(Modifié) ';
 		var proposed = '(Nouveau) ';
-		var accessible = "Les nouveaux champs devraient améliorer l’utilisabilité et apporter de la clarté.";
+		var accessible = "Pour plus de facilité d'utilisation et de clarté, de nouveaux champs peuvent être ajoutés.";
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Demande de données de domaine";
 		document.getElementById("subtitle").textContent = "Modélisation basée sur RDAPv1";
@@ -586,7 +586,7 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="111" style="display:none;vertical-align:top"><td colspan="3">'.$data[$pd]['notices'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.95rem" onclick="SwitchDisplay(12)">Links +/-</button><td></td><td id="links_role"></td></tr>';
 	$html_text .= '<tr id="121" style="display:none;vertical-align:top"><td colspan="3">'.$data[$pd]['links'].'</td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(13)">Redacted Values +/-</button></td><td></td><td id="redacted"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(13)">Redacted +/-</button></td><td></td><td id="redacted"></td></tr>';
 	$html_text .= '<tr id="131" style="display:none;vertical-align:top"><td colspan="3">'.$data[$pd]['redacted'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(20)">Metadata +/-</button></td><td></td><td id="metadata_role"></td></tr>';
 	$html_text .= '<tr id="201" style="display:none"><td>object_type</td><td>'.$data[$pd]['metadata']['object_type'].'</td><td id="metadata_object_type"></td></tr>';

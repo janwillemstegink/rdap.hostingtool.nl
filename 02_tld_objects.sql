@@ -160,19 +160,6 @@ CREATE TABLE IF NOT EXISTS zones (
     zone_tld_privacy_policy_url TEXT,
     zone_tld_menu_url TEXT,
     zone_tld_search_engine_deletion_phase_ready BOOLEAN NOT NULL DEFAULT FALSE,
-    zone_zone_roles JSONB DEFAULT 
-        '[
-            {"zone_role_sequence": 10, "zone_role_identifier": "sponsor", "zone_role_shielding": ["name", "email", "tel"]},
-            {"zone_role_sequence": 20, "zone_role_identifier": "registrant", "zone_role_shielding": ["name", "email", "tel", "address"]},
-            {"zone_role_sequence": 30, "zone_role_identifier": "administrative", "zone_role_shielding": ["web_id", "name", "tel", "address"]},
-            {"zone_role_sequence": 40, "zone_role_identifier": "technical", "zone_role_shielding": ["web_id", "name", "tel", "address"]},
-            {"zone_role_sequence": 50, "zone_role_identifier": "billing", "zone_role_shielding": ["web_id", "name", "email", "tel", "address"]},
-            {"zone_role_sequence": 60, "zone_role_identifier": "emergency", "zone_role_shielding": ["name"]},
-            {"zone_role_sequence": 70, "zone_role_identifier": "fallback", "zone_role_shielding": ["name"]},
-            {"zone_role_sequence": 80, "zone_role_identifier": "reseller", "zone_role_shielding": ["name", "email", "tel"]},
-            {"zone_role_sequence": 90, "zone_role_identifier": "registrar", "zone_role_shielding": ["name", "email", "tel"]},
-            {"zone_role_sequence": 95, "zone_role_identifier": "abuse", "zone_role_shielding": ["name"]}
-        ]'::jsonb,
     zone_zone_accepted_workload JSONB DEFAULT 
         '[
             {

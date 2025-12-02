@@ -256,6 +256,17 @@ CREATE TABLE IF NOT EXISTS domain_entities (
     de_id SERIAL PRIMARY KEY,
     de_domain BIGINT NOT NULL REFERENCES domains(domain_id) ON DELETE CASCADE,
     de_role VARCHAR(50),
+    de_shielding JSONB DEFAULT '[
+        {
+            "organization_name": "no",
+            "presented_name": "no",
+            "name": "yes",
+            "email": "yes",
+            "tel": "yes",
+            "country_code": "no",
+            "address": "yes"
+        }
+    ]'::jsonb,
     de_entity BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE
 );
 
@@ -299,6 +310,17 @@ CREATE TABLE IF NOT EXISTS entity_entities (
     ee_parent_role VARCHAR(50),
     ee_parent BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE,
     ee_child_role VARCHAR(50),
+    ee_shielding JSONB DEFAULT '[
+        {
+            "organization_name": "no",
+            "presented_name": "no",
+            "name": "yes",
+            "email": "no",
+            "tel": "no",
+            "country_code": "no",
+            "address": "yes"
+        }
+    ]'::jsonb,
     ee_child BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE
 );
 

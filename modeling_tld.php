@@ -98,10 +98,6 @@ function SwitchDisplay(type) {
 		var pre = '42';
 		var max = 1
 	}
-	else if (type == 43)	{ // zone roles
-		var pre = '43';
-		var max = 1
-	}
 	else if (type == 44)	{ // zone accepted workload
 		var pre = '44';
 		var max = 1
@@ -182,7 +178,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_tld_privacy_policy_url").textContent = proposed;
 		document.getElementById("root_zone_tld_search_engine_deletion_phase_ready").textContent = proposed;
 		document.getElementById("root_zone_tld_contacts").textContent = proposed;
-		document.getElementById("root_zone_zone_roles").textContent = proposed;
 		document.getElementById("root_zone_zone_accepted_workload").textContent = proposed;
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
@@ -228,7 +223,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_tld_privacy_policy_url").textContent = proposed;
 		document.getElementById("root_zone_tld_search_engine_deletion_phase_ready").textContent = proposed + 'Of zoekmachines op pending delete mogen vertrouwen om resultaten te wissen.';
 		document.getElementById("root_zone_tld_contacts").textContent = proposed;
-		document.getElementById("root_zone_zone_roles").textContent = proposed + "'Request-Driven': Aanvrager/TLD/rol vereisen een niet-geclusterde zichtbaarheid.";
 		document.getElementById("root_zone_zone_accepted_workload").textContent = proposed + "Deze modellering ondersteunt de modernisering van IANA-databasetabellen.";
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
@@ -274,7 +268,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_tld_privacy_policy_url").textContent = proposed;		
 		document.getElementById("root_zone_tld_search_engine_deletion_phase_ready").textContent = proposed + 'If search engines may rely on pending delete to delete results.';
 		document.getElementById("root_zone_tld_contacts").textContent = proposed;
-		document.getElementById("root_zone_zone_roles").textContent = proposed + "Request-Driven: Requester/TLD/role require an unclustered visibility.";
 		document.getElementById("root_zone_zone_accepted_workload").textContent = proposed + "This modeling supports IANA database table modernization efforts.";
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
@@ -320,7 +313,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_tld_privacy_policy_url").textContent = proposed;		
 		document.getElementById("root_zone_tld_search_engine_deletion_phase_ready").textContent = proposed + 'Ob Suchmaschinen auf Pending Delete vertrauen dürfen, um Ergebnisse zu löschen.';
 		document.getElementById("root_zone_tld_contacts").textContent = proposed;
-		document.getElementById("root_zone_zone_roles").textContent = proposed + "'Request-Driven: Anforderer/TLD/Rolle erfordern eine nicht gruppierte Sichtbarkeit.";
 		document.getElementById("root_zone_zone_accepted_workload").textContent = proposed + "Dieses Modell unterstützt die Modernisierung der IANA-Datenbanktabellen.";
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
@@ -366,7 +358,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_tld_privacy_policy_url").textContent = proposed;		
 		document.getElementById("root_zone_tld_search_engine_deletion_phase_ready").textContent = proposed + "Si les moteurs peuvent se fier à pending delete pour supprimer des résultats.";
 		document.getElementById("root_zone_tld_contacts").textContent = proposed;
-		document.getElementById("root_zone_zone_roles").textContent = proposed + "'Request-Driven': Le demandeur/TLD/le rôle nécessite une visibilité non groupée.";
 		document.getElementById("root_zone_zone_accepted_workload").textContent = proposed + "Cette modélisation soutient la modernisation des tables de la base de données IANA.";
 		document.getElementById("lifecycle_role").textContent = proposed;
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
@@ -450,8 +441,6 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr  id="4112" style="display:table-row"><td>tld_search_engine_deletion_phase_ready</td><td>'.$data[$pd]['root_zone']['tld_search_engine_deletion_phase_ready'].'</td><td id="root_zone_tld_search_engine_deletion_phase_ready"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Zone Contacts +/-</button></td><td></td><td id="root_zone_tld_contacts"></td></tr>';
 	$html_text .= '<tr id="421" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['tld_contacts'].'</td><td id="root_zone_tld_contacts"></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(43)">Zone Roles +/-</button></td><td></td><td id="root_zone_zone_roles"></td></tr>';
-	$html_text .= '<tr id="431" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['zone_roles'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Zone Accepted Workload +/-</button></td><td></td><td id="root_zone_zone_accepted_workload"></td></tr>';
 	$html_text .= '<tr id="441" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['zone_accepted_workload'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';	
@@ -526,5 +515,5 @@ function get_block($ip) {
         }
     }
 	return (strlen($country)) ? $country . '; ' . $orgName : $orgName;	
-}				
+}	
 ?>
