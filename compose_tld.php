@@ -645,6 +645,24 @@ foreach ($decoded as $workload_entry) {
         }	
     }	
 }
+$zone_roles_json = '[{"zone_role_sequence": 10,"zone_role_identifier": "sponsor"},
+{"zone_role_sequence": 20,"zone_role_identifier": "registrant"},
+{"zone_role_sequence": 30,"zone_role_identifier": "administrative"},
+{"zone_role_sequence": 40,"zone_role_identifier": "technical"},
+{"zone_role_sequence": 50,"zone_role_identifier": "billing"},
+{"zone_role_sequence": 60,"zone_role_identifier": "emergency"},
+{"zone_role_sequence": 70,"zone_role_identifier": "fallback"},
+{"zone_role_sequence": 80,"zone_role_identifier": "reseller"},
+{"zone_role_sequence": 90,"zone_role_identifier": "registrar"},
+{"zone_role_sequence": 95,"zone_role_identifier": "abuse"}]';
+$decoded = json_decode($zone_roles_json, true);
+usort($decoded, function ($a, $b) {
+    return $a['zone_role_sequence'] <=> $b['zone_role_sequence'];
+});
+$zone_roles = '<b>zone_role_sequence, zone_role_identifier</b><br />';    
+foreach ($decoded as $role) {
+	$zone_roles .= $role['zone_role_sequence'] . ', ' . $role['zone_role_identifier'] . '<br />';
+}	
 	
 $arr = array();
 	
@@ -677,6 +695,7 @@ $arr[$inputtld]['root_zone']['tld_privacy_policy_url'] = $tld_privacy_policy_url
 $arr[$inputtld]['root_zone']['tld_search_engine_deletion_phase_ready'] = $tld_search_engine_deletion_phase_ready;
 $arr[$inputtld]['root_zone']['tld_contacts'] = $tld_contacts;
 $arr[$inputtld]['root_zone']['zone_accepted_workload'] = $zone_accepted_workload;
+$arr[$inputtld]['root_zone']['zone_roles'] = $zone_roles;
 
 $arr[$inputtld]['lifecycle']['data_active_from'] = $lifecycle_data_active_from;
 $arr[$inputtld]['lifecycle']['upon_termination'] = $upon_termination;

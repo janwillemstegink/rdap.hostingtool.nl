@@ -98,6 +98,10 @@ function SwitchDisplay(type) {
 		var pre = '42';
 		var max = 1
 	}
+	else if (type == 43)	{ // zone roles
+		var pre = '43';
+		var max = 1
+	}
 	else if (type == 44)	{ // zone accepted workload
 		var pre = '44';
 		var max = 1
@@ -443,6 +447,8 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="421" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['tld_contacts'].'</td><td id="root_zone_tld_contacts"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Zone Accepted Workload +/-</button></td><td></td><td id="root_zone_zone_accepted_workload"></td></tr>';
 	$html_text .= '<tr id="441" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['zone_accepted_workload'].'</td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(43)">Zone Roles +/-</button></td><td></td><td></td></tr>';
+	$html_text .= '<tr id="431" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['zone_roles'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';	
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(51)">Lifecycle Information +/-</button></td><td><b>'.$vd.'</b></td><td id="lifecycle_role"></td></tr>';
 	$html_text .= '<tr id="511" style="display:table-row"><td>data_active_from</td><td>'.$data[$pd]['lifecycle']['data_active_from'].'</td><td id="lifecycle_data_active_from"></td></tr>';

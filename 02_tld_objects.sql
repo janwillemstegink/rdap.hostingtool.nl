@@ -177,6 +177,19 @@ CREATE TABLE IF NOT EXISTS zones (
                 }
             }
         ]'::jsonb,
+    zone_zone_roles JSONB DEFAULT 
+        '[
+            {"zone_role_sequence": 10, "zone_role_identifier": "sponsor"},
+            {"zone_role_sequence": 20, "zone_role_identifier": "registrant"},
+            {"zone_role_sequence": 30, "zone_role_identifier": "administrative"},
+            {"zone_role_sequence": 40, "zone_role_identifier": "technical"},
+            {"zone_role_sequence": 50, "zone_role_identifier": "billing"},
+            {"zone_role_sequence": 60, "zone_role_identifier": "emergency"},
+            {"zone_role_sequence": 70, "zone_role_identifier": "fallback"},
+            {"zone_role_sequence": 80, "zone_role_identifier": "reseller"},
+            {"zone_role_sequence": 90, "zone_role_identifier": "registrar"},
+            {"zone_role_sequence": 95, "zone_role_identifier": "abuse"}
+        ]'::jsonb,
     zone_name_servers JSONB::jsonb,
     zone_latest_update_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
