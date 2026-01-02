@@ -1,5 +1,4 @@
-<?php
-session_start();  // without Scriptcase PHP Generator
+//session_start();  // A clean, stateless environment works without a sleep command.
 //ini_set('display_errors', 1);
 //error_reporting(E_ALL);
 $datetime = new DateTime('now', new DateTimeZone('UTC'));
@@ -76,7 +75,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 20)	{ // metadata
 		var pre = '20';
-		var max = 10
+		var max = 11
 	}
 	else if (type == 30)	{ // properties
 		var pre = '30';
@@ -172,6 +171,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("redacted").textContent = "";
 		document.getElementById("metadata_role").textContent = proposed;
 		document.getElementById("metadata_object_type").textContent = modified;
+		document.getElementById("metadata_rdap_version").textContent = modified;
 		document.getElementById("metadata_terms_and_conditions_url").textContent = proposed;
 		document.getElementById("metadata_global_json_response_url").textContent = proposed;
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed;
@@ -249,6 +249,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("redacted").textContent = "Bij gTLD’s is het verbergen van registrantnamen standaard; ccTLD’s zoals .nl tonen bedrijfsnamen.";
 		document.getElementById("metadata_role").textContent = proposed + "Metadata bieden context en details over data-elementen.";
 		document.getElementById("metadata_object_type").textContent = modified;
+		document.getElementById("metadata_rdap_version").textContent = modified;
 		document.getElementById("metadata_terms_and_conditions_url").textContent = proposed + "Verbeterde machineleesbare IANA TLD-gegevens (PostgreSQL JSON-gestructureerd)";
 		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL van de geplande JSON-respons van de globale RDAP-server.";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL van de JSON-respons op registratieniveau.";
@@ -307,7 +308,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("nameservers_ipv4_addresses").textContent = "Een glue-record is een DNS-record dat wordt meegegeven door de bovenliggende zone, ook al is die daar niet";
 		document.getElementById("nameservers_ipv6_addresses").textContent = "autoritatief voor, om cirkelafhankelijke resoluties van nameservers binnen de onderliggende zone te voorkomen.";
 		document.getElementById("br_zone").textContent = "TLD .br: De RDAP-gegevens zijn aangepast met nameservervalidatie.";
-		document.getElementById("raw_data_next").textContent = "De rollen zijn hier gerangschikt op verantwoordelijkheid. 'None Specified' komt van deze tool. Een JSON-structuur kan ook zo leesbaar zijn als XML.";
+		document.getElementById("raw_data_next").textContent = "De rollen zijn hier gerangschikt naar verantwoordelijkheid. Duidelijker met '(not provided)'. Een JSON-structuur kan net zo leesbaar zijn als XML.";
 	}
 	else if (translation == 2)	{
 		var modified = '(Modified) ';
@@ -326,6 +327,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("redacted").textContent = "For gTLDs, hiding registrant names is default; ccTLDs like .nl show a business user name.";
 		document.getElementById("metadata_role").textContent = proposed + "Metadata provides context and details about data elements.";
 		document.getElementById("metadata_object_type").textContent = modified;
+		document.getElementById("metadata_rdap_version").textContent = modified;
 		document.getElementById("metadata_terms_and_conditions_url").textContent = proposed + "Improved Machine-Readable IANA TLD Data (PostgreSQL JSON-Structured)";
 		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL of the planned global RDAP server JSON response.";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL of the JSON response at the registry level.";
@@ -384,7 +386,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("nameservers_ipv4_addresses").textContent = "A glue record is a DNS record provided by the parent zone, even though it is not authoritative for it,";
 		document.getElementById("nameservers_ipv6_addresses").textContent = "to prevent circular dependencies when resolving nameservers within the child zone.";
 		document.getElementById("br_zone").textContent = "TLD .br: The RDAP data has been modified with nameserver validation.";
-		document.getElementById("raw_data_next").textContent = "The roles here are arranged according to responsibility. 'None Specified' comes from this tool. A JSON structure can also be as readable as XML.";
+		document.getElementById("raw_data_next").textContent = "The roles here are arranged according to responsibility. Clearer with '(not provided)'. A JSON structure can be as readable as XML.";
 	}
 	else if (translation == 3)	{
 		var modified = '(Geändert) ';
@@ -403,6 +405,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("redacted").textContent = "Bei gTLDs ist das Ausblenden von Registrantennamen Standard; ccTLDs wie .nl zeigen Firmennamen.";
 		document.getElementById("metadata_role").textContent = proposed + "Metadaten liefern Kontext und Details zu Datenelementen.";
 		document.getElementById("metadata_object_type").textContent = modified;
+		document.getElementById("metadata_rdap_version").textContent = modified;
 		document.getElementById("metadata_terms_and_conditions_url").textContent = proposed + "Verbesserte maschinenlesbare IANA-TLD-Daten (PostgreSQL-JSON-strukturiert)";
 		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL der geplanten JSON-Antwort des globalen RDAP-Servers.";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL der JSON-Antwort auf Registry-Ebene.";
@@ -461,7 +464,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("nameservers_ipv4_addresses").textContent = "Ein Glue-Record ist ein DNS-Eintrag, den die übergeordnete Zone bereitstellt, obwohl sie nicht autoritativ ist,";
 		document.getElementById("nameservers_ipv6_addresses").textContent = "um zirkuläre Abhängigkeiten bei der Auflösung von Nameservern in der untergeordneten Zone zu verhindern.";		
 		document.getElementById("br_zone").textContent = "TLD .br: Die RDAP-Daten wurden mit der Nameserver-Validierung angepasst.";
-		document.getElementById("raw_data_next").textContent = "Die Rollen sind hierbei nach Verantwortung verteilt. 'None Specified' stammt von diesem Tool. Eine JSON-Struktur kann auch genauso lesbar sein wie XML.";
+		document.getElementById("raw_data_next").textContent = "Die Rollen sind hier nach Verantwortung angeordnet. Deutlicher mit '(not provided)'. Eine JSON-Struktur kann genauso gut lesbar sein wie XML.";
 	}
 	else if (translation == 4)	{
 		var modified = '(Modifié) ';
@@ -480,6 +483,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("redacted").textContent = "Pour les gTLD, le masquage des titulaires est la règle ; les ccTLD comme .nl affichent les entreprises.";
 		document.getElementById("metadata_role").textContent = proposed + "Les métadonnées fournissent le contexte et des détails sur les éléments de données.";
 		document.getElementById("metadata_object_type").textContent = modified;
+		document.getElementById("metadata_rdap_version").textContent = modified;
 		document.getElementById("metadata_terms_and_conditions_url").textContent = proposed + "Données TLD IANA améliorées et lisibles par machine (structurées en JSON pour PostgreSQL)";
 		document.getElementById("metadata_global_json_response_url").textContent = proposed + "URL de la réponse JSON prévue du serveur RDAP global.";
 		document.getElementById("metadata_registry_json_response_url").textContent = proposed + "URL de la réponse JSON au niveau du registre.";
@@ -538,7 +542,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("nameservers_ipv4_addresses").textContent = "Un glue record est un enregistrement DNS fourni par la zone parente, bien qu’elle n’en soit pas autoritaire,";
 		document.getElementById("nameservers_ipv6_addresses").textContent = "afin d’éviter les dépendances circulaires lors de la résolution des serveurs de noms de la zone enfant.";		
 		document.getElementById("br_zone").textContent = "TLD .br: Les données RDAP ont été ajustées avec la validation du serveur de noms.";
-		document.getElementById("raw_data_next").textContent = "Les rôles ici sont organisés en fonction des responsabilités. 'None Specified' provient de cet outil. Une structure JSON peut également être aussi lisible que XML.";
+		document.getElementById("raw_data_next").textContent = "Les rôles sont ici organisés selon la responsabilité. Plus clair avec '(not provided)'. Une structure JSON peut être aussi lisible que du XML.";
 	}
 }	
 </script><?php
@@ -554,7 +558,7 @@ $server_url .= '://'. $_SERVER['HTTP_HOST'];
 $server_url .= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);	
 $server_url = dirname($server_url);
 $rdap_url = $server_url.'/compose_domain/index.php?batch=0&domain='.$pd;
-if (@get_headers($rdap_url))	{ // the application to compose data
+if (@get_headers($rdap_url))	{ 
 	$json = file_get_contents($rdap_url) or die("An entered domain could not be read.");
 	$data = json_decode($json, true);
 	$terms_and_conditions_url = $server_url.'/modeling_tld/index.php?language='.$viewlanguage.'&tld='.$data[$pd]['metadata']['zone_identifier'];
@@ -590,21 +594,22 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="131" style="display:none;vertical-align:top"><td colspan="3">'.$data[$pd]['redacted'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(20)">Metadata +/-</button></td><td></td><td id="metadata_role"></td></tr>';
 	$html_text .= '<tr id="201" style="display:none"><td>object_type</td><td>'.$data[$pd]['metadata']['object_type'].'</td><td id="metadata_object_type"></td></tr>';
-	$html_text .= '<tr id="202" style="display:none; vertical-align:top"><td>rdap_conformance</td><td colspan="2">'.$data[$pd]['metadata']['rdap_conformance'].'</td></tr>';	
+	$html_text .= '<tr id="202" style="display:none"><td>rdap_version</td><td>'.$data[$pd]['metadata']['rdap_version'].'</td><td id="metadata_rdap_version"></td></tr>';
+	$html_text .= '<tr id="203" style="display:none; vertical-align:top"><td>rdap_conformance</td><td colspan="2">'.$data[$pd]['metadata']['rdap_conformance'].'</td></tr>';	
 	$html_text .= '<tr><td>terms_and_conditions_url</td><td>'.((strlen($terms_and_conditions_url)) ? '<a href="'.$terms_and_conditions_url.'" target="_blank">.'.$data[$pd]['metadata']['zone_identifier'].' TLD Data</a>' : '').'</td><td id="metadata_terms_and_conditions_url"></td></tr>';	
-	$html_text .= '<tr id="203" style="display:none"><td>global_json_response_url</td><td>'.$data[$pd]['metadata']['global_json_response_url'].'</td><td id="metadata_global_json_response_url"></td></tr>';
+	$html_text .= '<tr id="204" style="display:none"><td>global_json_response_url</td><td>'.$data[$pd]['metadata']['global_json_response_url'].'</td><td id="metadata_global_json_response_url"></td></tr>';
 	$registry_json_response_url = str_replace('https://', '', $data[$pd]['metadata']['registry_json_response_url']);
 	$validation_registry = 'https://validator.rdap.org/?url=https://'.$registry_json_response_url.'&response-type=domain&server-type=gtld-registry&errors-only=1';	
 	$html_text .= '<tr><td>registry_json_response_url</td><td>'.((strlen($data[$pd]['metadata']['registry_json_response_url'])) ? '<a href='.$data[$pd]['metadata']['registry_json_response_url'].' target="_blank">Registry Response</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registry_json_response_url"></td></tr>';
 	$html_text .= '<tr id="204" style="display:none"><td>registry_language_codes</td><td>'.$data[$pd]['metadata']['registry_language_codes'].'</td><td id="metadata_registry_language_codes"></td></tr>';
-	$html_text .= '<tr id="205" style="display:none"><td>registrar_accreditation</td><td>'.((strlen($data[$pd]['metadata']['registrar_accreditation'])) ? $data[$pd]['metadata']['registrar_accreditation'] : '').'</td><td id="metadata_registrar_accreditation"></td></tr>';
-	$html_text .= '<tr id="206" style="display:none;vertical-align:top"><td>registrar_links</td><td colspan="2">'.$data[$pd]['metadata']['registrar_links'].'</td></tr>';
+	$html_text .= '<tr id="206" style="display:none"><td>registrar_accreditation</td><td>'.((strlen($data[$pd]['metadata']['registrar_accreditation'])) ? $data[$pd]['metadata']['registrar_accreditation'] : '').'</td><td id="metadata_registrar_accreditation"></td></tr>';
+	$html_text .= '<tr id="207" style="display:none;vertical-align:top"><td>registrar_links</td><td colspan="2">'.$data[$pd]['metadata']['registrar_links'].'</td></tr>';
 	$registrar_json_response_url = str_replace('https://', '', $data[$pd]['metadata']['registrar_json_response_url']);
 	$validation_registrar = 'https://validator.rdap.org/?url=https://'.$registrar_json_response_url.'&response-type=domain&server-type=gtld-registrar&errors-only=1';	
-	$html_text .= '<tr id="207" style="display:none"><td>registrar_json_response_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_json_response_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_json_response_url'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registrar_json_response_url"></td></tr>';
-	$html_text .= '<tr id="208" style="display:none"><td>registrar_complaint_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_complaint_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_complaint_url'].' target="_blank">icann.org/wicf</a>' : '').'</td><td id="metadata_registrar_complaint_url"></td></tr>';
-	$html_text .= '<tr id="209" style="display:none"><td>status_explanation_url</td><td>'.((strlen($data[$pd]['metadata']['status_explanation_url'])) ? '<a href='.$data[$pd]['metadata']['status_explanation_url'].' target="_blank">icann.org/epp</a>' : '').'</td><td id="metadata_status_explanation_url"></td></tr>';
-	$html_text .= '<tr id="2010" style="display:none"><td>geo_location</td><td>'.$data[$pd]['metadata']['geo_location'].'</td><td></td></tr>';
+	$html_text .= '<tr id="208" style="display:none"><td>registrar_json_response_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_json_response_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_json_response_url'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registrar_json_response_url"></td></tr>';
+	$html_text .= '<tr id="209" style="display:none"><td>registrar_complaint_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_complaint_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_complaint_url'].' target="_blank">icann.org/wicf</a>' : '').'</td><td id="metadata_registrar_complaint_url"></td></tr>';
+	$html_text .= '<tr id="2010" style="display:none"><td>status_explanation_url</td><td>'.((strlen($data[$pd]['metadata']['status_explanation_url'])) ? '<a href='.$data[$pd]['metadata']['status_explanation_url'].' target="_blank">icann.org/epp</a>' : '').'</td><td id="metadata_status_explanation_url"></td></tr>';
+	$html_text .= '<tr id="2011" style="display:none"><td>geo_location</td><td>'.$data[$pd]['metadata']['geo_location'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>resource_upload_at</td><td>'.$data[$pd]['metadata']['resource_upload_at'].'</td><td id="metadata_resource_upload_at"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	if (strlen($data[$pd]['http_error']))	{
@@ -624,14 +629,14 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$properties_statuses = str_replace('proxy','proxy (indeterminate RDAP use)', $properties_statuses);
 	$properties_statuses = str_replace('associated','associated (indeterminate RDAP use)', $properties_statuses);
 	if (str_contains($data[$pd]['properties']['statuses'], 'inactive'))	{
-		$properties_statuses = str_replace('inactive','inactive (without DNS no email protection)', $properties_statuses);
+		$properties_statuses = str_replace('inactive','inactive (no_dns_records)', $properties_statuses);
 	}	
 	elseif (str_contains($data[$pd]['properties']['statuses'], 'active'))	{
 		if ($data[$pd]['nameservers']['dns_delegation'] == '1')	{
-			$properties_statuses = str_replace('active','active (DNS delegated)', $properties_statuses);
+			$properties_statuses = str_replace('active','active (dns_delegated)', $properties_statuses);
 		}
 		else	{
-			$properties_statuses = str_replace('active','active (DNS not delegated)', $properties_statuses);
+			$properties_statuses = str_replace('active','active (no_nameservers)', $properties_statuses);
 		}	
 	}
 	$properties_statuses = str_replace('redemption period','redemption period (=> pending_redemption)', $properties_statuses);
@@ -704,7 +709,12 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	}	
 	$html_text .= '<tr id="3016" style="display:none;vertical-align:top"><td>properties_extensions</td><td>'.$data[$pd]['properties']['extensions'].'</td><td id="properties_extensions"></td></tr>';
 	$html_text .= '<tr id="3017" style="display:none;vertical-align:top"><td>properties_remarks</td><td>'.$data[$pd]['properties']['remarks'].'</td><td></td></tr>';
-	$sponsor_applicable = (strlen($data[$pd]['sponsor']['organization_name']) or strlen($data[$pd]['sponsor']['presented_name'])) ? 'Sponsor Data Exists' : 'No Sponsor Data';
+	if (!empty($data[$pd]['properties']['statuses']))	{
+		$sponsor_applicable = (strlen($data[$pd]['sponsor']['organization_name']) or strlen($data[$pd]['sponsor']['presented_name'])) ? '(sponsor data exists)' : '(no sponsor data)';
+	}
+	else	{
+		$sponsor_applicable = '';
+	}	
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(39)">Sponsor +/-</button></td><td>'.$sponsor_applicable.'</td><td id="sponsor_role"></td></tr>';
 	$html_text .= '<tr id="391" style="display:none"><td>sponsor_server_handle</td><td>'.$data[$pd]['sponsor']['server_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="392" style="display:none"><td>sponsor_client_handle</td><td>'.$data[$pd]['sponsor']['client_handle'].'</td><td></td></tr>';
@@ -991,5 +1001,4 @@ function if_filled($inputvalue)	{
 		return ' (to be empty) ⚠️';
 	}
 	return ' (to be empty)';
-}					
-?>
+}
