@@ -257,10 +257,11 @@ $links = '';
 $redacted = '';
 $resource_upload_at = null;
 $object_type = $obj['objectClassName'];
+$rdap_version = '';	
 $rdap_conformance = (is_array($obj['rdapConformance'])) ? implode(",<br />", $obj['rdapConformance']) : $obj['rdapConformance'];
 $language_codes = (is_array($obj['lang'])) ? implode(",<br />", $obj['lang']) : $obj['lang'];
 if (!strlen($language_codes))	{
-	$language_codes = 'None Specified';	
+	$language_codes = '(not provided)';	
 }	
 $registrar_accreditation = '';
 $registrar_links = '';	
@@ -358,7 +359,7 @@ $registrant_kind = '';
 $registrant_name = '';
 $registrant_email = '';	
 $registrant_telephone = '';
-$registrant_country_code = 'None Specified';
+$registrant_country_code = '(not provided)';
 $registrant_street_address = '';
 $registrant_city = '';
 $registrant_state_or_province = '';
@@ -554,6 +555,7 @@ foreach($obj as $key1 => $value1) {
 	}
 	foreach($value1 as $key2 => $value2) {
 		if ($key1 == 'status')	{
+			$rdap_version = 'RDAPv1';
 			if (str_starts_with($value2, 'client'))	{
 				$domain_client_statuses .= $value2 . ",";
 			}
@@ -1277,6 +1279,7 @@ $arr[$inputdomain]['redacted'] = $redacted;
 	
 $arr[$inputdomain]['metadata']['zone_identifier'] = $zone_identifier;	
 $arr[$inputdomain]['metadata']['object_type'] = $object_type;
+$arr[$inputdomain]['metadata']['rdap_version'] = $rdap_version;
 $arr[$inputdomain]['metadata']['rdap_conformance'] = $rdap_conformance;
 $arr[$inputdomain]['metadata']['tld_information_url'] = $tld_information_url;
 $arr[$inputdomain]['metadata']['registry_json_response_url'] = $url;
