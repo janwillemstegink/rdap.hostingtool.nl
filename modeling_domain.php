@@ -1,4 +1,5 @@
-//session_start();  // A clean, stateless environment works without a sleep command.
+<?php
+session_start();  // A clean, stateless environment works without a sleep command.
 //ini_set('display_errors', 1);
 //error_reporting(E_ALL);
 $datetime = new DateTime('now', new DateTimeZone('UTC'));
@@ -558,11 +559,21 @@ $server_url .= '://'. $_SERVER['HTTP_HOST'];
 $server_url .= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);	
 $server_url = dirname($server_url);
 $rdap_url = $server_url.'/compose_domain/index.php?batch=0&domain='.$pd;
-if (@get_headers($rdap_url))	{ 
-	$json = file_get_contents($rdap_url) or die("An entered domain could not be read.");
-	$data = json_decode($json, true);
-	$terms_and_conditions_url = $server_url.'/modeling_tld/index.php?language='.$viewlanguage.'&tld='.$data[$pd]['metadata']['zone_identifier'];
-	$raw_whois = $server_url.'/domain_whois/index.php?language='.$viewlanguage.'&domain='.$vd;
+$context = stream_context_create([
+  'http' => [
+    'method'  => 'GET',
+    'timeout' => 5,
+    'header'  => "Accept: application/json\r\n",
+  ],
+]);
+$json = @file_get_contents($rdap_url, false, $context);
+if ($json === false) {
+  $err = error_get_last();
+  die("The RDAP endpoint could not be reached. " . ($err['message'] ?? 'Unknown error'));
+}
+$data = json_decode($json, true);
+if (!is_array($data)) {
+  die("The RDAP endpoint returned invalid JSON.");
 }
 if	(is_null($data))	{
 	$terms_and_conditions_url = '';
@@ -570,6 +581,8 @@ if	(is_null($data))	{
 	$reopen = $server_url.'/modeling_domain/index.php?batch=0&domain=domain';
 	sc_redir($reopen);
 }
+$terms_and_conditions_url = $server_url.'/modeling_tld/index.php?language='.$viewlanguage.'&tld='.$data[$pd]['metadata']['zone_identifier'];
+$raw_whois = $server_url.'/domain_whois/index.php?language='.$viewlanguage.'&domain='.$vd;
 $html_text = '<body onload=SwitchTranslation('.$viewlanguage.')><div style="border-collapse:collapse; line-height:120%">
 <table style="font-family:Helvetica, Arial, sans-serif; font-size: 1rem; table-layout: fixed; width:1375px">
 <tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th></tr>';
@@ -601,7 +614,7 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$registry_json_response_url = str_replace('https://', '', $data[$pd]['metadata']['registry_json_response_url']);
 	$validation_registry = 'https://validator.rdap.org/?url=https://'.$registry_json_response_url.'&response-type=domain&server-type=gtld-registry&errors-only=1';	
 	$html_text .= '<tr><td>registry_json_response_url</td><td>'.((strlen($data[$pd]['metadata']['registry_json_response_url'])) ? '<a href='.$data[$pd]['metadata']['registry_json_response_url'].' target="_blank">Registry Response</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registry_json_response_url"></td></tr>';
-	$html_text .= '<tr id="204" style="display:none"><td>registry_language_codes</td><td>'.$data[$pd]['metadata']['registry_language_codes'].'</td><td id="metadata_registry_language_codes"></td></tr>';
+	$html_text .= '<tr id="205" style="display:none"><td>registry_language_codes</td><td>'.$data[$pd]['metadata']['registry_language_codes'].'</td><td id="metadata_registry_language_codes"></td></tr>';
 	$html_text .= '<tr id="206" style="display:none"><td>registrar_accreditation</td><td>'.((strlen($data[$pd]['metadata']['registrar_accreditation'])) ? $data[$pd]['metadata']['registrar_accreditation'] : '').'</td><td id="metadata_registrar_accreditation"></td></tr>';
 	$html_text .= '<tr id="207" style="display:none;vertical-align:top"><td>registrar_links</td><td colspan="2">'.$data[$pd]['metadata']['registrar_links'].'</td></tr>';
 	$registrar_json_response_url = str_replace('https://', '', $data[$pd]['metadata']['registrar_json_response_url']);
@@ -1002,3 +1015,4 @@ function if_filled($inputvalue)	{
 	}
 	return ' (to be empty)';
 }
+?>

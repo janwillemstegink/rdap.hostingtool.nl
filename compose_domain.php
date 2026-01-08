@@ -1,5 +1,4 @@
 <?php
-//<?php
 //ini_set('display_errors', 1);
 //error_reporting(E_ALL);
 //$_GET['domain'] = 'hostingtool.nl';
@@ -10,30 +9,32 @@
 //$_GET['domain'] = 'rdap.org';
 //$_GET['domain'] = 'france.fr';
 //$_GET['domain'] = 'domaincontrolregister.org';
+//$_GET['domain'] = 'prezero.nl';
+//$_GET['domain'] = 'prezerotest.nl';
 
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
 		$domain = $_GET['domain'];
 		$batch = false;
-		if (!empty($_GET['batch']))	{
-			if (trim($_GET['batch'] == '1'))	{
-				$batch = true;
-			}
+		if (isset($_GET['batch']) && trim($_GET['batch']) === '1') {
+		    $batch = true;
 		}
 		$domain = mb_strtolower($domain);
 		$domain = str_replace('http://','', $domain);
 		$domain = str_replace('https://','', $domain);
-		if (substr_count($domain, '.') > 1)	{
-			$domain = str_replace('www.','', $domain);
+		if (preg_match('/^www\.(.+)$/i', $domain, $m)) {
+    		if (substr_count($m[1], '.') >= 1) {
+        		$domain = $m[1];
+    		}
 		}
-		$strpos = mb_strpos($domain, '/');
-		if ($strpos)	{
-			$domain = mb_substr($domain, 0, $strpos);
+		$pos = mb_strpos($domain, '/');
+		if ($pos !== false) {
+		    $domain = mb_substr($domain, 0, $pos);
 		}
-		$strpos = mb_strpos($domain, ':');
-		if ($strpos)	{
-			$domain = mb_substr($domain, 0, $strpos);
-		}
+		$pos = mb_strpos($domain, ':');
+		if ($pos !== false) {
+    		$domain = mb_substr($domain, 0, $pos);
+		}		
 		$domain = toPunycodeIfNeeded($domain);
 		header('Content-Type: application/json');
 		echo json_encode(write_file($domain, $batch), JSON_PRETTY_PRINT);
@@ -208,48 +209,61 @@ if (!strlen($url))	{
 	return $arr;
 }	
 $url .= 'domain/'.$inputdomain;
-$registrar_json_response_url = '';
 $options = [
-    "http" => [
-        "method" => "GET",
-        "ignore_errors" => true,
-        "header" => "User-Agent: MyRDAPClient/1.0\r\n"
-    ]
+  "http" => [
+    "method" => "GET",
+    "ignore_errors" => true,
+    "timeout" => 8,
+    "header" => "User-Agent: MyRDAPClient/1.0\r\nAccept: application/json\r\n",
+  ]
 ];
 $context = stream_context_create($options);
 $time_pass = microtime(true) - $time_start;
 if ($time_pass < 1.05) {
-    usleep((1.05 - $time_pass) * 1_000_000);
+  usleep((int)((1.05 - $time_pass) * 1_000_000));
 }
-$fp = fopen($url, 'r', false, $context);
-if ($fp) {
-    $response = stream_get_contents($fp);
-    fclose($fp);
+$start_monotonic = microtime(true);
+$start_utc_iso   = gmdate('c');
+$server_seen = $_SERVER['SERVER_ADDR'] ?? null;
+$fp = @fopen($url, 'r', false, $context);
+if (!$fp) {
+  $arr[$inputdomain]['http_error'] = [
+    'message' => 'Failed to open URL',
+    'php_error' => error_get_last(),
+    'time_utc' => $start_utc_iso,
+    'server_ip' => $server_seen,
+    'url' => $url,
+  ];
+  return $arr;
 }
-else {
-    $response = false;
-}
+$response = stream_get_contents($fp);
+fclose($fp);
 $http_code = null;
-if (isset($http_response_header)) {
-    if (preg_match('#HTTP/\d+\.\d+\s+(\d+)#', $http_response_header[0], $matches)) {
-        $http_code = (int)$matches[1];
-    }
-}	
+if (!empty($http_response_header) && preg_match('#^HTTP/\S+\s+(\d{3})#', $http_response_header[0], $matches)) {
+	$http_code = (int)$matches[1];
+}
+$elapsed_seconds = microtime(true) - $start_monotonic;
+if ($http_code === null) {
+	$arr[$inputdomain]['http_error'] = "No HTTP status line at $start_utc_iso in " . round($elapsed_seconds, 2) . " sec from $server_seen";
+  	return $arr;
+}
 if ($http_code === 429) {
-	$arr[$inputdomain]['http_error'] = "429 - Rate limit exceeded";
+	$arr[$inputdomain]['http_error'] = "429 - Rate limit exceeded at $start_utc_iso in " . round($elapsed_seconds, 2) . " sec from $server_seen";
 	return $arr;
 }
-if ($http_code === 200) {
-    if (json_last_error() === JSON_ERROR_NONE) {
-		$obj = json_decode($response, true);
-    }
-	else {
-		$arr[$inputdomain]['http_error'] = "500 - Invalid JSON from RDAP";
-		return $arr;
-    }
+if ($http_code !== 200) {
+	$arr[$inputdomain]['http_error'] = $http_code . " - Insufficient HTTP response at $start_utc_iso in " . round($elapsed_seconds, 2) . " sec from $server_seen";
+	return $arr;
 }
-else {
-	$arr[$inputdomain]['http_error'] = strval($http_code) . " - Insufficient HTTP response";
+try {
+  	$obj = json_decode($response, true, 512, JSON_THROW_ON_ERROR);
+}
+catch (JsonException $e) {
+	$arr[$inputdomain]['http_error'] = "200 - JSON decode exception: " . $e->getMessage() . " at $start_utc_iso in " . round($elapsed_seconds, 2) . " sec from $server_seen";
+	return $arr;
+}
+if (!is_array($obj)) {
+	$arr[$inputdomain]['http_error'] = "200 - Invalid JSON structure at $start_utc_iso in " . round($elapsed_seconds, 2) . " sec from $server_seen";
 	return $arr;
 }
 $notices = '';	
@@ -730,8 +744,8 @@ foreach($obj as $key1 => $value1) {
 							$notices .= $key2.': '.$key3.': '.$key4.': '.$key5.': '.$value5."<br />";
 						}	
 						if ($key3 == 'links')	{
-							if ($key5 = 'href' and str_contains($value5, 'icann.org/wicf')) $registrar_complaint_url = $value5;
-							if ($key5 = 'href' and str_contains($value5, 'icann.org/epp')) $status_explanation_url = $value5;
+							if ($key5 == 'href' and str_contains($value5, 'icann.org/wicf')) $registrar_complaint_url = $value5; 
+							if ($key5 == 'href' and str_contains($value5, 'icann.org/epp')) $status_explanation_url = $value5;
 						}
 					}
 					if ($key1 == 'entities')	{
@@ -1272,7 +1286,8 @@ foreach($obj as $key1 => $value1) {
 }
 if ($inputbatch)	{
 	$raw_rdap_data = '';
-}
+}		
+	
 $arr[$inputdomain]['notices'] = $notices;
 $arr[$inputdomain]['links'] = $links;
 $arr[$inputdomain]['redacted'] = $redacted;	
@@ -1494,5 +1509,4 @@ $arr[$inputdomain]['raw_rdap'] = $raw_rdap_data;
 
 return $arr;
 }
-//?>
 ?>
