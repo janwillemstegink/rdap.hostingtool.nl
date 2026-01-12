@@ -88,7 +88,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 40)	{ // registrant
 		var pre = '40';
-		var max = 20
+		var max = 21
 	}
 	else if (type == 41)	{ // administrative
 		var pre = '41';
@@ -201,6 +201,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_presented_name").textContent = "";
 		document.getElementById("registrant_kind").textContent = "";
 		document.getElementById("registrant_name").textContent = "";
+		document.getElementById("registrant_email").textContent = "";
 		document.getElementById("registrant_country_code").textContent = "";
 		document.getElementById("registrant_street_address").textContent = "";
 		document.getElementById("registrant_postal_code").textContent = "";
@@ -240,7 +241,7 @@ function SwitchTranslation(translation)	{
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domein Gegevens opvragen";
 		document.getElementById("subtitle").textContent = "RDAPv1-gebaseerde modellering";
-		document.getElementById("instruction").textContent = "Typ een domeinnaam en druk op Enter.";
+		document.getElementById("instruction").textContent = "Voer een domein in:";
 		document.getElementById("modeling").textContent = "Een RDAPv2 kan onbepaalde statussen elimineren en ccTLD-proof zijn via een nieuwe globale tabeldefinitie in snake_case.";
 		document.getElementById("field").textContent = "Omschrijving";
 		document.getElementById("value").textContent = "Detail";
@@ -279,6 +280,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_presented_name").textContent = "Geldig is de naam van een primair verantwoordelijke persoon of een rol binnen de organisatie.";
 		document.getElementById("registrant_kind").textContent = "Leeg / 'org' / 'individual' (Voor continuïteit: levenstestament + testament + digitale executeur)";
 		document.getElementById("registrant_name").textContent = "Een persoonlijke naam kan openbaar zichtbaar zijn in het veld 'presented_name'. Zie bijvoorbeeld cira.ca.";
+		document.getElementById("registrant_email").textContent = "Bij een gTLD kan een e-mailadres zichtbaar zijn in plaats van administratieve/technische informatie.";
 		document.getElementById("registrant_country_code").textContent = "De ISO-2-landcode-indexering werkt, bijvoorbeeld voor het Verenigd Koninkrijk, dat de EU heeft verlaten.";
 		document.getElementById("registrant_street_address").textContent = "Het afschermen van adresgegevens zoals bij example.tel, resulteert in rommelige gegevens.";
 		document.getElementById("registrant_postal_code").textContent = "Indexeren op postcode is in de database noodzakelijk. De vCard-array vormt een obstakel.";
@@ -318,7 +320,7 @@ function SwitchTranslation(translation)	{
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domain Data Request";
 		document.getElementById("subtitle").textContent = "RDAPv1 based modeling";
-		document.getElementById("instruction").textContent = "Type a domain, then press Enter.";
+		document.getElementById("instruction").textContent = "Enter a domain:";
 		document.getElementById("modeling").textContent = "An RDAPv2 can eliminate indeterminate statuses and be ccTLD-proof via a new global table definition in snake_case.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Detail";
@@ -357,6 +359,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_presented_name").textContent = "Valid is the name of a primarily responsible person or a role within the organization.";
 		document.getElementById("registrant_kind").textContent = "Empty / 'org' / 'individual' (For continuity: Living Will + Will + Digital Executor)";
 		document.getElementById("registrant_name").textContent = "A personal name may be publicly visible in the 'presented_name' field. See for example cira.ca.";
+		document.getElementById("registrant_email").textContent = "For gTLD an email address may be visible instead of administrative/technical.";
 		document.getElementById("registrant_country_code").textContent = "ISO-2 country code indexing works, as for the United Kingdom, which has left the EU.";
 		document.getElementById("registrant_street_address").textContent = "Shielding address data as with example.tel, results in messy data.";
 		document.getElementById("registrant_postal_code").textContent = "Indexing by postal code is necessary in the database. The Vcard array is an obstacle.";	
@@ -396,7 +399,7 @@ function SwitchTranslation(translation)	{
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domänendatenanforderung";
 		document.getElementById("subtitle").textContent = "RDAPv1-basierte Modellierung";
-		document.getElementById("instruction").textContent = "Geben Sie eine Domain ein und drücken Sie Enter.";
+		document.getElementById("instruction").textContent = "Geben Sie eine Domäne ein:";
 		document.getElementById("modeling").textContent = "Ein RDAPv2 kann unbestimmte Statuswerte eliminieren und ccTLD-sicher sein durch eine neue globale Tabellendefinition in snake_case.";
 		document.getElementById("field").textContent = "Beschreibung";
 		document.getElementById("value").textContent = "Detail";
@@ -435,6 +438,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_presented_name").textContent = "Gültig ist der Name einer hauptverantwortlichen Person oder einer Rolle innerhalb der Organisation.";
 		document.getElementById("registrant_kind").textContent = "Leer / 'org' / 'individual' (Für Kontinuität: Patientenverfügung + Testament + digitaler Testamentsvollstrecker)";
 		document.getElementById("registrant_name").textContent = "Ein Personenname kann im Feld 'presented_name' öffentlich sichtbar sei. Siehe beispielsweise cira.ca.";
+		document.getElementById("registrant_email").textContent = "Bei gTLDs kann anstelle der administrativen/technischen Adresse eine E-Mail-Adresse sichtbar sein.";
 		document.getElementById("registrant_country_code").textContent = "Die Indizierung mit dem ISO-2-Ländercode funktioniert, wie für das Vereinigte Königreich, das die EU verlassen hat.";
 		document.getElementById("registrant_street_address").textContent = "Das Abschirmen von Adressdaten wie bei example.tel, führt zu unordentlichen Daten.";
 		document.getElementById("registrant_postal_code").textContent = "In der Datenbank ist eine Indizierung nach Postleitzahl erforderlich. Das vCard-Array stellt ein Hindernis dar.";	
@@ -474,7 +478,7 @@ function SwitchTranslation(translation)	{
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Demande de données de domaine";
 		document.getElementById("subtitle").textContent = "Modélisation basée sur RDAPv1";
-		document.getElementById("instruction").textContent = "Saisissez un nom de domaine, puis appuyez sur Entrée.";
+		document.getElementById("instruction").textContent = "Saisissez un domaine :";
 		document.getElementById("modeling").textContent = "Un RDAPv2 peut éliminer les statuts indéterminés et être ccTLD-compatible en adoptant une nouvelle définition globale de table en snake_case.";
 		document.getElementById("field").textContent = "Description";
 		document.getElementById("value").textContent = "Détail";
@@ -513,6 +517,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_presented_name").textContent = "Valide est le nom d'une personne principalement responsable ou d'un rôle au sein de l'organisation.";
 		document.getElementById("registrant_kind").textContent = "Vide / 'org' / 'individual' (Pour la continuité : testament biologique + testament + exécuteur testamentaire numérique)";
 		document.getElementById("registrant_name").textContent = "Un nom personnel peut être visible publiquement dans le champ 'presented_name'. Voir, par exemple, cira.ca.";
+		document.getElementById("registrant_email").textContent = "Pour les gTLD, une adresse e-mail peut être visible à la place de l'adresse administrative/technique.";
 		document.getElementById("registrant_country_code").textContent = "L'indexation des codes pays ISO-2 fonctionne, comme pour le Royaume-Uni, qui a quitté l'UE.";
 		document.getElementById("registrant_street_address").textContent = "Le blindage des données d'adresse comme avec example.tel, génère des données désordonnées.";
 		document.getElementById("registrant_postal_code").textContent = "L'indexation par code postal est nécessaire dans la base de données. Le tableau de vCard constitue un obstacle.";
@@ -575,14 +580,14 @@ $data = json_decode($json, true);
 if (!is_array($data)) {
   die("The RDAP endpoint returned invalid JSON.");
 }
+$terms_and_conditions_url = $server_url.'/modeling_tld/index.php?language='.$viewlanguage.'&tld='.$data[$pd]['metadata']['zone_identifier'];
+$raw_whois = $server_url.'/domain_whois/index.php?language='.$viewlanguage.'&domain='.$vd;
 if	(is_null($data))	{
 	$terms_and_conditions_url = '';
 	$raw_whois = '';
 	$reopen = $server_url.'/modeling_domain/index.php?batch=0&domain=domain';
 	sc_redir($reopen);
 }
-$terms_and_conditions_url = $server_url.'/modeling_tld/index.php?language='.$viewlanguage.'&tld='.$data[$pd]['metadata']['zone_identifier'];
-$raw_whois = $server_url.'/domain_whois/index.php?language='.$viewlanguage.'&domain='.$vd;
 $html_text = '<body onload=SwitchTranslation('.$viewlanguage.')><div style="border-collapse:collapse; line-height:120%">
 <table style="font-family:Helvetica, Arial, sans-serif; font-size: 1rem; table-layout: fixed; width:1375px">
 <tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th></tr>';
@@ -763,23 +768,23 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr><td>registrant_presented_name (RDAP: "fn"/full name)</td><td>'.$data[$pd]['registrant']['presented_name'].'</td><td id="registrant_presented_name"></td></tr>';
 	$html_text .= '<tr id="405" style="display:none"><td>registrant_kind</td><td>'.$data[$pd]['registrant']['kind'].'</td><td id="registrant_kind"></td></tr>';
 	$html_text .= '<tr id="406" style="display:none"><td>registrant_name</td><td>'.$data[$pd]['registrant']['name'].'</td><td id="registrant_name"></td></tr>';
-	$html_text .= '<tr id="407" style="display:none"><td>registrant_email</td><td>'.$data[$pd]['registrant']['email'].'</td><td></td></tr>';
-	$html_text .= '<tr id="408" style="display:none"><td>registrant_telephone</td><td>'.$data[$pd]['registrant']['telephone'].'</td><td></td></tr>';
+	$html_text .= '<tr><td>registrant_email</td><td>'.$data[$pd]['registrant']['email'].'</td><td id="registrant_email"></td></tr>';
+	$html_text .= '<tr id="407" style="display:none"><td>registrant_telephone</td><td>'.$data[$pd]['registrant']['telephone'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>registrant_country_code (<a style="font-size: 0.9rem" href="https://icann-hamster.nl/ham/soac/ccnso/techday/icann80/2.%20RDAP%20Conformance%20Tool%20-%20Tech%20Day.pdf" target="_blank">"cc" parameter</a>)</td><td>'.$data[$pd]['registrant']['country_code'].'</td><td id="registrant_country_code"></td></tr>';
-	$html_text .= '<tr id="409" style="display:none"><td>registrant_street_address</td><td>'.$data[$pd]['registrant']['street_address'].'</td><td id="registrant_street_address"></td></tr>';
-	$html_text .= '<tr id="4010" style="display:none"><td>registrant_city</td><td>'.$data[$pd]['registrant']['city'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4011" style="display:none"><td>registrant_state_or_province</td><td>'.$data[$pd]['registrant']['state_or_province'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4012" style="display:none"><td>registrant_postal_code</td><td>'.$data[$pd]['registrant']['postal_code'].'</td><td id="registrant_postal_code"></td></tr>';
-	$html_text .= '<tr id="4013" style="display:none"><td>registrant_country_name'.if_filled($data[$pd]['registrant']['country_name']).'</td><td>'.$data[$pd]['registrant']['country_name'].'</td><td id="registrant_country_name"></td></tr>';
-	$html_text .= '<tr id="4014" style="display:none"><td>registrant_language_pref_1</td><td>'.$data[$pd]['registrant']['language_pref_1'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4015" style="display:none"><td>registrant_language_pref_2</td><td>'.$data[$pd]['registrant']['language_pref_2'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4016" style="display:none;vertical-align:top"><td>registrant_statuses</td><td>'.$data[$pd]['registrant']['statuses'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4017" style="display:none"><td>registrant_created_at</td><td>'.$data[$pd]['registrant']['created_at'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4018" style="display:none"><td>registrant_latest_update_at</td><td>'.$data[$pd]['registrant']['latest_update_at'].'</td><td></td></tr>';
-	$html_text .= '<tr><td>registrant_verification_received_at</td><td>'.$data[$pd]['registrant']['verification_received_at'].'</td><td id="registrant_verification_received_at"></td></tr>';
-	$html_text .= '<tr><td>registrant_verification_set_at</td><td>'.$data[$pd]['registrant']['verification_set_at'].'</td><td id="registrant_verification_set_at"></td></tr>';
-	$html_text .= '<tr id="4019" style="display:none;vertical-align:top"><td>registrant_properties</td><td>'.$data[$pd]['registrant']['properties'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4020" style="display:none;vertical-align:top"><td>registrant_remarks</td><td>'.$data[$pd]['registrant']['remarks'].'</td><td id="registrant_remarks"></td></tr>';
+	$html_text .= '<tr id="408" style="display:none"><td>registrant_street_address</td><td>'.$data[$pd]['registrant']['street_address'].'</td><td id="registrant_street_address"></td></tr>';
+	$html_text .= '<tr id="409" style="display:none"><td>registrant_city</td><td>'.$data[$pd]['registrant']['city'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4010" style="display:none"><td>registrant_state_or_province</td><td>'.$data[$pd]['registrant']['state_or_province'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4011" style="display:none"><td>registrant_postal_code</td><td>'.$data[$pd]['registrant']['postal_code'].'</td><td id="registrant_postal_code"></td></tr>';
+	$html_text .= '<tr id="4012" style="display:none"><td>registrant_country_name'.if_filled($data[$pd]['registrant']['country_name']).'</td><td>'.$data[$pd]['registrant']['country_name'].'</td><td id="registrant_country_name"></td></tr>';
+	$html_text .= '<tr id="4013" style="display:none"><td>registrant_language_pref_1</td><td>'.$data[$pd]['registrant']['language_pref_1'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4014" style="display:none"><td>registrant_language_pref_2</td><td>'.$data[$pd]['registrant']['language_pref_2'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4015" style="display:none;vertical-align:top"><td>registrant_statuses</td><td>'.$data[$pd]['registrant']['statuses'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4016" style="display:none"><td>registrant_created_at</td><td>'.$data[$pd]['registrant']['created_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4017" style="display:none"><td>registrant_latest_update_at</td><td>'.$data[$pd]['registrant']['latest_update_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4018" style="display:none"><td>registrant_verification_received_at</td><td>'.$data[$pd]['registrant']['verification_received_at'].'</td><td id="registrant_verification_received_at"></td></tr>';
+	$html_text .= '<tr id="4019" style="display:none"><td>registrant_verification_set_at</td><td>'.$data[$pd]['registrant']['verification_set_at'].'</td><td id="registrant_verification_set_at"></td></tr>';
+	$html_text .= '<tr id="4020" style="display:none;vertical-align:top"><td>registrant_properties</td><td>'.$data[$pd]['registrant']['properties'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4021" style="display:none;vertical-align:top"><td>registrant_remarks</td><td>'.$data[$pd]['registrant']['remarks'].'</td><td id="registrant_remarks"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(41)">Administrative / Decision Contact +/-</button></td><td></td><td id="administrative_role"></td></tr>';
 	$html_text .= '<tr id="411" style="display:none"><td>administrative_server_handle</td><td>'.$data[$pd]['administrative']['server_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="412" style="display:none"><td>administrative_client_handle</td><td>'.$data[$pd]['administrative']['client_handle'].'</td><td></td></tr>';
