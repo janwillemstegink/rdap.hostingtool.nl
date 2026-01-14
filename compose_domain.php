@@ -348,7 +348,7 @@ $abuse_organization_name = '';
 $abuse_presented_name = '';
 $abuse_kind = '';
 $abuse_email = 'Abuse contact email unavailable.';
-$abuse_telephone = '';
+$abuse_phone = '';
 $abuse_country_code = '';
 	
 $sponsor_handle = '';
@@ -358,7 +358,7 @@ $sponsor_presented_name = '';
 $sponsor_kind = '';
 $sponsor_name = '';
 $sponsor_email = '';
-$sponsor_telephone = '';
+$sponsor_phone = '';
 $sponsor_country_code = '';		
 $sponsor_street_address = '';
 $sponsor_city = '';
@@ -372,7 +372,7 @@ $registrant_presented_name = '';
 $registrant_kind = '';
 $registrant_name = '';
 $registrant_email = '';	
-$registrant_telephone = '';
+$registrant_phone = '';
 $registrant_country_code = '(not provided)';
 $registrant_street_address = '';
 $registrant_city = '';
@@ -388,7 +388,7 @@ $administrative_presented_name = '';
 $administrative_kind = '';
 $administrative_name = '';	
 $administrative_email = '';
-$administrative_telephone = '';
+$administrative_phone = '';
 $administrative_country_code = '';	
 $administrative_street_address = '';
 $administrative_city = '';	
@@ -404,7 +404,7 @@ $technical_presented_name = '';
 $technical_kind = '';
 $technical_name = '';	
 $technical_email = '';
-$technical_telephone = '';
+$technical_phone = '';
 $technical_country_code = '';	
 $technical_street_address = '';
 $technical_city = '';	
@@ -420,7 +420,7 @@ $billing_presented_name = '';
 $billing_kind = '';
 $billing_name = '';		
 $billing_email = '';
-$billing_telephone = '';
+$billing_phone = '';
 $billing_country_code = '';	
 $billing_street_address = '';
 $billing_city = '';	
@@ -435,7 +435,7 @@ $reseller_presented_name = '';
 $reseller_kind = '';	
 $reseller_name = '';
 $reseller_email = '';
-$reseller_telephone = '';
+$reseller_phone = '';
 $reseller_country_code = '';	
 $reseller_street_address = '';
 $reseller_city = '';
@@ -451,7 +451,7 @@ $registrar_presented_name = '';
 $registrar_kind = '';
 $registrar_name = '';	
 $registrar_email = '';
-$registrar_telephone = '';
+$registrar_phone = '';
 $registrar_country_code = '';	
 $registrar_street_address = '';
 $registrar_city = '';
@@ -947,25 +947,25 @@ foreach($obj as $key1 => $value1) {
 								$typeresult .= $value5[1] . ' ';								
 							}
 							if ($key2 == $entity_registrant)	{
-								$registrant_telephone .= $typeresult . $value5[2] . ' ' . $value5[3]."<br />";
+								$registrant_phone .= $typeresult . $value5[2] . ' ' . $value5[3]."<br />";
 							}
 							if ($key2 == $entity_administrative)	{
-								$administrative_telephone .= $typeresult . $value5[2] . ' ' . $value5[3]."<br />";
+								$administrative_phone .= $typeresult . $value5[2] . ' ' . $value5[3]."<br />";
 							}
 							if ($key2 == $entity_technical)	{
-								$technical_telephone .= $typeresult . $value5[2] . ' ' . $value5[3]."<br />";
+								$technical_phone .= $typeresult . $value5[2] . ' ' . $value5[3]."<br />";
 							}
 							if ($key2 == $entity_billing)	{
-								$billing_telephone .= $typeresult . $value5[2] . ' ' . $value5[3]."<br />";
+								$billing_phone .= $typeresult . $value5[2] . ' ' . $value5[3]."<br />";
 							}							
 							if ($key2 == $entity_reseller)	{
-								$reseller_telephone .= $typeresult . $value5[2] . ' ' . $value5[3]."<br />";
+								$reseller_phone .= $typeresult . $value5[2] . ' ' . $value5[3]."<br />";
 							}
 							if ($key2 == $entity_registrar)	{
-								$registrar_telephone .= $typeresult . $value5[2] . ' ' . $value5[3]."<br />";
+								$registrar_phone .= $typeresult . $value5[2] . ' ' . $value5[3]."<br />";
 							}
 							if ($key2 == $entity_sponsor)	{
-								$sponsor_telephone .= $typeresult . $value5[2] . ' ' . $value5[3]."<br />";
+								$sponsor_phone .= $typeresult . $value5[2] . ' ' . $value5[3]."<br />";
 							}	
 						}
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'fn' and $value6 == 'fn')	{
@@ -1229,7 +1229,7 @@ foreach($obj as $key1 => $value1) {
 										else	{
 											$typeresult .= $value7[1] . ' ';								
 										}						
-										$abuse_telephone .= $typeresult . $value7[2] . ' ' . $value7[3]."<br />";
+										$abuse_phone .= $typeresult . $value7[2] . ' ' . $value7[3]."<br />";
 									}
 									elseif ($value7[0] == 'adr' and $key8 == 1)	{
 										$abuse_country_code = detect_country_code($abuse_country_code, $value8['CC'], $value8['cc']);				
@@ -1258,22 +1258,22 @@ foreach($obj as $key1 => $value1) {
 								}
 								if ($key1 == 'entities' and $key5 == 'vcardArray' and $value7[0] == 'tel' and $value8 == 'tel')	{
 									if ($key4 == $entity_key4_registrant)	{
-										$registrant_telephone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . "<br />";
+										$registrant_phone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . "<br />";
 									}
 									if ($key4 == $entity_key4_administrative)	{
-										$administrative_telephone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . "<br />";
+										$administrative_phone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . "<br />";
 									}
 									if ($key4 == $entity_key4_tech)	{
-										$technical_telephone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . "<br />";
+										$technical_phone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . "<br />";
 									}	
 									if ($key4 == $entity_key4_reseller)	{
-										$reseller_telephone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . "<br />";
+										$reseller_phone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . "<br />";
 									}
 									if ($key4 == $entity_key4_registrar)	{
-										$registrar_telephone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . "<br />";
+										$registrar_phone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . "<br />";
 									}
 									if ($key4 == $entity_key4_sponsor)	{
-										$sponsor_telephone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . "<br />";
+										$sponsor_phone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . "<br />";
 									}							
 								}
 							}	
@@ -1328,7 +1328,7 @@ $arr[$inputdomain]['sponsor']['presented_name'] = $sponsor_presented_name;
 $arr[$inputdomain]['sponsor']['kind'] = $sponsor_kind;	
 $arr[$inputdomain]['sponsor']['name'] = $sponsor_name;		
 $arr[$inputdomain]['sponsor']['email'] = $sponsor_email;	
-$arr[$inputdomain]['sponsor']['telephone'] = $sponsor_telephone;
+$arr[$inputdomain]['sponsor']['phone'] = $sponsor_phone;
 $arr[$inputdomain]['sponsor']['country_code'] = $sponsor_country_code;		
 $arr[$inputdomain]['sponsor']['street_address'] = $sponsor_street_address;
 $arr[$inputdomain]['sponsor']['city'] = $sponsor_city;
@@ -1351,7 +1351,7 @@ $arr[$inputdomain]['registrant']['presented_name'] = $registrant_presented_name;
 $arr[$inputdomain]['registrant']['kind'] = $registrant_kind;	
 $arr[$inputdomain]['registrant']['name'] = $registrant_name;		
 $arr[$inputdomain]['registrant']['email'] = $registrant_email;	
-$arr[$inputdomain]['registrant']['telephone'] = $registrant_telephone;
+$arr[$inputdomain]['registrant']['phone'] = $registrant_phone;
 $arr[$inputdomain]['registrant']['country_code'] = $registrant_country_code;		
 $arr[$inputdomain]['registrant']['street_address'] = $registrant_street_address;
 $arr[$inputdomain]['registrant']['city'] = $registrant_city;
@@ -1374,7 +1374,7 @@ $arr[$inputdomain]['administrative']['presented_name'] = $administrative_present
 $arr[$inputdomain]['administrative']['kind'] = $administrative_kind;	
 $arr[$inputdomain]['administrative']['name'] = $administrative_name;		
 $arr[$inputdomain]['administrative']['email'] = $administrative_email;	
-$arr[$inputdomain]['administrative']['telephone'] = $administrative_telephone;
+$arr[$inputdomain]['administrative']['phone'] = $administrative_phone;
 $arr[$inputdomain]['administrative']['country_code'] = $administrative_country_code;		
 $arr[$inputdomain]['administrative']['street_address'] = $administrative_street_address;
 $arr[$inputdomain]['administrative']['city'] = $administrative_city;
@@ -1397,7 +1397,7 @@ $arr[$inputdomain]['technical']['presented_name'] = $technical_presented_name;
 $arr[$inputdomain]['technical']['kind'] = $technical_kind;	
 $arr[$inputdomain]['technical']['name'] = $technical_name;		
 $arr[$inputdomain]['technical']['email'] = $technical_email;	
-$arr[$inputdomain]['technical']['telephone'] = $technical_telephone;
+$arr[$inputdomain]['technical']['phone'] = $technical_phone;
 $arr[$inputdomain]['technical']['country_code'] = $technical_country_code;		
 $arr[$inputdomain]['technical']['street_address'] = $technical_street_address;
 $arr[$inputdomain]['technical']['city'] = $technical_city;
@@ -1420,7 +1420,7 @@ $arr[$inputdomain]['billing']['presented_name'] = $billing_presented_name;
 $arr[$inputdomain]['billing']['kind'] = $billing_kind;	
 $arr[$inputdomain]['billing']['name'] = $billing_name;		
 $arr[$inputdomain]['billing']['email'] = $billing_email;	
-$arr[$inputdomain]['billing']['telephone'] = $billing_telephone;
+$arr[$inputdomain]['billing']['phone'] = $billing_phone;
 $arr[$inputdomain]['billing']['country_code'] = $billing_country_code;		
 $arr[$inputdomain]['billing']['street_address'] = $billing_street_address;
 $arr[$inputdomain]['billing']['city'] = $billing_city;
@@ -1443,7 +1443,7 @@ $arr[$inputdomain]['reseller']['presented_name'] = $reseller_presented_name;
 $arr[$inputdomain]['reseller']['kind'] = $reseller_kind;	
 $arr[$inputdomain]['reseller']['name'] = $reseller_name;		
 $arr[$inputdomain]['reseller']['email'] = $reseller_email;	
-$arr[$inputdomain]['reseller']['telephone'] = $reseller_telephone;
+$arr[$inputdomain]['reseller']['phone'] = $reseller_phone;
 $arr[$inputdomain]['reseller']['country_code'] = $reseller_country_code;		
 $arr[$inputdomain]['reseller']['street_address'] = $reseller_street_address;
 $arr[$inputdomain]['reseller']['city'] = $reseller_city;
@@ -1466,7 +1466,7 @@ $arr[$inputdomain]['registrar']['presented_name'] = $registrar_presented_name;
 $arr[$inputdomain]['registrar']['kind'] = $registrar_kind;
 $arr[$inputdomain]['registrar']['name'] = $registrar_name;		
 $arr[$inputdomain]['registrar']['email'] = $registrar_email;	
-$arr[$inputdomain]['registrar']['telephone'] = $registrar_telephone;
+$arr[$inputdomain]['registrar']['phone'] = $registrar_phone;
 $arr[$inputdomain]['registrar']['country_code'] = $registrar_country_code;		
 $arr[$inputdomain]['registrar']['street_address'] = $registrar_street_address;
 $arr[$inputdomain]['registrar']['city'] = $registrar_city;
@@ -1487,7 +1487,7 @@ $arr[$inputdomain]['registrar_abuse']['organization_name'] = $abuse_organization
 $arr[$inputdomain]['registrar_abuse']['presented_name'] = $abuse_presented_name;
 $arr[$inputdomain]['registrar_abuse']['kind'] = $abuse_kind;
 $arr[$inputdomain]['registrar_abuse']['email'] = $abuse_email;	
-$arr[$inputdomain]['registrar_abuse']['telephone'] = $abuse_telephone;
+$arr[$inputdomain]['registrar_abuse']['phone'] = $abuse_phone;
 $arr[$inputdomain]['registrar_abuse']['country_code'] = $abuse_country_code;	
 	
 $arr[$inputdomain]['nameservers']['client_handles'] = $nameservers_handles;
