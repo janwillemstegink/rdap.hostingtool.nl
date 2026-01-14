@@ -280,6 +280,8 @@ if (!strlen($language_codes))	{
 $registrar_accreditation = '';
 $registrar_links = '';	
 $registrar_complaint_url = '';
+$administrative_links = '';	
+$technical_links = '';
 $status_explanation_url = '';
 $registrant_web_id = '';
 if ($zone_identifier == 'nl' or $zone_identifier == 'frl')	{		
@@ -874,6 +876,12 @@ foreach($obj as $key1 => $value1) {
 						if ($key2 == $entity_registrar and $key3 == 'links')	{
 							$registrar_links .= $key4.': '.$key5.': '.$value5."<br />";
 						}
+						if ($key2 == $entity_administrative and $key3 == 'links')	{
+							$administrative_links .= $key4.': '.$key5.': '.$value5."<br />";
+						}
+						if ($key2 == $entity_technical and $key3 == 'links')	{
+							$technical_links .= $key4.': '.$key5.': '.$value5."<br />";
+						}
 					}		
 					if ($key1 == 'nameservers')	{							
 						if ($key3 == 'events')	{
@@ -1302,7 +1310,9 @@ $arr[$inputdomain]['metadata']['registry_language_codes'] = $language_codes;
 $arr[$inputdomain]['metadata']['registrar_accreditation'] = $registrar_accreditation;		
 $arr[$inputdomain]['metadata']['registrar_links'] = $registrar_links;
 $arr[$inputdomain]['metadata']['registrar_json_response_url'] = $registrar_json_response_url;
-$arr[$inputdomain]['metadata']['registrar_complaint_url'] = $registrar_complaint_url;		
+$arr[$inputdomain]['metadata']['registrar_complaint_url'] = $registrar_complaint_url;
+$arr[$inputdomain]['metadata']['administrative_links'] = $administrative_links;
+$arr[$inputdomain]['metadata']['technical_links'] = $technical_links;
 $arr[$inputdomain]['metadata']['status_explanation_url'] = $status_explanation_url;
 $arr[$inputdomain]['metadata']['geo_location'] = '';
 $arr[$inputdomain]['metadata']['resource_upload_at'] = $resource_upload_at;		

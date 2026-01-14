@@ -76,7 +76,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 20)	{ // metadata
 		var pre = '20';
-		var max = 11
+		var max = 13
 	}
 	else if (type == 30)	{ // properties
 		var pre = '30';
@@ -280,7 +280,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_presented_name").textContent = "Geldig is de naam van een primair verantwoordelijke persoon of een rol binnen de organisatie.";
 		document.getElementById("registrant_kind").textContent = "Leeg / 'org' / 'individual' (Voor continuïteit: levenstestament + testament + digitale executeur)";
 		document.getElementById("registrant_name").textContent = "Een persoonlijke naam kan openbaar zichtbaar zijn in het veld 'presented_name'. Zie bijvoorbeeld cira.ca.";
-		document.getElementById("registrant_email").textContent = "Bij een gTLD kan een e-mailadres zichtbaar zijn in plaats van administratieve/technische informatie.";
+		document.getElementById("registrant_email").textContent = "Bij gTLD's vervangt een zichtbaar e-mailadres de afscherming van administratieve/technische gegevens.";
 		document.getElementById("registrant_country_code").textContent = "De ISO-2-landcode-indexering werkt, bijvoorbeeld voor het Verenigd Koninkrijk, dat de EU heeft verlaten.";
 		document.getElementById("registrant_street_address").textContent = "Het afschermen van adresgegevens zoals bij example.tel, resulteert in rommelige gegevens.";
 		document.getElementById("registrant_postal_code").textContent = "Indexeren op postcode is in de database noodzakelijk. De vCard-array vormt een obstakel.";
@@ -359,7 +359,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_presented_name").textContent = "Valid is the name of a primarily responsible person or a role within the organization.";
 		document.getElementById("registrant_kind").textContent = "Empty / 'org' / 'individual' (For continuity: Living Will + Will + Digital Executor)";
 		document.getElementById("registrant_name").textContent = "A personal name may be publicly visible in the 'presented_name' field. See for example cira.ca.";
-		document.getElementById("registrant_email").textContent = "For gTLD an email address may be visible instead of administrative/technical.";
+		document.getElementById("registrant_email").textContent = "With gTLDs, a visible email address replaces the shielding of administrative/technical data.";
 		document.getElementById("registrant_country_code").textContent = "ISO-2 country code indexing works, as for the United Kingdom, which has left the EU.";
 		document.getElementById("registrant_street_address").textContent = "Shielding address data as with example.tel, results in messy data.";
 		document.getElementById("registrant_postal_code").textContent = "Indexing by postal code is necessary in the database. The Vcard array is an obstacle.";	
@@ -438,7 +438,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_presented_name").textContent = "Gültig ist der Name einer hauptverantwortlichen Person oder einer Rolle innerhalb der Organisation.";
 		document.getElementById("registrant_kind").textContent = "Leer / 'org' / 'individual' (Für Kontinuität: Patientenverfügung + Testament + digitaler Testamentsvollstrecker)";
 		document.getElementById("registrant_name").textContent = "Ein Personenname kann im Feld 'presented_name' öffentlich sichtbar sei. Siehe beispielsweise cira.ca.";
-		document.getElementById("registrant_email").textContent = "Bei gTLDs kann anstelle der administrativen/technischen Adresse eine E-Mail-Adresse sichtbar sein.";
+		document.getElementById("registrant_email").textContent = "Bei gTLDs ersetzt eine sichtbare E-Mail-Adresse die Abschirmung administrativer/technischer Daten.";
 		document.getElementById("registrant_country_code").textContent = "Die Indizierung mit dem ISO-2-Ländercode funktioniert, wie für das Vereinigte Königreich, das die EU verlassen hat.";
 		document.getElementById("registrant_street_address").textContent = "Das Abschirmen von Adressdaten wie bei example.tel, führt zu unordentlichen Daten.";
 		document.getElementById("registrant_postal_code").textContent = "In der Datenbank ist eine Indizierung nach Postleitzahl erforderlich. Das vCard-Array stellt ein Hindernis dar.";	
@@ -517,7 +517,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_presented_name").textContent = "Valide est le nom d'une personne principalement responsable ou d'un rôle au sein de l'organisation.";
 		document.getElementById("registrant_kind").textContent = "Vide / 'org' / 'individual' (Pour la continuité : testament biologique + testament + exécuteur testamentaire numérique)";
 		document.getElementById("registrant_name").textContent = "Un nom personnel peut être visible publiquement dans le champ 'presented_name'. Voir, par exemple, cira.ca.";
-		document.getElementById("registrant_email").textContent = "Pour les gTLD, une adresse e-mail peut être visible à la place de l'adresse administrative/technique.";
+		document.getElementById("registrant_email").textContent = "Avec les gTLD, une adresse électronique visible remplace le masquage des données administratives/techniques.";
 		document.getElementById("registrant_country_code").textContent = "L'indexation des codes pays ISO-2 fonctionne, comme pour le Royaume-Uni, qui a quitté l'UE.";
 		document.getElementById("registrant_street_address").textContent = "Le blindage des données d'adresse comme avec example.tel, génère des données désordonnées.";
 		document.getElementById("registrant_postal_code").textContent = "L'indexation par code postal est nécessaire dans la base de données. Le tableau de vCard constitue un obstacle.";
@@ -626,8 +626,10 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$validation_registrar = 'https://validator.rdap.org/?url=https://'.$registrar_json_response_url.'&response-type=domain&server-type=gtld-registrar&errors-only=1';	
 	$html_text .= '<tr id="208" style="display:none"><td>registrar_json_response_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_json_response_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_json_response_url'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registrar_json_response_url"></td></tr>';
 	$html_text .= '<tr id="209" style="display:none"><td>registrar_complaint_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_complaint_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_complaint_url'].' target="_blank">icann.org/wicf</a>' : '').'</td><td id="metadata_registrar_complaint_url"></td></tr>';
-	$html_text .= '<tr id="2010" style="display:none"><td>status_explanation_url</td><td>'.((strlen($data[$pd]['metadata']['status_explanation_url'])) ? '<a href='.$data[$pd]['metadata']['status_explanation_url'].' target="_blank">icann.org/epp</a>' : '').'</td><td id="metadata_status_explanation_url"></td></tr>';
-	$html_text .= '<tr id="2011" style="display:none"><td>geo_location</td><td>'.$data[$pd]['metadata']['geo_location'].'</td><td></td></tr>';
+	$html_text .= '<tr id="2010" style="display:none;vertical-align:top"><td>administrative_links</td><td colspan="2">'.$data[$pd]['metadata']['administrative_links'].'</td></tr>';
+	$html_text .= '<tr id="2011" style="display:none;vertical-align:top"><td>technical_links</td><td colspan="2">'.$data[$pd]['metadata']['technical_links'].'</td></tr>';
+	$html_text .= '<tr id="2012" style="display:none"><td>status_explanation_url</td><td>'.((strlen($data[$pd]['metadata']['status_explanation_url'])) ? '<a href='.$data[$pd]['metadata']['status_explanation_url'].' target="_blank">icann.org/epp</a>' : '').'</td><td id="metadata_status_explanation_url"></td></tr>';
+	$html_text .= '<tr id="2013" style="display:none"><td>geo_location</td><td>'.$data[$pd]['metadata']['geo_location'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>resource_upload_at</td><td>'.$data[$pd]['metadata']['resource_upload_at'].'</td><td id="metadata_resource_upload_at"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	if (strlen($data[$pd]['http_error']))	{
