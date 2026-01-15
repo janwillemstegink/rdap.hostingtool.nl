@@ -80,7 +80,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 30)	{ // properties
 		var pre = '30';
-		var max = 17
+		var max = 16
 	}
 	else if (type == 39)	{ // sponsor
 		var pre = '39';
@@ -683,29 +683,33 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr style="vertical-align:top"><td>properties_statuses</td><td>'.$properties_statuses.'</td><td id="properties_statuses"></td></tr>';
 	$html_text .= '<tr id="305" style="display:none"><td>properties_created_at</td><td>'.$data[$pd]['properties']['created_at'].'</td><td id="properties_created_at"></td></tr>';
 	$html_text .= '<tr id="306" style="display:none"><td>properties_latest_transfer_at</td><td>'.$data[$pd]['properties']['latest_transfer_at'].'</td><td></td></tr>';
-	$html_text .= '<tr id="307" style="display:none"><td>properties_latest_update_at</td><td>'.$data[$pd]['properties']['latest_update_at'].'</td><td></td></tr>';
+	$html_text .= '<tr><td>properties_latest_update_at</td><td>'.$data[$pd]['properties']['latest_update_at'].'</td><td>';	
+	if (!empty($data[$pd]['registrar_rdap_update_time']))	{
+		$html_text .= '(Registrar RDAP update time: '.$data[$pd]['registrar_rdap_update_time'].')';
+	}
+	$html_text .= '</td></tr>';	
 	$html_text .= '<tr><td>properties_expiration_at</td><td>'.$data[$pd]['properties']['expiration_at'].'</td><td id="properties_expiration_at"></td></tr>';
-	$html_text .= '<tr id="308" style="display:none"><td>properties_recoverable_until</td><td>'.$data[$pd]['properties']['recoverable_until'].'</td><td id="properties_recoverable_until"></td></tr>';
-	$html_text .= '<tr id="309" style="display:none"><td>properties_deletion_at</td><td>'.$data[$pd]['properties']['deletion_at'].'</td><td id="properties_deletion_at"></td></tr>';
+	$html_text .= '<tr id="307" style="display:none"><td>properties_recoverable_until</td><td>'.$data[$pd]['properties']['recoverable_until'].'</td><td id="properties_recoverable_until"></td></tr>';
+	$html_text .= '<tr id="308" style="display:none"><td>properties_deletion_at</td><td>'.$data[$pd]['properties']['deletion_at'].'</td><td id="properties_deletion_at"></td></tr>';
 	if (!empty($data[$pd]['properties']['statuses']))	{
 		if (str_contains($data[$pd]['properties']['statuses'], 'pending delete'))	{
 			if (str_contains($data[$pd]['properties']['statuses'], 'redemption period') and str_contains($data[$pd]['properties']['statuses'], 'pending delete'))	{
-				$html_text .= '<tr id="3010" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"pending delete" disregards redemption grace</td><td></td></tr>';
+				$html_text .= '<tr id="309" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"pending delete" disregards redemption grace</td><td></td></tr>';
 			}	
 			elseif (!empty($data[$pd]['metadata']['zone_identifier']))	{
 				if ($data[$pd]['metadata']['zone_identifier'] == 'nl')	{
-					$html_text .= '<tr id="3011" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"pending delete" refers to "redemption period"</td><td></td></tr>';
+					$html_text .= '<tr id="3010" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"pending delete" refers to "redemption period"</td><td></td></tr>';
 				}	
 			}	
 		}
 		if (str_contains($data[$pd]['properties']['statuses'], 'redemption period'))	{
 			if (empty($data[$pd]['properties']['expiration_at']) and empty($data[$pd]['properties']['deletion_at'])) {
-				$html_text .= '<tr id="3012" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"redemption" without date-time provided</td><td></td></tr>';
+				$html_text .= '<tr id="3011" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"redemption" without date-time provided</td><td></td></tr>';
 			}	
 		}
 		elseif (str_contains($data[$pd]['properties']['statuses'], 'pending delete'))	{
 			if (empty($data[$pd]['properties']['expiration_at']) and empty($data[$pd]['properties']['deletion_at'])) {
-				$html_text .= '<tr id="3013" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"pending delete" without date-time provided</td><td></td></tr>';
+				$html_text .= '<tr id="3012" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"pending delete" without date-time provided</td><td></td></tr>';
 			}	
 		}
 	}
@@ -715,7 +719,7 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
     	if ($expiration !== false and $deletion !== false)	{
 			$days_before = floor(($expiration - $deletion) / (60 * 60 * 24));
 			if ($days_before > 0) {
-       			$html_text .= '<tr id="3014" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"deletion_at" '.$days_before.' days before "expiration_at"</td><td></td></tr>';
+       			$html_text .= '<tr id="3013" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"deletion_at" '.$days_before.' days before "expiration_at"</td><td></td></tr>';
 			}	
     	}
 	}
@@ -724,11 +728,11 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 		$deletion = strtotime($data[$pd]['properties']['deletion_at']);
     	if ($current !== false and $deletion !== false and $current > $deletion) {
 			$days_ago = floor(($current - $deletion) / (60 * 60 * 24));
-        	$html_text .= '<tr id="3015" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"deletion_at" was '.$days_ago.' days ago?</td><td></td></tr>';
+        	$html_text .= '<tr id="3014" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"deletion_at" was '.$days_ago.' days ago?</td><td></td></tr>';
 		}
 	}	
-	$html_text .= '<tr id="3016" style="display:none;vertical-align:top"><td>properties_extensions</td><td>'.$data[$pd]['properties']['extensions'].'</td><td id="properties_extensions"></td></tr>';
-	$html_text .= '<tr id="3017" style="display:none;vertical-align:top"><td>properties_remarks</td><td>'.$data[$pd]['properties']['remarks'].'</td><td></td></tr>';
+	$html_text .= '<tr id="3015" style="display:none;vertical-align:top"><td>properties_extensions</td><td>'.$data[$pd]['properties']['extensions'].'</td><td id="properties_extensions"></td></tr>';
+	$html_text .= '<tr id="3016" style="display:none;vertical-align:top"><td>properties_remarks</td><td>'.$data[$pd]['properties']['remarks'].'</td><td></td></tr>';
 	if (!empty($data[$pd]['properties']['statuses']))	{
 		$sponsor_applicable = (strlen($data[$pd]['sponsor']['organization_name']) or strlen($data[$pd]['sponsor']['presented_name'])) ? '(sponsor data exists)' : '(no sponsor data)';
 	}

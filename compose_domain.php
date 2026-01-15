@@ -278,7 +278,8 @@ if (!strlen($language_codes))	{
 	$language_codes = '(not provided)';	
 }	
 $registrar_accreditation = '';
-$registrar_links = '';	
+$registrar_links = '';
+$registrar_json_response_url = '';	
 $registrar_complaint_url = '';
 $administrative_links = '';	
 $technical_links = '';
@@ -1291,14 +1292,51 @@ foreach($obj as $key1 => $value1) {
 			}
 		}
 	}
-}
+}	
+
 if ($inputbatch)	{
 	$raw_rdap_data = '';
-}		
+}
+else	{
+	$registrar_rdap_update_time = null;
+	if (strlen($registrar_json_response_url))	{
+		$options = [
+  			"http" => [
+    		"method" => "GET",
+    		"ignore_errors" => true,
+    		"timeout" => 8,
+    		"header" => "User-Agent: MyRDAPClient/1.0\r\nAccept: application/json\r\n",
+  			]
+		];
+		$context = stream_context_create($options);
+		$fp2 = @fopen($registrar_json_response_url, 'r', false, $context);
+		//$fp2 = fopen($registrar_json_response_url, 'r', false, $context);
+		if ($fp2) {
+			$registrar_response = stream_get_contents($fp2);
+			fclose($fp2);
+			try {
+ 		 		$obj2 = json_decode($registrar_response, true, 512, JSON_THROW_ON_ERROR);
+			}
+			catch (JsonException $e) {
+				$obj2 = null;
+			}		
+			if (is_array($obj2)) {	
+				if (!empty($obj2['events']) && is_array($obj2['events'])) {
+			    	foreach ($obj2['events'] as $event) {
+        				if (($event['eventAction'] ?? null) === 'last changed') {
+            				$registrar_rdap_update_time = $event['eventDate'] ?? null;
+						}	
+        			}
+    			}
+			}
+		}			
+	}
+}
 	
 $arr[$inputdomain]['notices'] = $notices;
 $arr[$inputdomain]['links'] = $links;
-$arr[$inputdomain]['redacted'] = $redacted;	
+$arr[$inputdomain]['redacted'] = $redacted;
+$arr[$inputdomain]['registrar_rdap_update_time'] = $registrar_rdap_update_time;	
 	
 $arr[$inputdomain]['metadata']['zone_identifier'] = $zone_identifier;	
 $arr[$inputdomain]['metadata']['object_type'] = $object_type;
