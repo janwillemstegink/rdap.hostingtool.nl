@@ -683,11 +683,24 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr style="vertical-align:top"><td>properties_statuses</td><td>'.$properties_statuses.'</td><td id="properties_statuses"></td></tr>';
 	$html_text .= '<tr id="305" style="display:none"><td>properties_created_at</td><td>'.$data[$pd]['properties']['created_at'].'</td><td id="properties_created_at"></td></tr>';
 	$html_text .= '<tr id="306" style="display:none"><td>properties_latest_transfer_at</td><td>'.$data[$pd]['properties']['latest_transfer_at'].'</td><td></td></tr>';
-	$html_text .= '<tr><td>properties_latest_update_at</td><td>'.$data[$pd]['properties']['latest_update_at'].'</td><td>';	
-	if (!empty($data[$pd]['registrar_rdap_update_time']))	{
-		$html_text .= '(Registrar RDAP update time: '.$data[$pd]['registrar_rdap_update_time'].')';
+	$html_text .= '<tr><td>properties_latest_update_at</td><td>'.$data[$pd]['properties']['latest_update_at'].'</td>';	
+	if (!is_null($data[$pd]['registrar_rdap_update_time']))	{
+		if (is_null($data[$pd]['properties']['latest_update_at']))	{
+			$html_text .= '<td>(No Registry RDAP update time)</td></tr>';	
+		}	
+		elseif (substr($data[$pd]['registrar_rdap_update_time'], 0, 10) != substr($data[$pd]['properties']['latest_update_at'], 0, 10))	{
+			$html_text .= '<td>(Registrar RDAP update time: <b>'.$data[$pd]['registrar_rdap_update_time'].'</b>)</td></tr>';	
+		}
+		else	{
+			$html_text .= '<td>(Registrar RDAP update time: '.$data[$pd]['registrar_rdap_update_time'].')</td></tr>';	
+		}				
 	}
-	$html_text .= '</td></tr>';	
+	elseif (!is_null($data[$pd]['registrar_rdap_registration_time']))	{
+		$html_text .= '<td>(No Registrar RDAP update time)</td></tr>';	
+	}	
+	else	{
+		$html_text .= '<td></td></tr>';	
+	}	
 	$html_text .= '<tr><td>properties_expiration_at</td><td>'.$data[$pd]['properties']['expiration_at'].'</td><td id="properties_expiration_at"></td></tr>';
 	$html_text .= '<tr id="307" style="display:none"><td>properties_recoverable_until</td><td>'.$data[$pd]['properties']['recoverable_until'].'</td><td id="properties_recoverable_until"></td></tr>';
 	$html_text .= '<tr id="308" style="display:none"><td>properties_deletion_at</td><td>'.$data[$pd]['properties']['deletion_at'].'</td><td id="properties_deletion_at"></td></tr>';

@@ -1298,6 +1298,7 @@ if ($inputbatch)	{
 	$raw_rdap_data = '';
 }
 else	{
+	$registrar_rdap_registration_time = null;
 	$registrar_rdap_update_time = null;
 	if (strlen($registrar_json_response_url))	{
 		$options = [
@@ -1323,6 +1324,9 @@ else	{
 			if (is_array($obj2)) {	
 				if (!empty($obj2['events']) && is_array($obj2['events'])) {
 			    	foreach ($obj2['events'] as $event) {
+						if (($event['eventAction'] ?? null) === 'registration') {
+            				$registrar_rdap_registration_time = $event['eventDate'] ?? null;
+						}						
         				if (($event['eventAction'] ?? null) === 'last changed') {
             				$registrar_rdap_update_time = $event['eventDate'] ?? null;
 						}	
@@ -1336,6 +1340,7 @@ else	{
 $arr[$inputdomain]['notices'] = $notices;
 $arr[$inputdomain]['links'] = $links;
 $arr[$inputdomain]['redacted'] = $redacted;
+$arr[$inputdomain]['registrar_rdap_registration_time'] = $registrar_rdap_registration_time;	
 $arr[$inputdomain]['registrar_rdap_update_time'] = $registrar_rdap_update_time;	
 	
 $arr[$inputdomain]['metadata']['zone_identifier'] = $zone_identifier;	
