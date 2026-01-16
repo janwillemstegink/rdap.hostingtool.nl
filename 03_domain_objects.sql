@@ -262,6 +262,7 @@ CREATE TABLE IF NOT EXISTS domain_entities (
             "presented_name": "yes",
             "name": "yes",
             "email": "yes",
+			"contact_uri": "yes",
             "phone": "yes",
             "country_code": "yes",
             "address": "yes"
@@ -316,6 +317,7 @@ CREATE TABLE IF NOT EXISTS entity_entities (
             "presented_name": "yes",
             "name": "yes",
             "email": "yes",
+			"contact_uri": "yes",
             "phone": "yes",
             "country_code": "yes",
             "address": "yes"
