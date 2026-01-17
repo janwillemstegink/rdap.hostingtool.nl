@@ -11,6 +11,7 @@
 //$_GET['domain'] = 'domaincontrolregister.org';
 //$_GET['domain'] = 'prezero.nl';
 //$_GET['domain'] = 'prezerotest.nl';
+//$_GET['domain'] = 'openprovider.com';
 
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
@@ -345,14 +346,15 @@ $nameservers_dnssec_key_tag = '';
 $nameservers_dnssec_algorithm = '';
 $nameservers_dnssec_digest_type = '';
 $nameservers_dnssec_digest = '';	
-$abuse_handle = '';	
-$abuse_organization_type = '';
-$abuse_organization_name = '';
-$abuse_presented_name = '';
-$abuse_kind = '';
-$abuse_email = 'Abuse contact email unavailable.';
-$abuse_phone = '';
-$abuse_country_code = '';
+$registrar_abuse_handle = '';	
+$registrar_abuse_organization_type = '';
+$registrar_abuse_organization_name = '';
+$registrar_abuse_presented_name = '';
+$registrar_abuse_kind = '';
+$registrar_abuse_email = 'Abuse contact email unavailable.';
+$registrar_abuse_contact_uri = '';	
+$registrar_abuse_phone = '';
+$registrar_abuse_country_code = '';
 	
 $sponsor_handle = '';
 $sponsor_organization_type = '';	
@@ -374,7 +376,8 @@ $registrant_organization_name = '';
 $registrant_presented_name = '';
 $registrant_kind = '';
 $registrant_name = '';
-$registrant_email = '';	
+$registrant_email = '';
+$registrant_contact_uri = '';	
 $registrant_phone = '';
 $registrant_country_code = '(not provided)';
 $registrant_street_address = '';
@@ -391,6 +394,7 @@ $administrative_presented_name = '';
 $administrative_kind = '';
 $administrative_name = '';	
 $administrative_email = '';
+$administrative_contact_uri = '';	
 $administrative_phone = '';
 $administrative_country_code = '';	
 $administrative_street_address = '';
@@ -407,6 +411,7 @@ $technical_presented_name = '';
 $technical_kind = '';
 $technical_name = '';	
 $technical_email = '';
+$technical_contact_uri = '';	
 $technical_phone = '';
 $technical_country_code = '';	
 $technical_street_address = '';
@@ -423,6 +428,7 @@ $billing_presented_name = '';
 $billing_kind = '';
 $billing_name = '';		
 $billing_email = '';
+$billing_contact_uri = '';	
 $billing_phone = '';
 $billing_country_code = '';	
 $billing_street_address = '';
@@ -437,7 +443,8 @@ $reseller_organization_name = '';
 $reseller_presented_name = '';	
 $reseller_kind = '';	
 $reseller_name = '';
-$reseller_email = '';
+$reseller_email = '';	
+$reseller_contact_uri = '';	
 $reseller_phone = '';
 $reseller_country_code = '';	
 $reseller_street_address = '';
@@ -454,6 +461,7 @@ $registrar_presented_name = '';
 $registrar_kind = '';
 $registrar_name = '';	
 $registrar_email = '';
+$registrar_contact_uri = '';	
 $registrar_phone = '';
 $registrar_country_code = '';	
 $registrar_street_address = '';
@@ -488,7 +496,7 @@ $entity_key4_tech = -1;
 $entity_key4_billing = -1;
 $entity_key4_reseller = -1;		
 $entity_key4_registrar = -1;
-$entity_key4_abuse = -1;	
+$entity_key4_registrar_abuse = -1;	
 
 $raw_rdap_data = '';
 	
@@ -547,7 +555,7 @@ foreach($obj as $key1 => $value1) {
 							$entity_key4_sponsor = $key4;
 						}
 						elseif ($value6 == 'abuse')	{
-							$entity_key4_abuse = $key4;
+							$entity_key4_registrar_abuse = $key4;
 						}
 						foreach($value6 as $key7 => $value7) {
 							$raw_rdap_data .= "++++++" . $key7 . ': ' . $value7 . "\n";
@@ -915,7 +923,10 @@ foreach($obj as $key1 => $value1) {
 								$notices .= $key2.': '.$key3.': '.$key4.': '.$key5.': '.$key6.': '.$value6."<br />";
 							}
 						}	
-						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'email' and $value6 == 'email')	{	
+						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'email' and $value6 == 'email')	{
+							if ($key2 == $entity_sponsor)	{
+								$sponsor_email .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
+							}							
 							if ($key2 == $entity_registrant)	{
 								$registrant_email .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
 							}
@@ -934,10 +945,30 @@ foreach($obj as $key1 => $value1) {
 							if ($key2 == $entity_registrar)	{
 								$registrar_email .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
 							}
+						}
+						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'contact-uri' and $value6 == 'contact-uri')	{
 							if ($key2 == $entity_sponsor)	{
-								$sponsor_email .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
+								$sponsor_contact_uri .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
 							}
-						}					
+							if ($key2 == $entity_registrant)	{
+								$registrant_contact_uri .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
+							}
+							if ($key2 == $entity_administrative)	{
+								$administrative_contact_uri .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
+							}
+							if ($key2 == $entity_technical)	{
+								$technical_contact_uri .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
+							}
+							if ($key2 == $entity_billing)	{
+								$billing_contact_uri .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
+							}							
+							if ($key2 == $entity_reseller)	{
+								$reseller_contact_uri .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
+							}
+							if ($key2 == $entity_registrar)	{
+								$registrar_contact_uri .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
+							}
+						}
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'tel' and $value6 == 'tel')	{
 							$typeresult = '';
 							if (is_array($value5[1]))	{ 
@@ -1204,22 +1235,25 @@ foreach($obj as $key1 => $value1) {
 						foreach($value6 as $key7 => $value7)	{
 							foreach($value7 as $key8 => $value8) {
 								if ($key1 == 'entities' and $key2 == $entity_registrar and $key3 == 'entities' 
-									and $key4 == $entity_key4_abuse and $key5 == 'vcardArray' and $key6 == 1)	{
+									and $key4 == $entity_key4_registrar_abuse and $key5 == 'vcardArray' and $key6 == 1)	{
 									if ($value7[0] == 'handle' and $value8 == 'handle')	{
-										$abuse_handle = $value7[3];
+										$registrar_abuse_handle = $value7[3];
 									}
 									elseif ($value7[0] == 'org' and $value8 == 'org')	{
-										$abuse_organization_type = $value7[1]['type'];
-										$abuse_organization_name = $value7[3];
+										$registrar_abuse_organization_type = $value7[1]['type'];
+										$registrar_abuse_organization_name = $value7[3];
 									}
 									elseif ($value7[0] == 'fn' and $value8 == 'fn')	{
-										$abuse_presented_name = $value7[3];
+										$registrar_abuse_presented_name = $value7[3];
 									}
 									elseif ($value7[0] == 'kind' and $value8 == 'kind')	{
-										$abuse_kind = $value7[3];
+										$registrar_abuse_kind = $value7[3];
 									}	
 									elseif ($value7[0] == 'email' and $value8 == 'email')	{
-										$abuse_email = $value7[3];
+										$registrar_abuse_email = $value7[3];
+									}
+									elseif ($value7[0] == 'contact-uri' and $value8 == 'contact-uri')	{
+										$registrar_abuse_contact_uri = $value7[3];
 									}
 									elseif ($value7[0] == 'tel' and $value8 == 'tel')	{
 										$typeresult = '';
@@ -1238,10 +1272,10 @@ foreach($obj as $key1 => $value1) {
 										else	{
 											$typeresult .= $value7[1] . ' ';								
 										}						
-										$abuse_phone .= $typeresult . $value7[2] . ' ' . $value7[3]."<br />";
+										$registrar_abuse_phone .= $typeresult . $value7[2] . ' ' . $value7[3]."<br />";
 									}
 									elseif ($value7[0] == 'adr' and $key8 == 1)	{
-										$abuse_country_code = detect_country_code($abuse_country_code, $value8['CC'], $value8['cc']);				
+										$registrar_abuse_country_code = detect_country_code($registrar_abuse_country_code, $value8['CC'], $value8['cc']);				
 									}
 								}
 								//echo 'k4: '.$key4. ' v4: '.$value4.' k5: '.$key5.' v5: '.$value5.' k6: '.$key6.' v6: '.$value6.' k7: '.$key7.' value73: '.$value7[3]."<br />";
@@ -1299,7 +1333,12 @@ if ($inputbatch)	{
 }
 else	{
 	$registrar_rdap_registration_time = null;
+	$registrar_rdap_transfer_time = null;
 	$registrar_rdap_update_time = null;
+	$registrar_rdap_registrant_email = '';
+	$registrar_rdap_registrant_email_url = '';
+	$registrar_rdap_registrant_contact_uri = '';
+	$entity_registrant_key = null;
 	if (strlen($registrar_json_response_url))	{
 		$options = [
   			"http" => [
@@ -1326,23 +1365,74 @@ else	{
 			    	foreach ($obj2['events'] as $event) {
 						if (($event['eventAction'] ?? null) === 'registration') {
             				$registrar_rdap_registration_time = $event['eventDate'] ?? null;
-						}						
+						}
+						if (($event['eventAction'] ?? null) === 'transfer') {
+            				$registrar_rdap_transfer_time = $event['eventDate'] ?? null;
+						}
         				if (($event['eventAction'] ?? null) === 'last changed') {
             				$registrar_rdap_update_time = $event['eventDate'] ?? null;
 						}	
         			}
-    			}
+				}
 			}
+			if (is_array($obj2) && !empty($obj2['entities']) && is_array($obj2['entities'])) {
+			    foreach ($obj2['entities'] as $idx => $entity) {
+    			    $roles = $entity['roles'] ?? [];
+					if (is_array($roles) && in_array('registrant', $roles, true)) {
+            			$entity_registrant_key = $idx;
+			   			break;
+        			}
+    			}
+			}	
+			if ($entity_registrant_key !== null) {
+				$entity = $obj2['entities'][$entity_registrant_key];
+        		if (!empty($entity['vcardArray']) && is_array($entity['vcardArray']) && isset($entity['vcardArray'][1]) && is_array($entity['vcardArray'][1])) {
+            		foreach ($entity['vcardArray'][1] as $prop) {				
+						if (is_array($prop) && ($prop[0] ?? null) === 'email') {
+    						$raw = $prop[3] ?? '';
+    						$candidates = is_array($raw) ? $raw : [$raw];
+    						foreach ($candidates as $candidate) {
+        						$candidate = trim((string)$candidate);
+        						if ($candidate === '') {
+            						continue;
+        						}
+        						if (filter_var($candidate, FILTER_VALIDATE_EMAIL)) {
+            						$registrar_rdap_registrant_email .= ($registrar_rdap_registrant_email ? ",<br />" : "") . $candidate;
+            						continue;
+        						}
+        						if (preg_match('~^https?://~i', $candidate)) {
+            						$registrar_rdap_registrant_email_url = $candidate;
+        						}
+							}
+						}	
+						if (is_array($prop) && ($prop[0] ?? null) === 'contact_uri') {
+    						$raw = $prop[3] ?? '';
+    						$candidates = is_array($raw) ? $raw : [$raw];
+    						foreach ($candidates as $candidate) {
+        						$candidate = trim((string)$candidate);
+        						if ($candidate === '') {
+            						continue;
+        						}
+        						$registrar_rdap_registrant_contact_uri .= ($registrar_rdap_registrant_contact_uri ? ",<br />" : "") . $candidate;
+								continue;
+							}
+						}	
+    				}
+				}
+    		}
 		}			
 	}
 }
-	
 $arr[$inputdomain]['notices'] = $notices;
 $arr[$inputdomain]['links'] = $links;
 $arr[$inputdomain]['redacted'] = $redacted;
 $arr[$inputdomain]['registrar_rdap_registration_time'] = $registrar_rdap_registration_time;	
-$arr[$inputdomain]['registrar_rdap_update_time'] = $registrar_rdap_update_time;	
-	
+$arr[$inputdomain]['registrar_rdap_transfer_time'] = $registrar_rdap_transfer_time;
+$arr[$inputdomain]['registrar_rdap_update_time'] = $registrar_rdap_update_time;
+$arr[$inputdomain]['registrar_rdap_registrant_email'] = $registrar_rdap_registrant_email;
+$arr[$inputdomain]['registrar_rdap_registrant_email_url'] = $registrar_rdap_registrant_email_url;
+$arr[$inputdomain]['registrar_rdap_registrant_contact_uri'] = $registrar_rdap_registrant_contact_uri;
+
 $arr[$inputdomain]['metadata']['zone_identifier'] = $zone_identifier;	
 $arr[$inputdomain]['metadata']['object_type'] = $object_type;
 $arr[$inputdomain]['metadata']['rdap_version'] = $rdap_version;
@@ -1403,7 +1493,8 @@ $arr[$inputdomain]['registrant']['organization_name'] = $registrant_organization
 $arr[$inputdomain]['registrant']['presented_name'] = $registrant_presented_name;	
 $arr[$inputdomain]['registrant']['kind'] = $registrant_kind;	
 $arr[$inputdomain]['registrant']['name'] = $registrant_name;		
-$arr[$inputdomain]['registrant']['email'] = $registrant_email;	
+$arr[$inputdomain]['registrant']['email'] = $registrant_email;
+$arr[$inputdomain]['registrant']['contact_uri'] = $registrant_contact_uri;
 $arr[$inputdomain]['registrant']['phone'] = $registrant_phone;
 $arr[$inputdomain]['registrant']['country_code'] = $registrant_country_code;		
 $arr[$inputdomain]['registrant']['street_address'] = $registrant_street_address;
@@ -1426,7 +1517,8 @@ $arr[$inputdomain]['administrative']['organization_name'] = $administrative_orga
 $arr[$inputdomain]['administrative']['presented_name'] = $administrative_presented_name;	
 $arr[$inputdomain]['administrative']['kind'] = $administrative_kind;	
 $arr[$inputdomain]['administrative']['name'] = $administrative_name;		
-$arr[$inputdomain]['administrative']['email'] = $administrative_email;	
+$arr[$inputdomain]['administrative']['email'] = $administrative_email;
+$arr[$inputdomain]['administrative']['contact_uri'] = $administrative_contact_uri;	
 $arr[$inputdomain]['administrative']['phone'] = $administrative_phone;
 $arr[$inputdomain]['administrative']['country_code'] = $administrative_country_code;		
 $arr[$inputdomain]['administrative']['street_address'] = $administrative_street_address;
@@ -1449,7 +1541,8 @@ $arr[$inputdomain]['technical']['organization_name'] = $technical_organization_n
 $arr[$inputdomain]['technical']['presented_name'] = $technical_presented_name;	
 $arr[$inputdomain]['technical']['kind'] = $technical_kind;	
 $arr[$inputdomain]['technical']['name'] = $technical_name;		
-$arr[$inputdomain]['technical']['email'] = $technical_email;	
+$arr[$inputdomain]['technical']['email'] = $technical_email;
+$arr[$inputdomain]['technical']['contact_uri'] = $technical_contact_uri;	
 $arr[$inputdomain]['technical']['phone'] = $technical_phone;
 $arr[$inputdomain]['technical']['country_code'] = $technical_country_code;		
 $arr[$inputdomain]['technical']['street_address'] = $technical_street_address;
@@ -1472,7 +1565,8 @@ $arr[$inputdomain]['billing']['organization_name'] = $billing_organization_name;
 $arr[$inputdomain]['billing']['presented_name'] = $billing_presented_name;	
 $arr[$inputdomain]['billing']['kind'] = $billing_kind;	
 $arr[$inputdomain]['billing']['name'] = $billing_name;		
-$arr[$inputdomain]['billing']['email'] = $billing_email;	
+$arr[$inputdomain]['billing']['email'] = $billing_email;
+$arr[$inputdomain]['billing']['contact_uri'] = $billing_contact_uri;	
 $arr[$inputdomain]['billing']['phone'] = $billing_phone;
 $arr[$inputdomain]['billing']['country_code'] = $billing_country_code;		
 $arr[$inputdomain]['billing']['street_address'] = $billing_street_address;
@@ -1495,7 +1589,8 @@ $arr[$inputdomain]['reseller']['organization_name'] = $reseller_organization_nam
 $arr[$inputdomain]['reseller']['presented_name'] = $reseller_presented_name;	
 $arr[$inputdomain]['reseller']['kind'] = $reseller_kind;	
 $arr[$inputdomain]['reseller']['name'] = $reseller_name;		
-$arr[$inputdomain]['reseller']['email'] = $reseller_email;	
+$arr[$inputdomain]['reseller']['email'] = $reseller_email;
+$arr[$inputdomain]['reseller']['contact_uri'] = $reseller_contact_uri;	
 $arr[$inputdomain]['reseller']['phone'] = $reseller_phone;
 $arr[$inputdomain]['reseller']['country_code'] = $reseller_country_code;		
 $arr[$inputdomain]['reseller']['street_address'] = $reseller_street_address;
@@ -1518,7 +1613,8 @@ $arr[$inputdomain]['registrar']['organization_name'] = $registrar_organization_n
 $arr[$inputdomain]['registrar']['presented_name'] = $registrar_presented_name;	
 $arr[$inputdomain]['registrar']['kind'] = $registrar_kind;
 $arr[$inputdomain]['registrar']['name'] = $registrar_name;		
-$arr[$inputdomain]['registrar']['email'] = $registrar_email;	
+$arr[$inputdomain]['registrar']['email'] = $registrar_email;
+$arr[$inputdomain]['registrar']['contact_uri'] = $registrar_contact_uri;	
 $arr[$inputdomain]['registrar']['phone'] = $registrar_phone;
 $arr[$inputdomain]['registrar']['country_code'] = $registrar_country_code;		
 $arr[$inputdomain]['registrar']['street_address'] = $registrar_street_address;
@@ -1534,14 +1630,15 @@ $arr[$inputdomain]['registrar']['latest_update_at'] = $registrar_latest_update_a
 $arr[$inputdomain]['registrar']['properties'] = $registrar_properties;
 $arr[$inputdomain]['registrar']['remarks'] = $registrar_remarks;
 	
-$arr[$inputdomain]['registrar_abuse']['client_handle'] = $abuse_handle;
-$arr[$inputdomain]['registrar_abuse']['organization_type'] = $abuse_organization_type;
-$arr[$inputdomain]['registrar_abuse']['organization_name'] = $abuse_organization_name;	
-$arr[$inputdomain]['registrar_abuse']['presented_name'] = $abuse_presented_name;
-$arr[$inputdomain]['registrar_abuse']['kind'] = $abuse_kind;
-$arr[$inputdomain]['registrar_abuse']['email'] = $abuse_email;	
-$arr[$inputdomain]['registrar_abuse']['phone'] = $abuse_phone;
-$arr[$inputdomain]['registrar_abuse']['country_code'] = $abuse_country_code;	
+$arr[$inputdomain]['registrar_abuse']['client_handle'] = $registrar_abuse_handle;
+$arr[$inputdomain]['registrar_abuse']['organization_type'] = $registrar_abuse_organization_type;
+$arr[$inputdomain]['registrar_abuse']['organization_name'] = $registrar_abuse_organization_name;	
+$arr[$inputdomain]['registrar_abuse']['presented_name'] = $registrar_abuse_presented_name;
+$arr[$inputdomain]['registrar_abuse']['kind'] = $registrar_abuse_kind;
+$arr[$inputdomain]['registrar_abuse']['email'] = $registrar_abuse_email;
+$arr[$inputdomain]['registrar_abuse']['contact_uri'] = $registrar_abuse_contact_uri;	
+$arr[$inputdomain]['registrar_abuse']['phone'] = $registrar_abuse_phone;
+$arr[$inputdomain]['registrar_abuse']['country_code'] = $registrar_abuse_country_code;	
 	
 $arr[$inputdomain]['nameservers']['client_handles'] = $nameservers_handles;
 $arr[$inputdomain]['nameservers']['ascii_names'] = $nameservers_ascii;

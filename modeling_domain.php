@@ -92,35 +92,35 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 41)	{ // administrative
 		var pre = '41';
-		var max = 19
+		var max = 20
 	}
 	else if (type == 42)	{ // technical
 		var pre = '42';
-		var max = 19
+		var max = 20
 	}
 	else if (type == 43)	{ // billing
 		var pre = '43';
-		var max = 20
+		var max = 21
 	}
 	else if (type == 44)	{ // emergency
 		var pre = '44';
-		var max = 20
+		var max = 21
 	}
 	else if (type == 45)	{ // fallback
 		var pre = '45';
-		var max = 9
+		var max = 10
 	}
 	else if (type == 50)	{ // reseller
 		var pre = '50';
-		var max = 21
+		var max = 23
 	}	
 	else if (type == 60)	{ // registrar
 		var pre = '60';
-		var max = 22
+		var max = 223
 	}
 	else if (type == 61)	{ // registrar abuse
 		var pre = '61';
-		var max = 9
+		var max = 10
 	}
 	else if (type == 63)	{ // nameservers
 		var pre = '63';
@@ -201,7 +201,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_presented_name").textContent = "";
 		document.getElementById("registrant_kind").textContent = "";
 		document.getElementById("registrant_name").textContent = "";
-		document.getElementById("registrant_email").textContent = "";
 		document.getElementById("registrant_country_code").textContent = "";
 		document.getElementById("registrant_street_address").textContent = "";
 		document.getElementById("registrant_postal_code").textContent = "";
@@ -248,7 +247,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Een overzicht van en toelichting op de structuur en kenmerken van webdomeinen.";
 		document.getElementById("notices_role").textContent = legacy + accessible;
 		document.getElementById("links_role").textContent = legacy + accessible;
-		document.getElementById("redacted").textContent = "Bij gTLD’s is het verbergen van registrantnamen standaard; ccTLD’s zoals .nl tonen bedrijfsnamen.";
+		document.getElementById("redacted").textContent = "Voor generieke topdomeinen is toestemming vereist om een ​​bedrijfsnaam weer te geven.";
 		document.getElementById("metadata_role").textContent = proposed + "Metadata bieden context en details over data-elementen.";
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
@@ -280,7 +279,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_presented_name").textContent = "Geldig is de naam van een primair verantwoordelijke persoon of een rol binnen de organisatie.";
 		document.getElementById("registrant_kind").textContent = "Leeg / 'org' / 'individual' (Voor continuïteit: levenstestament + testament + digitale executeur)";
 		document.getElementById("registrant_name").textContent = "Een persoonlijke naam kan openbaar zichtbaar zijn in het veld 'presented_name'. Zie bijvoorbeeld cira.ca.";
-		document.getElementById("registrant_email").textContent = "Bij gTLD's vervangt een zichtbaar e-mailadres de afscherming van administratieve/technische gegevens.";
 		document.getElementById("registrant_country_code").textContent = "De ISO-2-landcode-indexering werkt, bijvoorbeeld voor het Verenigd Koninkrijk, dat de EU heeft verlaten.";
 		document.getElementById("registrant_street_address").textContent = "Het afschermen van adresgegevens zoals bij example.tel, resulteert in rommelige gegevens.";
 		document.getElementById("registrant_postal_code").textContent = "Indexeren op postcode is in de database noodzakelijk. De vCard-array vormt een obstakel.";
@@ -327,7 +325,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "An overview of the structure and key characteristics of domain data.";
 		document.getElementById("notices_role").textContent = legacy + accessible;
 		document.getElementById("links_role").textContent = legacy + accessible;
-		document.getElementById("redacted").textContent = "For gTLDs, hiding registrant names is default; ccTLDs like .nl show a business user name.";
+		document.getElementById("redacted").textContent = "Generic top-level domains require authorization to display a company name.";
 		document.getElementById("metadata_role").textContent = proposed + "Metadata provides context and details about data elements.";
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
@@ -359,7 +357,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_presented_name").textContent = "Valid is the name of a primarily responsible person or a role within the organization.";
 		document.getElementById("registrant_kind").textContent = "Empty / 'org' / 'individual' (For continuity: Living Will + Will + Digital Executor)";
 		document.getElementById("registrant_name").textContent = "A personal name may be publicly visible in the 'presented_name' field. See for example cira.ca.";
-		document.getElementById("registrant_email").textContent = "With gTLDs, a visible email address replaces the shielding of administrative/technical data.";
 		document.getElementById("registrant_country_code").textContent = "ISO-2 country code indexing works, as for the United Kingdom, which has left the EU.";
 		document.getElementById("registrant_street_address").textContent = "Shielding address data as with example.tel, results in messy data.";
 		document.getElementById("registrant_postal_code").textContent = "Indexing by postal code is necessary in the database. The Vcard array is an obstacle.";	
@@ -406,7 +403,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Eine Übersicht und Erklärung zur Struktur und den Eigenschaften von Webdomänen.";
 		document.getElementById("notices_role").textContent = legacy + accessible;
 		document.getElementById("links_role").textContent = legacy + accessible;
-		document.getElementById("redacted").textContent = "Bei gTLDs ist das Ausblenden von Registrantennamen Standard; ccTLDs wie .nl zeigen Firmennamen.";
+		document.getElementById("redacted").textContent = "Generische Top-Level-Domains benötigen eine Autorisierung, um einen Firmennamen anzuzeigen.";
 		document.getElementById("metadata_role").textContent = proposed + "Metadaten liefern Kontext und Details zu Datenelementen.";
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
@@ -438,7 +435,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_presented_name").textContent = "Gültig ist der Name einer hauptverantwortlichen Person oder einer Rolle innerhalb der Organisation.";
 		document.getElementById("registrant_kind").textContent = "Leer / 'org' / 'individual' (Für Kontinuität: Patientenverfügung + Testament + digitaler Testamentsvollstrecker)";
 		document.getElementById("registrant_name").textContent = "Ein Personenname kann im Feld 'presented_name' öffentlich sichtbar sei. Siehe beispielsweise cira.ca.";
-		document.getElementById("registrant_email").textContent = "Bei gTLDs ersetzt eine sichtbare E-Mail-Adresse die Abschirmung administrativer/technischer Daten.";
 		document.getElementById("registrant_country_code").textContent = "Die Indizierung mit dem ISO-2-Ländercode funktioniert, wie für das Vereinigte Königreich, das die EU verlassen hat.";
 		document.getElementById("registrant_street_address").textContent = "Das Abschirmen von Adressdaten wie bei example.tel, führt zu unordentlichen Daten.";
 		document.getElementById("registrant_postal_code").textContent = "In der Datenbank ist eine Indizierung nach Postleitzahl erforderlich. Das vCard-Array stellt ein Hindernis dar.";	
@@ -485,7 +481,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Un aperçu et une explication de la structure et des caractéristiques des domaines Web.";
 		document.getElementById("notices_role").textContent = legacy + accessible;
 		document.getElementById("links_role").textContent = legacy + accessible;
-		document.getElementById("redacted").textContent = "Pour les gTLD, le masquage des titulaires est la règle ; les ccTLD comme .nl affichent les entreprises.";
+		document.getElementById("redacted").textContent = "Les domaines génériques de premier niveau nécessitent une autorisation pour afficher le nom d'une entreprise.";
 		document.getElementById("metadata_role").textContent = proposed + "Les métadonnées fournissent le contexte et des détails sur les éléments de données.";
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
@@ -517,7 +513,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_presented_name").textContent = "Valide est le nom d'une personne principalement responsable ou d'un rôle au sein de l'organisation.";
 		document.getElementById("registrant_kind").textContent = "Vide / 'org' / 'individual' (Pour la continuité : testament biologique + testament + exécuteur testamentaire numérique)";
 		document.getElementById("registrant_name").textContent = "Un nom personnel peut être visible publiquement dans le champ 'presented_name'. Voir, par exemple, cira.ca.";
-		document.getElementById("registrant_email").textContent = "Avec les gTLD, une adresse électronique visible remplace le masquage des données administratives/techniques.";
 		document.getElementById("registrant_country_code").textContent = "L'indexation des codes pays ISO-2 fonctionne, comme pour le Royaume-Uni, qui a quitté l'UE.";
 		document.getElementById("registrant_street_address").textContent = "Le blindage des données d'adresse comme avec example.tel, génère des données désordonnées.";
 		document.getElementById("registrant_postal_code").textContent = "L'indexation par code postal est nécessaire dans la base de données. Le tableau de vCard constitue un obstacle.";
@@ -682,25 +677,26 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	}	
 	$html_text .= '<tr style="vertical-align:top"><td>properties_statuses</td><td>'.$properties_statuses.'</td><td id="properties_statuses"></td></tr>';
 	$html_text .= '<tr id="305" style="display:none"><td>properties_created_at</td><td>'.$data[$pd]['properties']['created_at'].'</td><td id="properties_created_at"></td></tr>';
-	$html_text .= '<tr id="306" style="display:none"><td>properties_latest_transfer_at</td><td>'.$data[$pd]['properties']['latest_transfer_at'].'</td><td></td></tr>';
-	$html_text .= '<tr><td>properties_latest_update_at</td><td>'.$data[$pd]['properties']['latest_update_at'].'</td>';	
+	$html_text .= '<tr id="306" style="display:none"><td>properties_latest_transfer_at</td><td>'.$data[$pd]['properties']['latest_transfer_at'].'</td><td>';
+	if (!is_null($data[$pd]['registrar_rdap_transfer_time']))	{
+		//if (is_null($data[$pd]['properties']['latest_transfer_at']))	{
+			$html_text .= '(Transfer time with Registry RDAP: '.$data[$pd]['registrar_rdap_transfer_time'].')';	
+		//}
+	}
+	$html_text .= '</td></tr>';		
+	$html_text .= '<tr><td>properties_latest_update_at</td><td>'.$data[$pd]['properties']['latest_update_at'].'</td><td>';	
 	if (!is_null($data[$pd]['registrar_rdap_update_time']))	{
-		if (is_null($data[$pd]['properties']['latest_update_at']))	{
-			$html_text .= '<td>(No Registry RDAP update time)</td></tr>';	
-		}	
-		elseif (substr($data[$pd]['registrar_rdap_update_time'], 0, 10) != substr($data[$pd]['properties']['latest_update_at'], 0, 10))	{
-			$html_text .= '<td>(Registrar RDAP update time: <b>'.$data[$pd]['registrar_rdap_update_time'].'</b>)</td></tr>';	
+		if (substr($data[$pd]['registrar_rdap_update_time'], 0, 10) != substr($data[$pd]['properties']['latest_update_at'], 0, 10))	{
+			$html_text .= '(Update time with Registrar RDAP: <b>'.$data[$pd]['registrar_rdap_update_time'].'</b>)';	
 		}
 		else	{
-			$html_text .= '<td>(Registrar RDAP update time: '.$data[$pd]['registrar_rdap_update_time'].')</td></tr>';	
+			$html_text .= '(Update time with Registrar RDAP: '.$data[$pd]['registrar_rdap_update_time'].')';	
 		}				
 	}
 	elseif (!is_null($data[$pd]['registrar_rdap_registration_time']))	{
-		$html_text .= '<td>(No Registrar RDAP update time)</td></tr>';	
+		$html_text .= '(No Registrar RDAP update time)';	
 	}	
-	else	{
-		$html_text .= '<td></td></tr>';	
-	}	
+	$html_text .= '</td></tr>';		
 	$html_text .= '<tr><td>properties_expiration_at</td><td>'.$data[$pd]['properties']['expiration_at'].'</td><td id="properties_expiration_at"></td></tr>';
 	$html_text .= '<tr id="307" style="display:none"><td>properties_recoverable_until</td><td>'.$data[$pd]['properties']['recoverable_until'].'</td><td id="properties_recoverable_until"></td></tr>';
 	$html_text .= '<tr id="308" style="display:none"><td>properties_deletion_at</td><td>'.$data[$pd]['properties']['deletion_at'].'</td><td id="properties_deletion_at"></td></tr>';
@@ -787,7 +783,29 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr><td>registrant_presented_name (RDAP: "fn"/full name)</td><td>'.$data[$pd]['registrant']['presented_name'].'</td><td id="registrant_presented_name"></td></tr>';
 	$html_text .= '<tr id="405" style="display:none"><td>registrant_kind</td><td>'.$data[$pd]['registrant']['kind'].'</td><td id="registrant_kind"></td></tr>';
 	$html_text .= '<tr id="406" style="display:none"><td>registrant_name</td><td>'.$data[$pd]['registrant']['name'].'</td><td id="registrant_name"></td></tr>';
-	$html_text .= '<tr><td>registrant_email</td><td>'.$data[$pd]['registrant']['email'].'</td><td id="registrant_email"></td></tr>';
+	$html_text .= '<tr><td>registrant_email</td><td>'.$data[$pd]['registrant']['email'].'</td>';
+	if (strlen($data[$pd]['registrar_rdap_registrant_email']))	{
+		$html_text .= '<td>(Email with Registrar RDAP: '.$data[$pd]['registrar_rdap_registrant_email'].')</td></tr>';
+	}
+	elseif (strlen($data[$pd]['registrar_rdap_registrant_email_url']))	{
+		$html_text .= '<td>(This URL is normalizable in Registrar RDAP: '.$data[$pd]['registrar_rdap_registrant_email_url'].')</td></tr>';
+	}
+	elseif (!is_null($data[$pd]['registrar_rdap_registration_time']))	{
+		$html_text .= '<td>(No email with Registrar RDAP)</td></tr>';	
+	}
+	else	{	
+		$html_text .= '<td></td></tr>';
+	}
+	$html_text .= '<tr><td>registrant_contact_uri</td><td>'.$data[$pd]['registrant']['contact_uri'].'</td>';
+	if (strlen($data[$pd]['registrar_rdap_registrant_contact_uri']))	{
+		$html_text .= '<td>(Contact URI with Registrar RDAP: '.$data[$pd]['registrar_rdap_registrant_contact_uri'].')</td></tr>';
+	}
+	elseif (!is_null($data[$pd]['registrar_rdap_registration_time']))	{
+		$html_text .= '<td>(No contact URI with Registrar RDAP)</td></tr>';	
+	}
+	else	{	
+		$html_text .= '<td></td></tr>';
+	}
 	$html_text .= '<tr id="407" style="display:none"><td>registrant_phone</td><td>'.$data[$pd]['registrant']['phone'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>registrant_country_code (<a style="font-size: 0.9rem" href="https://icann-hamster.nl/ham/soac/ccnso/techday/icann80/2.%20RDAP%20Conformance%20Tool%20-%20Tech%20Day.pdf" target="_blank">"cc" parameter</a>)</td><td>'.$data[$pd]['registrant']['country_code'].'</td><td id="registrant_country_code"></td></tr>';
 	$html_text .= '<tr id="408" style="display:none"><td>registrant_street_address</td><td>'.$data[$pd]['registrant']['street_address'].'</td><td id="registrant_street_address"></td></tr>';
@@ -814,17 +832,18 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="417" style="display:none"><td>administrative_kind</td><td>'.$data[$pd]['administrative']['kind'].'</td><td></td></tr>';
 	$html_text .= '<tr id="418" style="display:none"><td>administrative_name</td><td>'.$data[$pd]['administrative']['name'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>administrative_email</td><td>'.$data[$pd]['administrative']['email'].'</td><td></td></tr>';
-	$html_text .= '<tr id="419" style="display:none"><td>administrative_phone</td><td>'.$data[$pd]['administrative']['phone'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4110" style="display:none"><td>administrative_country_code</td><td>'.$data[$pd]['administrative']['country_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4111" style="display:none"><td>administrative_street_address</td><td>'.$data[$pd]['administrative']['street_address'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4112" style="display:none"><td>administrative_city</td><td>'.$data[$pd]['administrative']['city'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4113" style="display:none"><td>administrative_state_or_province</td><td>'.$data[$pd]['administrative']['state_or_province'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4114" style="display:none"><td>administrative_postal_code</td><td>'.$data[$pd]['administrative']['postal_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4115" style="display:none"><td>administrative_country_name'.if_filled($data[$pd]['administrative']['country_name']).'</td><td>'.$data[$pd]['administrative']['country_name'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4116" style="display:none"><td>administrative_language_pref_1</td><td>'.$data[$pd]['administrative']['language_pref_1'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4117" style="display:none"><td>administrative_language_pref_2</td><td>'.$data[$pd]['administrative']['language_pref_2'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4118" style="display:none;vertical-align:top"><td>administrative_properties</td><td>'.$data[$pd]['administrative']['properties'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4119" style="display:none;vertical-align:top"><td>administrative_remarks</td><td>'.$data[$pd]['administrative']['remarks'].'</td><td></td></tr>';
+	$html_text .= '<tr id="419" style="display:none"><td>administrative_contact_uri</td><td>'.$data[$pd]['administrative']['contact_uri'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4110" style="display:none"><td>administrative_phone</td><td>'.$data[$pd]['administrative']['phone'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4111" style="display:none"><td>administrative_country_code</td><td>'.$data[$pd]['administrative']['country_code'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4112" style="display:none"><td>administrative_street_address</td><td>'.$data[$pd]['administrative']['street_address'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4113" style="display:none"><td>administrative_city</td><td>'.$data[$pd]['administrative']['city'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4114" style="display:none"><td>administrative_state_or_province</td><td>'.$data[$pd]['administrative']['state_or_province'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4115" style="display:none"><td>administrative_postal_code</td><td>'.$data[$pd]['administrative']['postal_code'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4116" style="display:none"><td>administrative_country_name'.if_filled($data[$pd]['administrative']['country_name']).'</td><td>'.$data[$pd]['administrative']['country_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4117" style="display:none"><td>administrative_language_pref_1</td><td>'.$data[$pd]['administrative']['language_pref_1'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4118" style="display:none"><td>administrative_language_pref_2</td><td>'.$data[$pd]['administrative']['language_pref_2'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4119" style="display:none;vertical-align:top"><td>administrative_properties</td><td>'.$data[$pd]['administrative']['properties'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4120" style="display:none;vertical-align:top"><td>administrative_remarks</td><td>'.$data[$pd]['administrative']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Technical / Onsite Contact +/-</button></td><td></td><td id="technical_role"></td></tr>';
 	$html_text .= '<tr id="421" style="display:none"><td>technical_server_handle</td><td>'.$data[$pd]['technical']['server_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="422" style="display:none"><td>technical_client_handle</td><td>'.$data[$pd]['technical']['client_handle'].'</td><td></td></tr>';
@@ -835,17 +854,18 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="427" style="display:none"><td>technical_kind</td><td>'.$data[$pd]['technical']['kind'].'</td><td></td></tr>';
 	$html_text .= '<tr id="428" style="display:none"><td>technical_name</td><td>'.$data[$pd]['technical']['name'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>technical_email</td><td>'.$data[$pd]['technical']['email'].'</td><td></td></tr>';
-	$html_text .= '<tr id="429" style="display:none"><td>technical_phone</td><td>'.$data[$pd]['technical']['phone'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4210" style="display:none"><td>technical_country_code</td><td>'.$data[$pd]['technical']['country_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4211" style="display:none"><td>technical_street_address</td><td>'.$data[$pd]['technical']['street_address'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4212" style="display:none"><td>technical_city</td><td>'.$data[$pd]['technical']['city'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4213" style="display:none"><td>technical_state_or_province</td><td>'.$data[$pd]['technical']['state_or_province'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4214" style="display:none"><td>technical_postal_code</td><td>'.$data[$pd]['technical']['postal_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4215" style="display:none"><td>technical_country_name'.if_filled($data[$pd]['technical']['country_name']).'</td><td>'.$data[$pd]['technical']['country_name'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4216" style="display:none"><td>technical_language_pref_1</td><td>'.$data[$pd]['technical']['language_pref_1'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4217" style="display:none"><td>technical_language_pref_2</td><td>'.$data[$pd]['technical']['language_pref_2'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4218" style="display:none;vertical-align:top"><td>technical_properties</td><td>'.$data[$pd]['technical']['properties'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4219" style="display:none;vertical-align:top"><td>technical_remarks</td><td>'.$data[$pd]['technical']['remarks'].'</td><td></td></tr>';
+	$html_text .= '<tr id="429" style="display:none"><td>technical_contact_uri</td><td>'.$data[$pd]['technical']['contact_uri'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4210" style="display:none"><td>technical_phone</td><td>'.$data[$pd]['technical']['phone'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4211" style="display:none"><td>technical_country_code</td><td>'.$data[$pd]['technical']['country_code'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4212" style="display:none"><td>technical_street_address</td><td>'.$data[$pd]['technical']['street_address'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4213" style="display:none"><td>technical_city</td><td>'.$data[$pd]['technical']['city'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4214" style="display:none"><td>technical_state_or_province</td><td>'.$data[$pd]['technical']['state_or_province'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4215" style="display:none"><td>technical_postal_code</td><td>'.$data[$pd]['technical']['postal_code'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4216" style="display:none"><td>technical_country_name'.if_filled($data[$pd]['technical']['country_name']).'</td><td>'.$data[$pd]['technical']['country_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4217" style="display:none"><td>technical_language_pref_1</td><td>'.$data[$pd]['technical']['language_pref_1'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4218" style="display:none"><td>technical_language_pref_2</td><td>'.$data[$pd]['technical']['language_pref_2'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4219" style="display:none;vertical-align:top"><td>technical_properties</td><td>'.$data[$pd]['technical']['properties'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4220" style="display:none;vertical-align:top"><td>technical_remarks</td><td>'.$data[$pd]['technical']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(43)">Billing +/-</button></td><td></td><td id="billing_role"></td></tr>';
 	$html_text .= '<tr id="431" style="display:none"><td>billing_server_handle</td><td>'.$data[$pd]['billing']['server_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="432" style="display:none"><td>billing_client_handle</td><td>'.$data[$pd]['billing']['client_handle'].'</td><td></td></tr>';
@@ -856,17 +876,18 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="437" style="display:none"><td>billing_kind</td><td>'.$data[$pd]['billing']['kind'].'</td><td></td></tr>';
 	$html_text .= '<tr id="438" style="display:none"><td>billing_name</td><td>'.$data[$pd]['billing']['name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="439" style="display:none"><td>billing_email</td><td>'.$data[$pd]['billing']['email'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4310" style="display:none"><td>billing_phone</td><td>'.$data[$pd]['billing']['phone'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4311" style="display:none"><td>billing_country_code</td><td>'.$data[$pd]['billing']['country_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4312" style="display:none"><td>billing_street_address</td><td>'.$data[$pd]['billing']['street_address'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4313" style="display:none"><td>billing_city</td><td>'.$data[$pd]['billing']['city'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4314" style="display:none"><td>billing_state_or_province</td><td>'.$data[$pd]['billing']['state_or_province'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4315" style="display:none"><td>billing_postal_code</td><td>'.$data[$pd]['billing']['postal_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4316" style="display:none"><td>billing_country_name'.if_filled($data[$pd]['billing']['country_name']).'</td><td>'.$data[$pd]['billing']['country_name'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4317" style="display:none"><td>billing_language_pref_1</td><td>'.$data[$pd]['billing']['language_pref_1'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4318" style="display:none"><td>billing_language_pref_2</td><td>'.$data[$pd]['billing']['language_pref_2'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4319" style="display:none;vertical-align:top"><td>billing_properties</td><td>'.$data[$pd]['billing']['properties'].'</td><td></td></tr>';	
-	$html_text .= '<tr id="4320" style="display:none;vertical-align:top"><td>billing_remarks</td><td>'.$data[$pd]['billing']['remarks'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4310" style="display:none"><td>billing_contact_uri</td><td>'.$data[$pd]['billing']['contact_uri'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4311" style="display:none"><td>billing_phone</td><td>'.$data[$pd]['billing']['phone'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4312" style="display:none"><td>billing_country_code</td><td>'.$data[$pd]['billing']['country_code'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4313" style="display:none"><td>billing_street_address</td><td>'.$data[$pd]['billing']['street_address'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4314" style="display:none"><td>billing_city</td><td>'.$data[$pd]['billing']['city'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4315" style="display:none"><td>billing_state_or_province</td><td>'.$data[$pd]['billing']['state_or_province'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4316" style="display:none"><td>billing_postal_code</td><td>'.$data[$pd]['billing']['postal_code'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4317" style="display:none"><td>billing_country_name'.if_filled($data[$pd]['billing']['country_name']).'</td><td>'.$data[$pd]['billing']['country_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4318" style="display:none"><td>billing_language_pref_1</td><td>'.$data[$pd]['billing']['language_pref_1'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4319" style="display:none"><td>billing_language_pref_2</td><td>'.$data[$pd]['billing']['language_pref_2'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4320" style="display:none;vertical-align:top"><td>billing_properties</td><td>'.$data[$pd]['billing']['properties'].'</td><td></td></tr>';	
+	$html_text .= '<tr id="4321" style="display:none;vertical-align:top"><td>billing_remarks</td><td>'.$data[$pd]['billing']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Emergency Contact +/-</button></td><td></td><td id="emergency_role"></td></tr>';
 	$html_text .= '<tr id="441" style="display:none"><td>emergency_server_handle</td><td>'.$data[$pd]['emergency']['server_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="442" style="display:none"><td>emergency_client_handle</td><td>'.$data[$pd]['emergency']['client_handle'].'</td><td></td></tr>';
@@ -877,17 +898,18 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="447" style="display:none"><td>emergency_kind</td><td>'.$data[$pd]['emergency']['kind'].'</td><td></td></tr>';
 	$html_text .= '<tr id="448" style="display:none"><td>emergency_name</td><td>'.$data[$pd]['emergency']['name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="449" style="display:none"><td>emergency_email</td><td>'.$data[$pd]['emergency']['email'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4410" style="display:none"><td>emergency_phone</td><td>'.$data[$pd]['emergency']['phone'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4411" style="display:none"><td>emergency_country_code</td><td>'.$data[$pd]['emergency']['country_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4412" style="display:none"><td>emergency_street_address</td><td>'.$data[$pd]['emergency']['street_address'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4413" style="display:none"><td>emergency_city</td><td>'.$data[$pd]['emergency']['city'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4414" style="display:none"><td>emergency_state_or_province</td><td>'.$data[$pd]['emergency']['state_or_province'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4415" style="display:none"><td>emergency_postal_code</td><td>'.$data[$pd]['emergency']['postal_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4416" style="display:none"><td>emergency_country_name'.if_filled($data[$pd]['emergency']['country_name']).'</td><td>'.$data[$pd]['emergency']['country_name'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4417" style="display:none"><td>emergency_language_pref_1</td><td>'.$data[$pd]['emergency']['language_pref_1'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4418" style="display:none"><td>emergency_language_pref_2</td><td>'.$data[$pd]['emergency']['language_pref_2'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4419" style="display:none;vertical-align:top"><td>emergency_properties</td><td>'.$data[$pd]['emergency']['properties'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4420" style="display:none;vertical-align:top"><td>emergency_remarks</td><td>'.$data[$pd]['emergency']['remarks'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4410" style="display:none"><td>emergency_contact_uri</td><td>'.$data[$pd]['emergency']['contact_uri'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4411" style="display:none"><td>emergency_phone</td><td>'.$data[$pd]['emergency']['phone'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4412" style="display:none"><td>emergency_country_code</td><td>'.$data[$pd]['emergency']['country_code'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4413" style="display:none"><td>emergency_street_address</td><td>'.$data[$pd]['emergency']['street_address'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4414" style="display:none"><td>emergency_city</td><td>'.$data[$pd]['emergency']['city'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4415" style="display:none"><td>emergency_state_or_province</td><td>'.$data[$pd]['emergency']['state_or_province'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4416" style="display:none"><td>emergency_postal_code</td><td>'.$data[$pd]['emergency']['postal_code'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4417" style="display:none"><td>emergency_country_name'.if_filled($data[$pd]['emergency']['country_name']).'</td><td>'.$data[$pd]['emergency']['country_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4418" style="display:none"><td>emergency_language_pref_1</td><td>'.$data[$pd]['emergency']['language_pref_1'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4419" style="display:none"><td>emergency_language_pref_2</td><td>'.$data[$pd]['emergency']['language_pref_2'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4420" style="display:none;vertical-align:top"><td>emergency_properties</td><td>'.$data[$pd]['emergency']['properties'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4421" style="display:none;vertical-align:top"><td>emergency_remarks</td><td>'.$data[$pd]['emergency']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(45)">Fallback Contact +/-</button></td><td></td><td id="fallback_role"></td></tr>';
 	$html_text .= '<tr id="451" style="display:none"><td>fallback_server_handle</td><td>'.$data[$pd]['fallback']['server_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="452" style="display:none"><td>fallback_client_handle</td><td>'.$data[$pd]['fallback']['client_handle'].'</td><td></td></tr>';
@@ -896,8 +918,9 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="455" style="display:none"><td>fallback_presented_name</td><td>'.$data[$pd]['fallback']['presented_name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="456" style="display:none"><td>fallback_kind</td><td>'.$data[$pd]['fallback']['kind'].'</td><td></td></tr>';
 	$html_text .= '<tr id="457" style="display:none"><td>fallback_email</td><td>'.$data[$pd]['fallback']['email'].'</td><td></td></tr>';
-	$html_text .= '<tr id="458" style="display:none"><td>fallback_phone</td><td>'.$data[$pd]['fallback']['phone'].'</td><td></td></tr>';
-	$html_text .= '<tr id="459" style="display:none"><td>fallback_country_code</td><td>'.$data[$pd]['fallback']['country_code'].'</td><td></td></tr>';
+	$html_text .= '<tr id="458" style="display:none"><td>fallback_contact_uri</td><td>'.$data[$pd]['fallback']['contact_uri'].'</td><td></td></tr>';
+	$html_text .= '<tr id="459" style="display:none"><td>fallback_phone</td><td>'.$data[$pd]['fallback']['phone'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4510" style="display:none"><td>fallback_country_code</td><td>'.$data[$pd]['fallback']['country_code'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(50)">Reseller +/-</button></td><td></td><td id="reseller_role"></td></tr>';
 	$html_text .= '<tr id="501" style="display:none"><td>reseller_server_handle</td><td>'.$data[$pd]['reseller']['server_handle'].'</td><td></td></tr>';
@@ -909,22 +932,23 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="505" style="display:none"><td>reseller_kind</td><td>'.$data[$pd]['reseller']['kind'].'</td><td></td></tr>';
 	$html_text .= '<tr id="506" style="display:none"><td>reseller_name</td><td>'.$data[$pd]['reseller']['name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="507" style="display:none"><td>reseller_email</td><td>'.$data[$pd]['reseller']['email'].'</td><td></td></tr>';
-	$html_text .= '<tr id="508" style="display:none"><td>reseller_phone</td><td>'.$data[$pd]['reseller']['phone'].'</td><td></td></tr>';
+	$html_text .= '<tr id="508" style="display:none"><td>reseller_contact_uri</td><td>'.$data[$pd]['reseller']['contact_uri'].'</td><td></td></tr>';
+	$html_text .= '<tr id="509" style="display:none"><td>reseller_phone</td><td>'.$data[$pd]['reseller']['phone'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>reseller_country_code</td><td>'.$data[$pd]['reseller']['country_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="509" style="display:none"><td>reseller_street_address</td><td>'.$data[$pd]['reseller']['street_address'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5010" style="display:none"><td>reseller_city</td><td>'.$data[$pd]['reseller']['city'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5011" style="display:none"><td>reseller_state_or_province</td><td>'.$data[$pd]['reseller']['state_or_province'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5012" style="display:none"><td>reseller_postal_code</td><td>'.$data[$pd]['reseller']['postal_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5013" style="display:none"><td>reseller_country_name'.if_filled($data[$pd]['reseller']['country_name']).'</td><td>'.$data[$pd]['reseller']['country_name'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5014" style="display:none"><td>reseller_language_pref_1</td><td>'.$data[$pd]['reseller']['language_pref_1'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5015" style="display:none"><td>reseller_language_pref_2</td><td>'.$data[$pd]['reseller']['language_pref_2'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5016" style="display:none;vertical-align:top"><td>reseller_statuses</td><td>'.$data[$pd]['reseller']['statuses'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5017" style="display:none"><td>reseller_created_at</td><td>'.$data[$pd]['reseller']['created_at'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5018" style="display:none"><td>reseller_latest_update_at</td><td>'.$data[$pd]['reseller']['latest_update_at'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5019" style="display:none"><td>reseller_verification_received_at</td><td>'.$data[$pd]['reseller']['verification_received_at'].'</td><td id="reseller_verification_received_at"></td></tr>';
-	$html_text .= '<tr id="5020" style="display:none"><td>reseller_verification_set_at</td><td>'.$data[$pd]['reseller']['verification_set_at'].'</td><td id="reseller_verification_set_at"></td></tr>';
-	$html_text .= '<tr id="5021" style="display:none;vertical-align:top"><td>reseller_properties</td><td>'.$data[$pd]['reseller']['properties'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5022" style="display:none;vertical-align:top"><td>reseller_remarks</td><td>'.$data[$pd]['reseller']['remarks'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5010" style="display:none"><td>reseller_street_address</td><td>'.$data[$pd]['reseller']['street_address'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5011" style="display:none"><td>reseller_city</td><td>'.$data[$pd]['reseller']['city'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5012" style="display:none"><td>reseller_state_or_province</td><td>'.$data[$pd]['reseller']['state_or_province'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5013" style="display:none"><td>reseller_postal_code</td><td>'.$data[$pd]['reseller']['postal_code'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5014" style="display:none"><td>reseller_country_name'.if_filled($data[$pd]['reseller']['country_name']).'</td><td>'.$data[$pd]['reseller']['country_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5015" style="display:none"><td>reseller_language_pref_1</td><td>'.$data[$pd]['reseller']['language_pref_1'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5016" style="display:none"><td>reseller_language_pref_2</td><td>'.$data[$pd]['reseller']['language_pref_2'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5017" style="display:none;vertical-align:top"><td>reseller_statuses</td><td>'.$data[$pd]['reseller']['statuses'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5018" style="display:none"><td>reseller_created_at</td><td>'.$data[$pd]['reseller']['created_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5019" style="display:none"><td>reseller_latest_update_at</td><td>'.$data[$pd]['reseller']['latest_update_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5020" style="display:none"><td>reseller_verification_received_at</td><td>'.$data[$pd]['reseller']['verification_received_at'].'</td><td id="reseller_verification_received_at"></td></tr>';
+	$html_text .= '<tr id="5021" style="display:none"><td>reseller_verification_set_at</td><td>'.$data[$pd]['reseller']['verification_set_at'].'</td><td id="reseller_verification_set_at"></td></tr>';
+	$html_text .= '<tr id="5022" style="display:none;vertical-align:top"><td>reseller_properties</td><td>'.$data[$pd]['reseller']['properties'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5023" style="display:none;vertical-align:top"><td>reseller_remarks</td><td>'.$data[$pd]['reseller']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(60)">Registrar +/-</button></td><td></td><td id="registrar_role"></td></tr>';
 	$html_text .= '<tr id="601" style="display:none"><td>registrar_server_handle</td><td>'.$data[$pd]['registrar']['server_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="602" style="display:none"><td>registrar_client_handle</td><td>'.$data[$pd]['registrar']['client_handle'].'</td><td></td></tr>';
@@ -935,22 +959,23 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="605" style="display:none"><td>registrar_kind</td><td>'.$data[$pd]['registrar']['kind'].'</td><td></td></tr>';
 	$html_text .= '<tr id="606" style="display:none"><td>registrar_name</td><td>'.$data[$pd]['registrar']['name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="607" style="display:none"><td>registrar_email</td><td>'.$data[$pd]['registrar']['email'].'</td><td></td></tr>';
-	$html_text .= '<tr id="608" style="display:none"><td>registrar_phone</td><td>'.$data[$pd]['registrar']['phone'].'</td><td></td></tr>';
+	$html_text .= '<tr id="608" style="display:none"><td>registrar_contact_uri</td><td>'.$data[$pd]['registrar']['contact_uri'].'</td><td></td></tr>';
+	$html_text .= '<tr id="609" style="display:none"><td>registrar_phone</td><td>'.$data[$pd]['registrar']['phone'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>registrar_country_code</td><td>'.$data[$pd]['registrar']['country_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="609" style="display:none"><td>registrar_street_address</td><td>'.$data[$pd]['registrar']['street_address'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6010" style="display:none"><td>registrar_city</td><td>'.$data[$pd]['registrar']['city'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6011" style="display:none"><td>registrar_state_or_province</td><td>'.$data[$pd]['registrar']['state_or_province'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6012" style="display:none"><td>registrar_postal_code</td><td>'.$data[$pd]['registrar']['postal_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6013" style="display:none"><td>registrar_country_name'.if_filled($data[$pd]['registrar']['country_name']).'</td><td>'.$data[$pd]['registrar']['country_name'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6014" style="display:none"><td>registrar_language_pref_1</td><td>'.$data[$pd]['registrar']['language_pref_1'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6015" style="display:none"><td>registrar_language_pref_2</td><td>'.$data[$pd]['registrar']['language_pref_2'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6016" style="display:none;vertical-align:top"><td>registrar_statuses</td><td>'.$data[$pd]['registrar']['statuses'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6017" style="display:none"><td>registrar_created_at</td><td>'.$data[$pd]['registrar']['created_at'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6018" style="display:none"><td>registrar_latest_update_at</td><td>'.$data[$pd]['registrar']['latest_update_at'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6019" style="display:none"><td>registrar_verification_received_at</td><td>'.$data[$pd]['registrar']['verification_received_at'].'</td><td id="registrar_verification_received_at"></td></tr>';
-	$html_text .= '<tr id="6020" style="display:none"><td>registrar_verification_set_at</td><td>'.$data[$pd]['registrar']['verification_set_at'].'</td><td id="registrar_verification_set_at"></td></tr>';
-	$html_text .= '<tr id="6021" style="display:none;vertical-align:top"><td>registrar_properties</td><td>'.$data[$pd]['registrar']['properties'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6022" style="display:none;vertical-align:top"><td>registrar_remarks</td><td>'.$data[$pd]['registrar']['remarks'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6010" style="display:none"><td>registrar_street_address</td><td>'.$data[$pd]['registrar']['street_address'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6011" style="display:none"><td>registrar_city</td><td>'.$data[$pd]['registrar']['city'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6012" style="display:none"><td>registrar_state_or_province</td><td>'.$data[$pd]['registrar']['state_or_province'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6013" style="display:none"><td>registrar_postal_code</td><td>'.$data[$pd]['registrar']['postal_code'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6014" style="display:none"><td>registrar_country_name'.if_filled($data[$pd]['registrar']['country_name']).'</td><td>'.$data[$pd]['registrar']['country_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6015" style="display:none"><td>registrar_language_pref_1</td><td>'.$data[$pd]['registrar']['language_pref_1'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6016" style="display:none"><td>registrar_language_pref_2</td><td>'.$data[$pd]['registrar']['language_pref_2'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6017" style="display:none;vertical-align:top"><td>registrar_statuses</td><td>'.$data[$pd]['registrar']['statuses'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6018" style="display:none"><td>registrar_created_at</td><td>'.$data[$pd]['registrar']['created_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6019" style="display:none"><td>registrar_latest_update_at</td><td>'.$data[$pd]['registrar']['latest_update_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6020" style="display:none"><td>registrar_verification_received_at</td><td>'.$data[$pd]['registrar']['verification_received_at'].'</td><td id="registrar_verification_received_at"></td></tr>';
+	$html_text .= '<tr id="6021" style="display:none"><td>registrar_verification_set_at</td><td>'.$data[$pd]['registrar']['verification_set_at'].'</td><td id="registrar_verification_set_at"></td></tr>';
+	$html_text .= '<tr id="6022" style="display:none;vertical-align:top"><td>registrar_properties</td><td>'.$data[$pd]['registrar']['properties'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6023" style="display:none;vertical-align:top"><td>registrar_remarks</td><td>'.$data[$pd]['registrar']['remarks'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Registrar Abuse Contact +/-</button></td><td></td><td id="registrar_abuse_role"></td></tr>';
 	$html_text .= '<tr id="611" style="display:none"><td>registrar_abuse_server_handle</td><td>'.$data[$pd]['registrar_abuse']['server_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="612" style="display:none"><td>registrar_abuse_client_handle</td><td>'.$data[$pd]['registrar_abuse']['client_handle'].'</td><td></td></tr>';
@@ -959,8 +984,9 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="615" style="display:none"><td>registrar_abuse_presented_name</td><td>'.$data[$pd]['registrar_abuse']['presented_name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="616" style="display:none"><td>registrar_abuse_kind</td><td>'.$data[$pd]['registrar_abuse']['kind'].'</td><td></td></tr>';
 	$html_text .= '<tr id="617" style="display:none"><td>registrar_abuse_email</td><td>'.$data[$pd]['registrar_abuse']['email'].'</td><td></td></tr>';
-	$html_text .= '<tr id="618" style="display:none"><td>registrar_abuse_phone</td><td>'.$data[$pd]['registrar_abuse']['phone'].'</td><td id="registrar_abuse_phone"></td></tr>';
-	$html_text .= '<tr id="619" style="display:none"><td>registrar_abuse_country_code</td><td>'.$data[$pd]['registrar_abuse']['country_code'].'</td><td></td></tr>';
+	$html_text .= '<tr id="618" style="display:none"><td>registrar_abuse_contact_uri</td><td>'.$data[$pd]['registrar_abuse']['contact_uri'].'</td><td></td></tr>';
+	$html_text .= '<tr id="619" style="display:none"><td>registrar_abuse_phone</td><td>'.$data[$pd]['registrar_abuse']['phone'].'</td><td id="registrar_abuse_phone"></td></tr>';
+	$html_text .= '<tr id="6110" style="display:none"><td>registrar_abuse_country_code</td><td>'.$data[$pd]['registrar_abuse']['country_code'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(63)">Nameservers +/-</button></td><td></td><td></td></tr>';
 	$html_text .= '<tr id="631" style="display:none;vertical-align:top"><td>server_handles</td><td colspan="2">'.$data[$pd]['nameservers']['server_handles'].'</td></tr>';
