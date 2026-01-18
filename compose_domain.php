@@ -245,26 +245,26 @@ if (!empty($http_response_header) && preg_match('#^HTTP/\S+\s+(\d{3})#', $http_r
 }
 $elapsed_seconds = microtime(true) - $start_monotonic;
 if ($http_code === null) {
-	$arr[$inputdomain]['http_error'] = "No HTTP status line at $start_utc_iso in " . round($elapsed_seconds, 2) . " sec from $server_seen";
+	$arr[$inputdomain]['http_error'] = "No HTTP status line at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec from $server_seen";
   	return $arr;
 }
 if ($http_code === 429) {
-	$arr[$inputdomain]['http_error'] = "429 - Rate limit exceeded at $start_utc_iso in " . round($elapsed_seconds, 2) . " sec from $server_seen";
+	$arr[$inputdomain]['http_error'] = "429 - Rate limit exceeded at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec from $server_seen";
 	return $arr;
 }
 if ($http_code !== 200) {
-	$arr[$inputdomain]['http_error'] = $http_code . " - Insufficient HTTP response at $start_utc_iso in " . round($elapsed_seconds, 2) . " sec from $server_seen";
+	$arr[$inputdomain]['http_error'] = $http_code . " - Insufficient HTTP response at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec from $server_seen";
 	return $arr;
 }
 try {
   	$obj = json_decode($response, true, 512, JSON_THROW_ON_ERROR);
 }
 catch (JsonException $e) {
-	$arr[$inputdomain]['http_error'] = "200 - JSON decode exception: " . $e->getMessage() . " at $start_utc_iso in " . round($elapsed_seconds, 2) . " sec from $server_seen";
+	$arr[$inputdomain]['http_error'] = "200 - JSON decode exception: " . $e->getMessage() . " at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec from $server_seen";
 	return $arr;
 }
 if (!is_array($obj)) {
-	$arr[$inputdomain]['http_error'] = "200 - Invalid JSON structure at $start_utc_iso in " . round($elapsed_seconds, 2) . " sec from $server_seen";
+	$arr[$inputdomain]['http_error'] = "200 - Invalid JSON structure at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec from $server_seen";
 	return $arr;
 }
 $notices = '';	
