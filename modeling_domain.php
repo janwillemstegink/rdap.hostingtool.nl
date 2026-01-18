@@ -76,7 +76,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 20)	{ // metadata
 		var pre = '20';
-		var max = 13
+		var max = 10
 	}
 	else if (type == 30)	{ // properties
 		var pre = '30';
@@ -84,23 +84,23 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 39)	{ // sponsor
 		var pre = '39';
-		var max = 25
+		var max = 26
 	}
 	else if (type == 40)	{ // registrant
 		var pre = '40';
-		var max = 21
+		var max = 22
 	}
 	else if (type == 41)	{ // administrative
 		var pre = '41';
-		var max = 20
+		var max = 21
 	}
 	else if (type == 42)	{ // technical
 		var pre = '42';
-		var max = 20
+		var max = 21
 	}
 	else if (type == 43)	{ // billing
 		var pre = '43';
-		var max = 21
+		var max = 22
 	}
 	else if (type == 44)	{ // emergency
 		var pre = '44';
@@ -112,11 +112,11 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 50)	{ // reseller
 		var pre = '50';
-		var max = 23
+		var max = 24
 	}	
 	else if (type == 60)	{ // registrar
 		var pre = '60';
-		var max = 223
+		var max = 24
 	}
 	else if (type == 61)	{ // registrar abuse
 		var pre = '61';
@@ -616,15 +616,12 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr><td>registry_json_response_url</td><td>'.((strlen($data[$pd]['metadata']['registry_json_response_url'])) ? '<a href='.$data[$pd]['metadata']['registry_json_response_url'].' target="_blank">Registry Response</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registry_json_response_url"></td></tr>';
 	$html_text .= '<tr id="205" style="display:none"><td>registry_language_codes</td><td>'.$data[$pd]['metadata']['registry_language_codes'].'</td><td id="metadata_registry_language_codes"></td></tr>';
 	$html_text .= '<tr id="206" style="display:none"><td>registrar_accreditation</td><td>'.((strlen($data[$pd]['metadata']['registrar_accreditation'])) ? $data[$pd]['metadata']['registrar_accreditation'] : '').'</td><td id="metadata_registrar_accreditation"></td></tr>';
-	$html_text .= '<tr id="207" style="display:none;vertical-align:top"><td>registrar_links</td><td colspan="2">'.$data[$pd]['metadata']['registrar_links'].'</td></tr>';
 	$registrar_json_response_url = str_replace('https://', '', $data[$pd]['metadata']['registrar_json_response_url']);
 	$validation_registrar = 'https://validator.rdap.org/?url=https://'.$registrar_json_response_url.'&response-type=domain&server-type=gtld-registrar&errors-only=1';	
-	$html_text .= '<tr id="208" style="display:none"><td>registrar_json_response_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_json_response_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_json_response_url'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registrar_json_response_url"></td></tr>';
-	$html_text .= '<tr id="209" style="display:none"><td>registrar_complaint_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_complaint_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_complaint_url'].' target="_blank">icann.org/wicf</a>' : '').'</td><td id="metadata_registrar_complaint_url"></td></tr>';
-	$html_text .= '<tr id="2010" style="display:none;vertical-align:top"><td>administrative_links</td><td colspan="2">'.$data[$pd]['metadata']['administrative_links'].'</td></tr>';
-	$html_text .= '<tr id="2011" style="display:none;vertical-align:top"><td>technical_links</td><td colspan="2">'.$data[$pd]['metadata']['technical_links'].'</td></tr>';
-	$html_text .= '<tr id="2012" style="display:none"><td>status_explanation_url</td><td>'.((strlen($data[$pd]['metadata']['status_explanation_url'])) ? '<a href='.$data[$pd]['metadata']['status_explanation_url'].' target="_blank">icann.org/epp</a>' : '').'</td><td id="metadata_status_explanation_url"></td></tr>';
-	$html_text .= '<tr id="2013" style="display:none"><td>geo_location</td><td>'.$data[$pd]['metadata']['geo_location'].'</td><td></td></tr>';
+	$html_text .= '<tr id="207" style="display:none"><td>registrar_json_response_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_json_response_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_json_response_url'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registrar_json_response_url"></td></tr>';
+	$html_text .= '<tr id="208" style="display:none"><td>registrar_complaint_url</td><td>'.((strlen($data[$pd]['metadata']['registrar_complaint_url'])) ? '<a href='.$data[$pd]['metadata']['registrar_complaint_url'].' target="_blank">icann.org/wicf</a>' : '').'</td><td id="metadata_registrar_complaint_url"></td></tr>';
+	$html_text .= '<tr id="209" style="display:none"><td>status_explanation_url</td><td>'.((strlen($data[$pd]['metadata']['status_explanation_url'])) ? '<a href='.$data[$pd]['metadata']['status_explanation_url'].' target="_blank">icann.org/epp</a>' : '').'</td><td id="metadata_status_explanation_url"></td></tr>';
+	$html_text .= '<tr id="2010" style="display:none"><td>geo_location</td><td>'.$data[$pd]['metadata']['geo_location'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>resource_upload_at</td><td>'.$data[$pd]['metadata']['resource_upload_at'].'</td><td id="metadata_resource_upload_at"></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 	if (strlen($data[$pd]['http_error']))	{
@@ -774,6 +771,7 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="3923" style="display:none"><td>sponsor_verification_set_at</td><td>'.$data[$pd]['sponsor']['verification_set_at'].'</td><td id="sponsor_verification_set_at"></td></tr>';
 	$html_text .= '<tr id="3924" style="display:none;vertical-align:top"><td>sponsor_properties</td><td>'.$data[$pd]['sponsor']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="3925" style="display:none;vertical-align:top"><td>sponsor_remarks</td><td>'.$data[$pd]['sponsor']['remarks'].'</td><td></td></tr>';
+	$html_text .= '<tr id="3926" style="display:none;vertical-align:top"><td>sponsor_links</td><td colspan="2">'.$data[$pd]['sponsor']['links'].'</td></tr>';	
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(40)">Registrant +/-</button></td><td></td><td id="registrant_role"></td></tr>';
 	$html_text .= '<tr id="401" style="display:none"><td>registrant_server_handle</td><td>'.$data[$pd]['registrant']['server_handle'].'</td><td id="registrant_server_handle"></td></tr>';
 	$html_text .= '<tr id="402" style="display:none"><td>registrant_client_handle</td><td>'.$data[$pd]['registrant']['client_handle'].'</td><td id="registrant_client_handle"></td></tr>';
@@ -822,6 +820,7 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="4019" style="display:none"><td>registrant_verification_set_at</td><td>'.$data[$pd]['registrant']['verification_set_at'].'</td><td id="registrant_verification_set_at"></td></tr>';
 	$html_text .= '<tr id="4020" style="display:none;vertical-align:top"><td>registrant_properties</td><td>'.$data[$pd]['registrant']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4021" style="display:none;vertical-align:top"><td>registrant_remarks</td><td>'.$data[$pd]['registrant']['remarks'].'</td><td id="registrant_remarks"></td></tr>';
+	$html_text .= '<tr id="4022" style="display:none;vertical-align:top"><td>registrant_links</td><td colspan="2">'.$data[$pd]['registrant']['links'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(41)">Administrative / Decision Contact +/-</button></td><td></td><td id="administrative_role"></td></tr>';
 	$html_text .= '<tr id="411" style="display:none"><td>administrative_server_handle</td><td>'.$data[$pd]['administrative']['server_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="412" style="display:none"><td>administrative_client_handle</td><td>'.$data[$pd]['administrative']['client_handle'].'</td><td></td></tr>';
@@ -844,6 +843,7 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="4118" style="display:none"><td>administrative_language_pref_2</td><td>'.$data[$pd]['administrative']['language_pref_2'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4119" style="display:none;vertical-align:top"><td>administrative_properties</td><td>'.$data[$pd]['administrative']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4120" style="display:none;vertical-align:top"><td>administrative_remarks</td><td>'.$data[$pd]['administrative']['remarks'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4121" style="display:none;vertical-align:top"><td>administrative_links</td><td colspan="2">'.$data[$pd]['administrative']['links'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Technical / Onsite Contact +/-</button></td><td></td><td id="technical_role"></td></tr>';
 	$html_text .= '<tr id="421" style="display:none"><td>technical_server_handle</td><td>'.$data[$pd]['technical']['server_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="422" style="display:none"><td>technical_client_handle</td><td>'.$data[$pd]['technical']['client_handle'].'</td><td></td></tr>';
@@ -866,6 +866,7 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="4218" style="display:none"><td>technical_language_pref_2</td><td>'.$data[$pd]['technical']['language_pref_2'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4219" style="display:none;vertical-align:top"><td>technical_properties</td><td>'.$data[$pd]['technical']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4220" style="display:none;vertical-align:top"><td>technical_remarks</td><td>'.$data[$pd]['technical']['remarks'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4221" style="display:none;vertical-align:top"><td>technical_links</td><td colspan="2">'.$data[$pd]['technical']['links'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(43)">Billing +/-</button></td><td></td><td id="billing_role"></td></tr>';
 	$html_text .= '<tr id="431" style="display:none"><td>billing_server_handle</td><td>'.$data[$pd]['billing']['server_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="432" style="display:none"><td>billing_client_handle</td><td>'.$data[$pd]['billing']['client_handle'].'</td><td></td></tr>';
@@ -888,6 +889,7 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="4319" style="display:none"><td>billing_language_pref_2</td><td>'.$data[$pd]['billing']['language_pref_2'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4320" style="display:none;vertical-align:top"><td>billing_properties</td><td>'.$data[$pd]['billing']['properties'].'</td><td></td></tr>';	
 	$html_text .= '<tr id="4321" style="display:none;vertical-align:top"><td>billing_remarks</td><td>'.$data[$pd]['billing']['remarks'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4322" style="display:none;vertical-align:top"><td>billing_links</td><td colspan="2">'.$data[$pd]['billing']['links'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Emergency Contact +/-</button></td><td></td><td id="emergency_role"></td></tr>';
 	$html_text .= '<tr id="441" style="display:none"><td>emergency_server_handle</td><td>'.$data[$pd]['emergency']['server_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="442" style="display:none"><td>emergency_client_handle</td><td>'.$data[$pd]['emergency']['client_handle'].'</td><td></td></tr>';
@@ -949,6 +951,7 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="5021" style="display:none"><td>reseller_verification_set_at</td><td>'.$data[$pd]['reseller']['verification_set_at'].'</td><td id="reseller_verification_set_at"></td></tr>';
 	$html_text .= '<tr id="5022" style="display:none;vertical-align:top"><td>reseller_properties</td><td>'.$data[$pd]['reseller']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="5023" style="display:none;vertical-align:top"><td>reseller_remarks</td><td>'.$data[$pd]['reseller']['remarks'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5024" style="display:none;vertical-align:top"><td>reseller_links</td><td colspan="2">'.$data[$pd]['reseller']['links'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(60)">Registrar +/-</button></td><td></td><td id="registrar_role"></td></tr>';
 	$html_text .= '<tr id="601" style="display:none"><td>registrar_server_handle</td><td>'.$data[$pd]['registrar']['server_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="602" style="display:none"><td>registrar_client_handle</td><td>'.$data[$pd]['registrar']['client_handle'].'</td><td></td></tr>';
@@ -976,6 +979,7 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="6021" style="display:none"><td>registrar_verification_set_at</td><td>'.$data[$pd]['registrar']['verification_set_at'].'</td><td id="registrar_verification_set_at"></td></tr>';
 	$html_text .= '<tr id="6022" style="display:none;vertical-align:top"><td>registrar_properties</td><td>'.$data[$pd]['registrar']['properties'].'</td><td></td></tr>';
 	$html_text .= '<tr id="6023" style="display:none;vertical-align:top"><td>registrar_remarks</td><td>'.$data[$pd]['registrar']['remarks'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6024" style="display:none;vertical-align:top"><td>registrar_links</td><td colspan="2">'.$data[$pd]['registrar']['links'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Registrar Abuse Contact +/-</button></td><td></td><td id="registrar_abuse_role"></td></tr>';
 	$html_text .= '<tr id="611" style="display:none"><td>registrar_abuse_server_handle</td><td>'.$data[$pd]['registrar_abuse']['server_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="612" style="display:none"><td>registrar_abuse_client_handle</td><td>'.$data[$pd]['registrar_abuse']['client_handle'].'</td><td></td></tr>';

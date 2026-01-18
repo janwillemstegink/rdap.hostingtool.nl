@@ -279,11 +279,8 @@ if (!strlen($language_codes))	{
 	$language_codes = '(not provided)';	
 }	
 $registrar_accreditation = '';
-$registrar_links = '';
 $registrar_json_response_url = '';	
-$registrar_complaint_url = '';
-$administrative_links = '';	
-$technical_links = '';
+$registrar_complaint_url = '';	
 $status_explanation_url = '';
 $registrant_web_id = '';
 if ($zone_identifier == 'nl' or $zone_identifier == 'frl')	{		
@@ -328,7 +325,7 @@ $registrar_latest_update_at = null;
 $registrar_expiration_at = null;	
 $registrar_deletion_at = null;		
 $registrar_properties = '(not tested yet)';	
-$registrar_remarks = '';		
+$registrar_remarks = '';
 $sponsor_statuses = '';
 $sponsor_created_at = null;
 $sponsor_latest_transfer_at = null;	
@@ -346,15 +343,6 @@ $nameservers_dnssec_key_tag = '';
 $nameservers_dnssec_algorithm = '';
 $nameservers_dnssec_digest_type = '';
 $nameservers_dnssec_digest = '';	
-$registrar_abuse_handle = '';	
-$registrar_abuse_organization_type = '';
-$registrar_abuse_organization_name = '';
-$registrar_abuse_presented_name = '';
-$registrar_abuse_kind = '';
-$registrar_abuse_email = 'Abuse contact email unavailable.';
-$registrar_abuse_contact_uri = '';	
-$registrar_abuse_phone = '';
-$registrar_abuse_country_code = '';
 	
 $sponsor_handle = '';
 $sponsor_organization_type = '';	
@@ -370,6 +358,7 @@ $sponsor_city = '';
 $sponsor_state_or_province = '';	
 $sponsor_postal_code = '';
 $sponsor_country_name = '';
+$sponsor_links = '';	
 $registrant_handle = '';
 $registrant_organization_type = '';
 $registrant_organization_name = '';	
@@ -386,7 +375,8 @@ $registrant_state_or_province = '';
 $registrant_postal_code = '';
 $registrant_country_name = '';	
 $registrant_language_pref_1 = '';
-$registrant_language_pref_2 = '';	
+$registrant_language_pref_2 = '';
+$registrant_links = '';	
 $administrative_handle = '';
 $administrative_organization_type = '';
 $administrative_organization_name = '';	
@@ -403,7 +393,8 @@ $administrative_state_or_province = '';
 $administrative_postal_code = '';	
 $administrative_country_name = '';
 $administrative_language_pref_1 = '';
-$administrative_language_pref_2 = '';	
+$administrative_language_pref_2 = '';
+$administrative_links = '';	
 $technical_handle = '';
 $technical_organization_type = '';
 $technical_organization_name = '';	
@@ -420,7 +411,8 @@ $technical_state_or_province = '';
 $technical_postal_code = '';	
 $technical_country_name = '';
 $technical_language_pref_1 = '';
-$technical_language_pref_2 = '';	
+$technical_language_pref_2 = '';
+$technical_links = '';	
 $billing_handle = '';
 $billing_organization_type = '';
 $billing_organization_name = '';	
@@ -436,6 +428,7 @@ $billing_city = '';
 $billing_state_or_province = '';	
 $billing_postal_code = '';	
 $billing_country_name = '';
+$billing_links = '';	
 
 $reseller_handle = '';
 $reseller_organization_type = '';	
@@ -453,7 +446,9 @@ $reseller_state_or_province = '';
 $reseller_postal_code = '';
 $reseller_country_name = '';	
 $reseller_language_pref_1 = '';
-$reseller_language_pref_2 = '';	
+$reseller_language_pref_2 = '';
+$reseller_links = '';
+	
 $registrar_handle = '';
 $registrar_organization_type = '';
 $registrar_organization_name = '';	
@@ -471,6 +466,17 @@ $registrar_postal_code = '';
 $registrar_country_name = '';	
 $registrar_language_pref_1 = '';
 $registrar_language_pref_2 = '';
+$registrar_links = '';
+	
+$registrar_abuse_handle = '';	
+$registrar_abuse_organization_type = '';
+$registrar_abuse_organization_name = '';
+$registrar_abuse_presented_name = '';
+$registrar_abuse_kind = '';
+$registrar_abuse_email = 'Abuse contact email unavailable.';
+$registrar_abuse_contact_uri = '';	
+$registrar_abuse_phone = '';
+$registrar_abuse_country_code = '';	
 	
 $nameservers_handles = '';
 $nameservers_ascii = '';
@@ -882,14 +888,26 @@ foreach($obj as $key1 => $value1) {
 							}
 							$registrar_remarks .= interprete_remark($key5, $value5);	
 						}
-						if ($key2 == $entity_registrar and $key3 == 'links')	{
-							$registrar_links .= $key4.': '.$key5.': '.$value5."<br />";
+						if ($key2 == $entity_sponsor and $key3 == 'links')	{
+							$sponsor_links .= $key4.': '.$key5.': '.$value5."<br />";
+						}
+						if ($key2 == $entity_registrant and $key3 == 'links')	{
+							$registrant_links .= $key4.': '.$key5.': '.$value5."<br />";
 						}
 						if ($key2 == $entity_administrative and $key3 == 'links')	{
 							$administrative_links .= $key4.': '.$key5.': '.$value5."<br />";
 						}
 						if ($key2 == $entity_technical and $key3 == 'links')	{
 							$technical_links .= $key4.': '.$key5.': '.$value5."<br />";
+						}
+						if ($key2 == $entity_billing and $key3 == 'links')	{
+							$billing_links .= $key4.': '.$key5.': '.$value5."<br />";
+						}
+						if ($key2 == $entity_reseller and $key3 == 'links')	{
+							$reseller_links .= $key4.': '.$key5.': '.$value5."<br />";
+						}
+						if ($key2 == $entity_registrar and $key3 == 'links')	{
+							$registrar_links .= $key4.': '.$key5.': '.$value5."<br />";
 						}
 					}		
 					if ($key1 == 'nameservers')	{							
@@ -1276,7 +1294,7 @@ foreach($obj as $key1 => $value1) {
 									}
 									elseif ($value7[0] == 'adr' and $key8 == 1)	{
 										$registrar_abuse_country_code = detect_country_code($registrar_abuse_country_code, $value8['CC'], $value8['cc']);				
-									}
+									}							
 								}
 								//echo 'k4: '.$key4. ' v4: '.$value4.' k5: '.$key5.' v5: '.$value5.' k6: '.$key6.' v6: '.$value6.' k7: '.$key7.' value73: '.$value7[3]."<br />";
 								if ($key1 == 'entities' and $key5 == 'vcardArray' and $value7[0] == 'email' and $value8 == 'email')	{					
@@ -1441,11 +1459,8 @@ $arr[$inputdomain]['metadata']['tld_information_url'] = $tld_information_url;
 $arr[$inputdomain]['metadata']['registry_json_response_url'] = $url;
 $arr[$inputdomain]['metadata']['registry_language_codes'] = $language_codes;	
 $arr[$inputdomain]['metadata']['registrar_accreditation'] = $registrar_accreditation;		
-$arr[$inputdomain]['metadata']['registrar_links'] = $registrar_links;
 $arr[$inputdomain]['metadata']['registrar_json_response_url'] = $registrar_json_response_url;
 $arr[$inputdomain]['metadata']['registrar_complaint_url'] = $registrar_complaint_url;
-$arr[$inputdomain]['metadata']['administrative_links'] = $administrative_links;
-$arr[$inputdomain]['metadata']['technical_links'] = $technical_links;
 $arr[$inputdomain]['metadata']['status_explanation_url'] = $status_explanation_url;
 $arr[$inputdomain]['metadata']['geo_location'] = '';
 $arr[$inputdomain]['metadata']['resource_upload_at'] = $resource_upload_at;		
@@ -1485,6 +1500,7 @@ $arr[$inputdomain]['sponsor']['created_at'] = $sponsor_created_at;
 $arr[$inputdomain]['sponsor']['latest_update_at'] = $sponsor_latest_update_at;
 $arr[$inputdomain]['sponsor']['properties'] = $sponsor_properties;
 $arr[$inputdomain]['sponsor']['remarks'] = $sponsor_remarks;
+$arr[$inputdomain]['sponsor']['links'] = $sponsor_links;	
 	
 $arr[$inputdomain]['registrant']['client_handle'] = $registrant_handle;
 $arr[$inputdomain]['registrant']['web_id'] = $registrant_web_id;		
@@ -1508,7 +1524,8 @@ $arr[$inputdomain]['registrant']['statuses'] = $registrant_statuses;
 $arr[$inputdomain]['registrant']['created_at'] = $registrant_created_at;
 $arr[$inputdomain]['registrant']['latest_update_at'] = $registrant_latest_update_at;
 $arr[$inputdomain]['registrant']['properties'] = $registrant_properties;
-$arr[$inputdomain]['registrant']['remarks'] = $registrant_remarks;	
+$arr[$inputdomain]['registrant']['remarks'] = $registrant_remarks;
+$arr[$inputdomain]['registrant']['links'] = $registrant_links;	
 	
 $arr[$inputdomain]['administrative']['client_handle'] = $administrative_handle;
 $arr[$inputdomain]['administrative']['web_id'] = $administrative_web_id;		
@@ -1532,7 +1549,8 @@ $arr[$inputdomain]['administrative']['statuses'] = $administrative_statuses;
 $arr[$inputdomain]['administrative']['created_at'] = $administrative_created_at;
 $arr[$inputdomain]['administrative']['latest_update_at'] = $administrative_latest_update_at;
 $arr[$inputdomain]['administrative']['properties'] = $administrative_properties;
-$arr[$inputdomain]['administrative']['remarks'] = $administrative_remarks;	
+$arr[$inputdomain]['administrative']['remarks'] = $administrative_remarks;
+$arr[$inputdomain]['administrative']['links'] = $administrative_links;
 
 $arr[$inputdomain]['technical']['client_handle'] = $technical_handle;
 $arr[$inputdomain]['technical']['web_id'] = $technical_web_id;		
@@ -1557,6 +1575,7 @@ $arr[$inputdomain]['technical']['created_at'] = $technical_created_at;
 $arr[$inputdomain]['technical']['latest_update_at'] = $technical_latest_update_at;
 $arr[$inputdomain]['technical']['properties'] = $technical_properties;
 $arr[$inputdomain]['technical']['remarks'] = $technical_remarks;
+$arr[$inputdomain]['technical']['links'] = $technical_links;	
 	
 $arr[$inputdomain]['billing']['client_handle'] = $billing_handle;
 $arr[$inputdomain]['billing']['web_id'] = $billing_web_id;		
@@ -1581,6 +1600,7 @@ $arr[$inputdomain]['billing']['created_at'] = $billing_created_at;
 $arr[$inputdomain]['billing']['latest_update_at'] = $billing_latest_update_at;
 $arr[$inputdomain]['billing']['properties'] = $billing_properties;
 $arr[$inputdomain]['billing']['remarks'] = $billing_remarks;
+$arr[$inputdomain]['billing']['links'] = $billing_links;	
 
 $arr[$inputdomain]['reseller']['client_handle'] = $reseller_handle;
 $arr[$inputdomain]['reseller']['web_id'] = $reseller_web_id;		
@@ -1604,7 +1624,8 @@ $arr[$inputdomain]['reseller']['statuses'] = $reseller_statuses;
 $arr[$inputdomain]['reseller']['created_at'] = $reseller_created_at;
 $arr[$inputdomain]['reseller']['latest_update_at'] = $reseller_latest_update_at;
 $arr[$inputdomain]['reseller']['properties'] = $reseller_properties;
-$arr[$inputdomain]['reseller']['remarks'] = $reseller_remarks;	
+$arr[$inputdomain]['reseller']['remarks'] = $reseller_remarks;
+$arr[$inputdomain]['reseller']['links'] = $reseller_links;	
 
 $arr[$inputdomain]['registrar']['client_handle'] = $registrar_handle;
 $arr[$inputdomain]['registrar']['web_id'] = $registrar_web_id;		
@@ -1629,6 +1650,7 @@ $arr[$inputdomain]['registrar']['created_at'] = $registrar_created_at;
 $arr[$inputdomain]['registrar']['latest_update_at'] = $registrar_latest_update_at;
 $arr[$inputdomain]['registrar']['properties'] = $registrar_properties;
 $arr[$inputdomain]['registrar']['remarks'] = $registrar_remarks;
+$arr[$inputdomain]['registrar']['links'] = $registrar_links;	
 	
 $arr[$inputdomain]['registrar_abuse']['client_handle'] = $registrar_abuse_handle;
 $arr[$inputdomain]['registrar_abuse']['organization_type'] = $registrar_abuse_organization_type;
@@ -1638,7 +1660,7 @@ $arr[$inputdomain]['registrar_abuse']['kind'] = $registrar_abuse_kind;
 $arr[$inputdomain]['registrar_abuse']['email'] = $registrar_abuse_email;
 $arr[$inputdomain]['registrar_abuse']['contact_uri'] = $registrar_abuse_contact_uri;	
 $arr[$inputdomain]['registrar_abuse']['phone'] = $registrar_abuse_phone;
-$arr[$inputdomain]['registrar_abuse']['country_code'] = $registrar_abuse_country_code;	
+$arr[$inputdomain]['registrar_abuse']['country_code'] = $registrar_abuse_country_code;
 	
 $arr[$inputdomain]['nameservers']['client_handles'] = $nameservers_handles;
 $arr[$inputdomain]['nameservers']['ascii_names'] = $nameservers_ascii;
