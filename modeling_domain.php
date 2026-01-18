@@ -112,11 +112,11 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 50)	{ // reseller
 		var pre = '50';
-		var max = 24
+		var max = 27
 	}	
 	else if (type == 60)	{ // registrar
 		var pre = '60';
-		var max = 24
+		var max = 23
 	}
 	else if (type == 61)	{ // registrar abuse
 		var pre = '61';
@@ -222,6 +222,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_verification_set_at").textContent = proposed;
 		document.getElementById("registrar_role").textContent = "";
 		document.getElementById("registrar_web_id").textContent = proposed;
+		document.getElementById("registrar_email").textContent = "";
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
 		document.getElementById("registrar_abuse_role").textContent = "";
@@ -300,6 +301,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_verification_set_at").textContent = proposed;
 		document.getElementById("registrar_role").textContent = "De domeinregistrar is verantwoordelijk voor domeinreserveringen en IP-adresroutering.";
 		document.getElementById("registrar_web_id").textContent = proposed
+		document.getElementById("registrar_email").textContent = "Een registrar moet zonder verdere hyperlinks bereikbaar zijn. Zie bijvoorbeeld example.tel.";
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
 		document.getElementById("registrar_abuse_role").textContent = "Informatie over hoe een derde partij contact kan opnemen met de registrar of belaste partij. Zie fryslan.frl.";
@@ -378,6 +380,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_verification_set_at").textContent = proposed;		
 		document.getElementById("registrar_role").textContent = "The domain registrar is responsible for domain reservations and IP address routing.";
 		document.getElementById("registrar_web_id").textContent = proposed;
+		document.getElementById("registrar_email").textContent = "A registrar needs to be reachable without any further hyperlink. See, for example, example.tel.";
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
 		document.getElementById("registrar_abuse_role").textContent = "Information on how a third party can contact the registrar or entrusted party. See fryslan.frl.";
@@ -456,6 +459,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_verification_set_at").textContent = proposed;		
 		document.getElementById("registrar_role").textContent = "Der Domänenregistrar ist für die Domänenreservierung und das IP-Adressrouting verantwortlich.";
 		document.getElementById("registrar_web_id").textContent = proposed;
+		document.getElementById("registrar_email").textContent = "Ein Registrar muss ohne weitere Hyperlinks erreichbar sein. Siehe beispielsweise example.tel.";
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
 		document.getElementById("registrar_abuse_role").textContent = "Informationen darüber, wie Dritte den Registrar oder die beauftragte Partei kontaktieren können. Siehe fryslan.frl.";
@@ -534,6 +538,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_verification_set_at").textContent = proposed;		
 		document.getElementById("registrar_role").textContent = "Le registraire de domaine est responsable des réservations de domaines et du routage des adresses IP.";
 		document.getElementById("registrar_web_id").textContent = proposed;
+		document.getElementById("registrar_email").textContent = "Un registraire doit être joignable sans lien hypertexte supplémentaire. Voir, par exemple, example.tel.";
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
 		document.getElementById("registrar_abuse_role").textContent = "Informations sur la manière dont un tiers peut contacter le registraire ou la partie mandatée. Voir fryslan.frl.";
@@ -924,34 +929,40 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="459" style="display:none"><td>fallback_phone</td><td>'.$data[$pd]['fallback']['phone'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4510" style="display:none"><td>fallback_country_code</td><td>'.$data[$pd]['fallback']['country_code'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(50)">Reseller +/-</button></td><td></td><td id="reseller_role"></td></tr>';
+	if (!empty($data[$pd]['properties']['statuses']))	{
+		$reseller_applicable = (strlen($data[$pd]['reseller']['organization_name']) or strlen($data[$pd]['reseller']['presented_name'])) ? '(reseller data exists)' : '(no reseller data)';
+	}
+	else	{
+		$reseller_applicable = '';
+	}
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(50)">Reseller +/-</button></td><td>'.$reseller_applicable.'</td><td id="reseller_role"></td></tr>';
 	$html_text .= '<tr id="501" style="display:none"><td>reseller_server_handle</td><td>'.$data[$pd]['reseller']['server_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="502" style="display:none"><td>reseller_client_handle</td><td>'.$data[$pd]['reseller']['client_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="503" style="display:none"><td>reseller_web_id</td><td>'.$data[$pd]['reseller']['web_id'].'</td><td id="reseller_web_id"></td></tr>';
 	$html_text .= '<tr id="504" style="display:none"><td>reseller_organization_type</td><td>'.$data[$pd]['reseller']['organization_type'].'</td><td></td></tr>';
-	$html_text .= '<tr><td>reseller_organization_name</td><td>'.$data[$pd]['reseller']['organization_name'].'</td><td></td></tr>';
-	$html_text .= '<tr><td>reseller_presented_name</td><td>'.$data[$pd]['reseller']['presented_name'].'</td><td></td></tr>';
-	$html_text .= '<tr id="505" style="display:none"><td>reseller_kind</td><td>'.$data[$pd]['reseller']['kind'].'</td><td></td></tr>';
-	$html_text .= '<tr id="506" style="display:none"><td>reseller_name</td><td>'.$data[$pd]['reseller']['name'].'</td><td></td></tr>';
-	$html_text .= '<tr id="507" style="display:none"><td>reseller_email</td><td>'.$data[$pd]['reseller']['email'].'</td><td></td></tr>';
-	$html_text .= '<tr id="508" style="display:none"><td>reseller_contact_uri</td><td>'.$data[$pd]['reseller']['contact_uri'].'</td><td></td></tr>';
-	$html_text .= '<tr id="509" style="display:none"><td>reseller_phone</td><td>'.$data[$pd]['reseller']['phone'].'</td><td></td></tr>';
-	$html_text .= '<tr><td>reseller_country_code</td><td>'.$data[$pd]['reseller']['country_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5010" style="display:none"><td>reseller_street_address</td><td>'.$data[$pd]['reseller']['street_address'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5011" style="display:none"><td>reseller_city</td><td>'.$data[$pd]['reseller']['city'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5012" style="display:none"><td>reseller_state_or_province</td><td>'.$data[$pd]['reseller']['state_or_province'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5013" style="display:none"><td>reseller_postal_code</td><td>'.$data[$pd]['reseller']['postal_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5014" style="display:none"><td>reseller_country_name'.if_filled($data[$pd]['reseller']['country_name']).'</td><td>'.$data[$pd]['reseller']['country_name'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5015" style="display:none"><td>reseller_language_pref_1</td><td>'.$data[$pd]['reseller']['language_pref_1'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5016" style="display:none"><td>reseller_language_pref_2</td><td>'.$data[$pd]['reseller']['language_pref_2'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5017" style="display:none;vertical-align:top"><td>reseller_statuses</td><td>'.$data[$pd]['reseller']['statuses'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5018" style="display:none"><td>reseller_created_at</td><td>'.$data[$pd]['reseller']['created_at'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5019" style="display:none"><td>reseller_latest_update_at</td><td>'.$data[$pd]['reseller']['latest_update_at'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5020" style="display:none"><td>reseller_verification_received_at</td><td>'.$data[$pd]['reseller']['verification_received_at'].'</td><td id="reseller_verification_received_at"></td></tr>';
-	$html_text .= '<tr id="5021" style="display:none"><td>reseller_verification_set_at</td><td>'.$data[$pd]['reseller']['verification_set_at'].'</td><td id="reseller_verification_set_at"></td></tr>';
-	$html_text .= '<tr id="5022" style="display:none;vertical-align:top"><td>reseller_properties</td><td>'.$data[$pd]['reseller']['properties'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5023" style="display:none;vertical-align:top"><td>reseller_remarks</td><td>'.$data[$pd]['reseller']['remarks'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5024" style="display:none;vertical-align:top"><td>reseller_links</td><td colspan="2">'.$data[$pd]['reseller']['links'].'</td></tr>';
+	$html_text .= '<tr id="505" style="display:none"><td>reseller_organization_name</td><td>'.$data[$pd]['reseller']['organization_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="506" style="display:none"><td>reseller_presented_name</td><td>'.$data[$pd]['reseller']['presented_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="507" style="display:none"><td>reseller_kind</td><td>'.$data[$pd]['reseller']['kind'].'</td><td></td></tr>';
+	$html_text .= '<tr id="508" style="display:none"><td>reseller_name</td><td>'.$data[$pd]['reseller']['name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="509" style="display:none"><td>reseller_email</td><td>'.$data[$pd]['reseller']['email'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5010" style="display:none"><td>reseller_contact_uri</td><td>'.$data[$pd]['reseller']['contact_uri'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5011" style="display:none"><td>reseller_phone</td><td>'.$data[$pd]['reseller']['phone'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5012" style="display:none"><td>reseller_country_code</td><td>'.$data[$pd]['reseller']['country_code'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5013" style="display:none"><td>reseller_street_address</td><td>'.$data[$pd]['reseller']['street_address'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5014" style="display:none"><td>reseller_city</td><td>'.$data[$pd]['reseller']['city'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5015" style="display:none"><td>reseller_state_or_province</td><td>'.$data[$pd]['reseller']['state_or_province'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5016" style="display:none"><td>reseller_postal_code</td><td>'.$data[$pd]['reseller']['postal_code'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5017" style="display:none"><td>reseller_country_name'.if_filled($data[$pd]['reseller']['country_name']).'</td><td>'.$data[$pd]['reseller']['country_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5018" style="display:none"><td>reseller_language_pref_1</td><td>'.$data[$pd]['reseller']['language_pref_1'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5019" style="display:none"><td>reseller_language_pref_2</td><td>'.$data[$pd]['reseller']['language_pref_2'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5020" style="display:none;vertical-align:top"><td>reseller_statuses</td><td>'.$data[$pd]['reseller']['statuses'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5021" style="display:none"><td>reseller_created_at</td><td>'.$data[$pd]['reseller']['created_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5022" style="display:none"><td>reseller_latest_update_at</td><td>'.$data[$pd]['reseller']['latest_update_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5023" style="display:none"><td>reseller_verification_received_at</td><td>'.$data[$pd]['reseller']['verification_received_at'].'</td><td id="reseller_verification_received_at"></td></tr>';
+	$html_text .= '<tr id="5024" style="display:none"><td>reseller_verification_set_at</td><td>'.$data[$pd]['reseller']['verification_set_at'].'</td><td id="reseller_verification_set_at"></td></tr>';
+	$html_text .= '<tr id="5025" style="display:none;vertical-align:top"><td>reseller_properties</td><td>'.$data[$pd]['reseller']['properties'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5026" style="display:none;vertical-align:top"><td>reseller_remarks</td><td>'.$data[$pd]['reseller']['remarks'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5027" style="display:none;vertical-align:top"><td>reseller_links</td><td colspan="2">'.$data[$pd]['reseller']['links'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(60)">Registrar +/-</button></td><td></td><td id="registrar_role"></td></tr>';
 	$html_text .= '<tr id="601" style="display:none"><td>registrar_server_handle</td><td>'.$data[$pd]['registrar']['server_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="602" style="display:none"><td>registrar_client_handle</td><td>'.$data[$pd]['registrar']['client_handle'].'</td><td></td></tr>';
@@ -961,25 +972,25 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr><td>registrar_presented_name</td><td>'.$data[$pd]['registrar']['presented_name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="605" style="display:none"><td>registrar_kind</td><td>'.$data[$pd]['registrar']['kind'].'</td><td></td></tr>';
 	$html_text .= '<tr id="606" style="display:none"><td>registrar_name</td><td>'.$data[$pd]['registrar']['name'].'</td><td></td></tr>';
-	$html_text .= '<tr id="607" style="display:none"><td>registrar_email</td><td>'.$data[$pd]['registrar']['email'].'</td><td></td></tr>';
-	$html_text .= '<tr id="608" style="display:none"><td>registrar_contact_uri</td><td>'.$data[$pd]['registrar']['contact_uri'].'</td><td></td></tr>';
-	$html_text .= '<tr id="609" style="display:none"><td>registrar_phone</td><td>'.$data[$pd]['registrar']['phone'].'</td><td></td></tr>';
+	$html_text .= '<tr><td>registrar_email</td><td>'.$data[$pd]['registrar']['email'].'</td><td id="registrar_email"></td></tr>';
+	$html_text .= '<tr id="607" style="display:none"><td>registrar_contact_uri</td><td>'.$data[$pd]['registrar']['contact_uri'].'</td><td></td></tr>';
+	$html_text .= '<tr id="608" style="display:none"><td>registrar_phone</td><td>'.$data[$pd]['registrar']['phone'].'</td><td></td></tr>';
 	$html_text .= '<tr><td>registrar_country_code</td><td>'.$data[$pd]['registrar']['country_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6010" style="display:none"><td>registrar_street_address</td><td>'.$data[$pd]['registrar']['street_address'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6011" style="display:none"><td>registrar_city</td><td>'.$data[$pd]['registrar']['city'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6012" style="display:none"><td>registrar_state_or_province</td><td>'.$data[$pd]['registrar']['state_or_province'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6013" style="display:none"><td>registrar_postal_code</td><td>'.$data[$pd]['registrar']['postal_code'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6014" style="display:none"><td>registrar_country_name'.if_filled($data[$pd]['registrar']['country_name']).'</td><td>'.$data[$pd]['registrar']['country_name'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6015" style="display:none"><td>registrar_language_pref_1</td><td>'.$data[$pd]['registrar']['language_pref_1'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6016" style="display:none"><td>registrar_language_pref_2</td><td>'.$data[$pd]['registrar']['language_pref_2'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6017" style="display:none;vertical-align:top"><td>registrar_statuses</td><td>'.$data[$pd]['registrar']['statuses'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6018" style="display:none"><td>registrar_created_at</td><td>'.$data[$pd]['registrar']['created_at'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6019" style="display:none"><td>registrar_latest_update_at</td><td>'.$data[$pd]['registrar']['latest_update_at'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6020" style="display:none"><td>registrar_verification_received_at</td><td>'.$data[$pd]['registrar']['verification_received_at'].'</td><td id="registrar_verification_received_at"></td></tr>';
-	$html_text .= '<tr id="6021" style="display:none"><td>registrar_verification_set_at</td><td>'.$data[$pd]['registrar']['verification_set_at'].'</td><td id="registrar_verification_set_at"></td></tr>';
-	$html_text .= '<tr id="6022" style="display:none;vertical-align:top"><td>registrar_properties</td><td>'.$data[$pd]['registrar']['properties'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6023" style="display:none;vertical-align:top"><td>registrar_remarks</td><td>'.$data[$pd]['registrar']['remarks'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6024" style="display:none;vertical-align:top"><td>registrar_links</td><td colspan="2">'.$data[$pd]['registrar']['links'].'</td></tr>';
+	$html_text .= '<tr id="609" style="display:none"><td>registrar_street_address</td><td>'.$data[$pd]['registrar']['street_address'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6010" style="display:none"><td>registrar_city</td><td>'.$data[$pd]['registrar']['city'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6011" style="display:none"><td>registrar_state_or_province</td><td>'.$data[$pd]['registrar']['state_or_province'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6012" style="display:none"><td>registrar_postal_code</td><td>'.$data[$pd]['registrar']['postal_code'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6013" style="display:none"><td>registrar_country_name'.if_filled($data[$pd]['registrar']['country_name']).'</td><td>'.$data[$pd]['registrar']['country_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6014" style="display:none"><td>registrar_language_pref_1</td><td>'.$data[$pd]['registrar']['language_pref_1'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6015" style="display:none"><td>registrar_language_pref_2</td><td>'.$data[$pd]['registrar']['language_pref_2'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6016" style="display:none;vertical-align:top"><td>registrar_statuses</td><td>'.$data[$pd]['registrar']['statuses'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6017" style="display:none"><td>registrar_created_at</td><td>'.$data[$pd]['registrar']['created_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6018" style="display:none"><td>registrar_latest_update_at</td><td>'.$data[$pd]['registrar']['latest_update_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6019" style="display:none"><td>registrar_verification_received_at</td><td>'.$data[$pd]['registrar']['verification_received_at'].'</td><td id="registrar_verification_received_at"></td></tr>';
+	$html_text .= '<tr id="6020" style="display:none"><td>registrar_verification_set_at</td><td>'.$data[$pd]['registrar']['verification_set_at'].'</td><td id="registrar_verification_set_at"></td></tr>';
+	$html_text .= '<tr id="6021" style="display:none;vertical-align:top"><td>registrar_properties</td><td>'.$data[$pd]['registrar']['properties'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6022" style="display:none;vertical-align:top"><td>registrar_remarks</td><td>'.$data[$pd]['registrar']['remarks'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6023" style="display:none;vertical-align:top"><td>registrar_links</td><td colspan="2">'.$data[$pd]['registrar']['links'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Registrar Abuse Contact +/-</button></td><td></td><td id="registrar_abuse_role"></td></tr>';
 	$html_text .= '<tr id="611" style="display:none"><td>registrar_abuse_server_handle</td><td>'.$data[$pd]['registrar_abuse']['server_handle'].'</td><td></td></tr>';
 	$html_text .= '<tr id="612" style="display:none"><td>registrar_abuse_client_handle</td><td>'.$data[$pd]['registrar_abuse']['client_handle'].'</td><td></td></tr>';
