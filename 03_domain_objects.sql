@@ -16,7 +16,7 @@
      - domain_tlsa_records   : TLSA records tied to domain_secure_dns
 
    Functions & Triggers:
-     - update_*_latest_update_at() for several tables
+     - update_*_latest_change_at() for several tables
      - set_domain_zone() BEFORE INSERT/UPDATE → calls
        get_matching_zone_identifier() from 02_tld_objects.sql
 
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS domains (
     domain_statuses TEXT[],
     domain_created_at TIMESTAMPTZ,
     domain_latest_transfer_at TIMESTAMPTZ,
-    domain_latest_update_at TIMESTAMPTZ,
+    domain_latest_change_at TIMESTAMPTZ,
     domain_expiration_at TIMESTAMPTZ,
     domain_recoverable_until TIMESTAMPTZ,
     domain_deletion_at TIMESTAMPTZ,
@@ -58,20 +58,20 @@ CREATE TABLE IF NOT EXISTS domains (
     domain_remarks JSONB DEFAULT '[]'::jsonb
 );
 
--- Trigger Function: Update domain_latest_update_at on UPDATE
-CREATE OR REPLACE FUNCTION update_domains_latest_update_at()
+-- Trigger Function: Update domain_latest_change_at on UPDATE
+CREATE OR REPLACE FUNCTION update_domains_latest_change_at()
 RETURNS TRIGGER AS $$
 BEGIN
-  NEW.domain_latest_update_at = CURRENT_TIMESTAMP;
+  NEW.domain_latest_change_at = CURRENT_TIMESTAMP;
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS trg_update_domains_latest_update_at ON domains;
-CREATE TRIGGER trg_update_domains_latest_update_at
+DROP TRIGGER IF EXISTS trg_update_domains_latest_change_at ON domains;
+CREATE TRIGGER trg_update_domains_latest_change_at
 BEFORE UPDATE ON domains
 FOR EACH ROW
-EXECUTE FUNCTION update_domains_latest_update_at();
+EXECUTE FUNCTION update_domains_latest_change_at();
 
 -- Trigger Function: Set domain_zone using get_matching_zone_identifier (from 01)
 CREATE OR REPLACE FUNCTION set_domain_zone()
@@ -114,7 +114,7 @@ CREATE TABLE IF NOT EXISTS entities (
     entity_language_pref2 VARCHAR(5),
     entity_statuses TEXT[],
     entity_created_at TIMESTAMPTZ,
-    entity_latest_update_at TIMESTAMPTZ,
+    entity_latest_change_at TIMESTAMPTZ,
     entity_verification_received_at TIMESTAMPTZ,
     entity_verification_set_at TIMESTAMPTZ,
     entity_properties JSONB DEFAULT '[]'::jsonb,
@@ -128,20 +128,20 @@ CREATE INDEX IF NOT EXISTS idx_entity_postal_code ON entities(entity_postal_code
 CREATE INDEX IF NOT EXISTS idx_entity_email ON entities(entity_email);
 CREATE INDEX IF NOT EXISTS idx_entity_country_code ON entities(entity_country_code);
 
--- Trigger Function: Update entity_latest_update_at on UPDATE
-CREATE OR REPLACE FUNCTION update_entities_latest_update_at()
+-- Trigger Function: Update entity_latest_change_at on UPDATE
+CREATE OR REPLACE FUNCTION update_entities_latest_change_at()
 RETURNS TRIGGER AS $$
 BEGIN
-  NEW.entity_latest_update_at = CURRENT_TIMESTAMP;
+  NEW.entity_latest_change_at = CURRENT_TIMESTAMP;
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS trg_update_entities_latest_update_at ON entities;
-CREATE TRIGGER trg_update_entities_latest_update_at
+DROP TRIGGER IF EXISTS trg_update_entities_latest_change_at ON entities;
+CREATE TRIGGER trg_update_entities_latest_change_at
 BEFORE UPDATE ON entities
 FOR EACH ROW
-EXECUTE FUNCTION update_entities_latest_update_at();
+EXECUTE FUNCTION update_entities_latest_change_at();
 
 -- ========================================
 -- Table: nameservers
@@ -157,25 +157,25 @@ CREATE TABLE IF NOT EXISTS nameservers (
     nameserver_statuses TEXT[],
     nameserver_delegation_check TIMESTAMPTZ,
     nameserver_latest_correct_delegation_check TIMESTAMPTZ,
-    nameserver_latest_update_at TIMESTAMPTZ
+    nameserver_latest_change_at TIMESTAMPTZ
 );
 
 CREATE INDEX IF NOT EXISTS idx_nameserver_ascii_name ON nameservers(nameserver_ascii_name);
 
--- Trigger Function: Update nameserver_latest_update_at on UPDATE
-CREATE OR REPLACE FUNCTION update_nameservers_latest_update_at()
+-- Trigger Function: Update nameserver_latest_change_at on UPDATE
+CREATE OR REPLACE FUNCTION update_nameservers_latest_change_at()
 RETURNS TRIGGER AS $$
 BEGIN
-  NEW.nameserver_latest_update_at = CURRENT_TIMESTAMP;
+  NEW.nameserver_latest_change_at = CURRENT_TIMESTAMP;
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS trg_update_nameservers_latest_update_at ON nameservers;
-CREATE TRIGGER trg_update_nameservers_latest_update_at
+DROP TRIGGER IF EXISTS trg_update_nameservers_latest_change_at ON nameservers;
+CREATE TRIGGER trg_update_nameservers_latest_change_at
 BEFORE UPDATE ON nameservers
 FOR EACH ROW
-EXECUTE FUNCTION update_nameservers_latest_update_at();
+EXECUTE FUNCTION update_nameservers_latest_change_at();
 
 -- ========================================
 -- Table: ip_network_versions
@@ -199,23 +199,23 @@ CREATE TABLE IF NOT EXISTS ip_networks (
     ip_network_type VARCHAR(100),
     ip_network_country_code CHAR(2),
     ip_network_statuses TEXT[],
-    ip_network_latest_update_at TIMESTAMPTZ
+    ip_network_latest_change_at TIMESTAMPTZ
 );
 
--- Trigger Function: Update ip_network_latest_update_at on UPDATE
-CREATE OR REPLACE FUNCTION update_ip_networks_latest_update_at()
+-- Trigger Function: Update ip_network_latest_change_at on UPDATE
+CREATE OR REPLACE FUNCTION update_ip_networks_latest_change_at()
 RETURNS TRIGGER AS $$
 BEGIN
-  NEW.ip_network_latest_update_at = CURRENT_TIMESTAMP;
+  NEW.ip_network_latest_change_at = CURRENT_TIMESTAMP;
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS trg_update_ip_networks_latest_update_at ON ip_networks;
-CREATE TRIGGER trg_update_ip_networks_latest_update_at
+DROP TRIGGER IF EXISTS trg_update_ip_networks_latest_change_at ON ip_networks;
+CREATE TRIGGER trg_update_ip_networks_latest_change_at
 BEFORE UPDATE ON ip_networks
 FOR EACH ROW
-EXECUTE FUNCTION update_ip_networks_latest_update_at();
+EXECUTE FUNCTION update_ip_networks_latest_change_at();
 
 -- ========================================
 -- Table: autnums
@@ -231,23 +231,23 @@ CREATE TABLE IF NOT EXISTS autnums (
     autnum_country_code CHAR(2),
     autnum_status TEXT[],
     autnum_created_at TIMESTAMPTZ,
-    autnum_latest_update_at TIMESTAMPTZ
+    autnum_latest_change_at TIMESTAMPTZ
 );
 
--- Trigger Function: Update autnum_latest_update_at on UPDATE
-CREATE OR REPLACE FUNCTION update_autnums_latest_update_at()
+-- Trigger Function: Update autnum_latest_change_at on UPDATE
+CREATE OR REPLACE FUNCTION update_autnums_latest_change_at()
 RETURNS TRIGGER AS $$
 BEGIN
-  NEW.autnum_latest_update_at = CURRENT_TIMESTAMP;
+  NEW.autnum_latest_change_at = CURRENT_TIMESTAMP;
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS trg_update_autnums_latest_update_at ON autnums;
-CREATE TRIGGER trg_update_autnums_latest_update_at
+DROP TRIGGER IF EXISTS trg_update_autnums_latest_change_at ON autnums;
+CREATE TRIGGER trg_update_autnums_latest_change_at
 BEFORE UPDATE ON autnums
 FOR EACH ROW
-EXECUTE FUNCTION update_autnums_latest_update_at();
+EXECUTE FUNCTION update_autnums_latest_change_at();
 
 -- ========================================
 -- Table: domain_entities (link domains<->entities with role)
@@ -281,27 +281,27 @@ CREATE TABLE IF NOT EXISTS domain_nameservers (
     dn_id BIGSERIAL PRIMARY KEY,
     dn_domain BIGINT NOT NULL REFERENCES domains(domain_id) ON DELETE CASCADE,
     dn_nameserver BIGINT NOT NULL REFERENCES nameservers(nameserver_id) ON DELETE CASCADE,
-    dn_latest_update_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+    dn_latest_change_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
     UNIQUE (dn_domain, dn_nameserver)
 );
 
 CREATE INDEX IF NOT EXISTS idx_dn_domain ON domain_nameservers(dn_domain);
 CREATE INDEX IF NOT EXISTS idx_dn_nameserver ON domain_nameservers(dn_nameserver);
 
--- Trigger Function: Update dn_latest_update_at on UPDATE
-CREATE OR REPLACE FUNCTION update_domain_nameservers_latest_update_at()
+-- Trigger Function: Update dn_latest_change_at on UPDATE
+CREATE OR REPLACE FUNCTION update_domain_nameservers_latest_change_at()
 RETURNS TRIGGER AS $$
 BEGIN
-  NEW.dn_latest_update_at = CURRENT_TIMESTAMP;
+  NEW.dn_latest_change_at = CURRENT_TIMESTAMP;
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS trg_update_domain_nameservers_latest_update_at ON domain_nameservers;
-CREATE TRIGGER trg_update_domain_nameservers_latest_update_at
+DROP TRIGGER IF EXISTS trg_update_domain_nameservers_latest_change_at ON domain_nameservers;
+CREATE TRIGGER trg_update_domain_nameservers_latest_change_at
 BEFORE UPDATE ON domain_nameservers
 FOR EACH ROW
-EXECUTE FUNCTION update_domain_nameservers_latest_update_at();
+EXECUTE FUNCTION update_domain_nameservers_latest_change_at();
 
 -- ========================================
 -- Table: entity_entities (entity relationships)
@@ -338,25 +338,25 @@ CREATE TABLE IF NOT EXISTS domain_secure_dns (
     ds_dnssec_enabled BOOLEAN,
     ds_dns_provider VARCHAR(100),
     ds_created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
-    ds_latest_update_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+    ds_latest_change_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE INDEX IF NOT EXISTS idx_ds_domain ON domain_secure_dns(ds_domain);
 
--- Trigger Function: Update ds_latest_update_at on UPDATE
-CREATE OR REPLACE FUNCTION update_domain_secure_dns_latest_update_at()
+-- Trigger Function: Update ds_latest_change_at on UPDATE
+CREATE OR REPLACE FUNCTION update_domain_secure_dns_latest_change_at()
 RETURNS TRIGGER AS $$
 BEGIN
-  NEW.ds_latest_update_at = CURRENT_TIMESTAMP;
+  NEW.ds_latest_change_at = CURRENT_TIMESTAMP;
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS trg_update_domain_secure_dns_latest_update_at ON domain_secure_dns;
-CREATE TRIGGER trg_update_domain_secure_dns_latest_update_at
+DROP TRIGGER IF EXISTS trg_update_domain_secure_dns_latest_change_at ON domain_secure_dns;
+CREATE TRIGGER trg_update_domain_secure_dns_latest_change_at
 BEFORE UPDATE ON domain_secure_dns
 FOR EACH ROW
-EXECUTE FUNCTION update_domain_secure_dns_latest_update_at();
+EXECUTE FUNCTION update_domain_secure_dns_latest_change_at();
 
 -- ========================================
 -- Table: domain_tlsa_records (DANE/TLSA)
@@ -368,22 +368,22 @@ CREATE TABLE IF NOT EXISTS domain_tlsa_records (
     dt_selector SMALLINT CHECK (dt_selector BETWEEN 0 AND 1),
     dt_matching_type SMALLINT CHECK (dt_matching_type BETWEEN 0 AND 2),
     dt_certificate_association_data TEXT NOT NULL,
-    dt_latest_update_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+    dt_latest_change_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE INDEX IF NOT EXISTS idx_dt_secure_dns ON domain_tlsa_records(dt_secure_dns);
 
--- Trigger: Update dt_latest_update_at
-CREATE OR REPLACE FUNCTION update_domain_tlsa_latest_update_at()
+-- Trigger: Update dt_latest_change_at
+CREATE OR REPLACE FUNCTION update_domain_tlsa_latest_change_at()
 RETURNS TRIGGER AS $$
 BEGIN
-  NEW.dt_latest_update_at = CURRENT_TIMESTAMP;
+  NEW.dt_latest_change_at = CURRENT_TIMESTAMP;
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS trg_update_domain_tlsa_latest_update_at ON domain_tlsa_records;
-CREATE TRIGGER trg_update_domain_tlsa_latest_update_at
+DROP TRIGGER IF EXISTS trg_update_domain_tlsa_latest_change_at ON domain_tlsa_records;
+CREATE TRIGGER trg_update_domain_tlsa_latest_change_at
 BEFORE UPDATE ON domain_tlsa_records
 FOR EACH ROW
-EXECUTE FUNCTION update_domain_tlsa_latest_update_at();
+EXECUTE FUNCTION update_domain_tlsa_latest_change_at();
