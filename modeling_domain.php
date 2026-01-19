@@ -686,17 +686,17 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 		//}
 	}
 	$html_text .= '</td></tr>';		
-	$html_text .= '<tr><td>properties_latest_update_at</td><td>'.$data[$pd]['properties']['latest_update_at'].'</td><td>';	
-	if (!is_null($data[$pd]['registrar_rdap_update_time']))	{
-		if (substr($data[$pd]['registrar_rdap_update_time'], 0, 10) != substr($data[$pd]['properties']['latest_update_at'], 0, 10))	{
-			$html_text .= '(Update time with Registrar RDAP: <b>'.$data[$pd]['registrar_rdap_update_time'].'</b>)';	
+	$html_text .= '<tr><td>properties_latest_change_at</td><td>'.$data[$pd]['properties']['latest_change_at'].'</td><td>';	
+	if (!is_null($data[$pd]['registrar_rdap_change_time']))	{
+		if (substr($data[$pd]['registrar_rdap_change_time'], 0, 10) > substr($data[$pd]['properties']['latest_change_at'], 0, 10))	{
+			$html_text .= '(Mutation time with Registrar RDAP: <b>'.$data[$pd]['registrar_rdap_change_time'].'</b>)';	
 		}
 		else	{
-			$html_text .= '(Update time with Registrar RDAP: '.$data[$pd]['registrar_rdap_update_time'].')';	
+			$html_text .= '(Mutation time with Registrar RDAP: '.$data[$pd]['registrar_rdap_change_time'].')';	
 		}				
 	}
 	elseif (!is_null($data[$pd]['registrar_rdap_registration_time']))	{
-		$html_text .= '(No Registrar RDAP update time)';	
+		$html_text .= '(No Registrar RDAP mutation time)';	
 	}	
 	$html_text .= '</td></tr>';		
 	$html_text .= '<tr><td>properties_expiration_at</td><td>'.$data[$pd]['properties']['expiration_at'].'</td><td id="properties_expiration_at"></td></tr>';
@@ -771,7 +771,7 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="3918" style="display:none"><td>sponsor_language_pref_2</td><td>'.$data[$pd]['sponsor']['language_pref_2'].'</td><td></td></tr>';
 	$html_text .= '<tr id="3919" style="display:none;vertical-align:top"><td>sponsor_statuses</td><td>'.$data[$pd]['sponsor']['statuses'].'</td><td></td></tr>';
 	$html_text .= '<tr id="3920" style="display:none"><td>sponsor_created_at</td><td>'.$data[$pd]['sponsor']['created_at'].'</td><td></td></tr>';
-	$html_text .= '<tr id="3921" style="display:none"><td>sponsor_latest_update_at</td><td>'.$data[$pd]['sponsor']['latest_update_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="3921" style="display:none"><td>sponsor_latest_change_at</td><td>'.$data[$pd]['sponsor']['latest_change_at'].'</td><td></td></tr>';
 	$html_text .= '<tr id="3922" style="display:none"><td>sponsor_verification_received_at</td><td>'.$data[$pd]['sponsor']['verification_received_at'].'</td><td id="sponsor_verification_received_at"></td></tr>';
 	$html_text .= '<tr id="3923" style="display:none"><td>sponsor_verification_set_at</td><td>'.$data[$pd]['sponsor']['verification_set_at'].'</td><td id="sponsor_verification_set_at"></td></tr>';
 	$html_text .= '<tr id="3924" style="display:none;vertical-align:top"><td>sponsor_properties</td><td>'.$data[$pd]['sponsor']['properties'].'</td><td></td></tr>';
@@ -820,7 +820,7 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="4014" style="display:none"><td>registrant_language_pref_2</td><td>'.$data[$pd]['registrant']['language_pref_2'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4015" style="display:none;vertical-align:top"><td>registrant_statuses</td><td>'.$data[$pd]['registrant']['statuses'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4016" style="display:none"><td>registrant_created_at</td><td>'.$data[$pd]['registrant']['created_at'].'</td><td></td></tr>';
-	$html_text .= '<tr id="4017" style="display:none"><td>registrant_latest_update_at</td><td>'.$data[$pd]['registrant']['latest_update_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="4017" style="display:none"><td>registrant_latest_change_at</td><td>'.$data[$pd]['registrant']['latest_change_at'].'</td><td></td></tr>';
 	$html_text .= '<tr id="4018" style="display:none"><td>registrant_verification_received_at</td><td>'.$data[$pd]['registrant']['verification_received_at'].'</td><td id="registrant_verification_received_at"></td></tr>';
 	$html_text .= '<tr id="4019" style="display:none"><td>registrant_verification_set_at</td><td>'.$data[$pd]['registrant']['verification_set_at'].'</td><td id="registrant_verification_set_at"></td></tr>';
 	$html_text .= '<tr id="4020" style="display:none;vertical-align:top"><td>registrant_properties</td><td>'.$data[$pd]['registrant']['properties'].'</td><td></td></tr>';
@@ -957,7 +957,7 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="5019" style="display:none"><td>reseller_language_pref_2</td><td>'.$data[$pd]['reseller']['language_pref_2'].'</td><td></td></tr>';
 	$html_text .= '<tr id="5020" style="display:none;vertical-align:top"><td>reseller_statuses</td><td>'.$data[$pd]['reseller']['statuses'].'</td><td></td></tr>';
 	$html_text .= '<tr id="5021" style="display:none"><td>reseller_created_at</td><td>'.$data[$pd]['reseller']['created_at'].'</td><td></td></tr>';
-	$html_text .= '<tr id="5022" style="display:none"><td>reseller_latest_update_at</td><td>'.$data[$pd]['reseller']['latest_update_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="5022" style="display:none"><td>reseller_latest_change_at</td><td>'.$data[$pd]['reseller']['latest_change_at'].'</td><td></td></tr>';
 	$html_text .= '<tr id="5023" style="display:none"><td>reseller_verification_received_at</td><td>'.$data[$pd]['reseller']['verification_received_at'].'</td><td id="reseller_verification_received_at"></td></tr>';
 	$html_text .= '<tr id="5024" style="display:none"><td>reseller_verification_set_at</td><td>'.$data[$pd]['reseller']['verification_set_at'].'</td><td id="reseller_verification_set_at"></td></tr>';
 	$html_text .= '<tr id="5025" style="display:none;vertical-align:top"><td>reseller_properties</td><td>'.$data[$pd]['reseller']['properties'].'</td><td></td></tr>';
@@ -985,7 +985,7 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="6015" style="display:none"><td>registrar_language_pref_2</td><td>'.$data[$pd]['registrar']['language_pref_2'].'</td><td></td></tr>';
 	$html_text .= '<tr id="6016" style="display:none;vertical-align:top"><td>registrar_statuses</td><td>'.$data[$pd]['registrar']['statuses'].'</td><td></td></tr>';
 	$html_text .= '<tr id="6017" style="display:none"><td>registrar_created_at</td><td>'.$data[$pd]['registrar']['created_at'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6018" style="display:none"><td>registrar_latest_update_at</td><td>'.$data[$pd]['registrar']['latest_update_at'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6018" style="display:none"><td>registrar_latest_change_at</td><td>'.$data[$pd]['registrar']['latest_change_at'].'</td><td></td></tr>';
 	$html_text .= '<tr id="6019" style="display:none"><td>registrar_verification_received_at</td><td>'.$data[$pd]['registrar']['verification_received_at'].'</td><td id="registrar_verification_received_at"></td></tr>';
 	$html_text .= '<tr id="6020" style="display:none"><td>registrar_verification_set_at</td><td>'.$data[$pd]['registrar']['verification_set_at'].'</td><td id="registrar_verification_set_at"></td></tr>';
 	$html_text .= '<tr id="6021" style="display:none;vertical-align:top"><td>registrar_properties</td><td>'.$data[$pd]['registrar']['properties'].'</td><td></td></tr>';
