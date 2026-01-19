@@ -46,13 +46,13 @@ CREATE TABLE IF NOT EXISTS domains (
     domain_expiration_at TIMESTAMPTZ,
     domain_recoverable_until TIMESTAMPTZ,
     domain_deletion_at TIMESTAMPTZ,
-    domain_global_json_response_url VARCHAR(511),
-    domain_registry_json_response_url VARCHAR(511),
+    domain_global_json_response_uri VARCHAR(511),
+    domain_registry_json_response_uri VARCHAR(511),
     domain_registry_language_codes TEXT,
     domain_registrar_accreditation_id JSONB DEFAULT '[]'::jsonb,
-    domain_registrar_json_response_url VARCHAR(511),
-    domain_registrar_complaint_url TEXT,
-    domain_status_explanation_url TEXT,
+    domain_registrar_json_response_uri VARCHAR(511),
+    domain_registrar_complaint_uri TEXT,
+    domain_status_explanation_uri TEXT,
     domain_geo_location JSONB::jsonb,
     domain_extensions JSONB DEFAULT '[]'::jsonb,
     domain_remarks JSONB DEFAULT '[]'::jsonb
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS entities (
     entity_remarks JSONB DEFAULT '[]'::jsonb,
     entity_accreditation JSONB DEFAULT '[]'::jsonb,
     entity_links JSONB DEFAULT '[]'::jsonb,
-    entity_json_response_url TEXT
+    entity_json_response_uri TEXT
 );
 
 CREATE INDEX IF NOT EXISTS idx_entity_postal_code ON entities(entity_postal_code);

@@ -12,6 +12,7 @@
 //$_GET['domain'] = 'prezero.nl';
 //$_GET['domain'] = 'prezerotest.nl';
 //$_GET['domain'] = 'openprovider.com';
+//$_GET['domain'] = 'icann.org';
 
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
@@ -184,9 +185,9 @@ switch ($zone_identifier) {
 	default:
    		//die("No match with a top level domain.");
 }
-$lookup_endpoints_url = 'https://data.iana.org/rdap/dns.json';	
+$lookup_endpoints_uri = 'https://data.iana.org/rdap/dns.json';
 if (!strlen($url))	{
-	$rdap = json_decode(file_get_contents($lookup_endpoints_url), true);
+	$rdap = json_decode(file_get_contents($lookup_endpoints_uri), true);
 	$temp_key = -1;
 	foreach($rdap as $key1 => $value1) {
     	foreach($value1 as $key2 => $value2) {
@@ -279,9 +280,9 @@ if (!strlen($language_codes))	{
 	$language_codes = '(not provided)';	
 }	
 $registrar_accreditation = '';
-$registrar_json_response_url = '';	
-$registrar_complaint_url = '';	
-$status_explanation_url = '';
+$registrar_json_response_uri = '';	
+$registrar_complaint_uri = '';	
+$status_explanation_uri = '';
 $registrant_web_id = '';
 if ($zone_identifier == 'nl' or $zone_identifier == 'frl')	{		
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';	
@@ -630,7 +631,7 @@ foreach($obj as $key1 => $value1) {
 			if ($key1 == 'links')	{
 				$links .= $key2.': '.$key3.': '.$value3."<br />";
 				if ($key3 == 'rel' and $value3 == 'related') {
-					$registrar_json_response_url = $value2['href'];
+					$registrar_json_response_uri = $value2['href'];
 				}							
 			}	
 			if ($key1 == 'remarks')	{
@@ -761,8 +762,8 @@ foreach($obj as $key1 => $value1) {
 							$notices .= $key2.': '.$key3.': '.$key4.': '.$key5.': '.$value5."<br />";
 						}	
 						if ($key3 == 'links')	{
-							if ($key5 == 'href' and str_contains($value5, 'icann.org/wicf')) $registrar_complaint_url = $value5; 
-							if ($key5 == 'href' and str_contains($value5, 'icann.org/epp')) $status_explanation_url = $value5;
+							if ($key5 == 'href' and str_contains($value5, 'icann.org/wicf')) $registrar_complaint_uri = $value5; 
+							if ($key5 == 'href' and str_contains($value5, 'icann.org/epp')) $status_explanation_uri = $value5;
 						}
 					}
 					if ($key1 == 'entities')	{
@@ -964,7 +965,7 @@ foreach($obj as $key1 => $value1) {
 								$registrar_email .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
 							}
 						}
-						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'contact-uri' and $value6 == 'contact-uri')	{
+						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'contact-uri' and $value6 == 'uri')	{
 							if ($key2 == $entity_sponsor)	{
 								$sponsor_contact_uri .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
 							}
@@ -1270,7 +1271,7 @@ foreach($obj as $key1 => $value1) {
 									elseif ($value7[0] == 'email' and $value8 == 'email')	{
 										$registrar_abuse_email = $value7[3];
 									}
-									elseif ($value7[0] == 'contact-uri' and $value8 == 'contact-uri')	{
+									elseif ($value7[0] == 'contact-uri' and $value8 == 'uri')	{
 										$registrar_abuse_contact_uri = $value7[3];
 									}
 									elseif ($value7[0] == 'tel' and $value8 == 'tel')	{
@@ -1354,10 +1355,10 @@ else	{
 	$registrar_rdap_transfer_time = null;
 	$registrar_rdap_change_time = null;
 	$registrar_rdap_registrant_email = '';
-	$registrar_rdap_registrant_email_url = '';
+	$registrar_rdap_registrant_email_uri = '';
 	$registrar_rdap_registrant_contact_uri = '';
 	$entity_registrant_key = null;
-	if (strlen($registrar_json_response_url))	{
+	if (strlen($registrar_json_response_uri))	{
 		$options = [
   			"http" => [
     		"method" => "GET",
@@ -1367,8 +1368,8 @@ else	{
   			]
 		];
 		$context = stream_context_create($options);
-		$fp2 = @fopen($registrar_json_response_url, 'r', false, $context);
-		//$fp2 = fopen($registrar_json_response_url, 'r', false, $context);
+		$fp2 = @fopen($registrar_json_response_uri, 'r', false, $context);
+		//$fp2 = fopen($registrar_json_response_uri, 'r', false, $context);
 		if ($fp2) {
 			$registrar_response = stream_get_contents($fp2);
 			fclose($fp2);
@@ -1419,7 +1420,7 @@ else	{
             						continue;
         						}
         						if (preg_match('~^https?://~i', $candidate)) {
-            						$registrar_rdap_registrant_email_url = $candidate;
+            						$registrar_rdap_registrant_email_uri = $candidate;
         						}
 							}
 						}	
@@ -1434,7 +1435,7 @@ else	{
         						$registrar_rdap_registrant_contact_uri .= ($registrar_rdap_registrant_contact_uri ? ",<br />" : "") . $candidate;
 								continue;
 							}
-						}	
+						}
     				}
 				}
     		}
@@ -1448,20 +1449,20 @@ $arr[$inputdomain]['registrar_rdap_registration_time'] = $registrar_rdap_registr
 $arr[$inputdomain]['registrar_rdap_transfer_time'] = $registrar_rdap_transfer_time;
 $arr[$inputdomain]['registrar_rdap_change_time'] = $registrar_rdap_change_time;
 $arr[$inputdomain]['registrar_rdap_registrant_email'] = $registrar_rdap_registrant_email;
-$arr[$inputdomain]['registrar_rdap_registrant_email_url'] = $registrar_rdap_registrant_email_url;
+$arr[$inputdomain]['registrar_rdap_registrant_email_uri'] = $registrar_rdap_registrant_email_uri;
 $arr[$inputdomain]['registrar_rdap_registrant_contact_uri'] = $registrar_rdap_registrant_contact_uri;
 
 $arr[$inputdomain]['metadata']['zone_identifier'] = $zone_identifier;	
 $arr[$inputdomain]['metadata']['object_type'] = $object_type;
 $arr[$inputdomain]['metadata']['rdap_version'] = $rdap_version;
 $arr[$inputdomain]['metadata']['rdap_conformance'] = $rdap_conformance;
-$arr[$inputdomain]['metadata']['tld_information_url'] = $tld_information_url;
-$arr[$inputdomain]['metadata']['registry_json_response_url'] = $url;
+$arr[$inputdomain]['metadata']['tld_information_uri'] = $tld_information_uri;
+$arr[$inputdomain]['metadata']['registry_json_response_uri'] = $url;
 $arr[$inputdomain]['metadata']['registry_language_codes'] = $language_codes;	
 $arr[$inputdomain]['metadata']['registrar_accreditation'] = $registrar_accreditation;		
-$arr[$inputdomain]['metadata']['registrar_json_response_url'] = $registrar_json_response_url;
-$arr[$inputdomain]['metadata']['registrar_complaint_url'] = $registrar_complaint_url;
-$arr[$inputdomain]['metadata']['status_explanation_url'] = $status_explanation_url;
+$arr[$inputdomain]['metadata']['registrar_json_response_uri'] = $registrar_json_response_uri;
+$arr[$inputdomain]['metadata']['registrar_complaint_uri'] = $registrar_complaint_uri;
+$arr[$inputdomain]['metadata']['status_explanation_uri'] = $status_explanation_uri;
 $arr[$inputdomain]['metadata']['geo_location'] = '';
 $arr[$inputdomain]['metadata']['resource_upload_at'] = $resource_upload_at;		
 	

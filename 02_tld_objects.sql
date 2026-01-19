@@ -44,9 +44,9 @@ CREATE TABLE IF NOT EXISTS tld_types (
 -- ========================================
 CREATE TABLE IF NOT EXISTS common (
     common_id SERIAL PRIMARY KEY,
-    common_root_services_url TEXT,
-    common_root_zones_url TEXT,
-    common_accredited_registrars_url TEXT,
+    common_root_services_uri TEXT,
+    common_root_zones_uri TEXT,
+    common_accredited_registrars_uri TEXT,
     common_tld_roles JSONB DEFAULT 
         '[
             {"tld_role_sequence": 10,"tld_role_identifier": "contracting_authority","tld_role_shielding": ["name","tel"]},
@@ -154,11 +154,11 @@ CREATE TABLE IF NOT EXISTS zones (
     zone_tld_category VARCHAR(20) NOT NULL,
     zone_tld_type VARCHAR(20) NOT NULL,
     zone_tld_statuses TEXT[],
-    zone_tld_delegation_url TEXT,
-    zone_tld_json_response_url TEXT,
-    zone_tld_terms_of_service_url TEXT,
-    zone_tld_privacy_policy_url TEXT,
-    zone_tld_menu_url TEXT,
+    zone_tld_delegation_uri TEXT,
+    zone_tld_json_response_uri TEXT,
+    zone_tld_terms_of_service_uri TEXT,
+    zone_tld_privacy_policy_uri TEXT,
+    zone_tld_menu_uri TEXT,
     zone_tld_search_engine_deletion_phase_ready BOOLEAN NOT NULL DEFAULT FALSE,
     zone_zone_accepted_workload JSONB DEFAULT 
         '[
