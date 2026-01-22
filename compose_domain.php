@@ -1354,6 +1354,8 @@ else	{
 	$registrar_rdap_registration_time = null;
 	$registrar_rdap_transfer_time = null;
 	$registrar_rdap_change_time = null;
+	$registrar_rdap_registrant_organization_name = '';
+	$registrar_rdap_registrant_presented_name = '';
 	$registrar_rdap_registrant_email = '';
 	$registrar_rdap_registrant_email_uri = '';
 	$registrar_rdap_registrant_contact_uri = '';
@@ -1406,7 +1408,31 @@ else	{
 			if ($entity_registrant_key !== null) {
 				$entity = $obj2['entities'][$entity_registrant_key];
         		if (!empty($entity['vcardArray']) && is_array($entity['vcardArray']) && isset($entity['vcardArray'][1]) && is_array($entity['vcardArray'][1])) {
-            		foreach ($entity['vcardArray'][1] as $prop) {				
+            		foreach ($entity['vcardArray'][1] as $prop) {
+						if (is_array($prop) && ($prop[0] ?? null) === 'org') {
+    						$raw = $prop[3] ?? '';
+    						$candidates = is_array($raw) ? $raw : [$raw];
+    						foreach ($candidates as $candidate) {
+        						$candidate = trim((string)$candidate);
+        						if ($candidate === '') {
+            						continue;
+        						}
+        						$registrar_rdap_registrant_organization_name .= ($registrar_rdap_registrant_organization_name ? ",<br />" : "") . $candidate;
+								continue;
+							}
+						}
+						if (is_array($prop) && ($prop[0] ?? null) === 'fn') {
+    						$raw = $prop[3] ?? '';
+    						$candidates = is_array($raw) ? $raw : [$raw];
+    						foreach ($candidates as $candidate) {
+        						$candidate = trim((string)$candidate);
+        						if ($candidate === '') {
+            						continue;
+        						}
+        						$registrar_rdap_registrant_presented_name .= ($registrar_rdap_registrant_presented_name ? ",<br />" : "") . $candidate;
+								continue;
+							}
+						}						
 						if (is_array($prop) && ($prop[0] ?? null) === 'email') {
     						$raw = $prop[3] ?? '';
     						$candidates = is_array($raw) ? $raw : [$raw];
@@ -1445,9 +1471,12 @@ else	{
 $arr[$inputdomain]['notices'] = $notices;
 $arr[$inputdomain]['links'] = $links;
 $arr[$inputdomain]['redacted'] = $redacted;
+	
 $arr[$inputdomain]['registrar_rdap_registration_time'] = $registrar_rdap_registration_time;	
 $arr[$inputdomain]['registrar_rdap_transfer_time'] = $registrar_rdap_transfer_time;
 $arr[$inputdomain]['registrar_rdap_change_time'] = $registrar_rdap_change_time;
+$arr[$inputdomain]['registrar_rdap_registrant_organization_name'] = $registrar_rdap_registrant_organization_name;
+$arr[$inputdomain]['registrar_rdap_registrant_presented_name'] = $registrar_rdap_registrant_presented_name;
 $arr[$inputdomain]['registrar_rdap_registrant_email'] = $registrar_rdap_registrant_email;
 $arr[$inputdomain]['registrar_rdap_registrant_email_uri'] = $registrar_rdap_registrant_email_uri;
 $arr[$inputdomain]['registrar_rdap_registrant_contact_uri'] = $registrar_rdap_registrant_contact_uri;

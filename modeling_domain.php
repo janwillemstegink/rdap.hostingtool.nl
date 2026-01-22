@@ -782,8 +782,14 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 	$html_text .= '<tr id="402" style="display:none"><td>registrant_client_handle</td><td>'.$data[$pd]['registrant']['client_handle'].'</td><td id="registrant_client_handle"></td></tr>';
 	$html_text .= '<tr id="403" style="display:none"><td>registrant_web_id</td><td>'.$data[$pd]['registrant']['web_id'].'</td><td id="registrant_web_id"></td></tr>';
 	$html_text .= '<tr id="404" style="display:none"><td>registrant_organization_type</td><td>'.$data[$pd]['registrant']['organization_type'].'</td><td id="registrant_organization_type"></td></tr>';
-	$html_text .= '<tr><td>registrant_organization_name</td><td>'.$data[$pd]['registrant']['organization_name'].'</td><td id="registrant_organization_name"></td></tr>';
-	$html_text .= '<tr><td>registrant_presented_name (RDAP: "fn"/full name)</td><td>'.$data[$pd]['registrant']['presented_name'].'</td><td id="registrant_presented_name"></td></tr>';
+	$html_text .= '<tr style="vertical-align:top"><td>registrant_organization_name</td><td>'.$data[$pd]['registrant']['organization_name'].$org.'</td><td id="registrant_organization_name"></td></tr>';
+	if (strlen($data[$pd]['registrar_rdap_registrant_organization_name']) and empty($data[$pd]['registrant']['organization_name']))	{
+		$html_text .= '<tr style="vertical-align:top"><td></td><td>'.$data[$pd]['registrar_rdap_registrant_organization_name'].'</td><td>(Only from Registrar RDAP)</td></tr>';
+	}
+	$html_text .= '<tr style="vertical-align:top"><td>registrant_presented_name (RDAP: "fn"/full name)</td><td>'.$data[$pd]['registrant']['presented_name'].$fn.'</td><td id="registrant_presented_name"></td></tr>';
+	if (strlen($data[$pd]['registrar_rdap_registrant_presented_name']) and empty($data[$pd]['registrant']['presented_name']))	{
+		$html_text .= '<tr style="vertical-align:top"><td></td><td>'.$data[$pd]['registrar_rdap_registrant_presented_name'].'</td><td>(Only from Registrar RDAP)</td></tr>';
+	}
 	$html_text .= '<tr id="405" style="display:none"><td>registrant_kind</td><td>'.$data[$pd]['registrant']['kind'].'</td><td id="registrant_kind"></td></tr>';
 	$html_text .= '<tr id="406" style="display:none"><td>registrant_name</td><td>'.$data[$pd]['registrant']['name'].'</td><td id="registrant_name"></td></tr>';
 	$html_text .= '<tr><td>registrant_email</td><td>'.$data[$pd]['registrant']['email'].'</td>';
@@ -791,7 +797,7 @@ if (true or $pd == mb_strtolower($data[$pd]['properties']['ascii_name']) or empt
 		$html_text .= '<td>(Email from Registrar RDAP: '.$data[$pd]['registrar_rdap_registrant_email'].')</td></tr>';
 	}
 	elseif (strlen($data[$pd]['registrar_rdap_registrant_email_uri']))	{
-		$html_text .= '<td>(This URI is normalizable in Registrar RDAP: '.$data[$pd]['registrar_rdap_registrant_email_uri'].')</td></tr>';
+		$html_text .= '<td>(Normalizable URI from Registrar RDAP: '.$data[$pd]['registrar_rdap_registrant_email_uri'].')</td></tr>';
 	}
 	elseif (!is_null($data[$pd]['registrar_rdap_registration_time']))	{
 		$html_text .= '<td>(No email from Registrar RDAP)</td></tr>';	
