@@ -288,13 +288,15 @@ $registrant_web_id = '';
 if ($zone_identifier == 'nl' or $zone_identifier == 'frl')	{		
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';	
 }
-$domain_dns_statuses_raw = '';
-$domain_lifecycle_statuses_raw = '';	
-$domain_client_statuses_raw = '';
 $created_at = null;
 $latest_transfer_at = null;			
 $latest_data_mutation_at = null;
-$expiration_at = null;	
+$server_statuses = '';
+$client_statuses = '';
+$policy_statuses = '';
+$dns_state = '';
+$expiration_at = null;
+$lifecycle_phase = '';	
 $deletion_at = null;	
 $extensions = '';
 $remarks = '';
@@ -488,7 +490,6 @@ $nameservers_ipv6 = '';
 $nameservers_statuses_raw = '';
 $nameservers_delegation_check = '';
 $nameservers_latest_correct_delegation_check = '';
-$dns_delegation = '0';	
 	
 $entity_sponsor = -1;	
 $entity_registrant = -1;
@@ -589,17 +590,21 @@ foreach($obj as $key1 => $value1) {
 	foreach($value1 as $key2 => $value2) {
 		if ($key1 == 'status')	{
 			$rdap_version = 'RDAPv1';
-			if (str_starts_with($value2, 'client'))	{
-				$domain_client_statuses_raw .= $value2 . ",";
+			$dns_state = 'dns_undelegated';
+			if (str_starts_with($value2, 'server'))	{
+				$server_statuses .= $value2 . ",";
+			}
+			elseif (str_starts_with($value2, 'client'))	{
+				$client_statuses .= $value2 . ",";
 			}
 			elseif (str_starts_with($value2, 'pending'))	{
-				$domain_lifecycle_statuses_raw .= $value2 . ",";
+				$lifecycle_phase .= $value2 . ",";
 			}
 			elseif (str_contains($value2, 'redemption'))	{
-				$domain_lifecycle_statuses_raw .= $value2 . ",";
+				$lifecycle_phase .= $value2 . ",";
 			}			
 			else	{
-				$domain_dns_statuses_raw .= $value2 . ",";
+				$indeterminate_statuses .= $value2 . ",";
 			}
 		}
 		if ($key1 == 'secureDNS')	{
@@ -705,11 +710,11 @@ foreach($obj as $key1 => $value1) {
 				}
 				elseif ($key3 == 'ldhName') {
 					$nameservers_ascii .= $key2.': '.$value3."<br />";
-					$dns_delegation = '1';
+					$dns_state = 'dns_delegated';
 				}
 				elseif ($key3 == 'unicodeName')	{
 					$nameservers_unicode .= $key2.': '.$value3."<br />";
-					$dns_delegation = '1';
+					$dns_state = 'dns_delegated';
 				}
 				elseif ($key3 == 'status')	{
 					$nameservers_statuses_raw .= $key2.': '.$value3[0]."<br />";	
@@ -929,11 +934,11 @@ foreach($obj as $key1 => $value1) {
 						if ($key3 == 'ipAddresses') {
 							if ($key4 == 'v4') {
 								$nameservers_ipv4 .= $key2.': '.$value5."<br />";
-								$dns_delegation = '1';
+								$dns_state = 'dns_delegated';
 							}
 							elseif ($key4 == 'v6') {
 								$nameservers_ipv6 .= $key2.': '.$value5."<br />";
-								$dns_delegation = '1';
+								$dns_state = 'dns_delegated';
 							}
 						}					
 					}
@@ -1500,11 +1505,14 @@ $arr[$inputdomain]['properties']['server_handle'] = $server_handle;
 $arr[$inputdomain]['properties']['client_handle'] = $client_handle;
 $arr[$inputdomain]['properties']['ascii_name'] = $ascii_name;	
 $arr[$inputdomain]['properties']['unicode_name'] = $unicode_name;
-$arr[$inputdomain]['properties']['statuses_raw'] = rtrim($domain_dns_statuses_raw . $domain_client_statuses_raw . $domain_lifecycle_statuses_raw, ",");
+$arr[$inputdomain]['properties']['statuses_raw'] = rtrim($indeterminate_statuses . $server_statuses . $client_statuses . $lifecycle_phase, ",");
+$arr[$inputdomain]['properties']['policy_statuses'] = rtrim($server_statuses . $client_statuses, ",");
+$arr[$inputdomain]['properties']['dns_state'] = $dns_state;
 $arr[$inputdomain]['properties']['created_at'] = $created_at;	
 $arr[$inputdomain]['properties']['latest_transfer_at'] = $latest_transfer_at;
 $arr[$inputdomain]['properties']['latest_data_mutation_at'] = $latest_data_mutation_at;
 $arr[$inputdomain]['properties']['expiration_at'] = $expiration_at;
+$arr[$inputdomain]['properties']['lifecycle_phase'] = rtrim($lifecycle_phase, ",");
 $arr[$inputdomain]['properties']['deletion_at'] = $deletion_at;
 $arr[$inputdomain]['properties']['extensions'] = $extensions;
 $arr[$inputdomain]['properties']['remarks'] = $remarks;			
@@ -1706,7 +1714,6 @@ $arr[$inputdomain]['nameservers']['dnssec_key_tag'] = rtrim($nameservers_dnssec_
 $arr[$inputdomain]['nameservers']['dnssec_algorithm'] = rtrim($nameservers_dnssec_algorithm, ",");
 $arr[$inputdomain]['nameservers']['dnssec_digest_type'] = rtrim($nameservers_dnssec_digest_type, ",");
 $arr[$inputdomain]['nameservers']['dnssec_digest'] = rtrim($nameservers_dnssec_digest, ",");
-$arr[$inputdomain]['nameservers']['dns_delegation'] = $dns_delegation;
 	
 $arr[$inputdomain]['raw_rdap'] = $raw_rdap_data;
 
