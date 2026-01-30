@@ -294,7 +294,7 @@ $latest_data_mutation_at = null;
 $server_statuses = '';
 $client_statuses = '';
 $policy_statuses = '';
-$dns_state = '';
+$dns_state = 'dns_undelegated';
 $expiration_at = null;
 $lifecycle_phase = '';	
 $deletion_at = null;	
@@ -590,7 +590,6 @@ foreach($obj as $key1 => $value1) {
 	foreach($value1 as $key2 => $value2) {
 		if ($key1 == 'status')	{
 			$rdap_version = 'RDAPv1';
-			$dns_state = 'dns_undelegated';
 			if (str_starts_with($value2, 'server'))	{
 				$server_statuses .= $value2 . ",";
 			}
