@@ -37,11 +37,16 @@ if (!empty($_GET['domain']))	{
 		$domain = toPunycodeIfNeeded($domain);
 		header('Content-Type: application/json');
 		$registry_rdap = write_file($domain, $batch, '');
+		$statuses = $registry_rdap['properties']['statuses_raw'] ?? null;
+		if (!empty($statuses)) {
+			$registry_rdap['metadata']['rdap_layer'] = 'registry_rdap';
+		}		
 		$registrar_rdap = [];
 		if (!$batch) {
 		    $uri = $registry_rdap['metadata']['registrar_json_response_uri'] ?? null;
     		if (!empty($uri)) {
         		$registrar_rdap = write_file($domain, false, $uri);
+				$registrar_rdap['metadata']['rdap_layer'] = 'registrar_rdap';
 		    }
 		}
 		$merged = [];
