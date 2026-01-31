@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS domains (
 	domain_policy_statuses TEXT[],
 	domain_dns_state TEXT[],
     domain_created_at TIMESTAMPTZ,
-    domain_latest_transfer_at TIMESTAMPTZ,
+    domain_latest_registrar_transfer_at TIMESTAMPTZ,
     domain_latest_data_mutation_at TIMESTAMPTZ,
     domain_expiration_at TIMESTAMPTZ,
 	domain_lifecycle_phase TEXT[],
