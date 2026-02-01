@@ -261,6 +261,7 @@ EXECUTE FUNCTION update_autnums_latest_data_mutation_at();
 CREATE TABLE IF NOT EXISTS domain_entities (
     de_id SERIAL PRIMARY KEY,
     de_domain BIGINT NOT NULL REFERENCES domains(domain_id) ON DELETE CASCADE,
+	de_responsible VARCHAR(10) DEFAULT 'registry',
     de_role VARCHAR(50),
     de_shielding JSONB DEFAULT '[
         {
