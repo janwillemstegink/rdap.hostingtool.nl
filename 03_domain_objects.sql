@@ -261,23 +261,21 @@ EXECUTE FUNCTION update_autnums_latest_data_mutation_at();
 CREATE TABLE IF NOT EXISTS domain_entities (
     de_id SERIAL PRIMARY KEY,
     de_domain BIGINT NOT NULL REFERENCES domains(domain_id) ON DELETE CASCADE,
-	de_responsible VARCHAR(10) DEFAULT 'registry',
+    de_source_layer VARCHAR(12) NOT NULL CHECK (de_source_layer IN ('registry','registrar')),
     de_role VARCHAR(50),
-    de_shielding JSONB DEFAULT '[
-        {
-            "organization_name": "yes",
-            "presented_name": "yes",
-            "name": "yes",
-            "email": "yes",
-			"contact_uri": "yes",
-            "phone": "yes",
-            "country_code": "yes",
-            "address": "yes"
-        }
-    ]'::jsonb,
+    de_shielding JSONB NOT NULL DEFAULT '{
+        "organization_name": true,
+        "presented_name": true,
+        "name": true,
+        "email": true,
+        "contact_uri": true,
+        "phone": true,
+        "country_code": true,
+        "address": true
+    }'::jsonb,
     de_entity BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE
 );
-
+CREATE UNIQUE INDEX IF NOT EXISTS uq_de_unique ON domain_entities (de_domain, de_source_layer, de_role, de_entity);
 CREATE INDEX IF NOT EXISTS idx_de_domain ON domain_entities(de_domain);
 CREATE INDEX IF NOT EXISTS idx_de_entity ON domain_entities(de_entity);
 
@@ -315,24 +313,23 @@ EXECUTE FUNCTION update_domain_nameservers_latest_data_mutation_at();
 -- ========================================
 CREATE TABLE IF NOT EXISTS entity_entities (
     ee_id BIGSERIAL PRIMARY KEY,
+	ee_source_layer VARCHAR(12) NOT NULL CHECK (ee_source_layer IN ('registry','registrar')),
     ee_parent_role VARCHAR(50),
     ee_parent BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE,
     ee_child_role VARCHAR(50),
-    ee_shielding JSONB DEFAULT '[
-        {
-            "organization_name": "yes",
-            "presented_name": "yes",
-            "name": "yes",
-            "email": "yes",
-			"contact_uri": "yes",
-            "phone": "yes",
-            "country_code": "yes",
-            "address": "yes"
-        }
-    ]'::jsonb,
+    ee_shielding JSONB NOT NULL DEFAULT '{
+        "organization_name": true,
+        "presented_name": true,
+        "name": true,
+        "email": true,
+        "contact_uri": true,
+        "phone": true,
+        "country_code": true,
+        "address": true
+    }'::jsonb,
     ee_child BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE
 );
-
+CREATE UNIQUE INDEX IF NOT EXISTS uq_ee_unique ON entity_entities (ee_source_layer, ee_parent_role, ee_parent, ee_child_role, ee_child);
 CREATE INDEX IF NOT EXISTS idx_ee_parent ON entity_entities(ee_parent);
 CREATE INDEX IF NOT EXISTS idx_ee_child ON entity_entities(ee_child);
 
