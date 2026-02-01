@@ -42,12 +42,10 @@ if (!empty($_GET['domain']))	{
 			$registry_rdap['metadata']['rdap_layer'] = 'registry_rdap';
 		}		
 		$registrar_rdap = [];
-		if (!$batch) {
-		    $uri = $registry_rdap['metadata']['registrar_json_response_uri'] ?? null;
-    		if (!empty($uri)) {
-        		$registrar_rdap = write_file($domain, false, $uri);
-				$registrar_rdap['metadata']['rdap_layer'] = 'registrar_rdap';
-		    }
+	    $uri = $registry_rdap['metadata']['registrar_json_response_uri'] ?? null;
+   		if (!empty($uri)) {
+       		$registrar_rdap = write_file($domain, $batch, $uri);
+			$registrar_rdap['metadata']['rdap_layer'] = 'registrar_rdap';
 		}
 		$merged = [];
 		$merged[$domain]['registry']  = $registry_rdap ?? [];

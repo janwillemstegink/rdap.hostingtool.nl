@@ -59,7 +59,7 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 <meta charset="UTF-8" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
 <meta name="robots" content="index" />
-<title>Domain Information</title><style>.top-align td,.top-align th {vertical-align: top;}</style>';
+<title>Domain Information</title><style>.top-align td {vertical-align: top;}</style>';
 ?><script>
 	
 function SwitchDisplay(type) {
@@ -161,7 +161,7 @@ function SwitchTranslation(translation)	{
 		var proposed = '';
 		var accessible = '';
 		var legacy = '';
-		document.getElementById("title").textContent = "Domain Data Request";
+		document.getElementById("title").textContent = "Domain Infrastructure Intelligence";
 		document.getElementById("instruction").textContent = "Enter here:";
 		document.getElementById("field_name").textContent = "Modeled with snake_case";
 		document.getElementById("explanation").textContent = "";
@@ -246,11 +246,11 @@ function SwitchTranslation(translation)	{
 		var proposed = '(Nieuw) ';
 		var accessible = 'Voor het gebruiksgemak en de duidelijkheid kunnen nieuwe velden worden toegevoegd.';
 		var legacy = '(Legacy) ';
-		document.getElementById("title").textContent = "Domein Gegevens opvragen";
+		document.getElementById("title").textContent = "Domein-infrastructuurintelligentie";
 		document.getElementById("instruction").textContent = "Geef hier in:";
 		document.getElementById("field_name").textContent = "Gemodelleerd met snake_case";
 		document.getElementById("explanation").textContent = "Een overzicht van en toelichting op de structuur en kenmerken van webdomeinen.";
-		document.getElementById("shielding").textContent = "RDAP-antwoorden van gTLD-registers verbergen doorgaans de gegevens van de domeineigenaar, terwijl RDAP-antwoorden van gTLD-registrars deze gegevens kunnen tonen zodra daarvoor specifieke toestemming is verleend.";
+		document.getElementById("shielding").textContent = "RDAP-antwoorden van gTLD-registries verbergen doorgaans de gegevens van de domeinhouder, terwijl RDAP-antwoorden van gTLD-registrars deze gegevens kunnen tonen zodra daarvoor specifieke toestemming is verleend.";
 		document.getElementById("notices_role").textContent = legacy + accessible;
 		document.getElementById("links_role").textContent = legacy + accessible;
 		document.getElementById("redacted").textContent = "Sommige gegevens zijn afgeschermd voor het publiek, maar blijven zichtbaar voor geautoriseerde registrars.";
@@ -274,7 +274,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("properties_policy_statuses").textContent = modified;
 		document.getElementById("properties_dns_state").textContent = proposed + "Gemodeleerde DNS-resolutiestatussen: dns_delegated, dns_undelegated, no_dns_records, unknown.";
 		document.getElementById("properties_created_at").textContent = "De datumvelden staan hier in een logische volgorde. Dit is ook eenvoudig in de JSON-array.";
-		document.getElementById("properties_expiration_at").textContent = "Eindtijd voor verlenging of van publicatie, daarna neemt de betrokkenheid van de registrar af.";
+		document.getElementById("properties_expiration_at").textContent = "Vervaldatumgrens van het domein, waarna de rechten van de registrar afnemen.";
 		document.getElementById("properties_lifecycle_phase").textContent = modified + "De EPP-status 'redemptionPeriod' kan in RDAPv2 worden gewijzigd naar 'pending_redemption'.";
 		document.getElementById("properties_lifecycle_phase_until").textContent = modified;
 		document.getElementById("properties_applicable_grace").textContent = modified;
@@ -331,7 +331,7 @@ function SwitchTranslation(translation)	{
 		var proposed = '(New) ';
 		var accessible = 'For ease of use and clarity, new fields can be added.';
 		var legacy = '(Legacy) ';
-		document.getElementById("title").textContent = "Domain Data Request";
+		document.getElementById("title").textContent = "Domain Infrastructure Intelligence";
 		document.getElementById("instruction").textContent = "Enter here:";
 		document.getElementById("field_name").textContent = "Modeled with snake_case";
 		document.getElementById("explanation").textContent = "An overview of the structure and key characteristics of domain data.";
@@ -359,7 +359,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("properties_policy_statuses").textContent = modified;
 		document.getElementById("properties_dns_state").textContent = proposed + "Modeled DNS resolution states: dns_delegated, dns_undelegated, no_dns_records, unknown.";
 		document.getElementById("properties_created_at").textContent = "The date fields are here in a logical order. This is also easy in the JSON array.";
-		document.getElementById("properties_expiration_at").textContent = "End time for renewal or publication, after which registrar involvement decreases.";
+		document.getElementById("properties_expiration_at").textContent = "Domain expiration boundary, after which registrar rights decline.";
 		document.getElementById("properties_lifecycle_phase").textContent = modified + "The EPP 'redemptionPeriod' status can be changed to 'pending_redemption' in RDAPv2.";
 		document.getElementById("properties_lifecycle_phase_until").textContent = modified;
 		document.getElementById("properties_applicable_grace").textContent = modified;
@@ -416,7 +416,7 @@ function SwitchTranslation(translation)	{
 		var proposed = '(Neu) ';
 		var accessible = 'Zur Vereinfachung und besseren Übersichtlichkeit können neue Felder hinzugefügt werden.';
 		var legacy = '(Legacy) ';
-		document.getElementById("title").textContent = "Domänendatenanforderung";
+		document.getElementById("title").textContent = "Domain-Infrastruktur-Intelligenz";
 		document.getElementById("instruction").textContent = "Hier eingeben:";
 		document.getElementById("field_name").textContent = "Modelliert mit snake_case";
 		document.getElementById("explanation").textContent = "Eine Übersicht und Erklärung zur Struktur und den Eigenschaften von Webdomänen.";
@@ -444,7 +444,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("properties_policy_statuses").textContent = modified;
 		document.getElementById("properties_dns_state").textContent = proposed + "Modellierte DNS-Auflösungszustände: dns_delegated, dns_undelegated, no_dns_records, unknown.";
 		document.getElementById("properties_created_at").textContent = "Die Datumsfelder stehen hier in einer logischen Reihenfolge. Auch dies ist im JSON-Array einfach.";
-		document.getElementById("properties_expiration_at").textContent = "Eine Wiederherstellung ist erst ab dem Ablaufdatum der Domain + Tagen der Rücknahmefrist möglich.";
+		document.getElementById("properties_expiration_at").textContent = "Ablaufschwelle der Domain, nach der die Befugnisse des Registrars abnehmen.";
 		document.getElementById("properties_lifecycle_phase").textContent = modified + "Der EPP-Status 'redemptionPeriod' kann in RDAPv2 auf 'pending_redemption' geändert werden.";
 		document.getElementById("properties_lifecycle_phase_until").textContent = modified;
 		document.getElementById("properties_applicable_grace").textContent = modified;
@@ -501,7 +501,7 @@ function SwitchTranslation(translation)	{
 		var proposed = '(Nouveau) ';
 		var accessible = "Pour plus de facilité d'utilisation et de clarté, de nouveaux champs peuvent être ajoutés.";
 		var legacy = '(Legacy) ';
-		document.getElementById("title").textContent = "Demande de données de domaine";
+		document.getElementById("title").textContent = "Intelligence des infrastructures de noms de domaine";
 		document.getElementById("instruction").textContent = "Saisissez ici :";
 		document.getElementById("field_name").textContent = "Modélisé en snake_case";
 		document.getElementById("explanation").textContent = "Un aperçu et une explication de la structure et des caractéristiques des domaines Web.";
@@ -529,7 +529,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("properties_policy_statuses").textContent = modified;
 		document.getElementById("properties_dns_state").textContent = proposed + "États de résolution DNS modélisés : dns_delegated, dns_undelegated, no_dns_records, unknown.";
 		document.getElementById("properties_created_at").textContent = "Les champs de date sont ici classés dans un ordre logique. C'est également facile dans le tableau JSON.";
-		document.getElementById("properties_expiration_at").textContent = "Date limite de renouvellement ou de publication, après laquelle l'implication du registraire diminue.";
+		document.getElementById("properties_expiration_at").textContent = "Limite d’expiration du domaine, après laquelle les droits du registrar diminuent.";
 		document.getElementById("properties_lifecycle_phase").textContent = modified + "Le statut 'redemptionPeriod' de l’EPP peut être modifié en 'pending_redemption' dans RDAPv2.";
 		document.getElementById("properties_lifecycle_phase_until").textContent = modified;
 		document.getElementById("properties_applicable_grace").textContent = modified;
