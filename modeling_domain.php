@@ -59,7 +59,7 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 <meta charset="UTF-8" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
 <meta name="robots" content="index" />
-<title>Domain Information</title>';
+<title>Domain Information</title><style>.top-align td,.top-align th {vertical-align: top;}</style>';
 ?><script>
 	
 function SwitchDisplay(type) {
@@ -162,11 +162,10 @@ function SwitchTranslation(translation)	{
 		var accessible = '';
 		var legacy = '';
 		document.getElementById("title").textContent = "Domain Data Request";
-		document.getElementById("subtitle").textContent = "RDAPv1 based modeling";
-		document.getElementById("instruction").textContent = "Fill in and press Enter to retrieve.";
-		document.getElementById("modeling").textContent = "";
+		document.getElementById("instruction").textContent = "Enter here:";
 		document.getElementById("field_name").textContent = "Modeled with snake_case";
 		document.getElementById("explanation").textContent = "";
+		document.getElementById("shielding").textContent = "";
 		document.getElementById("notices_role").textContent = legacy;
 		document.getElementById("links_role").textContent = legacy;
 		document.getElementById("redacted").textContent = "";
@@ -248,14 +247,13 @@ function SwitchTranslation(translation)	{
 		var accessible = 'Voor het gebruiksgemak en de duidelijkheid kunnen nieuwe velden worden toegevoegd.';
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domein Gegevens opvragen";
-		document.getElementById("subtitle").textContent = "RDAPv1-gebaseerde modellering";
-		document.getElementById("instruction").textContent = "Voer een domein in:";
-		document.getElementById("modeling").textContent = "Een RDAPv2 kan onbepaalde statussen elimineren en ccTLD-proof zijn via een nieuwe globale tabeldefinitie.";
+		document.getElementById("instruction").textContent = "Geef hier in:";
 		document.getElementById("field_name").textContent = "Gemodelleerd met snake_case";
 		document.getElementById("explanation").textContent = "Een overzicht van en toelichting op de structuur en kenmerken van webdomeinen.";
+		document.getElementById("shielding").textContent = "RDAP-antwoorden van gTLD-registers verbergen doorgaans de gegevens van de domeineigenaar, terwijl RDAP-antwoorden van gTLD-registrars deze gegevens kunnen tonen zodra daarvoor specifieke toestemming is verleend.";
 		document.getElementById("notices_role").textContent = legacy + accessible;
 		document.getElementById("links_role").textContent = legacy + accessible;
-		document.getElementById("redacted").textContent = "Voor generieke topdomeinen is toestemming vereist om een ​​bedrijfsnaam weer te geven.";
+		document.getElementById("redacted").textContent = "Sommige gegevens zijn afgeschermd voor het publiek, maar blijven zichtbaar voor geautoriseerde registrars.";
 		document.getElementById("metadata_role").textContent = proposed + "Metadata bieden context en details over data-elementen.";
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
@@ -334,14 +332,13 @@ function SwitchTranslation(translation)	{
 		var accessible = 'For ease of use and clarity, new fields can be added.';
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domain Data Request";
-		document.getElementById("subtitle").textContent = "RDAPv1 based modeling";
-		document.getElementById("instruction").textContent = "Enter a domain:";
-		document.getElementById("modeling").textContent = "An RDAPv2 can eliminate indeterminate statuses and be ccTLD-proof via a new global table definition.";
+		document.getElementById("instruction").textContent = "Enter here:";
 		document.getElementById("field_name").textContent = "Modeled with snake_case";
 		document.getElementById("explanation").textContent = "An overview of the structure and key characteristics of domain data.";
+		document.getElementById("shielding").textContent = "RDAP responses from gTLD registries typically hide domain owner details, whereas RDAP responses from gTLD registrars may display those details once specific authorization has been granted.";
 		document.getElementById("notices_role").textContent = legacy + accessible;
 		document.getElementById("links_role").textContent = legacy + accessible;
-		document.getElementById("redacted").textContent = "Generic top-level domains require authorization to display a company name.";
+		document.getElementById("redacted").textContent = "Some data is shielded from public view but remains visible to authorized registrars.";
 		document.getElementById("metadata_role").textContent = proposed + "Metadata provides context and details about data elements.";
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
@@ -420,14 +417,13 @@ function SwitchTranslation(translation)	{
 		var accessible = 'Zur Vereinfachung und besseren Übersichtlichkeit können neue Felder hinzugefügt werden.';
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domänendatenanforderung";
-		document.getElementById("subtitle").textContent = "RDAPv1-basierte Modellierung";
-		document.getElementById("instruction").textContent = "Geben Sie eine Domäne ein:";
-		document.getElementById("modeling").textContent = "Ein RDAPv2 kann unbestimmte Statuswerte eliminieren und ccTLD-sicher sein durch eine neue globale Tabellendefinition.";
+		document.getElementById("instruction").textContent = "Hier eingeben:";
 		document.getElementById("field_name").textContent = "Modelliert mit snake_case";
 		document.getElementById("explanation").textContent = "Eine Übersicht und Erklärung zur Struktur und den Eigenschaften von Webdomänen.";
+		document.getElementById("shielding").textContent = "RDAP-Antworten von gTLD-Registries verbergen in der Regel die Daten des Domaininhabers, während RDAP-Antworten von gTLD-Registraren diese anzeigen können, sobald dafür eine ausdrückliche Genehmigung erteilt wurde.";
 		document.getElementById("notices_role").textContent = legacy + accessible;
 		document.getElementById("links_role").textContent = legacy + accessible;
-		document.getElementById("redacted").textContent = "Generische Top-Level-Domains benötigen eine Autorisierung, um einen Firmennamen anzuzeigen.";
+		document.getElementById("redacted").textContent = "Einige Daten sind vor der Öffentlichkeit abgeschirmt, bleiben jedoch für autorisierte Registrare sichtbar.";
 		document.getElementById("metadata_role").textContent = proposed + "Metadaten liefern Kontext und Details zu Datenelementen.";
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
@@ -506,14 +502,13 @@ function SwitchTranslation(translation)	{
 		var accessible = "Pour plus de facilité d'utilisation et de clarté, de nouveaux champs peuvent être ajoutés.";
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Demande de données de domaine";
-		document.getElementById("subtitle").textContent = "Modélisation basée sur RDAPv1";
-		document.getElementById("instruction").textContent = "Saisissez un domaine :";
-		document.getElementById("modeling").textContent = "Un RDAPv2 peut éliminer les statuts indéterminés et être ccTLD-compatible en adoptant une nouvelle définition globale de table.";
+		document.getElementById("instruction").textContent = "Saisissez ici :";
 		document.getElementById("field_name").textContent = "Modélisé en snake_case";
 		document.getElementById("explanation").textContent = "Un aperçu et une explication de la structure et des caractéristiques des domaines Web.";
+		document.getElementById("shielding").textContent = "Les réponses RDAP des registres gTLD masquent généralement les informations du titulaire du nom de domaine, tandis que les réponses RDAP des bureaux d’enregistrement gTLD peuvent les afficher une fois qu’une autorisation spécifique a été accordée.";
 		document.getElementById("notices_role").textContent = legacy + accessible;
 		document.getElementById("links_role").textContent = legacy + accessible;
-		document.getElementById("redacted").textContent = "Les domaines génériques de premier niveau nécessitent une autorisation pour afficher le nom d'une entreprise.";
+		document.getElementById("redacted").textContent = "Certaines données sont protégées du public mais restent visibles pour les registries autorisés.";
 		document.getElementById("metadata_role").textContent = proposed + "Les métadonnées fournissent le contexte et des détails sur les éléments de données.";
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
@@ -624,11 +619,11 @@ if	(is_null($data))	{
 	$reopen = $server_uri.'/modeling_domain/index.php?batch=0&domain=domain';
 	sc_redir($reopen);
 }
-$html_text = '<body onload=SwitchTranslation('.$viewlanguage.')><div style="border-collapse:collapse; line-height:120%"><style>.top-align td,.top-align th {vertical-align: top;}</style>
-<table class="top-align" style="font-family:Helvetica, Arial, sans-serif; font-size: 1rem; table-layout: fixed; width:1675px">
+$html_text = '<body onload=SwitchTranslation('.$viewlanguage.')><div style="line-height: 1.2;">
+<table class="top-align" style="border-collapse:collapse; font-family:Helvetica, Arial, sans-serif; font-size: 1rem; table-layout: fixed; width:1675px">
 <tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th><th style="width:300px"></th></tr>';
-$html_text .= '<tr style="font-size: .8rem"><td id="title" style="font-size: 1.3rem;color:blue;font-weight:bold"></td><td id="instruction"></td><td id="modeling"></td><td></td></tr>';
-$html_text .= '<tr style="font-size: .8rem"><td id="subtitle" style="font-size: 1.0rem;color:blue;font-weight:bold"></td><td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">
+$html_text .= '<tr style="font-size: .8rem"><td id="title" style="font-size: 1.3rem;color:blue;font-weight:bold"></td><td colspan="3" id="shielding"></td></tr>';
+$html_text .= '<tr><td id="instruction" style="font-size: 0.9rem; text-align: right;"></td><td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">
 	<input type="hidden" id="language" name="language" value='.$viewlanguage.'>	
 	<input type="text" style="width:90%" id="domain" name="domain" value='.$vd.'></form></td><td>
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(99)">None</button> 
@@ -637,14 +632,13 @@ $html_text .= '<tr style="font-size: .8rem"><td id="subtitle" style="font-size: 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(3)">de_DE</button> 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(4)">fr_FR</button> 
 	<a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_email" target="_blank">Email modeling</a> - <a style="font-size: 0.9rem" href="https://github.com/janwillemstegink/rdap.hostingtool.nl" target="_blank">Code/issues on GitHub</a> - <a style="font-size: 0.9rem" href="https://janwillemstegink.nl/" target="_blank">Insight at janwillemstegink.nl</a></td><td></td></tr>';
-//echo $pd.'#'.$data[$pd]['registry']['properties']['ascii_name'];
 if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_name']) or empty($data[$pd]['registry']['properties']['ascii_name']))	{
 	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field_name"></td><td>TLD registry RDAP<td id="explanation"></td><td>gTLD registrar RDAP</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(11)">Notices +/-</button><td></td><td id="notices_role"></td><td></td></tr>';
 	$html_text .= '<tr id="111" style="display:none"><td colspan="2">'.$data[$pd]['registry']['notices'].'</td><td></td><td>'.$data[$pd]['registrar']['notices'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.95rem" onclick="SwitchDisplay(12)">Links +/-</button><td></td><td id="links_role"></td><td></td></tr>';
 	$html_text .= '<tr id="121" style="display:none"><td colspan="2">'.$data[$pd]['registry']['links'].'</td><td></td><td>'.$data[$pd]['registrar']['links'].'</td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(13)">Redacted +/-</button></td><td></td><td id="redacted"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(13)">Redacted / Shielded +/-</button></td><td></td><td id="redacted"></td><td></td></tr>';
 	$html_text .= '<tr id="131" style="display:none"><td colspan="2">'.$data[$pd]['registry']['redacted'].'</td><td></td><td>'.$data[$pd]['registrar']['redacted'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(20)">Metadata +/-</button></td><td></td><td id="metadata_role"></td><td></td></tr>';
 	$html_text .= '<tr id="201" style="display:none"><td>object_type</td><td>'.$data[$pd]['registry']['metadata']['object_type'].'</td><td id="metadata_object_type"></td><td>'.$data[$pd]['registrar']['metadata']['object_type'].'</td></tr>';
