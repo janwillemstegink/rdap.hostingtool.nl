@@ -1,5 +1,5 @@
 <?php
-session_start();  // is needed with no Scriptcase PHP Generator
+session_start();  // is needed with no PHP Generator Scriptcase
 //ini_set('display_errors', 1);
 //error_reporting(E_ALL);
 $datetime = new DateTime('now', new DateTimeZone('UTC'));

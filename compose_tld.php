@@ -6,6 +6,7 @@
 
 if (!empty($_GET['tld']))	{
 	if (strlen($_GET['tld']))	{
+		$tld = htmlspecialchars($tld, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 		$tld = mb_strtolower($_GET['tld']);
 		$tld = str_replace('http://','', $tld);
 		$tld = str_replace('https://','', $tld);

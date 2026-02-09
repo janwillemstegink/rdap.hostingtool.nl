@@ -18,6 +18,7 @@ if (!empty($_GET['domain']))	{
 		if (isset($_GET['batch']) && trim($_GET['batch']) === '1') {
 		    $batch = true;
 		}
+		$domain = htmlspecialchars($domain, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 		$domain = mb_strtolower($domain);
 		$domain = str_replace('http://','', $domain);
 		$domain = str_replace('https://','', $domain);

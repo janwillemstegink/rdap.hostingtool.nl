@@ -15,6 +15,7 @@ if (!empty($_GET['domain']))	{
 				$batch = true;
 			}
 		}
+		$domain = htmlspecialchars($domain, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 		$domain = mb_strtolower($domain);
 		$domain = str_replace('http://','', $domain);
 		$domain = str_replace('https://','', $domain);
@@ -69,9 +70,9 @@ if ($inputbatch)	{
 }
 else	{
 	usleep(1.05 * 1_000_000);
-	$command = escapeshellcmd("/usr/bin/python3.9 /home/admin/scripts/get_domain_data.py");
-	//$raw_whois_data = shell_exec($command . " " . $inputdomain . " 2>&1");
+	$command = escapeshellcmd("/usr/bin/python3.9 /home/admin/scripts/get_whois_domain_data.py");
 	$raw_whois_data = nl2br(htmlspecialchars(shell_exec($command . " " . $inputdomain)));
+	//$raw_whois_data = shell_exec($command . " " . $inputdomain);	
 }
 	
 $strpos = mb_strpos($inputdomain, '.');
