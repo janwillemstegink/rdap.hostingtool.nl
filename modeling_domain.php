@@ -250,7 +250,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("instruction").textContent = "Geef hier in:";
 		document.getElementById("field_name").textContent = "Gemodelleerd met snake_case";
 		document.getElementById("explanation").textContent = "Een overzicht van en toelichting op de structuur en kenmerken van webdomeinen.";
-		document.getElementById("shielding").textContent = "RDAP-antwoorden van gTLD-registries verbergen doorgaans de gegevens van de domeinhouder, terwijl RDAP-antwoorden van gTLD-registrars deze gegevens kunnen tonen zodra daarvoor specifieke toestemming is verleend.";
+		document.getElementById("shielding").textContent = "Conform het ICANN-beleid tonen gTLD-registrars RDAP-houdergegevens na een autorisatieproces, terwijl registries deze gegevens niet actualiseren en dit inzicht nog niet wordt gedeeld.";
 		document.getElementById("notices_role").textContent = legacy + accessible;
 		document.getElementById("links_role").textContent = legacy + accessible;
 		document.getElementById("redacted").textContent = "Sommige gegevens zijn afgeschermd voor het publiek, maar blijven zichtbaar voor geautoriseerde registrars.";
@@ -335,7 +335,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("instruction").textContent = "Enter here:";
 		document.getElementById("field_name").textContent = "Modeled with snake_case";
 		document.getElementById("explanation").textContent = "An overview of the structure and key characteristics of domain data.";
-		document.getElementById("shielding").textContent = "RDAP responses from gTLD registries typically hide domain owner details, whereas RDAP responses from gTLD registrars may display those details once specific authorization has been granted.";
+		document.getElementById("shielding").textContent = "In accordance with ICANN policy, gTLD registrars disclose RDAP holder data following an authorization process, while registries do not update this information, and the resulting insight is not yet shared.";
 		document.getElementById("notices_role").textContent = legacy + accessible;
 		document.getElementById("links_role").textContent = legacy + accessible;
 		document.getElementById("redacted").textContent = "Some data is shielded from public view but remains visible to authorized registrars.";
@@ -420,7 +420,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("instruction").textContent = "Hier eingeben:";
 		document.getElementById("field_name").textContent = "Modelliert mit snake_case";
 		document.getElementById("explanation").textContent = "Eine Übersicht und Erklärung zur Struktur und den Eigenschaften von Webdomänen.";
-		document.getElementById("shielding").textContent = "RDAP-Antworten von gTLD-Registries verbergen in der Regel die Daten des Domaininhabers, während RDAP-Antworten von gTLD-Registraren diese anzeigen können, sobald dafür eine ausdrückliche Genehmigung erteilt wurde.";
+		document.getElementById("shielding").textContent = "Gemäß der ICANN-Richtlinie stellen gTLD-Registrare RDAP-Inhaberdaten nach einem Autorisierungsverfahren bereit, während Registries diese Daten nicht aktualisieren und diese Erkenntnisse bislang nicht geteilt werden.";
 		document.getElementById("notices_role").textContent = legacy + accessible;
 		document.getElementById("links_role").textContent = legacy + accessible;
 		document.getElementById("redacted").textContent = "Einige Daten sind vor der Öffentlichkeit abgeschirmt, bleiben jedoch für autorisierte Registrare sichtbar.";
@@ -505,7 +505,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("instruction").textContent = "Saisissez ici :";
 		document.getElementById("field_name").textContent = "Modélisé en snake_case";
 		document.getElementById("explanation").textContent = "Un aperçu et une explication de la structure et des caractéristiques des domaines Web.";
-		document.getElementById("shielding").textContent = "Les réponses RDAP des registres gTLD masquent généralement les informations du titulaire du nom de domaine, tandis que les réponses RDAP des bureaux d’enregistrement gTLD peuvent les afficher une fois qu’une autorisation spécifique a été accordée.";
+		document.getElementById("shielding").textContent = "Conformément à la politique d’ICANN, les registrars gTLD divulguent les données RDAP des titulaires après un processus d’autorisation, tandis que les registres ne mettent pas ces données à jour et que cette visibilité n’est pas encore partagée.";
 		document.getElementById("notices_role").textContent = legacy + accessible;
 		document.getElementById("links_role").textContent = legacy + accessible;
 		document.getElementById("redacted").textContent = "Certaines données sont protégées du public mais restent visibles pour les registries autorisés.";
