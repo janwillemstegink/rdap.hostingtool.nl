@@ -77,7 +77,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 20)	{ // metadata
 		var pre = '20';
-		var max = 10
+		var max = 11
 	}
 	else if (type == 30)	{ // properties
 		var pre = '30';
@@ -173,6 +173,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
 		document.getElementById("metadata_rdap_layer").textContent = proposed;
+		document.getElementById("metadata_rdap_issue_uri").textContent = proposed;
 		document.getElementById("metadata_terms_and_conditions_uri").textContent = proposed;
 		document.getElementById("metadata_global_json_response_uri").textContent = proposed;
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed;
@@ -258,6 +259,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
 		document.getElementById("metadata_rdap_layer").textContent = proposed + "Geeft aan uit welke RDAP-laag de gegevens afkomstig zijn.";
+		document.getElementById("metadata_rdap_issue_uri").textContent = proposed + "URI voor het melden van technische of dataintegriteitsproblemen in RDAP";
 		document.getElementById("metadata_terms_and_conditions_uri").textContent = proposed + "Verbeterde machineleesbare IANA TLD-gegevens (PostgreSQL JSON-gestructureerd)";
 		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "URI van de geplande JSON-response van de globale RDAP-server.";
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed + "URI van de JSON-response van de registry; relationship 'self'.";
@@ -343,6 +345,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
 		document.getElementById("metadata_rdap_layer").textContent = proposed + "Indicates the RDAP layer from which the data originates.";
+		document.getElementById("metadata_rdap_issue_uri").textContent = proposed + "URI for reporting RDAP technical or data integrity issues";
 		document.getElementById("metadata_terms_and_conditions_uri").textContent = proposed + "Improved Machine-Readable IANA TLD Data (PostgreSQL JSON-Structured)";
 		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "URI of the planned global RDAP server JSON response.";
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed + "URI of the JSON response from the registry; relationship 'self'.";
@@ -428,6 +431,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
 		document.getElementById("metadata_rdap_layer").textContent = proposed + "Gibt an, aus welcher RDAP-Ebene die Daten stammen.";
+		document.getElementById("metadata_rdap_issue_uri").textContent = proposed + "URI zur Meldung technischer oder Datenintegritätsprobleme bei RDAP";
 		document.getElementById("metadata_terms_and_conditions_uri").textContent = proposed + "Verbesserte maschinenlesbare IANA-TLD-Daten (PostgreSQL-JSON-strukturiert)";
 		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "URI der geplanten JSON-Antwort des globalen RDAP-Servers.";
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed + "URI der JSON-Antwort von der Registry; relationship 'self'.";
@@ -513,6 +517,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
 		document.getElementById("metadata_rdap_layer").textContent = proposed + "Indique la couche RDAP dont proviennent les données.";
+		document.getElementById("metadata_rdap_issue_uri").textContent = proposed + "URI pour signaler des problèmes techniques ou d’intégrité des données RDAP";
 		document.getElementById("metadata_terms_and_conditions_uri").textContent = proposed + "Données TLD IANA améliorées et lisibles par machine (structurées en JSON pour PostgreSQL)";
 		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "URI de la réponse JSON prévue du serveur RDAP global.";
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed + "URI de la réponse JSON du registre; relationship 'self'.";
@@ -645,19 +650,20 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="202" style="display:none"><td>rdap_version</td><td>'.$data[$pd]['registry']['metadata']['rdap_version'].'</td><td id="metadata_rdap_version"></td><td>'.$data[$pd]['registrar']['metadata']['rdap_version'].'</td></tr>';
 	$html_text .= '<tr id="203" style="display:none"><td>rdap_conformance</td><td colspan="2">'.$data[$pd]['registry']['metadata']['rdap_conformance'].'</td><td>'.$data[$pd]['registrar']['metadata']['rdap_conformance'].'</td></tr>';
 	$html_text .= '<tr id="204" style="display:none"><td>rdap_layer</td><td>'.$data[$pd]['registry']['metadata']['rdap_layer'].'</td><td id="metadata_rdap_layer"></td><td>'.$data[$pd]['registrar']['metadata']['rdap_layer'].'</td></tr>';
+	$html_text .= '<tr id="205" style="display:none"><td>rdap_issue_uri</td><td>'.$data[$pd]['registry']['metadata']['rdap_issue_uri'].'</td><td id="metadata_rdap_issue_uri"></td><td>'.$data[$pd]['registrar']['metadata']['rdap_issue_uri'].'</td></tr>';	
 	$html_text .= '<tr><td>terms_and_conditions_uri</td><td>'.((strlen($terms_and_conditions_uri)) ? '<a href="'.$terms_and_conditions_uri.'" target="_blank">.'.$data[$pd]['registry']['metadata']['zone_identifier'].' TLD Data</a>' : '').'</td><td id="metadata_terms_and_conditions_uri"></td><td></td></tr>';	
-	$html_text .= '<tr id="205" style="display:none"><td>global_json_response_uri</td><td>'.$data[$pd]['registry']['metadata']['global_json_response_uri'].'</td><td id="metadata_global_json_response_uri"></td><td>'.$data[$pd]['registrar']['metadata']['global_json_response_uri'].'</td></tr>';
+	$html_text .= '<tr id="206" style="display:none"><td>global_json_response_uri</td><td>'.$data[$pd]['registry']['metadata']['global_json_response_uri'].'</td><td id="metadata_global_json_response_uri"></td><td>'.$data[$pd]['registrar']['metadata']['global_json_response_uri'].'</td></tr>';
 	$registry_json_response_uri = str_replace('https://', '', $data[$pd]['registry']['metadata']['registry_json_response_uri']);
 	$validation_registry = 'https://validator.rdap.org/?url=https://'.$registry_json_response_uri.'&response-type=domain&server-type=gtld-registry&errors-only=1';	
 	$html_text .= '<tr><td>registry_json_response_uri</td><td>'.((strlen($data[$pd]['registry']['metadata']['registry_json_response_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['registry_json_response_uri'].' target="_blank">Registry Response</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registry_json_response_uri"></td><td>'.$data[$pd]['registrar']['metadata']['registry_json_response_uri'].'</td></tr>';	
-	$html_text .= '<tr id="206" style="display:none"><td>registry_language_codes</td><td>'.$data[$pd]['registry']['metadata']['registry_language_codes'].'</td><td id="metadata_registry_language_codes"></td><td>'.$data[$pd]['registrar']['metadata']['registry_language_codes'].'</td></tr>';	
-	$html_text .= '<tr id="207" style="display:none"><td>registrar_accreditation</td><td>'.((strlen($data[$pd]['registry']['metadata']['registrar_accreditation'])) ? $data[$pd]['registry']['metadata']['registrar_accreditation'] : '').'</td><td id="metadata_registrar_accreditation"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_accreditation'].'</td></tr>';
+	$html_text .= '<tr id="207" style="display:none"><td>registry_language_codes</td><td>'.$data[$pd]['registry']['metadata']['registry_language_codes'].'</td><td id="metadata_registry_language_codes"></td><td>'.$data[$pd]['registrar']['metadata']['registry_language_codes'].'</td></tr>';	
+	$html_text .= '<tr id="208" style="display:none"><td>registrar_accreditation</td><td>'.((strlen($data[$pd]['registry']['metadata']['registrar_accreditation'])) ? $data[$pd]['registry']['metadata']['registrar_accreditation'] : '').'</td><td id="metadata_registrar_accreditation"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_accreditation'].'</td></tr>';
 	$registrar_json_response_uri = str_replace('https://', '', $data[$pd]['registry']['metadata']['registrar_json_response_uri']);
 	$validation_registrar = 'https://validator.rdap.org/?url=https://'.$registrar_json_response_uri.'&response-type=domain&server-type=gtld-registrar&errors-only=1';	
 	$html_text .= '<tr><td>registrar_json_response_uri</td><td>'.((strlen($data[$pd]['registry']['metadata']['registrar_json_response_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['registrar_json_response_uri'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registrar_json_response_uri"></td><td style="color:#d0d0d0">'.$data[$pd]['registrar']['metadata']['registrar_json_response_uri'].'</td></tr>';
-	$html_text .= '<tr id="208" style="display:none"><td>registrar_complaint_uri</td><td>'.((strlen($data[$pd]['registry']['metadata']['registrar_complaint_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['registrar_complaint_uri'].' target="_blank">icann.org/wicf</a>' : '').'</td><td id="metadata_registrar_complaint_uri"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_complaint_uri'].'</td></tr>';
-	$html_text .= '<tr id="209" style="display:none"><td>status_explanation_uri</td><td>'.((strlen($data[$pd]['registry']['metadata']['status_explanation_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['status_explanation_uri'].' target="_blank">icann.org/epp</a>' : '').'</td><td id="metadata_status_explanation_uri"></td><td>'.$data[$pd]['registrar']['metadata']['status_explanation_uri'].'</td></tr>';
-	$html_text .= '<tr id="2010" style="display:none"><td>geo_location</td><td>'.$data[$pd]['registry']['metadata']['geo_location'].'</td><td></td><td>'.$data[$pd]['registrar']['metadata']['geo_location'].'</td></tr>';
+	$html_text .= '<tr id="209" style="display:none"><td>registrar_complaint_uri</td><td>'.((strlen($data[$pd]['registry']['metadata']['registrar_complaint_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['registrar_complaint_uri'].' target="_blank">icann.org/wicf</a>' : '').'</td><td id="metadata_registrar_complaint_uri"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_complaint_uri'].'</td></tr>';
+	$html_text .= '<tr id="2010" style="display:none"><td>status_explanation_uri</td><td>'.((strlen($data[$pd]['registry']['metadata']['status_explanation_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['status_explanation_uri'].' target="_blank">icann.org/epp</a>' : '').'</td><td id="metadata_status_explanation_uri"></td><td>'.$data[$pd]['registrar']['metadata']['status_explanation_uri'].'</td></tr>';
+	$html_text .= '<tr id="2011" style="display:none"><td>geo_location</td><td>'.$data[$pd]['registry']['metadata']['geo_location'].'</td><td></td><td>'.$data[$pd]['registrar']['metadata']['geo_location'].'</td></tr>';
 	$html_text .= '<tr><td>resource_upload_at</td><td>'.$data[$pd]['registry']['metadata']['resource_upload_at'].'</td><td id="metadata_resource_upload_at"></td><td>'.$data[$pd]['registrar']['metadata']['resource_upload_at'].'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	if (strlen($data[$pd]['registry']['http_error']) or strlen($data[$pd]['registrar']['http_error']))	{
