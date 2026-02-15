@@ -113,7 +113,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 50)	{ // reseller
 		var pre = '50';
-		var max = 27
+		var max = 25
 	}	
 	else if (type == 60)	{ // registrar
 		var pre = '60';
@@ -274,7 +274,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("properties_unicode_name").textContent = "Optioneel veld dat, indien van toepassing, de Unicode-weergave van het domein biedt.";
 		document.getElementById("properties_statuses_raw").textContent = legacy + "RDAPv1 zelf garandeert niet of status van registry, registrar, of lifecycle is — elimineerbaar.";
 		document.getElementById("properties_policy_statuses").textContent = modified;
-		document.getElementById("properties_dns_state").textContent = proposed + "Gemodeleerde DNS-resolutiestatussen: dns_delegated, dns_undelegated, no_dns_records, unknown.";
+		document.getElementById("properties_dns_state").textContent = proposed + "Gemodelleerde DNS-resolutiestatussen: dns_delegated, dns_undelegated, no_dns_records, unknown.";
 		document.getElementById("properties_created_at").textContent = "De datumvelden staan hier in een logische volgorde. Dit is ook eenvoudig in de JSON-array.";
 		document.getElementById("properties_expiration_at").textContent = "Vervaldatumgrens van het domein, waarna de rechten van de registrar afnemen.";
 		document.getElementById("properties_lifecycle_phase").textContent = modified + "De EPP-status 'redemptionPeriod' kan in RDAPv2 worden gewijzigd naar 'pending_redemption'.";
@@ -298,7 +298,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_country_code").textContent = "ISO-2-landcode-indexering, bijv. voor het Verenigd Koninkrijk, inclusief situaties na het uittreden uit de EU).";
 		document.getElementById("registrant_street_address").textContent = "Het afschermen van adresgegevens zoals bij example.tel, resulteert in rommelige gegevens.";
 		document.getElementById("registrant_postal_code").textContent = "Indexeren op postcode is in de database noodzakelijk. De vCard-array vormt een obstakel.";
-		document.getElementById("registrant_country_name").textContent = "Een openbaar zichtbare landnaam is beperkt tot een 'Registrar Lookup via RDAP' (ontwerpwijziging).";
+		document.getElementById("registrant_country_name").textContent = "Een openbaar zichtbare landnaam is beperkt tot 'gTLD registrar RDAP' (ontwerpwijziging).";
 		document.getElementById("registrant_verification_received_at").textContent = proposed + "Na identificatie kan een overeenkomende web-ID worden bevestigd, leeg is intrekking.";
 		document.getElementById("registrant_verification_set_at").textContent = proposed + "Vervolgens verifieert de registry de gegevens bij de landspecifieke webdomeindienst.";
 		document.getElementById("registrant_remarks").textContent = "Meer informatie. Zie bijvoorbeeld france.fr.";
@@ -384,7 +384,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_country_code").textContent = "ISO-2 country code indexing, e.g. for the United Kingdom, including post-EU withdrawal cases.";
 		document.getElementById("registrant_street_address").textContent = "Shielding address data as with example.tel, results in messy data.";
 		document.getElementById("registrant_postal_code").textContent = "Indexing by postal code is necessary in the database. The Vcard array is an obstacle.";	
-		document.getElementById("registrant_country_name").textContent = "A publicly visible country name is limited to a 'Registrar Lookup via RDAP' (design change).";
+		document.getElementById("registrant_country_name").textContent = "A publicly visible country name is limited to 'gTLD registrar RDAP' (design change).";
 		document.getElementById("registrant_verification_received_at").textContent = proposed + "After identification, a matching web ID can be confirmed, empty is revocation.";
 		document.getElementById("registrant_verification_set_at").textContent = proposed + "The registry then verifies the data with the country-specific web domain service.";
 		document.getElementById("registrant_remarks").textContent = "More information. See for example france.fr.";
@@ -470,7 +470,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_country_code").textContent = "ISO-2-Ländercode-Indexierung, z. B. für das Vereinigte Königreich, einschließlich Fälle nach dem EU-Austritt.";
 		document.getElementById("registrant_street_address").textContent = "Das Abschirmen von Adressdaten wie bei example.tel, führt zu unordentlichen Daten.";
 		document.getElementById("registrant_postal_code").textContent = "In der Datenbank ist eine Indizierung nach Postleitzahl erforderlich. Das vCard-Array stellt ein Hindernis dar.";	
-		document.getElementById("registrant_country_name").textContent = "Ein öffentlich sichtbarer Ländername ist auf eine 'Registrar Lookup via RDAP' beschränkt (Designänderung).";
+		document.getElementById("registrant_country_name").textContent = "Ein öffentlich sichtbarer Ländername ist auf 'gTLD registrar RDAP' beschränkt (Designänderung).";
 		document.getElementById("registrant_verification_received_at").textContent = proposed + "Nach der Identifizierung kann eine passende Web-ID bestätigt werden, leer ist der Widerruf.";
 		document.getElementById("registrant_verification_set_at").textContent = proposed + "Anschließend verifiziert die Registry die Daten beim länderspezifischen Webdomänendienst.";
 		document.getElementById("registrant_remarks").textContent = "Weitere Informationen. Siehe beispielsweise france.fr.";
@@ -556,7 +556,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_country_code").textContent = "Indexation par code pays ISO-2, par ex. pour le Royaume-Uni, y compris après le retrait de l’UE.";
 		document.getElementById("registrant_street_address").textContent = "Le blindage des données d'adresse comme avec example.tel, génère des données désordonnées.";
 		document.getElementById("registrant_postal_code").textContent = "L'indexation par code postal est nécessaire dans la base de données. Le tableau de vCard constitue un obstacle.";
-		document.getElementById("registrant_country_name").textContent = "Un nom de pays visible publiquement est limité à une 'Registrar Lookup via RDAP' (changement de conception).";
+		document.getElementById("registrant_country_name").textContent = "Un nom de pays visible publiquement est limité à 'gTLD registrar RDAP' (changement de conception).";
 		document.getElementById("registrant_verification_received_at").textContent = proposed + "Après identification, un identifiant Web correspondant peut être confirmé, vide signifie révocation.";
 		document.getElementById("registrant_verification_set_at").textContent = proposed + "Le registre vérifie ensuite les données avec le service de domaine Web spécifique au pays.";
 		document.getElementById("registrant_remarks").textContent = "Plus d'informations. Voir, par exemple, france.fr.";
@@ -939,40 +939,34 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="459" style="display:none"><td>fallback_phone</td><td>'.$data[$pd]['registry']['fallback']['phone'].'</td><td></td><td>'.$data[$pd]['registrar']['fallback']['phone'].'</td></tr>';
 	$html_text .= '<tr id="4510" style="display:none"><td>fallback_country_code</td><td>'.$data[$pd]['registry']['fallback']['country_code'].'</td><td></td><td>'.$data[$pd]['registrar']['fallback']['country_code'].'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	if (!empty($data[$pd]['registry']['properties']['statuses_raw']))	{
-		$reseller_applicable = (strlen($data[$pd]['registry']['reseller']['organization_name']) or strlen($data[$pd]['registry']['reseller']['presented_name'])) ? '(reseller data exists)' : '(no reseller data)';
-	}
-	else	{
-		$reseller_applicable = '';
-	}
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(50)">Reseller +/-</button></td><td>'.$reseller_applicable.'</td><td id="reseller_role"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(50)">Reseller +/-</button></td><td></td><td id="reseller_role"></td><td></td></tr>';
 	$html_text .= '<tr id="501" style="display:none"><td>reseller_server_handle</td><td>'.$data[$pd]['registry']['reseller']['server_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['server_handle'].'</td></tr>';
 	$html_text .= '<tr id="502" style="display:none"><td>reseller_client_handle</td><td>'.$data[$pd]['registry']['reseller']['client_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['client_handle'].'</td></tr>';
 	$html_text .= '<tr id="503" style="display:none"><td>reseller_web_id</td><td>'.$data[$pd]['registry']['reseller']['web_id'].'</td><td id="reseller_web_id"></td><td>'.$data[$pd]['registrar']['reseller']['web_id'].'</td></tr>';
 	$html_text .= '<tr id="504" style="display:none"><td>reseller_organization_type</td><td>'.$data[$pd]['registry']['reseller']['organization_type'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['organization_type'].'</td></tr>';
-	$html_text .= '<tr id="505" style="display:none"><td>reseller_organization_name</td><td>'.$data[$pd]['registry']['reseller']['organization_name'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['organization_name'].'</td></tr>';
-	$html_text .= '<tr id="506" style="display:none"><td>reseller_presented_name</td><td>'.$data[$pd]['registry']['reseller']['presented_name'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['presented_name'].'</td></tr>';
-	$html_text .= '<tr id="507" style="display:none"><td>reseller_kind</td><td>'.$data[$pd]['registry']['reseller']['kind'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['kind'].'</td></tr>';
-	$html_text .= '<tr id="508" style="display:none"><td>reseller_name</td><td>'.$data[$pd]['registry']['reseller']['name'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['name'].'</td></tr>';
-	$html_text .= '<tr id="509" style="display:none"><td>reseller_email</td><td>'.$data[$pd]['registry']['reseller']['email'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['email'].'</td></tr>';
-	$html_text .= '<tr id="5010" style="display:none"><td>reseller_contact_uri</td><td>'.$data[$pd]['registry']['reseller']['contact_uri'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['contact_uri'].'</td></tr>';
-	$html_text .= '<tr id="5011" style="display:none"><td>reseller_phone</td><td>'.$data[$pd]['registry']['reseller']['phone'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['phone'].'</td></tr>';
-	$html_text .= '<tr id="5012" style="display:none"><td>reseller_country_code</td><td>'.$data[$pd]['registry']['reseller']['country_code'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['country_code'].'</td></tr>';
-	$html_text .= '<tr id="5013" style="display:none"><td>reseller_street_address</td><td>'.$data[$pd]['registry']['reseller']['street_address'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['street_address'].'</td></tr>';
-	$html_text .= '<tr id="5014" style="display:none"><td>reseller_city</td><td>'.$data[$pd]['registry']['reseller']['city'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['city'].'</td></tr>';
-	$html_text .= '<tr id="5015" style="display:none"><td>reseller_state_or_province</td><td>'.$data[$pd]['registry']['reseller']['state_or_province'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['state_or_province'].'</td></tr>';
-	$html_text .= '<tr id="5016" style="display:none"><td>reseller_postal_code</td><td>'.$data[$pd]['registry']['reseller']['postal_code'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['postal_code'].'</td></tr>';
-	$html_text .= '<tr id="5017" style="display:none"><td>reseller_country_name'.if_filled($data[$pd]['registry']['reseller']['country_name']).'</td><td>'.$data[$pd]['registry']['reseller']['country_name'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['country_name'].'</td></tr>';
-	$html_text .= '<tr id="5018" style="display:none"><td>reseller_language_pref_1</td><td>'.$data[$pd]['registry']['reseller']['language_pref_1'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['language_pref_1'].'</td></tr>';
-	$html_text .= '<tr id="5019" style="display:none"><td>reseller_language_pref_2</td><td>'.$data[$pd]['registry']['reseller']['language_pref_2'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['language_pref_2'].'</td></tr>';
-	$html_text .= '<tr id="5020" style="display:none"><td>reseller_statuses_raw</td><td>'.$data[$pd]['registry']['reseller']['statuses_raw'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['statuses_raw'].'</td></tr>';
-	$html_text .= '<tr id="5021" style="display:none"><td>reseller_created_at</td><td>'.$data[$pd]['registry']['reseller']['created_at'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['created_at'].'</td></tr>';
-	$html_text .= '<tr id="5022" style="display:none"><td>reseller_latest_data_mutation_at</td><td>'.$data[$pd]['registry']['reseller']['latest_data_mutation_at'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['latest_data_mutation_at'].'</td></tr>';
-	$html_text .= '<tr id="5023" style="display:none"><td>reseller_verification_received_at</td><td>'.$data[$pd]['registry']['reseller']['verification_received_at'].'</td><td id="reseller_verification_received_at"></td><td>'.$data[$pd]['registrar']['reseller']['verification_received_at'].'</td></tr>';
-	$html_text .= '<tr id="5024" style="display:none"><td>reseller_verification_set_at</td><td>'.$data[$pd]['registry']['reseller']['verification_set_at'].'</td><td id="reseller_verification_set_at"></td><td>'.$data[$pd]['registrar']['reseller']['verification_set_at'].'</td></tr>';
-	$html_text .= '<tr id="5025" style="display:none"><td>reseller_properties</td><td>'.$data[$pd]['registry']['reseller']['properties'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['properties'].'</td></tr>';
-	$html_text .= '<tr id="5026" style="display:none"><td>reseller_remarks</td><td>'.$data[$pd]['registry']['reseller']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['remarks'].'</td></tr>';
-	$html_text .= '<tr id="5027" style="display:none"><td>reseller_links</td><td colspan="2">'.$data[$pd]['registry']['reseller']['links'].'</td><td>'.$data[$pd]['registrar']['reseller']['links'].'</td></tr>';
+	$html_text .= '<tr><td>reseller_organization_name</td><td>'.$data[$pd]['registry']['reseller']['organization_name'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['organization_name'].'</td></tr>';
+	$html_text .= '<tr><td>reseller_presented_name</td><td>'.$data[$pd]['registry']['reseller']['presented_name'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['presented_name'].'</td></tr>';
+	$html_text .= '<tr id="505" style="display:none"><td>reseller_kind</td><td>'.$data[$pd]['registry']['reseller']['kind'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['kind'].'</td></tr>';
+	$html_text .= '<tr id="506" style="display:none"><td>reseller_name</td><td>'.$data[$pd]['registry']['reseller']['name'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['name'].'</td></tr>';
+	$html_text .= '<tr id="507" style="display:none"><td>reseller_email</td><td>'.$data[$pd]['registry']['reseller']['email'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['email'].'</td></tr>';
+	$html_text .= '<tr id="508" style="display:none"><td>reseller_contact_uri</td><td>'.$data[$pd]['registry']['reseller']['contact_uri'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['contact_uri'].'</td></tr>';
+	$html_text .= '<tr id="509" style="display:none"><td>reseller_phone</td><td>'.$data[$pd]['registry']['reseller']['phone'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['phone'].'</td></tr>';
+	$html_text .= '<tr id="5010" style="display:none"><td>reseller_country_code</td><td>'.$data[$pd]['registry']['reseller']['country_code'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['country_code'].'</td></tr>';
+	$html_text .= '<tr id="5011" style="display:none"><td>reseller_street_address</td><td>'.$data[$pd]['registry']['reseller']['street_address'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['street_address'].'</td></tr>';
+	$html_text .= '<tr id="5012" style="display:none"><td>reseller_city</td><td>'.$data[$pd]['registry']['reseller']['city'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['city'].'</td></tr>';
+	$html_text .= '<tr id="5013" style="display:none"><td>reseller_state_or_province</td><td>'.$data[$pd]['registry']['reseller']['state_or_province'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['state_or_province'].'</td></tr>';
+	$html_text .= '<tr id="5014" style="display:none"><td>reseller_postal_code</td><td>'.$data[$pd]['registry']['reseller']['postal_code'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['postal_code'].'</td></tr>';
+	$html_text .= '<tr id="5015" style="display:none"><td>reseller_country_name'.if_filled($data[$pd]['registry']['reseller']['country_name']).'</td><td>'.$data[$pd]['registry']['reseller']['country_name'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['country_name'].'</td></tr>';
+	$html_text .= '<tr id="5016" style="display:none"><td>reseller_language_pref_1</td><td>'.$data[$pd]['registry']['reseller']['language_pref_1'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['language_pref_1'].'</td></tr>';
+	$html_text .= '<tr id="5017" style="display:none"><td>reseller_language_pref_2</td><td>'.$data[$pd]['registry']['reseller']['language_pref_2'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['language_pref_2'].'</td></tr>';
+	$html_text .= '<tr id="5018" style="display:none"><td>reseller_statuses_raw</td><td>'.$data[$pd]['registry']['reseller']['statuses_raw'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['statuses_raw'].'</td></tr>';
+	$html_text .= '<tr id="5019" style="display:none"><td>reseller_created_at</td><td>'.$data[$pd]['registry']['reseller']['created_at'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['created_at'].'</td></tr>';
+	$html_text .= '<tr id="5020" style="display:none"><td>reseller_latest_data_mutation_at</td><td>'.$data[$pd]['registry']['reseller']['latest_data_mutation_at'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['latest_data_mutation_at'].'</td></tr>';
+	$html_text .= '<tr id="5021" style="display:none"><td>reseller_verification_received_at</td><td>'.$data[$pd]['registry']['reseller']['verification_received_at'].'</td><td id="reseller_verification_received_at"></td><td>'.$data[$pd]['registrar']['reseller']['verification_received_at'].'</td></tr>';
+	$html_text .= '<tr id="5022" style="display:none"><td>reseller_verification_set_at</td><td>'.$data[$pd]['registry']['reseller']['verification_set_at'].'</td><td id="reseller_verification_set_at"></td><td>'.$data[$pd]['registrar']['reseller']['verification_set_at'].'</td></tr>';
+	$html_text .= '<tr id="5023" style="display:none"><td>reseller_properties</td><td>'.$data[$pd]['registry']['reseller']['properties'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['properties'].'</td></tr>';
+	$html_text .= '<tr id="5024" style="display:none"><td>reseller_remarks</td><td>'.$data[$pd]['registry']['reseller']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['remarks'].'</td></tr>';
+	$html_text .= '<tr id="5025" style="display:none"><td>reseller_links</td><td colspan="2">'.$data[$pd]['registry']['reseller']['links'].'</td><td>'.$data[$pd]['registrar']['reseller']['links'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(60)">Registrar +/-</button></td><td></td><td id="registrar_role"></td><td></td></tr>';
 	$html_text .= '<tr id="601" style="display:none"><td>registrar_server_handle</td><td>'.$data[$pd]['registry']['registrar']['server_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['server_handle'].'</td></tr>';
 	$html_text .= '<tr id="602" style="display:none"><td>registrar_client_handle</td><td>'.$data[$pd]['registry']['registrar']['client_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['client_handle'].'</td></tr>';
