@@ -249,7 +249,7 @@ function SwitchTranslation(translation)	{
 		var accessible = 'Voor het gebruiksgemak en de duidelijkheid kunnen nieuwe velden worden toegevoegd.';
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domein-infrastructuurintelligentie";
-		document.getElementById("modeling").textContent = "Nederland kan dit RDAP-model communiceren om technische conformiteit te combineren met praktische duidelijkheid. Een Nationale Raad voor Digitale Kaders kan internationaal richting geven aan digitale normstelling en governance.";
+		document.getElementById("modeling").textContent = "Deze RDAP-modellering biedt Nederland een gestructureerd referentiekader voor het afstemmen van technische conformiteit op praktische transparantie. Een Nationale Raad voor Digitale Kaders kan dienen als platform van waaruit Nederland bijdraagt aan versterkte internationale dialoog over digitale standaarden en governance.";
 		document.getElementById("instruction").textContent = "Geef hier in:";
 		document.getElementById("field_name").textContent = "Gemodelleerd met snake_case";
 		document.getElementById("explanation").textContent = "Een overzicht van en toelichting op de structuur en kenmerken van webdomeinen.";
@@ -336,7 +336,7 @@ function SwitchTranslation(translation)	{
 		var accessible = 'For ease of use and clarity, new fields can be added.';
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domain Infrastructure Intelligence";
-		document.getElementById("modeling").textContent = "The Netherlands can communicate this RDAP model to combine technical conformity with practical clarity. A National Council for Digital Frameworks can provide international direction in digital standard-setting and governance.";
+		document.getElementById("modeling").textContent = "This RDAP modeling provides the Netherlands with a structured reference for aligning technical conformity with practical transparency. A National Council for Digital Frameworks could serve as a platform through which the Netherlands contributes to enhanced international dialogue on digital standards and governance.";
 		document.getElementById("instruction").textContent = "Enter here:";
 		document.getElementById("field_name").textContent = "Modeled with snake_case";
 		document.getElementById("explanation").textContent = "An overview of the structure and key characteristics of domain data.";
@@ -423,7 +423,7 @@ function SwitchTranslation(translation)	{
 		var accessible = 'Zur Vereinfachung und besseren Übersichtlichkeit können neue Felder hinzugefügt werden.';
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domain-Infrastruktur-Intelligenz";
-		document.getElementById("modeling").textContent = "Die Niederlande können dieses RDAP-Modell kommunizieren, um technische Konformität mit praktischer Klarheit zu verbinden. Ein Nationaler Rat für Digitale Rahmenwerke kann international Impulse für digitale Normsetzung und Governance geben.";
+		document.getElementById("modeling").textContent = "Diese RDAP-Modellierung bietet den Niederlanden einen strukturierten Referenzrahmen zur Abstimmung technischer Konformität mit praktischer Transparenz. Ein Nationaler Rat für Digitale Rahmenwerke könnte als Plattform dienen, über die die Niederlande zu einem verstärkten internationalen Dialog über digitale Standards und Governance beitragen.";
 		document.getElementById("instruction").textContent = "Hier eingeben:";
 		document.getElementById("field_name").textContent = "Modelliert mit snake_case";
 		document.getElementById("explanation").textContent = "Eine Übersicht und Erklärung zur Struktur und den Eigenschaften von Webdomänen.";
@@ -510,7 +510,7 @@ function SwitchTranslation(translation)	{
 		var accessible = "Pour plus de facilité d'utilisation et de clarté, de nouveaux champs peuvent être ajoutés.";
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Intelligence des infrastructures de noms de domaine";
-		document.getElementById("modeling").textContent = "Les Pays-Bas peuvent communiquer ce modèle RDAP pour allier conformité technique et clarté pratique. Un Conseil national des cadres numériques peut orienter au niveau international la normalisation et la gouvernance numériques.";
+		document.getElementById("modeling").textContent = "Cette modélisation RDAP fournit aux Pays-Bas un cadre de référence structuré pour aligner la conformité technique avec la transparence pratique. Un Conseil national des cadres numériques pourrait servir de plateforme par laquelle les Pays-Bas contribuent à un dialogue international renforcé sur les standards numériques et la gouvernance.";
 		document.getElementById("instruction").textContent = "Saisissez ici :";
 		document.getElementById("field_name").textContent = "Modélisé en snake_case";
 		document.getElementById("explanation").textContent = "Un aperçu et une explication de la structure et des caractéristiques des domaines Web.";
@@ -632,7 +632,7 @@ if	(is_null($data))	{
 $html_text = '<body onload=SwitchTranslation('.$viewlanguage.')><div style="line-height: 1.2;">
 <table class="top-align" style="border-collapse:collapse; font-family:Helvetica, Arial, sans-serif; font-size: 1rem; table-layout: fixed; width:1675px">
 <tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th><th style="width:300px"></th></tr>';
-$html_text .= '<tr style="font-size: 0.9rem"><td colspan="2" id="title" style="font-size: 1.6rem;color:blue;font-weight:bold"></td><td id="modeling"></td><td></td></tr>';
+$html_text .= '<tr style="font-size: 0.9rem"><td colspan="2" id="title" style="font-size: 1.6rem;color:blue;font-weight:bold"></td><td colspan="2" id="modeling"></td></tr>';
 $html_text .= '<tr><td id="instruction" style="font-size: 0.9rem; vertical-align:middle; text-align: right;"></td><td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">
 	<input type="hidden" id="language" name="language" value='.$viewlanguage.'>	
 	<input type="text" style="width:90%" id="domain" name="domain" value='.$vd.'></form></td><td>
@@ -1089,4 +1089,4 @@ function if_filled($inputvalue)	{
 	}
 	return ' (to be empty)';
 }
-?>
+}?>
