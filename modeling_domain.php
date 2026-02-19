@@ -672,8 +672,8 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="2012" style="display:none"><td>geo_location</td><td>'.$data[$pd]['registry']['metadata']['geo_location'].'</td><td></td><td>'.$data[$pd]['registrar']['metadata']['geo_location'].'</td></tr>';
 	$html_text .= '<tr><td>resource_upload_at</td><td>'.$data[$pd]['registry']['metadata']['resource_upload_at'].'</td><td id="metadata_resource_upload_at"></td><td>'.$data[$pd]['registrar']['metadata']['resource_upload_at'].'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	if (strlen($data[$pd]['registry']['http_error']) or strlen($data[$pd]['registrar']['http_error']))	{
-		$html_text .= '<tr><td>http_error</td><td>'.$data[$pd]['registry']['http_error'].'</td><td></td><td>'.$data[$pd]['registrar']['http_error'].'</td></tr>';
+	if (strlen($data[$pd]['registry']['interface_notice']) or strlen($data[$pd]['registrar']['interface_notice']))	{
+		$html_text .= '<tr><td>interface_notice</td><td>'.$data[$pd]['registry']['interface_notice'].'</td><td></td><td><b>'.$data[$pd]['registrar']['interface_notice'].'</b></td></tr>';
 	}
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(30)">Properties +/-</button></td><td><b>'.$vd.'</b></td><td id="properties_role"></td><td></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>properties_server_handle</td><td colspan="2">'.$data[$pd]['registry']['properties']['server_handle'].'</td><td>'.$data[$pd]['registrar']['properties']['server_handle'].'</td></tr>';

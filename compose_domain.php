@@ -43,11 +43,28 @@ if (!empty($_GET['domain']))	{
 			$registry_rdap['metadata']['rdap_layer'] = 'registry_rdap';
 		}		
 		$registrar_rdap = [];
-	    $uri = $registry_rdap['metadata']['registrar_json_response_uri'] ?? null;
-   		if (!empty($uri)) {
-       		$registrar_rdap = write_file($domain, $batch, $uri);
+	    $registrar_uri = $registry_rdap['metadata']['registrar_json_response_uri'] ?? null;
+		$registrar_identifier = $registry_rdap['metadata']['registrar_identifier'] ?? null;
+		//$registrar_uri = 'https://rdap.metaregistrar.com/domain/amsterdam.amsterdam';
+   		if (!empty($registrar_uri)) {
 			$registrar_rdap['metadata']['rdap_layer'] = 'registrar_rdap';
+       		$registrar_rdap = write_file($domain, $batch, $registrar_uri);
 		}
+		elseif (!empty($registrar_identifier))	{
+			$iana_id = (int) $registrar_identifier;
+			if ($iana_id > 0 and $iana_id < 9990) {
+				$base_url = fetchIanaRegistrarRdapBaseUrl($iana_id);
+		    	if ($base_url) {
+					$registrar_uri = rtrim($base_url, '/') . '/domain/' . rawurlencode($domain);
+					$registrar_rdap['metadata']['rdap_layer'] = 'registrar_rdap';
+       				$registrar_rdap = write_file($domain, $batch, $registrar_uri);
+        			$registrar_rdap['interface_notice'] = 'Registry RDAP has no rel="related" link.';
+    			}	
+				else	{
+					$registrar_rdap['interface_notice'] = $iana_id . " - no retrieval";
+				}	
+			}			
+		}	
 		$merged = [];
 		$merged[$domain]['registry']  = $registry_rdap ?? [];
 		$merged[$domain]['registrar'] = $registrar_rdap ?? [];
@@ -124,11 +141,89 @@ function interprete_remark($inputkey, $inputvalue) {
     return $out;
 }
 
+function fetchIanaRegistrarRdapBaseUrl(int $ianaId): ? string	{
+    static $rdapMap = null;
+
+    if ($rdapMap === null) {
+
+        $csvUrl = 'https://www.iana.org/assignments/registrar-ids/registrar-ids-1.csv';
+
+        // Add timeouts so it can’t hang forever
+        $ctx = stream_context_create([
+            'http' => [
+                'timeout' => 8,
+                'user_agent' => 'rdap-tool/1.0',
+            ],
+            'ssl' => [
+                'verify_peer' => true,
+                'verify_peer_name' => true,
+            ],
+        ]);
+
+        $err = null;
+        set_error_handler(function($severity, $message) use (&$err) {
+            $err = $message;
+            return true; // suppress default warning output
+        });
+
+        $csvContent = file_get_contents($csvUrl, false, $ctx);
+
+        restore_error_handler();
+
+        if ($csvContent === false) {
+            //echo "B: " . ($err ?? 'unknown error') . "\n";
+            return null;
+        }
+
+        $fp = fopen('php://temp', 'r+');
+        fwrite($fp, $csvContent);
+        rewind($fp);
+
+        $header = fgetcsv($fp);
+        if (!$header) {
+            fclose($fp);
+            return null; // invalid CSV
+        }
+
+        // Locate required columns dynamically
+		$idAliases   = ['Registrar ID', 'IANA Registrar ID', 'ID'];
+		$rdapAliases = ['RDAP Base URL', 'RDAP URL', 'RDAP'];
+
+		$find = function(array $header, array $aliases) {
+    		foreach ($aliases as $a) {
+        		$idx = array_search($a, $header, true);
+        		if ($idx !== false) return $idx;
+    		}
+    		return false;
+		};
+
+		$idIndex   = $find($header, $idAliases);
+		$rdapIndex = $find($header, $rdapAliases);
+
+		if ($idIndex === false || $rdapIndex === false) { fclose($fp); return null; }
+
+        $rdapMap = [];
+
+        while (($row = fgetcsv($fp)) !== false) {
+            $id   = isset($row[$idIndex]) ? (int) trim($row[$idIndex]) : 0;
+            $rdap = isset($row[$rdapIndex]) ? trim($row[$rdapIndex]) : '';
+
+            if ($id > 0 && $rdap !== '') {
+	            // Normalize: remove trailing slash
+                $rdapMap[$id] = rtrim($rdap, '/');
+            }
+        }
+
+        fclose($fp);
+    }
+
+    return $rdapMap[$ianaId] ?? null;
+}
 
 function write_file($inputdomain, $inputbatch, $inputurl)	{
 
 $arr = array();
-$arr['http_error'] = "";
+$arr['interface_notice'] = "";
 if (strlen($inputurl))	{
 	$url = $inputurl;
 }	
@@ -223,7 +318,7 @@ else	{
 		}
 	}
 	if (!strlen($url))	{
-		$arr['http_error'] = $zone_identifier . " - Operational RDAP unknown";
+		$arr['interface_notice'] = $zone_identifier . " - Operational RDAP unknown";
 		return $arr;
 	}	
 	$url .= 'domain/'.$inputdomain;
@@ -246,7 +341,7 @@ $start_utc_iso   = gmdate('c');
 $server_seen = $_SERVER['SERVER_ADDR'] ?? null;
 $fp = @fopen($url, 'r', false, $context);
 if (!$fp) {
-  $arr['http_error'] = [
+  $arr['interface_notice'] = [
     'message' => 'Failed to open URL',
     'php_error' => error_get_last(),
     'time_utc' => $start_utc_iso,
@@ -263,26 +358,26 @@ if (!empty($http_response_header) && preg_match('#^HTTP/\S+\s+(\d{3})#', $http_r
 }
 $elapsed_seconds = microtime(true) - $start_monotonic;
 if ($http_code === null) {
-	$arr['http_error'] = "No HTTP status line at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec from $server_seen";
+	$arr['interface_notice'] = "No HTTP status line at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec observed from $server_seen";
   	return $arr;
 }
 if ($http_code === 429) {
-	$arr['http_error'] = "429 - Rate limit exceeded at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec from $server_seen";
+	$arr['interface_notice'] = "429 - Rate limit exceeded at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec observed from $server_seen";
 	return $arr;
 }
 if ($http_code !== 200) {
-	$arr['http_error'] = $http_code . " - Insufficient HTTP response at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec from $server_seen";
+	$arr['interface_notice'] = $http_code . " - Insufficient HTTP response at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec observed from $server_seen";
 	return $arr;
 }
 try {
   	$obj = json_decode($response, true, 512, JSON_THROW_ON_ERROR);
 }
 catch (JsonException $e) {
-	$arr['http_error'] = "200 - JSON decode exception: " . $e->getMessage() . " at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec from $server_seen";
+	$arr['interface_notice'] = "200 - JSON decode exception: " . $e->getMessage() . " at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec observed from $server_seen";
 	return $arr;
 }
 if (!is_array($obj)) {
-	$arr['http_error'] = "200 - Invalid JSON structure at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec from $server_seen";
+	$arr['interface_notice'] = "200 - Invalid JSON structure at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec observed from $server_seen";
 	return $arr;
 }
 $notices = '';	
@@ -294,6 +389,7 @@ $rdap_version = '';
 $rdap_conformance = (is_array($obj['rdapConformance'])) ? implode(",<br />", $obj['rdapConformance']) : $obj['rdapConformance'];
 $language_codes = (is_array($obj['lang'])) ? implode(",<br />", $obj['lang']) : $obj['lang'];
 $registrar_accreditation = '';
+$registrar_identifier = null;
 $registrar_json_response_uri = '';	
 $registrar_complaint_uri = '';	
 $status_explanation_uri = '';
@@ -772,6 +868,7 @@ foreach($obj as $key1 => $value1) {
 					}
 					if ($key2 == $entity_registrar and $key3 == 'publicIds')	{
 						$registrar_accreditation .= $value4['type'].': '.$value4['identifier']."<br />";
+						$registrar_identifier = $value4['identifier'];
 					}					
 				}
 				foreach($value4 as $key5 => $value5) {
@@ -1381,6 +1478,7 @@ $arr['metadata']['tld_information_uri'] = $tld_information_uri;
 $arr['metadata']['registry_json_response_uri'] = $url;
 $arr['metadata']['registry_language_codes'] = $language_codes;	
 $arr['metadata']['registrar_accreditation'] = $registrar_accreditation;		
+$arr['metadata']['registrar_identifier'] = $registrar_identifier;
 $arr['metadata']['registrar_json_response_uri'] = $registrar_json_response_uri;
 $arr['metadata']['registrar_complaint_uri'] = $registrar_complaint_uri;
 $arr['metadata']['status_explanation_uri'] = $status_explanation_uri;
