@@ -47,8 +47,8 @@ if (!empty($_GET['domain']))	{
 		$registrar_identifier = $registry_rdap['metadata']['registrar_identifier'] ?? null;
 		//$registrar_uri = 'https://rdap.metaregistrar.com/domain/amsterdam.amsterdam';
    		if (!empty($registrar_uri)) {
-			$registrar_rdap['metadata']['rdap_layer'] = 'registrar_rdap';
        		$registrar_rdap = write_file($domain, $batch, $registrar_uri);
+			$registrar_rdap['metadata']['rdap_layer'] = 'registrar_rdap';
 		}
 		elseif (!empty($registrar_identifier))	{
 			$iana_id = (int) $registrar_identifier;
@@ -56,15 +56,15 @@ if (!empty($_GET['domain']))	{
 				$base_url = fetchIanaRegistrarRdapBaseUrl($iana_id);
 		    	if ($base_url) {
 					$registrar_uri = rtrim($base_url, '/') . '/domain/' . rawurlencode($domain);
-					$registrar_rdap['metadata']['rdap_layer'] = 'registrar_rdap';
        				$registrar_rdap = write_file($domain, $batch, $registrar_uri);
+					$registrar_rdap['metadata']['rdap_layer'] = 'registrar_rdap';
         			$registrar_rdap['interface_notice'] = 'Registry RDAP has no rel="related" link.';
     			}	
 				else	{
 					$registrar_rdap['interface_notice'] = $iana_id . " - no retrieval";
 				}	
 			}			
-		}	
+		}
 		$merged = [];
 		$merged[$domain]['registry']  = $registry_rdap ?? [];
 		$merged[$domain]['registrar'] = $registrar_rdap ?? [];
