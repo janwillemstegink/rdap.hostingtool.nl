@@ -37,34 +37,74 @@ if (!empty($_GET['domain']))	{
 		}		
 		$domain = toPunycodeIfNeeded($domain);
 		header('Content-Type: application/json');
+		$registry_interface = '';
+		$registrar_interface = '';
 		$registry_rdap = write_file($domain, $batch, '');
 		$statuses = $registry_rdap['properties']['statuses_raw'] ?? null;
 		if (!empty($statuses)) {
 			$registry_rdap['metadata']['rdap_layer'] = 'registry_rdap';
-		}		
-		$registrar_rdap = [];
-	    $registrar_uri = $registry_rdap['metadata']['registrar_json_response_uri'] ?? null;
-		$registrar_identifier = $registry_rdap['metadata']['registrar_identifier'] ?? null;
-		//$registrar_uri = 'https://rdap.metaregistrar.com/domain/amsterdam.amsterdam';
-   		if (!empty($registrar_uri)) {
-       		$registrar_rdap = write_file($domain, $batch, $registrar_uri);
-			$registrar_rdap['metadata']['rdap_layer'] = 'registrar_rdap';
-		}
-		elseif (!empty($registrar_identifier))	{
-			$iana_id = (int) $registrar_identifier;
-			if ($iana_id > 0 and $iana_id < 9990) {
-				$base_url = fetchIanaRegistrarRdapBaseUrl($iana_id);
-		    	if ($base_url) {
-					$registrar_uri = rtrim($base_url, '/') . '/domain/' . rawurlencode($domain);
-       				$registrar_rdap = write_file($domain, $batch, $registrar_uri);
-					$registrar_rdap['metadata']['rdap_layer'] = 'registrar_rdap';
-        			$registrar_rdap['interface_notice'] = 'Registry RDAP has no rel="related" link.';
-    			}	
-				else	{
-					$registrar_rdap['interface_notice'] = $iana_id . " - no retrieval";
-				}	
-			}			
-		}
+			$registry_rdap['metadata']['registry_json_response_uri'] = $registry_rdap['metadata']['url_json_response_uri'];
+			$self_uri = $registry_rdap['metadata']['self_json_response_uri'] ?? null;
+			$related_uri = $registry_rdap['metadata']['related_json_response_uri'] ?? null;
+			if (empty($self_uri)) {
+				$registry_interface .= 'Registry RDAP has no rel="self" link.';
+			}		
+			elseif (strcasecmp($registry_rdap['metadata']['url_json_response_uri'], $self_uri) !== 0) {
+ 				$registry_interface .= 'Registry RDAP has a wrong rel="self" link.';
+			}
+			elseif (strcasecmp($related_uri, $self_uri) === 0) {
+    			$registry_interface .= 'Registry RDAP has equal rel="self"/"related".';
+			}
+			$registrar_identifier = $registry_rdap['metadata']['registrar_identifier'] ?? null;
+			$registrar_rdap = [];
+			//$registrar_uri = 'https://rdap.metaregistrar.com/domain/amsterdam.amsterdam';
+   			if (!empty($related_uri)) {
+       			$registrar_rdap = write_file($domain, $batch, $related_uri);
+				$registry_rdap['metadata']['registrar_json_response_uri'] = $related_uri;
+				$registrar_rdap['metadata']['rdap_layer'] = 'registrar_rdap';
+			}
+			elseif (!empty($registrar_identifier))	{
+				$iana_id = (int) $registrar_identifier;
+				if ($iana_id > 0 and $iana_id < 9990) {
+					$base_url = fetchIanaRegistrarRdapBaseUrl($iana_id);
+		    		if ($base_url) {
+						$registrar_uri = rtrim($base_url, '/') . '/domain/' . rawurlencode($domain);
+						$registry_rdap['metadata']['registrar_json_response_uri'] = $registrar_uri;
+						$registry_rdap['interface_notice'] = 'Registry RDAP has no rel="related" link.';
+       					$registrar_rdap = write_file($domain, $batch, $registrar_uri);
+						$registrar_rdap['metadata']['rdap_layer'] = 'registrar_rdap';
+						if (strlen($registry_interface))	{
+							$registry_interface .= "<br />";
+						}
+						$registry_interface .= 'Registry RDAP has no rel="related" link.';
+    				}	
+					else	{
+						if (strlen($registrar_interface))	{
+							$registrar_interface .= "<br />";
+						}
+						$registrar_interface .= $iana_id . " - no retrieval";	
+					}	
+				}			
+			}
+			$url_uri = $registrar_rdap['metadata']['url_json_response_uri'] ?? null;
+			$self_uri = $registrar_rdap['metadata']['self_json_response_uri'] ?? null;
+			if (!empty($self_uri)) {
+				$registrar_rdap['metadata']['registry_json_response_uri'] = $self_uri;
+			}
+			elseif (!empty($url_uri)) {
+				$registrar_rdap['metadata']['registry_json_response_uri'] = $url_uri;
+			}
+			$related_uri = $registrar_rdap['metadata']['related_json_response_uri'] ?? null;					
+			if (!empty($related_uri)) {
+				$registrar_rdap['metadata']['registrar_json_response_uri'] = $related_uri;
+				if (strlen($registrar_interface))	{
+					$registrar_interface .= "<br />";
+				}
+				$registrar_interface .= 'Registrar RDAP shows a rel="related" link.';
+			}
+		}	
+		$registry_rdap['interface_notice'] = $registry_interface;
+		$registrar_rdap['interface_notice'] = $registrar_interface;
 		$merged = [];
 		$merged[$domain]['registry']  = $registry_rdap ?? [];
 		$merged[$domain]['registrar'] = $registrar_rdap ?? [];
@@ -390,7 +430,8 @@ $rdap_conformance = (is_array($obj['rdapConformance'])) ? implode(",<br />", $ob
 $language_codes = (is_array($obj['lang'])) ? implode(",<br />", $obj['lang']) : $obj['lang'];
 $registrar_accreditation = '';
 $registrar_identifier = null;
-$registrar_json_response_uri = '';	
+$self_json_response_uri = '';
+$related_json_response_uri = '';
 $registrar_complaint_uri = '';	
 $status_explanation_uri = '';
 $registrant_web_id = '';
@@ -744,9 +785,12 @@ foreach($obj as $key1 => $value1) {
 			}				
 			if ($key1 == 'links')	{
 				$links .= $key2.': '.$key3.': '.$value3."<br />";
-				if ($key3 == 'rel' and $value3 == 'related') {
-					$registrar_json_response_uri = $value2['href'];
-				}							
+				if ($key3 == 'rel' and $value3 == 'self') {
+					$self_json_response_uri = $value2['href'];
+				}
+				elseif ($key3 == 'rel' and $value3 == 'related') {
+					$related_json_response_uri = $value2['href'];
+				}				
 			}	
 			if ($key1 == 'remarks')	{
 				if (strlen($remarks))	{
@@ -1479,7 +1523,9 @@ $arr['metadata']['registry_json_response_uri'] = $url;
 $arr['metadata']['registry_language_codes'] = $language_codes;	
 $arr['metadata']['registrar_accreditation'] = $registrar_accreditation;		
 $arr['metadata']['registrar_identifier'] = $registrar_identifier;
-$arr['metadata']['registrar_json_response_uri'] = $registrar_json_response_uri;
+$arr['metadata']['url_json_response_uri'] = $url;
+$arr['metadata']['self_json_response_uri'] = $self_json_response_uri;
+$arr['metadata']['related_json_response_uri'] = $related_json_response_uri;
 $arr['metadata']['registrar_complaint_uri'] = $registrar_complaint_uri;
 $arr['metadata']['status_explanation_uri'] = $status_explanation_uri;
 $arr['metadata']['geo_location'] = '';
