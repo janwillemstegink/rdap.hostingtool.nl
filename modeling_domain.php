@@ -268,7 +268,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Er kan een IANA Registrar Accreditation ID voor gTLD's bestaan. Deze moet correct zijn.";
 		document.getElementById("metadata_registrar_json_response_uri").textContent = proposed + "RDAP-informatie van de registrar kan nuttig zijn; relationship 'related'.";
 		document.getElementById("metadata_registrar_complaint_uri").textContent = proposed + 'Vereist indien de registrator geaccrediteerd is door IANA, om een klacht in behandeling te kunnen nemen.';
-		document.getElementById("metadata_registrar_publication_method").textContent = proposed + "De houder kan publicatie autoriseren bij een gTLD-registrar.";
+		document.getElementById("metadata_registrar_publication_method").textContent = proposed + "Voor gTLD’s kan de houder publicatie per registrantveld inschakelen.";
 		document.getElementById("metadata_status_explanation_uri").textContent = proposed + 'Vereist als de registrar IANA-geaccrediteerd is; bevat uitleg over de statuscode.';
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Datum en tijd van RDAP-database-update in uniforme Zulu-tijd (UTC).";
 		document.getElementById("properties_role").textContent = "Een domein onder TLD-niveau is wereldwijd uniek en kan vrij worden gekozen onder bepaalde regels.";
@@ -296,7 +296,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_presented_name").textContent = "De naam van de primair verantwoordelijke persoon of een rol binnen de organisatie wordt verwacht.";
 		document.getElementById("registrant_kind").textContent = "Leeg / 'org' / 'individual' (Voor continuïteit: levenstestament + testament + digitale executeur)";
 		document.getElementById("registrant_name").textContent = "Een persoonlijke naam kan openbaar zichtbaar zijn in het veld 'presented_name'. Zie bijvoorbeeld cira.ca.";
-		document.getElementById("registrant_contact_uri").textContent = "De contact-URI wordt genormaliseerd om alleen specifieke eindpunten te behouden.";
+		document.getElementById("registrant_contact_uri").textContent = "Deze contact-URI kan verwijzen naar een professioneel beheerd eindpunt.";
 		document.getElementById("registrant_country_code").textContent = "ISO-2-landcode-indexering, bijv. voor het Verenigd Koninkrijk, inclusief situaties na het uittreden uit de EU).";
 		document.getElementById("registrant_street_address").textContent = "Het afschermen van adresgegevens zoals bij example.tel, resulteert in rommelige gegevens.";
 		document.getElementById("registrant_postal_code").textContent = "Indexeren op postcode is in de database noodzakelijk. De vCard-array vormt een obstakel.";
@@ -355,7 +355,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_registrar_accreditation").textContent = modified + "There may be an IANA Registrar Accreditation ID for gTLDs. It must be correct.";
 		document.getElementById("metadata_registrar_json_response_uri").textContent = proposed + "RDAP information from the registrar can be helpful; relationship 'related'.";
 		document.getElementById("metadata_registrar_complaint_uri").textContent = proposed + 'Required if the registrar is accredited by IANA, in order to have a complaint handled.';
-		document.getElementById("metadata_registrar_publication_method").textContent = proposed + "The holder can authorize for publication with a gTLD registrar.";
+		document.getElementById("metadata_registrar_publication_method").textContent = proposed + "For gTLDs, the holder may enable publication on a per-registrant-field basis.";
 		document.getElementById("metadata_status_explanation_uri").textContent = proposed + 'Required if the registrar is IANA-accredited; provides status code explanations.';
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Date and time of RDAP database update in uniform Zulu time (UTC).";
 		document.getElementById("properties_role").textContent = "A domain below TLD level is globally unique and can be freely chosen under certain rules.";
@@ -383,7 +383,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_presented_name").textContent = "The name of the primarily responsible person or a role within the organization is expected.";
 		document.getElementById("registrant_kind").textContent = "Empty / 'org' / 'individual' (For continuity: Living Will + Will + Digital Executor)";
 		document.getElementById("registrant_name").textContent = "A personal name may be publicly visible in the 'presented_name' field. See for example cira.ca.";
-		document.getElementById("registrant_contact_uri").textContent = "The contact URI is normalized to retain only specific endpoints.";
+		document.getElementById("registrant_contact_uri").textContent = "This contact URI may point to a professionally managed endpoint.";
 		document.getElementById("registrant_country_code").textContent = "ISO-2 country code indexing, e.g. for the United Kingdom, including post-EU withdrawal cases.";
 		document.getElementById("registrant_street_address").textContent = "Shielding address data as with example.tel, results in messy data.";
 		document.getElementById("registrant_postal_code").textContent = "Indexing by postal code is necessary in the database. The Vcard array is an obstacle.";	
@@ -442,7 +442,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Für gTLDs kann eine IANA-Registrar-Akkreditierungs-ID vorhanden sein. Diese muss korrekt sein.";
 		document.getElementById("metadata_registrar_json_response_uri").textContent = proposed + "RDAP-Informationen vom Registrar können hilfreich sein; relationship 'related'."
 		document.getElementById("metadata_registrar_complaint_uri").textContent = proposed + 'Erforderlich, wenn der Registrar von der IANA akkreditiert ist, um eine Beschwerde bearbeiten zu lassen.';
-		document.getElementById("metadata_registrar_publication_method").textContent = proposed + "Der Inhaber kann die Veröffentlichung bei einem gTLD-Registrar autorisieren.";
+		document.getElementById("metadata_registrar_publication_method").textContent = proposed + "Für gTLDs kann der Inhaber die Veröffentlichung pro Registrantenfeld aktivieren.";
 		document.getElementById("metadata_status_explanation_uri").textContent = proposed + 'Erforderlich, wenn der Registrar IANA-akkreditiert ist; bietet Erklärungen zum Statuscode.';
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Datum und Uhrzeit der RDAP-Datenbankaktualisierung in einheitlicher Zulu-Zeit (UTC).";
 		document.getElementById("properties_role").textContent = "Eine Domain unterhalb der TLD-Ebene ist weltweit eindeutig und kann unter bestimmten Regeln frei gewählt werden.";
@@ -470,7 +470,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_presented_name").textContent = "Erwartet wird der Name der primär verantwortlichen Person oder einer Rolle innerhalb der Organisation.";
 		document.getElementById("registrant_kind").textContent = "Leer / 'org' / 'individual' (Für Kontinuität: Patientenverfügung + Testament + digitaler Testamentsvollstrecker)";
 		document.getElementById("registrant_name").textContent = "Ein Personenname kann im Feld 'presented_name' öffentlich sichtbar sei. Siehe beispielsweise cira.ca.";
-		document.getElementById("registrant_contact_uri").textContent = "Die Kontakt-URI wird normalisiert, um nur spezifische Endpunkte zu behalten.";
+		document.getElementById("registrant_contact_uri").textContent = "Diese Kontakt-URI kann auf einen professionell verwalteten Endpunkt verweisen.";
 		document.getElementById("registrant_country_code").textContent = "ISO-2-Ländercode-Indexierung, z. B. für das Vereinigte Königreich, einschließlich Fälle nach dem EU-Austritt.";
 		document.getElementById("registrant_street_address").textContent = "Das Abschirmen von Adressdaten wie bei example.tel, führt zu unordentlichen Daten.";
 		document.getElementById("registrant_postal_code").textContent = "In der Datenbank ist eine Indizierung nach Postleitzahl erforderlich. Das vCard-Array stellt ein Hindernis dar.";	
@@ -529,7 +529,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Il peut exister un identifiant d'accréditation IANA pour les gTLD. Il doit être correct.";
 		document.getElementById("metadata_registrar_json_response_uri").textContent = proposed + "Des informations sur le RDAP fournies par le registraire peuvent être utiles; relationship 'related'.";
 		document.getElementById("metadata_registrar_complaint_uri").textContent = proposed + "Obligatoire si le registraire est accrédité par l'IANA, afin de pouvoir traiter une plainte.";
-		document.getElementById("metadata_registrar_publication_method").textContent = proposed + "Le titulaire peut autoriser la publication auprès d’un registrar gTLD.";
+		document.getElementById("metadata_registrar_publication_method").textContent = proposed + "Pour les gTLD, le titulaire peut activer la publication par champ du titulaire.";
 		document.getElementById("metadata_status_explanation_uri").textContent = proposed + "Obligatoire si le registraire est accrédité par l'IANA ; fournit des explications sur le code de statut.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Date et heure de mise à jour de la base de données RDAP en heure Zulu uniforme (UTC).";
 		document.getElementById("properties_role").textContent = "Un domaine inférieur au niveau TLD est unique au monde et peut être choisi librement selon certaines règles.";
@@ -557,7 +557,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_presented_name").textContent = "Le nom de la personne principalement responsable ou d’un rôle au sein de l’organisation est attendu.";
 		document.getElementById("registrant_kind").textContent = "Vide / 'org' / 'individual' (Pour la continuité : testament biologique + testament + exécuteur testamentaire numérique)";
 		document.getElementById("registrant_name").textContent = "Un nom personnel peut être visible publiquement dans le champ 'presented_name'. Voir, par exemple, cira.ca.";
-		document.getElementById("registrant_contact_uri").textContent = "L’URI de contact est normalisée afin de ne conserver que des points d’accès spécifiques.";
+		document.getElementById("registrant_contact_uri").textContent = "Cet URI de contact peut pointer vers un point d’accès géré de manière professionnelle.";
 		document.getElementById("registrant_country_code").textContent = "Indexation par code pays ISO-2, par ex. pour le Royaume-Uni, y compris après le retrait de l’UE.";
 		document.getElementById("registrant_street_address").textContent = "Le blindage des données d'adresse comme avec example.tel, génère des données désordonnées.";
 		document.getElementById("registrant_postal_code").textContent = "L'indexation par code postal est nécessaire dans la base de données. Le tableau de vCard constitue un obstacle.";
