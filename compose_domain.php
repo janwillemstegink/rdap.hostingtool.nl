@@ -40,8 +40,10 @@ if (!empty($_GET['domain']))	{
 		$registry_interface = '';
 		$registrar_interface = '';
 		$registry_rdap = write_file($domain, $batch, '');
-		$statuses = $registry_rdap['properties']['statuses_raw'] ?? null;
-		if (!empty($statuses)) {
+		$registry_statuses = $registry_rdap['properties']['statuses_raw'] ?? null;
+		$registry_zone = $registry_rdap['metadata']['zone_identifier'] ?? null;
+		$registrar_rdap = [];
+		if (!empty($registry_statuses) and mb_strlen($registry_zone) > 2) {
 			$registry_rdap['metadata']['rdap_layer'] = 'registry_rdap';
 			$registry_rdap['metadata']['registry_json_response_uri'] = $registry_rdap['metadata']['url_json_response_uri'];
 			$self_uri = $registry_rdap['metadata']['self_json_response_uri'] ?? null;
@@ -72,11 +74,14 @@ if (!empty($_GET['domain']))	{
 						$registry_rdap['metadata']['registrar_json_response_uri'] = $registrar_uri;
 						$registry_rdap['interface_notice'] = 'Registry RDAP has no rel="related" link.';
        					$registrar_rdap = write_file($domain, $batch, $registrar_uri);
-						$registrar_rdap['metadata']['rdap_layer'] = 'registrar_rdap';
-						if (strlen($registry_interface))	{
-							$registry_interface .= "<br />";
-						}
-						$registry_interface .= 'Registry RDAP has no rel="related" link.';
+						$registrar_statuses = $registrar_rdap['properties']['statuses_raw'] ?? null;
+						if (!empty($registrar_statuses)) {						
+							$registrar_rdap['metadata']['rdap_layer'] = 'registrar_rdap';
+							if (strlen($registry_interface))	{
+								$registry_interface .= "<br />";
+							}
+							$registry_interface .= 'Registry RDAP has no rel="related" link.';
+						}	
     				}	
 					else	{
 						if (strlen($registrar_interface))	{
