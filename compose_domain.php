@@ -270,6 +270,7 @@ function write_file($inputdomain, $inputbatch, $inputurl)	{
 $arr = array();
 $arr['interface_notice'] = "";
 if (strlen($inputurl))	{
+	$registry_response_model = '';
 	$url = $inputurl;
 }	
 else	{	
@@ -281,7 +282,10 @@ else	{
 		$arr['metadata']['zone_identifier'] = 'tld';
 		return $arr;
 	}
-	$time_start = microtime(true);	
+	$time_start = microtime(true);
+	//$registry_response_model = (mb_strlen($zone_identifier) > 2) ? 'thin' : 'thick';
+	$thin_tlds = ['com', 'net'];
+	$registry_response_model = in_array($zone_identifier, $thin_tlds, true) ? 'thin' : 'thick';
 	$url = '';	
 	switch ($zone_identifier) {
 		case 'nl':
@@ -365,9 +369,9 @@ else	{
 	if (!strlen($url))	{
 		$arr['interface_notice'] = $zone_identifier . " - Operational RDAP unknown";
 		return $arr;
-	}	
+	}
 	$url .= 'domain/'.$inputdomain;
-}	
+}
 $options = [
   "http" => [
     "method" => "GET",
@@ -1525,6 +1529,7 @@ $arr['metadata']['rdap_version'] = $rdap_version;
 $arr['metadata']['rdap_conformance'] = $rdap_conformance;
 $arr['metadata']['tld_information_uri'] = $tld_information_uri;
 $arr['metadata']['registry_json_response_uri'] = $url;
+$arr['metadata']['registry_response_model'] = $registry_response_model;	
 $arr['metadata']['registry_language_codes'] = $language_codes;	
 $arr['metadata']['registrar_accreditation'] = $registrar_accreditation;		
 $arr['metadata']['registrar_identifier'] = $registrar_identifier;
