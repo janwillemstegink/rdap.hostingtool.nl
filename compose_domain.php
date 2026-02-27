@@ -58,9 +58,7 @@ if (!empty($_GET['domain']))	{
     			$registry_interface .= 'Registry RDAP has equal rel="self"/"related".';
 			}
 			$registrar_identifier = $registry_rdap['metadata']['registrar_identifier'] ?? null;
-			$registrar_rdap = [];
-			//$registrar_uri = 'https://rdap.metaregistrar.com/domain/amsterdam.amsterdam';
-   			if (!empty($related_uri)) {
+			if (!empty($related_uri)) {
        			$registrar_rdap = write_file($domain, $batch, $related_uri);
 				$registry_rdap['metadata']['registrar_json_response_uri'] = $related_uri;
 				$registrar_rdap['metadata']['rdap_layer'] = 'registrar_rdap';
