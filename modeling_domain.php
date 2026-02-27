@@ -265,7 +265,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_terms_and_conditions_uri").textContent = proposed + "Verbeterde machineleesbare IANA TLD-gegevens (PostgreSQL JSON-gestructureerd)";
 		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "URI van de geplande JSON-response van de globale RDAP-server.";
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed + "URI van de JSON-response van de registry; relationship 'self'.";
-		document.getElementById("metadata_registry_response_model").textContent = proposed + "Heuristische classificatie: TLD’s 'com' en 'net' worden als 'thin' behandeld; overige als 'thick'.";
+		document.getElementById("metadata_registry_response_model").textContent = proposed + "Ontwerp: com en net worden behandeld als thin, org als delegated, overige als thick.";
 		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Ondanks de update blijft het veld zonder functioneel nut.";	
 		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Er kan een IANA Registrar Accreditation ID voor gTLD's bestaan. Deze moet correct zijn.";
 		document.getElementById("metadata_registrar_json_response_uri").textContent = proposed + "RDAP-informatie van de registrar kan nuttig zijn; relationship 'related'.";
@@ -353,7 +353,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_terms_and_conditions_uri").textContent = proposed + "Improved Machine-Readable IANA TLD Data (PostgreSQL JSON-Structured)";
 		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "URI of the planned global RDAP server JSON response.";
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed + "URI of the JSON response from the registry; relationship 'self'.";
-		document.getElementById("metadata_registry_response_model").textContent = proposed + "Heuristic classification: TLDs 'com' and 'net' are treated as 'thin'; others as 'thick'.";
+		document.getElementById("metadata_registry_response_model").textContent = proposed + "Design: com and net treated as thin, org as delegated, others as thick.";
 		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Despite the update, the field remains without functional use.";
 		document.getElementById("metadata_registrar_accreditation").textContent = modified + "There may be an IANA Registrar Accreditation ID for gTLDs. It must be correct.";
 		document.getElementById("metadata_registrar_json_response_uri").textContent = proposed + "RDAP information from the registrar can be helpful; relationship 'related'.";
@@ -441,7 +441,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_terms_and_conditions_uri").textContent = proposed + "Verbesserte maschinenlesbare IANA-TLD-Daten (PostgreSQL-JSON-strukturiert)";
 		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "URI der geplanten JSON-Antwort des globalen RDAP-Servers.";
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed + "URI der JSON-Antwort von der Registry; relationship 'self'.";
-		document.getElementById("metadata_registry_response_model").textContent = proposed + "Heuristische Klassifizierung: TLDs 'com' und 'net' werden als 'thin' behandelt; alle anderen als 'thick'.";
+		document.getElementById("metadata_registry_response_model").textContent = proposed + "Design: com und net werden als thin behandelt, org als delegated, alle übrigen als thick.";
 		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Trotz der Aktualisierung bleibt das Feld ohne funktionalen Nutzen.";
 		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Für gTLDs kann eine IANA-Registrar-Akkreditierungs-ID vorhanden sein. Diese muss korrekt sein.";
 		document.getElementById("metadata_registrar_json_response_uri").textContent = proposed + "RDAP-Informationen vom Registrar können hilfreich sein; relationship 'related'."
@@ -529,7 +529,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_terms_and_conditions_uri").textContent = proposed + "Données TLD IANA améliorées et lisibles par machine (structurées en JSON pour PostgreSQL)";
 		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "URI de la réponse JSON prévue du serveur RDAP global.";
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed + "URI de la réponse JSON du registre; relationship 'self'.";
-		document.getElementById("metadata_registry_response_model").textContent = proposed + "Classification heuristique : les TLD 'com' et 'net' sont traités comme 'thin' ; les autres comme 'thick'.";
+		document.getElementById("metadata_registry_response_model").textContent = proposed + "Conception : com et net sont traités comme thin, org comme delegated, les autres comme thick.";
 		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Malgré la mise à jour, le champ reste sans utilité fonctionnelle.";
 		document.getElementById("metadata_registrar_accreditation").textContent = modified + "Il peut exister un identifiant d'accréditation IANA pour les gTLD. Il doit être correct.";
 		document.getElementById("metadata_registrar_json_response_uri").textContent = proposed + "Des informations sur le RDAP fournies par le registraire peuvent être utiles; relationship 'related'.";

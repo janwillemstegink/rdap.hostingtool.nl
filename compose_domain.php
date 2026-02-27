@@ -282,18 +282,12 @@ else	{
 		$arr['metadata']['zone_identifier'] = 'tld';
 		return $arr;
 	}
-	$time_start = microtime(true);
-	//$registry_response_model = (mb_strlen($zone_identifier) > 2) ? 'thin' : 'thick';
-	$thin_tlds = ['com', 'net'];
-	$registry_response_model = in_array($zone_identifier, $thin_tlds, true) ? 'thin' : 'thick';
+	$time_start = microtime(true);			
 	$url = '';	
 	switch ($zone_identifier) {
 		case 'nl':
    			$url = 'https://rdap.sidn.nl/';
    			break;		
-		//case 'cc': // transparencia.cc
-   		//	$url = 'https://rdap.godaddy.com/v1/';
-   		//	break;
 		case 'biz':
    			$url = 'https://rdap.nic.biz/';
    			break;	
@@ -318,9 +312,6 @@ else	{
 		case 'fr':
 			$url = 'https://rdap.nic.fr/';
 			break;
-		//case 'it':
-		//	$url = 'https://rdap.pubtest.nic.it/';
-   		//	break;
 		case 'uk':
     		$url = 'https://rdap.nominet.uk/uk/';
     		break;
@@ -371,6 +362,17 @@ else	{
 		return $arr;
 	}
 	$url .= 'domain/'.$inputdomain;
+	switch ($zone_identifier) {
+		case 'com':
+		case 'net':
+			$registry_response_model = 'thin';
+			break;
+		case 'org':
+			$registry_response_model = 'delegated';
+			break;
+		default:
+			$registry_response_model = 'thick';
+	}
 }
 $options = [
   "http" => [
@@ -1759,4 +1761,4 @@ $arr['raw_rdap'] = $raw_rdap_data;
 
 return $arr;
 }
-?>
+}?>
