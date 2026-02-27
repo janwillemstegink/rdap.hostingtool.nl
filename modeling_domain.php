@@ -192,6 +192,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("properties_policy_statuses").textContent = modified;
 		document.getElementById("properties_dns_state").textContent = proposed;
 		document.getElementById("properties_created_at").textContent = "";
+		document.getElementById("properties_latest_data_mutation_at").textContent = modified;
 		document.getElementById("properties_expiration_at").textContent = "";
 		document.getElementById("properties_lifecycle_phase").textContent = modified;
 		document.getElementById("properties_lifecycle_phase_until").textContent = modified;
@@ -280,6 +281,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("properties_policy_statuses").textContent = modified;
 		document.getElementById("properties_dns_state").textContent = proposed + "Gemodelleerde DNS-resolutiestatussen: dns_delegated, dns_undelegated, no_dns_records, unknown.";
 		document.getElementById("properties_created_at").textContent = "De datumvelden staan hier in een logische volgorde. Dit is ook eenvoudig in de JSON-array.";
+		document.getElementById("properties_latest_data_mutation_at").textContent = modified + "Verschillende mutatieniveaus: contactobject (registrar) versus domeinobject (registry).";
 		document.getElementById("properties_expiration_at").textContent = "Vervaldatumgrens van het domein, waarna de rechten van de registrar afnemen.";
 		document.getElementById("properties_lifecycle_phase").textContent = modified + "De EPP-status 'redemptionPeriod' kan in RDAPv2 worden gewijzigd naar 'pending_redemption'.";
 		document.getElementById("properties_lifecycle_phase_until").textContent = modified;
@@ -368,6 +370,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("properties_policy_statuses").textContent = modified;
 		document.getElementById("properties_dns_state").textContent = proposed + "Modeled DNS resolution states: dns_delegated, dns_undelegated, no_dns_records, unknown.";
 		document.getElementById("properties_created_at").textContent = "The date fields are here in a logical order. This is also easy in the JSON array.";
+		document.getElementById("properties_latest_data_mutation_at").textContent = modified + "Distinct mutation layers: contact object (registrar) vs domain object (registry).";
 		document.getElementById("properties_expiration_at").textContent = "Domain expiration boundary, after which registrar rights decline.";
 		document.getElementById("properties_lifecycle_phase").textContent = modified + "The EPP 'redemptionPeriod' status can be changed to 'pending_redemption' in RDAPv2.";
 		document.getElementById("properties_lifecycle_phase_until").textContent = modified;
@@ -456,6 +459,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("properties_policy_statuses").textContent = modified;
 		document.getElementById("properties_dns_state").textContent = proposed + "Modellierte DNS-Auflösungszustände: dns_delegated, dns_undelegated, no_dns_records, unknown.";
 		document.getElementById("properties_created_at").textContent = "Die Datumsfelder stehen hier in einer logischen Reihenfolge. Auch dies ist im JSON-Array einfach.";
+		document.getElementById("properties_latest_data_mutation_at").textContent = modified + "Unterschiedliche Mutationsebenen: Kontaktobjekt (Registrar) versus Domainobjekt (Registry).";
 		document.getElementById("properties_expiration_at").textContent = "Ablaufschwelle der Domain, nach der die Befugnisse des Registrars abnehmen.";
 		document.getElementById("properties_lifecycle_phase").textContent = modified + "Der EPP-Status 'redemptionPeriod' kann in RDAPv2 auf 'pending_redemption' geändert werden.";
 		document.getElementById("properties_lifecycle_phase_until").textContent = modified;
@@ -544,6 +548,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("properties_policy_statuses").textContent = modified;
 		document.getElementById("properties_dns_state").textContent = proposed + "États de résolution DNS modélisés : dns_delegated, dns_undelegated, no_dns_records, unknown.";
 		document.getElementById("properties_created_at").textContent = "Les champs de date sont ici classés dans un ordre logique. C'est également facile dans le tableau JSON.";
+		document.getElementById("properties_latest_data_mutation_at").textContent = modified + "Niveaux de mutation distincts : objet contact (registrar) vs objet domaine (registre).";
 		document.getElementById("properties_expiration_at").textContent = "Limite d’expiration du domaine, après laquelle les droits du registrar diminuent.";
 		document.getElementById("properties_lifecycle_phase").textContent = modified + "Le statut 'redemptionPeriod' de l’EPP peut être modifié en 'pending_redemption' dans RDAPv2.";
 		document.getElementById("properties_lifecycle_phase_until").textContent = modified;
@@ -720,13 +725,7 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr><td>properties_dns_state</td><td>'.$data[$pd]['registry']['properties']['dns_state'].'</td><td id="properties_dns_state"></td><td>'.$data[$pd]['registrar']['properties']['dns_state'].'</td></tr>';
 	$html_text .= '<tr id="307" style="display:none"><td>properties_created_at</td><td>'.$data[$pd]['registry']['properties']['created_at'].'</td><td id="properties_created_at"></td><td>'.$data[$pd]['registrar']['properties']['created_at'].'</td></tr>';
 	$html_text .= '<tr id="308" style="display:none"><td>properties_latest_registrar_transfer_at</td><td>'.$data[$pd]['registry']['properties']['latest_registrar_transfer_at'].'</td><td></td><td>'.$data[$pd]['registrar']['properties']['latest_registrar_transfer_at'].'</td></tr>';		
-	$html_text .= '<tr><td>properties_latest_data_mutation_at</td><td>'.$data[$pd]['registry']['properties']['latest_data_mutation_at'].'</td><td>';	
-	if (!is_null($data[$pd]['registrar']['properties']['latest_data_mutation_at']))	{
-		if (substr($data[$pd]['registrar']['properties']['latest_data_mutation_at'], 0, 10) > substr($data[$pd]['registry']['properties']['latest_data_mutation_at'], 0, 10))	{
-			$html_text .= '(<b>Later mutation time from gTLD Registrar RDAP</b>)';	
-		}				
-	}	
-	$html_text .= '</td><td>'.$data[$pd]['registrar']['properties']['latest_data_mutation_at'].'</td></tr>';		
+	$html_text .= '<tr><td>properties_latest_data_mutation_at</td><td>'.$data[$pd]['registry']['properties']['latest_data_mutation_at'].'</td><td id="properties_latest_data_mutation_at"></td><td>'.$data[$pd]['registrar']['properties']['latest_data_mutation_at'].'</td></tr>';	
 	$html_text .= '<tr><td>properties_expiration_at</td><td>'.$data[$pd]['registry']['properties']['expiration_at'].'</td><td id="properties_expiration_at"></td><td>'.$data[$pd]['registrar']['properties']['expiration_at'].'</td></tr>';
 	$html_text .= '<tr id="309" style="display:none"><td>properties_lifecycle_phase</td><td>'.$data[$pd]['registry']['properties']['lifecycle_phase'].'</td><td id="properties_lifecycle_phase"></td><td>'.$data[$pd]['registrar']['properties']['lifecycle_phase'].'</td></tr>';
 	$html_text .= '<tr id="3010" style="display:none"><td>properties_lifecycle_phase_until</td><td>'.$data[$pd]['registry']['properties']['lifecycle_phase_until'].'</td><td id="properties_lifecycle_phase_until"></td><td>'.$data[$pd]['registrar']['properties']['lifecycle_phase_until'].'</td></tr>';
