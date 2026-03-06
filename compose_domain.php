@@ -37,12 +37,12 @@ if (!empty($_GET['domain']))	{
 		}		
 		$domain = toPunycodeIfNeeded($domain);
 		header('Content-Type: application/json');
-		$registry_interface = '';
-		$registrar_interface = '';
 		$registry_rdap = write_file($domain, $batch, '');
+		$registry_interface = $registry_rdap['interface_notice'] ?? '';		
 		$registry_statuses = $registry_rdap['properties']['statuses_raw'] ?? null;
 		$registry_zone = $registry_rdap['metadata']['zone_identifier'] ?? null;
 		$registrar_rdap = [];
+		$registrar_interface = '';
 		if (!empty($registry_statuses) and mb_strlen($registry_zone) > 2) {
 			$registry_rdap['metadata']['rdap_layer'] = 'registry_rdap';
 			$registry_rdap['metadata']['registry_json_response_uri'] = $registry_rdap['metadata']['url_json_response_uri'];
@@ -72,6 +72,7 @@ if (!empty($_GET['domain']))	{
 						$registry_rdap['metadata']['registrar_json_response_uri'] = $registrar_uri;
 						$registry_rdap['interface_notice'] = 'Registry RDAP has no rel="related" link.';
        					$registrar_rdap = write_file($domain, $batch, $registrar_uri);
+						$registrar_interface = $registrar_rdap['interface_notice'] ?? '';
 						$registrar_statuses = $registrar_rdap['properties']['statuses_raw'] ?? null;
 						if (!empty($registrar_statuses)) {						
 							$registrar_rdap['metadata']['rdap_layer'] = 'registrar_rdap';
@@ -428,7 +429,7 @@ catch (JsonException $e) {
 if (!is_array($obj)) {
 	$arr['interface_notice'] = "200 - Invalid JSON structure at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec observed from $server_seen";
 	return $arr;
-}
+}	
 $notices = '';	
 $links = '';		
 $redacted = '';
@@ -452,7 +453,9 @@ $latest_registrar_transfer_at = null;
 $latest_data_mutation_at = null;
 $server_statuses = '';
 $client_statuses = '';
-$policy_statuses = '';
+$lifecycle_phase = '';	
+$indeterminate_statuses = '';	
+	
 $dns_state = 'dns_undelegated';
 $expiration_at = null;
 $lifecycle_phase = '';	

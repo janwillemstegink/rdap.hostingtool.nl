@@ -161,7 +161,7 @@ function SwitchTranslation(translation)	{
 		var proposed = '';
 		var accessible = '';
 		var legacy = '';
-		document.getElementById("title").textContent = "Domain Infrastructure Intelligence";
+		document.getElementById("title").textContent = "Domain Intelligence — RDAP Data · Verification";
 		document.getElementById("modeling").textContent = "";
 		document.getElementById("instruction").textContent = "Enter here:";
 		document.getElementById("field_name").textContent = "Modeled with snake_case";
@@ -250,7 +250,7 @@ function SwitchTranslation(translation)	{
 		var proposed = '(Nieuw) ';
 		var accessible = 'Voor het gebruiksgemak en de duidelijkheid kunnen nieuwe velden worden toegevoegd.';
 		var legacy = '(Legacy) ';
-		document.getElementById("title").textContent = "Domein-infrastructuurintelligentie";
+		document.getElementById("title").textContent = "Domeinintelligentie — RDAP-gegevens · Verificatie";
 		document.getElementById("modeling").textContent = "Deze RDAP-modellering biedt Nederland een gestructureerd referentiekader voor het afstemmen van technische conformiteit op praktische transparantie. Een Nationale Raad voor Digitale Kaders kan dienen als platform van waaruit Nederland bijdraagt aan versterkte internationale dialoog over digitale standaarden en governance.";
 		document.getElementById("instruction").textContent = "Geef hier in:";
 		document.getElementById("field_name").textContent = "Gemodelleerd met snake_case";
@@ -264,7 +264,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_rdap_layer").textContent = proposed + "Geeft aan uit welke RDAP-laag de gegevens afkomstig zijn.";
 		document.getElementById("metadata_rdap_issue_uri").textContent = proposed + "URI voor het melden van technische of dataintegriteitsproblemen in RDAP";
 		document.getElementById("metadata_terms_and_conditions_uri").textContent = proposed + "Verbeterde machineleesbare IANA TLD-gegevens (PostgreSQL JSON-gestructureerd)";
-		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "URI van de geplande JSON-response van de globale RDAP-server.";
+		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "JSON-response via een globale RDAP-URI die kan verwijzen naar een andere RDAP-bron.";
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed + "URI van de JSON-response van de registry; relationship 'self'.";
 		document.getElementById("metadata_registry_response_model").textContent = proposed + "Ontwerp: com en net worden behandeld als thin, org als delegated, overige als thick.";
 		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Ondanks de update blijft het veld zonder functioneel nut.";	
@@ -339,7 +339,7 @@ function SwitchTranslation(translation)	{
 		var proposed = '(New) ';
 		var accessible = 'For ease of use and clarity, new fields can be added.';
 		var legacy = '(Legacy) ';
-		document.getElementById("title").textContent = "Domain Infrastructure Intelligence";
+		document.getElementById("title").textContent = "Domain Intelligence — RDAP Data · Verification";
 		document.getElementById("modeling").textContent = "This RDAP modeling provides the Netherlands with a structured reference for aligning technical conformity with practical transparency. A National Council for Digital Frameworks could serve as a platform through which the Netherlands contributes to enhanced international dialogue on digital standards and governance.";
 		document.getElementById("instruction").textContent = "Enter here:";
 		document.getElementById("field_name").textContent = "Modeled with snake_case";
@@ -353,7 +353,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_rdap_layer").textContent = proposed + "Indicates the RDAP layer from which the data originates.";
 		document.getElementById("metadata_rdap_issue_uri").textContent = proposed + "URI for reporting RDAP technical or data integrity issues";
 		document.getElementById("metadata_terms_and_conditions_uri").textContent = proposed + "Improved Machine-Readable IANA TLD Data (PostgreSQL JSON-Structured)";
-		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "URI of the planned global RDAP server JSON response.";
+		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "JSON response via a global RDAP URI that may reference another RDAP source.";
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed + "URI of the JSON response from the registry; relationship 'self'.";
 		document.getElementById("metadata_registry_response_model").textContent = proposed + "Design: com and net treated as thin, org as delegated, others as thick.";
 		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Despite the update, the field remains without functional use.";
@@ -428,7 +428,7 @@ function SwitchTranslation(translation)	{
 		var proposed = '(Neu) ';
 		var accessible = 'Zur Vereinfachung und besseren Übersichtlichkeit können neue Felder hinzugefügt werden.';
 		var legacy = '(Legacy) ';
-		document.getElementById("title").textContent = "Domain-Infrastruktur-Intelligenz";
+		document.getElementById("title").textContent = "Domain Intelligence — RDAP-Daten · Kontaktverifikation";
 		document.getElementById("modeling").textContent = "Diese RDAP-Modellierung bietet den Niederlanden einen strukturierten Referenzrahmen zur Abstimmung technischer Konformität mit praktischer Transparenz. Ein Nationaler Rat für Digitale Rahmenwerke könnte als Plattform dienen, über die die Niederlande zu einem verstärkten internationalen Dialog über digitale Standards und Governance beitragen.";
 		document.getElementById("instruction").textContent = "Hier eingeben:";
 		document.getElementById("field_name").textContent = "Modelliert mit snake_case";
@@ -442,7 +442,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_rdap_layer").textContent = proposed + "Gibt an, aus welcher RDAP-Ebene die Daten stammen.";
 		document.getElementById("metadata_rdap_issue_uri").textContent = proposed + "URI zur Meldung technischer oder Datenintegritätsprobleme bei RDAP";
 		document.getElementById("metadata_terms_and_conditions_uri").textContent = proposed + "Verbesserte maschinenlesbare IANA-TLD-Daten (PostgreSQL-JSON-strukturiert)";
-		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "URI der geplanten JSON-Antwort des globalen RDAP-Servers.";
+		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "JSON-Antwort über eine globale RDAP-URI, die auf eine andere RDAP-Quelle verweisen kann.";
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed + "URI der JSON-Antwort von der Registry; relationship 'self'.";
 		document.getElementById("metadata_registry_response_model").textContent = proposed + "Design: com und net werden als thin behandelt, org als delegated, alle übrigen als thick.";
 		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Trotz der Aktualisierung bleibt das Feld ohne funktionalen Nutzen.";
@@ -517,7 +517,7 @@ function SwitchTranslation(translation)	{
 		var proposed = '(Nouveau) ';
 		var accessible = "Pour plus de facilité d'utilisation et de clarté, de nouveaux champs peuvent être ajoutés.";
 		var legacy = '(Legacy) ';
-		document.getElementById("title").textContent = "Intelligence des infrastructures de noms de domaine";
+		document.getElementById("title").textContent = "Domain Intelligence — Données RDAP · Vérification";
 		document.getElementById("modeling").textContent = "Cette modélisation RDAP fournit aux Pays-Bas un cadre de référence structuré pour aligner la conformité technique avec la transparence pratique. Un Conseil national des cadres numériques pourrait servir de plateforme par laquelle les Pays-Bas contribuent à un dialogue international renforcé sur les standards numériques et la gouvernance.";
 		document.getElementById("instruction").textContent = "Saisissez ici :";
 		document.getElementById("field_name").textContent = "Modélisé en snake_case";
@@ -531,7 +531,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_rdap_layer").textContent = proposed + "Indique la couche RDAP dont proviennent les données.";
 		document.getElementById("metadata_rdap_issue_uri").textContent = proposed + "URI pour signaler des problèmes techniques ou d’intégrité des données RDAP";
 		document.getElementById("metadata_terms_and_conditions_uri").textContent = proposed + "Données TLD IANA améliorées et lisibles par machine (structurées en JSON pour PostgreSQL)";
-		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "URI de la réponse JSON prévue du serveur RDAP global.";
+		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "Réponse JSON via une URI RDAP globale pouvant référencer une autre source RDAP.";
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed + "URI de la réponse JSON du registre; relationship 'self'.";
 		document.getElementById("metadata_registry_response_model").textContent = proposed + "Conception : com et net sont traités comme thin, org comme delegated, les autres comme thick.";
 		document.getElementById("metadata_registry_language_codes").textContent = legacy + "Malgré la mise à jour, le champ reste sans utilité fonctionnelle.";
@@ -623,6 +623,7 @@ $context = stream_context_create([
   ],
 ]);
 $json = @file_get_contents($rdap_uri, false, $context);
+
 if ($json === false) {
   $err = error_get_last();
   die("The RDAP endpoint could not be reached. " . ($err['message'] ?? 'Unknown error'));
