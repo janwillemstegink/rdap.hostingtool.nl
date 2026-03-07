@@ -1532,8 +1532,7 @@ $arr['metadata']['rdap_version'] = $rdap_version;
 $arr['metadata']['rdap_conformance'] = $rdap_conformance;
 $arr['metadata']['tld_information_uri'] = $tld_information_uri;
 $arr['metadata']['registry_json_response_uri'] = $url;
-$arr['metadata']['registry_response_model'] = $registry_response_model;	
-$arr['metadata']['registry_language_codes'] = $language_codes;	
+$arr['metadata']['registry_response_model'] = $registry_response_model;		
 $arr['metadata']['registrar_accreditation'] = $registrar_accreditation;		
 $arr['metadata']['registrar_identifier'] = $registrar_identifier;
 $arr['metadata']['url_json_response_uri'] = $url;
@@ -1541,6 +1540,7 @@ $arr['metadata']['self_json_response_uri'] = $self_json_response_uri;
 $arr['metadata']['related_json_response_uri'] = $related_json_response_uri;
 $arr['metadata']['registrar_complaint_uri'] = $registrar_complaint_uri;
 $arr['metadata']['status_explanation_uri'] = $status_explanation_uri;
+$arr['metadata']['language_codes'] = $language_codes;
 $arr['metadata']['geo_location'] = '';
 $arr['metadata']['resource_upload_at'] = $resource_upload_at;		
 	
