@@ -88,7 +88,7 @@ if (!empty($_GET['domain']))	{
 						}
 						$registrar_interface .= $iana_id . " - no retrieval";	
 					}	
-				}			
+				}
 			}
 			$url_uri = $registrar_rdap['metadata']['url_json_response_uri'] ?? null;
 			$self_uri = $registrar_rdap['metadata']['self_json_response_uri'] ?? null;
@@ -438,7 +438,7 @@ $object_type = $obj['objectClassName'];
 $rdap_version = '';	
 $rdap_conformance = (is_array($obj['rdapConformance'])) ? implode(",<br />", $obj['rdapConformance']) : $obj['rdapConformance'];
 $language_codes = (is_array($obj['lang'])) ? implode(",<br />", $obj['lang']) : $obj['lang'];
-$registrar_accreditation = '';
+$registrar_identifiers = '';
 $registrar_identifier = null;
 $self_json_response_uri = '';
 $related_json_response_uri = '';
@@ -923,7 +923,7 @@ foreach($obj as $key1 => $value1) {
 						}	
 					}
 					if ($key2 == $entity_registrar and $key3 == 'publicIds')	{
-						$registrar_accreditation .= $value4['type'].': '.$value4['identifier']."<br />";
+						$registrar_identifiers .= $value4['type'].': '.$value4['identifier']."<br />";
 						$registrar_identifier = $value4['identifier'];
 					}					
 				}
@@ -1533,7 +1533,7 @@ $arr['metadata']['rdap_conformance'] = $rdap_conformance;
 $arr['metadata']['tld_information_uri'] = $tld_information_uri;
 $arr['metadata']['registry_json_response_uri'] = $url;
 $arr['metadata']['registry_response_model'] = $registry_response_model;		
-$arr['metadata']['registrar_accreditation'] = $registrar_accreditation;		
+$arr['metadata']['registrar_identifiers'] = $registrar_identifiers;		
 $arr['metadata']['registrar_identifier'] = $registrar_identifier;
 $arr['metadata']['url_json_response_uri'] = $url;
 $arr['metadata']['self_json_response_uri'] = $self_json_response_uri;
