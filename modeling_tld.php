@@ -92,7 +92,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 41)		{ // zone information
 		var pre = '41';
-		var max = 12
+		var max = 14
 	}
 	else if (type == 42)	{ // zone contacts
 		var pre = '42';
@@ -175,6 +175,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_tld_category").textContent = proposed;
 		document.getElementById("root_zone_tld_type").textContent = proposed;
 		document.getElementById("root_zone_tld_statuses").textContent = modified;
+		document.getElementById("root_zone_tld_storage_model").textContent = proposed;
+		document.getElementById("root_zone_tld_response_model").textContent = proposed;
 		document.getElementById("root_zone_tld_services_uri").textContent = proposed;		
 		document.getElementById("root_zone_tld_delegation_uri").textContent = proposed;
 		document.getElementById("root_zone_tld_json_response_uri").textContent = proposed;
@@ -221,9 +223,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_tld_category").textContent = proposed + 'Geeft een generieke TLD (gTLD) of een landcode-TLD (ccTLD) aan.';
 		document.getElementById("root_zone_tld_type").textContent = proposed + 'Het TLD-type, bijvoorbeeld gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD of geoTLD.';
 		document.getElementById("root_zone_tld_statuses").textContent = modified;
+		document.getElementById("root_zone_tld_storage_model").textContent = proposed + "Opslagmodel voor TLD-domeingegevens (thin of thick).";
+		document.getElementById("root_zone_tld_response_model").textContent = proposed + "RDAP-responsmodel voor domeingegevens (thin, delegated, thick).";
 		document.getElementById("root_zone_tld_services_uri").textContent = proposed + 'Een TLD-specifiek informatiemenu, beschikbaar onder een subdomein zoals "regmenu".';
 		document.getElementById("root_zone_tld_delegation_uri").textContent = proposed + 'URI die verwijst naar het ICANN-delegatierecord voor de TLD.';
-		document.getElementById("root_zone_tld_json_response_uri").textContent = proposed + "IANA kan overstappen op een moderne database voor de rollen en levenscyclus.";
+		document.getElementById("root_zone_tld_json_response_uri").textContent = proposed + "TLD-metadata, mogelijk afkomstig uit gemoderniseerde IANA-datadiensten.";
 		document.getElementById("root_zone_tld_terms_of_service_uri").textContent = proposed;
 		document.getElementById("root_zone_tld_privacy_policy_uri").textContent = proposed;
 		document.getElementById("root_zone_tld_search_engine_deletion_phase_ready").textContent = proposed + 'Of zoekmachines op pending delete mogen vertrouwen om resultaten te wissen.';
@@ -267,9 +271,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_tld_category").textContent = proposed + 'Indicates generic TLD (gTLD) or a country-code TLD (ccTLD).';
 		document.getElementById("root_zone_tld_type").textContent = proposed + 'The TLD type, such as gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD, or geoTLD.';
 		document.getElementById("root_zone_tld_statuses").textContent = modified;
+		document.getElementById("root_zone_tld_storage_model").textContent = proposed + "Storage model for TLD domain data (thin or thick).";
+		document.getElementById("root_zone_tld_response_model").textContent = proposed + "RDAP response model for domain data (thin, delegated, thick).";		
 		document.getElementById("root_zone_tld_services_uri").textContent = proposed + 'A TLD specific information menu, available under a subdomain such as "regmenu".';
 		document.getElementById("root_zone_tld_delegation_uri").textContent = proposed + 'URI pointing to the ICANN delegation record for the TLD.';
-		document.getElementById("root_zone_tld_json_response_uri").textContent = proposed + "IANA can move to a modern database for the roles and lifecycle.";
+		document.getElementById("root_zone_tld_json_response_uri").textContent = proposed + "TLD metadata, potentially derived from modernized IANA data services.";
 		document.getElementById("root_zone_tld_terms_of_service_uri").textContent = proposed;
 		document.getElementById("root_zone_tld_privacy_policy_uri").textContent = proposed;		
 		document.getElementById("root_zone_tld_search_engine_deletion_phase_ready").textContent = proposed + 'If search engines may rely on pending delete to delete results.';
@@ -310,10 +316,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_root_accepted_workload").textContent = proposed + "IANA kann zukünftig Limits festlegen.";
 		document.getElementById("root_zone_role").textContent = "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
-		document.getElementById("root_zone_tld_json_response_uri").textContent = proposed + "IANA kann für die Rollen und den Lebenszyklus auf eine moderne Datenbank umsteigen.";
+		document.getElementById("root_zone_tld_json_response_uri").textContent = proposed + "TLD-Metadaten, möglicherweise aus modernisierten IANA-Datendiensten abgeleitet.";
 		document.getElementById("root_zone_tld_category").textContent = proposed + 'Zeigt eine generische TLD (gTLD) oder eine länderspezifische TLD (ccTLD) an.';
 		document.getElementById("root_zone_tld_type").textContent = proposed + 'Der TLD-Typ, z. B. gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD oder geoTLD.';
 		document.getElementById("root_zone_tld_statuses").textContent = modified;
+		document.getElementById("root_zone_tld_storage_model").textContent = proposed + "Speichermodell für TLD-Domaindaten (thin oder thick).";
+		document.getElementById("root_zone_tld_response_model").textContent = proposed + "RDAP-Antwortmodell für Domaindaten (thin, delegated, thick).";		
 		document.getElementById("root_zone_tld_services_uri").textContent = proposed + 'Ein TLD-spezifisches Informationsmenü, verfügbar unter einer Subdomäne wie "regmenu".';
 		document.getElementById("root_zone_tld_delegation_uri").textContent = proposed + 'URI mit Verweis auf den ICANN-Delegationsdatensatz für die TLD.';
 		document.getElementById("root_zone_tld_terms_of_service_uri").textContent = proposed;
@@ -359,9 +367,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_zone_tld_category").textContent = proposed + "Indique un TLD générique (gTLD) ou un TLD de code pays (ccTLD).";
 		document.getElementById("root_zone_tld_type").textContent = proposed + "Le type de TLD, tel que gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD ou geoTLD.";
 		document.getElementById("root_zone_tld_statuses").textContent = modified;
+		document.getElementById("root_zone_tld_storage_model").textContent = proposed + "Mode de stockage des données de domaine du TLD (thin ou thick).";
+		document.getElementById("root_zone_tld_response_model").textContent = proposed + "Mode de réponse RDAP pour les données de domaine (thin, delegated, thick).";
 		document.getElementById("root_zone_tld_services_uri").textContent = proposed + "Un menu d'informations spécifique au TLD, disponible sous un sous-domaine tel que 'regmenu'.";
 		document.getElementById("root_zone_tld_delegation_uri").textContent = proposed + "URI référençant l'enregistrement de délégation de l'ICANN pour le TLD.";
-		document.getElementById("root_zone_tld_json_response_uri").textContent = proposed + "L'IANA peut passer à une base de données moderne pour les rôles et le cycle de vie.";
+		document.getElementById("root_zone_tld_json_response_uri").textContent = proposed + "Métadonnées du TLD, éventuellement issues de services de données IANA modernisés.";
 		document.getElementById("root_zone_tld_terms_of_service_uri").textContent = proposed;
 		document.getElementById("root_zone_tld_privacy_policy_uri").textContent = proposed;		
 		document.getElementById("root_zone_tld_search_engine_deletion_phase_ready").textContent = proposed + "Si les moteurs peuvent se fier à pending delete pour supprimer des résultats.";
@@ -442,12 +452,14 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="414" style="display:table-row"><td>tld_ascii_name</td><td>'.$data[$pd]['root_zone']['tld_ascii_name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="415" style="display:table-row"><td>tld_unicode_name</td><td>'.$data[$pd]['root_zone']['tld_unicode_name'].'</td><td></td></tr>';
 	$html_text .= '<tr id="416" style="display:table-row"><td>tld_statuses</td><td> '.$data[$pd]['root_zone']['tld_statuses'].'</td><td id="root_zone_tld_statuses"></td></tr>';
-	$html_text .= '<tr id="417" style="display:table-row"><td>tld_services_uri</td><td>'.((strlen($data[$pd]['root_zone']['tld_services_uri'])) ? '<a href='.$data[$pd]['root_zone']['tld_services_uri'].' target="_blank">TLD Services</a>' : '').'</td><td id="root_zone_tld_services_uri"></td></tr>';
-	$html_text .= '<tr id="418" style="display:table-row"><td>tld_delegation_uri</td><td><a href='.$data[$pd]['root_zone']['tld_delegation_uri'].' target="_blank">TLD Delegation</a></td><td id="root_zone_tld_delegation_uri"></td></tr>';
-	$html_text .= '<tr id="419" style="display:table-row"><td>tld_json_response_uri</td><td>'.((strlen($data[$pd]['root_zone']['tld_json_response_uri'])) ? '<a href='.$data[$pd]['root_zone']['tld_json_response_uri'].' target="_blank">TLD Data</a>' : '').'</td><td id="root_zone_tld_json_response_uri"></td></tr>';
-	$html_text .= '<tr id="4110" style="display:table-row"><td>tld_terms_of_service_uri</td><td>'.((strlen($data[$pd]['root_zone']['tld_terms_of_service_uri'])) ? '<a href='.$data[$pd]['root_zone']['tld_terms_of_service_uri'].' target="_blank">TLD Terms</a>' : '').'</td><td id="root_zone_tld_terms_of_service_uri"></td></tr>';
-	$html_text .= '<tr id="4111" style="display:table-row"><td>tld_privacy_policy_uri</td><td>'.((strlen($data[$pd]['root_zone']['tld_privacy_policy_uri'])) ? '<a href='.$data[$pd]['root_zone']['tld_privacy_policy_uri'].' target="_blank">TLD Privacy</a>' : '').'</td><td id="root_zone_tld_privacy_policy_uri"></td></tr>';
-	$html_text .= '<tr  id="4112" style="display:table-row"><td>tld_search_engine_deletion_phase_ready</td><td>'.$data[$pd]['root_zone']['tld_search_engine_deletion_phase_ready'].'</td><td id="root_zone_tld_search_engine_deletion_phase_ready"></td></tr>';
+	$html_text .= '<tr id="417" style="display:table-row"><td>tld_storage_model</td><td> '.$data[$pd]['root_zone']['tld_storage_model'].'</td><td id="root_zone_tld_storage_model"></td></tr>';
+	$html_text .= '<tr id="418" style="display:table-row"><td>tld_response_model</td><td> '.$data[$pd]['root_zone']['tld_response_model'].'</td><td id="root_zone_tld_response_model"></td></tr>';
+	$html_text .= '<tr id="419" style="display:table-row"><td>tld_services_uri</td><td>'.((strlen($data[$pd]['root_zone']['tld_services_uri'])) ? '<a href='.$data[$pd]['root_zone']['tld_services_uri'].' target="_blank">TLD Services</a>' : '').'</td><td id="root_zone_tld_services_uri"></td></tr>';
+	$html_text .= '<tr id="4110" style="display:table-row"><td>tld_delegation_uri</td><td><a href='.$data[$pd]['root_zone']['tld_delegation_uri'].' target="_blank">TLD Delegation</a></td><td id="root_zone_tld_delegation_uri"></td></tr>';
+	$html_text .= '<tr id="4111" style="display:table-row"><td>tld_json_response_uri</td><td>'.((strlen($data[$pd]['root_zone']['tld_json_response_uri'])) ? '<a href='.$data[$pd]['root_zone']['tld_json_response_uri'].' target="_blank">TLD Data</a>' : '').'</td><td id="root_zone_tld_json_response_uri"></td></tr>';
+	$html_text .= '<tr id="4112" style="display:table-row"><td>tld_terms_of_service_uri</td><td>'.((strlen($data[$pd]['root_zone']['tld_terms_of_service_uri'])) ? '<a href='.$data[$pd]['root_zone']['tld_terms_of_service_uri'].' target="_blank">TLD Terms</a>' : '').'</td><td id="root_zone_tld_terms_of_service_uri"></td></tr>';
+	$html_text .= '<tr id="4113" style="display:table-row"><td>tld_privacy_policy_uri</td><td>'.((strlen($data[$pd]['root_zone']['tld_privacy_policy_uri'])) ? '<a href='.$data[$pd]['root_zone']['tld_privacy_policy_uri'].' target="_blank">TLD Privacy</a>' : '').'</td><td id="root_zone_tld_privacy_policy_uri"></td></tr>';
+	$html_text .= '<tr  id="4114" style="display:table-row"><td>tld_search_engine_deletion_phase_ready</td><td>'.$data[$pd]['root_zone']['tld_search_engine_deletion_phase_ready'].'</td><td id="root_zone_tld_search_engine_deletion_phase_ready"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Zone Contacts +/-</button></td><td></td><td id="root_zone_tld_contacts"></td></tr>';
 	$html_text .= '<tr id="421" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root_zone']['tld_contacts'].'</td><td id="root_zone_tld_contacts"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Zone Accepted Workload +/-</button></td><td></td><td id="root_zone_zone_accepted_workload"></td></tr>';

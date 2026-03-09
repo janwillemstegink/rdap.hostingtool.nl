@@ -44,7 +44,7 @@ if (!empty($_GET['domain']))	{
 		$registrar_rdap = [];
 		$registrar_interface = '';
 		if (!empty($registry_statuses) and mb_strlen($registry_zone) > 2) {
-			$registry_rdap['metadata']['rdap_layer'] = 'registry_rdap';
+			$registry_rdap['metadata']['rdap_data_layer'] = 'registry_rdap';
 			$registry_rdap['metadata']['registry_json_response_uri'] = $registry_rdap['metadata']['url_json_response_uri'];
 			$self_uri = $registry_rdap['metadata']['self_json_response_uri'] ?? null;
 			$related_uri = $registry_rdap['metadata']['related_json_response_uri'] ?? null;
@@ -61,7 +61,7 @@ if (!empty($_GET['domain']))	{
 			if (!empty($related_uri)) {
        			$registrar_rdap = write_file($domain, $batch, $related_uri);
 				$registry_rdap['metadata']['registrar_json_response_uri'] = $related_uri;
-				$registrar_rdap['metadata']['rdap_layer'] = 'registrar_rdap';
+				$registrar_rdap['metadata']['rdap_data_layer'] = 'registrar_rdap';
 			}
 			elseif (!empty($registrar_identifier))	{
 				$iana_id = (int) $registrar_identifier;
@@ -75,7 +75,7 @@ if (!empty($_GET['domain']))	{
 						$registrar_interface = $registrar_rdap['interface_notice'] ?? '';
 						$registrar_statuses = $registrar_rdap['properties']['statuses_raw'] ?? null;
 						if (!empty($registrar_statuses)) {						
-							$registrar_rdap['metadata']['rdap_layer'] = 'registrar_rdap';
+							$registrar_rdap['metadata']['rdap_data_layer'] = 'registrar_rdap';
 							if (strlen($registry_interface))	{
 								$registry_interface .= "<br />";
 							}
@@ -269,7 +269,6 @@ function write_file($inputdomain, $inputbatch, $inputurl)	{
 $arr = array();
 $arr['interface_notice'] = "";
 if (strlen($inputurl))	{
-	$registry_response_model = '';
 	$url = $inputurl;
 }	
 else	{	
@@ -361,17 +360,6 @@ else	{
 		return $arr;
 	}
 	$url .= 'domain/'.$inputdomain;
-	switch ($zone_identifier) {
-		case 'com':
-		case 'net':
-			$registry_response_model = 'thin';
-			break;
-		case 'org':
-			$registry_response_model = 'delegated';
-			break;
-		default:
-			$registry_response_model = 'thick';
-	}
 }
 $options = [
   "http" => [
@@ -1531,8 +1519,7 @@ $arr['metadata']['object_type'] = $object_type;
 $arr['metadata']['rdap_version'] = $rdap_version;
 $arr['metadata']['rdap_conformance'] = $rdap_conformance;
 $arr['metadata']['tld_information_uri'] = $tld_information_uri;
-$arr['metadata']['registry_json_response_uri'] = $url;
-$arr['metadata']['registry_response_model'] = $registry_response_model;		
+$arr['metadata']['registry_json_response_uri'] = $url;	
 $arr['metadata']['registrar_identifiers'] = $registrar_identifiers;		
 $arr['metadata']['registrar_identifier'] = $registrar_identifier;
 $arr['metadata']['url_json_response_uri'] = $url;

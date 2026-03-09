@@ -62,7 +62,9 @@ $notices = '';
 $links = '';	
 $tld_ascii_name = $obj['ldhName'];
 $tld_unicode_name = $obj['unicodeName'];		
-$root_zone_statuses = '';	
+$tld_statuses = '';	
+$tld_storage_model = '';
+$tld_response_model = '';
 $nameservers_handles = '';
 $nameservers_ascii = '';
 $nameservers_unicode = '';
@@ -76,7 +78,7 @@ $nameservers_dnssec_digest_type = '';
 $nameservers_dnssec_digest = '';	
 foreach($obj as $key1 => $value1) {
 	if ($key1 == 'status')	{	
-		$root_zone_statuses .= (is_array($value1)) ? implode(",<br />", $value1) : $value1;
+		$tld_statuses .= (is_array($value1)) ? implode(",<br />", $value1) : $value1;
 	}
 	foreach($value1 as $key2 => $value2) {
 		if ($key1 == 'secureDNS')	{
@@ -173,7 +175,7 @@ $tld_search_engine_deletion_phase_ready = 'n/a';
 $tld_contacts_json = '[]';
 $tld_roles_json = '[
 {"tld_role_sequence": 10,"tld_role_identifier": "contracting_authority","tld_role_shielding": ["name", "tel"]},
-{"tld_role_sequence": 20,"tld_role_identifier": "contracting_organization","tld_role_shielding": ["name", "tel"]},
+{"tld_role_sequence": 20,"tld_role_identifier": "contract_holder","tld_role_shielding": ["name", "tel"]},
 {"tld_role_sequence": 30,"tld_role_identifier": "sponsoring_organization","tld_role_shielding": ["name", "tel"]},
 {"tld_role_sequence": 40,"tld_role_identifier": "country_code_designated_manager","tld_role_shielding": ["name", "tel"]},
 {"tld_role_sequence": 50,"tld_role_identifier": "registry_operator","tld_role_shielding": []},
@@ -282,7 +284,7 @@ if ($inputtld == 'nl')	{
 	]';
 	$tld_contacts_json = '[
         {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-		{"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+		{"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "Stichting Internet Domeinregistratie Nederland", "contact_presented_name": null},
         {"contact_identifier": "registry_operator", "contact_legal_name": "Stichting Internet Domeinregistratie Nederland", "contact_presented_name": null},
@@ -311,7 +313,7 @@ elseif ($inputtld == 'frl')	{
 	$tld_type = 'geoTLD';
 	$tld_contacts_json = '[
 		{"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "sponsoring_organization", "contact_legal_name": "FRLregistry B.V.", "contact_presented_name": null},
         {"contact_identifier": "country_code_designated_manager", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "registry_operator", "contact_legal_name": "FRLregistry B.V.", "contact_presented_name": null},
@@ -325,7 +327,7 @@ elseif ($inputtld == 'amsterdam')	{
 	$tld_type = 'geoTLD';
 	$tld_contacts_json = '[
 		{"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "sponsoring_organization", "contact_legal_name": "Gemeente Amsterdam", "contact_presented_name": null},
         {"contact_identifier": "country_code_designated_manager", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "registry_operator", "contact_legal_name": "Stichting Internet Domeinregistratie Nederland", "contact_presented_name": null},
@@ -341,7 +343,7 @@ elseif ($inputtld == 'politie')	{
 	$tld_type = 'Brand gTLD';
 	$tld_contacts_json = '[
 		{"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "sponsoring_organization", "contact_legal_name": "Politie Nederland", "contact_presented_name": null},
         {"contact_identifier": "country_code_designated_manager", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "registry_operator", "contact_legal_name": "Stichting Internet Domeinregistratie Nederland", "contact_presented_name": null},
@@ -367,7 +369,7 @@ elseif ($inputtld == 'eu')	{
 	]';
 	$tld_contacts_json = '[
 		{"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+        {"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "EURid vzw/asbl", "contact_presented_name": null},
         {"contact_identifier": "registry_operator", "contact_legal_name": "EURid vzw", "contact_presented_name": null},
@@ -390,7 +392,7 @@ elseif ($inputtld == 'de')	{
 	]';
 	$tld_contacts_json = '[
         {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-		{"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+		{"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "DENIC eG", "contact_presented_name": null},
         {"contact_identifier": "registry_operator", "contact_legal_name": "DENIC eG", "contact_presented_name": "Vorstand"},
@@ -413,7 +415,7 @@ elseif ($inputtld == 'fr')	{
 	]';
 	$tld_contacts_json = '[
         {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-		{"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+		{"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "Association Française pour le Nommage Internet en Coopération", "contact_presented_name": "A.F.N.I.C."},
         {"contact_identifier": "registry_operator", "contact_legal_name": "Association Française pour le Nommage Internet en Coopération", "contact_presented_name": "A.F.N.I.C."},
@@ -436,7 +438,7 @@ elseif ($inputtld == 'ch')	{
 	]';
 	$tld_contacts_json = '[
         {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-		{"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+		{"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "SWITCH Foundation", "contact_presented_name": null},
         {"contact_identifier": "registry_operator", "contact_legal_name": "SWITCH Foundation", "contact_presented_name": "The Swiss Education & Research Network"},
@@ -450,7 +452,7 @@ elseif ($inputtld == 'li')	{
 	$tld_type = 'ccTLD';
 	$tld_contacts_json = '[
         {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-		{"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+		{"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "SWITCH Foundation", "contact_presented_name": null},
         {"contact_identifier": "registry_operator", "contact_legal_name": "SWITCH Foundation", "contact_presented_name": "The Swiss Education & Research Network"},
@@ -464,7 +466,7 @@ elseif ($inputtld == 'be')	{
 	$tld_type = 'ccTLD';
 	$tld_contacts_json = '[
         {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-		{"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+		{"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "DNS Belgium vzw/asbl", "contact_presented_name": null},
         {"contact_identifier": "registry_operator", "contact_legal_name": "DNS Belgium vzw/asbl", "contact_presented_name": null},
@@ -478,7 +480,7 @@ elseif ($inputtld == 'lu')	{
 	$tld_type = 'ccTLD';
 	$tld_contacts_json = '[
         {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-		{"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+		{"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "RESTENA", "contact_presented_name": null},
         {"contact_identifier": "registry_operator", "contact_legal_name": "Fondation RESTENA", "contact_presented_name": null},
@@ -501,7 +503,7 @@ elseif ($inputtld == 'uk')	{
 	]';
 	$tld_contacts_json = '[
         {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-		{"contact_identifier": "contracting_organization", "contact_legal_name": null, "contact_presented_name": null},
+		{"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "Nominet UK", "contact_presented_name": null},
         {"contact_identifier": "registry_operator", "contact_legal_name": "Nominet UK", "contact_presented_name": "TLD Registry Services Management"},
@@ -524,7 +526,7 @@ elseif ($inputtld == 'com')	{
 	]';
 	$tld_contacts_json = '[
 		{"contact_identifier": "contracting_authority", "contact_legal_name": "Internet Corporation for Assigned Names and Numbers", "contact_presented_name": "ICANN"},
-        {"contact_identifier": "contracting_organization", "contact_legal_name": "VeriSign Global Registry Services", "contact_presented_name": null},
+        {"contact_identifier": "contract_holder", "contact_legal_name": "VeriSign Global Registry Services", "contact_presented_name": null},
         {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "country_code_designated_manager", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "registry_operator", "contact_legal_name": "VeriSign Global Registry Services", "contact_presented_name": "Registry Customer Service"},
@@ -548,7 +550,7 @@ elseif ($inputtld == 'org')	{
 	]';
 	$tld_contacts_json = '[
 		{"contact_identifier": "contracting_authority", "contact_legal_name": "Internet Corporation for Assigned Names and Numbers", "contact_presented_name": "ICANN"},
-        {"contact_identifier": "contracting_organization", "contact_legal_name": "Public Interest Registry (PIR)", "contact_presented_name": null},
+        {"contact_identifier": "contract_holder", "contact_legal_name": "Public Interest Registry (PIR)", "contact_presented_name": null},
         {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "country_code_designated_manager", "contact_legal_name": null, "contact_presented_name": null},
         {"contact_identifier": "registry_operator", "contact_legal_name": "Public Interest Registry (PIR)", "contact_presented_name": "Director of Operations, Compliance and Customer Support"},
@@ -662,7 +664,25 @@ usort($decoded, function ($a, $b) {
 $zone_roles = '<b>zone_role_sequence, zone_role_identifier</b><br />';    
 foreach ($decoded as $role) {
 	$zone_roles .= $role['zone_role_sequence'] . ', ' . $role['zone_role_identifier'] . '<br />';
-}	
+}
+switch ($inputtld) {
+	case 'com':
+	case 'net':
+		$tld_storage_model = 'thin';
+		$tld_response_model = 'thin';
+		break;
+	case 'org':
+		$tld_storage_model = 'thick';
+		$tld_response_model = 'delegated';
+		break;
+	case 'tld':
+		$tld_storage_model = '';
+		$tld_response_model = '';
+		break;		
+	default:
+		$tld_storage_model = 'thick';
+		$tld_response_model = 'thick';
+}
 	
 $arr = array();
 	
@@ -686,7 +706,9 @@ $arr[$inputtld]['root_zone']['tld_category'] = $tld_category;
 $arr[$inputtld]['root_zone']['tld_type'] = $tld_type;
 $arr[$inputtld]['root_zone']['tld_ascii_name'] = $tld_ascii_name;
 $arr[$inputtld]['root_zone']['tld_unicode_name'] = $tld_unicode_name;	
-$arr[$inputtld]['root_zone']['tld_statuses'] = $root_zone_statuses;
+$arr[$inputtld]['root_zone']['tld_statuses'] = $tld_statuses;
+$arr[$inputtld]['root_zone']['tld_storage_model'] = $tld_storage_model;
+$arr[$inputtld]['root_zone']['tld_response_model'] = $tld_response_model;
 $arr[$inputtld]['root_zone']['tld_services_uri'] = $tld_services_uri;	
 $arr[$inputtld]['root_zone']['tld_delegation_uri'] = $tld_delegation_uri;	
 $arr[$inputtld]['root_zone']['tld_json_response_uri'] = $tld_json_response_uri;
