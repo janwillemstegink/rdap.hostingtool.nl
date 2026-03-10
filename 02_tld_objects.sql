@@ -154,11 +154,13 @@ CREATE TABLE IF NOT EXISTS zones (
     zone_tld_category VARCHAR(20) NOT NULL,
     zone_tld_type VARCHAR(20) NOT NULL,
     zone_tld_statuses TEXT[],
+	zone_tld_storage_model TEXT[],
+	zone_tld_response_model TEXT[],
+	zone_tld_services_uri TEXT,
     zone_tld_delegation_uri TEXT,
     zone_tld_json_response_uri TEXT,
     zone_tld_terms_of_service_uri TEXT,
     zone_tld_privacy_policy_uri TEXT,
-    zone_tld_menu_uri TEXT,
     zone_tld_search_engine_deletion_phase_ready BOOLEAN NOT NULL DEFAULT FALSE,
     zone_zone_accepted_workload JSONB DEFAULT 
         '[
