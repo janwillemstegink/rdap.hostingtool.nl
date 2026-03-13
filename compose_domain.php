@@ -45,26 +45,31 @@ if (!empty($_GET['domain']))	{
 		$registrar_interface = '';
 		if (!empty($registry_statuses) and mb_strlen($registry_zone) > 2) {
 			$registry_rdap['metadata']['rdap_data_layer'] = 'registry_rdap';
+			$registrar_identifier = $registry_rdap['metadata']['registrar_identifier'] ?? null;
+			$iana_id = (int) $registrar_identifier;
 			$registry_rdap['metadata']['registry_json_response_uri'] = $registry_rdap['metadata']['url_json_response_uri'];
-			$self_uri = $registry_rdap['metadata']['self_json_response_uri'] ?? null;
-			$related_uri = $registry_rdap['metadata']['related_json_response_uri'] ?? null;
-			if (empty($self_uri)) {
+			$registry_self_uri = $registry_rdap['metadata']['self_json_response_uri'] ?? null;
+			$registry_related_uri = $registry_rdap['metadata']['related_json_response_uri'] ?? null;
+			if (empty($registry_self_uri)) {
 				$registry_interface .= 'Registry RDAP has no rel="self" link.';
 			}		
-			elseif (strcasecmp($registry_rdap['metadata']['url_json_response_uri'], $self_uri) !== 0) {
- 				$registry_interface .= 'Registry RDAP has a wrong rel="self" link.';
+			elseif (strcasecmp($registry_rdap['metadata']['url_json_response_uri'], $registry_self_uri) !== 0) {
+ 				$registry_interface .= 'Registry RDAP has an uneven rel="self" link.';
 			}
-			elseif (strcasecmp($related_uri, $self_uri) === 0) {
-    			$registry_interface .= 'Registry RDAP has equal rel="self"/"related".';
+			elseif ($iana_id > 9990 and strcasecmp($registry_related_uri, $registry_self_uri) === 0) {
+    			$registry_interface .= 'Registry RDAP "related" is nonsense.';
 			}
-			$registrar_identifier = $registry_rdap['metadata']['registrar_identifier'] ?? null;
-			if (!empty($related_uri)) {
-       			$registrar_rdap = write_file($domain, $batch, $related_uri);
-				$registry_rdap['metadata']['registrar_json_response_uri'] = $related_uri;
+			elseif (strcasecmp($registry_related_uri, $registry_self_uri) === 0) {
+    			$registry_interface .= 'Registry RDAP "related" matches "self"';
+			}
+			if (!empty($registry_self_uri) and strcasecmp($registry_related_uri, $registry_self_uri) === 0)	{				
+			}	
+			elseif (!empty($registry_related_uri)) {
+       			$registrar_rdap = write_file($domain, $batch, $registry_related_uri);
+				$registry_rdap['metadata']['registrar_json_response_uri'] = $registry_related_uri;
 				$registrar_rdap['metadata']['rdap_data_layer'] = 'registrar_rdap';
 			}
 			elseif (!empty($registrar_identifier))	{
-				$iana_id = (int) $registrar_identifier;
 				if ($iana_id > 0 and $iana_id < 9990) {
 					$base_url = fetchIanaRegistrarRdapBaseUrl($iana_id);
 		    		if ($base_url) {
@@ -91,16 +96,16 @@ if (!empty($_GET['domain']))	{
 				}
 			}
 			$url_uri = $registrar_rdap['metadata']['url_json_response_uri'] ?? null;
-			$self_uri = $registrar_rdap['metadata']['self_json_response_uri'] ?? null;
-			if (!empty($self_uri)) {
-				$registrar_rdap['metadata']['registry_json_response_uri'] = $self_uri;
+			$registry_self_uri = $registrar_rdap['metadata']['self_json_response_uri'] ?? null;
+			if (!empty($registry_self_uri)) {
+				$registrar_rdap['metadata']['registry_json_response_uri'] = $registry_self_uri;
 			}
 			elseif (!empty($url_uri)) {
 				$registrar_rdap['metadata']['registry_json_response_uri'] = $url_uri;
 			}
-			$related_uri = $registrar_rdap['metadata']['related_json_response_uri'] ?? null;					
-			if (!empty($related_uri)) {
-				$registrar_rdap['metadata']['registrar_json_response_uri'] = $related_uri;
+			$registry_related_uri = $registrar_rdap['metadata']['related_json_response_uri'] ?? null;					
+			if (!empty($registry_related_uri)) {
+				$registrar_rdap['metadata']['registrar_json_response_uri'] = $registry_related_uri;
 				if (strlen($registrar_interface))	{
 					$registrar_interface .= "<br />";
 				}
@@ -297,6 +302,9 @@ else	{
    			break;
 		case 'org':
    			$url = 'https://rdap.publicinterestregistry.org/rdap/';
+			break;
+		case 'tel':
+   			$url = 'https://rdap.nic.tel/';
 			break;
 		case 'ca':
 			$url = 'https://rdap.ca.fury.ca/rdap/';
