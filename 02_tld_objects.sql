@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS common (
     common_tld_roles JSONB DEFAULT 
         '[
             {"tld_role_sequence": 10,"tld_role_identifier": "contracting_authority","tld_role_shielding": ["name","tel"]},
-            {"tld_role_sequence": 20,"tld_role_identifier": "contracting_organization","tld_role_shielding": ["name", "tel"]},
+            {"tld_role_sequence": 20,"tld_role_identifier": "contract_holder","tld_role_shielding": ["name", "tel"]},
             {"tld_role_sequence": 30,"tld_role_identifier": "sponsoring_organization","tld_role_shielding": ["name", "tel"]},
             {"tld_role_sequence": 40,"tld_role_identifier": "country_code_designated_manager","tld_role_shielding": ["name", "tel"]},
             {"tld_role_sequence": 50,"tld_role_identifier": "registry_operator","tld_role_shielding": []},
