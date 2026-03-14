@@ -161,7 +161,7 @@ function SwitchTranslation(translation)	{
 		var proposed = '';
 		var accessible = '';
 		var legacy = '';
-		document.getElementById("title").textContent = "Domain Intelligence — RDAP Data & Verification";
+		document.getElementById("title").textContent = "Domain Information — RDAP Data & Verification";
 		document.getElementById("modeling").textContent = "";
 		document.getElementById("instruction").textContent = "Enter here:";
 		document.getElementById("field_name").textContent = "Modeled with snake_case";
@@ -249,7 +249,7 @@ function SwitchTranslation(translation)	{
 		var proposed = '(Nieuw) ';
 		var accessible = 'Voor het gebruiksgemak en de duidelijkheid kunnen nieuwe velden worden toegevoegd.';
 		var legacy = '(Legacy) ';
-		document.getElementById("title").textContent = "Domeinintelligentie — RDAP-gegevens & Verificatie";
+		document.getElementById("title").textContent = "Domeininformatie — RDAP-gegevens & Verificatie";
 		document.getElementById("modeling").textContent = "Deze RDAP-modellering biedt Nederland een gestructureerd referentiekader voor het afstemmen van technische conformiteit op praktische transparantie. Een Nationale Raad voor Digitale Kaders kan dienen als platform van waaruit Nederland bijdraagt aan versterkte internationale dialoog over digitale standaarden en governance.";
 		document.getElementById("instruction").textContent = "Geef hier in:";
 		document.getElementById("field_name").textContent = "Gemodelleerd met snake_case";
@@ -337,7 +337,7 @@ function SwitchTranslation(translation)	{
 		var proposed = '(New) ';
 		var accessible = 'For ease of use and clarity, new fields can be added.';
 		var legacy = '(Legacy) ';
-		document.getElementById("title").textContent = "Domain Intelligence — RDAP Data & Verification";
+		document.getElementById("title").textContent = "Domain Information — RDAP Data & Verification";
 		document.getElementById("modeling").textContent = "This RDAP modeling provides the Netherlands with a structured reference for aligning technical conformity with practical transparency. A National Council for Digital Frameworks could serve as a platform through which the Netherlands contributes to enhanced international dialogue on digital standards and governance.";
 		document.getElementById("instruction").textContent = "Enter here:";
 		document.getElementById("field_name").textContent = "Modeled with snake_case";
@@ -425,7 +425,7 @@ function SwitchTranslation(translation)	{
 		var proposed = '(Neu) ';
 		var accessible = 'Zur Vereinfachung und besseren Übersichtlichkeit können neue Felder hinzugefügt werden.';
 		var legacy = '(Legacy) ';
-		document.getElementById("title").textContent = "Domain Intelligence — RDAP-Daten & Verifikation";
+		document.getElementById("title").textContent = "Domaininformationen — RDAP-Daten & Verifikation";
 		document.getElementById("modeling").textContent = "Diese RDAP-Modellierung bietet den Niederlanden einen strukturierten Referenzrahmen zur Abstimmung technischer Konformität mit praktischer Transparenz. Ein Nationaler Rat für Digitale Rahmenwerke könnte als Plattform dienen, über die die Niederlande zu einem verstärkten internationalen Dialog über digitale Standards und Governance beitragen.";
 		document.getElementById("instruction").textContent = "Hier eingeben:";
 		document.getElementById("field_name").textContent = "Modelliert mit snake_case";
@@ -513,7 +513,7 @@ function SwitchTranslation(translation)	{
 		var proposed = '(Nouveau) ';
 		var accessible = "Pour plus de facilité d'utilisation et de clarté, de nouveaux champs peuvent être ajoutés.";
 		var legacy = '(Legacy) ';
-		document.getElementById("title").textContent = "Domain Intelligence — Données RDAP & Vérification";
+		document.getElementById("title").textContent = "Informations sur le domaine — Données RDAP & Vérification";
 		document.getElementById("modeling").textContent = "Cette modélisation RDAP fournit aux Pays-Bas un cadre de référence structuré pour aligner la conformité technique avec la transparence pratique. Un Conseil national des cadres numériques pourrait servir de plateforme par laquelle les Pays-Bas contribuent à un dialogue international renforcé sur les standards numériques et la gouvernance.";
 		document.getElementById("instruction").textContent = "Saisissez ici :";
 		document.getElementById("field_name").textContent = "Modélisé en snake_case";
@@ -638,8 +638,8 @@ if	(is_null($data))	{
 $html_text = '<body onload=SwitchTranslation('.$viewlanguage.')><div style="line-height: 1.2;">
 <table class="top-align" style="border-collapse:collapse; font-family:Helvetica, Arial, sans-serif; font-size: 1rem; table-layout: fixed; width:1675px">
 <tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th><th style="width:300px"></th></tr>';
-$html_text .= '<tr style="font-size: 0.9rem"><td colspan="2" id="title" style="font-size: 1.6rem;color:blue;font-weight:bold"></td><td colspan="2" id="modeling"></td></tr>';
-$html_text .= '<tr><td id="instruction" style="font-size: 0.9rem; vertical-align:middle; text-align: right;"></td><td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">
+$html_text .= '<tr style="font-size: 0.8rem"><td colspan="2" id="title" style="font-size: 1.4rem;color:blue;font-weight:bold"></td><td colspan="2" id="modeling"></td></tr>';
+$html_text .= '<tr><td id="instruction" style="font-size: 0.8rem; vertical-align:middle; text-align: right;"></td><td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">
 	<input type="hidden" id="language" name="language" value='.$viewlanguage.'>	
 	<input type="text" style="width:90%" id="domain" name="domain" value='.$vd.'></form></td><td>
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(99)">None</button> 

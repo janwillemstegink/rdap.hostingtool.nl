@@ -151,12 +151,10 @@ function SwitchTranslation(translation)	{
 		var modified = '';
 		var proposed = '';
 		var legacy = '';
-		document.getElementById("title").textContent = "Request TLD Data";
-		document.getElementById("subtitle").textContent = "RDAPv1 based modeling";
-		document.getElementById("instruction").textContent = "Fill in and press Enter to retrieve.";
+		document.getElementById("title").textContent = "Top-Level Domain Information — IANA Data";
+		document.getElementById("instruction").textContent = "Enter here:";
 		document.getElementById("modeling").textContent = "";
-		document.getElementById("field").textContent = "Description";
-		document.getElementById("value").textContent = "Detail";
+		document.getElementById("field").textContent = "Modeled with snake_case";
 		document.getElementById("explanation").textContent = "";
 		document.getElementById("notices_role").textContent = legacy;
 		document.getElementById("links_role").textContent = legacy;		
@@ -199,12 +197,10 @@ function SwitchTranslation(translation)	{
 		var modified = '(Gewijzigd) ';
 		var proposed = '(Nieuw) ';
 		var legacy = '(Legacy) ';
-		document.getElementById("title").textContent = "TLD Gegevens opvragen";
-		document.getElementById("subtitle").textContent = "RDAPv1-gebaseerde modellering";
-		document.getElementById("instruction").textContent = "Voer een topdomein in:";
+		document.getElementById("title").textContent = "Top-leveldomeininformatie — IANA-gegevens";
+		document.getElementById("instruction").textContent = "Geef hier in:";
 		document.getElementById("modeling").textContent = "Een RDAPv2 kan onbepaalde statussen elimineren en ccTLD-proof zijn via een nieuwe globale tabeldefinitie in snake_case.";
-		document.getElementById("field").textContent = "Omschrijving";
-		document.getElementById("value").textContent = "Detail";
+		document.getElementById("field").textContent = "Gemodelleerd met snake_case";
 		document.getElementById("explanation").textContent = "Gestroomlijnde TLD-metadata met een centraal model om redundantie te voorkomen.";
 		document.getElementById("notices_role").textContent = legacy;
 		document.getElementById("links_role").textContent = legacy;
@@ -247,12 +243,10 @@ function SwitchTranslation(translation)	{
 		var modified = '(Modified) ';
 		var proposed = '(New) ';
 		var legacy = '(Legacy) ';		
-		document.getElementById("title").textContent = "Request TLD Data";
-		document.getElementById("subtitle").textContent = "RDAPv1 based modeling";
-		document.getElementById("instruction").textContent = "Enter a top-level domain:";
+		document.getElementById("title").textContent = "Top-Level Domain Information — IANA Data";
+		document.getElementById("instruction").textContent = "Enter here:";
 		document.getElementById("modeling").textContent = "An RDAPv2 can eliminate indeterminate statuses and be ccTLD-proof via a new global table definition in snake_case.";
-		document.getElementById("field").textContent = "Description";
-		document.getElementById("value").textContent = "Detail";
+		document.getElementById("field").textContent = "Modeled with snake_case";
 		document.getElementById("explanation").textContent = "Streamlined TLD metadata using a single-source model to prevent redundancy.";
 		document.getElementById("notices_role").textContent = legacy;
 		document.getElementById("links_role").textContent = legacy;		
@@ -295,12 +289,10 @@ function SwitchTranslation(translation)	{
 		var modified = '(Geändert) ';
 		var proposed = '(Neu) ';
 		var legacy = '(Legacy) ';		
-		document.getElementById("title").textContent = "TLD-Daten anfordern";
-		document.getElementById("subtitle").textContent = "RDAPv1-basierte Modellierung";
-		document.getElementById("instruction").textContent = "Geben Sie eine Top-Level-Domain ein:";
+		document.getElementById("title").textContent = "Top-Level-Domain-Informationen — IANA-Daten";
+		document.getElementById("instruction").textContent = "Hier eingeben:";
 		document.getElementById("modeling").textContent = "Ein RDAPv2 kann unbestimmte Statuswerte eliminieren und ccTLD-sicher sein durch eine neue globale Tabellendefinition in snake_case.";
-		document.getElementById("field").textContent = "Beschreibung";
-		document.getElementById("value").textContent = "Detail";
+		document.getElementById("field").textContent = "Modelliert mit snake_case";
 		document.getElementById("explanation").textContent = "Schlanke TLD-Metadaten mit einem Single-Source-Modell zur Vermeidung von Redundanz.";
 		document.getElementById("notices_role").textContent = legacy;
 		document.getElementById("links_role").textContent = legacy;		
@@ -343,12 +335,10 @@ function SwitchTranslation(translation)	{
 		var modified = '(Modifié) ';
 		var proposed = '(Nouveau) ';
 		var legacy = '(Legacy) ';		
-		document.getElementById("title").textContent = "Demande de données TLD";
-		document.getElementById("subtitle").textContent = "Modélisation basée sur RDAPv1";
-		document.getElementById("instruction").textContent = "Saisissez un domaine de premier niveau :";
+		document.getElementById("title").textContent = "Informations des domaines de premier niveau — Données IANA";
+		document.getElementById("instruction").textContent = "Saisissez ici :";
 		document.getElementById("modeling").textContent = "Un RDAPv2 peut éliminer les statuts indéterminés et être ccTLD-compatible en adoptant une nouvelle définition globale de table en snake_case.";
-		document.getElementById("field").textContent = "Description";
-		document.getElementById("value").textContent = "Détail";
+		document.getElementById("field").textContent = "Modélisé en snake_case";
 		document.getElementById("explanation").textContent = "Métadonnées TLD rationalisées utilisant un modèle à source unique pour éviter la redondance.";
 		document.getElementById("notices_role").textContent = legacy;
 		document.getElementById("links_role").textContent = legacy;		
@@ -412,8 +402,8 @@ if	(is_null($data))	{
 $html_text = '<body onload=SwitchTranslation('.$viewlanguage.')><div style="border-collapse:collapse; line-height:120%">
 <table style="font-family:Helvetica, Arial, sans-serif; font-size: 1rem; table-layout: fixed; width:1375px">
 <tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th></tr>';
-$html_text .= '<tr style="font-size: .8rem"><td id="title" style="font-size: 1.3rem;color:blue;font-weight:bold"></td><td id="instruction"></td><td id="modeling"></td></tr>';
-$html_text .= '<tr style="font-size: .8rem"><td id="subtitle" style="font-size: 1.0rem;color:blue;font-weight:bold"></td><td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">
+$html_text .= '<tr style="font-size: .8rem"><td colspan="2" id="title" style="font-size: 1.4rem;color:blue;font-weight:bold"></td><td id="modeling"></td></tr>';
+$html_text .= '<tr style="font-size: .8rem"><td id="instruction" style="vertical-align:middle; text-align: right"></td><td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">
 	<input type="hidden" id="language" name="language" value='.$viewlanguage.'>	
 	<input type="text" style="width:90%" id="tld" name="tld" value='.$pd.'></form></td><td>
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(99)">None</button> 
@@ -423,7 +413,7 @@ $html_text .= '<tr style="font-size: .8rem"><td id="subtitle" style="font-size: 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(4)">fr_FR</button> 
 	<a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_menu" target="_blank">Menu modeling</a> - <a style="font-size: 0.9rem" href="https://github.com/janwillemstegink/rdap.hostingtool.nl" target="_blank">Code/issues on GitHub</a> - <a style="font-size: 0.9rem" href="https://janwillemstegink.nl/" target="_blank">Insight at janwillemstegink.nl</a></td></tr>';
 if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($data[$pd]['domain']['ascii_name']))	{
-	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td id="value"><td id="explanation"></td></tr>';
+	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td>iana_rdap_service</td><td id="explanation"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(11)">Notices +/-</button><td></td><td id="notices_role"></td></tr>';
 	$html_text .= '<tr id="111" style="display:none;vertical-align:top"><td colspan="3">'.$data[$pd]['notices'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.95rem" onclick="SwitchDisplay(12)">Links +/-</button><td></td><td id="links_role"></td></tr>';
