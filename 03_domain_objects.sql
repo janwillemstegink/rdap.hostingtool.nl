@@ -339,7 +339,7 @@ CREATE INDEX IF NOT EXISTS idx_ee_child ON entity_entities(ee_child);
 CREATE TABLE IF NOT EXISTS domain_secure_dns (
     ds_id BIGSERIAL PRIMARY KEY,
     ds_domain BIGINT REFERENCES domains(domain_id),
-    ds_dnssec_enabled BOOLEAN,
+    ds_secure_dns_enabled BOOLEAN,
     ds_dns_provider VARCHAR(100),
     ds_created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
     ds_latest_data_mutation_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
