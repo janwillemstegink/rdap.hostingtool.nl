@@ -291,7 +291,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("sponsor_role").textContent = "De domeinregistratie kan, indien van toepassing, via een sponsorrol worden beheerd. Zie bijvoorbeeld france.fr.";
 		document.getElementById("registrant_role").textContent = "Jurisdictiereferentie op basis van het land van vestiging van de legitieme registrant of organisatorische gebruiker.";
 		document.getElementById("registrant_server_handle").textContent = proposed + "Zonder deze identificatie kan een wereldwijde RDAP-server niet worden bijgewerkt.";
-		document.getElementById("registrant_client_handle").textContent = 'Bij "janwillemstegink.nl" toont de registrar vertrouwelijke informatie met "STE135420-TRAP".';
+		document.getElementById("registrant_client_handle").textContent = 'Voor "janwillemstegink.nl" wordt vertrouwelijke informatie weergegeven met "STE135420-TRAP".';
 		document.getElementById("registrant_web_id").textContent = proposed + "Webidentificatienummer voor bedrijfsentiteiten en natuurlijke personen.";
 		document.getElementById("registrant_organization_type").textContent = 'De gebruikelijke waarde is "work", of mogelijk "work", "headquarters".';
 		document.getElementById("registrant_organization_name").textContent = "De juridische naam van de organisatie die primair verantwoordelijk is voor het domeinabonnement.";
@@ -379,7 +379,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("sponsor_role").textContent = "The domain registration may be managed through a sponsor role, where applicable. See for example france.fr.";
 		document.getElementById("registrant_role").textContent = "Jurisdiction reference based on the country of establishment of the legitimate registrant or organizational user.";
 		document.getElementById("registrant_server_handle").textContent = proposed + "Without this identifier, a global RDAP server cannot be updated.";
-		document.getElementById("registrant_client_handle").textContent = 'At "janwillemstegink.nl" the registrar shows confidential information with "STE135420-TRAP".';
+		document.getElementById("registrant_client_handle").textContent = 'For “janwillemstegink.nl”, confidential information is indicated by “STE135420-TRAP”.';
 		document.getElementById("registrant_web_id").textContent = proposed + "Web Identification number for business entities and natural persons.";
 		document.getElementById("registrant_organization_type").textContent = 'The usual value is "work", or possibly "work", "headquarters".';
 		document.getElementById("registrant_organization_name").textContent = "The legal name of the organization primarily responsible for the domain subscription.";
@@ -467,7 +467,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("sponsor_role").textContent = "Die Domainregistrierung kann gegebenenfalls über eine Sponsorenrolle verwaltet werden. Siehe z.B. france.fr.";
 		document.getElementById("registrant_role").textContent = "Jurisdiktionsreferenz: Niederlassungsland des legitimen Registranten oder Organisationsnutzers.";
 		document.getElementById("registrant_server_handle").textContent = proposed + "Ohne diese Kennung kann ein globaler RDAP-Server nicht aktualisiert werden.";
-		document.getElementById("registrant_client_handle").textContent = 'Bei "janwillemstegink.nl" zeigt der Registrar vertrauliche Informationen mit "STE135420-TRAP" an.';
+		document.getElementById("registrant_client_handle").textContent = 'Für "janwillemstegink.nl" werden vertrauliche Informationen mit "STE135420-TRAP" gekennzeichnet.';
 		document.getElementById("registrant_web_id").textContent = proposed + "Web-Identifikationsnummer für Unternehmen und natürliche Personen.";
 		document.getElementById("registrant_organization_type").textContent = 'Der übliche Wert ist "work" oder möglicherweise "work", "headquarters".';
 		document.getElementById("registrant_organization_name").textContent = "Der offizielle Name der Organisation, die hauptsächlich für das Domänenabonnement verantwortlich ist.";
@@ -555,7 +555,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("sponsor_role").textContent = "L'enregistrement du domaine peut être géré par un sponsor, le cas échéant. Voir par exemple france.fr.";
 		document.getElementById("registrant_server_handle").textContent = proposed + "Sans cet identifiant, un serveur RDAP global ne peut pas être mis à jour.";
 		document.getElementById("registrant_role").textContent = "Référence de juridiction fondée sur le pays d’établissement du titulaire légitime ou de l’utilisateur organisationnel.";
-		document.getElementById("registrant_client_handle").textContent = 'Sur "janwillemstegink.nl", le registraire affiche des informations confidentielles avec "STE135420-TRAP".';
+		document.getElementById("registrant_client_handle").textContent = 'Pour "janwillemstegink.nl", les informations confidentielles sont indiquées par "STE135420-TRAP".';
 		document.getElementById("registrant_web_id").textContent = proposed + "Numéro d’identification Web pour les entités commerciales et les personnes physiques.";
 		document.getElementById("registrant_organization_type").textContent = 'La valeur habituelle est "work", ou éventuellement "work", "headquarters".';
 		document.getElementById("registrant_organization_name").textContent = "Le nom légal de l'organisation principalement responsable de l'abonnement au domaine.";

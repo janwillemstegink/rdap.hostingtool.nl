@@ -57,7 +57,7 @@ if (!empty($_GET['domain']))	{
  				$registry_interface .= 'Registry RDAP has an uneven rel="self" link.';
 			}
 			elseif ($iana_id > 9990 and strcasecmp($registry_related_uri, $registry_self_uri) === 0) {
-    			$registry_interface .= 'Registry RDAP "related" is nonsense.';
+    			$registry_interface .= 'Registry RDAP "related" matches "self" (' . $iana_id . ')';
 			}
 			elseif (strcasecmp($registry_related_uri, $registry_self_uri) === 0) {
     			$registry_interface .= 'Registry RDAP "related" matches "self"';
