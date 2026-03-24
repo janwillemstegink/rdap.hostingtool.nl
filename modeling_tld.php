@@ -236,7 +236,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_status_meanings").textContent = proposed + "Let op: Er bestaat een globale tabeldefinitie; ICANN speelt nog geen leidende rol.";
 		document.getElementById("lifecycle_operational_periods").textContent = proposed + 'Meerjarige registratie soms mogelijk; max. verschilt per TLD en registrar.';
 		document.getElementById("nameservers_secure_dns_signed").textContent = "DNSSEC beveiligt DNS tegen spoofing en cachevergiftiging.";
-		document.getElementById("nameservers_secure_dns_algorithm").textContent = "Algoritmen 13, 14, 15 en 16 vormen de aanbevolen basislijn voor secure_dns-compliance.";
+		document.getElementById("nameservers_secure_dns_algorithm").textContent = "Algoritmen 13–16 zijn actueel. IANA voert algoritme 8 als RECOMMENDED, geldt als uitlopend.";
 		document.getElementById("nameservers_ip").textContent = "IP-adressen zijn zichtbaar indien van toepassing en ook opgenomen in het RDAP-bestand.";
 	}
 	else if (translation == 2)	{
@@ -282,7 +282,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_status_meanings").textContent = proposed + "Note: A global table definition exists; ICANN is not yet in a leading role.";
 		document.getElementById("lifecycle_operational_periods").textContent = proposed + 'Multi-year registration sometimes possible; max varies by TLD & registrar.';
 		document.getElementById("nameservers_secure_dns_signed").textContent = "DNSSEC secures DNS against spoofing and cache poisoning.";
-		document.getElementById("nameservers_secure_dns_algorithm").textContent = "Algorithms 13, 14, 15, and 16 are the recommended baseline for secure_dns compliance.";
+		document.getElementById("nameservers_secure_dns_algorithm").textContent = "Algorithms 13–16 are current. IANA lists algorithm 8 as RECOMMENDED, considered phasing out.";
 		document.getElementById("nameservers_ip").textContent = "IP addresses are visible if applicable and also included in the RDAP file.";
 	}
 	else if (translation == 3)	{
@@ -328,7 +328,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_status_meanings").textContent = proposed + "Hinweis: Eine globale Tabellendefinition existiert; ICANN übernimmt noch keine führende Rolle.";
 		document.getElementById("lifecycle_operational_periods").textContent = proposed + 'Mehrjährige Registrierung teils möglich; max. variiert je nach TLD und Registrar.';
 		document.getElementById("nameservers_secure_dns_signed").textContent = "DNSSEC sichert DNS gegen Spoofing und Cache-Poisoning.";
-		document.getElementById("nameservers_secure_dns_algorithm").textContent = "Die Algorithmen 13, 14, 15 und 16 sind die empfohlene Basis für secure_dns-Compliance.";
+		document.getElementById("nameservers_secure_dns_algorithm").textContent = "Algorithmen 13–16 sind aktuell. IANA führt Algorithmus 8 als RECOMMENDED, gilt als auslaufend.";
 		document.getElementById("nameservers_ip").textContent = "IP-Adressen sind sichtbar, sofern zutreffend, und auch in der RDAP-Datei enthalten.";
 	}
 	else if (translation == 4)	{
@@ -374,7 +374,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_status_meanings").textContent = proposed + "Remarque : Une définition de table globale existe ; l’ICANN ne joue pas encore un rôle de premier plan.";
 		document.getElementById("lifecycle_operational_periods").textContent = proposed + "Enregistrement pluriannuel parfois possible ; max. selon TLD et bureau d’enregistrement.";
 		document.getElementById("nameservers_secure_dns_signed").textContent = "DNSSEC sécurise le DNS contre le spoofing et l’empoisonnement.";
-		document.getElementById("nameservers_secure_dns_algorithm").textContent = "Les algorithmes 13, 14, 15 et 16 constituent la base recommandée pour la conformité secure_dns.";
+		document.getElementById("nameservers_secure_dns_algorithm").textContent = "Les algorithmes 13–16 sont actuels. L’IANA classe l’algorithme 8 comme RECOMMENDED, en fin de vie.";
 		document.getElementById("nameservers_ip").textContent = "Les adresses IP sont visibles si cela s’applique et sont également fournies dans le fichier RDAP.";
 	}
 }	
