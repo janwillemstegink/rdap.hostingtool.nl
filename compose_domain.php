@@ -111,7 +111,9 @@ if (!empty($_GET['domain']))	{
 				}
 				$registrar_interface .= 'Registrar RDAP shows a rel="related" link.';
 			}
-		}	
+		}
+		$registry_rdap['measured_dns_algorithms'] = getDnssecInfo($domain);
+		$registry_rdap['measured_dns_algorithms'] = $registry_rdap['measured_dns_algorithms']['dnskey_algorithms_csv'];
 		$registry_rdap['interface_notice'] = $registry_interface;
 		$registrar_rdap['interface_notice'] = $registrar_interface;
 		$merged = [];
@@ -267,6 +269,271 @@ function fetchIanaRegistrarRdapBaseUrl(int $ianaId): ? string	{
     }
 
     return $rdapMap[$ianaId] ?? null;
+}
+
+/**
+ * Fetch DNSSEC information for a domain.
+ *
+ * Returns:
+ * - domain
+ * - signed (bool)
+ * - dnskey_algorithms (array<int>)
+ * - dnskey_algorithms_csv (string)   e.g. "8,13"
+ * - dnskey_keytags (array<int>)
+ * - dnskey_keytags_csv (string)
+ * - ds_algorithms (array<int>)
+ * - ds_algorithms_csv (string)
+ * - ds_digest_types (array<int>)
+ * - ds_digest_types_csv (string)
+ * - dnskey_records (array<string>)
+ * - ds_records (array<string>)
+ * - error (string|null)
+ */
+function getDnssecInfo(string $domain): array
+{
+    $domain = strtolower(trim($domain));
+    $domain = rtrim($domain, '.');
+
+    $result = [
+        'domain' => $domain,
+        'signed' => false,
+        'dnskey_algorithms' => [],
+        'dnskey_algorithms_csv' => '',
+        'dnskey_keytags' => [],
+        'dnskey_keytags_csv' => '',
+        'ds_algorithms' => [],
+        'ds_algorithms_csv' => '',
+        'ds_digest_types' => [],
+        'ds_digest_types_csv' => '',
+        'dnskey_records' => [],
+        'ds_records' => [],
+        'error' => null,
+    ];
+
+    if ($domain === '') {
+        $result['error'] = 'Empty domain';
+        return $result;
+    }
+
+    $runner = findDnsCommand();
+    if ($runner === null) {
+        $result['error'] = 'Neither dig nor drill was found on this system';
+        return $result;
+    }
+
+    $dnskeyLines = runDnsQuery($runner, $domain, 'DNSKEY');
+    $dsLines = runDnsQuery($runner, $domain, 'DS');
+
+    $result['dnskey_records'] = $dnskeyLines;
+    $result['ds_records'] = $dsLines;
+
+    // Parse DNSKEY lines
+    foreach ($dnskeyLines as $line) {
+        $parsed = parseDnskeyLine($line);
+        if ($parsed === null) {
+            continue;
+        }
+
+        $result['signed'] = true;
+        $result['dnskey_algorithms'][] = $parsed['algorithm'];
+
+        if ($parsed['keytag'] !== null) {
+            $result['dnskey_keytags'][] = $parsed['keytag'];
+        }
+    }
+
+    // Parse DS lines
+    foreach ($dsLines as $line) {
+        $parsed = parseDsLine($line);
+        if ($parsed === null) {
+            continue;
+        }
+
+        $result['signed'] = true;
+        $result['ds_algorithms'][] = $parsed['algorithm'];
+        $result['ds_digest_types'][] = $parsed['digest_type'];
+    }
+
+    // Normalize, sort, stringify
+    $result['dnskey_algorithms'] = normalizeIntList($result['dnskey_algorithms']);
+    $result['dnskey_keytags'] = normalizeIntList($result['dnskey_keytags']);
+    $result['ds_algorithms'] = normalizeIntList($result['ds_algorithms']);
+    $result['ds_digest_types'] = normalizeIntList($result['ds_digest_types']);
+
+    $result['dnskey_algorithms_csv'] = implode(',', $result['dnskey_algorithms']);
+    $result['dnskey_keytags_csv'] = implode(',', $result['dnskey_keytags']);
+    $result['ds_algorithms_csv'] = implode(',', $result['ds_algorithms']);
+    $result['ds_digest_types_csv'] = implode(',', $result['ds_digest_types']);
+
+    return $result;
+}
+
+/**
+ * Find available DNS tool.
+ */
+function findDnsCommand(): ?string
+{
+    $candidates = ['dig', 'drill'];
+
+    foreach ($candidates as $cmd) {
+        $path = trim((string) shell_exec('command -v ' . escapeshellarg($cmd) . ' 2>/dev/null'));
+        if ($path !== '') {
+            return $cmd;
+        }
+    }
+
+    return null;
+}
+
+/**
+ * Run DNS query and return non-empty lines.
+ */
+function runDnsQuery(string $runner, string $domain, string $type): array
+{
+    $domainArg = escapeshellarg($domain);
+    $typeArg = escapeshellarg($type);
+
+    if ($runner === 'dig') {
+        $cmd = "dig +short {$domainArg} {$typeArg} 2>/dev/null";
+    } elseif ($runner === 'drill') {
+        // drill has no exact +short equivalent, so filter answer-ish lines
+        $cmd = "drill {$domainArg} {$typeArg} 2>/dev/null";
+    } else {
+        return [];
+    }
+
+    $output = shell_exec($cmd);
+    if (!is_string($output) || $output === '') {
+        return [];
+    }
+
+    $lines = preg_split('/\R/', $output) ?: [];
+    $lines = array_map('trim', $lines);
+    $lines = array_values(array_filter($lines, static function ($line) use ($runner, $type) {
+        if ($line === '') {
+            return false;
+        }
+
+        if ($runner === 'dig') {
+            return true;
+        }
+
+        // drill output: keep only record lines that contain the requested type
+        return stripos($line, ' IN ' . $type . ' ') !== false;
+    }));
+
+    return $lines;
+}
+
+/**
+ * Parse a DNSKEY line.
+ *
+ * dig +short example:
+ * 256 3 13 AbCd...
+ *
+ * drill example:
+ * example.com. 3600 IN DNSKEY 256 3 13 AbCd...
+ *
+ * Returns:
+ * - flags
+ * - protocol
+ * - algorithm
+ * - keytag (computed if possible)
+ */
+function parseDnskeyLine(string $line): ?array
+{
+    $line = trim($line);
+
+    // Full format: name ttl IN DNSKEY flags protocol algorithm key...
+    if (preg_match('/^(?:\S+\s+\d+\s+IN\s+DNSKEY\s+)?(\d+)\s+(\d+)\s+(\d+)\s+(.+)$/i', $line, $m)) {
+        $flags = (int) $m[1];
+        $protocol = (int) $m[2];
+        $algorithm = (int) $m[3];
+        $publicKeyB64 = preg_replace('/\s+/', '', $m[4]);
+
+        if ($publicKeyB64 === null || $publicKeyB64 === '') {
+            return null;
+        }
+
+        $keytag = computeDnskeyKeyTag($flags, $protocol, $algorithm, $publicKeyB64);
+
+        return [
+            'flags' => $flags,
+            'protocol' => $protocol,
+            'algorithm' => $algorithm,
+            'keytag' => $keytag,
+        ];
+    }
+
+    return null;
+}
+
+/**
+ * Parse a DS line.
+ *
+ * dig +short example:
+ * 26755 8 2 F341...
+ *
+ * drill example:
+ * example.com. 3600 IN DS 26755 8 2 F341...
+ */
+function parseDsLine(string $line): ?array
+{
+    $line = trim($line);
+
+    if (preg_match('/^(?:\S+\s+\d+\s+IN\s+DS\s+)?(\d+)\s+(\d+)\s+(\d+)\s+(.+)$/i', $line, $m)) {
+        $keytag = (int) $m[1];
+        $algorithm = (int) $m[2];
+        $digestType = (int) $m[3];
+        $digest = strtoupper((string) preg_replace('/\s+/', '', $m[4]));
+
+        if ($digest === '') {
+            return null;
+        }
+
+        return [
+            'keytag' => $keytag,
+            'algorithm' => $algorithm,
+            'digest_type' => $digestType,
+            'digest' => $digest,
+        ];
+    }
+
+    return null;
+}
+
+/**
+ * Compute DNSKEY key tag per RFC 4034 Appendix B.
+ */
+function computeDnskeyKeyTag(int $flags, int $protocol, int $algorithm, string $publicKeyB64): ?int
+{
+    $publicKey = base64_decode($publicKeyB64, true);
+    if ($publicKey === false) {
+        return null;
+    }
+
+    $rdata = pack('nCC', $flags, $protocol, $algorithm) . $publicKey;
+
+    $ac = 0;
+    $len = strlen($rdata);
+
+    for ($i = 0; $i < $len; $i++) {
+        $ac += ($i & 1) ? ord($rdata[$i]) : (ord($rdata[$i]) << 8);
+    }
+
+    $ac += ($ac >> 16) & 0xFFFF;
+    return $ac & 0xFFFF;
+}
+
+/**
+ * Normalize list of integers: unique + ascending.
+ */
+function normalizeIntList(array $values): array
+{
+    $values = array_map('intval', $values);
+    $values = array_values(array_unique($values));
+    sort($values, SORT_NUMERIC);
+    return $values;
 }
 
 function write_file($inputdomain, $inputbatch, $inputurl)	{
