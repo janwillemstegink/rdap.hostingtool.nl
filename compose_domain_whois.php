@@ -70,8 +70,15 @@ if ($inputbatch)	{
 }
 else	{
 	usleep(1.05 * 1_000_000);
-	$command = escapeshellcmd("/usr/bin/python3.9 /home/admin/scripts/get_whois_domain_data.py");
-	$raw_whois_data = nl2br(htmlspecialchars(shell_exec($command . " " . $inputdomain)));
+	//$command = escapeshellcmd("/usr/bin/python3.9 /home/admin/scripts/get_whois_domain_data.py");
+	//$raw_whois_data = nl2br(htmlspecialchars(shell_exec($command . " " . $inputdomain)));	
+	
+	//$command = "/usr/bin/python3.9 /home/admin/scripts/get_whois_domain_data.py";
+	//$raw_whois_data = shell_exec($command . " " . escapeshellarg($inputdomain) . " --format html 2>&1");	
+	
+	$command = "/usr/bin/python3.9 /home/admin/scripts/get_whois_domain_data.py";
+	$raw_whois_data = shell_exec($command . " " . escapeshellarg($inputdomain) . " 2>&1");
+	
 	//$raw_whois_data = shell_exec($command . " " . $inputdomain);	
 }
 	

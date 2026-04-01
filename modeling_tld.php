@@ -82,7 +82,7 @@ function SwitchDisplay(type) {
 		var pre = '33';
 		var max = 1
 	}
-	else if (type == 34)	{ // best practices periods
+	else if (type == 34)	{ // lifecycle period ranges
 		var pre = '34';
 		var max = 1
 	}
@@ -166,7 +166,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_registrar_accreditations_uri").textContent = proposed;
 		document.getElementById("common_tld_roles").textContent = proposed;
 		document.getElementById("common_indeterminate_rdap_statuses").textContent = proposed;
-		document.getElementById("common_best_practices_periods").textContent = proposed;
+		document.getElementById("common_lifecycle_period_ranges").textContent = proposed;
 		document.getElementById("common_root_accepted_workload").textContent = proposed;
 		document.getElementById("root_zone_role").textContent = "";
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
@@ -213,7 +213,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_registrar_accreditations_uri").textContent = proposed + "Officiële lijst van geaccrediteerde registrars, beheerd door IANA onder ICANN-beleid.";
 		document.getElementById("common_tld_roles").textContent = proposed + "Deze rolbenamingen zijn voorlopig. Ze kunnen nog veranderen.";
 		document.getElementById("common_indeterminate_rdap_statuses").textContent = proposed + "Ongeschikt voor automatisering, alleen informatief.";
-		document.getElementById("common_best_practices_periods").textContent = proposed + "Registries kunnen baat hebben bij gedeelde richtlijnen.";
+		document.getElementById("common_lifecycle_period_ranges").textContent = proposed + "Registries kunnen baat hebben bij gedeelde richtlijnen.";
 		document.getElementById("common_root_accepted_workload").textContent = proposed + "IANA-servers kunnen in de toekomst limieten toepassen.";
 		document.getElementById("root_zone_role").textContent = "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
@@ -260,7 +260,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_registrar_accreditations_uri").textContent = proposed + "Official list of accredited registrars maintained by IANA under ICANN policy.";
 		document.getElementById("common_tld_roles").textContent = proposed + "These role names are draft. They may change.";
 		document.getElementById("common_indeterminate_rdap_statuses").textContent = proposed + "Unsuitable for automation, informational only.";
-		document.getElementById("common_best_practices_periods").textContent = proposed + "Registries may benefit from shared timing guidelines.";
+		document.getElementById("common_lifecycle_period_ranges").textContent = proposed + "Registries may benefit from shared timing guidelines.";
 		document.getElementById("common_root_accepted_workload").textContent = proposed + "IANA servers may apply limits in the future.";
 		document.getElementById("root_zone_role").textContent = "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
@@ -307,7 +307,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_registrar_accreditations_uri").textContent = proposed + "Offizielle Liste der akkreditierten Registrar, verwaltet von IANA unter ICANN-Richtlinien.";
 		document.getElementById("common_tld_roles").textContent = proposed + "Diese Rollennamen sind vorläufig und können sich ändern.";
 		document.getElementById("common_indeterminate_rdap_statuses").textContent = proposed + "Ungeeignet für Automatisierung, nur informativ.";
-		document.getElementById("common_best_practices_periods").textContent = proposed + "Viele Registries können von gemeinsamen Regeln profitieren.";
+		document.getElementById("common_lifecycle_period_ranges").textContent = proposed + "Viele Registries können von gemeinsamen Regeln profitieren.";
 		document.getElementById("common_root_accepted_workload").textContent = proposed + "IANA kann zukünftig Limits festlegen.";
 		document.getElementById("root_zone_role").textContent = "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
@@ -354,7 +354,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("common_registrar_accreditations_uri").textContent = proposed + "Liste officielle des bureaux d’enregistrement accrédités, gérée par l’IANA selon la politique de l’ICANN.";
 		document.getElementById("common_tld_roles").textContent = proposed + "Ces noms de rôles sont provisoires. Ils peuvent changer.";
 		document.getElementById("common_indeterminate_rdap_statuses").textContent = proposed + "Inadapté à l’automatisation, informatif seulement.";
-		document.getElementById("common_best_practices_periods").textContent = proposed + "Les registres peuvent profiter de lignes directrices communes.";
+		document.getElementById("common_lifecycle_period_ranges").textContent = proposed + "Les registres peuvent profiter de lignes directrices communes.";
 		document.getElementById("common_root_accepted_workload").textContent = proposed + "Les serveurs IANA pourront appliquer des limites.";
 		document.getElementById("root_zone_role").textContent = "Top-Level Domain (TLD)";
 		document.getElementById("root_zone_data_active_from").textContent = proposed;
@@ -435,8 +435,8 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="321" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['common']['tld_roles'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(33)">Indeterminate RDAP Statuses +/-</button></td><td></td><td id="common_indeterminate_rdap_statuses"></td></tr>';
 	$html_text .= '<tr id="331" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['common']['indeterminate_rdap_statuses'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(34)">Best Practices Periods +/-</button></td><td></td><td id="common_best_practices_periods"></td></tr>';
-	$html_text .= '<tr id="341" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['common']['best_practices_periods'].'</td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(34)">Lifecycle Period Ranges +/-</button></td><td></td><td id="common_lifecycle_period_ranges"></td></tr>';
+	$html_text .= '<tr id="341" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['common']['lifecycle_period_ranges'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(35)">Root Accepted Workload +/-</button></td><td></td><td id="common_root_accepted_workload"></td></tr>';
 	$html_text .= '<tr id="351" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['common']['root_accepted_workload'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';

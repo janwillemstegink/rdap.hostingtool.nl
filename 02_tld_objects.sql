@@ -49,12 +49,12 @@ CREATE TABLE IF NOT EXISTS common (
     common_accredited_registrars_uri TEXT,
     common_tld_roles JSONB DEFAULT 
         '[
-            {"tld_role_sequence": 10,"tld_role_identifier": "contracting_authority","tld_role_shielding": ["name","tel"]},
-            {"tld_role_sequence": 20,"tld_role_identifier": "contract_holder","tld_role_shielding": ["name", "tel"]},
-            {"tld_role_sequence": 30,"tld_role_identifier": "sponsoring_organization","tld_role_shielding": ["name", "tel"]},
-            {"tld_role_sequence": 40,"tld_role_identifier": "country_code_designated_manager","tld_role_shielding": ["name", "tel"]},
-            {"tld_role_sequence": 50,"tld_role_identifier": "registry_operator","tld_role_shielding": []},
-            {"tld_role_sequence": 60,"tld_role_identifier": "backend_operator","tld_role_shielding": []}
+            {"tld_role_sequence": 10,"tld_role_identifier": "contracting_authority","tld_role_shielded": ["name","tel"]},
+            {"tld_role_sequence": 20,"tld_role_identifier": "contract_holder","tld_role_shielded": ["name", "tel"]},
+            {"tld_role_sequence": 30,"tld_role_identifier": "sponsoring_organization","tld_role_shielded": ["name", "tel"]},
+            {"tld_role_sequence": 40,"tld_role_identifier": "country_code_designated_manager","tld_role_shielded": ["name", "tel"]},
+            {"tld_role_sequence": 50,"tld_role_identifier": "registry_operator","tld_role_shielded": []},
+            {"tld_role_sequence": 60,"tld_role_identifier": "backend_operator","tld_role_shielded": []}
         ]'::jsonb,
 	common_tld_statuses JSONB DEFAULT 
 	'{
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS common (
             "associated"
         ]
     }'::jsonb,
-    common_best_practices_periods JSONB DEFAULT '[
+    common_lifecycle_period_ranges JSONB DEFAULT '[
         {"period_identifier": "subscription_years", "min": 1, "max": 10, "optimal": 1},
         {"period_identifier": "add_grace_days", "min": 5, "max": 5, "optimal": 5},
         {"period_identifier": "transfer_grace_days", "min": 5, "max": 5, "optimal": 5},

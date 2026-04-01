@@ -256,22 +256,26 @@ FOR EACH ROW
 EXECUTE FUNCTION update_autnums_latest_data_mutation_at();
 
 -- ========================================
--- Table: domain_entities (link domains<->entities with role)
+-- Table: domain_entities (link domains<->entities with role) 
+-- Publication state per field:
+-- shielded   = not publicly disclosed
+-- visible    = publicly disclosed
+-- authorized = publicly disclosed when authorized by the registrant (and allowed by policy)
 -- ========================================
 CREATE TABLE IF NOT EXISTS domain_entities (
     de_id SERIAL PRIMARY KEY,
     de_domain BIGINT NOT NULL REFERENCES domains(domain_id) ON DELETE CASCADE,
     de_source_layer VARCHAR(12) NOT NULL CHECK (de_source_layer IN ('registry','registrar')),
     de_role VARCHAR(50),
-    de_shielding JSONB NOT NULL DEFAULT '{
-        "organization_name": true,
-        "presented_name": true,
-        "name": true,
-        "email": true,
-        "contact_uri": true,
-        "phone": true,
-        "country_code": true,
-        "address": true
+    de_field_publication JSONB NOT NULL DEFAULT '{
+        "organization_name": "shielded",
+        "presented_name": "shielded",
+        "name": "shielded",
+        "email": "shielded",
+        "contact_uri": "shielded",
+        "phone": "shielded",
+        "country_code": "shielded",
+        "address": "shielded"
     }'::jsonb,
     de_entity BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE
 );
@@ -310,6 +314,10 @@ EXECUTE FUNCTION update_domain_nameservers_latest_data_mutation_at();
 
 -- ========================================
 -- Table: entity_entities (entity relationships)
+-- Publication state per field:
+-- shielded   = not publicly disclosed
+-- visible    = publicly disclosed
+-- authorized = publicly disclosed when authorized by the registrant (and allowed by policy)
 -- ========================================
 CREATE TABLE IF NOT EXISTS entity_entities (
     ee_id BIGSERIAL PRIMARY KEY,
@@ -317,15 +325,15 @@ CREATE TABLE IF NOT EXISTS entity_entities (
     ee_parent_role VARCHAR(50),
     ee_parent BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE,
     ee_child_role VARCHAR(50),
-    ee_shielding JSONB NOT NULL DEFAULT '{
-        "organization_name": true,
-        "presented_name": true,
-        "name": true,
-        "email": true,
-        "contact_uri": true,
-        "phone": true,
-        "country_code": true,
-        "address": true
+    ee_field_publication JSONB NOT NULL DEFAULT '{
+        "organization_name": "shielded",
+        "presented_name": "shielded",
+        "name": "shielded",
+        "email": "shielded",
+        "contact_uri": "shielded",
+        "phone": "shielded",
+        "country_code": "shielded",
+        "address": "shielded"
     }'::jsonb,
     ee_child BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE
 );

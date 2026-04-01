@@ -174,19 +174,19 @@ $tld_privacy_policy_uri = '';
 $tld_search_engine_deletion_phase_ready = 'n/a';	
 $tld_contacts_json = '[]';
 $tld_roles_json = '[
-{"tld_role_sequence": 10,"tld_role_identifier": "contracting_authority","tld_role_shielding": ["name", "tel"]},
-{"tld_role_sequence": 20,"tld_role_identifier": "contract_holder","tld_role_shielding": ["name", "tel"]},
-{"tld_role_sequence": 30,"tld_role_identifier": "sponsoring_organization","tld_role_shielding": ["name", "tel"]},
-{"tld_role_sequence": 40,"tld_role_identifier": "country_code_designated_manager","tld_role_shielding": ["name", "tel"]},
-{"tld_role_sequence": 50,"tld_role_identifier": "registry_operator","tld_role_shielding": []},
-{"tld_role_sequence": 60,"tld_role_identifier": "backend_operator","tld_role_shielding": []}]';
+{"tld_role_sequence": 10,"tld_role_identifier": "contracting_authority","tld_role_shielded": ["name", "tel"]},
+{"tld_role_sequence": 20,"tld_role_identifier": "contract_holder","tld_role_shielded": ["name", "tel"]},
+{"tld_role_sequence": 30,"tld_role_identifier": "sponsoring_organization","tld_role_shielded": ["name", "tel"]},
+{"tld_role_sequence": 40,"tld_role_identifier": "country_code_designated_manager","tld_role_shielded": ["name", "tel"]},
+{"tld_role_sequence": 50,"tld_role_identifier": "registry_operator","tld_role_shielded": []},
+{"tld_role_sequence": 60,"tld_role_identifier": "backend_operator","tld_role_shielded": []}]';
 $decoded = json_decode($tld_roles_json, true);
 usort($decoded, function ($a, $b) {
     return $a['tld_role_sequence'] <=> $b['tld_role_sequence'];
 });
-$tld_roles = '<b>tld_role_sequence, tld_role_identifier, tld_role_shielding</b><br />';    
+$tld_roles = '<b>tld_role_sequence, tld_role_identifier, tld_role_shielded</b><br />';    
 foreach ($decoded as $role) {
-	$tld_roles .= $role['tld_role_sequence'] . ', ' . $role['tld_role_identifier'] . ', [' . implode(', ', $role['tld_role_shielding']) . ']<br />';
+	$tld_roles .= $role['tld_role_sequence'] . ', ' . $role['tld_role_identifier'] . ', [' . implode(', ', $role['tld_role_shielded']) . ']<br />';
 }
 $indeterminate_rdap_statuses_json = '{
   "indeterminate_rdap_statuses": [
@@ -205,7 +205,7 @@ $indeterminate_rdap_statuses_json = '{
 $decoded = json_decode($indeterminate_rdap_statuses_json, true);
 $indeterminate_rdap_statuses = ''; 
 $indeterminate_rdap_statuses .=	implode('<br />', $decoded['indeterminate_rdap_statuses']);
-$best_practices_periods_json = '[
+$lifecycle_period_ranges_json = '[
 	{"period_identifier": "subscription_years", "min": 1, "max": 10, "optimal": 1},
 	{"period_identifier": "add_grace_days", "min": 5, "max": 5, "optimal": 5},
 	{"period_identifier": "transfer_grace_days", "min": 5, "max": 5, "optimal": 5},
@@ -214,10 +214,10 @@ $best_practices_periods_json = '[
 	{"period_identifier": "pending_redemption_days", "min": 30, "max": 30, "optimal": 30},
 	{"period_identifier": "pending_delete_days", "min": 5, "max": 5, "optimal": 5}
 ]';
-$decoded = json_decode($best_practices_periods_json, true);	
-$best_practices_periods = '';    
+$decoded = json_decode($lifecycle_period_ranges_json, true);	
+$lifecycle_period_ranges = '';    
 foreach ($decoded as $period) {
-	$best_practices_periods .= $period['period_identifier'] . ': min ' . $period['min'] . ', max ' . $period['max'] .  ', optimal ' . $period['optimal'] . '<br />';
+	$lifecycle_period_ranges .= $period['period_identifier'] . ': min ' . $period['min'] . ', max ' . $period['max'] .  ', optimal ' . $period['optimal'] . '<br />';
 }	
 $root_accepted_workload_json = '[{
 	"public_status_requests": {
@@ -697,7 +697,7 @@ $arr[$inputtld]['common']['lookup_endpoints_uri'] = $lookup_endpoints_uri;
 $arr[$inputtld]['common']['registrar_accreditations_uri'] = $registrar_accreditations_uri;	
 $arr[$inputtld]['common']['tld_roles'] = $tld_roles;
 $arr[$inputtld]['common']['indeterminate_rdap_statuses'] = $indeterminate_rdap_statuses;
-$arr[$inputtld]['common']['best_practices_periods'] = $best_practices_periods;		
+$arr[$inputtld]['common']['lifecycle_period_ranges'] = $lifecycle_period_ranges;		
 $arr[$inputtld]['common']['root_accepted_workload'] = $root_accepted_workload;	
 	
 $arr[$inputtld]['root_zone']['zone_identifier'] = $inputtld;

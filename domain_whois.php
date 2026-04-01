@@ -45,8 +45,8 @@ if (empty([ip]) or empty([block]))	{
 	[ip] = getClientIP();
 	[block] = get_block([ip]);
 }
-$internal = (str_contains([block],'Freedom')) ? 'internal_' : '';
-$log_file = "/home/admin/logging/domain_whois_tool_" . $internal . $datetime->format('Ym') . ".txt";
+$internal = (str_contains([block],'Freedom')) ? '_internal_' : '';
+$log_file = "/home/admin/logging/" . $internal . "whois_tool_" . $datetime->format('Ym') . ".txt";
 $log_line = $datetime->format('Y-m-d H:i:s') . " UTC, lang" . $viewlanguage . ", " . $vd . ", " . [ip] . ", " . [block] . "\n";
 file_put_contents($log_file, $log_line, FILE_APPEND);
 echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
@@ -149,16 +149,19 @@ $server_url = isset($_SERVER['HTTPS']) && strcasecmp('off', $_SERVER['HTTPS']) !
 $server_url .= '://'. $_SERVER['HTTP_HOST'];
 $server_url .= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);	
 $server_url = dirname($server_url);
-$rdap_url = $server_url.'/compose_domain_whois/index.php?batch=0&domain='.$pd;
-if (@get_headers($rdap_url))	{ // the application to compose data
-	$json = file_get_contents($rdap_url) or die("An entered domain could not be read.");
-	$data = json_decode($json, true);
-	$terms_and_conditions = $server_url.'/modeling_tld/index.php?language='.$viewlanguage.'&tld='.$data[$pd]['metadata']['zone_identifier'];
+$whois_url = $server_url . '/compose_domain_whois/index.php?batch=0&domain=' . urlencode($pd);
+$json = @file_get_contents($whois_url);
+$data = null;
+$terms_and_conditions = '';
+if ($json !== false) {
+    $data = json_decode($json, true);
 }
-if	(is_null($data))	{
-	$terms_and_conditions = '';
-	$reopen = $server_url.'/domain_whois/index.php?batch=0&domain=hostingtool.nl';
-	sc_redir($reopen);
+if (is_array($data) && isset($data[$pd]['metadata']['zone_identifier'])) {
+    $terms_and_conditions = $server_url . '/modeling_tld/index.php?language=' . $viewlanguage . '&tld=' . $data[$pd]['metadata']['zone_identifier'];
+}
+else {
+    $reopen = $server_url . '/domain_whois/index.php?batch=0&domain=hostingtool.nl';
+    sc_redir($reopen);
 }
 $html_text = '<body onload=SwitchTranslation('.$viewlanguage.')><div style="border-collapse:collapse; line-height:120%">
 <table style="font-family:Helvetica, Arial, sans-serif; font-size: 1rem; table-layout: fixed; width:1375px">

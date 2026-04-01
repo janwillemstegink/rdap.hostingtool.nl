@@ -553,7 +553,8 @@ else	{
 		return $arr;
 	}
 	$time_start = microtime(true);			
-	$url = '';	
+	$url = '';
+	$stealth = false;
 	switch ($zone_identifier) {
 		case 'nl':
    			$url = 'https://rdap.sidn.nl/';
@@ -566,7 +567,7 @@ else	{
    			break;	
 		case 'net':
    			$url = 'https://rdap.verisign.com/net/v1/';
-   			break;
+			break;
 		case 'org':
    			$url = 'https://rdap.publicinterestregistry.org/rdap/';
 			break;
@@ -576,12 +577,6 @@ else	{
 		case 'ca':
 			$url = 'https://rdap.ca.fury.ca/rdap/';
 			break;
-		case 'ch':
-   			$url = 'https://rdap.nic.ch/';	
-   			break;		
-		case 'de':
-   			$url = 'https://rdap.denic.de/';
-   			break;
 		case 'fr':
 			$url = 'https://rdap.nic.fr/';
 			break;
@@ -600,17 +595,76 @@ else	{
 		case 'frl':
     		$url = 'https://rdap.centralnic.com/frl/';
     		break;
+
+		case 'de':
+    		$url = 'https://rdap.denic.de/';
+    		$stealth = true;
+    		break;
+		case 'at':
+    		$url = 'https://rdap.nic.at/';
+    		$stealth = true;
+    		break;
 		case 'ch':
     		$url = 'https://rdap.nic.ch/';
+    		$stealth = true;
     		break;
 		case 'li':
-    		$url = 'https://rdap.nic.ch/';
+    		$url = 'https://rdap.nic.li/';
+    		$stealth = true;
+    		break;
+		case 'eu':
+    		$url = 'https://rdap.eu/';
+    		$stealth = true;
+    		break;
+		case 'int':
+    		$url = 'https://rdap.iana.org/';
+    		$stealth = true;
+    		break;
+		case 'jp':
+    		$url = 'https://rdap.jprs.jp/';
+    		$stealth = true;
+    		break;
+		case 'kr':
+    		$url = 'https://rdap.kr/';
+    		$stealth = true;
+    		break;
+		case 'cn':
+    		$url = 'https://rdap.cnnic.cn/';
+    		$stealth = true;
+    		break;
+		case 'br':
+    		$url = 'https://rdap.registro.br/';
+    		$stealth = true;
+    		break;
+		case 'za':
+    		$url = 'https://rdap.registry.net.za/';
+    		$stealth = true;
+    		break;
+		case 'mx':
+    		$url = 'https://rdap.mx/';
+    		$stealth = true;
+    		break;
+		case 'ai':
+    		$url = 'https://rdap.nic.ai/';
+    		$stealth = true;
+    		break;
+		case 'io':
+    		$url = 'https://rdap.nic.io/';
+	    	$stealth = true;
+    		break;
+		case 'gg':
+    		$url = 'https://rdap.gg/';
+    		$stealth = true;
+    		break;
+		case 'je':
+    		$url = 'https://rdap.je/';
+    		$stealth = true;
     		break;	
 		default:
    			//die("No match with a top level domain.");
-	}	
+	}
 	$lookup_endpoints_uri = 'https://data.iana.org/rdap/dns.json';
-	if (!strlen($url))	{
+	if (!strlen($url) or $stealth)	{
 		$rdap = json_decode(file_get_contents($lookup_endpoints_uri), true);
 		$temp_key = -1;
 		foreach($rdap as $key1 => $value1) {
@@ -634,7 +688,7 @@ else	{
 		$arr['interface_notice'] = $zone_identifier . " - Operational RDAP unknown";
 		return $arr;
 	}
-	$url .= 'domain/'.$inputdomain;
+	$url = rtrim($url, '/') . '/domain/' . $inputdomain;
 }
 $options = [
   "http" => [
