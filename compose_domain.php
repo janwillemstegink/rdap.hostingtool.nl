@@ -10,6 +10,7 @@
 //$_GET['domain'] = 'domaincontrolregister.org';
 //$_GET['domain'] = 'icann.org';
 //$_GET['domain'] = 'amsterdam.amsterdam';
+//$_GET['domain'] = 'krijnders.eu';
 
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
@@ -708,17 +709,30 @@ $start_utc_iso   = gmdate('c');
 $server_seen = $_SERVER['SERVER_ADDR'] ?? null;
 $fp = @fopen($url, 'r', false, $context);
 if (!$fp) {
-  $arr['interface_notice'] = [
-    'message' => 'Failed to open URL',
-    'php_error' => error_get_last(),
-    'time_utc' => $start_utc_iso,
-    'server_ip' => $server_seen,
-    'url' => $url,
-  ];
-  return $arr;
+    $phpError = error_get_last();
+
+    $parts = ['Failed to open URL'];
+
+    if (!empty($url)) {
+        $parts[] = 'url: ' . $url;
+    }
+    if (!empty($start_utc_iso)) {
+        $parts[] = 'time_utc: ' . $start_utc_iso;
+    }
+    if (!empty($server_seen)) {
+        $parts[] = 'server_ip: ' . $server_seen;
+    }
+    if (!empty($phpError['message'])) {
+        $parts[] = 'php_error: ' . $phpError['message'];
+    }
+
+    //$arr['interface_notice'] = implode(', ', $parts);
+	$arr['interface_notice'] = implode(PHP_EOL, $parts);
+    return $arr;
 }
+
 $response = stream_get_contents($fp);
-fclose($fp);
+fclose($fp);	
 $http_code = null;
 if (!empty($http_response_header) && preg_match('#^HTTP/\S+\s+(\d{3})#', $http_response_header[0], $matches)) {
 	$http_code = (int)$matches[1];

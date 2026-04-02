@@ -667,24 +667,24 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="203" style="display:none"><td>rdap_conformance</td><td colspan="2">'.$data[$pd]['registry']['metadata']['rdap_conformance'].'</td><td>'.$data[$pd]['registrar']['metadata']['rdap_conformance'].'</td></tr>';
 	$html_text .= '<tr id="204" style="display:none"><td>rdap_data_layer</td><td>'.$data[$pd]['registry']['metadata']['rdap_data_layer'].'</td><td id="metadata_rdap_data_layer"></td><td>'.$data[$pd]['registrar']['metadata']['rdap_data_layer'].'</td></tr>';
 	$html_text .= '<tr id="205" style="display:none"><td>rdap_issue_uri</td><td>'.$data[$pd]['registry']['metadata']['rdap_issue_uri'].'</td><td id="metadata_rdap_issue_uri"></td><td>'.$data[$pd]['registrar']['metadata']['rdap_issue_uri'].'</td></tr>';	
-	$html_text .= '<tr><td>terms_and_conditions_uri</td><td>'.((strlen($terms_and_conditions_uri)) ? '<a href="'.$terms_and_conditions_uri.'" target="_blank">.'.$data[$pd]['registry']['metadata']['zone_identifier'].' TLD Data</a>' : '').'</td><td id="metadata_terms_and_conditions_uri"></td><td></td></tr>';	
+	$html_text .= '<tr><td>terms_and_conditions_uri</td><td>'.((!empty($terms_and_conditions_uri)) ? '<a href="'.$terms_and_conditions_uri.'" target="_blank">.'.$data[$pd]['registry']['metadata']['zone_identifier'].' TLD Data</a>' : '').'</td><td id="metadata_terms_and_conditions_uri"></td><td></td></tr>';	
 	$html_text .= '<tr id="206" style="display:none"><td>global_json_response_uri</td><td>'.$data[$pd]['registry']['metadata']['global_json_response_uri'].'</td><td id="metadata_global_json_response_uri"></td><td>'.$data[$pd]['registrar']['metadata']['global_json_response_uri'].'</td></tr>';
 	$registry_json_response_uri = str_replace('https://', '', $data[$pd]['registry']['metadata']['registry_json_response_uri']);
 	$validation_registry = 'https://validator.rdap.org/?url=https://'.$registry_json_response_uri.'&response-type=domain&server-type=gtld-registry&errors-only=1';	
-	$html_text .= '<tr><td>registry_json_response_uri</td><td>'.((strlen($data[$pd]['registry']['metadata']['registry_json_response_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['registry_json_response_uri'].' target="_blank">Registry Response</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registry_json_response_uri"></td><td>'.$data[$pd]['registrar']['metadata']['registry_json_response_uri'].'</td></tr>';		
-	$html_text .= '<tr id="207" style="display:none"><td>registrar_identifiers</td><td>'.((strlen($data[$pd]['registry']['metadata']['registrar_identifiers'])) ? $data[$pd]['registry']['metadata']['registrar_identifiers'] : '').'</td><td id="metadata_registrar_identifiers"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_identifiers'].'</td></tr>';
+	$html_text .= '<tr><td>registry_json_response_uri</td><td>'.((!empty($data[$pd]['registry']['metadata']['registry_json_response_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['registry_json_response_uri'].' target="_blank">Registry Response</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registry_json_response_uri"></td><td>'.$data[$pd]['registrar']['metadata']['registry_json_response_uri'].'</td></tr>';		
+	$html_text .= '<tr id="207" style="display:none"><td>registrar_identifiers</td><td>'.((!empty($data[$pd]['registry']['metadata']['registrar_identifiers'])) ? $data[$pd]['registry']['metadata']['registrar_identifiers'] : '').'</td><td id="metadata_registrar_identifiers"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_identifiers'].'</td></tr>';
 	$registrar_json_response_uri = str_replace('https://', '', $data[$pd]['registry']['metadata']['registrar_json_response_uri']);
 	$validation_registrar = 'https://validator.rdap.org/?url=https://'.$registrar_json_response_uri.'&response-type=domain&server-type=gtld-registrar&errors-only=1';	
-	$html_text .= '<tr><td>registrar_json_response_uri</td><td>'.((strlen($data[$pd]['registry']['metadata']['registrar_json_response_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['registrar_json_response_uri'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registrar_json_response_uri"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_json_response_uri'].'</td></tr>';
-	$html_text .= '<tr id="208" style="display:none"><td>registrar_complaint_uri</td><td>'.((strlen($data[$pd]['registry']['metadata']['registrar_complaint_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['registrar_complaint_uri'].' target="_blank">icann.org/wicf</a>' : '').'</td><td id="metadata_registrar_complaint_uri"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_complaint_uri'].'</td></tr>';
+	$html_text .= '<tr><td>registrar_json_response_uri</td><td>'.((!empty($data[$pd]['registry']['metadata']['registrar_json_response_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['registrar_json_response_uri'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registrar_json_response_uri"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_json_response_uri'].'</td></tr>';
+	$html_text .= '<tr id="208" style="display:none"><td>registrar_complaint_uri</td><td>'.((!empty($data[$pd]['registry']['metadata']['registrar_complaint_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['registrar_complaint_uri'].' target="_blank">icann.org/wicf</a>' : '').'</td><td id="metadata_registrar_complaint_uri"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_complaint_uri'].'</td></tr>';
 	$html_text .= '<tr id="209" style="display:none"><td>registrar_publication_method</td><td>'.$data[$pd]['registry']['metadata']['registrar_publication_method'].'</td><td id="metadata_registrar_publication_method"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_publication_method'].'</td></tr>';
-	$html_text .= '<tr id="2010" style="display:none"><td>status_explanation_uri</td><td>'.((strlen($data[$pd]['registry']['metadata']['status_explanation_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['status_explanation_uri'].' target="_blank">icann.org/epp</a>' : '').'</td><td id="metadata_status_explanation_uri"></td><td>'.$data[$pd]['registrar']['metadata']['status_explanation_uri'].'</td></tr>';
+	$html_text .= '<tr id="2010" style="display:none"><td>status_explanation_uri</td><td>'.((!empty($data[$pd]['registry']['metadata']['status_explanation_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['status_explanation_uri'].' target="_blank">icann.org/epp</a>' : '').'</td><td id="metadata_status_explanation_uri"></td><td>'.$data[$pd]['registrar']['metadata']['status_explanation_uri'].'</td></tr>';
 	$html_text .= '<tr id="2011" style="display:none"><td>language_codes</td><td>'.$data[$pd]['registry']['metadata']['language_codes'].'</td><td id="metadata_language_codes"></td><td>'.$data[$pd]['registrar']['metadata']['language_codes'].'</td></tr>';
 	$html_text .= '<tr id="2012" style="display:none"><td>geo_location</td><td>'.$data[$pd]['registry']['metadata']['geo_location'].'</td><td></td><td>'.$data[$pd]['registrar']['metadata']['geo_location'].'</td></tr>';
 	$html_text .= '<tr><td>resource_upload_at</td><td>'.$data[$pd]['registry']['metadata']['resource_upload_at'].'</td><td id="metadata_resource_upload_at"></td><td>'.$data[$pd]['registrar']['metadata']['resource_upload_at'].'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	if (strlen($data[$pd]['registry']['interface_notice']) or strlen($data[$pd]['registrar']['interface_notice']))	{
-		$html_text .= '<tr><td><b>interface_notice</b></td><td>'.$data[$pd]['registry']['interface_notice'].'</td><td></td><td>'.$data[$pd]['registrar']['interface_notice'].'</td></tr>';
+	if (!empty($data[$pd]['registry']['interface_notice']) or !empty($data[$pd]['registrar']['interface_notice']))	{
+		$html_text .= '<tr><td><b>interface_notice</b></td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['interface_notice']).'</td><td></td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['interface_notice']).'</td></tr>';
 	}
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(30)">Properties +/-</button></td><td><b>'.$vd.'</b></td><td id="properties_role"></td><td></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>properties_server_handle</td><td colspan="2">'.$data[$pd]['registry']['properties']['server_handle'].'</td><td>'.$data[$pd]['registrar']['properties']['server_handle'].'</td></tr>';
@@ -787,7 +787,7 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="3023" style="display:none"><td>properties_extensions</td><td>'.$data[$pd]['registry']['properties']['extensions'].'</td><td id="properties_extensions"></td><td>'.$data[$pd]['registrar']['properties']['extensions'].'</td></tr>';
 	$html_text .= '<tr id="3024" style="display:none"><td>properties_remarks</td><td>'.$data[$pd]['registry']['properties']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['properties']['remarks'].'</td></tr>';
 	if (!empty($data[$pd]['registry']['properties']['statuses_raw']))	{
-		$sponsor_applicable = (strlen($data[$pd]['registry']['sponsor']['organization_name']) or strlen($data[$pd]['registry']['sponsor']['presented_name'])) ? '(sponsor data exists)' : '(no sponsor data)';
+		$sponsor_applicable = (!empty($data[$pd]['registry']['sponsor']['organization_name']) or !empty($data[$pd]['registry']['sponsor']['presented_name'])) ? '(sponsor data exists)' : '(no sponsor data)';
 	}
 	else	{
 		$sponsor_applicable = '';
@@ -1035,7 +1035,7 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="6313" style="display:none"><td>secure_dns_digest_type</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['nameservers']['secure_dns_digest_type']).'</td><td></td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['secure_dns_digest_type']).'</td></tr>';
 	$html_text .= '<tr id="6314" style="display:none"><td>secure_dns_digest</td><td colspan="2">'.str_replace(',',',<br />',$data[$pd]['registry']['nameservers']['secure_dns_digest']).'</td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['secure_dns_digest']).'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(75)">Raw RDAP +/-</button> | ' . ((strlen($raw_whois)) ? '<a href="'.$raw_whois.'" target="_blank">Whois Data</a>' : 'No Whois Data').'</td><td id="raw_data_next" colspan="2"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(75)">Raw RDAP +/-</button> | ' . ((!empty($raw_whois)) ? '<a href="'.$raw_whois.'" target="_blank">Whois Data</a>' : 'No Whois Data').'</td><td id="raw_data_next" colspan="2"></td><td></td></tr>';
 	$html_text .= '<tr id="751" style="display:none;;"><td colspan="2">'.$data[$pd]['registry']['raw_rdap'].'</td><td></td><td>'.$data[$pd]['registrar']['raw_rdap'].'</td></tr>';
 }
 $html_text .= '</table></div></body></html>';
@@ -1086,7 +1086,7 @@ function get_block($ip) {
             }
         }
     }
-	return (strlen($country)) ? $country . '; ' . $orgName : $orgName;	
+	return (!empty($country)) ? $country . '; ' . $orgName : $orgName;	
 }
 
 function if_filled($inputvalue)	{

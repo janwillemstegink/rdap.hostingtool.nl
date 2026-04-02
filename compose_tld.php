@@ -738,4 +738,4 @@ $arr[$inputtld]['nameservers']['secure_dns_digest'] = $nameservers_secure_dns_di
 
 return $arr;
 }
-?>
+}?>
