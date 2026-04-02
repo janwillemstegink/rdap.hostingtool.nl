@@ -10,7 +10,7 @@
 //$_GET['domain'] = 'domaincontrolregister.org';
 //$_GET['domain'] = 'icann.org';
 //$_GET['domain'] = 'amsterdam.amsterdam';
-//$_GET['domain'] = 'krijnders.eu';
+//$_GET['domain'] = 'eurid.eu';
 
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
@@ -711,23 +711,23 @@ $fp = @fopen($url, 'r', false, $context);
 if (!$fp) {
     $phpError = error_get_last();
 
-    $parts = ['Failed to open URL'];
+    $parts = ['No working RDAP URL for this TLD'];
 
     if (!empty($url)) {
-        $parts[] = 'url: ' . $url;
+        $parts[] = $url;
     }
     if (!empty($start_utc_iso)) {
-        $parts[] = 'time_utc: ' . $start_utc_iso;
+        $parts[] = '(UTC: ' . $start_utc_iso;
     }
     if (!empty($server_seen)) {
-        $parts[] = 'server_ip: ' . $server_seen;
+        $parts[] = 'IP: ' . $server_seen . ')';
     }
     if (!empty($phpError['message'])) {
-        $parts[] = 'php_error: ' . $phpError['message'];
+        $parts[] = $phpError['message'];
     }
 
-    //$arr['interface_notice'] = implode(', ', $parts);
-	$arr['interface_notice'] = implode(PHP_EOL, $parts);
+    $arr['interface_notice'] = implode(', ', $parts);
+	//$arr['interface_notice'] = implode(PHP_EOL, $parts);
     return $arr;
 }
 
