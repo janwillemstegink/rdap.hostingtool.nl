@@ -54,11 +54,10 @@ $internal = (str_contains([block],'Freedom')) ? '_internal_' : '';
 $log_file = "/home/admin/logging/" . $internal . "domain_tool_" . $datetime->format('Ym') . ".txt";
 $log_line = $datetime->format('Y-m-d H:i:s') . " UTC, lang" . $viewlanguage . ", " . $vd . ", " . [ip] . ", " . [block] . "\n";
 file_put_contents($log_file, $log_line, FILE_APPEND);
-echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta charset="UTF-8" />
-<meta http-equiv="x-ua-compatible" content="ie=edge" />
-<meta name="robots" content="index" />
+echo '<!DOCTYPE html><html lang="en" style="font-size: 90%">
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="robots" content="index">
 <title>Domain Information</title><style>.top-align td {vertical-align: top;}</style>';
 ?><script>
 	
@@ -125,7 +124,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 63)	{ // nameservers
 		var pre = '63';
-		var max = 14
+		var max = 17
 	}
 	else if (type == 75)	{ // raw rdap data
 		var pre = '75';
@@ -238,8 +237,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_abuse_role").textContent = "";
 		document.getElementById("registrar_abuse_phone").textContent = "";
 		document.getElementById("nameservers_secure_dns_signed").textContent = "";
-		document.getElementById("measured_dns_algorithms").textContent = proposed;
-		document.getElementById("nameservers_secure_dns_algorithm").textContent = "";
+		document.getElementById("measured_ds_algorithms").textContent = proposed;
+		document.getElementById("nameservers_secure_ds_algorithms").textContent = "";
 		document.getElementById("nameservers_ipv4_addresses").textContent = "";
 		document.getElementById("nameservers_ipv6_addresses").textContent = "";
 		document.getElementById("br_zone").textContent = "";
@@ -327,8 +326,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_abuse_role").textContent = "Informatie over hoe een derde partij contact kan opnemen met de registrar of belaste partij. Zie fryslan.frl.";
 		document.getElementById("registrar_abuse_phone").textContent = "Een telefoonnummer moet beginnen met het type. Toegestaan zijn in ieder geval 'voice' en 'fax'.";
 		document.getElementById("nameservers_secure_dns_signed").textContent = "DNSSEC beveiligt DNS tegen spoofing en cachevergiftiging.";
-		document.getElementById("measured_dns_algorithms").textContent = proposed + "Deze tool meet DNSSEC-algoritmen direct, onafhankelijk van RDAP, ook bij tijdelijke duplicatie.";
-		document.getElementById("nameservers_secure_dns_algorithm").textContent = "Algoritmen 13–16 zijn actueel. IANA voert algoritme 8 als RECOMMENDED, geldt als uitlopend.";
+		document.getElementById("measured_ds_algorithms").textContent = proposed + "Deze tool meet DNSSEC-algoritmen direct, onafhankelijk van RDAP, ook bij tijdelijke duplicatie.";
+		document.getElementById("nameservers_secure_ds_algorithms").textContent = "Algoritmen 13–16 zijn actueel. IANA voert algoritme 8 als RECOMMENDED, geldt als uitlopend.";
 		document.getElementById("nameservers_ipv4_addresses").textContent = "Een glue-record is een DNS-record dat wordt meegegeven door de bovenliggende zone, ook al is die daar niet";
 		document.getElementById("nameservers_ipv6_addresses").textContent = "autoritatief voor, om cirkelafhankelijke resoluties van nameservers binnen de onderliggende zone te voorkomen.";
 		document.getElementById("br_zone").textContent = "TLD .br: De RDAP-gegevens zijn aangepast met nameservervalidatie.";
@@ -416,8 +415,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_abuse_role").textContent = "Information on how a third party can contact the registrar or entrusted party. See fryslan.frl.";
 		document.getElementById("registrar_abuse_phone").textContent = "A phone number must begin with the type. Allowed are anyway 'voice' and 'fax'.";
 		document.getElementById("nameservers_secure_dns_signed").textContent = "DNSSEC secures DNS against spoofing and cache poisoning.";
-		document.getElementById("measured_dns_algorithms").textContent = proposed + "This tool measures DNSSEC algorithms directly, independent of RDAP, including during temporary duplication.";
-		document.getElementById("nameservers_secure_dns_algorithm").textContent = "Algorithms 13–16 are current. IANA lists algorithm 8 as RECOMMENDED, considered phasing out.";
+		document.getElementById("measured_ds_algorithms").textContent = proposed + "This tool measures DNSSEC algorithms directly, independent of RDAP, including during temporary duplication.";
+		document.getElementById("nameservers_secure_ds_algorithms").textContent = "Algorithms 13–16 are current. IANA lists algorithm 8 as RECOMMENDED, considered phasing out.";
 		document.getElementById("nameservers_ipv4_addresses").textContent = "A glue record is a DNS record provided by the parent zone, even though it is not authoritative for it,";
 		document.getElementById("nameservers_ipv6_addresses").textContent = "to prevent circular dependencies when resolving nameservers within the child zone.";
 		document.getElementById("br_zone").textContent = "TLD .br: The RDAP data has been modified with nameserver validation.";
@@ -505,8 +504,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_abuse_role").textContent = "Informationen darüber, wie Dritte den Registrar oder die beauftragte Partei kontaktieren können. Siehe fryslan.frl.";
 		document.getElementById("registrar_abuse_phone").textContent = "Eine Telefonnummer muss mit dem Typ beginnen. Erlaubt sind grundsätzlich 'voice' und 'fax'.";		
 		document.getElementById("nameservers_secure_dns_signed").textContent = "DNSSEC sichert DNS gegen Spoofing und Cache-Poisoning.";
-		document.getElementById("measured_dns_algorithms").textContent = proposed + "Dieses Tool ermittelt DNSSEC-Algorithmen direkt, unabhängig von RDAP, auch bei temporärer Doppelung.";
-		document.getElementById("nameservers_secure_dns_algorithm").textContent = "Algorithmen 13–16 sind aktuell. IANA führt Algorithmus 8 als RECOMMENDED, gilt als auslaufend.";
+		document.getElementById("measured_ds_algorithms").textContent = proposed + "Dieses Tool ermittelt DNSSEC-Algorithmen direkt, unabhängig von RDAP, auch bei temporärer Doppelung.";
+		document.getElementById("nameservers_secure_ds_algorithms").textContent = "Algorithmen 13–16 sind aktuell. IANA führt Algorithmus 8 als RECOMMENDED, gilt als auslaufend.";
 		document.getElementById("nameservers_ipv4_addresses").textContent = "Ein Glue-Record ist ein DNS-Eintrag, den die übergeordnete Zone bereitstellt, obwohl sie nicht autoritativ ist,";
 		document.getElementById("nameservers_ipv6_addresses").textContent = "um zirkuläre Abhängigkeiten bei der Auflösung von Nameservern in der untergeordneten Zone zu verhindern.";		
 		document.getElementById("br_zone").textContent = "TLD .br: Die RDAP-Daten wurden mit der Nameserver-Validierung angepasst.";
@@ -594,8 +593,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_abuse_role").textContent = "Informations sur la manière dont un tiers peut contacter le registraire ou la partie mandatée. Voir fryslan.frl.";
 		document.getElementById("registrar_abuse_phone").textContent = "Un numéro de téléphone doit commencer par le type. Sont autorisés de toute façon 'voice' et 'fax'.";
 		document.getElementById("nameservers_secure_dns_signed").textContent = "DNSSEC sécurise le DNS contre le spoofing et l’empoisonnement.";
-		document.getElementById("measured_dns_algorithms").textContent = proposed + "Mesure directe des algorithmes DNSSEC, indépendante du RDAP, y compris duplication temporaire.";
-		document.getElementById("nameservers_secure_dns_algorithm").textContent = "Les algorithmes 13–16 sont actuels. L’IANA classe l’algorithme 8 comme RECOMMENDED, en fin de vie.";
+		document.getElementById("measured_ds_algorithms").textContent = proposed + "Mesure directe des algorithmes DNSSEC, indépendante du RDAP, y compris duplication temporaire.";
+		document.getElementById("nameservers_secure_ds_algorithms").textContent = "Les algorithmes 13–16 sont actuels. L’IANA classe l’algorithme 8 comme RECOMMENDED, en fin de vie.";
 		document.getElementById("nameservers_ipv4_addresses").textContent = "Un glue record est un enregistrement DNS fourni par la zone parente, bien qu’elle n’en soit pas autoritaire,";
 		document.getElementById("nameservers_ipv6_addresses").textContent = "afin d’éviter les dépendances circulaires lors de la résolution des serveurs de noms de la zone enfant.";		
 		document.getElementById("br_zone").textContent = "TLD .br: Les données RDAP ont été ajustées avec la validation du serveur de noms.";
@@ -950,7 +949,7 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="459" style="display:none"><td>fallback_phone</td><td>'.$data[$pd]['registry']['fallback']['phone'].'</td><td></td><td>'.$data[$pd]['registrar']['fallback']['phone'].'</td></tr>';
 	$html_text .= '<tr id="4510" style="display:none"><td>fallback_country_code</td><td>'.$data[$pd]['registry']['fallback']['country_code'].'</td><td></td><td>'.$data[$pd]['registrar']['fallback']['country_code'].'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(50)">Reseller +/-</button></td><td></td><td id="reseller_role"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(50)">Reseller +/-</button></td><td><b>'.$vd.'</b></td><td id="reseller_role"></td><td></td></tr>';
 	$html_text .= '<tr id="501" style="display:none"><td>reseller_server_handle</td><td>'.$data[$pd]['registry']['reseller']['server_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['server_handle'].'</td></tr>';
 	$html_text .= '<tr id="502" style="display:none"><td>reseller_client_handle</td><td>'.$data[$pd]['registry']['reseller']['client_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['client_handle'].'</td></tr>';
 	$html_text .= '<tr id="503" style="display:none"><td>reseller_web_id</td><td>'.$data[$pd]['registry']['reseller']['web_id'].'</td><td id="reseller_web_id"></td><td>'.$data[$pd]['registrar']['reseller']['web_id'].'</td></tr>';
@@ -1018,7 +1017,7 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="619" style="display:none"><td>registrar_abuse_phone</td><td>'.$data[$pd]['registry']['registrar_abuse']['phone'].'</td><td id="registrar_abuse_phone"></td><td>'.$data[$pd]['registrar']['registrar_abuse']['phone'].'</td></tr>';
 	$html_text .= '<tr id="6110" style="display:none"><td>registrar_abuse_country_code</td><td>'.$data[$pd]['registry']['registrar_abuse']['country_code'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar_abuse']['country_code'].'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(63)">Nameservers +/-</button></td><td></td><td></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(63)">Nameservers +/-</button></td><td><b>'.$vd.'</b></td><td></td><td></td></tr>';
 	$html_text .= '<tr id="631" style="display:none"><td>server_handles</td><td colspan="2">'.$data[$pd]['registry']['nameservers']['server_handles'].'</td><td>'.$data[$pd]['registrar']['nameservers']['server_handles'].'</td></tr>';
 	$html_text .= '<tr id="632" style="display:none"><td>client_handles</td><td colspan="2">'.$data[$pd]['registry']['nameservers']['client_handles'].'</td><td>'.$data[$pd]['registrar']['nameservers']['client_handles'].'</td></tr>';
 	$html_text .= '<tr id="633" style="display:none"><td>ascii_names</td><td colspan="2">'.$data[$pd]['registry']['nameservers']['ascii_names'].'</td><td>'.$data[$pd]['registrar']['nameservers']['ascii_names'].'</td></tr>';
@@ -1029,11 +1028,14 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="638" style="display:none"><td>delegation_checks</td><td>'.$data[$pd]['registry']['nameservers']['delegation_checks'].'</td><td id="br_zone"></td><td>'.$data[$pd]['registrar']['nameservers']['delegation_checks'].'</td></tr>';
 	$html_text .= '<tr id="639" style="display:none"><td>latest_correct_delegation_checks</td><td>'.$data[$pd]['registry']['nameservers']['latest_correct_delegation_checks'].'</td><td></td><td>'.$data[$pd]['registrar']['nameservers']['latest_correct_delegation_checks'].'</td></tr>';
 	$html_text .= '<tr id="6310" style="display:none"><td>secure_dns_signed</td><td>'.$data[$pd]['registry']['nameservers']['secure_dns_signed'].'</td><td id="nameservers_secure_dns_signed"></td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['secure_dns_signed']).'</td></tr>';
-	$html_text .= '<tr id="6311" style="display:none"><td>secure_dns_key_tag</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['nameservers']['secure_dns_key_tag']).'</td><td></td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['secure_dns_key_tag']).'</td></tr>';
-	$html_text .= '<tr><td>measured_dns_algorithms</td><td>'.$data[$pd]['registry']['measured_dns_algorithms'].'</td><td id="measured_dns_algorithms"></td><td></td></tr>';
-	$html_text .= '<tr id="6312" style="display:none"><td>secure_dns_algorithm</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['nameservers']['secure_dns_algorithm']).'</td><td id="nameservers_secure_dns_algorithm"></td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['secure_dns_algorithm']).'</td></tr>';
-	$html_text .= '<tr id="6313" style="display:none"><td>secure_dns_digest_type</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['nameservers']['secure_dns_digest_type']).'</td><td></td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['secure_dns_digest_type']).'</td></tr>';
-	$html_text .= '<tr id="6314" style="display:none"><td>secure_dns_digest</td><td colspan="2">'.str_replace(',',',<br />',$data[$pd]['registry']['nameservers']['secure_dns_digest']).'</td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['secure_dns_digest']).'</td></tr>';
+	$html_text .= '<tr id="6311" style="display:none"><td>secure_ds_key_tags</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['nameservers']['secure_ds_key_tags']).'</td><td></td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['secure_ds_key_tags']).'</td></tr>';
+	$html_text .= '<tr id="6312" style="display:none"><td>secure_ds_algorithms</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['nameservers']['secure_ds_algorithms']).'</td><td id="nameservers_secure_ds_algorithms"></td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['secure_ds_algorithms']).'</td></tr>';
+	$html_text .= '<tr id="6313" style="display:none"><td>secure_ds_digest_types</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['nameservers']['secure_ds_digest_types']).'</td><td></td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['secure_ds_digest_types']).'</td></tr>';
+	$html_text .= '<tr id="6314" style="display:none"><td>secure_ds_digests</td><td colspan="2">'.str_replace(',',',<br />',$data[$pd]['registry']['nameservers']['secure_ds_digests']).'</td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['secure_ds_digests']).'</td></tr>';
+	$html_text .= '<tr id="6315" style="display:none"><td>measured_ds_key_tags</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['measured_ds_key_tags']).'</td><td></td><td></td></tr>';
+	$html_text .= '<tr><td><b>measured_ds_algorithms</b></td><td><b>'.str_replace(',',',<br />',$data[$pd]['registry']['measured_ds_algorithms']).'</b></td><td id="measured_ds_algorithms"></td><td></td></tr>';
+	$html_text .= '<tr id="6316" style="display:none"><td>measured_ds_digest_types</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['measured_ds_digest_types']).'</td><td></td><td></td></tr>';
+	$html_text .= '<tr id="6317" style="display:none"><td>measured_ds_digests</td><td colspan="2">'.str_replace(',',',<br />',$data[$pd]['registry']['measured_ds_digests']).'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(75)">Raw RDAP +/-</button> | ' . ((!empty($raw_whois)) ? '<a href="'.$raw_whois.'" target="_blank">Whois Data</a>' : 'No Whois Data').'</td><td id="raw_data_next" colspan="2"></td><td></td></tr>';
 	$html_text .= '<tr id="751" style="display:none;;"><td colspan="2">'.$data[$pd]['registry']['raw_rdap'].'</td><td></td><td>'.$data[$pd]['registrar']['raw_rdap'].'</td></tr>';

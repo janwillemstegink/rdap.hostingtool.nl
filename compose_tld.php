@@ -72,10 +72,10 @@ $nameservers_ipv4 = '';
 $nameservers_ipv6 = '';
 $nameservers_statuses = '';	
 $nameservers_secure_dns_signed = '';
-$nameservers_secure_dns_key_tag = '';	
-$nameservers_secure_dns_algorithm = '';
-$nameservers_secure_dns_digest_type = '';
-$nameservers_secure_dns_digest = '';	
+$nameservers_secure_ds_key_tags = '';	
+$nameservers_secure_ds_algorithms = '';
+$nameservers_secure_ds_digest_types = '';
+$nameservers_secure_ds_digests = '';	
 foreach($obj as $key1 => $value1) {
 	if ($key1 == 'status')	{	
 		$tld_statuses .= (is_array($value1)) ? implode(",<br />", $value1) : $value1;
@@ -119,10 +119,10 @@ foreach($obj as $key1 => $value1) {
 			}
 			if ($key1 == 'secureDNS')	{
 				if ($key2 == 'dsData') {
-					$nameservers_secure_dns_key_tag .= $key3.': '.$value3['keyTag']."<br />";	
-					$nameservers_secure_dns_algorithm .= $key3.': '.$value3['algorithm']."<br />";	
-					$nameservers_secure_dns_digest_type .= $key3.': '.$value3['digestType']."<br />";	
-					$nameservers_secure_dns_digest .= $key3.': '.$value3['digest']."<br />";
+					$nameservers_secure_ds_key_tags .= $key3.': '.$value3['keyTag']."<br />";	
+					$nameservers_secure_ds_algorithms .= $key3.': '.$value3['algorithm']."<br />";	
+					$nameservers_secure_ds_digest_types .= $key3.': '.$value3['digestType']."<br />";	
+					$nameservers_secure_ds_digests .= $key3.': '.$value3['digest']."<br />";
 				}				
 			}
 			foreach($value3 as $key4 => $value4) {
@@ -731,10 +731,10 @@ $arr[$inputtld]['nameservers']['ipv4_addresses'] = $nameservers_ipv4;
 $arr[$inputtld]['nameservers']['ipv6_addresses'] = $nameservers_ipv6;
 $arr[$inputtld]['nameservers']['statuses'] = $nameservers_statuses;
 $arr[$inputtld]['nameservers']['secure_dns_signed'] = $nameservers_secure_dns_signed;
-$arr[$inputtld]['nameservers']['secure_dns_key_tag'] = $nameservers_secure_dns_key_tag;
-$arr[$inputtld]['nameservers']['secure_dns_algorithm'] = $nameservers_secure_dns_algorithm;
-$arr[$inputtld]['nameservers']['secure_dns_digest_type'] = $nameservers_secure_dns_digest_type;
-$arr[$inputtld]['nameservers']['secure_dns_digest'] = $nameservers_secure_dns_digest;
+$arr[$inputtld]['nameservers']['secure_ds_key_tags'] = $nameservers_secure_ds_key_tags;
+$arr[$inputtld]['nameservers']['secure_ds_algorithms'] = $nameservers_secure_ds_algorithms;
+$arr[$inputtld]['nameservers']['secure_ds_digest_types'] = $nameservers_secure_ds_digest_types;
+$arr[$inputtld]['nameservers']['secure_ds_digests'] = $nameservers_secure_ds_digests;
 
 return $arr;
 }

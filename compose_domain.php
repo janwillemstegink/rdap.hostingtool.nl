@@ -11,6 +11,8 @@
 //$_GET['domain'] = 'icann.org';
 //$_GET['domain'] = 'amsterdam.amsterdam';
 //$_GET['domain'] = 'eurid.eu';
+//$_GET['domain'] = 'denic.de';
+//$_GET['domain'] = 'internet.nl';
 
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
@@ -113,8 +115,36 @@ if (!empty($_GET['domain']))	{
 				$registrar_interface .= 'Registrar RDAP shows a rel="related" link.';
 			}
 		}
-		$registry_rdap['measured_dns_algorithms'] = getDnssecInfo($domain);
-		$registry_rdap['measured_dns_algorithms'] = $registry_rdap['measured_dns_algorithms']['dnskey_algorithms_csv'];
+		$dnssecInfo = getDnssecInfo($domain);
+		//$registry_rdap['measured_ds_key_tags'] = $dnssecInfo['ds_keytags_csv'];
+		//$registry_rdap['measured_ds_algorithms'] = $dnssecInfo['ds_algorithms_csv'];
+		//$registry_rdap['measured_ds_digest_types'] = $dnssecInfo['ds_digest_types_csv'];
+		//$registry_rdap['measured_ds_digests'] = $dnssecInfo['ds_digests_csv'];
+		
+		$registry_rdap['measured_ds_key_tags'] = '';
+		foreach ($dnssecInfo['ds_keytags'] as $index => $value) {
+    		$registry_rdap['measured_ds_key_tags'] .= $index . ': ' . $value . ',';
+		}
+		$registry_rdap['measured_ds_key_tags'] = rtrim($registry_rdap['measured_ds_key_tags'], ',');
+		
+		$registry_rdap['measured_ds_algorithms'] = '';
+		foreach ($dnssecInfo['ds_algorithms'] as $index => $value) {
+    		$registry_rdap['measured_ds_algorithms'] .= $index . ': ' . $value . ',';
+		}
+		$registry_rdap['measured_ds_algorithms'] = rtrim($registry_rdap['measured_ds_algorithms'], ',');
+		
+		$registry_rdap['measured_ds_digest_types'] = '';
+		foreach ($dnssecInfo['ds_digest_types'] as $index => $value) {
+    		$registry_rdap['measured_ds_digest_types'] .= $index . ': ' . $value . ',';
+		}
+		$registry_rdap['measured_ds_digest_types'] = rtrim($registry_rdap['measured_ds_digest_types'], ',');
+		
+		$registry_rdap['measured_ds_digests'] = '';
+		foreach ($dnssecInfo['ds_digests'] as $index => $value) {
+    		$registry_rdap['measured_ds_digests'] .= $index . ': ' . $value . ',';
+		}
+		$registry_rdap['measured_ds_digests'] = rtrim($registry_rdap['measured_ds_digests'], ',');		
+		
 		$registry_rdap['interface_notice'] = $registry_interface;
 		$registrar_rdap['interface_notice'] = $registrar_interface;
 		$merged = [];
@@ -193,14 +223,62 @@ function interprete_remark($inputkey, $inputvalue) {
     return $out;
 }
 
-function fetchIanaRegistrarRdapBaseUrl(int $ianaId): ? string	{
+function fetchWithCache(string $url, string $cacheName, int $ttl = 3600, $context = null): string
+{
+    $cacheDir = __DIR__ . '/cache';
+
+    if (!is_dir($cacheDir) && !mkdir($cacheDir, 0775, true) && !is_dir($cacheDir)) {
+        throw new RuntimeException('Unable to create cache directory: ' . $cacheDir);
+    }
+
+    $cacheFile = $cacheDir . '/' . $cacheName . '.cache';
+
+    if (file_exists($cacheFile) && (time() - filemtime($cacheFile) < $ttl)) {
+        $cached = file_get_contents($cacheFile);
+        if ($cached !== false) {
+            return $cached;
+        }
+    }
+
+    $err = null;
+    set_error_handler(function ($severity, $message) use (&$err) {
+        $err = $message;
+        return true;
+    });
+
+    try {
+        $data = $context !== null
+            ? file_get_contents($url, false, $context)
+            : file_get_contents($url);
+    } finally {
+        restore_error_handler();
+    }
+
+    if ($data !== false) {
+        file_put_contents($cacheFile, $data, LOCK_EX);
+        return $data;
+    }
+
+    if (file_exists($cacheFile)) {
+        $stale = file_get_contents($cacheFile);
+        if ($stale !== false) {
+            return $stale;
+        }
+    }
+
+    throw new RuntimeException(
+        'Failed to fetch URL and no cache available: ' . $url .
+        ($err ? ' | PHP warning: ' . $err : '')
+    );
+}
+
+function fetchIanaRegistrarRdapBaseUrl(int $ianaId): ?string
+{
     static $rdapMap = null;
 
     if ($rdapMap === null) {
-
         $csvUrl = 'https://www.iana.org/assignments/registrar-ids/registrar-ids-1.csv';
 
-        // Add timeouts so it can’t hang forever
         $ctx = stream_context_create([
             'http' => [
                 'timeout' => 8,
@@ -212,18 +290,10 @@ function fetchIanaRegistrarRdapBaseUrl(int $ianaId): ? string	{
             ],
         ]);
 
-        $err = null;
-        set_error_handler(function($severity, $message) use (&$err) {
-            $err = $message;
-            return true; // suppress default warning output
-        });
-
-        $csvContent = file_get_contents($csvUrl, false, $ctx);
-
-        restore_error_handler();
-
-        if ($csvContent === false) {
-            //echo "B: " . ($err ?? 'unknown error') . "\n";
+        try {
+            $csvContent = fetchWithCache($csvUrl, 'registrar_ids_csv', 3600, $ctx);
+        } catch (\Throwable $e) {
+            error_log('CSV fetch failed: ' . $e->getMessage());
             return null;
         }
 
@@ -234,34 +304,43 @@ function fetchIanaRegistrarRdapBaseUrl(int $ianaId): ? string	{
         $header = fgetcsv($fp);
         if (!$header) {
             fclose($fp);
-            return null; // invalid CSV
+            return null;
         }
 
-        // Locate required columns dynamically
-		$idAliases   = ['Registrar ID', 'IANA Registrar ID', 'ID'];
-		$rdapAliases = ['RDAP Base URL', 'RDAP URL', 'RDAP'];
+        $header = array_map(static function ($v) {
+            $v = (string) $v;
+            $v = preg_replace('/^\xEF\xBB\xBF/', '', $v);
+            return trim($v);
+        }, $header);
 
-		$find = function(array $header, array $aliases) {
-    		foreach ($aliases as $a) {
-        		$idx = array_search($a, $header, true);
-        		if ($idx !== false) return $idx;
-    		}
-    		return false;
-		};
+        $idAliases   = ['Registrar ID', 'IANA Registrar ID', 'ID'];
+        $rdapAliases = ['RDAP Base URL', 'RDAP URL', 'RDAP'];
 
-		$idIndex   = $find($header, $idAliases);
-		$rdapIndex = $find($header, $rdapAliases);
+        $find = static function (array $header, array $aliases) {
+            foreach ($aliases as $a) {
+                $idx = array_search($a, $header, true);
+                if ($idx !== false) {
+                    return $idx;
+                }
+            }
+            return false;
+        };
 
-		if ($idIndex === false || $rdapIndex === false) { fclose($fp); return null; }
+        $idIndex   = $find($header, $idAliases);
+        $rdapIndex = $find($header, $rdapAliases);
+
+        if ($idIndex === false || $rdapIndex === false) {
+            fclose($fp);
+            return null;
+        }
 
         $rdapMap = [];
 
         while (($row = fgetcsv($fp)) !== false) {
-            $id   = isset($row[$idIndex]) ? (int) trim($row[$idIndex]) : 0;
-            $rdap = isset($row[$rdapIndex]) ? trim($row[$rdapIndex]) : '';
+            $id   = isset($row[$idIndex]) ? (int) trim((string) $row[$idIndex]) : 0;
+            $rdap = isset($row[$rdapIndex]) ? trim((string) $row[$rdapIndex]) : '';
 
             if ($id > 0 && $rdap !== '') {
-	            // Normalize: remove trailing slash
                 $rdapMap[$id] = rtrim($rdap, '/');
             }
         }
@@ -278,16 +357,30 @@ function fetchIanaRegistrarRdapBaseUrl(int $ianaId): ? string	{
  * Returns:
  * - domain
  * - signed (bool)
+ *
+ * DNSKEY-derived:
  * - dnskey_algorithms (array<int>)
- * - dnskey_algorithms_csv (string)   e.g. "8,13"
+ * - dnskey_algorithms_csv (string)
  * - dnskey_keytags (array<int>)
  * - dnskey_keytags_csv (string)
+ * - dnskey_data (array<array{flags:int,protocol:int,algorithm:int,keytag:int|null}>)
+ *
+ * DS-derived:
+ * - ds_keytags (array<int>)
+ * - ds_keytags_csv (string)
  * - ds_algorithms (array<int>)
  * - ds_algorithms_csv (string)
  * - ds_digest_types (array<int>)
  * - ds_digest_types_csv (string)
+ * - ds_digests (array<string>)
+ * - ds_digests_csv (string)
+ * - ds_data (array<array{keyTag:int,algorithm:int,digestType:int,digest:string}>)
+ *
+ * Raw:
  * - dnskey_records (array<string>)
  * - ds_records (array<string>)
+ *
+ * Meta:
  * - error (string|null)
  */
 function getDnssecInfo(string $domain): array
@@ -298,16 +391,26 @@ function getDnssecInfo(string $domain): array
     $result = [
         'domain' => $domain,
         'signed' => false,
+
         'dnskey_algorithms' => [],
         'dnskey_algorithms_csv' => '',
         'dnskey_keytags' => [],
         'dnskey_keytags_csv' => '',
+        'dnskey_data' => [],
+
+        'ds_keytags' => [],
+        'ds_keytags_csv' => '',
         'ds_algorithms' => [],
         'ds_algorithms_csv' => '',
         'ds_digest_types' => [],
         'ds_digest_types_csv' => '',
+        'ds_digests' => [],
+        'ds_digests_csv' => '',
+        'ds_data' => [],
+
         'dnskey_records' => [],
         'ds_records' => [],
+
         'error' => null,
     ];
 
@@ -336,11 +439,19 @@ function getDnssecInfo(string $domain): array
         }
 
         $result['signed'] = true;
+
         $result['dnskey_algorithms'][] = $parsed['algorithm'];
 
         if ($parsed['keytag'] !== null) {
             $result['dnskey_keytags'][] = $parsed['keytag'];
         }
+
+        $result['dnskey_data'][] = [
+            'flags' => $parsed['flags'],
+            'protocol' => $parsed['protocol'],
+            'algorithm' => $parsed['algorithm'],
+            'keytag' => $parsed['keytag'],
+        ];
     }
 
     // Parse DS lines
@@ -351,20 +462,38 @@ function getDnssecInfo(string $domain): array
         }
 
         $result['signed'] = true;
+
+        $result['ds_keytags'][] = $parsed['keytag'];
         $result['ds_algorithms'][] = $parsed['algorithm'];
         $result['ds_digest_types'][] = $parsed['digest_type'];
+        $result['ds_digests'][] = $parsed['digest'];
+
+        // Preserve full DS tuple for RDAP-like output
+        $result['ds_data'][] = [
+            'keyTag' => $parsed['keytag'],
+            'algorithm' => $parsed['algorithm'],
+            'digestType' => $parsed['digest_type'],
+            'digest' => $parsed['digest'],
+        ];
     }
 
-    // Normalize, sort, stringify
+    // Normalize summary lists
     $result['dnskey_algorithms'] = normalizeIntList($result['dnskey_algorithms']);
     $result['dnskey_keytags'] = normalizeIntList($result['dnskey_keytags']);
+
+    $result['ds_keytags'] = normalizeIntList($result['ds_keytags']);
     $result['ds_algorithms'] = normalizeIntList($result['ds_algorithms']);
     $result['ds_digest_types'] = normalizeIntList($result['ds_digest_types']);
+    $result['ds_digests'] = normalizeStringList($result['ds_digests']);
 
+    // Stringify summary lists
     $result['dnskey_algorithms_csv'] = implode(',', $result['dnskey_algorithms']);
     $result['dnskey_keytags_csv'] = implode(',', $result['dnskey_keytags']);
+
+    $result['ds_keytags_csv'] = implode(',', $result['ds_keytags']);
     $result['ds_algorithms_csv'] = implode(',', $result['ds_algorithms']);
     $result['ds_digest_types_csv'] = implode(',', $result['ds_digest_types']);
+    $result['ds_digests_csv'] = implode(',', $result['ds_digests']);
 
     return $result;
 }
@@ -410,18 +539,22 @@ function runDnsQuery(string $runner, string $domain, string $type): array
 
     $lines = preg_split('/\R/', $output) ?: [];
     $lines = array_map('trim', $lines);
-    $lines = array_values(array_filter($lines, static function ($line) use ($runner, $type) {
-        if ($line === '') {
-            return false;
-        }
 
-        if ($runner === 'dig') {
-            return true;
-        }
+    $lines = array_values(array_filter(
+        $lines,
+        static function ($line) use ($runner, $type) {
+            if ($line === '') {
+                return false;
+            }
 
-        // drill output: keep only record lines that contain the requested type
-        return stripos($line, ' IN ' . $type . ' ') !== false;
-    }));
+            if ($runner === 'dig') {
+                return true;
+            }
+
+            // drill output: keep only record lines that contain the requested type
+            return stripos($line, ' IN ' . $type . ' ') !== false;
+        }
+    ));
 
     return $lines;
 }
@@ -445,7 +578,6 @@ function parseDnskeyLine(string $line): ?array
 {
     $line = trim($line);
 
-    // Full format: name ttl IN DNSKEY flags protocol algorithm key...
     if (preg_match('/^(?:\S+\s+\d+\s+IN\s+DNSKEY\s+)?(\d+)\s+(\d+)\s+(\d+)\s+(.+)$/i', $line, $m)) {
         $flags = (int) $m[1];
         $protocol = (int) $m[2];
@@ -477,6 +609,12 @@ function parseDnskeyLine(string $line): ?array
  *
  * drill example:
  * example.com. 3600 IN DS 26755 8 2 F341...
+ *
+ * Returns:
+ * - keytag
+ * - algorithm
+ * - digest_type
+ * - digest
  */
 function parseDsLine(string $line): ?array
 {
@@ -523,6 +661,7 @@ function computeDnskeyKeyTag(int $flags, int $protocol, int $algorithm, string $
     }
 
     $ac += ($ac >> 16) & 0xFFFF;
+
     return $ac & 0xFFFF;
 }
 
@@ -537,230 +676,287 @@ function normalizeIntList(array $values): array
     return $values;
 }
 
-function write_file($inputdomain, $inputbatch, $inputurl)	{
-
-$arr = array();
-$arr['interface_notice'] = "";
-if (strlen($inputurl))	{
-	$url = $inputurl;
-}	
-else	{	
-	$strpos = mb_strpos($inputdomain, '.');
-	if ($strpos !== false)	{
-		$zone_identifier = mb_substr($inputdomain, mb_strrpos($inputdomain, '.') + 1);
-	}
-	else	{
-		$arr['metadata']['zone_identifier'] = 'tld';
-		return $arr;
-	}
-	$time_start = microtime(true);			
-	$url = '';
-	$stealth = false;
-	switch ($zone_identifier) {
-		case 'nl':
-   			$url = 'https://rdap.sidn.nl/';
-   			break;		
-		case 'biz':
-   			$url = 'https://rdap.nic.biz/';
-   			break;	
-		case 'com':
-   			$url = 'https://rdap.verisign.com/com/v1/';
-   			break;	
-		case 'net':
-   			$url = 'https://rdap.verisign.com/net/v1/';
-			break;
-		case 'org':
-   			$url = 'https://rdap.publicinterestregistry.org/rdap/';
-			break;
-		case 'tel':
-   			$url = 'https://rdap.nic.tel/';
-			break;
-		case 'ca':
-			$url = 'https://rdap.ca.fury.ca/rdap/';
-			break;
-		case 'fr':
-			$url = 'https://rdap.nic.fr/';
-			break;
-		case 'uk':
-    		$url = 'https://rdap.nominet.uk/uk/';
-    		break;
-		case 'amsterdam':
-    		$url = 'https://rdap.nic.amsterdam/';
-    		break;
-		case 'politie':
-    		$url = 'https://rdap.nic.politie/';
-    		break;
-		case 'aw':
-    		$url = 'https://rdap.nic.aw/';
-    		break;	
-		case 'frl':
-    		$url = 'https://rdap.centralnic.com/frl/';
-    		break;
-
-		case 'de':
-    		$url = 'https://rdap.denic.de/';
-    		$stealth = true;
-    		break;
-		case 'at':
-    		$url = 'https://rdap.nic.at/';
-    		$stealth = true;
-    		break;
-		case 'ch':
-    		$url = 'https://rdap.nic.ch/';
-    		$stealth = true;
-    		break;
-		case 'li':
-    		$url = 'https://rdap.nic.li/';
-    		$stealth = true;
-    		break;
-		case 'eu':
-    		$url = 'https://rdap.eu/';
-    		$stealth = true;
-    		break;
-		case 'int':
-    		$url = 'https://rdap.iana.org/';
-    		$stealth = true;
-    		break;
-		case 'jp':
-    		$url = 'https://rdap.jprs.jp/';
-    		$stealth = true;
-    		break;
-		case 'kr':
-    		$url = 'https://rdap.kr/';
-    		$stealth = true;
-    		break;
-		case 'cn':
-    		$url = 'https://rdap.cnnic.cn/';
-    		$stealth = true;
-    		break;
-		case 'br':
-    		$url = 'https://rdap.registro.br/';
-    		$stealth = true;
-    		break;
-		case 'za':
-    		$url = 'https://rdap.registry.net.za/';
-    		$stealth = true;
-    		break;
-		case 'mx':
-    		$url = 'https://rdap.mx/';
-    		$stealth = true;
-    		break;
-		case 'ai':
-    		$url = 'https://rdap.nic.ai/';
-    		$stealth = true;
-    		break;
-		case 'io':
-    		$url = 'https://rdap.nic.io/';
-	    	$stealth = true;
-    		break;
-		case 'gg':
-    		$url = 'https://rdap.gg/';
-    		$stealth = true;
-    		break;
-		case 'je':
-    		$url = 'https://rdap.je/';
-    		$stealth = true;
-    		break;	
-		default:
-   			//die("No match with a top level domain.");
-	}
-	$lookup_endpoints_uri = 'https://data.iana.org/rdap/dns.json';
-	if (!strlen($url) or $stealth)	{
-		$rdap = json_decode(file_get_contents($lookup_endpoints_uri), true);
-		$temp_key = -1;
-		foreach($rdap as $key1 => $value1) {
-    		foreach($value1 as $key2 => $value2) {
-				foreach($value2 as $key3 => $value3) {				
-					foreach($value3 as $key4 => $value4) {
-						if ($key3 == 0 and $value4 == $zone_identifier)	{
-							$temp_key = $key2;
-							break;
-						}
-						elseif ($key3 == 1 and $key2 == $temp_key)	{
-							$url = $value4;
-							break 4;
-						}					
-					}
-				}
-			}
-		}
-	}
-	if (!strlen($url))	{
-		$arr['interface_notice'] = $zone_identifier . " - Operational RDAP unknown";
-		return $arr;
-	}
-	$url = rtrim($url, '/') . '/domain/' . $inputdomain;
+/**
+ * Normalize list of strings: trim + uppercase + unique + ascending.
+ */
+function normalizeStringList(array $values): array
+{
+    $values = array_map(
+        static fn($value) => strtoupper(trim((string) $value)),
+        $values
+    );
+    $values = array_values(array_filter(
+        $values,
+        static fn($value) => $value !== ''
+    ));
+    $values = array_values(array_unique($values));
+    sort($values, SORT_STRING);
+    return $values;
 }
-$options = [
-  "http" => [
-    "method" => "GET",
-    "ignore_errors" => true,
-    "timeout" => 8,
-    "header" => "User-Agent: MyRDAPClient/1.0\r\nAccept: application/json\r\n",
-  ]
-];
-$context = stream_context_create($options);
-$time_pass = microtime(true) - $time_start;
-if ($time_pass < 1.05) {
-  usleep((int)((1.05 - $time_pass) * 1_000_000));
-}
-$start_monotonic = microtime(true);
-$start_utc_iso   = gmdate('c');
-$server_seen = $_SERVER['SERVER_ADDR'] ?? null;
-$fp = @fopen($url, 'r', false, $context);
-if (!$fp) {
-    $phpError = error_get_last();
 
-    $parts = ['No working RDAP URL for this TLD'];
+function write_file($inputdomain, $inputbatch, $inputurl) {
 
-    if (!empty($url)) {
-        $parts[] = $url;
+    $arr = array();
+    $arr['interface_notice'] = "";
+    $time_start = microtime(true);
+
+    if (strlen($inputurl)) {
+        $url = $inputurl;
     }
-    if (!empty($start_utc_iso)) {
-        $parts[] = '(UTC: ' . $start_utc_iso;
-    }
-    if (!empty($server_seen)) {
-        $parts[] = 'IP: ' . $server_seen . ')';
-    }
-    if (!empty($phpError['message'])) {
-        $parts[] = $phpError['message'];
+    else {
+        $strpos = mb_strpos($inputdomain, '.');
+        if ($strpos !== false) {
+            $zone_identifier = mb_substr($inputdomain, mb_strrpos($inputdomain, '.') + 1);
+        }
+        else {
+            $arr['metadata']['zone_identifier'] = 'tld';
+            return $arr;
+        }
+
+        $url = '';
+        $stealth = false;
+
+        switch ($zone_identifier) {
+            case 'nl':
+                $url = 'https://rdap.sidn.nl/';
+                break;
+            case 'biz':
+                $url = 'https://rdap.nic.biz/';
+                break;
+            case 'com':
+                $url = 'https://rdap.verisign.com/com/v1/';
+                break;
+            case 'net':
+                $url = 'https://rdap.verisign.com/net/v1/';
+                break;
+            case 'org':
+                $url = 'https://rdap.publicinterestregistry.org/rdap/';
+                break;
+            case 'tel':
+                $url = 'https://rdap.nic.tel/';
+                break;
+            case 'ca':
+                $url = 'https://rdap.ca.fury.ca/rdap/';
+                break;
+            case 'fr':
+                $url = 'https://rdap.nic.fr/';
+                break;
+            case 'uk':
+                $url = 'https://rdap.nominet.uk/uk/';
+                break;
+            case 'amsterdam':
+                $url = 'https://rdap.nic.amsterdam/';
+                break;
+            case 'politie':
+                $url = 'https://rdap.nic.politie/';
+                break;
+            case 'aw':
+                $url = 'https://rdap.nic.aw/';
+                break;
+            case 'frl':
+                $url = 'https://rdap.centralnic.com/frl/';
+                break;
+
+            case 'de':
+                $url = 'https://rdap.denic.de/';
+                $stealth = true;
+                break;
+            case 'at':
+                $url = 'https://rdap.nic.at/';
+                $stealth = true;
+                break;
+            case 'ch':
+                $url = 'https://rdap.nic.ch/';
+                $stealth = true;
+                break;
+            case 'li':
+                $url = 'https://rdap.nic.li/';
+                $stealth = true;
+                break;
+            case 'eu':
+                $url = 'https://rdap.eu/';
+                $stealth = true;
+                break;
+            case 'int':
+                $url = 'https://rdap.iana.org/';
+                $stealth = true;
+                break;
+            case 'jp':
+                $url = 'https://rdap.jprs.jp/';
+                $stealth = true;
+                break;
+            case 'kr':
+                $url = 'https://rdap.kr/';
+                $stealth = true;
+                break;
+            case 'cn':
+                $url = 'https://rdap.cnnic.cn/';
+                $stealth = true;
+                break;
+            case 'br':
+                $url = 'https://rdap.registro.br/';
+                $stealth = true;
+                break;
+            case 'za':
+                $url = 'https://rdap.registry.net.za/';
+                $stealth = true;
+                break;
+            case 'mx':
+                $url = 'https://rdap.mx/';
+                $stealth = true;
+                break;
+            case 'ai':
+                $url = 'https://rdap.nic.ai/';
+                $stealth = true;
+                break;
+            case 'io':
+                $url = 'https://rdap.nic.io/';
+                $stealth = true;
+                break;
+            case 'gg':
+                $url = 'https://rdap.gg/';
+                $stealth = true;
+                break;
+            case 'je':
+                $url = 'https://rdap.je/';
+                $stealth = true;
+                break;
+            default:
+                // die("No match with a top level domain.");
+        }
+        $lookup_endpoints_uri = 'https://data.iana.org/rdap/dns.json';
+        if (!strlen($url) || $stealth) {
+            $ctx = stream_context_create([
+                'http' => [
+                    'timeout' => 8,
+                    'user_agent' => 'rdap-tool/1.0',
+                ],
+                'ssl' => [
+                    'verify_peer' => true,
+                    'verify_peer_name' => true,
+                ],
+            ]);
+            try {
+                $rdap = json_decode(
+                    fetchWithCache($lookup_endpoints_uri, 'rdap_dns_json', 3600, $ctx),
+                    true,
+                    512,
+                    JSON_THROW_ON_ERROR
+                );
+            }
+			catch (\Throwable $e) {
+                $rdap = null;
+            }
+            $temp_key = -1;
+
+            if (is_array($rdap)) {
+                foreach ($rdap as $key1 => $value1) {
+                    foreach ($value1 as $key2 => $value2) {
+                        foreach ($value2 as $key3 => $value3) {
+                            foreach ($value3 as $key4 => $value4) {
+                                if ($key3 == 0 && $value4 == $zone_identifier) {
+                                    // echo 'match zone at key2=' . $key2 . '<br>';
+                                    $temp_key = $key2;
+                                    break;
+                                }
+                                elseif ($key3 == 1 && $key2 == $temp_key) {
+                                    // echo 'match url=' . $value4 . '<br>';
+                                    $url = $value4;
+                                    break 4;
+                                }
+								
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (!strlen($url)) {
+            $arr['interface_notice'] = $zone_identifier . " - Operational RDAP unknown";
+            return $arr;
+        }
+        $url = rtrim($url, '/') . '/domain/' . $inputdomain;
     }
 
-    $arr['interface_notice'] = implode(', ', $parts);
-	//$arr['interface_notice'] = implode(PHP_EOL, $parts);
-    return $arr;
-}
+    $options = [
+        "http" => [
+            "method" => "GET",
+            "ignore_errors" => true,
+            "timeout" => 8,
+            "header" => "User-Agent: MyRDAPClient/1.0\r\nAccept: application/json\r\n",
+        ]
+    ];
 
-$response = stream_get_contents($fp);
-fclose($fp);	
-$http_code = null;
-if (!empty($http_response_header) && preg_match('#^HTTP/\S+\s+(\d{3})#', $http_response_header[0], $matches)) {
-	$http_code = (int)$matches[1];
-}
-$elapsed_seconds = microtime(true) - $start_monotonic;
-if ($http_code === null) {
-	$arr['interface_notice'] = "No HTTP status line at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec observed from $server_seen";
-  	return $arr;
-}
-if ($http_code === 429) {
-	$arr['interface_notice'] = "429 - Rate limit exceeded at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec observed from $server_seen";
-	return $arr;
-}
-if ($http_code !== 200) {
-	$arr['interface_notice'] = $http_code . " - Insufficient HTTP response at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec observed from $server_seen";
-	return $arr;
-}
-try {
-  	$obj = json_decode($response, true, 512, JSON_THROW_ON_ERROR);
-}
-catch (JsonException $e) {
-	$arr['interface_notice'] = "200 - JSON decode exception: " . $e->getMessage() . " at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec observed from $server_seen";
-	return $arr;
-}
-if (!is_array($obj)) {
-	$arr['interface_notice'] = "200 - Invalid JSON structure at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec observed from $server_seen";
-	return $arr;
-}	
+    $context = stream_context_create($options);
+    $time_pass = microtime(true) - $time_start;
+
+    if ($time_pass < 1.05) {
+        usleep((int)((1.05 - $time_pass) * 1_000_000));
+    }
+
+    $start_monotonic = microtime(true);
+    $start_utc_iso   = gmdate('c');
+    $server_seen = $_SERVER['SERVER_ADDR'] ?? null;
+
+    $fp = @fopen($url, 'r', false, $context);
+    if (!$fp) {
+        $phpError = error_get_last();
+
+        $parts = ['No working RDAP URL for this TLD'];
+
+        if (!empty($url)) {
+            $parts[] = $url;
+        }
+        if (!empty($start_utc_iso)) {
+            $parts[] = '(UTC: ' . $start_utc_iso;
+        }
+        if (!empty($server_seen)) {
+            $parts[] = 'IP: ' . $server_seen . ')';
+        }
+        if (!empty($phpError['message'])) {
+            $parts[] = $phpError['message'];
+        }
+
+        $arr['interface_notice'] = implode(', ', $parts);
+        return $arr;
+    }
+
+    $response = stream_get_contents($fp);
+    fclose($fp);
+
+    $http_code = null;
+    if (!empty($http_response_header) && preg_match('#^HTTP/\S+\s+(\d{3})#', $http_response_header[0], $matches)) {
+        $http_code = (int)$matches[1];
+    }
+
+    $elapsed_seconds = microtime(true) - $start_monotonic;
+
+    if ($http_code === null) {
+        $arr['interface_notice'] = "No HTTP status line at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec observed from $server_seen";
+        return $arr;
+    }
+    if ($http_code === 429) {
+        $arr['interface_notice'] = "429 - Rate limit exceeded at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec observed from $server_seen";
+        return $arr;
+    }
+    if ($http_code !== 200) {
+        $arr['interface_notice'] = $http_code . " - Insufficient HTTP response at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec observed from $server_seen";
+        return $arr;
+    }
+
+    try {
+        $obj = json_decode($response, true, 512, JSON_THROW_ON_ERROR);
+    }
+    catch (JsonException $e) {
+        $arr['interface_notice'] = "200 - JSON decode exception: " . $e->getMessage() . " at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec observed from $server_seen";
+        return $arr;
+    }
+
+    if (!is_array($obj)) {
+        $arr['interface_notice'] = "200 - Invalid JSON structure at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec observed from $server_seen";
+        return $arr;
+    }
+
 $notices = '';	
 $links = '';		
 $redacted = '';
@@ -836,10 +1032,10 @@ $client_handle = $obj['handle'];
 $ascii_name = $obj['ldhName'];
 $unicode_name = $obj['unicodeName'];
 $nameservers_secure_dns_signed = '';
-$nameservers_secure_dns_key_tag = '';	
-$nameservers_secure_dns_algorithm = '';
-$nameservers_secure_dns_digest_type = '';
-$nameservers_secure_dns_digest = '';	
+$nameservers_secure_ds_key_tags = '';	
+$nameservers_secure_ds_algorithms = '';
+$nameservers_secure_ds_digest_types = '';
+$nameservers_secure_ds_digests = '';	
 	
 $sponsor_handle = '';
 $sponsor_organization_type = '';	
@@ -1217,10 +1413,10 @@ foreach($obj as $key1 => $value1) {
 			}
 			if ($key1 == 'secureDNS')	{
 				if ($key2 == 'dsData') {
-					$nameservers_secure_dns_key_tag .= $key3.': '.$value3['keyTag'].",";	
-					$nameservers_secure_dns_algorithm .= $key3.': '.$value3['algorithm'].",";	
-					$nameservers_secure_dns_digest_type .= $key3.': '.$value3['digestType'].",";	
-					$nameservers_secure_dns_digest .= $key3.': '.$value3['digest'].",";
+					$nameservers_secure_ds_key_tags .= $key3.': '.$value3['keyTag'].",";	
+					$nameservers_secure_ds_algorithms .= $key3.': '.$value3['algorithm'].",";	
+					$nameservers_secure_ds_digest_types .= $key3.': '.$value3['digestType'].",";	
+					$nameservers_secure_ds_digests .= $key3.': '.$value3['digest'].",";
 				}				
 			}
 			foreach($value3 as $key4 => $value4) {
@@ -2083,10 +2279,10 @@ $arr['nameservers']['statuses_raw'] = $nameservers_statuses_raw;
 $arr['nameservers']['delegation_checks'] = $nameservers_delegation_check;
 $arr['nameservers']['latest_correct_delegation_checks'] = $nameservers_latest_correct_delegation_check;	
 $arr['nameservers']['secure_dns_signed'] = $nameservers_secure_dns_signed;
-$arr['nameservers']['secure_dns_key_tag'] = rtrim($nameservers_secure_dns_key_tag, ",");
-$arr['nameservers']['secure_dns_algorithm'] = rtrim($nameservers_secure_dns_algorithm, ",");
-$arr['nameservers']['secure_dns_digest_type'] = rtrim($nameservers_secure_dns_digest_type, ",");
-$arr['nameservers']['secure_dns_digest'] = rtrim($nameservers_secure_dns_digest, ",");
+$arr['nameservers']['secure_ds_key_tags'] = rtrim($nameservers_secure_ds_key_tags, ",");
+$arr['nameservers']['secure_ds_algorithms'] = rtrim($nameservers_secure_ds_algorithms, ",");
+$arr['nameservers']['secure_ds_digest_types'] = rtrim($nameservers_secure_ds_digest_types, ",");
+$arr['nameservers']['secure_ds_digests'] = rtrim($nameservers_secure_ds_digests, ",");
 	
 $arr['raw_rdap'] = $raw_rdap_data;
 
