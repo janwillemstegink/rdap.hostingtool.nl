@@ -190,8 +190,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_status_meanings").textContent = proposed;
 		document.getElementById("lifecycle_operational_periods").textContent = proposed;
-		document.getElementById("nameservers_secure_dns_signed").textContent = "";
-		document.getElementById("nameservers_secure_ds_algorithms").textContent = "";
+		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "";
+		document.getElementById("nameservers_rdap_ds_algorithms").textContent = "";
 		document.getElementById("nameservers_ip").textContent = "";
 	}
 	else if (translation == 1)	{
@@ -237,8 +237,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_status_meanings").textContent = proposed + "Let op: Er bestaat een globale tabeldefinitie; ICANN speelt nog geen leidende rol.";
 		document.getElementById("lifecycle_operational_periods").textContent = proposed + 'Meerjarige registratie soms mogelijk; max. verschilt per TLD en registrar.';
-		document.getElementById("nameservers_secure_dns_signed").textContent = "DNSSEC beveiligt DNS tegen spoofing en cachevergiftiging.";
-		document.getElementById("nameservers_secure_ds_algorithms").textContent = "Algoritmen 13–16 zijn actueel. IANA voert algoritme 8 als RECOMMENDED, geldt als uitlopend.";
+		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC beveiligt DNS tegen spoofing en cachevergiftiging.";
+		document.getElementById("nameservers_rdap_ds_algorithms").textContent = "Algoritmen 13–16 zijn actueel. IANA voert algoritme 8 als RECOMMENDED, geldt als uitlopend.";
 		document.getElementById("nameservers_ip").textContent = "IP-adressen zijn zichtbaar indien van toepassing en ook opgenomen in het RDAP-bestand.";
 	}
 	else if (translation == 2)	{
@@ -284,8 +284,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;	
 		document.getElementById("lifecycle_status_meanings").textContent = proposed + "Note: A global table definition exists; ICANN is not yet in a leading role.";
 		document.getElementById("lifecycle_operational_periods").textContent = proposed + 'Multi-year registration sometimes possible; max varies by TLD & registrar.';
-		document.getElementById("nameservers_secure_dns_signed").textContent = "DNSSEC secures DNS against spoofing and cache poisoning.";
-		document.getElementById("nameservers_secure_ds_algorithms").textContent = "Algorithms 13–16 are current. IANA lists algorithm 8 as RECOMMENDED, considered phasing out.";
+		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC secures DNS against spoofing and cache poisoning.";
+		document.getElementById("nameservers_rdap_ds_algorithms").textContent = "Algorithms 13–16 are current. IANA lists algorithm 8 as RECOMMENDED, considered phasing out.";
 		document.getElementById("nameservers_ip").textContent = "IP addresses are visible if applicable and also included in the RDAP file.";
 	}
 	else if (translation == 3)	{
@@ -331,8 +331,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_status_meanings").textContent = proposed + "Hinweis: Eine globale Tabellendefinition existiert; ICANN übernimmt noch keine führende Rolle.";
 		document.getElementById("lifecycle_operational_periods").textContent = proposed + 'Mehrjährige Registrierung teils möglich; max. variiert je nach TLD und Registrar.';
-		document.getElementById("nameservers_secure_dns_signed").textContent = "DNSSEC sichert DNS gegen Spoofing und Cache-Poisoning.";
-		document.getElementById("nameservers_secure_ds_algorithms").textContent = "Algorithmen 13–16 sind aktuell. IANA führt Algorithmus 8 als RECOMMENDED, gilt als auslaufend.";
+		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC sichert DNS gegen Spoofing und Cache-Poisoning.";
+		document.getElementById("nameservers_rdap_ds_algorithms").textContent = "Algorithmen 13–16 sind aktuell. IANA führt Algorithmus 8 als RECOMMENDED, gilt als auslaufend.";
 		document.getElementById("nameservers_ip").textContent = "IP-Adressen sind sichtbar, sofern zutreffend, und auch in der RDAP-Datei enthalten.";
 	}
 	else if (translation == 4)	{
@@ -378,8 +378,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_status_meanings").textContent = proposed + "Remarque : Une définition de table globale existe ; l’ICANN ne joue pas encore un rôle de premier plan.";
 		document.getElementById("lifecycle_operational_periods").textContent = proposed + "Enregistrement pluriannuel parfois possible ; max. selon TLD et bureau d’enregistrement.";
-		document.getElementById("nameservers_secure_dns_signed").textContent = "DNSSEC sécurise le DNS contre le spoofing et l’empoisonnement.";
-		document.getElementById("nameservers_secure_ds_algorithms").textContent = "Les algorithmes 13–16 sont actuels. L’IANA classe l’algorithme 8 comme RECOMMENDED, en fin de vie.";
+		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC sécurise le DNS contre le spoofing et l’empoisonnement.";
+		document.getElementById("nameservers_rdap_ds_algorithms").textContent = "Les algorithmes 13–16 sont actuels. L’IANA classe l’algorithme 8 comme RECOMMENDED, en fin de vie.";
 		document.getElementById("nameservers_ip").textContent = "Les adresses IP sont visibles si cela s’applique et sont également fournies dans le fichier RDAP.";
 	}
 }	
@@ -478,11 +478,11 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="614" style="display:none;vertical-align:top"><td>ipv4_addresses</td><td>'.$data[$pd]['nameservers']['ipv4_addresses'].'</td><td id="nameservers_ip"></td></tr>';
 	$html_text .= '<tr id="615" style="display:none;vertical-align:top"><td>ipv6_addresses</td><td>'.$data[$pd]['nameservers']['ipv6_addresses'].'</td><td></td></tr>';
 	$html_text .= '<tr id="616" style="display:none;vertical-align:top"><td>statuses</td><td>'.$data[$pd]['nameservers']['statuses'].'</td><td></td></tr>';
-	$html_text .= '<tr id="617" style="display:none;vertical-align:top"><td>secure_dns_signed</td><td>'.$data[$pd]['nameservers']['secure_dns_signed'].'</td><td id="nameservers_secure_dns_signed"></td></tr>';
-	$html_text .= '<tr id="618" style="display:none;vertical-align:top"><td>secure_ds_key_tags</td><td>'.$data[$pd]['nameservers']['secure_ds_key_tags'].'</td><td></td></tr>';
-	$html_text .= '<tr style="vertical-align:top"><td>secure_ds_algorithms</td><td>'.$data[$pd]['nameservers']['secure_ds_algorithms'].'</td><td id="nameservers_secure_ds_algorithms"></td></tr>';	
-	$html_text .= '<tr id="619" style="display:none;vertical-align:top"><td>secure_ds_digest_types</td><td>'.$data[$pd]['nameservers']['secure_ds_digest_types'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6110" style="display:none;vertical-align:top"><td>secure_ds_digests</td><td colspan="2">'.$data[$pd]['nameservers']['secure_ds_digests'].'</td></tr>';
+	$html_text .= '<tr id="617" style="display:none;vertical-align:top"><td>rdap_dnssec_signed</td><td>'.$data[$pd]['nameservers']['rdap_dnssec_signed'].'</td><td id="nameservers_rdap_dnssec_signed"></td></tr>';
+	$html_text .= '<tr id="618" style="display:none;vertical-align:top"><td>rdap_ds_key_tags</td><td>'.$data[$pd]['nameservers']['rdap_ds_key_tags'].'</td><td></td></tr>';
+	$html_text .= '<tr style="vertical-align:top"><td>rdap_ds_algorithms</td><td>'.$data[$pd]['nameservers']['rdap_ds_algorithms'].'</td><td id="nameservers_rdap_ds_algorithms"></td></tr>';	
+	$html_text .= '<tr id="619" style="display:none;vertical-align:top"><td>rdap_ds_digest_types</td><td>'.$data[$pd]['nameservers']['rdap_ds_digest_types'].'</td><td></td></tr>';
+	$html_text .= '<tr id="6110" style="display:none;vertical-align:top"><td>rdap_ds_digests</td><td colspan="2">'.$data[$pd]['nameservers']['rdap_ds_digests'].'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
 }
 $html_text .= '</table></div></body></html>';
