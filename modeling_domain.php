@@ -328,7 +328,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_abuse_phone").textContent = "Een telefoonnummer moet beginnen met het type. Toegestaan zijn in ieder geval 'voice' en 'fax'.";
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC beveiligt DNS tegen spoofing en cachevergiftiging.";
 		document.getElementById("nameservers_rdap_ds_algorithms").textContent = "Algoritmen 13–16 zijn actueel. IANA voert algoritme 8 als RECOMMENDED, geldt als uitlopend.";
-		document.getElementById("nameservers_rdap_ds_digest_types").textContent = "Hexadecimale digestwaarden zijn niet hoofdlettergevoelig.";
+		document.getElementById("nameservers_rdap_ds_digest_types").textContent = "De hexadecimale digest waarde is niet hoofdlettergevoelig.";
 		document.getElementById("measured_ds_algorithms").textContent = proposed + "Deze tool meet DNSSEC-algoritmen direct, onafhankelijk van RDAP, ook bij tijdelijke duplicatie.";
 		document.getElementById("nameservers_ipv4_addresses").textContent = "Een glue-record is een DNS-record dat wordt meegegeven door de bovenliggende zone, ook al is die daar niet";
 		document.getElementById("nameservers_ipv6_addresses").textContent = "autoritatief voor, om cirkelafhankelijke resoluties van nameservers binnen de onderliggende zone te voorkomen.";
@@ -418,7 +418,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_abuse_phone").textContent = "A phone number must begin with the type. Allowed are anyway 'voice' and 'fax'.";
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC secures DNS against spoofing and cache poisoning.";
 		document.getElementById("nameservers_rdap_ds_algorithms").textContent = "Algorithms 13–16 are current. IANA lists algorithm 8 as RECOMMENDED, considered phasing out.";
-		document.getElementById("nameservers_rdap_ds_digest_types").textContent = "The hexadecimal digest values are case-insensitive.";
+		document.getElementById("nameservers_rdap_ds_digest_types").textContent = "The hexadecimal digest value is not case-sensitive.";
 		document.getElementById("measured_ds_algorithms").textContent = proposed + "This tool measures DNSSEC algorithms directly, independent of RDAP, including during temporary duplication.";
 		document.getElementById("nameservers_ipv4_addresses").textContent = "A glue record is a DNS record provided by the parent zone, even though it is not authoritative for it,";
 		document.getElementById("nameservers_ipv6_addresses").textContent = "to prevent circular dependencies when resolving nameservers within the child zone.";
@@ -507,7 +507,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_abuse_role").textContent = "Informationen darüber, wie Dritte den Registrar oder die beauftragte Partei kontaktieren können. Siehe fryslan.frl.";
 		document.getElementById("registrar_abuse_phone").textContent = "Eine Telefonnummer muss mit dem Typ beginnen. Erlaubt sind grundsätzlich 'voice' und 'fax'.";		
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC sichert DNS gegen Spoofing und Cache-Poisoning.";
-		document.getElementById("nameservers_rdap_ds_digest_types").textContent = "Hexadezimale Digestwerte sind nicht von Groß-/Kleinschreibung abhängig.";
+		document.getElementById("nameservers_rdap_ds_digest_types").textContent = "Der hexadezimale Digest-Wert unterscheidet nicht zwischen Groß- und Kleinschreibung.";
 		document.getElementById("measured_ds_algorithms").textContent = proposed + "Dieses Tool ermittelt DNSSEC-Algorithmen direkt, unabhängig von RDAP, auch bei temporärer Doppelung.";		
 		document.getElementById("nameservers_rdap_ds_algorithms").textContent = "Algorithmen 13–16 sind aktuell. IANA führt Algorithmus 8 als RECOMMENDED, gilt als auslaufend.";
 		document.getElementById("nameservers_ipv4_addresses").textContent = "Ein Glue-Record ist ein DNS-Eintrag, den die übergeordnete Zone bereitstellt, obwohl sie nicht autoritativ ist,";
@@ -598,7 +598,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_abuse_phone").textContent = "Un numéro de téléphone doit commencer par le type. Sont autorisés de toute façon 'voice' et 'fax'.";
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC sécurise le DNS contre le spoofing et l’empoisonnement.";
 		document.getElementById("nameservers_rdap_ds_algorithms").textContent = "Les algorithmes 13–16 sont actuels. L’IANA classe l’algorithme 8 comme RECOMMENDED, en fin de vie.";
-		document.getElementById("nameservers_rdap_ds_digest_types").textContent = "Les valeurs de hachage hexadécimales sont insensibles à la casse.";
+		document.getElementById("nameservers_rdap_ds_digest_types").textContent = "La valeur de hachage hexadécimale n'est pas sensible à la casse.";
 		document.getElementById("measured_ds_algorithms").textContent = proposed + "Mesure directe des algorithmes DNSSEC, indépendante du RDAP, y compris duplication temporaire.";
 		document.getElementById("nameservers_ipv4_addresses").textContent = "Un glue record est un enregistrement DNS fourni par la zone parente, bien qu’elle n’en soit pas autoritaire,";
 		document.getElementById("nameservers_ipv6_addresses").textContent = "afin d’éviter les dépendances circulaires lors de la résolution des serveurs de noms de la zone enfant.";		

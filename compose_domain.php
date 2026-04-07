@@ -613,7 +613,7 @@ function parseDsLine(string $line): ?array
         $keytag = (int) $m[1];
         $algorithm = (int) $m[2];
         $digestType = (int) $m[3];
-        $digest = strtoupper((string) preg_replace('/\s+/', '', $m[4]));
+		$digest = (string) preg_replace('/\s+/', '', $m[4]);
 
         if ($digest === '') {
             return null;
@@ -666,14 +666,15 @@ function normalizeIntList(array $values): array
 }
 
 /**
- * Normalize list of strings: trim + uppercase + unique + ascending.
+ * Normalize list of strings: trim + unique + ascending.
  */
 function normalizeStringList(array $values): array
 {
-    $values = array_map(
-        static fn($value) => strtoupper(trim((string) $value)),
+	$values = array_map(
+        static fn($value) => trim((string) $value),
         $values
     );
+	
     $values = array_values(array_filter(
         $values,
         static fn($value) => $value !== ''
