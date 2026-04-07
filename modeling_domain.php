@@ -124,7 +124,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 63)	{ // nameservers
 		var pre = '63';
-		var max = 17
+		var max = 18
 	}
 	else if (type == 75)	{ // raw rdap data
 		var pre = '75';
@@ -1030,17 +1030,18 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="635" style="display:none"><td>ipv4_addresses</td><td>'.$data[$pd]['registry']['nameservers']['ipv4_addresses'].'</td><td style="vertical-align:bottom" id="nameservers_ipv4_addresses"></td><td>'.$data[$pd]['registrar']['nameservers']['ipv4_addresses'].'</td></tr>';
 	$html_text .= '<tr id="636" style="display:none"><td>ipv6_addresses</td><td>'.$data[$pd]['registry']['nameservers']['ipv6_addresses'].'</td><td id="nameservers_ipv6_addresses"></td><td>'.$data[$pd]['registrar']['nameservers']['ipv6_addresses'].'</td></tr>';
 	$html_text .= '<tr id="637" style="display:none"><td>statuses_raw</td><td>'.$data[$pd]['registry']['nameservers']['statuses_raw'].'</td><td></td><td>'.$data[$pd]['registrar']['nameservers']['statuses_raw'].'</td></tr>';
-	$html_text .= '<tr id="638" style="display:none"><td>delegation_checks</td><td>'.$data[$pd]['registry']['nameservers']['delegation_checks'].'</td><td id="br_zone"></td><td>'.$data[$pd]['registrar']['nameservers']['delegation_checks'].'</td></tr>';
-	$html_text .= '<tr id="639" style="display:none"><td>latest_correct_delegation_checks</td><td>'.$data[$pd]['registry']['nameservers']['latest_correct_delegation_checks'].'</td><td></td><td>'.$data[$pd]['registrar']['nameservers']['latest_correct_delegation_checks'].'</td></tr>';
-	$html_text .= '<tr id="6310" style="display:none"><td>rdap_dnssec_signed</td><td>'.$data[$pd]['registry']['nameservers']['rdap_dnssec_signed'].'</td><td id="nameservers_rdap_dnssec_signed"></td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['rdap_dnssec_signed']).'</td></tr>';
-	$html_text .= '<tr id="6311" style="display:none"><td>rdap_ds_key_tags</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['nameservers']['rdap_ds_key_tags']).'</td><td></td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['rdap_ds_key_tags']).'</td></tr>';
-	$html_text .= '<tr id="6312" style="display:none"><td>rdap_ds_algorithms</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['nameservers']['rdap_ds_algorithms']).'</td><td id="nameservers_rdap_ds_algorithms"></td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['rdap_ds_algorithms']).'</td></tr>';
-	$html_text .= '<tr id="6313" style="display:none"><td>rdap_ds_digest_types</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['nameservers']['rdap_ds_digest_types']).'</td><td id="nameservers_rdap_ds_digest_types"></td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['rdap_ds_digest_types']).'</td></tr>';
-	$html_text .= '<tr id="6314" style="display:none"><td>rdap_ds_digests</td><td colspan="2">'.str_replace(',',',<br />',$data[$pd]['registry']['nameservers']['rdap_ds_digests']).'</td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['rdap_ds_digests']).'</td></tr>';
-	$html_text .= '<tr id="6315" style="display:none"><td>measured_ds_key_tags</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['measured_ds_key_tags']).'</td><td></td><td></td></tr>';
+	$html_text .= '<tr id="638" style="display:none"><td>nameserver_check_result</td><td>'.$data[$pd]['registry']['nameservers']['nameserver_check_result'].'</td><td id="br_zone"></td><td>'.$data[$pd]['registrar']['nameservers']['nameserver_check_result'].'</td></tr>';
+	$html_text .= '<tr id="639" style="display:none"><td>nameserver_check_dates</td><td>'.$data[$pd]['registry']['nameservers']['nameserver_check_dates'].'</td><td></td><td>'.$data[$pd]['registrar']['nameservers']['nameserver_check_dates'].'</td></tr>';
+	$html_text .= '<tr id="6310" style="display:none"><td>last_valid_nameserver_check_dates</td><td>'.$data[$pd]['registry']['nameservers']['last_valid_nameserver_check_dates'].'</td><td></td><td>'.$data[$pd]['registrar']['nameservers']['last_valid_nameserver_check_dates'].'</td></tr>';
+	$html_text .= '<tr id="6311" style="display:none"><td>rdap_dnssec_signed</td><td>'.$data[$pd]['registry']['nameservers']['rdap_dnssec_signed'].'</td><td id="nameservers_rdap_dnssec_signed"></td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['rdap_dnssec_signed']).'</td></tr>';
+	$html_text .= '<tr id="6312" style="display:none"><td>rdap_ds_key_tags</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['nameservers']['rdap_ds_key_tags']).'</td><td></td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['rdap_ds_key_tags']).'</td></tr>';
+	$html_text .= '<tr id="6313" style="display:none"><td>rdap_ds_algorithms</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['nameservers']['rdap_ds_algorithms']).'</td><td id="nameservers_rdap_ds_algorithms"></td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['rdap_ds_algorithms']).'</td></tr>';
+	$html_text .= '<tr id="6314" style="display:none"><td>rdap_ds_digest_types</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['nameservers']['rdap_ds_digest_types']).'</td><td id="nameservers_rdap_ds_digest_types"></td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['rdap_ds_digest_types']).'</td></tr>';
+	$html_text .= '<tr id="6315" style="display:none"><td>rdap_ds_digests</td><td colspan="2">'.str_replace(',',',<br />',$data[$pd]['registry']['nameservers']['rdap_ds_digests']).'</td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['rdap_ds_digests']).'</td></tr>';
+	$html_text .= '<tr id="6316" style="display:none"><td>measured_ds_key_tags</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['measured_ds_key_tags']).'</td><td></td><td></td></tr>';
 	$html_text .= '<tr><td><b>measured_ds_algorithms</b></td><td><b>'.str_replace(',',',<br />',$data[$pd]['registry']['measured_ds_algorithms']).'</b></td><td id="measured_ds_algorithms"></td><td></td></tr>';
-	$html_text .= '<tr id="6316" style="display:none"><td>measured_ds_digest_types</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['measured_ds_digest_types']).'</td><td></td><td></td></tr>';
-	$html_text .= '<tr id="6317" style="display:none"><td>measured_ds_digests</td><td colspan="2">'.str_replace(',',',<br />',$data[$pd]['registry']['measured_ds_digests']).'</td><td></td></tr>';
+	$html_text .= '<tr id="6317" style="display:none"><td>measured_ds_digest_types</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['measured_ds_digest_types']).'</td><td></td><td></td></tr>';
+	$html_text .= '<tr id="6318" style="display:none"><td>measured_ds_digests</td><td colspan="2">'.str_replace(',',',<br />',$data[$pd]['registry']['measured_ds_digests']).'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(75)">Raw RDAP +/-</button> | ' . ((!empty($raw_whois)) ? '<a href="'.$raw_whois.'" target="_blank">Whois Data</a>' : 'No Whois Data').'</td><td id="raw_data_next" colspan="2"></td><td></td></tr>';
 	$html_text .= '<tr id="751" style="display:none;;"><td colspan="2">'.$data[$pd]['registry']['raw_rdap'].'</td><td></td><td>'.$data[$pd]['registrar']['raw_rdap'].'</td></tr>';

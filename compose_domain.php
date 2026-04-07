@@ -1166,8 +1166,9 @@ $nameservers_unicode = '';
 $nameservers_ipv4 = '';
 $nameservers_ipv6 = '';
 $nameservers_statuses_raw = '';
-$nameservers_delegation_check = '';
-$nameservers_latest_correct_delegation_check = '';
+$nameserver_check_result = '';
+$nameservers_check_dates = '';
+$nameservers_last_valid_nameserver_check_dates = '';
 	
 $entity_sponsor = -1;	
 $entity_registrant = -1;
@@ -1602,15 +1603,16 @@ foreach($obj as $key1 => $value1) {
 						if ($key3 == 'events')	{
 							if ($key4 == 0)	{	
 								if ($key5 == 'eventAction' and $value5 == 'delegation check')	{
-									$nameservers_delegation_check .= $key2.': '.$value4['eventDate']."<br />";
-								}
+									$nameservers_check_dates .= $key2.': '.$value4['eventDate']."<br />";
+									$nameservers_check_status = (is_array($value4['status'])) ? implode(",", $value4['status']): $value4['status'];
+									$nameservers_check_status = str_replace("ns aa", "ns aa - authoritative", $nameservers_check_status);
+									$nameserver_check_result .= $key2.': '. $nameservers_check_status."<br />";								}
 							}	
 							elseif ($key4 == 1)	{	
 								if ($key5 == 'eventAction' and $value5 == 'last correct delegation check')	{
-									$nameservers_latest_correct_delegation_check .= $key2.': '.$value4['eventDate']."<br />";
+									$nameservers_last_valid_nameserver_check_dates .= $key2.': '.$value4['eventDate']."<br />";
 								}
-							}					
-						
+							}						
 						}
 						if ($key3 == 'ipAddresses') {
 							if ($key4 == 'v4') {
@@ -2265,8 +2267,9 @@ $arr['nameservers']['unicode_names'] = $nameservers_unicode;
 $arr['nameservers']['ipv4_addresses'] = $nameservers_ipv4;	
 $arr['nameservers']['ipv6_addresses'] = $nameservers_ipv6;	
 $arr['nameservers']['statuses_raw'] = $nameservers_statuses_raw;	
-$arr['nameservers']['delegation_checks'] = $nameservers_delegation_check;
-$arr['nameservers']['latest_correct_delegation_checks'] = $nameservers_latest_correct_delegation_check;	
+$arr['nameservers']['nameserver_check_result'] = $nameserver_check_result;
+$arr['nameservers']['nameserver_check_dates'] = $nameservers_check_dates;	
+$arr['nameservers']['last_valid_nameserver_check_dates'] = $nameservers_last_valid_nameserver_check_dates;	
 $arr['nameservers']['rdap_dnssec_signed'] = $nameservers_rdap_dnssec_signed;
 $arr['nameservers']['rdap_ds_key_tags'] = rtrim($nameservers_rdap_ds_key_tags, ",");
 $arr['nameservers']['rdap_ds_algorithms'] = rtrim($nameservers_rdap_ds_algorithms, ",");
