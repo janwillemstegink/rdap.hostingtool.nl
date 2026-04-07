@@ -119,32 +119,21 @@ if (!empty($_GET['domain']))	{
 		//$registry_rdap['measured_ds_key_tags'] = $dnssecInfo['ds_keytags_csv'];
 		//$registry_rdap['measured_ds_algorithms'] = $dnssecInfo['ds_algorithms_csv'];
 		//$registry_rdap['measured_ds_digest_types'] = $dnssecInfo['ds_digest_types_csv'];
-		//$registry_rdap['measured_ds_digests'] = $dnssecInfo['ds_digests_csv'];
-		
+		//$registry_rdap['measured_ds_digests'] = $dnssecInfo['ds_digests_csv'];		
 		$registry_rdap['measured_ds_key_tags'] = '';
-		foreach ($dnssecInfo['ds_keytags'] as $index => $value) {
-    		$registry_rdap['measured_ds_key_tags'] .= $index . ': ' . $value . ',';
+		$registry_rdap['measured_ds_algorithms'] = '';
+		$registry_rdap['measured_ds_digest_types'] = '';
+		$registry_rdap['measured_ds_digests'] = '';
+		foreach ($dnssecInfo['ds_data'] as $index => $ds) {
+    		$registry_rdap['measured_ds_key_tags'] .= $index . ': ' . $ds['keyTag'] . ',';
+    		$registry_rdap['measured_ds_algorithms'] .= $index . ': ' . $ds['algorithm'] . ',';
+    		$registry_rdap['measured_ds_digest_types'] .= $index . ': ' . $ds['digestType'] . ',';
+    		$registry_rdap['measured_ds_digests'] .= $index . ': ' . $ds['digest'] . ',';
 		}
 		$registry_rdap['measured_ds_key_tags'] = rtrim($registry_rdap['measured_ds_key_tags'], ',');
-		
-		$registry_rdap['measured_ds_algorithms'] = '';
-		foreach ($dnssecInfo['ds_algorithms'] as $index => $value) {
-    		$registry_rdap['measured_ds_algorithms'] .= $index . ': ' . $value . ',';
-		}
 		$registry_rdap['measured_ds_algorithms'] = rtrim($registry_rdap['measured_ds_algorithms'], ',');
-		
-		$registry_rdap['measured_ds_digest_types'] = '';
-		foreach ($dnssecInfo['ds_digest_types'] as $index => $value) {
-    		$registry_rdap['measured_ds_digest_types'] .= $index . ': ' . $value . ',';
-		}
 		$registry_rdap['measured_ds_digest_types'] = rtrim($registry_rdap['measured_ds_digest_types'], ',');
-		
-		$registry_rdap['measured_ds_digests'] = '';
-		foreach ($dnssecInfo['ds_digests'] as $index => $value) {
-    		$registry_rdap['measured_ds_digests'] .= $index . ': ' . $value . ',';
-		}
 		$registry_rdap['measured_ds_digests'] = rtrim($registry_rdap['measured_ds_digests'], ',');		
-		
 		$registry_rdap['interface_notice'] = $registry_interface;
 		$registrar_rdap['interface_notice'] = $registrar_interface;
 		$merged = [];
