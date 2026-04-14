@@ -54,16 +54,16 @@ if (!empty($_GET['domain']))	{
 			$registry_self_uri = $registry_rdap['metadata']['self_json_response_uri'] ?? null;
 			$registry_related_uri = $registry_rdap['metadata']['related_json_response_uri'] ?? null;
 			if (empty($registry_self_uri)) {
-				$registry_interface .= 'Registry RDAP has no rel="self" link.';
+				$registry_interface .= 'Registry RDAP misses the rel="self" link.';
 			}		
 			elseif (strcasecmp($registry_rdap['metadata']['url_json_response_uri'], $registry_self_uri) !== 0) {
  				$registry_interface .= 'Registry RDAP has an uneven rel="self" link.';
 			}
 			elseif ($iana_id > 9990 and strcasecmp($registry_related_uri, $registry_self_uri) === 0) {
-    			$registry_interface .= 'Registry RDAP "related" matches "self" (' . $iana_id . ')';
+    			$registry_interface .= 'Registry RDAP "related" equals "self" (' . $iana_id . ')';
 			}
 			elseif (strcasecmp($registry_related_uri, $registry_self_uri) === 0) {
-    			$registry_interface .= 'Registry RDAP "related" matches "self"';
+    			$registry_interface .= 'Registry RDAP "related" equals "self"';
 			}
 			if (!empty($registry_self_uri) and strcasecmp($registry_related_uri, $registry_self_uri) === 0)	{				
 			}	
@@ -78,7 +78,7 @@ if (!empty($_GET['domain']))	{
 		    		if ($base_url) {
 						$registrar_uri = rtrim($base_url, '/') . '/domain/' . rawurlencode($domain);
 						$registry_rdap['metadata']['registrar_json_response_uri'] = $registrar_uri;
-						$registry_rdap['interface_notice'] = 'Registry RDAP has no rel="related" link.';
+						$registry_rdap['interface_notice'] = 'Registry RDAP misses the rel="related" link.';
        					$registrar_rdap = write_file($domain, $batch, $registrar_uri);
 						$registrar_interface = $registrar_rdap['interface_notice'] ?? '';
 						$registrar_statuses = $registrar_rdap['properties']['statuses_raw'] ?? null;
@@ -87,7 +87,7 @@ if (!empty($_GET['domain']))	{
 							if (strlen($registry_interface))	{
 								$registry_interface .= "<br />";
 							}
-							$registry_interface .= 'Registry RDAP has no rel="related" link.';
+							$registry_interface .= 'Registry RDAP misses the rel="related" link.';
 						}	
     				}	
 					else	{
