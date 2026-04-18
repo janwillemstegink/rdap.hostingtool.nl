@@ -256,11 +256,12 @@ FOR EACH ROW
 EXECUTE FUNCTION update_autnums_latest_data_mutation_at();
 
 -- ========================================
--- Table: domain_entities (link domains<->entities with role) 
+-- Table: domain_entities (link domains<->entities with role)
 -- Publication state per field:
--- shielded   = not publicly disclosed
--- visible    = publicly disclosed
--- authorized = publicly disclosed when authorized by the registrant (and allowed by policy)
+-- shielded              = not publicly disclosed
+-- visible               = publicly disclosed
+-- authorizable_shielded = currently not publicly disclosed; may be disclosed if authorized by the registrant and allowed by policy
+-- authorizable_visible  = currently publicly disclosed based on registrant authorization and allowed by policy
 -- ========================================
 CREATE TABLE IF NOT EXISTS domain_entities (
     de_id SERIAL PRIMARY KEY,
@@ -315,9 +316,10 @@ EXECUTE FUNCTION update_domain_nameservers_latest_data_mutation_at();
 -- ========================================
 -- Table: entity_entities (entity relationships)
 -- Publication state per field:
--- shielded   = not publicly disclosed
--- visible    = publicly disclosed
--- authorized = publicly disclosed when authorized by the registrant (and allowed by policy)
+-- shielded              = not publicly disclosed
+-- visible               = publicly disclosed
+-- authorizable_shielded = currently not publicly disclosed; may be disclosed if authorized by the registrant and allowed by policy
+-- authorizable_visible  = currently publicly disclosed based on registrant authorization and allowed by policy
 -- ========================================
 CREATE TABLE IF NOT EXISTS entity_entities (
     ee_id BIGSERIAL PRIMARY KEY,
