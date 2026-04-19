@@ -13,6 +13,8 @@
 //$_GET['domain'] = 'eurid.eu';
 //$_GET['domain'] = 'denic.de';
 //$_GET['domain'] = 'internet.nl';
+//$_GET['domain'] = 'nic.vermögensberater';
+
 
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
@@ -21,7 +23,6 @@ if (!empty($_GET['domain']))	{
 		if (isset($_GET['batch']) && trim($_GET['batch']) === '1') {
 		    $batch = true;
 		}
-		$domain = htmlspecialchars($domain, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 		$domain = mb_strtolower($domain);
 		$domain = str_replace('http://','', $domain);
 		$domain = str_replace('https://','', $domain);
@@ -30,23 +31,35 @@ if (!empty($_GET['domain']))	{
         		$domain = $m[1];
     		}
 		}
-		$pos = mb_strpos($domain, '/');
+		$pos = mb_stripos($domain, '/');
 		if ($pos !== false) {
 		    $domain = mb_substr($domain, 0, $pos);
 		}
-		$pos = mb_strpos($domain, ':');
+		$pos = mb_stripos($domain, ':');
 		if ($pos !== false) {
     		$domain = mb_substr($domain, 0, $pos);
-		}		
-		$domain = toPunycodeIfNeeded($domain);
-		header('Content-Type: application/json');
-		$registry_rdap = write_file($domain, $batch, '');
+		}
+		$domain_unicode_name = value_to_unicode($domain);
+		$domain_ascii_name = value_to_ascii($domain);
+		$stripos = mb_stripos($domain_unicode_name, '.');
+		if ($stripos !== false) {
+            $tld_unicode_name = mb_substr($domain_unicode_name, mb_strrpos($domain_unicode_name, '.') + 1);
+			$tld_ascii_name = value_to_ascii($tld_unicode_name);
+        }
+        else {
+            $tld_unicode_name = 'tld';
+			$tld_ascii_name = 'tld';
+        }
+		$registry_rdap = write_file($tld_ascii_name, $domain_ascii_name, $batch, '');
 		$registry_interface = $registry_rdap['interface_notice'] ?? '';		
-		$registry_statuses = $registry_rdap['properties']['statuses_raw'] ?? null;
-		$registry_zone = $registry_rdap['metadata']['zone_identifier'] ?? null;
+		$registry_rdap['tld_unicode_name'] = $tld_unicode_name ?? null;
+		$registry_rdap['tld_ascii_name'] = $tld_ascii_name ?? null;
+		$registry_rdap['domain_unicode_name'] = $domain_unicode_name ?? null;
+		$registry_rdap['domain_ascii_name'] = $domain_ascii_name ?? null;
 		$registrar_rdap = [];
 		$registrar_interface = '';
-		if (!empty($registry_statuses) and mb_strlen($registry_zone) > 2) {
+		$registry_statuses = $registry_rdap['properties']['statuses_raw'] ?? null;
+		if (!empty($registry_statuses) and mb_strlen($tld_unicode_name) > 2) {
 			$registry_rdap['metadata']['rdap_data_layer'] = 'registry_rdap';
 			$registrar_identifier = $registry_rdap['metadata']['registrar_identifier'] ?? null;
 			$iana_id = (int) $registrar_identifier;
@@ -68,7 +81,7 @@ if (!empty($_GET['domain']))	{
 			if (!empty($registry_self_uri) and strcasecmp($registry_related_uri, $registry_self_uri) === 0)	{				
 			}	
 			elseif (!empty($registry_related_uri)) {
-       			$registrar_rdap = write_file($domain, $batch, $registry_related_uri);
+       			$registrar_rdap = write_file($tld_ascii_name, $domain_ascii_name, $batch, $registry_related_uri);
 				$registry_rdap['metadata']['registrar_json_response_uri'] = $registry_related_uri;
 				$registrar_rdap['metadata']['rdap_data_layer'] = 'registrar_rdap';
 			}
@@ -116,10 +129,6 @@ if (!empty($_GET['domain']))	{
 			}
 		}
 		$dnssecInfo = getDnssecInfo($domain);
-		//$registry_rdap['measured_ds_key_tags'] = $dnssecInfo['ds_keytags_csv'];
-		//$registry_rdap['measured_ds_algorithms'] = $dnssecInfo['ds_algorithms_csv'];
-		//$registry_rdap['measured_ds_digest_types'] = $dnssecInfo['ds_digest_types_csv'];
-		//$registry_rdap['measured_ds_digests'] = $dnssecInfo['ds_digests_csv'];		
 		$registry_rdap['measured_ds_key_tags'] = '';
 		$registry_rdap['measured_ds_algorithms'] = '';
 		$registry_rdap['measured_ds_digest_types'] = '';
@@ -137,9 +146,10 @@ if (!empty($_GET['domain']))	{
 		$registry_rdap['interface_notice'] = $registry_interface;
 		$registrar_rdap['interface_notice'] = $registrar_interface;
 		$merged = [];
-		$merged[$domain]['registry']  = $registry_rdap ?? [];
-		$merged[$domain]['registrar'] = $registrar_rdap ?? [];
-		echo json_encode($merged, JSON_PRETTY_PRINT);
+		$merged[$domain_ascii_name]['registry']  = $registry_rdap ?? [];
+		$merged[$domain_ascii_name]['registrar'] = $registrar_rdap ?? [];
+		header('Content-Type: application/json; charset=UTF-8');
+		echo json_encode($merged, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 		die();
 	}
 	else	{	
@@ -157,17 +167,14 @@ function detect_country_code($inputdefault, $inputCC, $inputcc)	{
 	return $outputcc;
 }
 
-function toPunycodeIfNeeded($inputdomain) {
-    if (strpos($inputdomain, 'xn--') === false) {
-        $punycode = idn_to_ascii($inputdomain, IDNA_DEFAULT, INTL_IDNA_VARIANT_UTS46);
-        if ($punycode !== false) {
-            return $punycode;
-        }
-		else {
-            die("Invalid domain: $inputdomain");
-        }
-    }
-    return $inputdomain;
+function value_to_ascii(string $inputvalue): string	{
+    $ascii = idn_to_ascii($inputvalue, IDNA_DEFAULT, INTL_IDNA_VARIANT_UTS46);
+    return $ascii !== false ? strtolower($ascii) : strtolower($inputvalue);
+}
+
+function value_to_unicode(string $inputvalue): string	{
+    $unicode = idn_to_utf8($inputvalue, IDNA_DEFAULT, INTL_IDNA_VARIANT_UTS46);
+    return $unicode !== false ? $unicode : $inputvalue;
 }
 
 function interprete_remark($inputkey, $inputvalue) {
@@ -684,29 +691,24 @@ function normalizeStringList(array $values): array
     return $values;
 }
 
-function write_file($inputdomain, $inputbatch, $inputurl) {
+function write_file($inputtld, $inputdomain, $inputbatch, $inputurl) {
 
     $arr = array();
     $arr['interface_notice'] = "";
     $time_start = microtime(true);
-
     if (strlen($inputurl)) {
         $url = $inputurl;
     }
     else {
-        $strpos = mb_strpos($inputdomain, '.');
-        if ($strpos !== false) {
-            $zone_identifier = mb_substr($inputdomain, mb_strrpos($inputdomain, '.') + 1);
+        $stripos = mb_strpos($inputdomain, '.');
+        if ($stripos !== false) {
         }
         else {
-            $arr['metadata']['zone_identifier'] = 'tld';
             return $arr;
         }
-
         $url = '';
         $stealth = false;
-
-        switch ($zone_identifier) {
+        switch ($inputtld) {
             case 'nl':
                 $url = 'https://rdap.sidn.nl/';
                 break;
@@ -844,7 +846,7 @@ function write_file($inputdomain, $inputbatch, $inputurl) {
                     foreach ($value1 as $key2 => $value2) {
                         foreach ($value2 as $key3 => $value3) {
                             foreach ($value3 as $key4 => $value4) {
-                                if ($key3 == 0 && $value4 == $zone_identifier) {
+                                if ($key3 == 0 && $value4 == $inputtld) {
                                     // echo 'match zone at key2=' . $key2 . '<br>';
                                     $temp_key = $key2;
                                     break;
@@ -862,7 +864,7 @@ function write_file($inputdomain, $inputbatch, $inputurl) {
             }
         }
         if (!strlen($url)) {
-            $arr['interface_notice'] = $zone_identifier . " - Operational RDAP unknown";
+            $arr['interface_notice'] = $inputtld . " - Operational RDAP unknown";
             return $arr;
         }
         $url = rtrim($url, '/') . '/domain/' . $inputdomain;
@@ -2045,7 +2047,6 @@ $arr['notices'] = $notices;
 $arr['links'] = $links;
 $arr['redacted'] = $redacted;
 	
-$arr['metadata']['zone_identifier'] = $zone_identifier;	
 $arr['metadata']['object_type'] = $object_type;
 $arr['metadata']['rdap_version'] = $rdap_version;
 $arr['metadata']['rdap_conformance'] = $rdap_conformance;

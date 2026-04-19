@@ -221,7 +221,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_tld_type").textContent = proposed + 'Het TLD-type, bijvoorbeeld gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD of geoTLD.';
 		document.getElementById("zone_tld_statuses").textContent = modified;
 		document.getElementById("zone_tld_storage_model").textContent = proposed + "Opslagmodel voor TLD-domeingegevens (thin of thick).";
-		document.getElementById("zone_tld_response_model").textContent = proposed + "RDAP-responsmodel voor domeingegevens (thin, delegated, thick).";
+		document.getElementById("zone_tld_response_model").textContent = proposed + "RDAP-responsmodel voor domeingegevens (thin, delegated of thick).";
 		document.getElementById("zone_tld_services_uri").textContent = proposed + 'Een TLD-specifiek informatiemenu, beschikbaar onder een subdomein zoals "regmenu".';
 		document.getElementById("zone_tld_standardized_prices_uri").textContent = proposed + "De EU kan prijstransparantie baseren op een machineleesbare technische basis.";
 		document.getElementById("zone_tld_delegation_uri").textContent = proposed + 'URI die verwijst naar het ICANN-delegatierecord voor de TLD.';
@@ -268,7 +268,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_tld_type").textContent = proposed + 'The TLD type, such as gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD, or geoTLD.';
 		document.getElementById("zone_tld_statuses").textContent = modified;
 		document.getElementById("zone_tld_storage_model").textContent = proposed + "Storage model for TLD domain data (thin or thick).";
-		document.getElementById("zone_tld_response_model").textContent = proposed + "RDAP response model for domain data (thin, delegated, thick).";		
+		document.getElementById("zone_tld_response_model").textContent = proposed + "RDAP response model for domain data (thin, delegated or thick).";		
 		document.getElementById("zone_tld_services_uri").textContent = proposed + 'A TLD specific information menu, available under a subdomain such as "regmenu".';
 		document.getElementById("zone_tld_standardized_prices_uri").textContent = proposed + "The EU may base pricing transparency on a machine-readable technical foundation.";
 		document.getElementById("zone_tld_delegation_uri").textContent = proposed + 'URI pointing to the ICANN delegation record for the TLD.';
@@ -316,7 +316,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_tld_type").textContent = proposed + 'Der TLD-Typ, z. B. gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD oder geoTLD.';
 		document.getElementById("zone_tld_statuses").textContent = modified;
 		document.getElementById("zone_tld_storage_model").textContent = proposed + "Speichermodell für TLD-Domaindaten (thin oder thick).";
-		document.getElementById("zone_tld_response_model").textContent = proposed + "RDAP-Antwortmodell für Domaindaten (thin, delegated, thick).";		
+		document.getElementById("zone_tld_response_model").textContent = proposed + "RDAP-Antwortmodell für Domaindaten (thin, delegated oder thick).";		
 		document.getElementById("zone_tld_services_uri").textContent = proposed + 'Ein TLD-spezifisches Informationsmenü, verfügbar unter einer Subdomäne wie "regmenu".';
 		document.getElementById("zone_tld_standardized_prices_uri").textContent = proposed + "Die EU könnte Preistransparenz auf einer maschinenlesbaren technischen Grundlage aufbauen.";
 		document.getElementById("zone_tld_delegation_uri").textContent = proposed + 'URI mit Verweis auf den ICANN-Delegationsdatensatz für die TLD.';
@@ -362,7 +362,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_tld_type").textContent = proposed + "Le type de TLD, tel que gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD ou geoTLD.";
 		document.getElementById("zone_tld_statuses").textContent = modified;
 		document.getElementById("zone_tld_storage_model").textContent = proposed + "Mode de stockage des données de domaine du TLD (thin ou thick).";
-		document.getElementById("zone_tld_response_model").textContent = proposed + "Mode de réponse RDAP pour les données de domaine (thin, delegated, thick).";
+		document.getElementById("zone_tld_response_model").textContent = proposed + "Mode de réponse RDAP pour les données de domaine (thin, delegated ou thick).";
 		document.getElementById("zone_tld_services_uri").textContent = proposed + "Un menu d'informations spécifique au TLD, disponible sous un sous-domaine tel que 'regmenu'.";
 		document.getElementById("zone_tld_standardized_prices_uri").textContent = proposed + "L’UE pourrait fonder la transparence des prix sur une base technique lisible par machine.";
 		document.getElementById("zone_tld_delegation_uri").textContent = proposed + "URI référençant l'enregistrement de délégation de l'ICANN pour le TLD.";
@@ -410,7 +410,7 @@ $html_text = '<body onload=SwitchTranslation('.$viewlanguage.')><div style="bord
 $html_text .= '<tr style="font-size: .8rem"><td colspan="2" id="title" style="font-size: 1.4rem;color:blue;font-weight:bold"></td><td id="modeling"></td></tr>';
 $html_text .= '<tr style="font-size: .8rem"><td id="instruction" style="vertical-align:middle; text-align: right"></td><td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">
 	<input type="hidden" id="language" name="language" value='.$viewlanguage.'>	
-	<input type="text" style="width:90%" id="tld" name="tld" value='.$pd.'></form></td><td>
+	<input type="text" style="width:90%" id="tld" name="tld" value='.$vd.'></form></td><td>
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(99)">None</button> 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(1)">nl_NL</button> 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(2)">en_US</button> 

@@ -6,7 +6,6 @@
 
 if (!empty($_GET['tld']))	{
 	if (strlen($_GET['tld']))	{
-		$tld = htmlspecialchars($tld, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 		$tld = mb_strtolower($_GET['tld']);
 		$tld = str_replace('http://','', $tld);
 		$tld = str_replace('https://','', $tld);
@@ -21,9 +20,9 @@ if (!empty($_GET['tld']))	{
 		if ($strpos)	{
 			$tld = mb_substr($tld, 0, $strpos);
 		}
-		$tld = tld_to_ascii($tld);
-		header('Content-Type: application/json');
-		echo json_encode(write_file($tld), JSON_PRETTY_PRINT);
+		$tld = value_to_ascii($tld);
+		header('Content-Type: application/json; charset=UTF-8');
+		echo json_encode(write_file($tld), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 		die();
 	}
 	else	{	
@@ -41,21 +40,13 @@ function detect_country_code($inputdefault, $inputCC, $inputcc)	{
 	return $outputcc;
 }
 
-function tld_to_ascii(string $inputtld): string
-{
-    // Convert input (Unicode or ASCII) to IDNA ASCII (A-label / punycode)
-    $ascii = idn_to_ascii($inputtld, IDNA_DEFAULT, INTL_IDNA_VARIANT_UTS46);
-
-    // Fail-safe: return lowercase input if conversion fails
+function value_to_ascii(string $inputvalue): string	{
+    $ascii = idn_to_ascii($inputvalue, IDNA_DEFAULT, INTL_IDNA_VARIANT_UTS46);
     return $ascii !== false ? strtolower($ascii) : strtolower($inputtld);
 }
 
-function tld_to_unicode(string $inputtld): string
-{
-    // Convert input (ASCII or punycode) to Unicode (U-label)
-    $unicode = idn_to_utf8($inputtld, IDNA_DEFAULT, INTL_IDNA_VARIANT_UTS46);
-
-    // Fail-safe: return original input if conversion fails
+function value_to_unicode(string $inputvalue): string	{
+    $unicode = idn_to_utf8($inputvalue, IDNA_DEFAULT, INTL_IDNA_VARIANT_UTS46);
     return $unicode !== false ? $unicode : $inputtld;
 }
 
@@ -706,7 +697,7 @@ $arr[$inputtld]['common']['lifecycle_period_ranges'] = $lifecycle_period_ranges;
 $arr[$inputtld]['common']['root_accepted_workload'] = $root_accepted_workload;	
 	
 $arr[$inputtld]['zone']['tld_ascii_name'] = $inputtld;
-$arr[$inputtld]['zone']['tld_unicode_name'] = tld_to_unicode($inputtld);	
+$arr[$inputtld]['zone']['tld_unicode_name'] = value_to_unicode($inputtld);	
 $arr[$inputtld]['zone']['tld_data_active_from'] = $tld_data_active_from;	
 $arr[$inputtld]['zone']['tld_category'] = $tld_category;
 $arr[$inputtld]['zone']['tld_type'] = $tld_type;
