@@ -76,7 +76,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 20)	{ // metadata
 		var pre = '20';
-		var max = 12
+		var max = 14
 	}
 	else if (type == 30)	{ // properties
 		var pre = '30';
@@ -631,7 +631,7 @@ $data = json_decode($json, true);
 if (!is_array($data)) {
   die("The RDAP endpoint returned invalid JSON.");
 }
-$terms_and_conditions_uri = $server_uri.'/modeling_tld/index.php?language='.$viewlanguage.'&tld='.$data[$pd]['registry']['tld_ascii_name'];
+$terms_and_conditions_uri = $server_uri.'/modeling_tld/index.php?language='.$viewlanguage.'&tld='.$data[$pd]['registry']['metadata']['tld_ascii_name'];
 $raw_whois = $server_uri.'/domain_whois/index.php?language='.$viewlanguage.'&domain='.$vd;
 if	(is_null($data))	{
 	$terms_and_conditions_uri = '';
@@ -665,21 +665,23 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="202" style="display:none"><td>rdap_version</td><td>'.$data[$pd]['registry']['metadata']['rdap_version'].'</td><td id="metadata_rdap_version"></td><td>'.$data[$pd]['registrar']['metadata']['rdap_version'].'</td></tr>';
 	$html_text .= '<tr id="203" style="display:none"><td>rdap_conformance</td><td colspan="2">'.$data[$pd]['registry']['metadata']['rdap_conformance'].'</td><td>'.$data[$pd]['registrar']['metadata']['rdap_conformance'].'</td></tr>';
 	$html_text .= '<tr id="204" style="display:none"><td>rdap_data_layer</td><td>'.$data[$pd]['registry']['metadata']['rdap_data_layer'].'</td><td id="metadata_rdap_data_layer"></td><td>'.$data[$pd]['registrar']['metadata']['rdap_data_layer'].'</td></tr>';
-	$html_text .= '<tr id="205" style="display:none"><td>rdap_issue_uri</td><td>'.$data[$pd]['registry']['metadata']['rdap_issue_uri'].'</td><td id="metadata_rdap_issue_uri"></td><td>'.$data[$pd]['registrar']['metadata']['rdap_issue_uri'].'</td></tr>';	
+	$html_text .= '<tr id="205" style="display:none"><td>rdap_issue_uri</td><td>'.$data[$pd]['registry']['metadata']['rdap_issue_uri'].'</td><td id="metadata_rdap_issue_uri"></td><td>'.$data[$pd]['registrar']['metadata']['rdap_issue_uri'].'</td></tr>';
+	$html_text .= '<tr id="206" style="display:none"><td>domain_ascii_name</td><td>'.$data[$pd]['registry']['metadata']['domain_ascii_name'].'</td><td></td><td>'.$data[$pd]['registrar']['metadata']['domain_ascii_name'].'</td></tr>';
+	$html_text .= '<tr id="207" style="display:none"><td>domain_unicode_name</td><td>'.$data[$pd]['registry']['metadata']['domain_unicode_name'].'</td><td></td><td>'.$data[$pd]['registrar']['metadata']['domain_unicode_name'].'</td></tr>';	
 	$html_text .= '<tr><td>terms_and_conditions_uri</td><td>'.((!empty($terms_and_conditions_uri)) ? '<a href="'.$terms_and_conditions_uri.'" target="_blank">.'.$data[$pd]['registry']['tld_unicode_name'].' TLD Data</a>' : '').'</td><td id="metadata_terms_and_conditions_uri"></td><td></td></tr>';	
-	$html_text .= '<tr id="206" style="display:none"><td>global_json_response_uri</td><td>'.$data[$pd]['registry']['metadata']['global_json_response_uri'].'</td><td id="metadata_global_json_response_uri"></td><td>'.$data[$pd]['registrar']['metadata']['global_json_response_uri'].'</td></tr>';
+	$html_text .= '<tr id="208" style="display:none"><td>global_json_response_uri</td><td>'.$data[$pd]['registry']['metadata']['global_json_response_uri'].'</td><td id="metadata_global_json_response_uri"></td><td>'.$data[$pd]['registrar']['metadata']['global_json_response_uri'].'</td></tr>';
 	$registry_json_response_uri = str_replace('https://', '', $data[$pd]['registry']['metadata']['registry_json_response_uri']);
 	$validation_registry = 'https://validator.rdap.org/?url=https://'.$registry_json_response_uri.'&response-type=domain&server-type=gtld-registry&errors-only=1';	
 	$html_text .= '<tr><td>registry_json_response_uri</td><td>'.((!empty($data[$pd]['registry']['metadata']['registry_json_response_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['registry_json_response_uri'].' target="_blank">Registry Response</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registry_json_response_uri"></td><td>'.$data[$pd]['registrar']['metadata']['registry_json_response_uri'].'</td></tr>';		
-	$html_text .= '<tr id="207" style="display:none"><td>registrar_identifiers</td><td>'.((!empty($data[$pd]['registry']['metadata']['registrar_identifiers'])) ? $data[$pd]['registry']['metadata']['registrar_identifiers'] : '').'</td><td id="metadata_registrar_identifiers"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_identifiers'].'</td></tr>';
+	$html_text .= '<tr id="209" style="display:none"><td>registrar_identifiers</td><td>'.((!empty($data[$pd]['registry']['metadata']['registrar_identifiers'])) ? $data[$pd]['registry']['metadata']['registrar_identifiers'] : '').'</td><td id="metadata_registrar_identifiers"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_identifiers'].'</td></tr>';
 	$registrar_json_response_uri = str_replace('https://', '', $data[$pd]['registry']['metadata']['registrar_json_response_uri']);
 	$validation_registrar = 'https://validator.rdap.org/?url=https://'.$registrar_json_response_uri.'&response-type=domain&server-type=gtld-registrar&errors-only=1';	
 	$html_text .= '<tr><td>registrar_json_response_uri</td><td>'.((!empty($data[$pd]['registry']['metadata']['registrar_json_response_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['registrar_json_response_uri'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registrar_json_response_uri"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_json_response_uri'].'</td></tr>';
-	$html_text .= '<tr id="208" style="display:none"><td>registrar_complaint_uri</td><td>'.((!empty($data[$pd]['registry']['metadata']['registrar_complaint_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['registrar_complaint_uri'].' target="_blank">icann.org/wicf</a>' : '').'</td><td id="metadata_registrar_complaint_uri"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_complaint_uri'].'</td></tr>';
-	$html_text .= '<tr id="209" style="display:none"><td>registrar_publication_method</td><td>'.$data[$pd]['registry']['metadata']['registrar_publication_method'].'</td><td id="metadata_registrar_publication_method"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_publication_method'].'</td></tr>';
-	$html_text .= '<tr id="2010" style="display:none"><td>registrar_uri_links</td><td colspan="2">'.$data[$pd]['registry']['metadata']['registrar_uri_links'].'</td><td>'.$data[$pd]['registrar']['metadata']['registrar_uri_links'].'</td></tr>';
-	$html_text .= '<tr id="2011" style="display:none"><td>status_explanation_uri</td><td>'.((!empty($data[$pd]['registry']['metadata']['status_explanation_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['status_explanation_uri'].' target="_blank">icann.org/epp</a>' : '').'</td><td id="metadata_status_explanation_uri"></td><td>'.$data[$pd]['registrar']['metadata']['status_explanation_uri'].'</td></tr>';
-	$html_text .= '<tr id="2012" style="display:none"><td>geo_location</td><td>'.$data[$pd]['registry']['metadata']['geo_location'].'</td><td></td><td>'.$data[$pd]['registrar']['metadata']['geo_location'].'</td></tr>';
+	$html_text .= '<tr id="2010" style="display:none"><td>registrar_complaint_uri</td><td>'.((!empty($data[$pd]['registry']['metadata']['registrar_complaint_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['registrar_complaint_uri'].' target="_blank">icann.org/wicf</a>' : '').'</td><td id="metadata_registrar_complaint_uri"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_complaint_uri'].'</td></tr>';
+	$html_text .= '<tr id="2011" style="display:none"><td>registrar_publication_method</td><td>'.$data[$pd]['registry']['metadata']['registrar_publication_method'].'</td><td id="metadata_registrar_publication_method"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_publication_method'].'</td></tr>';
+	$html_text .= '<tr id="2012" style="display:none"><td>registrar_uri_links</td><td colspan="2">'.$data[$pd]['registry']['metadata']['registrar_uri_links'].'</td><td>'.$data[$pd]['registrar']['metadata']['registrar_uri_links'].'</td></tr>';
+	$html_text .= '<tr id="2013" style="display:none"><td>status_explanation_uri</td><td>'.((!empty($data[$pd]['registry']['metadata']['status_explanation_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['status_explanation_uri'].' target="_blank">icann.org/epp</a>' : '').'</td><td id="metadata_status_explanation_uri"></td><td>'.$data[$pd]['registrar']['metadata']['status_explanation_uri'].'</td></tr>';
+	$html_text .= '<tr id="2014" style="display:none"><td>geo_location</td><td>'.$data[$pd]['registry']['metadata']['geo_location'].'</td><td></td><td>'.$data[$pd]['registrar']['metadata']['geo_location'].'</td></tr>';
 	$html_text .= '<tr><td>resource_upload_at</td><td>'.$data[$pd]['registry']['metadata']['resource_upload_at'].'</td><td id="metadata_resource_upload_at"></td><td>'.$data[$pd]['registrar']['metadata']['resource_upload_at'].'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	if (!empty($data[$pd]['registry']['interface_notice']) or !empty($data[$pd]['registrar']['interface_notice']))	{

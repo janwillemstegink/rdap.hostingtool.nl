@@ -51,11 +51,11 @@ if (!empty($_GET['domain']))	{
 			$tld_ascii_name = 'tld';
         }
 		$registry_rdap = write_file($tld_ascii_name, $domain_ascii_name, $batch, '');
-		$registry_interface = $registry_rdap['interface_notice'] ?? '';		
-		$registry_rdap['tld_unicode_name'] = $tld_unicode_name ?? null;
-		$registry_rdap['tld_ascii_name'] = $tld_ascii_name ?? null;
-		$registry_rdap['domain_unicode_name'] = $domain_unicode_name ?? null;
-		$registry_rdap['domain_ascii_name'] = $domain_ascii_name ?? null;
+		$registry_interface = $registry_rdap['interface_notice'] ?? '';
+		$registry_rdap['metadata']['tld_unicode_name'] = $tld_unicode_name ?? null;
+		$registry_rdap['metadata']['tld_ascii_name'] = $tld_ascii_name ?? null;
+		$registry_rdap['metadata']['domain_unicode_name'] = $domain_unicode_name ?? null;
+		$registry_rdap['metadata']['domain_ascii_name'] = $domain_ascii_name ?? null;
 		$registrar_rdap = [];
 		$registrar_interface = '';
 		$registry_statuses = $registry_rdap['properties']['statuses_raw'] ?? null;
@@ -84,6 +84,10 @@ if (!empty($_GET['domain']))	{
        			$registrar_rdap = write_file($tld_ascii_name, $domain_ascii_name, $batch, $registry_related_uri);
 				$registry_rdap['metadata']['registrar_json_response_uri'] = $registry_related_uri;
 				$registrar_rdap['metadata']['rdap_data_layer'] = 'registrar_rdap';
+				$registrar_rdap['metadata']['tld_unicode_name'] = $tld_unicode_name ?? null;
+				$registrar_rdap['metadata']['tld_ascii_name'] = $tld_ascii_name ?? null;
+				$registrar_rdap['metadata']['domain_unicode_name'] = $domain_unicode_name ?? null;
+				$registrar_rdap['metadata']['domain_ascii_name'] = $domain_ascii_name ?? null;
 			}
 			elseif (!empty($registrar_identifier))	{
 				if ($iana_id > 0 and $iana_id < 9990) {
@@ -97,6 +101,10 @@ if (!empty($_GET['domain']))	{
 						$registrar_statuses = $registrar_rdap['properties']['statuses_raw'] ?? null;
 						if (!empty($registrar_statuses)) {						
 							$registrar_rdap['metadata']['rdap_data_layer'] = 'registrar_rdap';
+							$registrar_rdap['metadata']['tld_unicode_name'] = $tld_unicode_name ?? null;
+							$registrar_rdap['metadata']['tld_ascii_name'] = $tld_ascii_name ?? null;
+							$registrar_rdap['metadata']['domain_unicode_name'] = $domain_unicode_name ?? null;
+							$registrar_rdap['metadata']['domain_ascii_name'] = $domain_ascii_name ?? null;
 							if (strlen($registry_interface))	{
 								$registry_interface .= "<br />";
 							}
