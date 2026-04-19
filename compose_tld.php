@@ -21,7 +21,7 @@ if (!empty($_GET['tld']))	{
 		if ($strpos)	{
 			$tld = mb_substr($tld, 0, $strpos);
 		}
-		$tld = toPunycodeIfNeeded($tld);
+		$tld = tld_to_ascii($tld);
 		header('Content-Type: application/json');
 		echo json_encode(write_file($tld), JSON_PRETTY_PRINT);
 		die();
@@ -41,17 +41,22 @@ function detect_country_code($inputdefault, $inputCC, $inputcc)	{
 	return $outputcc;
 }
 
-function toPunycodeIfNeeded($inputtld) {
-    if (strpos($inputtld, 'xn--') === false) {
-        $punycode = idn_to_ascii($inputtld, IDNA_DEFAULT, INTL_IDNA_VARIANT_UTS46);
-        if ($punycode !== false) {
-            return $punycode;
-        }
-		else {
-            die("Invalid tld: $inputtld");
-        }
-    }
-    return $inputtld;
+function tld_to_ascii(string $inputtld): string
+{
+    // Convert input (Unicode or ASCII) to IDNA ASCII (A-label / punycode)
+    $ascii = idn_to_ascii($inputtld, IDNA_DEFAULT, INTL_IDNA_VARIANT_UTS46);
+
+    // Fail-safe: return lowercase input if conversion fails
+    return $ascii !== false ? strtolower($ascii) : strtolower($inputtld);
+}
+
+function tld_to_unicode(string $inputtld): string
+{
+    // Convert input (ASCII or punycode) to Unicode (U-label)
+    $unicode = idn_to_utf8($inputtld, IDNA_DEFAULT, INTL_IDNA_VARIANT_UTS46);
+
+    // Fail-safe: return original input if conversion fails
+    return $unicode !== false ? $unicode : $inputtld;
 }
 
 function write_file($inputtld)	{
@@ -159,34 +164,34 @@ foreach($obj as $key1 => $value1) {
 		}
 	}
 }
-$root_zone_data_active_from = null;
 $root_services_uri = 'https://www.iana.org';	
 $root_zones_uri = 'https://www.iana.org/domains/root/db';
 $root_terms_of_service_uri = 'https://www.icann.org/en/data-protection/terms-of-service';
 $root_privacy_policy_uri = 'https://www.icann.org/privacy/policy';	
 $registrar_accreditations_uri = 'https://www.iana.org/assignments/registrar-ids/registrar-ids.xhtml';
 $lookup_endpoints_uri = 'https://data.iana.org/rdap/dns.json';
+$tld_data_active_from = null;	
 $tld_category = '';
 $tld_type = '';
 $tld_services_uri = '';	
 $tld_terms_of_service_uri = '';
 $tld_privacy_policy_uri = '';	
 $tld_search_engine_deletion_phase_ready = 'n/a';	
-$tld_contacts_json = '[]';
-$tld_roles_json = '[
-{"tld_role_sequence": 10,"tld_role_identifier": "contracting_authority","tld_role_shielded": ["name", "tel"]},
-{"tld_role_sequence": 20,"tld_role_identifier": "contract_holder","tld_role_shielded": ["name", "tel"]},
-{"tld_role_sequence": 30,"tld_role_identifier": "sponsoring_organization","tld_role_shielded": ["name", "tel"]},
-{"tld_role_sequence": 40,"tld_role_identifier": "country_code_designated_manager","tld_role_shielded": ["name", "tel"]},
-{"tld_role_sequence": 50,"tld_role_identifier": "registry_operator","tld_role_shielded": []},
-{"tld_role_sequence": 60,"tld_role_identifier": "backend_operator","tld_role_shielded": []}]';
-$decoded = json_decode($tld_roles_json, true);
+$function_json = '[]';
+$function_json = '[
+{"function_sequence": 10,"function_identifier": "contracting_authority"},
+{"function_sequence": 20,"function_identifier": "contract_holder"},
+{"function_sequence": 30,"function_identifier": "sponsoring_organization"},
+{"function_sequence": 40,"function_identifier": "country_code_designated_manager"},
+{"function_sequence": 50,"function_identifier": "registry_operator"},
+{"function_sequence": 60,"function_identifier": "backend_operator"}]';
+$decoded = json_decode($function_json, true);
 usort($decoded, function ($a, $b) {
-    return $a['tld_role_sequence'] <=> $b['tld_role_sequence'];
+    return $a['function_sequence'] <=> $b['function_sequence'];
 });
-$tld_roles = '<b>tld_role_sequence, tld_role_identifier, tld_role_shielded</b><br />';    
-foreach ($decoded as $role) {
-	$tld_roles .= $role['tld_role_sequence'] . ', ' . $role['tld_role_identifier'] . ', [' . implode(', ', $role['tld_role_shielded']) . ']<br />';
+$function_identifiers = '<b>function_sequence, function_identifier</b><br />';    
+foreach ($decoded as $function) {
+	$function_identifiers .= $function['function_sequence'] . ', ' . $function['function_identifier'] . '<br />';
 }
 $indeterminate_rdap_statuses_json = '{
   "indeterminate_rdap_statuses": [
@@ -255,7 +260,7 @@ $operational_periods_json = '[
 	{"period_identifier": "pending_redemption_days", "default": null, "allowed": null},
 	{"period_identifier": "pending_delete_days", "default": null, "allowed": null}
 ]';
-$zone_accepted_workload_json = '[{
+$tld_accepted_workload_json = '[{
 	"public_status_requests": {
 		"maximum_per_utc_day": null,
 		"maximum_per_minute": null,
@@ -282,15 +287,15 @@ if ($inputtld == 'nl')	{
 		{"period_identifier": "pending_redemption_days", "default": 40, "allowed": [40]},
 		{"period_identifier": "pending_delete_days", "default": 0, "allowed": [0]}
 	]';
-	$tld_contacts_json = '[
-        {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-		{"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "Stichting Internet Domeinregistratie Nederland", "contact_presented_name": null},
-        {"contact_identifier": "registry_operator", "contact_legal_name": "Stichting Internet Domeinregistratie Nederland", "contact_presented_name": null},
-		{"contact_identifier": "backend_operator", "contact_legal_name": "SIDN B.V.", "contact_presented_name": "SIDN"}
+	$function_json = '[
+        {"function_identifier": "contracting_authority", "function_legal_name": null, "function_presented_name": null},
+		{"function_identifier": "contract_holder", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "sponsoring_organization", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "country_code_designated_manager", "function_legal_name": "Stichting Internet Domeinregistratie Nederland", "function_presented_name": null},
+        {"function_identifier": "registry_operator", "function_legal_name": "Stichting Internet Domeinregistratie Nederland", "function_presented_name": null},
+		{"function_identifier": "backend_operator", "function_legal_name": "SIDN B.V.", "function_presented_name": "SIDN"}
     ]';
-	$zone_accepted_workload_json = '[{
+	$tld_accepted_workload_json = '[{
 		"public_status_requests": {
     		"maximum_per_utc_day": 50000,
     		"maximum_per_minute": null,
@@ -311,13 +316,13 @@ if ($inputtld == 'nl')	{
 elseif ($inputtld == 'frl')	{
 	$tld_category = 'gTLD';
 	$tld_type = 'geoTLD';
-	$tld_contacts_json = '[
-		{"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "sponsoring_organization", "contact_legal_name": "FRLregistry B.V.", "contact_presented_name": null},
-        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "registry_operator", "contact_legal_name": "FRLregistry B.V.", "contact_presented_name": null},
-		{"contact_identifier": "backend_operator", "contact_legal_name": "Team Internet Group PLC", "contact_presented_name": "CTO CentralNic"}
+	$function_json = '[
+		{"function_identifier": "contracting_authority", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "contract_holder", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "sponsoring_organization", "function_legal_name": "FRLregistry B.V.", "function_presented_name": null},
+        {"function_identifier": "country_code_designated_manager", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "registry_operator", "function_legal_name": "FRLregistry B.V.", "function_presented_name": null},
+		{"function_identifier": "backend_operator", "function_legal_name": "Team Internet Group PLC", "function_presented_name": "CTO CentralNic"}
     ]';
 	$tld_terms_of_service_uri = 'https://nic.frl/';
 	$tld_services_uri = 'https://nic.frl/';
@@ -325,13 +330,13 @@ elseif ($inputtld == 'frl')	{
 elseif ($inputtld == 'amsterdam')	{
 	$tld_category = 'gTLD';
 	$tld_type = 'geoTLD';
-	$tld_contacts_json = '[
-		{"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "sponsoring_organization", "contact_legal_name": "Gemeente Amsterdam", "contact_presented_name": null},
-        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "registry_operator", "contact_legal_name": "Stichting Internet Domeinregistratie Nederland", "contact_presented_name": null},
-		{"contact_identifier": "backend_operator", "contact_legal_name": "SIDN B.V.", "contact_presented_name": "SIDN"}
+	$function_json = '[
+		{"function_identifier": "contracting_authority", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "contract_holder", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "sponsoring_organization", "function_legal_name": "Gemeente Amsterdam", "function_presented_name": null},
+        {"function_identifier": "country_code_designated_manager", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "registry_operator", "function_legal_name": "Stichting Internet Domeinregistratie Nederland", "function_presented_name": null},
+		{"function_identifier": "backend_operator", "function_legal_name": "SIDN B.V.", "function_presented_name": "SIDN"}
     ]';
 	$tld_terms_of_service_uri = 'https://www.sidn.nl/en/nl-domain-name/general-terms-and-conditions-for-nl-registrants';
 	$tld_privacy_policy_uri = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
@@ -341,13 +346,13 @@ elseif ($inputtld == 'amsterdam')	{
 elseif ($inputtld == 'politie')	{
 	$tld_category = 'gTLD';
 	$tld_type = 'Brand gTLD';
-	$tld_contacts_json = '[
-		{"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "sponsoring_organization", "contact_legal_name": "Politie Nederland", "contact_presented_name": null},
-        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "registry_operator", "contact_legal_name": "Stichting Internet Domeinregistratie Nederland", "contact_presented_name": null},
-		{"contact_identifier": "backend_operator", "contact_legal_name": "SIDN B.V.", "contact_presented_name": "SIDN"}
+	$function_json = '[
+		{"function_identifier": "contracting_authority", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "contract_holder", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "sponsoring_organization", "function_legal_name": "Politie Nederland", "function_presented_name": null},
+        {"function_identifier": "country_code_designated_manager", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "registry_operator", "function_legal_name": "Stichting Internet Domeinregistratie Nederland", "function_presented_name": null},
+		{"function_identifier": "backend_operator", "function_legal_name": "SIDN B.V.", "function_presented_name": "SIDN"}
     ]';
 	$tld_terms_of_service_uri = 'https://www.sidn.nl/en/nl-domain-name/general-terms-and-conditions-for-nl-registrants';
 	$tld_privacy_policy_uri = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
@@ -367,13 +372,13 @@ elseif ($inputtld == 'eu')	{
 		{"period_identifier": "pending_redemption_days", "default": 40, "allowed": [40]},
 		{"period_identifier": "pending_delete_days", "default": 0, "allowed": [0]}
 	]';
-	$tld_contacts_json = '[
-		{"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "EURid vzw/asbl", "contact_presented_name": null},
-        {"contact_identifier": "registry_operator", "contact_legal_name": "EURid vzw", "contact_presented_name": null},
-		{"contact_identifier": "backend_operator", "contact_legal_name": "EURid vzw", "contact_presented_name": "Technical Department"}
+	$function_json = '[
+		{"function_identifier": "contracting_authority", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "contract_holder", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "sponsoring_organization", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "country_code_designated_manager", "function_legal_name": "EURid vzw/asbl", "function_presented_name": null},
+        {"function_identifier": "registry_operator", "function_legal_name": "EURid vzw", "function_presented_name": null},
+		{"function_identifier": "backend_operator", "function_legal_name": "EURid vzw", "function_presented_name": "Technical Department"}
     ]';
 	$tld_terms_of_service_uri = 'https://help.eurid.eu/hc/en-gb/';
 	$tld_services_uri = 'https://help.eurid.eu/hc/en-gb/';
@@ -390,13 +395,13 @@ elseif ($inputtld == 'de')	{
 		{"period_identifier": "pending_redemption_days", "default": 28, "allowed": [28]},
 		{"period_identifier": "pending_delete_days", "default": 0, "allowed": [0]}
 	]';
-	$tld_contacts_json = '[
-        {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-		{"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "DENIC eG", "contact_presented_name": null},
-        {"contact_identifier": "registry_operator", "contact_legal_name": "DENIC eG", "contact_presented_name": "Vorstand"},
-		{"contact_identifier": "backend_operator", "contact_legal_name": "DENIC eG", "contact_presented_name": "Business Services"}
+	$function_json = '[
+        {"function_identifier": "contracting_authority", "function_legal_name": null, "function_presented_name": null},
+		{"function_identifier": "contract_holder", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "sponsoring_organization", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "country_code_designated_manager", "function_legal_name": "DENIC eG", "function_presented_name": null},
+        {"function_identifier": "registry_operator", "function_legal_name": "DENIC eG", "function_presented_name": "Vorstand"},
+		{"function_identifier": "backend_operator", "function_legal_name": "DENIC eG", "function_presented_name": "Business Services"}
     ]';
 	$tld_terms_of_service_uri = 'https://www.denic.de/';
 	$tld_services_uri = 'https://www.denic.de/';
@@ -413,13 +418,13 @@ elseif ($inputtld == 'fr')	{
 		{"period_identifier": "pending_redemption_days", "default": 30, "allowed": [30]},
 		{"period_identifier": "pending_delete_days", "default": 0, "allowed": [0]}
 	]';
-	$tld_contacts_json = '[
-        {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-		{"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "Association Française pour le Nommage Internet en Coopération", "contact_presented_name": "A.F.N.I.C."},
-        {"contact_identifier": "registry_operator", "contact_legal_name": "Association Française pour le Nommage Internet en Coopération", "contact_presented_name": "A.F.N.I.C."},
-		{"contact_identifier": "backend_operator", "contact_legal_name": "Association Française pour le Nommage Internet en Coopération", "contact_presented_name": "A.F.N.I.C."}
+	$function_json = '[
+        {"function_identifier": "contracting_authority", "function_legal_name": null, "function_presented_name": null},
+		{"function_identifier": "contract_holder", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "sponsoring_organization", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "country_code_designated_manager", "function_legal_name": "Association Française pour le Nommage Internet en Coopération", "function_presented_name": "A.F.N.I.C."},
+        {"function_identifier": "registry_operator", "function_legal_name": "Association Française pour le Nommage Internet en Coopération", "function_presented_name": "A.F.N.I.C."},
+		{"function_identifier": "backend_operator", "function_legal_name": "Association Française pour le Nommage Internet en Coopération", "function_presented_name": "A.F.N.I.C."}
     ]';	
 	$tld_terms_of_service_uri = 'https://www.afnic.fr/';
 	$tld_services_uri = 'https://www.afnic.fr/';
@@ -436,13 +441,13 @@ elseif ($inputtld == 'ch')	{
 		{"period_identifier": "pending_redemption_days", "default": 40, "allowed": [40]},
 		{"period_identifier": "pending_delete_days", "default": 0, "allowed": [0]}
 	]';
-	$tld_contacts_json = '[
-        {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-		{"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "SWITCH Foundation", "contact_presented_name": null},
-        {"contact_identifier": "registry_operator", "contact_legal_name": "SWITCH Foundation", "contact_presented_name": "The Swiss Education & Research Network"},
-		{"contact_identifier": "backend_operator", "contact_legal_name": "SWITCH Foundation", "contact_presented_name": "The Swiss Education & Research Network"}
+	$function_json = '[
+        {"function_identifier": "contracting_authority", "function_legal_name": null, "function_presented_name": null},
+		{"function_identifier": "contract_holder", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "sponsoring_organization", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "country_code_designated_manager", "function_legal_name": "SWITCH Foundation", "function_presented_name": null},
+        {"function_identifier": "registry_operator", "function_legal_name": "SWITCH Foundation", "function_presented_name": "The Swiss Education & Research Network"},
+		{"function_identifier": "backend_operator", "function_legal_name": "SWITCH Foundation", "function_presented_name": "The Swiss Education & Research Network"}
     ]';
 	$tld_terms_of_service_uri = 'https://www.nic.ch/';
 	$tld_services_uri = 'https://www.nic.ch/';
@@ -450,13 +455,13 @@ elseif ($inputtld == 'ch')	{
 elseif ($inputtld == 'li')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$tld_contacts_json = '[
-        {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-		{"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "SWITCH Foundation", "contact_presented_name": null},
-        {"contact_identifier": "registry_operator", "contact_legal_name": "SWITCH Foundation", "contact_presented_name": "The Swiss Education & Research Network"},
-		{"contact_identifier": "backend_operator", "contact_legal_name": "SWITCH Foundation", "contact_presented_name": "The Swiss Education & Research Network"}
+	$function_json = '[
+        {"function_identifier": "contracting_authority", "function_legal_name": null, "function_presented_name": null},
+		{"function_identifier": "contract_holder", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "sponsoring_organization", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "country_code_designated_manager", "function_legal_name": "SWITCH Foundation", "function_presented_name": null},
+        {"function_identifier": "registry_operator", "function_legal_name": "SWITCH Foundation", "function_presented_name": "The Swiss Education & Research Network"},
+		{"function_identifier": "backend_operator", "function_legal_name": "SWITCH Foundation", "function_presented_name": "The Swiss Education & Research Network"}
     ]';
 	$tld_terms_of_service_uri = 'https://www.nic.li/';
 	$tld_services_uri = 'https://www.nic.li/';
@@ -464,13 +469,13 @@ elseif ($inputtld == 'li')	{
 elseif ($inputtld == 'be')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$tld_contacts_json = '[
-        {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-		{"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "DNS Belgium vzw/asbl", "contact_presented_name": null},
-        {"contact_identifier": "registry_operator", "contact_legal_name": "DNS Belgium vzw/asbl", "contact_presented_name": null},
-		{"contact_identifier": "backend_operator", "contact_legal_name": "DNS Belgium vzw/asbl", "contact_presented_name": null}
+	$function_json = '[
+        {"function_identifier": "contracting_authority", "function_legal_name": null, "function_presented_name": null},
+		{"function_identifier": "contract_holder", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "sponsoring_organization", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "country_code_designated_manager", "function_legal_name": "DNS Belgium vzw/asbl", "function_presented_name": null},
+        {"function_identifier": "registry_operator", "function_legal_name": "DNS Belgium vzw/asbl", "function_presented_name": null},
+		{"function_identifier": "backend_operator", "function_legal_name": "DNS Belgium vzw/asbl", "function_presented_name": null}
     ]';
 	$tld_terms_of_service_uri = 'https://www.dnsbelgium.be/';
 	$tld_services_uri = 'https://www.dnsbelgium.be/';
@@ -478,13 +483,13 @@ elseif ($inputtld == 'be')	{
 elseif ($inputtld == 'lu')	{
 	$tld_category = 'ccTLD';
 	$tld_type = 'ccTLD';
-	$tld_contacts_json = '[
-        {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-		{"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "RESTENA", "contact_presented_name": null},
-        {"contact_identifier": "registry_operator", "contact_legal_name": "Fondation RESTENA", "contact_presented_name": null},
-		{"contact_identifier": "backend_operator", "contact_legal_name": "Fondation RESTENA", "contact_presented_name": "NOC"}
+	$function_json = '[
+        {"function_identifier": "contracting_authority", "function_legal_name": null, "function_presented_name": null},
+		{"function_identifier": "contract_holder", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "sponsoring_organization", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "country_code_designated_manager", "function_legal_name": "RESTENA", "function_presented_name": null},
+        {"function_identifier": "registry_operator", "function_legal_name": "Fondation RESTENA", "function_presented_name": null},
+		{"function_identifier": "backend_operator", "function_legal_name": "Fondation RESTENA", "function_presented_name": "NOC"}
     ]';
 	$tld_terms_of_service_uri = 'https://restena.lu/';
 	$tld_services_uri = 'https://restena.lu/';
@@ -501,13 +506,13 @@ elseif ($inputtld == 'uk')	{
 		{"period_identifier": "pending_redemption_days", "default": 60, "allowed": [60]},
 		{"period_identifier": "pending_delete_days", "default": 0, "allowed": [0]}
 	]';
-	$tld_contacts_json = '[
-        {"contact_identifier": "contracting_authority", "contact_legal_name": null, "contact_presented_name": null},
-		{"contact_identifier": "contract_holder", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": "Nominet UK", "contact_presented_name": null},
-        {"contact_identifier": "registry_operator", "contact_legal_name": "Nominet UK", "contact_presented_name": "TLD Registry Services Management"},
-		{"contact_identifier": "backend_operator", "contact_legal_name": "Nominet UK", "contact_presented_name": "TLD Registry Services Technical"}
+	$function_json = '[
+        {"function_identifier": "contracting_authority", "function_legal_name": null, "function_presented_name": null},
+		{"function_identifier": "contract_holder", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "sponsoring_organization", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "country_code_designated_manager", "function_legal_name": "Nominet UK", "function_presented_name": null},
+        {"function_identifier": "registry_operator", "function_legal_name": "Nominet UK", "function_presented_name": "TLD Registry Services Management"},
+		{"function_identifier": "backend_operator", "function_legal_name": "Nominet UK", "function_presented_name": "TLD Registry Services Technical"}
     ]';
 	$tld_terms_of_service_uri = 'https://nominet.uk/';
 	$tld_services_uri = 'https://nominet.uk/';
@@ -524,13 +529,13 @@ elseif ($inputtld == 'com')	{
 		{"period_identifier": "pending_redemption_days", "default": 30, "allowed": [30]},
 		{"period_identifier": "pending_delete_days", "default": 5, "allowed": [5]}
 	]';
-	$tld_contacts_json = '[
-		{"contact_identifier": "contracting_authority", "contact_legal_name": "Internet Corporation for Assigned Names and Numbers", "contact_presented_name": "ICANN"},
-        {"contact_identifier": "contract_holder", "contact_legal_name": "VeriSign Global Registry Services", "contact_presented_name": null},
-        {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "registry_operator", "contact_legal_name": "VeriSign Global Registry Services", "contact_presented_name": "Registry Customer Service"},
-		{"contact_identifier": "backend_operator", "contact_legal_name": "VeriSign Global Registry Services", "contact_presented_name": "Registry Customer Service"}
+	$function_json = '[
+		{"function_identifier": "contracting_authority", "function_legal_name": "Internet Corporation for Assigned Names and Numbers", "function_presented_name": "ICANN"},
+        {"function_identifier": "contract_holder", "function_legal_name": "VeriSign Global Registry Services", "function_presented_name": null},
+        {"function_identifier": "sponsoring_organization", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "country_code_designated_manager", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "registry_operator", "function_legal_name": "VeriSign Global Registry Services", "function_presented_name": "Registry Customer Service"},
+		{"function_identifier": "backend_operator", "function_legal_name": "VeriSign Global Registry Services", "function_presented_name": "Registry Customer Service"}
     ]';	
 	$tld_terms_of_service_uri = 'https://www.icann.org/privacy/tos';
 	$tld_privacy_policy_uri = 'https://www.icann.org/privacy/policy';
@@ -548,29 +553,29 @@ elseif ($inputtld == 'org')	{
 		{"period_identifier": "pending_redemption_days", "default": 30, "allowed": [30]},
 		{"period_identifier": "pending_delete_days", "default": 5, "allowed": [5]}
 	]';
-	$tld_contacts_json = '[
-		{"contact_identifier": "contracting_authority", "contact_legal_name": "Internet Corporation for Assigned Names and Numbers", "contact_presented_name": "ICANN"},
-        {"contact_identifier": "contract_holder", "contact_legal_name": "Public Interest Registry (PIR)", "contact_presented_name": null},
-        {"contact_identifier": "sponsoring_organization", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "country_code_designated_manager", "contact_legal_name": null, "contact_presented_name": null},
-        {"contact_identifier": "registry_operator", "contact_legal_name": "Public Interest Registry (PIR)", "contact_presented_name": "Director of Operations, Compliance and Customer Support"},
-		{"contact_identifier": "backend_operator", "contact_legal_name": "Public Interest Registry (PIR)", "contact_presented_name": "Senior Director, DNS Infrastructure Group"}
+	$function_json = '[
+		{"function_identifier": "contracting_authority", "function_legal_name": "Internet Corporation for Assigned Names and Numbers", "function_presented_name": "ICANN"},
+        {"function_identifier": "contract_holder", "function_legal_name": "Public Interest Registry (PIR)", "function_presented_name": null},
+        {"function_identifier": "sponsoring_organization", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "country_code_designated_manager", "function_legal_name": null, "function_presented_name": null},
+        {"function_identifier": "registry_operator", "\legal_name": "Public Interest Registry (PIR)", "function_presented_name": "Director of Operations, Compliance and Customer Support"},
+		{"function_identifier": "backend_operator", "function_legal_name": "Public Interest Registry (PIR)", "function_presented_name": "Senior Director, DNS Infrastructure Group"}
     ]';	
 	$tld_terms_of_service_uri = 'https://www.icann.org/privacy/tos';
 	$tld_privacy_policy_uri = 'https://www.icann.org/privacy/policy';
 	$tld_services_uri = '';
 }
 $tld_delegation_uri = 'https://www.iana.org/domains/root/db/'.$inputtld.'.html';		
-$decoded = json_decode($tld_contacts_json, true);
-$tld_contacts = '';   
-foreach ($decoded as $contact) {
-	if (strlen($contact['contact_legal_name']) or strlen($contact['contact_presented_name']))	{	
-		$tld_contacts .= '<b>&bull; </b><em>'.$contact['contact_identifier'] . ':</em><br />';
-		if (strlen($contact['contact_legal_name']))	{
-			$tld_contacts .= 'legal_name: ' . $contact['contact_legal_name'] . '<br />';
+$decoded = json_decode($function_json, true);
+$tld_functions = '';   
+foreach ($decoded as $function) {
+	if (strlen($function['function_legal_name']) or strlen($function['function_presented_name']))	{	
+		$tld_functions .= '<b>&bull; </b><em>'.$function['function_identifier'] . ':</em><br />';
+		if (strlen($function['function_legal_name']))	{
+			$tld_functions .= 'legal_name: ' . $function['function_legal_name'] . '<br />';
 		}
-		if (strlen($contact['contact_presented_name']))	{
-			$tld_contacts .= 'presented_name: ' . $contact['contact_presented_name'] . '<br />';
+		if (strlen($function['function_presented_name']))	{
+			$tld_functions .= 'presented_name: ' . $function['function_presented_name'] . '<br />';
 		}
 	}	
 }
@@ -636,34 +641,34 @@ foreach ($decoded as $statuses) {
     }
 }	
 	
-$decoded = json_decode($zone_accepted_workload_json, true);
-$zone_accepted_workload = '';    
+$decoded = json_decode($tld_accepted_workload_json, true);
+$tld_accepted_workload = '';    
 foreach ($decoded as $workload_entry) {
     foreach ($workload_entry as $request_type => $limits) {
-        $zone_accepted_workload .= '<b>&bull; </b><em>' . htmlspecialchars($request_type) . ':</em><br />';
+        $tld_accepted_workload .= '<b>&bull; </b><em>' . htmlspecialchars($request_type) . ':</em><br />';
         foreach ($limits as $limit_type => $limit_value) {
             $display_value = $limit_value !== null ? htmlspecialchars($limit_value) : 'n/a';
-            $zone_accepted_workload .= htmlspecialchars($limit_type) . ': ' . $display_value . '<br />';
+            $tld_accepted_workload .= htmlspecialchars($limit_type) . ': ' . $display_value . '<br />';
         }	
     }	
 }
-$zone_roles_json = '[{"zone_role_sequence": 10,"zone_role_identifier": "sponsor"},
-{"zone_role_sequence": 20,"zone_role_identifier": "registrant"},
-{"zone_role_sequence": 30,"zone_role_identifier": "administrative"},
-{"zone_role_sequence": 40,"zone_role_identifier": "technical"},
-{"zone_role_sequence": 50,"zone_role_identifier": "billing"},
-{"zone_role_sequence": 60,"zone_role_identifier": "emergency"},
-{"zone_role_sequence": 70,"zone_role_identifier": "fallback"},
-{"zone_role_sequence": 80,"zone_role_identifier": "reseller"},
-{"zone_role_sequence": 90,"zone_role_identifier": "registrar"},
-{"zone_role_sequence": 95,"zone_role_identifier": "abuse"}]';
-$decoded = json_decode($zone_roles_json, true);
+$tld_relationships_json = '[{"zone_relationship_sequence": 10,"zone_relationship_identifier": "sponsor"},
+{"zone_relationship_sequence": 20,"zone_relationship_identifier": "registrant"},
+{"zone_relationship_sequence": 30,"zone_relationship_identifier": "administrative"},
+{"zone_relationship_sequence": 40,"zone_relationship_identifier": "technical"},
+{"zone_relationship_sequence": 50,"zone_relationship_identifier": "billing"},
+{"zone_relationship_sequence": 60,"zone_relationship_identifier": "emergency"},
+{"zone_relationship_sequence": 70,"zone_relationship_identifier": "fallback"},
+{"zone_relationship_sequence": 80,"zone_relationship_identifier": "reseller"},
+{"zone_relationship_sequence": 90,"zone_relationship_identifier": "registrar"},
+{"zone_relationship_sequence": 95,"zone_relationship_identifier": "abuse"}]';
+$decoded = json_decode($tld_relationships_json, true);
 usort($decoded, function ($a, $b) {
-    return $a['zone_role_sequence'] <=> $b['zone_role_sequence'];
+    return $a['zone_relationship_sequence'] <=> $b['zone_relationship_sequence'];
 });
-$zone_roles = '<b>zone_role_sequence, zone_role_identifier</b><br />';    
-foreach ($decoded as $role) {
-	$zone_roles .= $role['zone_role_sequence'] . ', ' . $role['zone_role_identifier'] . '<br />';
+$tld_relationships = '<b>zone_relationship_sequence, zone_relationship_identifier</b><br />';    
+foreach ($decoded as $relationship) {
+	$tld_relationships .= $relationship['zone_relationship_sequence'] . ', ' . $relationship['zone_relationship_identifier'] . '<br />';
 }
 switch ($inputtld) {
 	case 'com':
@@ -695,29 +700,30 @@ $arr[$inputtld]['common']['root_terms_of_service_uri'] = $root_terms_of_service_
 $arr[$inputtld]['common']['root_privacy_policy_uri'] = $root_privacy_policy_uri;	
 $arr[$inputtld]['common']['lookup_endpoints_uri'] = $lookup_endpoints_uri;
 $arr[$inputtld]['common']['registrar_accreditations_uri'] = $registrar_accreditations_uri;	
-$arr[$inputtld]['common']['tld_roles'] = $tld_roles;
+$arr[$inputtld]['common']['function_identifiers'] = $function_identifiers;
 $arr[$inputtld]['common']['indeterminate_rdap_statuses'] = $indeterminate_rdap_statuses;
 $arr[$inputtld]['common']['lifecycle_period_ranges'] = $lifecycle_period_ranges;		
 $arr[$inputtld]['common']['root_accepted_workload'] = $root_accepted_workload;	
 	
-$arr[$inputtld]['root_zone']['zone_identifier'] = $inputtld;
-$arr[$inputtld]['root_zone']['data_active_from'] = $root_zone_data_active_from;	
-$arr[$inputtld]['root_zone']['tld_category'] = $tld_category;
-$arr[$inputtld]['root_zone']['tld_type'] = $tld_type;
-$arr[$inputtld]['root_zone']['tld_ascii_name'] = $tld_ascii_name;
-$arr[$inputtld]['root_zone']['tld_unicode_name'] = $tld_unicode_name;	
-$arr[$inputtld]['root_zone']['tld_statuses'] = $tld_statuses;
-$arr[$inputtld]['root_zone']['tld_storage_model'] = $tld_storage_model;
-$arr[$inputtld]['root_zone']['tld_response_model'] = $tld_response_model;
-$arr[$inputtld]['root_zone']['tld_services_uri'] = $tld_services_uri;	
-$arr[$inputtld]['root_zone']['tld_delegation_uri'] = $tld_delegation_uri;	
-$arr[$inputtld]['root_zone']['tld_json_response_uri'] = $tld_json_response_uri;
-$arr[$inputtld]['root_zone']['tld_terms_of_service_uri'] = $tld_terms_of_service_uri;
-$arr[$inputtld]['root_zone']['tld_privacy_policy_uri'] = $tld_privacy_policy_uri;
-$arr[$inputtld]['root_zone']['tld_search_engine_deletion_phase_ready'] = $tld_search_engine_deletion_phase_ready;
-$arr[$inputtld]['root_zone']['tld_contacts'] = $tld_contacts;
-$arr[$inputtld]['root_zone']['zone_accepted_workload'] = $zone_accepted_workload;
-$arr[$inputtld]['root_zone']['zone_roles'] = $zone_roles;
+$arr[$inputtld]['zone']['tld_ascii_name'] = $inputtld;
+$arr[$inputtld]['zone']['tld_unicode_name'] = tld_to_unicode($inputtld);	
+$arr[$inputtld]['zone']['tld_data_active_from'] = $tld_data_active_from;	
+$arr[$inputtld]['zone']['tld_category'] = $tld_category;
+$arr[$inputtld]['zone']['tld_type'] = $tld_type;
+$arr[$inputtld]['zone']['tld_ascii_name'] = $tld_ascii_name;
+$arr[$inputtld]['zone']['tld_unicode_name'] = $tld_unicode_name;	
+$arr[$inputtld]['zone']['tld_statuses'] = $tld_statuses;
+$arr[$inputtld]['zone']['tld_storage_model'] = $tld_storage_model;
+$arr[$inputtld]['zone']['tld_response_model'] = $tld_response_model;
+$arr[$inputtld]['zone']['tld_services_uri'] = $tld_services_uri;	
+$arr[$inputtld]['zone']['tld_delegation_uri'] = $tld_delegation_uri;	
+$arr[$inputtld]['zone']['tld_json_response_uri'] = $tld_json_response_uri;
+$arr[$inputtld]['zone']['tld_terms_of_service_uri'] = $tld_terms_of_service_uri;
+$arr[$inputtld]['zone']['tld_privacy_policy_uri'] = $tld_privacy_policy_uri;
+$arr[$inputtld]['zone']['tld_search_engine_deletion_phase_ready'] = $tld_search_engine_deletion_phase_ready;
+$arr[$inputtld]['zone']['tld_functions'] = $tld_functions;
+$arr[$inputtld]['zone']['tld_accepted_workload'] = $tld_accepted_workload;
+$arr[$inputtld]['zone']['tld_relationships'] = $tld_relationships;
 
 $arr[$inputtld]['lifecycle']['data_active_from'] = $lifecycle_data_active_from;
 $arr[$inputtld]['lifecycle']['upon_termination'] = $upon_termination;

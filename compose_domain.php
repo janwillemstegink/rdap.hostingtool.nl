@@ -763,10 +763,10 @@ function write_file($inputdomain, $inputbatch, $inputurl) {
                 $url = 'https://rdap.nic.li/';
                 $stealth = true;
                 break;
-            case 'eu':
-                $url = 'https://rdap.eu/';
-                $stealth = true;
-                break;
+            //case 'eu':
+            //    $url = 'https://rdap.eu/';
+            //    $stealth = true;
+            //    break;
             case 'int':
                 $url = 'https://rdap.iana.org/';
                 $stealth = true;
@@ -2057,8 +2057,8 @@ $arr['metadata']['url_json_response_uri'] = $url;
 $arr['metadata']['self_json_response_uri'] = $self_json_response_uri;
 $arr['metadata']['related_json_response_uri'] = $related_json_response_uri;
 $arr['metadata']['registrar_complaint_uri'] = $registrar_complaint_uri;
+$arr['metadata']['registrar_uri_links'] = $registrar_links;
 $arr['metadata']['status_explanation_uri'] = $status_explanation_uri;
-$arr['metadata']['language_codes'] = $language_codes;
 $arr['metadata']['geo_location'] = '';
 $arr['metadata']['resource_upload_at'] = $resource_upload_at;		
 	

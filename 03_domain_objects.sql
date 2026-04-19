@@ -9,7 +9,7 @@
      - ip_network_versions   : registry for IPv4/IPv6 labels
      - ip_networks           : IP ranges with metadata
      - autnums               : Autonomous System Numbers
-     - domain_entities       : domains ↔ entities (role-based)
+     - domain_entities       : domains ↔ entities (relationship-based)
      - domain_nameservers    : domains ↔ nameservers (unique pairs)
      - entity_entities       : entity ↔ entity relations (e.g., registrar ↔ abuse)
      - domain_secure_dns     : DNSSEC/DANE settings per domain
@@ -18,14 +18,14 @@
    Functions & Triggers:
      - update_*_latest_data_mutation_at() for several tables
      - set_domain_zone() BEFORE INSERT/UPDATE → calls
-       get_matching_zone_identifier() from 02_tld_objects.sql
+       get_matching_zone_tld_ascii_name() from 02_tld_objects.sql
 
    Run order: 4 of 4  (bootstrap → logging → TLD → domain)
    Depends on: 00_bootstrap_extensions.sql, 02_tld_objects.sql
    Safe to re-run: yes (IF NOT EXISTS + CREATE OR REPLACE on functions)
    Notes:
      - Shared tables (events, links, remarks, notices) are defined in 01_logging.sql.
-     - Consider FK from domains.domain_zone → zones.zone_identifier once policies
+     - Consider FK from domains.domain_zone → zones.zone_tld_ascii_name once policies
        around historical snapshots are finalized.
 ============================================================================ */
 
@@ -52,13 +52,13 @@ CREATE TABLE IF NOT EXISTS domains (
 	domain_applicable_grace_until TIMESTAMPTZ,
     domain_recoverable_until TIMESTAMPTZ,
     domain_deletion_at TIMESTAMPTZ,
-    domain_global_json_response_uri VARCHAR(511),
-    domain_registry_json_response_uri VARCHAR(511),
-    domain_registry_language_codes TEXT,
+    domain_global_json_response_uri TEXT[],
+    domain_registry_json_response_uri TEXT[],
     domain_registrar_accreditation_id JSONB DEFAULT '[]'::jsonb,
-    domain_registrar_json_response_uri VARCHAR(511),
-    domain_registrar_complaint_uri TEXT,
-    domain_status_explanation_uri TEXT,
+    domain_registrar_json_response_uri TEXT[],
+    domain_registrar_complaint_uri TEXT[],
+	domain_registrar_uri_links TEXT[],
+    domain_status_explanation_uri TEXT[],
     domain_geo_location JSONB::jsonb,
     domain_extensions JSONB DEFAULT '[]'::jsonb,
     domain_remarks JSONB DEFAULT '[]'::jsonb
@@ -79,11 +79,11 @@ BEFORE UPDATE ON domains
 FOR EACH ROW
 EXECUTE FUNCTION update_domains_latest_data_mutation_at();
 
--- Trigger Function: Set domain_zone using get_matching_zone_identifier (from 01)
+-- Trigger Function: Set domain_zone using get_matching_zone_tld_ascii_name (from 02)
 CREATE OR REPLACE FUNCTION set_domain_zone()
 RETURNS TRIGGER AS $$
 BEGIN
-    NEW.domain_zone := get_matching_zone_identifier(NEW.domain_ascii_name);
+    NEW.domain_zone := get_matching_zone_tld_ascii_name(NEW.domain_ascii_name);
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
@@ -125,9 +125,7 @@ CREATE TABLE IF NOT EXISTS entities (
     entity_verification_set_at TIMESTAMPTZ,
     entity_properties JSONB DEFAULT '[]'::jsonb,
     entity_remarks JSONB DEFAULT '[]'::jsonb,
-    entity_accreditation JSONB DEFAULT '[]'::jsonb,
-    entity_links JSONB DEFAULT '[]'::jsonb,
-    entity_json_response_uri TEXT
+    entity_json_response_uri TEXT[]
 );
 
 CREATE INDEX IF NOT EXISTS idx_entity_postal_code ON entities(entity_postal_code);
@@ -256,7 +254,7 @@ FOR EACH ROW
 EXECUTE FUNCTION update_autnums_latest_data_mutation_at();
 
 -- ========================================
--- Table: domain_entities (link domains<->entities with role)
+-- Table: domain_entities (link domains<->entities with relationship)
 -- Publication state per field:
 -- shielded              = not publicly disclosed
 -- visible               = publicly disclosed
@@ -267,7 +265,7 @@ CREATE TABLE IF NOT EXISTS domain_entities (
     de_id SERIAL PRIMARY KEY,
     de_domain BIGINT NOT NULL REFERENCES domains(domain_id) ON DELETE CASCADE,
     de_source_layer VARCHAR(12) NOT NULL CHECK (de_source_layer IN ('registry','registrar')),
-    de_role VARCHAR(50),
+    de_relationship VARCHAR(50),
     de_field_publication JSONB NOT NULL DEFAULT '{
         "organization_name": "shielded",
         "presented_name": "shielded",
@@ -280,7 +278,7 @@ CREATE TABLE IF NOT EXISTS domain_entities (
     }'::jsonb,
     de_entity BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE
 );
-CREATE UNIQUE INDEX IF NOT EXISTS uq_de_unique ON domain_entities (de_domain, de_source_layer, de_role, de_entity);
+CREATE UNIQUE INDEX IF NOT EXISTS uq_de_unique ON domain_entities (de_domain, de_source_layer, de_relationship, de_entity);
 CREATE INDEX IF NOT EXISTS idx_de_domain ON domain_entities(de_domain);
 CREATE INDEX IF NOT EXISTS idx_de_entity ON domain_entities(de_entity);
 
@@ -324,9 +322,9 @@ EXECUTE FUNCTION update_domain_nameservers_latest_data_mutation_at();
 CREATE TABLE IF NOT EXISTS entity_entities (
     ee_id BIGSERIAL PRIMARY KEY,
 	ee_source_layer VARCHAR(12) NOT NULL CHECK (ee_source_layer IN ('registry','registrar')),
-    ee_parent_role VARCHAR(50),
+    ee_parent_relationship VARCHAR(50),
     ee_parent BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE,
-    ee_child_role VARCHAR(50),
+    ee_child_relationship VARCHAR(50),
     ee_field_publication JSONB NOT NULL DEFAULT '{
         "organization_name": "shielded",
         "presented_name": "shielded",
@@ -339,7 +337,7 @@ CREATE TABLE IF NOT EXISTS entity_entities (
     }'::jsonb,
     ee_child BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE
 );
-CREATE UNIQUE INDEX IF NOT EXISTS uq_ee_unique ON entity_entities (ee_source_layer, ee_parent_role, ee_parent, ee_child_role, ee_child);
+CREATE UNIQUE INDEX IF NOT EXISTS uq_ee_unique ON entity_entities (ee_source_layer, ee_parent_relationship, ee_parent, ee_child_relationship, ee_child);
 CREATE INDEX IF NOT EXISTS idx_ee_parent ON entity_entities(ee_parent);
 CREATE INDEX IF NOT EXISTS idx_ee_child ON entity_entities(ee_child);
 
