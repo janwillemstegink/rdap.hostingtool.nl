@@ -440,7 +440,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(35)">Root Accepted Workload +/-</button></td><td></td><td id="common_root_accepted_workload"></td></tr>';
 	$html_text .= '<tr id="351" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['common']['root_accepted_workload'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(41)">Zone Information +/-</button></td><td><b>'.$vd.'</b></td><td id="zone_part"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(41)">TLD Information +/-</button></td><td><b>'.$vd.'</b></td><td id="zone_part"></td></tr>';
 	$html_text .= '<tr id="411" style="display:table-row"><td>tld_data_active_from</td><td> '.$data[$pd]['zone']['tld_data_active_from'].'</td><td id="zone_tld_data_active_from"></td></tr>';
 	$html_text .= '<tr id="412" style="display:table-row"><td>tld_category</td><td>'.$data[$pd]['zone']['tld_category'].'</td><td id="zone_tld_category"></td></tr>';
 	$html_text .= '<tr id="413" style="display:table-row"><td>tld_type</td><td>'.$data[$pd]['zone']['tld_type'].'</td><td id="zone_tld_type"></td></tr>';
@@ -456,11 +456,11 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4113" style="display:table-row"><td>tld_terms_of_service_uri</td><td>'.((!empty($data[$pd]['zone']['tld_terms_of_service_uri'])) ? '<a href='.$data[$pd]['zone']['tld_terms_of_service_uri'].' target="_blank">TLD Terms</a>' : '').'</td><td id="zone_tld_terms_of_service_uri"></td></tr>';
 	$html_text .= '<tr id="4114" style="display:table-row"><td>tld_privacy_policy_uri</td><td>'.((!empty($data[$pd]['zone']['tld_privacy_policy_uri'])) ? '<a href='.$data[$pd]['zone']['tld_privacy_policy_uri'].' target="_blank">TLD Privacy</a>' : '').'</td><td id="zone_tld_privacy_policy_uri"></td></tr>';
 	$html_text .= '<tr  id="4115" style="display:table-row"><td>tld_search_engine_deletion_phase_ready</td><td>'.$data[$pd]['zone']['tld_search_engine_deletion_phase_ready'].'</td><td id="zone_tld_search_engine_deletion_phase_ready"></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Zone Functions +/-</button></td><td></td><td id="zone_tld_functions"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Functions +/-</button></td><td></td><td id="zone_tld_functions"></td></tr>';
 	$html_text .= '<tr id="421" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['zone']['tld_functions'].'</td><td id="zone_tld_functions"></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">TLD Accepted Workload +/-</button></td><td></td><td id="zone_tld_accepted_workload"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Accepted Workload +/-</button></td><td></td><td id="zone_tld_accepted_workload"></td></tr>';
 	$html_text .= '<tr id="441" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['zone']['tld_accepted_workload'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(43)">Zone Relationships +/-</button></td><td></td><td id="zone_tld_relationships"></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(43)">Relationships +/-</button></td><td></td><td id="zone_tld_relationships"></td></tr>';
 	$html_text .= '<tr id="431" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['zone']['tld_relationships'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';	
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(51)">Lifecycle Information +/-</button></td><td><b>'.$vd.'</b></td><td id="lifecycle_part"></td></tr>';

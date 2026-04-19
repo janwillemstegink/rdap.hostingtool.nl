@@ -652,23 +652,23 @@ foreach ($decoded as $workload_entry) {
         }	
     }	
 }
-$tld_relationships_json = '[{"zone_relationship_sequence": 10,"zone_relationship_identifier": "sponsor"},
-{"zone_relationship_sequence": 20,"zone_relationship_identifier": "registrant"},
-{"zone_relationship_sequence": 30,"zone_relationship_identifier": "administrative"},
-{"zone_relationship_sequence": 40,"zone_relationship_identifier": "technical"},
-{"zone_relationship_sequence": 50,"zone_relationship_identifier": "billing"},
-{"zone_relationship_sequence": 60,"zone_relationship_identifier": "emergency"},
-{"zone_relationship_sequence": 70,"zone_relationship_identifier": "fallback"},
-{"zone_relationship_sequence": 80,"zone_relationship_identifier": "reseller"},
-{"zone_relationship_sequence": 90,"zone_relationship_identifier": "registrar"},
-{"zone_relationship_sequence": 95,"zone_relationship_identifier": "abuse"}]';
+$tld_relationships_json = '[{"tld_relationship_sequence": 10,"tld_relationship_identifier": "sponsor"},
+{"tld_relationship_sequence": 20,"tld_relationship_identifier": "registrant"},
+{"tld_relationship_sequence": 30,"tld_relationship_identifier": "administrative"},
+{"tld_relationship_sequence": 40,"tld_relationship_identifier": "technical"},
+{"tld_relationship_sequence": 50,"tld_relationship_identifier": "billing"},
+{"tld_relationship_sequence": 60,"tld_relationship_identifier": "emergency"},
+{"tld_relationship_sequence": 70,"tld_relationship_identifier": "fallback"},
+{"tld_relationship_sequence": 80,"tld_relationship_identifier": "reseller"},
+{"tld_relationship_sequence": 90,"tld_relationship_identifier": "registrar"},
+{"tld_relationship_sequence": 95,"tld_relationship_identifier": "abuse"}]';
 $decoded = json_decode($tld_relationships_json, true);
 usort($decoded, function ($a, $b) {
-    return $a['zone_relationship_sequence'] <=> $b['zone_relationship_sequence'];
+    return $a['tld_relationship_sequence'] <=> $b['tld_relationship_sequence'];
 });
-$tld_relationships = '<b>zone_relationship_sequence, zone_relationship_identifier</b><br />';    
+$tld_relationships = '<b>relationship_sequence, relationship_identifier</b><br />';    
 foreach ($decoded as $relationship) {
-	$tld_relationships .= $relationship['zone_relationship_sequence'] . ', ' . $relationship['zone_relationship_identifier'] . '<br />';
+	$tld_relationships .= $relationship['tld_relationship_sequence'] . ', ' . $relationship['tld_relationship_identifier'] . '<br />';
 }
 switch ($inputtld) {
 	case 'com':
