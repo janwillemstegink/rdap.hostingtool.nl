@@ -160,7 +160,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("links_part").textContent = legacy;		
 		document.getElementById("common_root_services_uri").textContent = proposed;
 		document.getElementById("common_roots_uri").textContent = proposed;
-		document.getElementById("common_root_terms_of_service_uri").textContent = proposed;
+		document.getElementById("common_root_data_usage_terms_uri").textContent = proposed;
 		document.getElementById("common_root_privacy_policy_uri").textContent = proposed;
 		document.getElementById("common_lookup_endpoints_uri").textContent = proposed;
 		document.getElementById("common_registrar_accreditations_uri").textContent = proposed;
@@ -179,7 +179,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_tld_standardized_prices_uri").textContent = proposed;
 		document.getElementById("zone_tld_delegation_uri").textContent = proposed;
 		document.getElementById("zone_tld_json_response_uri").textContent = proposed;
-		document.getElementById("zone_tld_terms_of_service_uri").textContent = proposed;
+		document.getElementById("zone_tld_data_usage_terms_uri").textContent = proposed;
 		document.getElementById("zone_tld_privacy_policy_uri").textContent = proposed;
 		document.getElementById("zone_tld_search_engine_deletion_phase_ready").textContent = proposed;
 		document.getElementById("zone_tld_functions").textContent = proposed;
@@ -207,7 +207,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("links_part").textContent = legacy;
 		document.getElementById("common_root_services_uri").textContent = proposed + "IANA beheert, voor ICANN, TLD’s en wijst IP-blokken en AS-nummers toe aan regionale registries.";
 		document.getElementById("common_roots_uri").textContent = proposed + 'Officiële Root Zones-lijst, beheerd door IANA, de DNS-rootautoriteit.';
-		document.getElementById("common_root_terms_of_service_uri").textContent = proposed;
+		document.getElementById("common_root_data_usage_terms_uri").textContent = proposed;
 		document.getElementById("common_root_privacy_policy_uri").textContent = proposed;
 		document.getElementById("common_lookup_endpoints_uri").textContent = proposed + "Een API-endpoint onder /v1/ kan een nieuwere versie onder /v2/ ondersteunen — zie com.";
 		document.getElementById("common_registrar_accreditations_uri").textContent = proposed + "Officiële lijst van geaccrediteerde registrars, beheerd door IANA onder ICANN-beleid.";
@@ -226,7 +226,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_tld_standardized_prices_uri").textContent = proposed + "De EU kan prijstransparantie baseren op een machineleesbare technische basis.";
 		document.getElementById("zone_tld_delegation_uri").textContent = proposed + 'URI die verwijst naar het ICANN-delegatierecord voor de TLD.';
 		document.getElementById("zone_tld_json_response_uri").textContent = proposed + "TLD-metadata, mogelijk afkomstig uit gemoderniseerde IANA-datadiensten.";
-		document.getElementById("zone_tld_terms_of_service_uri").textContent = proposed;
+		document.getElementById("zone_tld_data_usage_terms_uri").textContent = proposed;
 		document.getElementById("zone_tld_privacy_policy_uri").textContent = proposed;
 		document.getElementById("zone_tld_search_engine_deletion_phase_ready").textContent = proposed + 'Of zoekmachines op pending delete mogen vertrouwen om resultaten te wissen.';
 		document.getElementById("zone_tld_functions").textContent = proposed;
@@ -254,7 +254,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("links_part").textContent = legacy;		
 		document.getElementById("common_root_services_uri").textContent = proposed + "IANA manages, for ICANN, TLDs and allocates IP blocks and AS numbers to regional registries.";
 		document.getElementById("common_roots_uri").textContent = proposed + 'Official Root Zones list maintained by IANA, the DNS root authority.';
-		document.getElementById("common_root_terms_of_service_uri").textContent = proposed;
+		document.getElementById("common_root_data_usage_terms_uri").textContent = proposed;
 		document.getElementById("common_root_privacy_policy_uri").textContent = proposed;		
 		document.getElementById("common_lookup_endpoints_uri").textContent = proposed + "An API endpoint under /v1/ may support a newer version under /v2/ — as seen on com.";
 		document.getElementById("common_registrar_accreditations_uri").textContent = proposed + "Official list of accredited registrars maintained by IANA under ICANN policy.";
@@ -273,7 +273,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_tld_standardized_prices_uri").textContent = proposed + "The EU may base pricing transparency on a machine-readable technical foundation.";
 		document.getElementById("zone_tld_delegation_uri").textContent = proposed + 'URI pointing to the ICANN delegation record for the TLD.';
 		document.getElementById("zone_tld_json_response_uri").textContent = proposed + "TLD metadata, potentially derived from modernized IANA data services.";
-		document.getElementById("zone_tld_terms_of_service_uri").textContent = proposed;
+		document.getElementById("zone_tld_data_usage_terms_uri").textContent = proposed;
 		document.getElementById("zone_tld_privacy_policy_uri").textContent = proposed;		
 		document.getElementById("zone_tld_search_engine_deletion_phase_ready").textContent = proposed + 'If search engines may rely on pending delete to delete results.';
 		document.getElementById("zone_tld_functions").textContent = proposed;
@@ -301,7 +301,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("links_part").textContent = legacy;		
 		document.getElementById("common_root_services_uri").textContent = proposed + "IANA verwaltet, für ICANN, TLDs und weist IP-Blöcke sowie AS-Nummern an regionale Registries zu.";
 		document.getElementById("common_roots_uri").textContent = proposed + 'Offizielle Root-Zonenliste, verwaltet von IANA, der DNS-Root-Behörde.';
-		document.getElementById("common_root_terms_of_service_uri").textContent = proposed;
+		document.getElementById("common_root_data_usage_terms_uri").textContent = proposed;
 		document.getElementById("common_root_privacy_policy_uri").textContent = proposed;		
 		document.getElementById("common_lookup_endpoints_uri").textContent = proposed + "Ein API-Endpunkt unter /v1/ kann eine neuere Version unter /v2/ unterstützen — siehe com.";
 		document.getElementById("common_registrar_accreditations_uri").textContent = proposed + "Offizielle Liste der akkreditierten Registrar, verwaltet von IANA unter ICANN-Richtlinien.";
@@ -320,7 +320,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_tld_services_uri").textContent = proposed + 'Ein TLD-spezifisches Informationsmenü, verfügbar unter einer Subdomäne wie "regmenu".';
 		document.getElementById("zone_tld_standardized_prices_uri").textContent = proposed + "Die EU könnte Preistransparenz auf einer maschinenlesbaren technischen Grundlage aufbauen.";
 		document.getElementById("zone_tld_delegation_uri").textContent = proposed + 'URI mit Verweis auf den ICANN-Delegationsdatensatz für die TLD.';
-		document.getElementById("zone_tld_terms_of_service_uri").textContent = proposed;
+		document.getElementById("zone_tld_data_usage_terms_uri").textContent = proposed;
 		document.getElementById("zone_tld_privacy_policy_uri").textContent = proposed;		
 		document.getElementById("zone_tld_search_engine_deletion_phase_ready").textContent = proposed + 'Ob Suchmaschinen auf Pending Delete vertrauen dürfen, um Ergebnisse zu löschen.';
 		document.getElementById("zone_tld_functions").textContent = proposed;
@@ -348,7 +348,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("links_part").textContent = legacy;		
 		document.getElementById("common_root_services_uri").textContent = proposed + "L’IANA gère pour l’ICANN les TLD et alloue les blocs IP ainsi que les numéros AS aux registres régionaux.";
 		document.getElementById("common_roots_uri").textContent = proposed + "Liste officielle des zones racines, gérée par l’IANA, l’autorité racine du DNS.";
-		document.getElementById("common_root_terms_of_service_uri").textContent = proposed;
+		document.getElementById("common_root_data_usage_terms_uri").textContent = proposed;
 		document.getElementById("common_root_privacy_policy_uri").textContent = proposed;
 		document.getElementById("common_lookup_endpoints_uri").textContent = proposed + "Un endpoint API sous /v1/ peut supporter une version plus récente sous /v2/ — voir com.";
 		document.getElementById("common_registrar_accreditations_uri").textContent = proposed + "Liste officielle des bureaux d’enregistrement accrédités, gérée par l’IANA selon la politique de l’ICANN.";
@@ -367,7 +367,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("zone_tld_standardized_prices_uri").textContent = proposed + "L’UE pourrait fonder la transparence des prix sur une base technique lisible par machine.";
 		document.getElementById("zone_tld_delegation_uri").textContent = proposed + "URI référençant l'enregistrement de délégation de l'ICANN pour le TLD.";
 		document.getElementById("zone_tld_json_response_uri").textContent = proposed + "Métadonnées du TLD, éventuellement issues de services de données IANA modernisés.";
-		document.getElementById("zone_tld_terms_of_service_uri").textContent = proposed;
+		document.getElementById("zone_tld_data_usage_terms_uri").textContent = proposed;
 		document.getElementById("zone_tld_privacy_policy_uri").textContent = proposed;		
 		document.getElementById("zone_tld_search_engine_deletion_phase_ready").textContent = proposed + "Si les moteurs peuvent se fier à pending delete pour supprimer des résultats.";
 		document.getElementById("zone_tld_functions").textContent = proposed;
@@ -427,7 +427,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(31)">Common URIs +/-</button></td><td></td><td id="common_part"></td></tr>';
 	$html_text .= '<tr id="311" style="display:table-row"><td>root_services_uri</td><td><a href='.$data[$pd]['common']['root_services_uri'].' target="_blank">Root Services</a></td><td id="common_root_services_uri"></td></tr>';
 	$html_text .= '<tr id="312" style="display:table-row"><td>roots_uri</td><td><a href='.$data[$pd]['common']['roots_uri'].' target="_blank">Root Zones</a></td><td id="common_roots_uri"></td></tr>';
-	$html_text .= '<tr id="313" style="display:table-row"><td>root_terms_of_service_uri</td><td>'.((!empty($data[$pd]['common']['root_terms_of_service_uri'])) ? '<a href='.$data[$pd]['common']['root_terms_of_service_uri'].' target="_blank">Root Terms</a>' : '').'</td><td id="common_root_terms_of_service_uri"></td></tr>';
+	$html_text .= '<tr id="313" style="display:table-row"><td>root_data_usage_terms_uri</td><td>'.((!empty($data[$pd]['common']['root_data_usage_terms_uri'])) ? '<a href='.$data[$pd]['common']['root_data_usage_terms_uri'].' target="_blank">Root Terms</a>' : '').'</td><td id="common_root_data_usage_terms_uri"></td></tr>';
 	$html_text .= '<tr id="314" style="display:table-row"><td>root_privacy_policy_uri</td><td>'.((!empty($data[$pd]['common']['root_privacy_policy_uri'])) ? '<a href='.$data[$pd]['common']['root_privacy_policy_uri'].' target="_blank">Root Privacy</a>' : '').'</td><td id="common_root_privacy_policy_uri"></td></tr>';
 	$html_text .= '<tr id="315" style="display:table-row"><td>lookup_endpoints_uri</td><td><a href='.$data[$pd]['common']['lookup_endpoints_uri'].' target="_blank">Lookup Endpoints</a></td><td id="common_lookup_endpoints_uri"></td></tr>';
 	$html_text .= '<tr id="316" style="display:table-row"><td>registrar_accreditations_uri</td><td><a href='.$data[$pd]['common']['registrar_accreditations_uri'].' target="_blank">IANA Registrars</a></td><td id="common_registrar_accreditations_uri"></td></tr>';
@@ -453,7 +453,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="4110" style="display:table-row"><td>tld_standardized_prices_uri</td><td>'.((!empty($data[$pd]['zone']['tld_standardized_prices_uri'])) ? '<a href='.$data[$pd]['zone']['tld_standardized_prices_uri'].' target="_blank">TLD Prices</a>' : '').'</td><td id="zone_tld_standardized_prices_uri"></td></tr>';
 	$html_text .= '<tr id="4111" style="display:table-row"><td>tld_delegation_uri</td><td><a href='.$data[$pd]['zone']['tld_delegation_uri'].' target="_blank">TLD Delegation</a></td><td id="zone_tld_delegation_uri"></td></tr>';
 	$html_text .= '<tr id="4112" style="display:table-row"><td>tld_json_response_uri</td><td>'.((!empty($data[$pd]['zone']['tld_json_response_uri'])) ? '<a href='.$data[$pd]['zone']['tld_json_response_uri'].' target="_blank">TLD Data</a>' : '').'</td><td id="zone_tld_json_response_uri"></td></tr>';
-	$html_text .= '<tr id="4113" style="display:table-row"><td>tld_terms_of_service_uri</td><td>'.((!empty($data[$pd]['zone']['tld_terms_of_service_uri'])) ? '<a href='.$data[$pd]['zone']['tld_terms_of_service_uri'].' target="_blank">TLD Terms</a>' : '').'</td><td id="zone_tld_terms_of_service_uri"></td></tr>';
+	$html_text .= '<tr id="4113" style="display:table-row"><td>tld_data_usage_terms_uri</td><td>'.((!empty($data[$pd]['zone']['tld_data_usage_terms_uri'])) ? '<a href='.$data[$pd]['zone']['tld_data_usage_terms_uri'].' target="_blank">TLD Terms</a>' : '').'</td><td id="zone_tld_data_usage_terms_uri"></td></tr>';
 	$html_text .= '<tr id="4114" style="display:table-row"><td>tld_privacy_policy_uri</td><td>'.((!empty($data[$pd]['zone']['tld_privacy_policy_uri'])) ? '<a href='.$data[$pd]['zone']['tld_privacy_policy_uri'].' target="_blank">TLD Privacy</a>' : '').'</td><td id="zone_tld_privacy_policy_uri"></td></tr>';
 	$html_text .= '<tr  id="4115" style="display:table-row"><td>tld_search_engine_deletion_phase_ready</td><td>'.$data[$pd]['zone']['tld_search_engine_deletion_phase_ready'].'</td><td id="zone_tld_search_engine_deletion_phase_ready"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Functions +/-</button></td><td></td><td id="zone_tld_functions"></td></tr>';

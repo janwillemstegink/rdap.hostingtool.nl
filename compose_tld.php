@@ -157,7 +157,7 @@ foreach($obj as $key1 => $value1) {
 }
 $root_services_uri = 'https://www.iana.org';	
 $root_zones_uri = 'https://www.iana.org/domains/root/db';
-$root_terms_of_service_uri = 'https://www.icann.org/en/data-protection/terms-of-service';
+$root_data_usage_terms_uri = 'https://www.icann.org/en/data-protection/terms-of-service';
 $root_privacy_policy_uri = 'https://www.icann.org/privacy/policy';	
 $registrar_accreditations_uri = 'https://www.iana.org/assignments/registrar-ids/registrar-ids.xhtml';
 $lookup_endpoints_uri = 'https://data.iana.org/rdap/dns.json';
@@ -165,7 +165,7 @@ $tld_data_active_from = null;
 $tld_category = '';
 $tld_type = '';
 $tld_services_uri = '';	
-$tld_terms_of_service_uri = '';
+$tld_data_usage_terms_uri = '';
 $tld_privacy_policy_uri = '';	
 $tld_search_engine_deletion_phase_ready = 'n/a';	
 $function_json = '[]';
@@ -300,7 +300,7 @@ if ($inputtld == 'nl')	{
     		"caching_in_seconds": 60
   		}
 	}]';
-	$tld_terms_of_service_uri = 'https://www.sidn.nl/en/nl-domain-name/general-terms-and-conditions-for-nl-registrants';
+	$tld_data_usage_terms_uri = 'https://www.sidn.nl/en/nl-domain-name/general-terms-and-conditions-for-nl-registrants';
 	$tld_privacy_policy_uri = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
 	$tld_services_uri = 'https://www.sidn.nl/en/theme/domain-names';
 }
@@ -315,7 +315,7 @@ elseif ($inputtld == 'frl')	{
         {"function_identifier": "registry_operator", "function_legal_name": "FRLregistry B.V.", "function_presented_name": null},
 		{"function_identifier": "backend_operator", "function_legal_name": "Team Internet Group PLC", "function_presented_name": "CTO CentralNic"}
     ]';
-	$tld_terms_of_service_uri = 'https://nic.frl/';
+	$tld_data_usage_terms_uri = 'https://nic.frl/';
 	$tld_services_uri = 'https://nic.frl/';
 }
 elseif ($inputtld == 'amsterdam')	{
@@ -329,7 +329,7 @@ elseif ($inputtld == 'amsterdam')	{
         {"function_identifier": "registry_operator", "function_legal_name": "Stichting Internet Domeinregistratie Nederland", "function_presented_name": null},
 		{"function_identifier": "backend_operator", "function_legal_name": "SIDN B.V.", "function_presented_name": "SIDN"}
     ]';
-	$tld_terms_of_service_uri = 'https://www.sidn.nl/en/nl-domain-name/general-terms-and-conditions-for-nl-registrants';
+	$tld_data_usage_terms_uri = 'https://www.sidn.nl/en/nl-domain-name/general-terms-and-conditions-for-nl-registrants';
 	$tld_privacy_policy_uri = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
 	$tld_services_uri = 'https://www.sidn.nl/en/theme/domain-names';
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
@@ -345,7 +345,7 @@ elseif ($inputtld == 'politie')	{
         {"function_identifier": "registry_operator", "function_legal_name": "Stichting Internet Domeinregistratie Nederland", "function_presented_name": null},
 		{"function_identifier": "backend_operator", "function_legal_name": "SIDN B.V.", "function_presented_name": "SIDN"}
     ]';
-	$tld_terms_of_service_uri = 'https://www.sidn.nl/en/nl-domain-name/general-terms-and-conditions-for-nl-registrants';
+	$tld_data_usage_terms_uri = 'https://www.sidn.nl/en/nl-domain-name/general-terms-and-conditions-for-nl-registrants';
 	$tld_privacy_policy_uri = 'https://www.sidn.nl/en/nl-domain-name/sidn-and-privacy';
 	$tld_services_uri = 'https://www.sidn.nl/en/theme/domain-names';
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';
@@ -371,7 +371,7 @@ elseif ($inputtld == 'eu')	{
         {"function_identifier": "registry_operator", "function_legal_name": "EURid vzw", "function_presented_name": null},
 		{"function_identifier": "backend_operator", "function_legal_name": "EURid vzw", "function_presented_name": "Technical Department"}
     ]';
-	$tld_terms_of_service_uri = 'https://help.eurid.eu/hc/en-gb/';
+	$tld_data_usage_terms_uri = 'https://help.eurid.eu/hc/en-gb/';
 	$tld_services_uri = 'https://help.eurid.eu/hc/en-gb/';
 }
 elseif ($inputtld == 'de')	{
@@ -394,7 +394,7 @@ elseif ($inputtld == 'de')	{
         {"function_identifier": "registry_operator", "function_legal_name": "DENIC eG", "function_presented_name": "Vorstand"},
 		{"function_identifier": "backend_operator", "function_legal_name": "DENIC eG", "function_presented_name": "Business Services"}
     ]';
-	$tld_terms_of_service_uri = 'https://www.denic.de/';
+	$tld_data_usage_terms_uri = 'https://www.denic.de/';
 	$tld_services_uri = 'https://www.denic.de/';
 }
 elseif ($inputtld == 'fr')	{
@@ -417,7 +417,7 @@ elseif ($inputtld == 'fr')	{
         {"function_identifier": "registry_operator", "function_legal_name": "Association Française pour le Nommage Internet en Coopération", "function_presented_name": "A.F.N.I.C."},
 		{"function_identifier": "backend_operator", "function_legal_name": "Association Française pour le Nommage Internet en Coopération", "function_presented_name": "A.F.N.I.C."}
     ]';	
-	$tld_terms_of_service_uri = 'https://www.afnic.fr/';
+	$tld_data_usage_terms_uri = 'https://www.afnic.fr/';
 	$tld_services_uri = 'https://www.afnic.fr/';
 }
 elseif ($inputtld == 'ch')	{
@@ -440,7 +440,7 @@ elseif ($inputtld == 'ch')	{
         {"function_identifier": "registry_operator", "function_legal_name": "SWITCH Foundation", "function_presented_name": "The Swiss Education & Research Network"},
 		{"function_identifier": "backend_operator", "function_legal_name": "SWITCH Foundation", "function_presented_name": "The Swiss Education & Research Network"}
     ]';
-	$tld_terms_of_service_uri = 'https://www.nic.ch/';
+	$tld_data_usage_terms_uri = 'https://www.nic.ch/';
 	$tld_services_uri = 'https://www.nic.ch/';
 }	
 elseif ($inputtld == 'li')	{
@@ -454,7 +454,7 @@ elseif ($inputtld == 'li')	{
         {"function_identifier": "registry_operator", "function_legal_name": "SWITCH Foundation", "function_presented_name": "The Swiss Education & Research Network"},
 		{"function_identifier": "backend_operator", "function_legal_name": "SWITCH Foundation", "function_presented_name": "The Swiss Education & Research Network"}
     ]';
-	$tld_terms_of_service_uri = 'https://www.nic.li/';
+	$tld_data_usage_terms_uri = 'https://www.nic.li/';
 	$tld_services_uri = 'https://www.nic.li/';
 }
 elseif ($inputtld == 'be')	{
@@ -468,7 +468,7 @@ elseif ($inputtld == 'be')	{
         {"function_identifier": "registry_operator", "function_legal_name": "DNS Belgium vzw/asbl", "function_presented_name": null},
 		{"function_identifier": "backend_operator", "function_legal_name": "DNS Belgium vzw/asbl", "function_presented_name": null}
     ]';
-	$tld_terms_of_service_uri = 'https://www.dnsbelgium.be/';
+	$tld_data_usage_terms_uri = 'https://www.dnsbelgium.be/';
 	$tld_services_uri = 'https://www.dnsbelgium.be/';
 }
 elseif ($inputtld == 'lu')	{
@@ -482,7 +482,7 @@ elseif ($inputtld == 'lu')	{
         {"function_identifier": "registry_operator", "function_legal_name": "Fondation RESTENA", "function_presented_name": null},
 		{"function_identifier": "backend_operator", "function_legal_name": "Fondation RESTENA", "function_presented_name": "NOC"}
     ]';
-	$tld_terms_of_service_uri = 'https://restena.lu/';
+	$tld_data_usage_terms_uri = 'https://restena.lu/';
 	$tld_services_uri = 'https://restena.lu/';
 }
 elseif ($inputtld == 'uk')	{
@@ -505,7 +505,7 @@ elseif ($inputtld == 'uk')	{
         {"function_identifier": "registry_operator", "function_legal_name": "Nominet UK", "function_presented_name": "TLD Registry Services Management"},
 		{"function_identifier": "backend_operator", "function_legal_name": "Nominet UK", "function_presented_name": "TLD Registry Services Technical"}
     ]';
-	$tld_terms_of_service_uri = 'https://nominet.uk/';
+	$tld_data_usage_terms_uri = 'https://nominet.uk/';
 	$tld_services_uri = 'https://nominet.uk/';
 }
 elseif ($inputtld == 'com')	{
@@ -528,7 +528,7 @@ elseif ($inputtld == 'com')	{
         {"function_identifier": "registry_operator", "function_legal_name": "VeriSign Global Registry Services", "function_presented_name": "Registry Customer Service"},
 		{"function_identifier": "backend_operator", "function_legal_name": "VeriSign Global Registry Services", "function_presented_name": "Registry Customer Service"}
     ]';	
-	$tld_terms_of_service_uri = 'https://www.icann.org/privacy/tos';
+	$tld_data_usage_terms_uri = 'https://www.icann.org/privacy/tos';
 	$tld_privacy_policy_uri = 'https://www.icann.org/privacy/policy';
 	$tld_services_uri = 'https://www.verisigninc.com/';
 }
@@ -552,7 +552,7 @@ elseif ($inputtld == 'org')	{
         {"function_identifier": "registry_operator", "\legal_name": "Public Interest Registry (PIR)", "function_presented_name": "Director of Operations, Compliance and Customer Support"},
 		{"function_identifier": "backend_operator", "function_legal_name": "Public Interest Registry (PIR)", "function_presented_name": "Senior Director, DNS Infrastructure Group"}
     ]';	
-	$tld_terms_of_service_uri = 'https://www.icann.org/privacy/tos';
+	$tld_data_usage_terms_uri = 'https://www.icann.org/privacy/tos';
 	$tld_privacy_policy_uri = 'https://www.icann.org/privacy/policy';
 	$tld_services_uri = '';
 }
@@ -687,7 +687,7 @@ $arr[$inputtld]['links'] = $links;
 	
 $arr[$inputtld]['common']['root_services_uri'] = $root_services_uri;
 $arr[$inputtld]['common']['root_zones_uri'] = $root_zones_uri;
-$arr[$inputtld]['common']['root_terms_of_service_uri'] = $root_terms_of_service_uri;
+$arr[$inputtld]['common']['root_data_usage_terms_uri'] = $root_data_usage_terms_uri;
 $arr[$inputtld]['common']['root_privacy_policy_uri'] = $root_privacy_policy_uri;	
 $arr[$inputtld]['common']['lookup_endpoints_uri'] = $lookup_endpoints_uri;
 $arr[$inputtld]['common']['registrar_accreditations_uri'] = $registrar_accreditations_uri;	
@@ -709,7 +709,7 @@ $arr[$inputtld]['zone']['tld_response_model'] = $tld_response_model;
 $arr[$inputtld]['zone']['tld_services_uri'] = $tld_services_uri;	
 $arr[$inputtld]['zone']['tld_delegation_uri'] = $tld_delegation_uri;	
 $arr[$inputtld]['zone']['tld_json_response_uri'] = $tld_json_response_uri;
-$arr[$inputtld]['zone']['tld_terms_of_service_uri'] = $tld_terms_of_service_uri;
+$arr[$inputtld]['zone']['tld_data_usage_terms_uri'] = $tld_data_usage_terms_uri;
 $arr[$inputtld]['zone']['tld_privacy_policy_uri'] = $tld_privacy_policy_uri;
 $arr[$inputtld]['zone']['tld_search_engine_deletion_phase_ready'] = $tld_search_engine_deletion_phase_ready;
 $arr[$inputtld]['zone']['tld_functions'] = $tld_functions;

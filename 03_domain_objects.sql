@@ -3,7 +3,7 @@
    Purpose: Domain-level and other RDAP object schemas (operational data).
 
    Tables:
-     - domains               : domain core + registry links (JSON URLs, statuses_raw)
+     - domains               : domain core + links (JSON URLs, statuses)
      - entities              : contacts/organizations (registrant/admin/tech/etc.)
      - nameservers           : host objects with IPv4/IPv6 arrays
      - ip_network_versions   : registry for IPv4/IPv6 labels
@@ -30,6 +30,19 @@
 ============================================================================ */
 
 -- ========================================
+-- Table: metadata_registrar
+-- ========================================
+
+CREATE TABLE IF NOT EXISTS metadata_registrar (
+    mr_id BIGSERIAL PRIMARY KEY,
+	mr_registrar_server_handle TEXT NOT NULL UNIQUE,
+	mr_registrar_identifiers JSONB DEFAULT '[]'::jsonb,
+    mr_registrar_json_response_uri JSONB DEFAULT '[]'::jsonb,
+    mr_registrar_complaint_uri JSONB DEFAULT '[]'::jsonb,
+	mr_registrar_uri_links JSONB DEFAULT '[]'::jsonb
+);
+
+-- ========================================
 -- Table: domains
 -- ========================================
 CREATE TABLE IF NOT EXISTS domains (
@@ -52,14 +65,7 @@ CREATE TABLE IF NOT EXISTS domains (
 	domain_applicable_grace_until TIMESTAMPTZ,
     domain_recoverable_until TIMESTAMPTZ,
     domain_deletion_at TIMESTAMPTZ,
-    domain_global_json_response_uri TEXT[],
-    domain_registry_json_response_uri TEXT[],
-    domain_registrar_accreditation_id JSONB DEFAULT '[]'::jsonb,
-    domain_registrar_json_response_uri TEXT[],
-    domain_registrar_complaint_uri TEXT[],
-	domain_registrar_uri_links TEXT[],
-    domain_status_explanation_uri TEXT[],
-    domain_geo_location JSONB::jsonb,
+	domain_metadata_registrar BIGSERIAL,
     domain_extensions JSONB DEFAULT '[]'::jsonb,
     domain_remarks JSONB DEFAULT '[]'::jsonb
 );
@@ -116,8 +122,8 @@ CREATE TABLE IF NOT EXISTS entities (
     entity_state_or_province TEXT,
     entity_postal_code VARCHAR(20),
     entity_country_name TEXT,
-    entity_language_pref1 VARCHAR(5),
-    entity_language_pref2 VARCHAR(5),
+    entity_preferred_language_code_1 VARCHAR(7),
+    entity_preferred_language_code_2 VARCHAR(7),
     entity_statuses_raw TEXT[],
     entity_created_at TIMESTAMPTZ,
     entity_latest_data_mutation_at TIMESTAMPTZ,

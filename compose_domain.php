@@ -699,6 +699,15 @@ function normalizeStringList(array $values): array
     return $values;
 }
 
+function getConformanceGroup($value) {
+    if (str_starts_with($value, 'rdap_level_')) return 10;
+    if (str_starts_with($value, 'icann_rdap_response_profile_')) return 20;
+    if (str_starts_with($value, 'icann_rdap_technical_implementation_guide_')) return 30;
+    if ($value === 'redacted') return 40;
+
+    return 999;
+}
+
 function write_file($inputtld, $inputdomain, $inputbatch, $inputurl) {
 
     $arr = array();
@@ -963,6 +972,16 @@ $redacted = '';
 $resource_upload_at = null;
 $object_type = $obj['objectClassName'];
 $rdap_version = '';	
+if (is_array($obj['rdapConformance'])) {
+    usort($obj['rdapConformance'], function ($a, $b) {
+        $ga = getConformanceGroup($a);
+        $gb = getConformanceGroup($b);
+        if ($ga !== $gb) {
+            return $ga <=> $gb;
+        }
+        return strcmp($a, $b);
+    });
+}
 $rdap_conformance = (is_array($obj['rdapConformance'])) ? implode(",<br />", $obj['rdapConformance']) : $obj['rdapConformance'];
 $language_codes = (is_array($obj['lang'])) ? implode(",<br />", $obj['lang']) : $obj['lang'];
 $registrar_identifiers = '';
@@ -1067,8 +1086,8 @@ $registrant_city = '';
 $registrant_state_or_province = '';
 $registrant_postal_code = '';
 $registrant_country_name = '';	
-$registrant_language_pref_1 = '';
-$registrant_language_pref_2 = '';
+$registrant_preferred_language_code_1 = '';
+$registrant_preferred_language_code_2 = '';
 $registrant_links = '';	
 $administrative_handle = '';
 $administrative_organization_type = '';
@@ -1085,8 +1104,8 @@ $administrative_city = '';
 $administrative_state_or_province = '';
 $administrative_postal_code = '';	
 $administrative_country_name = '';
-$administrative_language_pref_1 = '';
-$administrative_language_pref_2 = '';
+$administrative_preferred_language_code_1 = '';
+$administrative_preferred_language_code_2 = '';
 $administrative_links = '';	
 $technical_handle = '';
 $technical_organization_type = '';
@@ -1103,8 +1122,8 @@ $technical_city = '';
 $technical_state_or_province = '';
 $technical_postal_code = '';	
 $technical_country_name = '';
-$technical_language_pref_1 = '';
-$technical_language_pref_2 = '';
+$technical_preferred_language_code_1 = '';
+$technical_preferred_language_code_2 = '';
 $technical_links = '';	
 $billing_handle = '';
 $billing_organization_type = '';
@@ -1138,8 +1157,8 @@ $reseller_city = '';
 $reseller_state_or_province = '';	
 $reseller_postal_code = '';
 $reseller_country_name = '';	
-$reseller_language_pref_1 = '';
-$reseller_language_pref_2 = '';
+$reseller_preferred_language_code_1 = '';
+$reseller_preferred_language_code_2 = '';
 $reseller_links = '';
 	
 $registrar_handle = '';
@@ -1157,8 +1176,8 @@ $registrar_city = '';
 $registrar_state_or_province = '';	
 $registrar_postal_code = '';
 $registrar_country_name = '';	
-$registrar_language_pref_1 = '';
-$registrar_language_pref_2 = '';
+$registrar_preferred_language_code_1 = '';
+$registrar_preferred_language_code_2 = '';
 $registrar_links = '';
 	
 $registrar_abuse_handle = '';	
@@ -1849,32 +1868,32 @@ foreach($obj as $key1 => $value1) {
 						}						
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'lang')	{
 							if ($key2 == $entity_registrant)	{
-								if ($value6['pref'] == 1)	$registrant_language_pref_1 = $value5[3];
-								if ($value6['pref'] == 2)	$registrant_language_pref_2 = $value5[3];
+								if ($value6['pref'] == 1)	$registrant_preferred_language_code_1 = $value5[3];
+								if ($value6['pref'] == 2)	$registrant_preferred_language_code_2 = $value5[3];
 							}
 							if ($key2 == $entity_administrative)	{
-								if ($value6['pref'] == 1)	$administrative_language_pref_1 = $value5[3];
-								if ($value6['pref'] == 2)	$administrative_language_pref_2 = $value5[3];
+								if ($value6['pref'] == 1)	$administrative_preferred_language_code_1 = $value5[3];
+								if ($value6['pref'] == 2)	$administrative_preferred_language_code_2 = $value5[3];
 							}
 							if ($ky2 == $entity_technical)	{
-								if ($value6['pref'] == 1)	$technical_language_pref_1 = $value5[3];
-								if ($value6['pref'] == 2)	$technical_language_pref_2 = $value5[3];
+								if ($value6['pref'] == 1)	$technical_preferred_language_code_1 = $value5[3];
+								if ($value6['pref'] == 2)	$technical_preferred_language_code_2 = $value5[3];
 							}
 							if ($key2 == $entity_billing) 		{
-								if ($value6['pref'] == 1)	$billing_language_pref_1 = $value5[3];
-								if ($value6['pref'] == 2)	$billing_language_pref_2 = $value5[3];
+								if ($value6['pref'] == 1)	$billing_preferred_language_code_1 = $value5[3];
+								if ($value6['pref'] == 2)	$billing_preferred_language_code_2 = $value5[3];
 							}							
 							if ($key2 == $entity_reseller)	{
-								if ($value6['pref'] == 1)	$reseller_language_pref_1 = $value5[3];
-								if ($value6['pref'] == 2)	$reseller_language_pref_2 = $value5[3];
+								if ($value6['pref'] == 1)	$reseller_preferred_language_code_1 = $value5[3];
+								if ($value6['pref'] == 2)	$reseller_preferred_language_code_2 = $value5[3];
 							}
 							if ($key2 == $entity_registrar) 		{
-								if ($value6['pref'] == 1)	$registrar_language_pref_1 = $value5[3];
-								if ($value6['pref'] == 2)	$registrar_language_pref_2 = $value5[3];
+								if ($value6['pref'] == 1)	$registrar_preferred_language_code_1 = $value5[3];
+								if ($value6['pref'] == 2)	$registrar_preferred_language_code_2 = $value5[3];
 							}
 							if ($key2 == $entity_sponsor) 		{
-								if ($value6['pref'] == 1)	$sponsor_language_pref_1 = $value5[3];
-								if ($value6['pref'] == 2)	$sponsor_language_pref_2 = $value5[3];
+								if ($value6['pref'] == 1)	$sponsor_preferred_language_code_1 = $value5[3];
+								if ($value6['pref'] == 2)	$sponsor_preferred_language_code_2 = $value5[3];
 							}
 						}						
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'adr' and $key6 == 1)	{
@@ -2059,6 +2078,7 @@ $arr['metadata']['object_type'] = $object_type;
 $arr['metadata']['rdap_version'] = $rdap_version;
 $arr['metadata']['rdap_conformance'] = $rdap_conformance;
 $arr['metadata']['tld_information_uri'] = $tld_information_uri;
+$arr['metadata']['registry_geo_location'] = '';	
 $arr['metadata']['registry_json_response_uri'] = $url;	
 $arr['metadata']['registrar_identifiers'] = $registrar_identifiers;		
 $arr['metadata']['registrar_identifier'] = $registrar_identifier;
@@ -2068,7 +2088,6 @@ $arr['metadata']['related_json_response_uri'] = $related_json_response_uri;
 $arr['metadata']['registrar_complaint_uri'] = $registrar_complaint_uri;
 $arr['metadata']['registrar_uri_links'] = $registrar_links;
 $arr['metadata']['status_explanation_uri'] = $status_explanation_uri;
-$arr['metadata']['geo_location'] = '';
 $arr['metadata']['resource_upload_at'] = $resource_upload_at;		
 	
 $arr['properties']['server_handle'] = $server_handle;
@@ -2102,8 +2121,8 @@ $arr['sponsor']['city'] = $sponsor_city;
 $arr['sponsor']['state_or_province'] = $sponsor_state_or_province;
 $arr['sponsor']['postal_code'] = $sponsor_postal_code;
 $arr['sponsor']['country_name'] = $sponsor_country_name;	
-$arr['sponsor']['language_pref_1'] = $sponsor_language_pref_1;	
-$arr['sponsor']['language_pref_2'] = $sponsor_language_pref_2;
+$arr['sponsor']['preferred_language_code_1'] = $sponsor_preferred_language_code_1;	
+$arr['sponsor']['preferred_language_code_2'] = $sponsor_preferred_language_code_2;
 $arr['sponsor']['statuses_raw'] = $sponsor_statuses_raw;
 $arr['sponsor']['created_at'] = $sponsor_created_at;
 $arr['sponsor']['latest_data_mutation_at'] = $sponsor_latest_data_mutation_at;
@@ -2127,8 +2146,8 @@ $arr['registrant']['city'] = $registrant_city;
 $arr['registrant']['state_or_province'] = $registrant_state_or_province;
 $arr['registrant']['postal_code'] = $registrant_postal_code;
 $arr['registrant']['country_name'] = $registrant_country_name;	
-$arr['registrant']['language_pref_1'] = $registrant_language_pref_1;	
-$arr['registrant']['language_pref_2'] = $registrant_language_pref_2;
+$arr['registrant']['preferred_language_code_1'] = $registrant_preferred_language_code_1;	
+$arr['registrant']['preferred_language_code_2'] = $registrant_preferred_language_code_2;
 $arr['registrant']['statuses_raw'] = $registrant_statuses_raw;
 $arr['registrant']['created_at'] = $registrant_created_at;
 $arr['registrant']['latest_data_mutation_at'] = $registrant_latest_data_mutation_at;
@@ -2152,8 +2171,8 @@ $arr['administrative']['city'] = $administrative_city;
 $arr['administrative']['state_or_province'] = $administrative_state_or_province;
 $arr['administrative']['postal_code'] = $administrative_postal_code;
 $arr['administrative']['country_name'] = $administrative_country_name;	
-$arr['administrative']['language_pref_1'] = $administrative_language_pref_1;	
-$arr['administrative']['language_pref_2'] = $administrative_language_pref_2;
+$arr['administrative']['preferred_language_code_1'] = $administrative_preferred_language_code_1;	
+$arr['administrative']['preferred_language_code_2'] = $administrative_preferred_language_code_2;
 $arr['administrative']['statuses_raw'] = $administrative_statuses_raw;
 $arr['administrative']['created_at'] = $administrative_created_at;
 $arr['administrative']['latest_data_mutation_at'] = $administrative_latest_data_mutation_at;
@@ -2177,8 +2196,8 @@ $arr['technical']['city'] = $technical_city;
 $arr['technical']['state_or_province'] = $technical_state_or_province;
 $arr['technical']['postal_code'] = $technical_postal_code;
 $arr['technical']['country_name'] = $technical_country_name;	
-$arr['technical']['language_pref_1'] = $technical_language_pref_1;	
-$arr['technical']['language_pref_2'] = $technical_language_pref_2;
+$arr['technical']['preferred_language_code_1'] = $technical_preferred_language_code_1;	
+$arr['technical']['preferred_language_code_2'] = $technical_preferred_language_code_2;
 $arr['technical']['statuses_raw'] = $technical_statuses_raw;
 $arr['technical']['created_at'] = $technical_created_at;
 $arr['technical']['latest_data_mutation_at'] = $technical_latest_data_mutation_at;
@@ -2202,8 +2221,8 @@ $arr['billing']['city'] = $billing_city;
 $arr['billing']['state_or_province'] = $billing_state_or_province;
 $arr['billing']['postal_code'] = $billing_postal_code;
 $arr['billing']['country_name'] = $billing_country_name;	
-$arr['billing']['language_pref_1'] = $billing_language_pref_1;	
-$arr['billing']['language_pref_2'] = $billing_language_pref_2;
+$arr['billing']['preferred_language_code_1'] = $billing_preferred_language_code_1;	
+$arr['billing']['preferred_language_code_2'] = $billing_preferred_language_code_2;
 $arr['billing']['statuses_raw'] = $billing_statuses_raw;
 $arr['billing']['created_at'] = $billing_created_at;
 $arr['billing']['latest_data_mutation_at'] = $billing_latest_data_mutation_at;
@@ -2227,8 +2246,8 @@ $arr['reseller']['city'] = $reseller_city;
 $arr['reseller']['state_or_province'] = $reseller_state_or_province;
 $arr['reseller']['postal_code'] = $reseller_postal_code;
 $arr['reseller']['country_name'] = $reseller_country_name;	
-$arr['reseller']['language_pref_1'] = $reseller_language_pref_1;	
-$arr['reseller']['language_pref_2'] = $reseller_language_pref_2;
+$arr['reseller']['preferred_language_code_1'] = $reseller_preferred_language_code_1;	
+$arr['reseller']['preferred_language_code_2'] = $reseller_preferred_language_code_2;
 $arr['reseller']['statuses_raw'] = $reseller_statuses_raw;
 $arr['reseller']['created_at'] = $reseller_created_at;
 $arr['reseller']['latest_data_mutation_at'] = $reseller_latest_data_mutation_at;
@@ -2252,8 +2271,8 @@ $arr['registrar']['city'] = $registrar_city;
 $arr['registrar']['state_or_province'] = $registrar_state_or_province;
 $arr['registrar']['postal_code'] = $registrar_postal_code;
 $arr['registrar']['country_name'] = $registrar_country_name;	
-$arr['registrar']['language_pref_1'] = $registrar_language_pref_1;	
-$arr['registrar']['language_pref_2'] = $registrar_language_pref_2;
+$arr['registrar']['preferred_language_code_1'] = $registrar_preferred_language_code_1;	
+$arr['registrar']['preferred_language_code_2'] = $registrar_preferred_language_code_2;
 $arr['registrar']['statuses_raw'] = $registrar_statuses_raw;
 $arr['registrar']['created_at'] = $registrar_created_at;
 $arr['registrar']['latest_data_mutation_at'] = $registrar_latest_data_mutation_at;
