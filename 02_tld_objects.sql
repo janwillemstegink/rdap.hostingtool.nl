@@ -1,24 +1,24 @@
 /* ============================================================================
    02_tld_objects.sql
-   Purpose: Registry / TLD-level schema (zone catalog + policy + functions).
+   Purpose: Registry / TLD-level schema (tld catalog + policy + functions).
 
    Tables:
      - tld_categories, tld_types
      - common                : global registry settings (functions, statuses, periods)
-     - zones                 : public suffix / TLD entries (with functions & workload)
+     - tlds                  : public suffix / TLD entries (with functions & workload)
 	 - function_entities     : entity functions
      - lifecycles            : TLD lifecycle policy snapshots
 
    Functions & Triggers:
-     - update_zone_latest_update_at() + trigger
-     - get_matching_zone_tld_ascii_name(domain_name TEXT)  ← used by domain script
+     - update_tld_latest_update_at() + trigger
+     - get_matching_tld_ascii_name(domain_name TEXT)  ← used by domain script
 
    Run order: 3 of 4  (bootstrap → logging → TLD → domain)
    Depends on: 00_bootstrap_extensions.sql
-   Provides to: 03_domain_objects.sql (zones + get_matching_zone_tld_ascii_name)
+   Provides to: 03_domain_objects.sql (tlds + get_matching_tld_ascii_name)
    Safe to re-run: yes (IF NOT EXISTS + CREATE OR REPLACE on functions)
    Notes:
-     - Unique index (zone_tld_ascii_name, zone_tld_data_active_from) supports versioning.
+     - Unique index (tld_ascii_name, tld_data_active_from) supports versioning.
      - Potential future FKs to tld_categories/tld_types are commented for now.
 ============================================================================ */
 
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS tld_types (
 CREATE TABLE IF NOT EXISTS common (
     common_id SERIAL PRIMARY KEY,
     common_root_services_uri TEXT[],
-    common_root_zones_uri TEXT[],
+    common_root_tlds_uri TEXT[],
     common_registrar_accreditations_uri TEXT[],
     common_function_identifiers JSONB DEFAULT 
         '[
@@ -122,27 +122,27 @@ CREATE TABLE IF NOT EXISTS common (
 );
 
 -- ========================================
--- Table: zones (TLDs / public suffixes)
+-- Table: tlds (TLDs / public suffixes)
 -- ========================================
-CREATE TABLE IF NOT EXISTS zones (
-    zone_id SERIAL PRIMARY KEY,
-    zone_tld_data_active_from TIMESTAMPTZ,
-    zone_tld_category VARCHAR(20) NOT NULL,
-    zone_tld_type VARCHAR(20) NOT NULL,
-	zone_tld_ascii_name CITEXT NOT NULL,
-	zone_tld_unicode_name TEXT NOT NULL,
-    zone_tld_statuses TEXT[],
-	zone_tld_storage_model TEXT[],
-	zone_tld_response_model TEXT[],
-	zone_tld_services_uri JSONB DEFAULT '[]'::jsonb,
-	zone_tld_standardized_prices_uri JSONB DEFAULT '[]'::jsonb,
-    zone_tld_delegation_uri JSONB DEFAULT '[]'::jsonb,
-    zone_tld_json_response_uri JSONB DEFAULT '[]'::jsonb,
-    zone_tld_data_usage_terms_uri JSONB DEFAULT '[]'::jsonb,
-	zoen_tld_registry_geo_location JSONB::jsonb,
-    zone_tld_privacy_policy_uri JSONB DEFAULT '[]'::jsonb,
-    zone_tld_search_engine_deletion_phase_ready BOOLEAN NOT NULL DEFAULT FALSE,
-    zone_tld_accepted_workload JSONB DEFAULT 
+CREATE TABLE IF NOT EXISTS tlds (
+    tld_id SERIAL PRIMARY KEY,
+    tld_data_active_from TIMESTAMPTZ,
+    tld_category VARCHAR(20) NOT NULL,
+    tld_type VARCHAR(20) NOT NULL,
+	tld_ascii_name CITEXT NOT NULL,
+	tld_unicode_name TEXT NOT NULL,
+    tld_statuses TEXT[],
+	tld_storage_model TEXT[],
+	tld_response_model TEXT[],
+	tld_services_uri JSONB DEFAULT '[]'::jsonb,
+	tld_standardized_prices_uri JSONB DEFAULT '[]'::jsonb,
+    tld_delegation_uri JSONB DEFAULT '[]'::jsonb,
+    tld_json_response_uri JSONB DEFAULT '[]'::jsonb,
+    tld_data_usage_terms_uri JSONB DEFAULT '[]'::jsonb,
+	tld_registry_geo_location JSONB::jsonb,
+    tld_privacy_policy_uri JSONB DEFAULT '[]'::jsonb,
+    tld_search_engine_deletion_phase_ready BOOLEAN NOT NULL DEFAULT FALSE,
+    tld_accepted_workload JSONB DEFAULT 
         '[
             {
                 "public_status_requests": {
@@ -159,45 +159,45 @@ CREATE TABLE IF NOT EXISTS zones (
                 }
             }
         ]'::jsonb,
-    zone_tld_relationships JSONB DEFAULT 
+    tld_relationships JSONB DEFAULT 
         '[
-            {"zone_relationship_sequence": 10, "zone_relationship_identifier": "sponsor"},
-            {"zone_relationship_sequence": 20, "zone_relationship_identifier": "registrant"},
-            {"zone_relationship_sequence": 30, "zone_relationship_identifier": "administrative"},
-            {"zone_relationship_sequence": 40, "zone_relationship_identifier": "technical"},
-            {"zone_relationship_sequence": 50, "zone_relationship_identifier": "billing"},
-            {"zone_relationship_sequence": 60, "zone_relationship_identifier": "emergency"},
-            {"zone_relationship_sequence": 70, "zone_relationship_identifier": "fallback"},
-            {"zone_relationship_sequence": 80, "zone_relationship_identifier": "reseller"},
-            {"zone_relationship_sequence": 90, "zone_relationship_identifier": "registrar"},
-            {"zone_relationship_sequence": 95, "zone_relationship_identifier": "abuse"}
+            {"relationship_sequence": 10, "relationship_identifier": "sponsor"},
+            {"relationship_sequence": 20, "relationship_identifier": "registrant"},
+            {"relationship_sequence": 30, "relationship_identifier": "administrative"},
+            {"relationship_sequence": 40, "relationship_identifier": "technical"},
+            {"relationship_sequence": 50, "relationship_identifier": "billing"},
+            {"relationship_sequence": 60, "relationship_identifier": "emergency"},
+            {"relationship_sequence": 70, "relationship_identifier": "fallback"},
+            {"relationship_sequence": 80, "relationship_identifier": "reseller"},
+            {"relationship_sequence": 90, "relationship_identifier": "registrar"},
+            {"relationship_sequence": 95, "relationship_identifier": "abuse"}
         ]'::jsonb,
-    zone_name_servers JSONB::jsonb,
-    zone_latest_update_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+    tld_name_servers JSONB::jsonb,
+    tld_latest_update_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
 
--- one version per (zone_tld_ascii_name, zone_tld_data_active_from)
-CREATE UNIQUE INDEX IF NOT EXISTS uniq_zone_effective
-  ON zones (zone_tld_ascii_name, zone_tld_data_active_from);
+-- one version per (tld_ascii_name, tld_data_active_from)
+CREATE UNIQUE INDEX IF NOT EXISTS uniq_tld_effective
+  ON tlds (tld_ascii_name, tld_data_active_from);
 
--- Trigger Function: Update zone_latest_update_at on UPDATE
-CREATE OR REPLACE FUNCTION update_zone_latest_update_at()
+-- Trigger Function: Update tld_latest_update_at on UPDATE
+CREATE OR REPLACE FUNCTION update_tld_latest_update_at()
 RETURNS TRIGGER AS $$
 BEGIN
-  NEW.zone_latest_update_at = CURRENT_TIMESTAMP;
+  NEW.tld_latest_update_at = CURRENT_TIMESTAMP;
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS trg_update_zone_latest_update_at ON zones;
-CREATE TRIGGER trg_update_zone_latest_update_at
-BEFORE UPDATE ON zones
+DROP TRIGGER IF EXISTS trg_update_tld_latest_update_at ON tlds;
+CREATE TRIGGER trg_update_tld_latest_update_at
+BEFORE UPDATE ON tlds
 FOR EACH ROW
-EXECUTE FUNCTION update_zone_latest_update_at();
+EXECUTE FUNCTION update_tld_latest_update_at();
 
--- Function: get_matching_zone_tld_ascii_name(domain_name)
--- Returns the best matching zone_tld_ascii_name for a given domain name.
-CREATE OR REPLACE FUNCTION get_matching_zone_tld_ascii_name(domain_name TEXT)
+-- Function: get_matching_tld_ascii_name(domain_name)
+-- Returns the best matching tld_ascii_name for a given domain name.
+CREATE OR REPLACE FUNCTION get_matching_tld_ascii_name(domain_name TEXT)
 RETURNS VARCHAR AS $$
 DECLARE
     suffix TEXT;
@@ -210,12 +210,12 @@ BEGIN
     FOR i IN REVERSE array_lower(parts, 1)..array_upper(parts, 1) LOOP
         suffix := array_to_string(parts[i:array_upper(parts, 1)], '.');
 
-        SELECT zone_tld_ascii_name INTO match_tld_ascii_name
-        FROM zones
-        WHERE zone_tld_ascii_name = suffix
-          AND (zone_tld_data_active_from IS NULL
-               OR (zone_tld_data_active_from AT TIME ZONE 'UTC') <= (CURRENT_TIMESTAMP AT TIME ZONE 'UTC'))
-        ORDER BY zone_tld_data_active_from DESC NULLS LAST
+        SELECT tld_ascii_name INTO match_tld_ascii_name
+        FROM tlds
+        WHERE tld_ascii_name = suffix
+          AND (tld_data_active_from IS NULL
+               OR (tld_data_active_from AT TIME ZONE 'UTC') <= (CURRENT_TIMESTAMP AT TIME ZONE 'UTC'))
+        ORDER BY tld_data_active_from DESC NULLS LAST
         LIMIT 1;
 
         IF match_tld_ascii_name IS NOT NULL THEN
@@ -231,7 +231,7 @@ $$ LANGUAGE plpgsql;
 -- ========================================
 CREATE TABLE IF NOT EXISTS lifecycles (
     lifecycle_id SERIAL PRIMARY KEY,
-    lifecycle_zone VARCHAR(63) NOT NULL,
+    lifecycle_tld VARCHAR(63) NOT NULL,
     lifecycle_data_active_from TIMESTAMPTZ,
     lifecycle_upon_termination TEXT,
     lifecycle_status_meanings JSONB DEFAULT '[{
@@ -261,7 +261,7 @@ CREATE TABLE IF NOT EXISTS lifecycles (
 );
 
 CREATE UNIQUE INDEX IF NOT EXISTS idx_lifecycle_data_active_from
-ON lifecycles(lifecycle_zone, lifecycle_data_active_from);
+ON lifecycles(lifecycle_tld, lifecycle_data_active_from);
 
 -- ========================================
 -- Table: function_entities (registry/TLD function entities)
@@ -286,19 +286,19 @@ CREATE TABLE IF NOT EXISTS functions_entities (
 );
 
 -- ========================================
--- Table: zone_functions (links zones<->functions)
+-- Table: tld_functions (links tlds<->functions)
 -- ========================================
-CREATE TABLE IF NOT EXISTS zone_functions (
-    zf_id SERIAL PRIMARY KEY,
-    zf_zone INT NOT NULL REFERENCES zones(zone_id) ON DELETE CASCADE,
-    zf_function_identifier VARCHAR(50),
-    zf_data_active_from TIMESTAMPTZ,
-	zf_field_publication JSONB::jsonb,
-    zf_function INT NOT NULL REFERENCES function_entities(function_entity_id) ON DELETE CASCADE,
-    zf_latest_update_at TIMESTAMPTZ
+CREATE TABLE IF NOT EXISTS tld_functions (
+    tf_id SERIAL PRIMARY KEY,
+    tf_tld INT NOT NULL REFERENCES tlds(tld_id) ON DELETE CASCADE,
+    tf_function_identifier VARCHAR(50),
+    tf_data_active_from TIMESTAMPTZ,
+	tf_field_publication JSONB::jsonb,
+    tf_function INT NOT NULL REFERENCES function_entities(function_entity_id) ON DELETE CASCADE,
+    tf_latest_update_at TIMESTAMPTZ
 );
 
-CREATE INDEX IF NOT EXISTS idx_zf_zone ON zone_functions(zf_zone);
-CREATE INDEX IF NOT EXISTS idx_zf_function ON zone_functions(zf_function);
-CREATE UNIQUE INDEX IF NOT EXISTS uniq_zone_function_start
-    ON zone_functions(zf_zone, zf_function_identifier, zf_data_active_from);
+CREATE INDEX IF NOT EXISTS idx_tf_tld ON tld_functions(tf_tld);
+CREATE INDEX IF NOT EXISTS idx_tf_function ON tld_functions(tf_function);
+CREATE UNIQUE INDEX IF NOT EXISTS uniq_tld_function_start
+    ON tld_functions(tf_tld, tf_function_identifier, tf_data_active_from);
