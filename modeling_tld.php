@@ -176,7 +176,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_storage_model").textContent = proposed;
 		document.getElementById("tld_response_model").textContent = proposed;
 		document.getElementById("tld_services_uri").textContent = proposed;		
-		document.getElementById("tld_standardized_prices_uri").textContent = proposed;
+		document.getElementById("tld_standardized_price_list_uri").textContent = proposed;
 		document.getElementById("tld_delegation_uri").textContent = proposed;
 		document.getElementById("tld_json_response_uri").textContent = proposed;
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed;
@@ -223,7 +223,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_storage_model").textContent = proposed + "Opslagmodel voor TLD-domeingegevens (thin of thick).";
 		document.getElementById("tld_response_model").textContent = proposed + "RDAP-responsmodel voor domeingegevens (thin, delegated of thick).";
 		document.getElementById("tld_services_uri").textContent = proposed + 'Een TLD-specifiek informatiemenu, beschikbaar onder een subdomein zoals "regmenu".';
-		document.getElementById("tld_standardized_prices_uri").textContent = proposed + "De EU kan prijstransparantie baseren op een machineleesbare technische basis.";
+		document.getElementById("tld_standardized_price_list_uri").textContent = proposed + "Een machineleesbare gestandaardiseerde prijslijst zou de transparantie van registry-diensten ondersteunen.";
 		document.getElementById("tld_delegation_uri").textContent = proposed + 'URI die verwijst naar het ICANN-delegatierecord voor de TLD.';
 		document.getElementById("tld_json_response_uri").textContent = proposed + "TLD-metadata, mogelijk afkomstig uit gemoderniseerde IANA-datadiensten.";
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Beperkt gebruik. Interpretatie hangt af van TLD- en RDAP-context.";
@@ -270,7 +270,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_storage_model").textContent = proposed + "Storage model for TLD domain data (thin or thick).";
 		document.getElementById("tld_response_model").textContent = proposed + "RDAP response model for domain data (thin, delegated or thick).";		
 		document.getElementById("tld_services_uri").textContent = proposed + 'A TLD specific information menu, available under a subdomain such as "regmenu".';
-		document.getElementById("tld_standardized_prices_uri").textContent = proposed + "The EU may base pricing transparency on a machine-readable technical foundation.";
+		document.getElementById("tld_standardized_price_list_uri").textContent = proposed + "A machine-readable standardized price list would support registry transparency.";
 		document.getElementById("tld_delegation_uri").textContent = proposed + 'URI pointing to the ICANN delegation record for the TLD.';
 		document.getElementById("tld_json_response_uri").textContent = proposed + "TLD metadata, potentially derived from modernized IANA data services.";
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Restricted use. Interpretation depends on TLD and RDAP context.";
@@ -318,7 +318,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_storage_model").textContent = proposed + "Speichermodell für TLD-Domaindaten (thin oder thick).";
 		document.getElementById("tld_response_model").textContent = proposed + "RDAP-Antwortmodell für Domaindaten (thin, delegated oder thick).";		
 		document.getElementById("tld_services_uri").textContent = proposed + 'Ein TLD-spezifisches Informationsmenü, verfügbar unter einer Subdomäne wie "regmenu".';
-		document.getElementById("tld_standardized_prices_uri").textContent = proposed + "Die EU könnte Preistransparenz auf einer maschinenlesbaren technischen Grundlage aufbauen.";
+		document.getElementById("tld_standardized_price_list_uri").textContent = proposed + "Eine maschinenlesbare standardisierte Preisliste würde die Transparenz von Registry-Diensten unterstützen.";
 		document.getElementById("tld_delegation_uri").textContent = proposed + 'URI mit Verweis auf den ICANN-Delegationsdatensatz für die TLD.';
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Eingeschränkte Nutzung. Interpretation hängt vom TLD- und RDAP-Kontext ab.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;		
@@ -364,7 +364,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_storage_model").textContent = proposed + "Mode de stockage des données de domaine du TLD (thin ou thick).";
 		document.getElementById("tld_response_model").textContent = proposed + "Mode de réponse RDAP pour les données de domaine (thin, delegated ou thick).";
 		document.getElementById("tld_services_uri").textContent = proposed + "Un menu d'informations spécifique au TLD, disponible sous un sous-domaine tel que 'regmenu'.";
-		document.getElementById("tld_standardized_prices_uri").textContent = proposed + "L’UE pourrait fonder la transparence des prix sur une base technique lisible par machine.";
+		document.getElementById("tld_standardized_price_list_uri").textContent = proposed + "Une liste de prix standardisée lisible par machine soutiendrait la transparence des services de registre.";
 		document.getElementById("tld_delegation_uri").textContent = proposed + "URI référençant l'enregistrement de délégation de l'ICANN pour le TLD.";
 		document.getElementById("tld_json_response_uri").textContent = proposed + "Métadonnées du TLD, éventuellement issues de services de données IANA modernisés.";
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Utilisation restreinte. L’interprétation dépend du contexte TLD et RDAP.";
@@ -450,7 +450,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="417" style="display:table-row"><td>storage_model</td><td> '.$data[$pd]['tld']['storage_model'].'</td><td id="tld_storage_model"></td></tr>';
 	$html_text .= '<tr id="418" style="display:table-row"><td>response_model</td><td> '.$data[$pd]['tld']['response_model'].'</td><td id="tld_response_model"></td></tr>';
 	$html_text .= '<tr id="419" style="display:table-row"><td>services_uri</td><td>'.((!empty($data[$pd]['tld']['services_uri'])) ? '<a href='.$data[$pd]['tld']['services_uri'].' target="_blank">TLD Services</a>' : '').'</td><td id="tld_services_uri"></td></tr>';
-	$html_text .= '<tr id="4110" style="display:table-row"><td>standardized_prices_uri</td><td>'.((!empty($data[$pd]['tld']['standardized_prices_uri'])) ? '<a href='.$data[$pd]['tld']['standardized_prices_uri'].' target="_blank">TLD Prices</a>' : '').'</td><td id="tld_standardized_prices_uri"></td></tr>';
+	$html_text .= '<tr id="4110" style="display:table-row"><td>standardized_price_list_uri</td><td>'.((!empty($data[$pd]['tld']['standardized_price_list_uri'])) ? '<a href='.$data[$pd]['tld']['standardized_price_list_uri'].' target="_blank">TLD Prices</a>' : '').'</td><td id="tld_standardized_price_list_uri"></td></tr>';
 	$html_text .= '<tr id="4111" style="display:table-row"><td>delegation_uri</td><td><a href='.$data[$pd]['tld']['delegation_uri'].' target="_blank">TLD Delegation</a></td><td id="tld_delegation_uri"></td></tr>';
 	$html_text .= '<tr id="4112" style="display:table-row"><td>json_response_uri</td><td>'.((!empty($data[$pd]['tld']['json_response_uri'])) ? '<a href='.$data[$pd]['tld']['json_response_uri'].' target="_blank">TLD Data</a>' : '').'</td><td id="tld_json_response_uri"></td></tr>';
 	$html_text .= '<tr id="4113" style="display:table-row"><td>data_usage_policy_uri</td><td>'.((!empty($data[$pd]['tld']['data_usage_policy_uri'])) ? '<a href='.$data[$pd]['tld']['data_usage_policy_uri'].' target="_blank">TLD Data Usage</a>' : '').'</td><td id="tld_data_usage_policy_uri"></td></tr>';

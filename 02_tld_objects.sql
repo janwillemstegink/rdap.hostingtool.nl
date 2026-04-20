@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS root (
     root_tlds_uri JSONB DEFAULT '[]'::jsonb,
 	root_root_policies_uri JSONB DEFAULT '[]'::jsonb,
 	root_root_privacy_policy_uri DEFAULT '[]'::jsonb,
-	lookup_endpoints_uri JSONB DEFAULT '[]'::jsonb,
+	root_lookup_endpoints_uri JSONB DEFAULT '[]'::jsonb,
     root_registrar_accreditations_uri DEFAULT '[]'::jsonb,
     root_function_identifiers JSONB DEFAULT 
         '[
@@ -136,7 +136,7 @@ CREATE TABLE IF NOT EXISTS tlds (
 	tld_storage_model TEXT[],
 	tld_response_model TEXT[],
 	tld_services_uri JSONB DEFAULT '[]'::jsonb,
-	tld_standardized_prices_uri JSONB DEFAULT '[]'::jsonb,
+	tld_standardized_price_list_uri JSONB DEFAULT '[]'::jsonb,
     tld_delegation_uri JSONB DEFAULT '[]'::jsonb,
     tld_json_response_uri JSONB DEFAULT '[]'::jsonb,
     tld_data_usage_policy_uri JSONB DEFAULT '[]'::jsonb,
