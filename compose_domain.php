@@ -864,7 +864,7 @@ function write_file($inputtld, $inputdomain, $inputbatch, $inputurl) {
                         foreach ($value2 as $key3 => $value3) {
                             foreach ($value3 as $key4 => $value4) {
                                 if ($key3 == 0 && $value4 == $inputtld) {
-                                    // echo 'match zone at key2=' . $key2 . '<br>';
+                                    // echo 'match tld at key2=' . $key2 . '<br>';
                                     $temp_key = $key2;
                                     break;
                                 }
@@ -991,7 +991,7 @@ $related_json_response_uri = '';
 $registrar_complaint_uri = '';	
 $status_explanation_uri = '';
 $registrant_web_id = '';
-if ($zone_identifier == 'nl' or $zone_identifier == 'frl')	{		
+if ($inputtld == 'nl' or $inputtld == 'frl')	{		
 	$registrant_web_id = 'NL88COMM01234567890123456789012345';	
 }
 $created_at = null;
@@ -2077,7 +2077,7 @@ $arr['redacted'] = $redacted;
 $arr['metadata']['object_type'] = $object_type;
 $arr['metadata']['rdap_version'] = $rdap_version;
 $arr['metadata']['rdap_conformance'] = $rdap_conformance;
-$arr['metadata']['tld_information_uri'] = $tld_information_uri;
+$arr['metadata']['tld_policies_uri'] = $tld_policies_uri;
 $arr['metadata']['registry_geo_location'] = '';	
 $arr['metadata']['registry_json_response_uri'] = $url;	
 $arr['metadata']['registrar_identifiers'] = $registrar_identifiers;		

@@ -173,7 +173,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_rdap_version").textContent = modified;
 		document.getElementById("metadata_rdap_data_layer").textContent = proposed;
 		document.getElementById("metadata_rdap_issue_uri").textContent = proposed;
-		document.getElementById("metadata_data_usage_terms_uri").textContent = proposed;
+		document.getElementById("metadata_tld_policies_uri").textContent = proposed;
 		document.getElementById("metadata_global_json_response_uri").textContent = proposed;
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed;
 		document.getElementById("metadata_registrar_identifiers").textContent = modified;
@@ -241,7 +241,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("measured_ds_algorithms").textContent = proposed;
 		document.getElementById("nameservers_ipv4_addresses").textContent = "";
 		document.getElementById("nameservers_ipv6_addresses").textContent = "";
-		document.getElementById("br_zone").textContent = "";
+		document.getElementById("br_tld").textContent = "";
 		document.getElementById("raw_data_next").textContent = "";
 	}
 	else if (translation == 1)	{
@@ -262,7 +262,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_rdap_version").textContent = modified;
 		document.getElementById("metadata_rdap_data_layer").textContent = proposed + "Geeft aan uit welke RDAP-laag de gegevens afkomstig zijn.";
 		document.getElementById("metadata_rdap_issue_uri").textContent = proposed + "URI voor het melden van technische of dataintegriteitsproblemen in RDAP";
-		document.getElementById("metadata_data_usage_terms_uri").textContent = proposed + "Beperkt gebruik. Verbeterde machine-leesbare TLD- en RDAP-data.";
+		document.getElementById("metadata_tld_policies_uri").textContent = proposed + "Beperkt gebruik. Interpretatie hangt af van TLD- en RDAP-context.";
 		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "JSON-antwoord via een globale RDAP-URI die kan verwijzen naar een andere RDAP-bron.";
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed + "URI van het RDAP-JSON-antwoord van de registry; relatie 'self'.";
 		document.getElementById("metadata_registrar_identifiers").textContent = modified + "Identificatoren die met de registrar zijn verbonden. Een IANA-Registrar-ID moet geldig zijn.";
@@ -330,7 +330,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("measured_ds_algorithms").textContent = proposed + "Deze tool meet DNSSEC-algoritmen direct, onafhankelijk van RDAP, ook bij tijdelijke duplicatie.";
 		document.getElementById("nameservers_ipv4_addresses").textContent = "Een glue-record is een DNS-record dat wordt meegegeven door de bovenliggende zone, ook al is die daar niet";
 		document.getElementById("nameservers_ipv6_addresses").textContent = "autoritatief voor, om cirkelafhankelijke resoluties van nameservers binnen de onderliggende zone te voorkomen.";
-		document.getElementById("br_zone").textContent = "TLD .br: De RDAP-gegevens zijn aangepast met nameservervalidatie.";
+		document.getElementById("br_tld").textContent = "TLD .br: De RDAP-gegevens zijn aangepast met nameservervalidatie.";
 		document.getElementById("raw_data_next").textContent = "Opmerkingen: De relaties zijn hier gerangschikt naar verantwoordelijkheid. Duidelijker met '(not provided)'. Een JSON-structuur kan net zo leesbaar zijn als XML.";
 	}
 	else if (translation == 2)	{
@@ -351,7 +351,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_rdap_version").textContent = modified;
 		document.getElementById("metadata_rdap_data_layer").textContent = proposed + "Indicates the RDAP layer from which the data originates.";
 		document.getElementById("metadata_rdap_issue_uri").textContent = proposed + "URI for reporting RDAP technical or data integrity issues";
-		document.getElementById("metadata_data_usage_terms_uri").textContent = proposed + "Restricted use. Improved machine-readable TLD and RDAP data.";
+		document.getElementById("metadata_tld_policies_uri").textContent = proposed + "Restricted use. Interpretation depends on TLD and RDAP context.";
 		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "JSON response via a global RDAP URI that may reference another RDAP source.";
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed + "RDAP JSON response URI from the registry; relationship 'self'.";
 		document.getElementById("metadata_registrar_identifiers").textContent = modified + "Identifiers associated with the registrar. Any IANA Registrar ID must be valid.";
@@ -419,7 +419,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("measured_ds_algorithms").textContent = proposed + "This tool measures DNSSEC algorithms directly, independent of RDAP, including during temporary duplication.";
 		document.getElementById("nameservers_ipv4_addresses").textContent = "A glue record is a DNS record provided by the parent zone, even though it is not authoritative for it,";
 		document.getElementById("nameservers_ipv6_addresses").textContent = "to prevent circular dependencies when resolving nameservers within the child zone.";
-		document.getElementById("br_zone").textContent = "TLD .br: The RDAP data has been modified with nameserver validation.";
+		document.getElementById("br_tld").textContent = "TLD .br: The RDAP data has been modified with nameserver validation.";
 		document.getElementById("raw_data_next").textContent = "Remarks: The relations here are arranged according to responsibility. Clearer with '(not provided)'. A JSON structure can be as readable as XML.";
 	}
 	else if (translation == 3)	{
@@ -440,7 +440,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_rdap_version").textContent = modified;
 		document.getElementById("metadata_rdap_data_layer").textContent = proposed + "Gibt an, aus welcher RDAP-Ebene die Daten stammen.";
 		document.getElementById("metadata_rdap_issue_uri").textContent = proposed + "URI zur Meldung technischer oder Datenintegritätsprobleme bei RDAP";
-		document.getElementById("metadata_data_usage_terms_uri").textContent = proposed + "Eingeschränkte Nutzung. Verbesserte maschinenlesbare TLD- und RDAP-Daten.";
+		document.getElementById("metadata_tld_policies_uri").textContent = proposed + "Eingeschränkte Nutzung. Interpretation hängt vom TLD- und RDAP-Kontext ab.";
 		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "JSON-Antwort über eine globale RDAP-URI, die auf eine andere RDAP-Quelle verweisen kann.";
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed + "URI der RDAP-JSON-Antwort der Registry; Beziehung 'self'.";
 		document.getElementById("metadata_registrar_identifiers").textContent = modified + "Kennungen, die dem Registrar zugeordnet sind. Eine IANA-Registrar-ID muss gültig sein.";
@@ -508,7 +508,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("nameservers_rdap_ds_algorithms").textContent = "Algorithmen 13–16 sind aktuell. IANA führt Algorithmus 8 als RECOMMENDED, gilt als auslaufend.";
 		document.getElementById("nameservers_ipv4_addresses").textContent = "Ein Glue-Record ist ein DNS-Eintrag, den die übergeordnete Zone bereitstellt, obwohl sie nicht autoritativ ist,";
 		document.getElementById("nameservers_ipv6_addresses").textContent = "um zirkuläre Abhängigkeiten bei der Auflösung von Nameservern in der untergeordneten Zone zu verhindern.";		
-		document.getElementById("br_zone").textContent = "TLD .br: Die RDAP-Daten wurden mit der Nameserver-Validierung angepasst.";
+		document.getElementById("br_tld").textContent = "TLD .br: Die RDAP-Daten wurden mit der Nameserver-Validierung angepasst.";
 		document.getElementById("raw_data_next").textContent = "Anmerkungen: Die Beziehungen sind hier nach Verantwortung angeordnet. Deutlicher mit '(not provided)'. Eine JSON-Struktur kann genauso gut lesbar sein wie XML.";
 	}
 	else if (translation == 4)	{
@@ -529,7 +529,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_rdap_version").textContent = modified;
 		document.getElementById("metadata_rdap_data_layer").textContent = proposed + "Indique la couche RDAP dont proviennent les données.";
 		document.getElementById("metadata_rdap_issue_uri").textContent = proposed + "URI pour signaler des problèmes techniques ou d’intégrité des données RDAP";
-		document.getElementById("metadata_data_usage_terms_uri").textContent = proposed + "Utilisation restreinte. Données TLD et RDAP lisibles par machine améliorées.";
+		document.getElementById("metadata_tld_policies_uri").textContent = proposed + "Utilisation restreinte. L’interprétation dépend du contexte TLD et RDAP.";
 		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "Réponse JSON via une URI RDAP globale pouvant référencer une autre source RDAP.";
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed + "URI de la réponse JSON RDAP du registre ; relation 'self'.";
 		document.getElementById("metadata_registrar_identifiers").textContent = modified + "Identifiants associés au registrar. Tout identifiant de registrar IANA doit être valide.";
@@ -597,7 +597,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("measured_ds_algorithms").textContent = proposed + "Mesure directe des algorithmes DNSSEC, indépendante du RDAP, y compris duplication temporaire.";
 		document.getElementById("nameservers_ipv4_addresses").textContent = "Un glue record est un enregistrement DNS fourni par la zone parente, bien qu’elle n’en soit pas autoritaire,";
 		document.getElementById("nameservers_ipv6_addresses").textContent = "afin d’éviter les dépendances circulaires lors de la résolution des serveurs de noms de la zone enfant.";		
-		document.getElementById("br_zone").textContent = "TLD .br: Les données RDAP ont été ajustées avec la validation du serveur de noms.";
+		document.getElementById("br_tld").textContent = "TLD .br: Les données RDAP ont été ajustées avec la validation du serveur de noms.";
 		document.getElementById("raw_data_next").textContent = "Remarques : Les relations sont ici organisés selon la responsabilité. Plus clair avec '(not provided)'. Une structure JSON peut être aussi lisible que du XML.";
 	}
 }
@@ -631,10 +631,10 @@ $data = json_decode($json, true);
 if (!is_array($data)) {
   die("The RDAP endpoint returned invalid JSON.");
 }
-$data_usage_terms_uri = $server_uri.'/modeling_tld/index.php?language='.$viewlanguage.'&tld='.$data[$pd]['registry']['metadata']['tld_ascii_name'];
+$tld_policies_uri = $server_uri.'/modeling_tld/index.php?language='.$viewlanguage.'&tld='.$data[$pd]['registry']['metadata']['tld_ascii_name'];
 $raw_whois = $server_uri.'/domain_whois/index.php?language='.$viewlanguage.'&domain='.$vd;
 if	(is_null($data))	{
-	$data_usage_terms_uri = '';
+	$tld_policies_uri = '';
 	$raw_whois = '';
 	$reopen = $server_uri.'/modeling_domain/index.php?batch=0&domain=domain';
 	sc_redir($reopen);
@@ -671,7 +671,7 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$validation_registry = 'https://validator.rdap.org/?url=https://'.$registry_json_response_uri.'&response-type=domain&server-type=gtld-registry&errors-only=1';	
 	$html_text .= '<tr><td>registry_json_response_uri</td><td>'.((!empty($data[$pd]['registry']['metadata']['registry_json_response_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['registry_json_response_uri'].' target="_blank">Registry Response</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registry_json_response_uri"></td><td>'.$data[$pd]['registrar']['metadata']['registry_json_response_uri'].'</td></tr>';
 	$html_text .= '<tr><td>registrar_json_response_uri</td><td>'.((!empty($data[$pd]['registry']['metadata']['registrar_json_response_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['registrar_json_response_uri'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registrar_json_response_uri"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_json_response_uri'].'</td></tr>';	
-	$html_text .= '<tr><td>data_usage_terms_uri</td><td>'.((!empty($data_usage_terms_uri)) ? '<a href="'.$data_usage_terms_uri.'" target="_blank">.'.$data[$pd]['registry']['tld_unicode_name'].' TLD Data</a>' : '').'</td><td id="metadata_data_usage_terms_uri"></td><td></td></tr>';
+	$html_text .= '<tr><td>tld_policies_uri</td><td>'.((!empty($tld_policies_uri)) ? '<a href="'.$tld_policies_uri.'" target="_blank">.'.$data[$pd]['registry']['tld_unicode_name'].' TLD Policies</a>' : '').'</td><td id="metadata_tld_policies_uri"></td><td></td></tr>';
 	$html_text .= '<tr id="207" style="display:none"><td>registry_geo_location</td><td>'.$data[$pd]['registry']['metadata']['registry_geo_location'].'</td><td></td><td>'.$data[$pd]['registrar']['metadata']['registry_geo_location'].'</td></tr>';
 	$html_text .= '<tr id="208" style="display:none"><td>registrar_identifiers</td><td>'.((!empty($data[$pd]['registry']['metadata']['registrar_identifiers'])) ? $data[$pd]['registry']['metadata']['registrar_identifiers'] : '').'</td><td id="metadata_registrar_identifiers"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_identifiers'].'</td></tr>';
 	$registrar_json_response_uri = str_replace('https://', '', $data[$pd]['registry']['metadata']['registrar_json_response_uri']);
@@ -1025,7 +1025,7 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="635" style="display:none"><td>ipv4_addresses</td><td>'.$data[$pd]['registry']['nameservers']['ipv4_addresses'].'</td><td style="vertical-align:bottom" id="nameservers_ipv4_addresses"></td><td>'.$data[$pd]['registrar']['nameservers']['ipv4_addresses'].'</td></tr>';
 	$html_text .= '<tr id="636" style="display:none"><td>ipv6_addresses</td><td>'.$data[$pd]['registry']['nameservers']['ipv6_addresses'].'</td><td id="nameservers_ipv6_addresses"></td><td>'.$data[$pd]['registrar']['nameservers']['ipv6_addresses'].'</td></tr>';
 	$html_text .= '<tr id="637" style="display:none"><td>statuses_raw</td><td>'.$data[$pd]['registry']['nameservers']['statuses_raw'].'</td><td></td><td>'.$data[$pd]['registrar']['nameservers']['statuses_raw'].'</td></tr>';
-	$html_text .= '<tr id="638" style="display:none"><td>nameserver_check_result</td><td>'.$data[$pd]['registry']['nameservers']['nameserver_check_result'].'</td><td id="br_zone"></td><td>'.$data[$pd]['registrar']['nameservers']['nameserver_check_result'].'</td></tr>';
+	$html_text .= '<tr id="638" style="display:none"><td>nameserver_check_result</td><td>'.$data[$pd]['registry']['nameservers']['nameserver_check_result'].'</td><td id="br_tld"></td><td>'.$data[$pd]['registrar']['nameservers']['nameserver_check_result'].'</td></tr>';
 	$html_text .= '<tr id="639" style="display:none"><td>nameserver_check_dates</td><td>'.$data[$pd]['registry']['nameservers']['nameserver_check_dates'].'</td><td></td><td>'.$data[$pd]['registrar']['nameservers']['nameserver_check_dates'].'</td></tr>';
 	$html_text .= '<tr id="6310" style="display:none"><td>last_valid_nameserver_check_dates</td><td>'.$data[$pd]['registry']['nameservers']['last_valid_nameserver_check_dates'].'</td><td></td><td>'.$data[$pd]['registrar']['nameservers']['last_valid_nameserver_check_dates'].'</td></tr>';
 	$html_text .= '<tr id="6311" style="display:none"><td>rdap_dnssec_signed</td><td>'.$data[$pd]['registry']['nameservers']['rdap_dnssec_signed'].'</td><td id="nameservers_rdap_dnssec_signed"></td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['rdap_dnssec_signed']).'</td></tr>';

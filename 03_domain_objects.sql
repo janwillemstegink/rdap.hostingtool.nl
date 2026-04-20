@@ -3,7 +3,7 @@
    Purpose: Domain-level and other RDAP object schemas (operational data).
 
    Tables:
-     - domains               : domain core + links (JSON URLs, statuses)
+     - domains               : domain core
      - entities              : contacts/organizations (registrant/admin/tech/etc.)
      - nameservers           : host objects with IPv4/IPv6 arrays
      - ip_network_versions   : registry for IPv4/IPv6 labels
@@ -17,15 +17,15 @@
 
    Functions & Triggers:
      - update_*_latest_data_mutation_at() for several tables
-     - set_domain_zone() BEFORE INSERT/UPDATE → calls
-       get_matching_zone_tld_ascii_name() from 02_tld_objects.sql
+     - set_domain_tld() BEFORE INSERT/UPDATE → calls
+       get_matching_tld_ascii_name() from 02_tld_objects.sql
 
    Run order: 4 of 4  (bootstrap → logging → TLD → domain)
    Depends on: 00_bootstrap_extensions.sql, 02_tld_objects.sql
    Safe to re-run: yes (IF NOT EXISTS + CREATE OR REPLACE on functions)
    Notes:
      - Shared tables (events, links, remarks, notices) are defined in 01_logging.sql.
-     - Consider FK from domains.domain_zone → zones.zone_tld_ascii_name once policies
+     - Consider FK from domains.domain_tld → tlds.tld_ascii_name once policies
        around historical snapshots are finalized.
 ============================================================================ */
 
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS metadata_registrar (
 -- ========================================
 CREATE TABLE IF NOT EXISTS domains (
     domain_id BIGSERIAL PRIMARY KEY,
-    domain_zone CITEXT NOT NULL,
+    domain_tld CITEXT NOT NULL,
     domain_server_handle TEXT NOT NULL UNIQUE,
     domain_client_handle TEXT,
     domain_ascii_name VARCHAR(511) NOT NULL,
@@ -65,9 +65,9 @@ CREATE TABLE IF NOT EXISTS domains (
 	domain_applicable_grace_until TIMESTAMPTZ,
     domain_recoverable_until TIMESTAMPTZ,
     domain_deletion_at TIMESTAMPTZ,
-	domain_metadata_registrar BIGSERIAL,
-    domain_extensions JSONB DEFAULT '[]'::jsonb,
-    domain_remarks JSONB DEFAULT '[]'::jsonb
+	domain_metadata_registrar BIGINT REFERENCES metadata_registrar(mr_id),
+    domain_extensions JSONB DEFAULT '[]',
+    domain_remarks JSONB DEFAULT '[]'
 );
 
 -- Trigger Function: Update domain_latest_data_mutation_at on UPDATE
@@ -85,20 +85,20 @@ BEFORE UPDATE ON domains
 FOR EACH ROW
 EXECUTE FUNCTION update_domains_latest_data_mutation_at();
 
--- Trigger Function: Set domain_zone using get_matching_zone_tld_ascii_name (from 02)
-CREATE OR REPLACE FUNCTION set_domain_zone()
+-- Trigger Function: Set domain_tld using get_matching_tld_ascii_name (from 02)
+CREATE OR REPLACE FUNCTION set_domain_tld()
 RETURNS TRIGGER AS $$
 BEGIN
-    NEW.domain_zone := get_matching_zone_tld_ascii_name(NEW.domain_ascii_name);
+    NEW.domain_tld := get_matching_tld_ascii_name(NEW.domain_ascii_name);
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS trg_set_domain_zone ON domains;
-CREATE TRIGGER trg_set_domain_zone
+DROP TRIGGER IF EXISTS trg_set_domain_tld ON domains;
+CREATE TRIGGER trg_set_domain_tld
 BEFORE INSERT OR UPDATE ON domains
 FOR EACH ROW
-EXECUTE FUNCTION set_domain_zone();
+EXECUTE FUNCTION set_domain_tld();
 
 -- ========================================
 -- Table: entities

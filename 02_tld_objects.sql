@@ -4,7 +4,7 @@
 
    Tables:
      - tld_categories, tld_types
-     - common                : global registry settings (functions, statuses, periods)
+     - root                : global registry settings (functions, statuses, periods)
      - tlds                  : public suffix / TLD entries (with functions & workload)
 	 - function_entities     : entity functions
      - lifecycles            : TLD lifecycle policy snapshots
@@ -39,23 +39,26 @@ CREATE TABLE IF NOT EXISTS tld_types (
 );
 
 -- ========================================
--- Table: common
+-- Table: root
 -- ========================================
-CREATE TABLE IF NOT EXISTS common (
-    common_id SERIAL PRIMARY KEY,
-    common_root_services_uri TEXT[],
-    common_root_tlds_uri TEXT[],
-    common_registrar_accreditations_uri TEXT[],
-    common_function_identifiers JSONB DEFAULT 
+CREATE TABLE IF NOT EXISTS root (
+    root_id SERIAL PRIMARY KEY,
+    root_services_uri JSONB DEFAULT '[]'::jsonb,
+    root_tlds_uri JSONB DEFAULT '[]'::jsonb,
+	root_root_policies_uri JSONB DEFAULT '[]'::jsonb,
+	root_root_privacy_policy_uri DEFAULT '[]'::jsonb,
+	lookup_endpoints_uri JSONB DEFAULT '[]'::jsonb,
+    root_registrar_accreditations_uri DEFAULT '[]'::jsonb,
+    root_function_identifiers JSONB DEFAULT 
         '[
             {"function_sequence": 10,"function_identifier": "contracting_authority"},
             {"function_sequence": 20,"function_identifier": "contract_holder"},
             {"function_sequence": 30,"function_identifier": "sponsoring_organization"},
-            {"function_sequence": 40,"function_identifier": "country_code_designated_manager"),
+            {"function_sequence": 40,"function_identifier": "country_code_designated_manager"},
             {"function_sequence": 50,"function_identifier": "registry_operator"},
             {"function_sequence": 60,"function_identifier": "backend_operator"}
         ]'::jsonb,
-	common_tld_statuses JSONB DEFAULT 
+	root_tld_statuses JSONB DEFAULT 
 	'{
 	"ok":{"rdap_v1":"active","rdap_v2":"dns_delegated","snake_case":"dns_delegated"},
 	"inactive":{"rdap_v1":"inactive","rdap_v2":"no_dns","snake_case":"no_dns"},
@@ -79,21 +82,19 @@ CREATE TABLE IF NOT EXISTS common (
 	"linked":{"rdap_v1":"linked","rdap_v2":"linked","snake_case":"linked"},
 	"pendingValidation":{"rdap_v1":"pending validation","rdap_v2":"pending_validation","snake_case":"pending_validation"}
 	}'::jsonb,		
-    common_indeterminate_rdap_statuses JSONB DEFAULT '{
-        "indeterminate_rdap_statuses": [
-            "locked",
-            "renew prohibited",
-            "transfer prohibited",
-            "update prohibited",
-            "delete prohibited",
-            "removed",
-            "obscured",
-            "private",
-            "proxy",
-            "associated"
-        ]
-    }'::jsonb,
-    common_lifecycle_period_ranges JSONB DEFAULT '[
+    root_ambiguous_rdap_statuses JSONB DEFAULT '[
+		"locked",
+        "renew prohibited",
+        "transfer prohibited",
+        "update prohibited",
+        "delete prohibited",
+        "removed",
+        "obscured",
+        "private",
+        "proxy",
+        "associated"
+    ]'::jsonb,	
+    root_lifecycle_period_ranges JSONB DEFAULT '[
         {"period_identifier": "subscription_years", "min": 1, "max": 10, "optimal": 1},
         {"period_identifier": "add_grace_days", "min": 5, "max": 5, "optimal": 5},
         {"period_identifier": "transfer_grace_days", "min": 5, "max": 5, "optimal": 5},
@@ -102,7 +103,7 @@ CREATE TABLE IF NOT EXISTS common (
         {"period_identifier": "pending_redemption_days", "min": 30, "max": 30, "optimal": 30},
         {"period_identifier": "pending_delete_days", "min": 5, "max": 5, "optimal": 5}
     ]'::jsonb,
-    common_root_accepted_workload JSONB DEFAULT 
+    root_accepted_workload JSONB DEFAULT 
         '[
             {
                 "public_status_requests": {
@@ -138,8 +139,8 @@ CREATE TABLE IF NOT EXISTS tlds (
 	tld_standardized_prices_uri JSONB DEFAULT '[]'::jsonb,
     tld_delegation_uri JSONB DEFAULT '[]'::jsonb,
     tld_json_response_uri JSONB DEFAULT '[]'::jsonb,
-    tld_data_usage_terms_uri JSONB DEFAULT '[]'::jsonb,
-	tld_registry_geo_location JSONB::jsonb,
+    tld_data_usage_policy_uri JSONB DEFAULT '[]'::jsonb,
+	tld_registry_geo_location JSONB DEFAULT '[]'::jsonb,
     tld_privacy_policy_uri JSONB DEFAULT '[]'::jsonb,
     tld_search_engine_deletion_phase_ready BOOLEAN NOT NULL DEFAULT FALSE,
     tld_accepted_workload JSONB DEFAULT 
@@ -172,7 +173,7 @@ CREATE TABLE IF NOT EXISTS tlds (
             {"relationship_sequence": 90, "relationship_identifier": "registrar"},
             {"relationship_sequence": 95, "relationship_identifier": "abuse"}
         ]'::jsonb,
-    tld_name_servers JSONB::jsonb,
+    tld_name_servers JSONB,
     tld_latest_update_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -293,7 +294,7 @@ CREATE TABLE IF NOT EXISTS tld_functions (
     tf_tld INT NOT NULL REFERENCES tlds(tld_id) ON DELETE CASCADE,
     tf_function_identifier VARCHAR(50),
     tf_data_active_from TIMESTAMPTZ,
-	tf_field_publication JSONB::jsonb,
+	tf_field_publication JSONB,
     tf_function INT NOT NULL REFERENCES function_entities(function_entity_id) ON DELETE CASCADE,
     tf_latest_update_at TIMESTAMPTZ
 );
