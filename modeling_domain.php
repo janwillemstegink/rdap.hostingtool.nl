@@ -84,27 +84,27 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 39)	{ // sponsor
 		var pre = '39';
-		var max = 26
+		var max = 25
 	}
 	else if (type == 40)	{ // registrant
 		var pre = '40';
-		var max = 22
+		var max = 21
 	}
 	else if (type == 41)	{ // administrative
 		var pre = '41';
-		var max = 20
+		var max = 19
 	}
 	else if (type == 42)	{ // technical
 		var pre = '42';
-		var max = 20
+		var max = 19
 	}
 	else if (type == 43)	{ // billing
 		var pre = '43';
-		var max = 22
+		var max = 21
 	}
 	else if (type == 44)	{ // emergency
 		var pre = '44';
-		var max = 21
+		var max = 20
 	}
 	else if (type == 45)	{ // fallback
 		var pre = '45';
@@ -112,11 +112,11 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 50)	{ // reseller
 		var pre = '50';
-		var max = 25
+		var max = 24
 	}	
 	else if (type == 60)	{ // registrar
 		var pre = '60';
-		var max = 25
+		var max = 24
 	}
 	else if (type == 61)	{ // registrar abuse
 		var pre = '61';
@@ -185,7 +185,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("properties_part").textContent = "";
 		document.getElementById("properties_ascii_name").textContent = "";
 		document.getElementById("properties_unicode_name").textContent = "";
-		document.getElementById("properties_statuses_raw").textContent = legacy;
+		document.getElementById("properties_statuses").textContent = legacy;
 		document.getElementById("properties_policy_statuses").textContent = modified;
 		document.getElementById("properties_dns_state").textContent = proposed;
 		document.getElementById("properties_created_at").textContent = "";
@@ -274,7 +274,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("properties_part").textContent = "Een domein onder TLD-niveau is wereldwijd uniek en kan vrij worden gekozen onder bepaalde regels.";
 		document.getElementById("properties_ascii_name").textContent = "Voor speciale tekens bevatten de ASCII-tekenreeksen Punycode-transcriptie.";
 		document.getElementById("properties_unicode_name").textContent = "Optioneel veld dat, indien van toepassing, de Unicode-weergave van het domein biedt.";
-		document.getElementById("properties_statuses_raw").textContent = legacy + "RDAPv1 zelf garandeert niet of status van registry, registrar, of lifecycle is — elimineerbaar.";
+		document.getElementById("properties_statuses").textContent = legacy + "RDAPv1 zelf garandeert niet of status van registry, registrar, of lifecycle is — elimineerbaar.";
 		document.getElementById("properties_policy_statuses").textContent = modified;
 		document.getElementById("properties_dns_state").textContent = proposed + "Gemodelleerde DNS-resolutiestatussen: dns_delegated, dns_undelegated, no_dns_records, unknown.";
 		document.getElementById("properties_created_at").textContent = "De datumvelden staan hier in een logische volgorde. Dit is ook eenvoudig in de JSON-array.";
@@ -363,7 +363,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("properties_part").textContent = "A domain below TLD level is globally unique and can be freely chosen under certain rules.";
 		document.getElementById("properties_ascii_name").textContent = "For special characters, the ASCII character strings contain Punycode transcription.";
 		document.getElementById("properties_unicode_name").textContent = "Optional field that provides the Unicode representation of the domain, if applicable.";
-		document.getElementById("properties_statuses_raw").textContent = legacy + "RDAPv1 itself doesn’t guarantee showing if status is registry, registrar, or lifecycle — eliminable.";
+		document.getElementById("properties_statuses").textContent = legacy + "RDAPv1 itself doesn’t guarantee showing if status is registry, registrar, or lifecycle — eliminable.";
 		document.getElementById("properties_policy_statuses").textContent = modified;
 		document.getElementById("properties_dns_state").textContent = proposed + "Modeled DNS resolution states: dns_delegated, dns_undelegated, no_dns_records, unknown.";
 		document.getElementById("properties_created_at").textContent = "The date fields are here in a logical order. This is also easy in the JSON array.";
@@ -452,7 +452,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("properties_part").textContent = "Eine Domain unterhalb der TLD-Ebene ist weltweit eindeutig und kann unter bestimmten Regeln frei gewählt werden.";
 		document.getElementById("properties_ascii_name").textContent = "Für Sonderzeichen enthalten die ASCII-Zeichenfolgen eine Punycode-Transkription.";
 		document.getElementById("properties_unicode_name").textContent = "Optionales Feld, das gegebenenfalls die Unicode-Darstellung der Domäne bereitstellt.";
-		document.getElementById("properties_statuses_raw").textContent = legacy + "RDAPv1 garantiert nicht, ob Status von Registry, Registrar, oder Lifecycle stammt — eliminierbar.";
+		document.getElementById("properties_statuses").textContent = legacy + "RDAPv1 garantiert nicht, ob Status von Registry, Registrar, oder Lifecycle stammt — eliminierbar.";
 		document.getElementById("properties_policy_statuses").textContent = modified;
 		document.getElementById("properties_dns_state").textContent = proposed + "Modellierte DNS-Auflösungszustände: dns_delegated, dns_undelegated, no_dns_records, unknown.";
 		document.getElementById("properties_created_at").textContent = "Die Datumsfelder stehen hier in einer logischen Reihenfolge. Auch dies ist im JSON-Array einfach.";
@@ -541,7 +541,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("properties_part").textContent = "Un domaine inférieur au niveau TLD est unique au monde et peut être choisi librement selon certaines règles.";
 		document.getElementById("properties_ascii_name").textContent = "Pour les caractères spéciaux, les chaînes de caractères ASCII contiennent une transcription Punycode.";
 		document.getElementById("properties_unicode_name").textContent = "Champ facultatif qui fournit la représentation Unicode du domaine, le cas échéant.";
-		document.getElementById("properties_statuses_raw").textContent = legacy + "Les statuts ne garantissent pas que RDAPv1 indique registre, registrar, ou cycle — éliminable.";
+		document.getElementById("properties_statuses").textContent = legacy + "Les statuts ne garantissent pas que RDAPv1 indique registre, registrar, ou cycle — éliminable.";
 		document.getElementById("properties_policy_statuses").textContent = modified;
 		document.getElementById("properties_dns_state").textContent = proposed + "États de résolution DNS modélisés : dns_delegated, dns_undelegated, no_dns_records, unknown.";
 		document.getElementById("properties_created_at").textContent = "Les champs de date sont ici classés dans un ordre logique. C'est également facile dans le tableau JSON.";
@@ -690,35 +690,35 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="302" style="display:none"><td>properties_client_handle</td><td colspan="2">'.$data[$pd]['registry']['properties']['client_handle'].'</td><td>'.$data[$pd]['registrar']['properties']['client_handle'].'</td></tr>';
 	$html_text .= '<tr id="303" style="display:none"><td>properties_ascii_name (lowercase is no "MUST")</td><td>'.$data[$pd]['registry']['properties']['ascii_name'].'</td><td id="properties_ascii_name"></td><td>'.$data[$pd]['registrar']['properties']['ascii_name'].'</td></tr>';
 	$html_text .= '<tr id="304" style="display:none"><td>properties_unicode_name</td><td>'.$data[$pd]['registry']['properties']['unicode_name'].'</td><td id="properties_unicode_name"></td><td>'.$data[$pd]['registrar']['properties']['unicode_name'].'</td></tr>';
-	$properties_statuses_raw = (!empty($data[$pd]['registry']['properties']['statuses_raw'])) ? $data[$pd]['registry']['properties']['statuses_raw'] : '';
-	$properties_statuses_raw = str_replace('excluded','<br />excluded (without DNS no email protection)', $properties_statuses_raw);
-	$properties_statuses_raw = str_replace('locked','<br />locked (indeterminate RDAP use)', $properties_statuses_raw);
-	$properties_statuses_raw = str_replace('removed','<br />removed (indeterminate RDAP use)', $properties_statuses_raw);
-	$properties_statuses_raw = str_replace('obscured','<br />obscured (indeterminate RDAP use)', $properties_statuses_raw);
-	$properties_statuses_raw = str_replace('private','<br />private (indeterminate RDAP use)', $properties_statuses_raw);
-	$properties_statuses_raw = str_replace('proxy','<br />proxy (indeterminate RDAP use)', $properties_statuses_raw);
-	$properties_statuses_raw = str_replace('associated','<br />associated (indeterminate RDAP use)', $properties_statuses_raw);
-	if (str_contains($data[$pd]['registry']['properties']['statuses_raw'], 'renew prohibited'))	{
-		if (!str_contains($data[$pd]['registry']['properties']['statuses_raw'], 'server renew prohibited') and !str_contains($data[$pd]['registry']['properties']['statuses_raw'], 'client renew prohibited'))	{
-			$properties_statuses_raw = str_replace('renew prohibited','<br />renew prohibited (indeterminate RDAP use)', $properties_statuses_raw);
+	$properties_statuses = (!empty($data[$pd]['registry']['properties']['statuses'])) ? $data[$pd]['registry']['properties']['statuses'] : '';
+	$properties_statuses = str_replace('excluded','<br />excluded (without DNS no email protection)', $properties_statuses);
+	$properties_statuses = str_replace('locked','<br />locked (indeterminate RDAP use)', $properties_statuses);
+	$properties_statuses = str_replace('removed','<br />removed (indeterminate RDAP use)', $properties_statuses);
+	$properties_statuses = str_replace('obscured','<br />obscured (indeterminate RDAP use)', $properties_statuses);
+	$properties_statuses = str_replace('private','<br />private (indeterminate RDAP use)', $properties_statuses);
+	$properties_statuses = str_replace('proxy','<br />proxy (indeterminate RDAP use)', $properties_statuses);
+	$properties_statuses = str_replace('associated','<br />associated (indeterminate RDAP use)', $properties_statuses);
+	if (str_contains($data[$pd]['registry']['properties']['statuses'], 'renew prohibited'))	{
+		if (!str_contains($data[$pd]['registry']['properties']['statuses'], 'server renew prohibited') and !str_contains($data[$pd]['registry']['properties']['statuses'], 'client renew prohibited'))	{
+			$properties_statuses = str_replace('renew prohibited','<br />renew prohibited (indeterminate RDAP use)', $properties_statuses);
 		}
 	}
-	if (str_contains($data[$pd]['registry']['properties']['statuses_raw'], 'update prohibited'))	{
-		if (!str_contains($data[$pd]['registry']['properties']['statuses_raw'], 'server update prohibited') and !str_contains($data[$pd]['registry']['properties']['statuses_raw'], 'client update prohibited'))	{
-			$properties_statuses_raw = str_replace('update prohibited','<br />update prohibited (indeterminate RDAP use)', $properties_statuses_raw);
+	if (str_contains($data[$pd]['registry']['properties']['statuses'], 'update prohibited'))	{
+		if (!str_contains($data[$pd]['registry']['properties']['statuses'], 'server update prohibited') and !str_contains($data[$pd]['registry']['properties']['statuses'], 'client update prohibited'))	{
+			$properties_statuses = str_replace('update prohibited','<br />update prohibited (indeterminate RDAP use)', $properties_statuses);
 		}
 	}
-	if (str_contains($data[$pd]['registry']['properties']['statuses_raw'], 'transfer prohibited'))	{
-		if (!str_contains($data[$pd]['registry']['properties']['statuses_raw'], 'server transfer prohibited') and !str_contains($data[$pd]['registry']['properties']['statuses_raw'], 'client transfer prohibited'))	{
-			$properties_statuses_raw = str_replace('transfer prohibited','<br />transfer prohibited (indeterminate RDAP use)', $properties_statuses_raw);
+	if (str_contains($data[$pd]['registry']['properties']['statuses'], 'transfer prohibited'))	{
+		if (!str_contains($data[$pd]['registry']['properties']['statuses'], 'server transfer prohibited') and !str_contains($data[$pd]['registry']['properties']['statuses'], 'client transfer prohibited'))	{
+			$properties_statuses = str_replace('transfer prohibited','<br />transfer prohibited (indeterminate RDAP use)', $properties_statuses);
 		}
 	}	
-	if (str_contains($data[$pd]['registry']['properties']['statuses_raw'], 'delete prohibited'))	{
-		if (!str_contains($data[$pd]['registry']['properties']['statuses_raw'], 'server delete prohibited') and !str_contains($data[$pd]['registry']['properties']['statuses_raw'], 'client delete prohibited'))	{
-			$properties_statuses_raw = str_replace('delete prohibited','<br />delete prohibited (indeterminate RDAP use)', $properties_statuses_raw);
+	if (str_contains($data[$pd]['registry']['properties']['statuses'], 'delete prohibited'))	{
+		if (!str_contains($data[$pd]['registry']['properties']['statuses'], 'server delete prohibited') and !str_contains($data[$pd]['registry']['properties']['statuses'], 'client delete prohibited'))	{
+			$properties_statuses = str_replace('delete prohibited','<br />delete prohibited (indeterminate RDAP use)', $properties_statuses);
 		}
 	}	
-	$html_text .= '<tr id="305" style="display:none"><td>properties_statuses_raw</td><td>'.$properties_statuses_raw.'</td><td id="properties_statuses_raw"></td><td>'.$data[$pd]['registrar']['properties']['statuses_raw'].'</td></tr>';
+	$html_text .= '<tr id="305" style="display:none"><td>properties_statuses</td><td>'.$properties_statuses.'</td><td id="properties_statuses"></td><td>'.$data[$pd]['registrar']['properties']['statuses'].'</td></tr>';
 	$html_text .= '<tr id="306" style="display:none"><td>properties_policy_statuses</td><td>'.$data[$pd]['registry']['properties']['policy_statuses'].'</td><td id="properties_policy_statuses"></td><td>'.$data[$pd]['registrar']['properties']['policy_statuses'].'</td></tr>';
 	$html_text .= '<tr><td>properties_dns_state</td><td>'.$data[$pd]['registry']['properties']['dns_state'].'</td><td id="properties_dns_state"></td><td>'.$data[$pd]['registrar']['properties']['dns_state'].'</td></tr>';
 	$html_text .= '<tr id="307" style="display:none"><td>properties_created_at</td><td>'.$data[$pd]['registry']['properties']['created_at'].'</td><td id="properties_created_at"></td><td>'.$data[$pd]['registrar']['properties']['created_at'].'</td></tr>';
@@ -731,14 +731,14 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="3012" style="display:none"><td>properties_applicable_grace_until</td><td>'.$data[$pd]['registry']['properties']['applicable_grace_until'].'</td><td id="properties_applicable_grace_until"></td><td>'.$data[$pd]['registrar']['properties']['applicable_grace_until'].'</td></tr>';
 	$html_text .= '<tr id="3013" style="display:none"><td>properties_recoverable_until</td><td>'.$data[$pd]['registry']['properties']['recoverable_until'].'</td><td id="properties_recoverable_until"></td><td>'.$data[$pd]['registrar']['properties']['recoverable_until'].'</td></tr>';
 	$html_text .= '<tr id="3014" style="display:none"><td>properties_deletion_at</td><td>'.$data[$pd]['registry']['properties']['deletion_at'].'</td><td id="properties_deletion_at"></td><td>'.$data[$pd]['registrar']['properties']['deletion_at'].'</td></tr>';
-	if (!empty($data[$pd]['registry']['properties']['statuses_raw']))	{
+	if (!empty($data[$pd]['registry']['properties']['statuses']))	{
 		if (!empty($data[$pd]['registry']['properties']['lifecycle_phase']))	{
 			if (str_contains($data[$pd]['registry']['properties']['lifecycle_phase'], ','))	{
 				$html_text .= '<tr id="3015" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>RDAPv2: single-value for lifecycle_phase</td><td></td><td></td></tr>';
 			}
 		}
-		if (str_contains($data[$pd]['registry']['properties']['statuses_raw'], 'pending delete'))	{
-			if (str_contains($data[$pd]['registry']['properties']['statuses_raw'], 'redemption period') and str_contains($data[$pd]['registry']['properties']['statuses_raw'], 'pending delete'))	{
+		if (str_contains($data[$pd]['registry']['properties']['statuses'], 'pending delete'))	{
+			if (str_contains($data[$pd]['registry']['properties']['statuses'], 'redemption period') and str_contains($data[$pd]['registry']['properties']['statuses'], 'pending delete'))	{
 				$html_text .= '<tr id="3016" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"pending delete" disregards redemption grace</td><td></td><td></td></tr>';
 			}	
 			elseif (!empty($data[$pd]['registry']['tld_unicode_name']))	{
@@ -747,19 +747,19 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 				}	
 			}	
 		}
-		if (str_contains($data[$pd]['registry']['properties']['statuses_raw'], 'redemption period') or str_contains($data[$pd]['registry']['properties']['statuses_raw'], 'pending delete'))	{
+		if (str_contains($data[$pd]['registry']['properties']['statuses'], 'redemption period') or str_contains($data[$pd]['registry']['properties']['statuses'], 'pending delete'))	{
 			if (!empty($data[$pd]['registry']['properties']['dns_state']))	{
 				if ($data[$pd]['registry']['properties']['dns_state'] == 'dns_delegated')	{
 					$html_text .= '<tr id="3018" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>upon deletion, DNS publishing is not expected</td><td></td><td></td></tr>';
 				}	
 			}
 		}		
-		if (str_contains($data[$pd]['registry']['properties']['statuses_raw'], 'redemption period'))	{
+		if (str_contains($data[$pd]['registry']['properties']['statuses'], 'redemption period'))	{
 			if (empty($data[$pd]['registry']['properties']['expiration_at']) and empty($data[$pd]['registry']['properties']['deletion_at'])) {
 				$html_text .= '<tr id="3019" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"redemption" without date-time provided</td><td></td><td></td></tr>';
 			}	
 		}
-		elseif (str_contains($data[$pd]['registry']['properties']['statuses_raw'], 'pending delete'))	{
+		elseif (str_contains($data[$pd]['registry']['properties']['statuses'], 'pending delete'))	{
 			if (empty($data[$pd]['registry']['properties']['expiration_at']) and empty($data[$pd]['registry']['properties']['deletion_at'])) {
 				$html_text .= '<tr id="3020" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"pending delete" without date-time provided</td><td></td><td></td></tr>';
 			}	
@@ -785,7 +785,7 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	}	
 	$html_text .= '<tr id="3023" style="display:none"><td>properties_extensions</td><td>'.$data[$pd]['registry']['properties']['extensions'].'</td><td id="properties_extensions"></td><td>'.$data[$pd]['registrar']['properties']['extensions'].'</td></tr>';
 	$html_text .= '<tr id="3024" style="display:none"><td>properties_remarks</td><td>'.$data[$pd]['registry']['properties']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['properties']['remarks'].'</td></tr>';
-	if (!empty($data[$pd]['registry']['properties']['statuses_raw']))	{
+	if (!empty($data[$pd]['registry']['properties']['statuses']))	{
 		$sponsor_applicable = (!empty($data[$pd]['registry']['sponsor']['organization_name']) or !empty($data[$pd]['registry']['sponsor']['presented_name'])) ? '(sponsor data exists)' : '(no sponsor data)';
 	}
 	else	{
@@ -808,16 +808,15 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="3914" style="display:none"><td>sponsor_state_or_province</td><td>'.$data[$pd]['registry']['sponsor']['state_or_province'].'</td><td></td><td>'.$data[$pd]['registrar']['sponsor']['state_or_province'].'</td></tr>';
 	$html_text .= '<tr id="3915" style="display:none"><td>sponsor_postal_code</td><td>'.$data[$pd]['registry']['sponsor']['postal_code'].'</td><td></td><td>'.$data[$pd]['registrar']['sponsor']['country_name'].'</td></tr>';
 	$html_text .= '<tr id="3916" style="display:none"><td>sponsor_country_name'.if_filled($data[$pd]['registry']['sponsor']['country_name']).'</td><td>'.$data[$pd]['registry']['sponsor']['country_name'].'</td><td></td><td>'.$data[$pd]['registrar']['sponsor']['country_name'].'</td></tr>';
-	$html_text .= '<tr id="3917" style="display:none"><td>sponsor_preferred_language_code_1</td><td>'.$data[$pd]['registry']['sponsor']['preferred_language_code_1'].'</td><td></td><td>'.$data[$pd]['registrar']['sponsor']['preferred_language_code_1'].'</td></tr>';
-	$html_text .= '<tr id="3918" style="display:none"><td>sponsor_preferred_language_code_2</td><td>'.$data[$pd]['registry']['sponsor']['preferred_language_code_2'].'</td><td></td><td>'.$data[$pd]['registrar']['sponsor']['preferred_language_code_2'].'</td></tr>';
-	$html_text .= '<tr id="3919" style="display:none"><td>sponsor_statuses_raw</td><td>'.$data[$pd]['registry']['sponsor']['statuses_raw'].'</td><td></td><td>'.$data[$pd]['registrar']['sponsor']['statuses_raw'].'</td></tr>';
-	$html_text .= '<tr id="3920" style="display:none"><td>sponsor_created_at</td><td>'.$data[$pd]['registry']['sponsor']['created_at'].'</td><td></td><td>'.$data[$pd]['registrar']['sponsor']['created_at'].'</td></tr>';
-	$html_text .= '<tr id="3921" style="display:none"><td>sponsor_latest_data_mutation_at</td><td>'.$data[$pd]['registry']['sponsor']['latest_data_mutation_at'].'</td><td></td><td>'.$data[$pd]['registrar']['sponsor']['latest_data_mutation_at'].'</td></tr>';
-	$html_text .= '<tr id="3922" style="display:none"><td>sponsor_verification_received_at</td><td>'.$data[$pd]['registry']['sponsor']['verification_received_at'].'</td><td id="sponsor_verification_received_at"></td><td>'.$data[$pd]['registrar']['sponsor']['verification_received_at'].'</td></tr>';
-	$html_text .= '<tr id="3923" style="display:none"><td>sponsor_verification_set_at</td><td>'.$data[$pd]['registry']['sponsor']['verification_set_at'].'</td><td id="sponsor_verification_set_at"></td><td>'.$data[$pd]['registrar']['sponsor']['verification_set_at'].'</td></tr>';
-	$html_text .= '<tr id="3924" style="display:none"><td>sponsor_properties</td><td>'.$data[$pd]['registry']['sponsor']['properties'].'</td><td></td><td>'.$data[$pd]['registrar']['sponsor']['properties'].'</td></tr>';
-	$html_text .= '<tr id="3925" style="display:none"><td>sponsor_remarks</td><td>'.$data[$pd]['registry']['sponsor']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['sponsor']['remarks'].'</td></tr>';
-	$html_text .= '<tr id="3926" style="display:none"><td>sponsor_links (RDAPv1)</td><td colspan="2">'.$data[$pd]['registry']['sponsor']['links'].'</td><td>'.$data[$pd]['registrar']['sponsor']['links'].'</td></tr>';	
+	$html_text .= '<tr id="3917" style="display:none"><td>sponsor_preferred_language_codes</td><td>'.$data[$pd]['registry']['sponsor']['preferred_language_codes'].'</td><td></td><td>'.$data[$pd]['registrar']['sponsor']['preferred_language_codes'].'</td></tr>';
+	$html_text .= '<tr id="3918" style="display:none"><td>sponsor_statuses</td><td>'.$data[$pd]['registry']['sponsor']['statuses'].'</td><td></td><td>'.$data[$pd]['registrar']['sponsor']['statuses'].'</td></tr>';
+	$html_text .= '<tr id="3919" style="display:none"><td>sponsor_created_at</td><td>'.$data[$pd]['registry']['sponsor']['created_at'].'</td><td></td><td>'.$data[$pd]['registrar']['sponsor']['created_at'].'</td></tr>';
+	$html_text .= '<tr id="3920" style="display:none"><td>sponsor_latest_data_mutation_at</td><td>'.$data[$pd]['registry']['sponsor']['latest_data_mutation_at'].'</td><td></td><td>'.$data[$pd]['registrar']['sponsor']['latest_data_mutation_at'].'</td></tr>';
+	$html_text .= '<tr id="3921" style="display:none"><td>sponsor_verification_received_at</td><td>'.$data[$pd]['registry']['sponsor']['verification_received_at'].'</td><td id="sponsor_verification_received_at"></td><td>'.$data[$pd]['registrar']['sponsor']['verification_received_at'].'</td></tr>';
+	$html_text .= '<tr id="3922" style="display:none"><td>sponsor_verification_set_at</td><td>'.$data[$pd]['registry']['sponsor']['verification_set_at'].'</td><td id="sponsor_verification_set_at"></td><td>'.$data[$pd]['registrar']['sponsor']['verification_set_at'].'</td></tr>';
+	$html_text .= '<tr id="3923" style="display:none"><td>sponsor_properties</td><td>'.$data[$pd]['registry']['sponsor']['properties'].'</td><td></td><td>'.$data[$pd]['registrar']['sponsor']['properties'].'</td></tr>';
+	$html_text .= '<tr id="3924" style="display:none"><td>sponsor_remarks</td><td>'.$data[$pd]['registry']['sponsor']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['sponsor']['remarks'].'</td></tr>';
+	$html_text .= '<tr id="3925" style="display:none"><td>sponsor_links (RDAPv1)</td><td colspan="2">'.$data[$pd]['registry']['sponsor']['links'].'</td><td>'.$data[$pd]['registrar']['sponsor']['links'].'</td></tr>';	
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(40)">Registrant +/-</button></td><td></td><td id="registrant_part"></td><td></td></tr>';
 	$html_text .= '<tr id="401" style="display:none"><td>registrant_server_handle</td><td>'.$data[$pd]['registry']['registrant']['server_handle'].'</td><td id="registrant_server_handle"></td><td>'.$data[$pd]['registrar']['registrant']['server_handle'].'</td></tr>';
 	$html_text .= '<tr id="402" style="display:none"><td>registrant_client_handle</td><td>'.$data[$pd]['registry']['registrant']['client_handle'].'</td><td id="registrant_client_handle"></td><td>'.$data[$pd]['registrar']['registrant']['client_handle'].'</td></tr>';
@@ -836,16 +835,15 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="4010" style="display:none"><td>registrant_state_or_province</td><td>'.$data[$pd]['registry']['registrant']['state_or_province'].'</td><td></td><td>'.$data[$pd]['registrar']['registrant']['state_or_province'].'</td></tr>';
 	$html_text .= '<tr id="4011" style="display:none"><td>registrant_postal_code</td><td>'.$data[$pd]['registry']['registrant']['postal_code'].'</td><td id="registrant_postal_code"></td><td>'.$data[$pd]['registrar']['registrant']['postal_code'].'</td></tr>';
 	$html_text .= '<tr id="4012" style="display:none"><td>registrant_country_name'.if_filled($data[$pd]['registry']['registrant']['country_name']).'</td><td>'.$data[$pd]['registry']['registrant']['country_name'].'</td><td id="registrant_country_name"></td><td>'.$data[$pd]['registrar']['registrant']['country_name'].'</td></tr>';
-	$html_text .= '<tr id="4013" style="display:none"><td>registrant_preferred_language_code_1</td><td>'.$data[$pd]['registry']['registrant']['preferred_language_code_1'].'</td><td></td><td>'.$data[$pd]['registrar']['registrant']['preferred_language_code_1'].'</td></tr>';
-	$html_text .= '<tr id="4014" style="display:none"><td>registrant_preferred_language_code_2</td><td>'.$data[$pd]['registry']['registrant']['preferred_language_code_2'].'</td><td></td><td>'.$data[$pd]['registrar']['registrant']['preferred_language_code_2'].'</td></tr>';
-	$html_text .= '<tr id="4015" style="display:none"><td>registrant_statuses_raw</td><td>'.$data[$pd]['registry']['registrant']['statuses_raw'].'</td><td></td><td>'.$data[$pd]['registrar']['registrant']['statuses_raw'].'</td></tr>';
-	$html_text .= '<tr id="4016" style="display:none"><td>registrant_created_at</td><td>'.$data[$pd]['registry']['registrant']['created_at'].'</td><td></td><td>'.$data[$pd]['registrar']['registrant']['created_at'].'</td></tr>';
-	$html_text .= '<tr id="4017" style="display:none"><td>registrant_latest_data_mutation_at</td><td>'.$data[$pd]['registry']['registrant']['latest_data_mutation_at'].'</td><td></td><td>'.$data[$pd]['registrar']['registrant']['latest_data_mutation_at'].'</td></tr>';
-	$html_text .= '<tr id="4018" style="display:none"><td>registrant_verification_received_at</td><td>'.$data[$pd]['registry']['registrant']['verification_received_at'].'</td><td id="registrant_verification_received_at"></td><td>'.$data[$pd]['registrar']['registrant']['verification_received_at'].'</td></tr>';
-	$html_text .= '<tr id="4019" style="display:none"><td>registrant_verification_set_at</td><td>'.$data[$pd]['registry']['registrant']['verification_set_at'].'</td><td id="registrant_verification_set_at"></td><td>'.$data[$pd]['registrar']['registrant']['verification_set_at'].'</td></tr>';
-	$html_text .= '<tr id="4020" style="display:none"><td>registrant_properties</td><td>'.$data[$pd]['registry']['registrant']['properties'].'</td><td></td><td>'.$data[$pd]['registrar']['registrant']['properties'].'</td></tr>';
-	$html_text .= '<tr id="4021" style="display:none"><td>registrant_remarks</td><td>'.$data[$pd]['registry']['registrant']['remarks'].'</td><td id="registrant_remarks"></td><td>'.$data[$pd]['registrar']['registrant']['remarks'].'</td></tr>';
-	$html_text .= '<tr id="4022" style="display:none"><td>registrant_links (RDAPv1)</td><td colspan="2">'.$data[$pd]['registry']['registrant']['links'].'</td><td>'.$data[$pd]['registrar']['registrant']['links'].'</td></tr>';
+	$html_text .= '<tr id="4013" style="display:none"><td>registrant_preferred_language_codes</td><td>'.$data[$pd]['registry']['registrant']['preferred_language_codes'].'</td><td></td><td>'.$data[$pd]['registrar']['registrant']['preferred_language_codes'].'</td></tr>';
+	$html_text .= '<tr id="4014" style="display:none"><td>registrant_statuses</td><td>'.$data[$pd]['registry']['registrant']['statuses'].'</td><td></td><td>'.$data[$pd]['registrar']['registrant']['statuses'].'</td></tr>';
+	$html_text .= '<tr id="4015" style="display:none"><td>registrant_created_at</td><td>'.$data[$pd]['registry']['registrant']['created_at'].'</td><td></td><td>'.$data[$pd]['registrar']['registrant']['created_at'].'</td></tr>';
+	$html_text .= '<tr id="4016" style="display:none"><td>registrant_latest_data_mutation_at</td><td>'.$data[$pd]['registry']['registrant']['latest_data_mutation_at'].'</td><td></td><td>'.$data[$pd]['registrar']['registrant']['latest_data_mutation_at'].'</td></tr>';
+	$html_text .= '<tr id="4017" style="display:none"><td>registrant_verification_received_at</td><td>'.$data[$pd]['registry']['registrant']['verification_received_at'].'</td><td id="registrant_verification_received_at"></td><td>'.$data[$pd]['registrar']['registrant']['verification_received_at'].'</td></tr>';
+	$html_text .= '<tr id="4018" style="display:none"><td>registrant_verification_set_at</td><td>'.$data[$pd]['registry']['registrant']['verification_set_at'].'</td><td id="registrant_verification_set_at"></td><td>'.$data[$pd]['registrar']['registrant']['verification_set_at'].'</td></tr>';
+	$html_text .= '<tr id="4019" style="display:none"><td>registrant_properties</td><td>'.$data[$pd]['registry']['registrant']['properties'].'</td><td></td><td>'.$data[$pd]['registrar']['registrant']['properties'].'</td></tr>';
+	$html_text .= '<tr id="4020" style="display:none"><td>registrant_remarks</td><td>'.$data[$pd]['registry']['registrant']['remarks'].'</td><td id="registrant_remarks"></td><td>'.$data[$pd]['registrar']['registrant']['remarks'].'</td></tr>';
+	$html_text .= '<tr id="4021" style="display:none"><td>registrant_links (RDAPv1)</td><td colspan="2">'.$data[$pd]['registry']['registrant']['links'].'</td><td>'.$data[$pd]['registrar']['registrant']['links'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(41)">Administrative (Decision) +/-</button></td><td></td><td id="administrative_part"></td><td></td></tr>';
 	$html_text .= '<tr id="411" style="display:none"><td>administrative_server_handle</td><td>'.$data[$pd]['registry']['administrative']['server_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['administrative']['server_handle'].'</td></tr>';
 	$html_text .= '<tr id="412" style="display:none"><td>administrative_client_handle</td><td>'.$data[$pd]['registry']['administrative']['client_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['administrative']['client_handle'].'</td></tr>';
@@ -864,11 +862,10 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="4113" style="display:none"><td>administrative_state_or_province</td><td>'.$data[$pd]['registry']['administrative']['state_or_province'].'</td><td></td><td>'.$data[$pd]['registrar']['administrative']['state_or_province'].'</td></tr>';
 	$html_text .= '<tr id="4114" style="display:none"><td>administrative_postal_code</td><td>'.$data[$pd]['registry']['administrative']['postal_code'].'</td><td></td><td>'.$data[$pd]['registrar']['administrative']['postal_code'].'</td></tr>';
 	$html_text .= '<tr id="4115" style="display:none"><td>administrative_country_name'.if_filled($data[$pd]['registry']['administrative']['country_name']).'</td><td>'.$data[$pd]['registry']['administrative']['country_name'].'</td><td></td><td>'.$data[$pd]['registrar']['administrative']['country_name'].'</td></tr>';
-	$html_text .= '<tr id="4116" style="display:none"><td>administrative_preferred_language_code_1</td><td>'.$data[$pd]['registry']['administrative']['preferred_language_code_1'].'</td><td></td><td>'.$data[$pd]['registrar']['administrative']['preferred_language_code_1'].'</td></tr>';
-	$html_text .= '<tr id="4117" style="display:none"><td>administrative_preferred_language_code_2</td><td>'.$data[$pd]['registry']['administrative']['preferred_language_code_2'].'</td><td></td><td>'.$data[$pd]['registrar']['administrative']['preferred_language_code_2'].'</td></tr>';
-	$html_text .= '<tr id="4118" style="display:none"><td>administrative_properties</td><td>'.$data[$pd]['registry']['administrative']['properties'].'</td><td></td><td>'.$data[$pd]['registrar']['administrative']['properties'].'</td></tr>';
-	$html_text .= '<tr id="4119" style="display:none"><td>administrative_remarks</td><td>'.$data[$pd]['registry']['administrative']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['administrative']['remarks'].'</td></tr>';
-	$html_text .= '<tr id="4120" style="display:none"><td>administrative_links (RDAPv1)</td><td colspan="2">'.$data[$pd]['registry']['administrative']['links'].'</td><td>'.$data[$pd]['registrar']['administrative']['links'].'</td></tr>';
+	$html_text .= '<tr id="4116" style="display:none"><td>administrative_preferred_language_codes</td><td>'.$data[$pd]['registry']['administrative']['preferred_language_codes'].'</td><td></td><td>'.$data[$pd]['registrar']['administrative']['preferred_language_codes'].'</td></tr>';
+	$html_text .= '<tr id="4117" style="display:none"><td>administrative_properties</td><td>'.$data[$pd]['registry']['administrative']['properties'].'</td><td></td><td>'.$data[$pd]['registrar']['administrative']['properties'].'</td></tr>';
+	$html_text .= '<tr id="4118" style="display:none"><td>administrative_remarks</td><td>'.$data[$pd]['registry']['administrative']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['administrative']['remarks'].'</td></tr>';
+	$html_text .= '<tr id="4119" style="display:none"><td>administrative_links (RDAPv1)</td><td colspan="2">'.$data[$pd]['registry']['administrative']['links'].'</td><td>'.$data[$pd]['registrar']['administrative']['links'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Technical (Onsite) +/-</button></td><td></td><td id="technical_part"></td><td></td></tr>';
 	$html_text .= '<tr id="421" style="display:none"><td>technical_server_handle</td><td>'.$data[$pd]['registry']['technical']['server_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['server_handle'].'</td></tr>';
 	$html_text .= '<tr id="422" style="display:none"><td>technical_client_handle</td><td>'.$data[$pd]['registry']['technical']['client_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['client_handle'].'</td></tr>';
@@ -887,11 +884,10 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="4213" style="display:none"><td>technical_state_or_province</td><td>'.$data[$pd]['registry']['technical']['state_or_province'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['state_or_province'].'</td></tr>';
 	$html_text .= '<tr id="4214" style="display:none"><td>technical_postal_code</td><td>'.$data[$pd]['registry']['technical']['postal_code'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['postal_code'].'</td></tr>';
 	$html_text .= '<tr id="4215" style="display:none"><td>technical_country_name'.if_filled($data[$pd]['registry']['technical']['country_name']).'</td><td>'.$data[$pd]['registry']['technical']['country_name'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['country_name'].'</td></tr>';
-	$html_text .= '<tr id="4216" style="display:none"><td>technical_preferred_language_code_1</td><td>'.$data[$pd]['registry']['technical']['preferred_language_code_1'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['preferred_language_code_1'].'</td></tr>';
-	$html_text .= '<tr id="4217" style="display:none"><td>technical_preferred_language_code_2</td><td>'.$data[$pd]['registry']['technical']['preferred_language_code_2'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['preferred_language_code_2'].'</td></tr>';
-	$html_text .= '<tr id="4218" style="display:none"><td>technical_properties</td><td>'.$data[$pd]['registry']['technical']['properties'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['properties'].'</td></tr>';
-	$html_text .= '<tr id="4219" style="display:none"><td>technical_remarks</td><td>'.$data[$pd]['registry']['technical']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['remarks'].'</td></tr>';
-	$html_text .= '<tr id="4220" style="display:none"><td>technical_links (RDAPv1)</td><td colspan="2">'.$data[$pd]['registry']['technical']['links'].'</td><td>'.$data[$pd]['registrar']['technical']['links'].'</td></tr>';
+	$html_text .= '<tr id="4216" style="display:none"><td>technical_preferred_language_codes</td><td>'.$data[$pd]['registry']['technical']['preferred_language_codes'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['preferred_language_codes'].'</td></tr>';
+	$html_text .= '<tr id="4217" style="display:none"><td>technical_properties</td><td>'.$data[$pd]['registry']['technical']['properties'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['properties'].'</td></tr>';
+	$html_text .= '<tr id="4218" style="display:none"><td>technical_remarks</td><td>'.$data[$pd]['registry']['technical']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['remarks'].'</td></tr>';
+	$html_text .= '<tr id="4219" style="display:none"><td>technical_links (RDAPv1)</td><td colspan="2">'.$data[$pd]['registry']['technical']['links'].'</td><td>'.$data[$pd]['registrar']['technical']['links'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(43)">Billing +/-</button></td><td></td><td id="billing_part"></td><td></td></tr>';
 	$html_text .= '<tr id="431" style="display:none"><td>billing_server_handle</td><td>'.$data[$pd]['registry']['billing']['server_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['billing']['server_handle'].'</td></tr>';
 	$html_text .= '<tr id="432" style="display:none"><td>billing_client_handle</td><td>'.$data[$pd]['registry']['billing']['client_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['billing']['client_handle'].'</td></tr>';
@@ -910,11 +906,10 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="4315" style="display:none"><td>billing_state_or_province</td><td>'.$data[$pd]['registry']['billing']['state_or_province'].'</td><td></td><td>'.$data[$pd]['registrar']['billing']['state_or_province'].'</td></tr>';
 	$html_text .= '<tr id="4316" style="display:none"><td>billing_postal_code</td><td>'.$data[$pd]['registry']['billing']['postal_code'].'</td><td></td><td>'.$data[$pd]['registrar']['billing']['postal_code'].'</td></tr>';
 	$html_text .= '<tr id="4317" style="display:none"><td>billing_country_name'.if_filled($data[$pd]['registry']['billing']['country_name']).'</td><td>'.$data[$pd]['registry']['billing']['country_name'].'</td><td></td><td>'.$data[$pd]['registrar']['billing']['country_name'].'</td></tr>';
-	$html_text .= '<tr id="4318" style="display:none"><td>billing_preferred_language_code_1</td><td>'.$data[$pd]['registry']['billing']['preferred_language_code_1'].'</td><td></td><td>'.$data[$pd]['registrar']['billing']['preferred_language_code_1'].'</td></tr>';
-	$html_text .= '<tr id="4319" style="display:none"><td>billing_preferred_language_code_2</td><td>'.$data[$pd]['registry']['billing']['preferred_language_code_2'].'</td><td></td><td>'.$data[$pd]['registrar']['billing']['preferred_language_code_2'].'</td></tr>';
-	$html_text .= '<tr id="4320" style="display:none"><td>billing_properties</td><td>'.$data[$pd]['registry']['billing']['properties'].'</td><td></td><td>'.$data[$pd]['registrar']['billing']['properties'].'</td></tr>';	
-	$html_text .= '<tr id="4321" style="display:none"><td>billing_remarks</td><td>'.$data[$pd]['registry']['billing']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['billing']['remarks'].'</td></tr>';
-	$html_text .= '<tr id="4322" style="display:none"><td>billing_links (RDAPv1)</td><td colspan="2">'.$data[$pd]['registry']['billing']['links'].'</td><td>'.$data[$pd]['registrar']['billing']['links'].'</td></tr>';
+	$html_text .= '<tr id="4318" style="display:none"><td>billing_preferred_language_codes</td><td>'.$data[$pd]['registry']['billing']['preferred_language_codes'].'</td><td></td><td>'.$data[$pd]['registrar']['billing']['preferred_language_codes'].'</td></tr>';
+	$html_text .= '<tr id="4319" style="display:none"><td>billing_properties</td><td>'.$data[$pd]['registry']['billing']['properties'].'</td><td></td><td>'.$data[$pd]['registrar']['billing']['properties'].'</td></tr>';	
+	$html_text .= '<tr id="4320" style="display:none"><td>billing_remarks</td><td>'.$data[$pd]['registry']['billing']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['billing']['remarks'].'</td></tr>';
+	$html_text .= '<tr id="4321" style="display:none"><td>billing_links (RDAPv1)</td><td colspan="2">'.$data[$pd]['registry']['billing']['links'].'</td><td>'.$data[$pd]['registrar']['billing']['links'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Emergency +/-</button></td><td></td><td id="emergency_part"></td><td></td></tr>';
 	$html_text .= '<tr id="441" style="display:none"><td>emergency_server_handle</td><td>'.$data[$pd]['registry']['emergency']['server_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['emergency']['server_handle'].'</td></tr>';
 	$html_text .= '<tr id="442" style="display:none"><td>emergency_client_handle</td><td>'.$data[$pd]['registry']['emergency']['client_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['emergency']['client_handle'].'</td></tr>';
@@ -933,10 +928,9 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="4415" style="display:none"><td>emergency_state_or_province</td><td>'.$data[$pd]['registry']['emergency']['state_or_province'].'</td><td></td><td>'.$data[$pd]['registrar']['emergency']['state_or_province'].'</td></tr>';
 	$html_text .= '<tr id="4416" style="display:none"><td>emergency_postal_code</td><td>'.$data[$pd]['registry']['emergency']['postal_code'].'</td><td></td><td>'.$data[$pd]['registrar']['emergency']['postal_code'].'</td></tr>';
 	$html_text .= '<tr id="4417" style="display:none"><td>emergency_country_name'.if_filled($data[$pd]['registry']['emergency']['country_name']).'</td><td>'.$data[$pd]['registry']['emergency']['country_name'].'</td><td></td><td>'.$data[$pd]['registrar']['emergency']['country_name'].'</td></tr>';
-	$html_text .= '<tr id="4418" style="display:none"><td>emergency_preferred_language_code_1</td><td>'.$data[$pd]['registry']['emergency']['preferred_language_code_1'].'</td><td></td><td>'.$data[$pd]['registrar']['emergency']['preferred_language_code_1'].'</td></tr>';
-	$html_text .= '<tr id="4419" style="display:none"><td>emergency_preferred_language_code_2</td><td>'.$data[$pd]['registry']['emergency']['preferred_language_code_2'].'</td><td></td><td>'.$data[$pd]['registrar']['emergency']['preferred_language_code_2'].'</td></tr>';
-	$html_text .= '<tr id="4420" style="display:none"><td>emergency_properties</td><td>'.$data[$pd]['registry']['emergency']['properties'].'</td><td></td><td>'.$data[$pd]['registrar']['emergency']['properties'].'</td></tr>';
-	$html_text .= '<tr id="4421" style="display:none"><td>emergency_remarks</td><td>'.$data[$pd]['registry']['emergency']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['emergency']['remarks'].'</td></tr>';
+	$html_text .= '<tr id="4418" style="display:none"><td>emergency_preferred_language_codes</td><td>'.$data[$pd]['registry']['emergency']['preferred_language_codes'].'</td><td></td><td>'.$data[$pd]['registrar']['emergency']['preferred_language_codes'].'</td></tr>';
+	$html_text .= '<tr id="4419" style="display:none"><td>emergency_properties</td><td>'.$data[$pd]['registry']['emergency']['properties'].'</td><td></td><td>'.$data[$pd]['registrar']['emergency']['properties'].'</td></tr>';
+	$html_text .= '<tr id="4420" style="display:none"><td>emergency_remarks</td><td>'.$data[$pd]['registry']['emergency']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['emergency']['remarks'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(45)">Fallback +/-</button></td><td></td><td id="fallback_part"></td><td></td></tr>';
 	$html_text .= '<tr id="451" style="display:none"><td>fallback_server_handle</td><td>'.$data[$pd]['registry']['fallback']['server_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['fallback']['server_handle'].'</td></tr>';
 	$html_text .= '<tr id="452" style="display:none"><td>fallback_client_handle</td><td>'.$data[$pd]['registry']['fallback']['client_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['fallback']['client_handle'].'</td></tr>';
@@ -967,16 +961,15 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="5013" style="display:none"><td>reseller_state_or_province</td><td>'.$data[$pd]['registry']['reseller']['state_or_province'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['state_or_province'].'</td></tr>';
 	$html_text .= '<tr id="5014" style="display:none"><td>reseller_postal_code</td><td>'.$data[$pd]['registry']['reseller']['postal_code'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['postal_code'].'</td></tr>';
 	$html_text .= '<tr id="5015" style="display:none"><td>reseller_country_name'.if_filled($data[$pd]['registry']['reseller']['country_name']).'</td><td>'.$data[$pd]['registry']['reseller']['country_name'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['country_name'].'</td></tr>';
-	$html_text .= '<tr id="5016" style="display:none"><td>reseller_preferred_language_code_1</td><td>'.$data[$pd]['registry']['reseller']['preferred_language_code_1'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['preferred_language_code_1'].'</td></tr>';
-	$html_text .= '<tr id="5017" style="display:none"><td>reseller_preferred_language_code_2</td><td>'.$data[$pd]['registry']['reseller']['preferred_language_code_2'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['preferred_language_code_2'].'</td></tr>';
-	$html_text .= '<tr id="5018" style="display:none"><td>reseller_statuses_raw</td><td>'.$data[$pd]['registry']['reseller']['statuses_raw'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['statuses_raw'].'</td></tr>';
-	$html_text .= '<tr id="5019" style="display:none"><td>reseller_created_at</td><td>'.$data[$pd]['registry']['reseller']['created_at'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['created_at'].'</td></tr>';
-	$html_text .= '<tr id="5020" style="display:none"><td>reseller_latest_data_mutation_at</td><td>'.$data[$pd]['registry']['reseller']['latest_data_mutation_at'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['latest_data_mutation_at'].'</td></tr>';
-	$html_text .= '<tr id="5021" style="display:none"><td>reseller_verification_received_at</td><td>'.$data[$pd]['registry']['reseller']['verification_received_at'].'</td><td id="reseller_verification_received_at"></td><td>'.$data[$pd]['registrar']['reseller']['verification_received_at'].'</td></tr>';
-	$html_text .= '<tr id="5022" style="display:none"><td>reseller_verification_set_at</td><td>'.$data[$pd]['registry']['reseller']['verification_set_at'].'</td><td id="reseller_verification_set_at"></td><td>'.$data[$pd]['registrar']['reseller']['verification_set_at'].'</td></tr>';
-	$html_text .= '<tr id="5023" style="display:none"><td>reseller_properties</td><td>'.$data[$pd]['registry']['reseller']['properties'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['properties'].'</td></tr>';
-	$html_text .= '<tr id="5024" style="display:none"><td>reseller_remarks</td><td>'.$data[$pd]['registry']['reseller']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['remarks'].'</td></tr>';
-	$html_text .= '<tr id="5025" style="display:none"><td>reseller_links (RDAPv1)</td><td colspan="2">'.$data[$pd]['registry']['reseller']['links'].'</td><td>'.$data[$pd]['registrar']['reseller']['links'].'</td></tr>';
+	$html_text .= '<tr id="5016" style="display:none"><td>reseller_preferred_language_codes</td><td>'.$data[$pd]['registry']['reseller']['preferred_language_codes'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['preferred_language_codes'].'</td></tr>';
+	$html_text .= '<tr id="5017" style="display:none"><td>reseller_statuses</td><td>'.$data[$pd]['registry']['reseller']['statuses'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['statuses'].'</td></tr>';
+	$html_text .= '<tr id="5018" style="display:none"><td>reseller_created_at</td><td>'.$data[$pd]['registry']['reseller']['created_at'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['created_at'].'</td></tr>';
+	$html_text .= '<tr id="5019" style="display:none"><td>reseller_latest_data_mutation_at</td><td>'.$data[$pd]['registry']['reseller']['latest_data_mutation_at'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['latest_data_mutation_at'].'</td></tr>';
+	$html_text .= '<tr id="5020" style="display:none"><td>reseller_verification_received_at</td><td>'.$data[$pd]['registry']['reseller']['verification_received_at'].'</td><td id="reseller_verification_received_at"></td><td>'.$data[$pd]['registrar']['reseller']['verification_received_at'].'</td></tr>';
+	$html_text .= '<tr id="5021" style="display:none"><td>reseller_verification_set_at</td><td>'.$data[$pd]['registry']['reseller']['verification_set_at'].'</td><td id="reseller_verification_set_at"></td><td>'.$data[$pd]['registrar']['reseller']['verification_set_at'].'</td></tr>';
+	$html_text .= '<tr id="5022" style="display:none"><td>reseller_properties</td><td>'.$data[$pd]['registry']['reseller']['properties'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['properties'].'</td></tr>';
+	$html_text .= '<tr id="5023" style="display:none"><td>reseller_remarks</td><td>'.$data[$pd]['registry']['reseller']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['remarks'].'</td></tr>';
+	$html_text .= '<tr id="5024" style="display:none"><td>reseller_links (RDAPv1)</td><td colspan="2">'.$data[$pd]['registry']['reseller']['links'].'</td><td>'.$data[$pd]['registrar']['reseller']['links'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(60)">Registrar +/-</button></td><td></td><td id="registrar_part"></td><td></td></tr>';
 	$html_text .= '<tr id="601" style="display:none"><td>registrar_server_handle</td><td>'.$data[$pd]['registry']['registrar']['server_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['server_handle'].'</td></tr>';
 	$html_text .= '<tr id="602" style="display:none"><td>registrar_client_handle</td><td>'.$data[$pd]['registry']['registrar']['client_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['client_handle'].'</td></tr>';
@@ -995,16 +988,15 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="6013" style="display:none"><td>registrar_state_or_province</td><td>'.$data[$pd]['registry']['registrar']['state_or_province'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['state_or_province'].'</td></tr>';
 	$html_text .= '<tr id="6014" style="display:none"><td>registrar_postal_code</td><td>'.$data[$pd]['registry']['registrar']['postal_code'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['postal_code'].'</td></tr>';
 	$html_text .= '<tr id="6015" style="display:none"><td>registrar_country_name'.if_filled($data[$pd]['registry']['registrar']['country_name']).'</td><td>'.$data[$pd]['registry']['registrar']['country_name'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['country_name'].'</td></tr>';
-	$html_text .= '<tr id="6016" style="display:none"><td>registrar_preferred_language_code_1</td><td>'.$data[$pd]['registry']['registrar']['preferred_language_code_1'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['preferred_language_code_1'].'</td></tr>';
-	$html_text .= '<tr id="6017" style="display:none"><td>registrar_preferred_language_code_2</td><td>'.$data[$pd]['registry']['registrar']['preferred_language_code_2'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['preferred_language_code_2'].'</td></tr>';
-	$html_text .= '<tr id="6018" style="display:none"><td>registrar_statuses_raw</td><td>'.$data[$pd]['registry']['registrar']['statuses_raw'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['statuses_raw'].'</td></tr>';
-	$html_text .= '<tr id="6019" style="display:none"><td>registrar_created_at</td><td>'.$data[$pd]['registry']['registrar']['created_at'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['created_at'].'</td></tr>';
-	$html_text .= '<tr id="6020" style="display:none"><td>registrar_latest_data_mutation_at</td><td>'.$data[$pd]['registry']['registrar']['latest_data_mutation_at'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['latest_data_mutation_at'].'</td></tr>';
-	$html_text .= '<tr id="6021" style="display:none"><td>registrar_verification_received_at</td><td>'.$data[$pd]['registry']['registrar']['verification_received_at'].'</td><td id="registrar_verification_received_at"></td><td>'.$data[$pd]['registrar']['registrar']['verification_received_at'].'</td></tr>';
-	$html_text .= '<tr id="6022" style="display:none"><td>registrar_verification_set_at</td><td>'.$data[$pd]['registry']['registrar']['verification_set_at'].'</td><td id="registrar_verification_set_at"></td><td>'.$data[$pd]['registrar']['registrar']['verification_set_at'].'</td></tr>';
-	$html_text .= '<tr id="6023" style="display:none"><td>registrar_properties</td><td>'.$data[$pd]['registry']['registrar']['properties'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['properties'].'</td></tr>';
-	$html_text .= '<tr id="6024" style="display:none"><td>registrar_remarks</td><td>'.$data[$pd]['registry']['registrar']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['remarks'].'</td></tr>';
-	$html_text .= '<tr id="6025" style="display:none"><td>registrar_links (RDAPv1)</td><td colspan="2">'.$data[$pd]['registry']['registrar']['links'].'</td><td>'.$data[$pd]['registrar']['registrar']['links'].'</td></tr>';
+	$html_text .= '<tr id="6016" style="display:none"><td>registrar_preferred_language_codes</td><td>'.$data[$pd]['registry']['registrar']['preferred_language_codes'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['preferred_language_codes'].'</td></tr>';
+	$html_text .= '<tr id="6017" style="display:none"><td>registrar_statuses</td><td>'.$data[$pd]['registry']['registrar']['statuses'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['statuses'].'</td></tr>';
+	$html_text .= '<tr id="6018" style="display:none"><td>registrar_created_at</td><td>'.$data[$pd]['registry']['registrar']['created_at'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['created_at'].'</td></tr>';
+	$html_text .= '<tr id="6019" style="display:none"><td>registrar_latest_data_mutation_at</td><td>'.$data[$pd]['registry']['registrar']['latest_data_mutation_at'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['latest_data_mutation_at'].'</td></tr>';
+	$html_text .= '<tr id="6020" style="display:none"><td>registrar_verification_received_at</td><td>'.$data[$pd]['registry']['registrar']['verification_received_at'].'</td><td id="registrar_verification_received_at"></td><td>'.$data[$pd]['registrar']['registrar']['verification_received_at'].'</td></tr>';
+	$html_text .= '<tr id="6021" style="display:none"><td>registrar_verification_set_at</td><td>'.$data[$pd]['registry']['registrar']['verification_set_at'].'</td><td id="registrar_verification_set_at"></td><td>'.$data[$pd]['registrar']['registrar']['verification_set_at'].'</td></tr>';
+	$html_text .= '<tr id="6022" style="display:none"><td>registrar_properties</td><td>'.$data[$pd]['registry']['registrar']['properties'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['properties'].'</td></tr>';
+	$html_text .= '<tr id="6023" style="display:none"><td>registrar_remarks</td><td>'.$data[$pd]['registry']['registrar']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['remarks'].'</td></tr>';
+	$html_text .= '<tr id="6024" style="display:none"><td>registrar_links (RDAPv1)</td><td colspan="2">'.$data[$pd]['registry']['registrar']['links'].'</td><td>'.$data[$pd]['registrar']['registrar']['links'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Registrar Abuse +/-</button></td><td></td><td id="registrar_abuse_part"></td><td></td></tr>';
 	$html_text .= '<tr id="611" style="display:none"><td>registrar_abuse_server_handle</td><td>'.$data[$pd]['registry']['registrar_abuse']['server_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar_abuse']['server_handle'].'</td></tr>';
 	$html_text .= '<tr id="612" style="display:none"><td>registrar_abuse_client_handle</td><td>'.$data[$pd]['registry']['registrar_abuse']['client_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar_abuse']['client_handle'].'</td></tr>';
@@ -1024,7 +1016,7 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	$html_text .= '<tr id="634" style="display:none"><td>unicode_names</td><td colspan="2">'.$data[$pd]['registry']['nameservers']['unicode_names'].'</td><td>'.$data[$pd]['registrar']['nameservers']['unicode_names'].'</td></tr>';
 	$html_text .= '<tr id="635" style="display:none"><td>ipv4_addresses</td><td>'.$data[$pd]['registry']['nameservers']['ipv4_addresses'].'</td><td style="vertical-align:bottom" id="nameservers_ipv4_addresses"></td><td>'.$data[$pd]['registrar']['nameservers']['ipv4_addresses'].'</td></tr>';
 	$html_text .= '<tr id="636" style="display:none"><td>ipv6_addresses</td><td>'.$data[$pd]['registry']['nameservers']['ipv6_addresses'].'</td><td id="nameservers_ipv6_addresses"></td><td>'.$data[$pd]['registrar']['nameservers']['ipv6_addresses'].'</td></tr>';
-	$html_text .= '<tr id="637" style="display:none"><td>statuses_raw</td><td>'.$data[$pd]['registry']['nameservers']['statuses_raw'].'</td><td></td><td>'.$data[$pd]['registrar']['nameservers']['statuses_raw'].'</td></tr>';
+	$html_text .= '<tr id="637" style="display:none"><td>statuses</td><td>'.$data[$pd]['registry']['nameservers']['statuses'].'</td><td></td><td>'.$data[$pd]['registrar']['nameservers']['statuses'].'</td></tr>';
 	$html_text .= '<tr id="638" style="display:none"><td>nameserver_check_result</td><td>'.$data[$pd]['registry']['nameservers']['nameserver_check_result'].'</td><td id="br_tld"></td><td>'.$data[$pd]['registrar']['nameservers']['nameserver_check_result'].'</td></tr>';
 	$html_text .= '<tr id="639" style="display:none"><td>nameserver_check_dates</td><td>'.$data[$pd]['registry']['nameservers']['nameserver_check_dates'].'</td><td></td><td>'.$data[$pd]['registrar']['nameservers']['nameserver_check_dates'].'</td></tr>';
 	$html_text .= '<tr id="6310" style="display:none"><td>last_valid_nameserver_check_dates</td><td>'.$data[$pd]['registry']['nameservers']['last_valid_nameserver_check_dates'].'</td><td></td><td>'.$data[$pd]['registrar']['nameservers']['last_valid_nameserver_check_dates'].'</td></tr>';

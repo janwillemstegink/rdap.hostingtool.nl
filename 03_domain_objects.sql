@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS domains (
     domain_client_handle TEXT,
     domain_ascii_name VARCHAR(511) NOT NULL,
     domain_unicode_name VARCHAR(511) NOT NULL,
-    domain_statuses_raw TEXT[],
+    domain_statuses TEXT[],
 	domain_policy_statuses TEXT[],
 	domain_dns_state TEXT[],
     domain_created_at TIMESTAMPTZ,
@@ -122,16 +122,14 @@ CREATE TABLE IF NOT EXISTS entities (
     entity_state_or_province TEXT,
     entity_postal_code VARCHAR(20),
     entity_country_name TEXT,
-    entity_preferred_language_code_1 VARCHAR(7),
-    entity_preferred_language_code_2 VARCHAR(7),
-    entity_statuses_raw TEXT[],
+    entity_preferred_language_codes JSONB DEFAULT '[]'::jsonb,
+    entity_statuses TEXT[],
     entity_created_at TIMESTAMPTZ,
     entity_latest_data_mutation_at TIMESTAMPTZ,
     entity_verification_received_at TIMESTAMPTZ,
     entity_verification_set_at TIMESTAMPTZ,
     entity_properties JSONB DEFAULT '[]'::jsonb,
-    entity_remarks JSONB DEFAULT '[]'::jsonb,
-    entity_json_response_uri TEXT[]
+    entity_remarks JSONB DEFAULT '[]'::jsonb
 );
 
 CREATE INDEX IF NOT EXISTS idx_entity_postal_code ON entities(entity_postal_code);
@@ -164,7 +162,7 @@ CREATE TABLE IF NOT EXISTS nameservers (
     nameserver_unicode_name TEXT,
     nameserver_ipv4_addresses inet[],
     nameserver_ipv6_addresses inet[],
-    nameserver_statuses_raw TEXT[],
+    nameserver_statuses TEXT[],
     nameserver_delegation_check TIMESTAMPTZ,
     nameserver_latest_correct_delegation_check TIMESTAMPTZ,
     nameserver_latest_data_mutation_at TIMESTAMPTZ
@@ -208,7 +206,7 @@ CREATE TABLE IF NOT EXISTS ip_networks (
     ip_network_name TEXT,
     ip_network_type VARCHAR(100),
     ip_network_country_code CHAR(2),
-    ip_network_statuses_raw TEXT[],
+    ip_network_statuses TEXT[],
     ip_network_latest_data_mutation_at TIMESTAMPTZ
 );
 
