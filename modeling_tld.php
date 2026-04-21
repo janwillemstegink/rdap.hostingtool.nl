@@ -207,7 +207,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("links_part").textContent = legacy;
 		document.getElementById("root_services_uri").textContent = proposed + "IANA beheert, voor ICANN, TLD’s en wijst IP-blokken en AS-nummers toe aan regionale registries.";
 		document.getElementById("root_tlds_uri").textContent = proposed + 'Officiële TLD-lijst, beheerd door IANA, de DNS-rootautoriteit.';
-		document.getElementById("root_root_policies_uri").textContent = proposed + "Verrijkte machineleesbare TLD- en RDAP-gegevens.";
+		document.getElementById("root_root_policies_uri").textContent = proposed;
 		document.getElementById("root_root_privacy_policy_uri").textContent = proposed;
 		document.getElementById("root_lookup_endpoints_uri").textContent = proposed + "Een API-endpoint onder /v1/ kan een nieuwere versie onder /v2/ ondersteunen — zie com.";
 		document.getElementById("root_registrar_accreditations_uri").textContent = proposed + "Officiële lijst van geaccrediteerde registrars, beheerd door IANA onder ICANN-beleid.";
@@ -225,7 +225,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_services_uri").textContent = proposed + 'Een TLD-specifiek informatiemenu, beschikbaar onder een subdomein zoals "regmenu".';
 		document.getElementById("tld_standardized_price_list_uri").textContent = proposed + "Een machineleesbare gestandaardiseerde prijslijst zou de transparantie van registry-diensten ondersteunen.";
 		document.getElementById("tld_delegation_uri").textContent = proposed + 'URI die verwijst naar het ICANN-delegatierecord voor de TLD.';
-		document.getElementById("tld_json_response_uri").textContent = proposed + "TLD-metadata, mogelijk afkomstig uit gemoderniseerde IANA-datadiensten.";
+		document.getElementById("tld_json_response_uri").textContent = proposed + "Verrijkte machineleesbare TLD- en RDAP-gegevens.";
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Beperkt gebruik. Interpretatie hangt af van TLD- en RDAP-context.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;
 		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + 'Of zoekmachines op pending delete mogen vertrouwen om resultaten te wissen.';
@@ -254,7 +254,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("links_part").textContent = legacy;		
 		document.getElementById("root_services_uri").textContent = proposed + "IANA manages, for ICANN, TLDs and allocates IP blocks and AS numbers to regional registries.";
 		document.getElementById("root_tlds_uri").textContent = proposed + 'Official TLD list maintained by IANA, the DNS root authority.';
-		document.getElementById("root_root_policies_uri").textContent = proposed + "Enriched machine-readable TLD and RDAP data.";
+		document.getElementById("root_root_policies_uri").textContent = proposed;
 		document.getElementById("root_root_privacy_policy_uri").textContent = proposed;		
 		document.getElementById("root_lookup_endpoints_uri").textContent = proposed + "An API endpoint under /v1/ may support a newer version under /v2/ — as seen on com.";
 		document.getElementById("root_registrar_accreditations_uri").textContent = proposed + "Official list of accredited registrars maintained by IANA under ICANN policy.";
@@ -272,7 +272,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_services_uri").textContent = proposed + 'A TLD specific information menu, available under a subdomain such as "regmenu".';
 		document.getElementById("tld_standardized_price_list_uri").textContent = proposed + "A machine-readable standardized price list would support registry transparency.";
 		document.getElementById("tld_delegation_uri").textContent = proposed + 'URI pointing to the ICANN delegation record for the TLD.';
-		document.getElementById("tld_json_response_uri").textContent = proposed + "TLD metadata, potentially derived from modernized IANA data services.";
+		document.getElementById("tld_json_response_uri").textContent = proposed + "Enriched machine-readable TLD and RDAP data.";
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Restricted use. Interpretation depends on TLD and RDAP context.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;		
 		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + 'If search engines may rely on pending delete to delete results.';
@@ -301,7 +301,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("links_part").textContent = legacy;		
 		document.getElementById("root_services_uri").textContent = proposed + "IANA verwaltet, für ICANN, TLDs und weist IP-Blöcke sowie AS-Nummern an regionale Registries zu.";
 		document.getElementById("root_tlds_uri").textContent = proposed + 'Offizielle TLD-liste, verwaltet von IANA, der DNS-Root-Behörde.';
-		document.getElementById("root_root_policies_uri").textContent = proposed + "Angereicherte maschinenlesbare TLD- und RDAP-Daten.";
+		document.getElementById("root_root_policies_uri").textContent = proposed;
 		document.getElementById("root_root_privacy_policy_uri").textContent = proposed;		
 		document.getElementById("root_lookup_endpoints_uri").textContent = proposed + "Ein API-Endpunkt unter /v1/ kann eine neuere Version unter /v2/ unterstützen — siehe com.";
 		document.getElementById("root_registrar_accreditations_uri").textContent = proposed + "Offizielle Liste der akkreditierten Registrar, verwaltet von IANA unter ICANN-Richtlinien.";
@@ -311,7 +311,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("root_accepted_workload").textContent = proposed + "IANA kann zukünftig Limits festlegen.";
 		document.getElementById("tld_part").textContent = "Top-Level Domain (TLD)";
 		document.getElementById("tld_data_active_from").textContent = proposed;
-		document.getElementById("tld_json_response_uri").textContent = proposed + "TLD-Metadaten, möglicherweise aus modernisierten IANA-Datendiensten abgeleitet.";
+		document.getElementById("tld_json_response_uri").textContent = proposed + "Angereicherte maschinenlesbare TLD- und RDAP-Daten.";
 		document.getElementById("tld_category").textContent = proposed + 'Zeigt eine generische TLD (gTLD) oder eine länderspezifische TLD (ccTLD) an.';
 		document.getElementById("tld_type").textContent = proposed + 'Der TLD-Typ, z. B. gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD oder geoTLD.';
 		document.getElementById("tld_statuses").textContent = modified;
@@ -324,7 +324,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;		
 		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + 'Ob Suchmaschinen auf Pending Delete vertrauen dürfen, um Ergebnisse zu löschen.';
 		document.getElementById("tld_functions").textContent = proposed;
-		document.getElementById("tld_accepted_workload").textContent = proposed + "Dieses Modell unterstützt die Modernisierung der IANA-Datenbanktabellen.";
+		document.getElementById("tld_accepted_workload").textContent = proposed + "Dieses Modell unterstützt die Modernisierung der IANA-Datenbanktabellen."; 
 		document.getElementById("tld_relationships").textContent = proposed;
 		document.getElementById("lifecycle_part").textContent = proposed;
 		document.getElementById("lifecycle_data_active_from").textContent = proposed;
@@ -348,7 +348,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("links_part").textContent = legacy;		
 		document.getElementById("root_services_uri").textContent = proposed + "L’IANA gère pour l’ICANN les TLD et alloue les blocs IP ainsi que les numéros AS aux registres régionaux.";
 		document.getElementById("root_tlds_uri").textContent = proposed + "Liste officielle des TLD tenue à jour par l'IANA, l'autorité racine du DNS.";
-		document.getElementById("root_root_policies_uri").textContent = proposed + "Données TLD et RDAP lisibles par machine enrichies.";
+		document.getElementById("root_root_policies_uri").textContent = proposed;
 		document.getElementById("root_root_privacy_policy_uri").textContent = proposed;
 		document.getElementById("root_lookup_endpoints_uri").textContent = proposed + "Un endpoint API sous /v1/ peut supporter une version plus récente sous /v2/ — voir com.";
 		document.getElementById("root_registrar_accreditations_uri").textContent = proposed + "Liste officielle des bureaux d’enregistrement accrédités, gérée par l’IANA selon la politique de l’ICANN.";
@@ -366,7 +366,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_services_uri").textContent = proposed + "Un menu d'informations spécifique au TLD, disponible sous un sous-domaine tel que 'regmenu'.";
 		document.getElementById("tld_standardized_price_list_uri").textContent = proposed + "Une liste de prix standardisée lisible par machine soutiendrait la transparence des services de registre.";
 		document.getElementById("tld_delegation_uri").textContent = proposed + "URI référençant l'enregistrement de délégation de l'ICANN pour le TLD.";
-		document.getElementById("tld_json_response_uri").textContent = proposed + "Métadonnées du TLD, éventuellement issues de services de données IANA modernisés.";
+		document.getElementById("tld_json_response_uri").textContent = proposed + "Données TLD et RDAP lisibles par machine enrichies.";
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Utilisation restreinte. L’interprétation dépend du contexte TLD et RDAP.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;		
 		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + "Si les moteurs peuvent se fier à pending delete pour supprimer des résultats.";

@@ -298,7 +298,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_kind").textContent = "Leeg / 'org' / 'individual' (Voor continuïteit: levenstestament + testament + digitale executeur)";
 		document.getElementById("registrant_name").textContent = "Een persoonlijke naam kan openbaar zichtbaar zijn in het veld 'presented_name'. Zie bijvoorbeeld cira.ca.";
 		document.getElementById("registrant_contact_uri").textContent = "Deze contact-URI kan verwijzen naar een professioneel beheerd eindpunt.";
-		document.getElementById("registrant_country_code").textContent = "ISO-2-landcode-indexering, bijv. voor het Verenigd Koninkrijk, inclusief situaties na het uittreden uit de EU).";
+		document.getElementById("registrant_country_code").textContent = "ISO-2-landcode-indexering, bijv. voor het Verenigd Koninkrijk, inclusief situaties na het uittreden uit de EU.";
 		document.getElementById("registrant_street_address").textContent = "Het afschermen van adresgegevens zoals bij example.tel, resulteert in rommelige gegevens.";
 		document.getElementById("registrant_postal_code").textContent = "Indexeren op postcode is in de database noodzakelijk. De vCard-array vormt een obstakel.";
 		document.getElementById("registrant_country_name").textContent = "Een openbaar zichtbare landnaam is beperkt tot 'gTLD registrar RDAP' (ontwerpwijziging).";
@@ -685,7 +685,7 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	if (!empty($data[$pd]['registry']['interface_notice']) or !empty($data[$pd]['registrar']['interface_notice']))	{
 		$html_text .= '<tr><td><b>interface_notice</b></td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['interface_notice']).'</td><td></td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['interface_notice']).'</td></tr>';
 	}
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(30)">Properties +/-</button></td><td><b>'.$vd.'</b></td><td id="properties_part"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(30)">Domain Properties +/-</button></td><td><b>'.$vd.'</b></td><td id="properties_part"></td><td></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>properties_server_handle</td><td colspan="2">'.$data[$pd]['registry']['properties']['server_handle'].'</td><td>'.$data[$pd]['registrar']['properties']['server_handle'].'</td></tr>';
 	$html_text .= '<tr id="302" style="display:none"><td>properties_client_handle</td><td colspan="2">'.$data[$pd]['registry']['properties']['client_handle'].'</td><td>'.$data[$pd]['registrar']['properties']['client_handle'].'</td></tr>';
 	$html_text .= '<tr id="303" style="display:none"><td>properties_ascii_name (lowercase is no "MUST")</td><td>'.$data[$pd]['registry']['properties']['ascii_name'].'</td><td id="properties_ascii_name"></td><td>'.$data[$pd]['registrar']['properties']['ascii_name'].'</td></tr>';

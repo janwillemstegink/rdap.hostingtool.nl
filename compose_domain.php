@@ -14,14 +14,14 @@
 //$_GET['domain'] = 'denic.de';
 //$_GET['domain'] = 'internet.nl';
 //$_GET['domain'] = 'nic.vermögensberater';
-
+//$_GET['domain'] = 'teamblue.domains';
 
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
 		$domain = $_GET['domain'];
-		$batch = false;
+		$batch = 0;
 		if (isset($_GET['batch']) && trim($_GET['batch']) === '1') {
-		    $batch = true;
+		    $batch = 1;
 		}
 		$domain = mb_strtolower($domain);
 		$domain = str_replace('http://','', $domain);
@@ -77,11 +77,12 @@ if (!empty($_GET['domain']))	{
 			}
 			elseif (strcasecmp($registry_related_uri, $registry_self_uri) === 0) {
     			$registry_interface .= 'Registry RDAP "related" equals "self"';
-			}
-			if (!empty($registry_self_uri) and strcasecmp($registry_related_uri, $registry_self_uri) === 0)	{				
+			}					
+			if (!empty($registry_self_uri) and strcasecmp($registry_related_uri, $registry_self_uri) === 0)	{	
 			}	
 			elseif (!empty($registry_related_uri)) {
        			$registrar_rdap = write_file($tld_ascii_name, $domain_ascii_name, $batch, $registry_related_uri);
+				$registrar_interface = $registrar_rdap['interface_notice'] ?? '';
 				$registry_rdap['metadata']['registrar_json_response_uri'] = $registry_related_uri;
 				$registrar_rdap['metadata']['rdap_data_layer'] = 'registrar_rdap';
 				$registrar_rdap['metadata']['tld_unicode_name'] = $tld_unicode_name ?? null;
@@ -96,7 +97,7 @@ if (!empty($_GET['domain']))	{
 						$registrar_uri = rtrim($base_url, '/') . '/domain/' . rawurlencode($domain);
 						$registry_rdap['metadata']['registrar_json_response_uri'] = $registrar_uri;
 						$registry_rdap['interface_notice'] = 'Registry RDAP misses the rel="related" link.';
-       					$registrar_rdap = write_file($domain, $batch, $registrar_uri);
+       					$registrar_rdap = write_file($tld_ascii_name, $domain_ascii_name, $batch, $registrar_uri);
 						$registrar_interface = $registrar_rdap['interface_notice'] ?? '';
 						$registrar_statuses = $registrar_rdap['properties']['statuses_raw'] ?? null;
 						if (!empty($registrar_statuses)) {						
@@ -886,85 +887,53 @@ function write_file($inputtld, $inputdomain, $inputbatch, $inputurl) {
         }
         $url = rtrim($url, '/') . '/domain/' . $inputdomain;
     }
-
-    $options = [
-        "http" => [
-            "method" => "GET",
-            "ignore_errors" => true,
-            "timeout" => 8,
-            "header" => "User-Agent: MyRDAPClient/1.0\r\nAccept: application/json\r\n",
-        ]
-    ];
-
+	$options = [
+    	"http" => [
+        	"method" => "GET",
+        	"ignore_errors" => true,
+        	"timeout" => 8,
+        	"header" => [
+            	"User-Agent: MyRDAPClient/1.0 (+https://example.com/contact)",
+            	"Accept: application/rdap+json, application/json;q=0.9",
+            	"Connection: close",
+        	],
+    	],
+	];
     $context = stream_context_create($options);
     $time_pass = microtime(true) - $time_start;
-
     if ($time_pass < 1.05) {
         usleep((int)((1.05 - $time_pass) * 1_000_000));
     }
-
     $start_monotonic = microtime(true);
     $start_utc_iso   = gmdate('c');
-    $server_seen = $_SERVER['SERVER_ADDR'] ?? null;
-
-    $fp = @fopen($url, 'r', false, $context);
-    if (!$fp) {
-        $phpError = error_get_last();
-
-        $parts = ['No working RDAP URL for this TLD'];
-
-        if (!empty($url)) {
-            $parts[] = $url;
-        }
-        if (!empty($start_utc_iso)) {
-            $parts[] = '(UTC: ' . $start_utc_iso;
-        }
-        if (!empty($server_seen)) {
-            $parts[] = 'IP: ' . $server_seen . ')';
-        }
-        if (!empty($phpError['message'])) {
-            $parts[] = $phpError['message'];
-        }
-
-        $arr['interface_notice'] = implode(', ', $parts);
-        return $arr;
-    }
-
-    $response = stream_get_contents($fp);
-    fclose($fp);
-
-    $http_code = null;
-    if (!empty($http_response_header) && preg_match('#^HTTP/\S+\s+(\d{3})#', $http_response_header[0], $matches)) {
-        $http_code = (int)$matches[1];
-    }
-
-    $elapsed_seconds = microtime(true) - $start_monotonic;
-
-    if ($http_code === null) {
-        $arr['interface_notice'] = "No HTTP status line at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec observed from $server_seen";
-        return $arr;
-    }
-    if ($http_code === 429) {
-        $arr['interface_notice'] = "429 - Rate limit exceeded at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec observed from $server_seen";
-        return $arr;
-    }
-    if ($http_code !== 200) {
-        $arr['interface_notice'] = $http_code . " - Insufficient HTTP response at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec observed from $server_seen";
-        return $arr;
-    }
-
-    try {
-        $obj = json_decode($response, true, 512, JSON_THROW_ON_ERROR);
-    }
-    catch (JsonException $e) {
-        $arr['interface_notice'] = "200 - JSON decode exception: " . $e->getMessage() . " at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec observed from $server_seen";
-        return $arr;
-    }
-
-    if (!is_array($obj)) {
-        $arr['interface_notice'] = "200 - Invalid JSON structure at $start_utc_iso UTC in " . round($elapsed_seconds, 2) . " sec observed from $server_seen";
-        return $arr;
-    }
+    $server_seen = $_SERVER['SERVER_ADDR'] ?? null;	
+	$fp=@fopen($url,'r',false,$context);
+	if ($fp===false) {
+    	$phpError=error_get_last();
+    	$parts=['No working RDAP URL for this TLD'];
+    	if(!empty($url))$parts[]=$url;
+    	if(!empty($start_utc_iso)||!empty($server_seen)){
+        	$meta=[];
+        	if(!empty($start_utc_iso))$meta[]='UTC: '.$start_utc_iso;
+        	if(!empty($server_seen))$meta[]='IP: '.$server_seen;
+        	$parts[]='('.implode(', ',$meta).')';
+    	}
+    	if(!empty($phpError['message']))$parts[]=$phpError['message'];
+    	$arr['interface_notice']=implode(', ',$parts);
+    	return $arr;
+	}
+	$response=stream_get_contents($fp);
+	fclose($fp);
+	$http_code=null;
+	if (!empty($http_response_header)&&preg_match('#^HTTP/\S+\s+(\d{3})#',$http_response_header[0],$m))$http_code=(int)$m[1];
+	$elapsed_seconds=microtime(true)-$start_monotonic;
+	$obs=($start_utc_iso?" at $start_utc_iso UTC":"").' in '.round($elapsed_seconds,2).' sec'.($server_seen?" observed from $server_seen":"");
+	if ($http_code===null) {$arr['interface_notice']="No HTTP status line$obs";return $arr;}
+	if ($http_code===429) {$arr['interface_notice']="429 - Rate limit exceeded$obs";return $arr;}
+	if ($http_code!==200) {$arr['interface_notice']=$http_code." - Insufficient HTTP response$obs";return $arr;}
+	try {$obj=json_decode($response,true,512,JSON_THROW_ON_ERROR);}
+	catch(JsonException $e){$arr['interface_notice']="200 - JSON decode exception: ".$e->getMessage().$obs;return $arr;}
+	if (!is_array($obj)) {$arr['interface_notice']="200 - Invalid JSON structure$obs";return $arr;}
 
 $notices = '';	
 $links = '';		
@@ -1866,35 +1835,37 @@ foreach($obj as $key1 => $value1) {
 								$sponsor_organization_name = $value5[3];
 							}
 						}						
-						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'lang')	{
-							if ($key2 == $entity_registrant)	{
-								if ($value6['pref'] == 1)	$registrant_preferred_language_code_1 = $value5[3];
-								if ($value6['pref'] == 2)	$registrant_preferred_language_code_2 = $value5[3];
-							}
-							if ($key2 == $entity_administrative)	{
-								if ($value6['pref'] == 1)	$administrative_preferred_language_code_1 = $value5[3];
-								if ($value6['pref'] == 2)	$administrative_preferred_language_code_2 = $value5[3];
-							}
-							if ($ky2 == $entity_technical)	{
-								if ($value6['pref'] == 1)	$technical_preferred_language_code_1 = $value5[3];
-								if ($value6['pref'] == 2)	$technical_preferred_language_code_2 = $value5[3];
-							}
-							if ($key2 == $entity_billing) 		{
-								if ($value6['pref'] == 1)	$billing_preferred_language_code_1 = $value5[3];
-								if ($value6['pref'] == 2)	$billing_preferred_language_code_2 = $value5[3];
-							}							
-							if ($key2 == $entity_reseller)	{
-								if ($value6['pref'] == 1)	$reseller_preferred_language_code_1 = $value5[3];
-								if ($value6['pref'] == 2)	$reseller_preferred_language_code_2 = $value5[3];
-							}
-							if ($key2 == $entity_registrar) 		{
-								if ($value6['pref'] == 1)	$registrar_preferred_language_code_1 = $value5[3];
-								if ($value6['pref'] == 2)	$registrar_preferred_language_code_2 = $value5[3];
-							}
-							if ($key2 == $entity_sponsor) 		{
-								if ($value6['pref'] == 1)	$sponsor_preferred_language_code_1 = $value5[3];
-								if ($value6['pref'] == 2)	$sponsor_preferred_language_code_2 = $value5[3];
-							}
+						if ($key1 == 'entities' && $key3 == 'vcardArray' && ($value5[0] ?? null) == 'lang' && ($value5[3] ?? null) !== null) {
+    						$pref = (int)($value6['pref'] ?? 0);
+    						$language_code = $value5[3];						
+    						if ($key2 == $entity_registrant) {
+        						if ($pref == 1) $registrant_preferred_language_code_1 = $language_code;
+        						if ($pref == 2) $registrant_preferred_language_code_2 = $language_code;
+    						}						
+    						if ($key2 == $entity_administrative) {
+        						if ($pref == 1) $administrative_preferred_language_code_1 = $language_code;
+        						if ($pref == 2) $administrative_preferred_language_code_2 = $language_code;
+    						}
+    						if ($key2 == $entity_technical) {
+        						if ($pref == 1) $technical_preferred_language_code_1 = $language_code;
+        						if ($pref == 2) $technical_preferred_language_code_2 = $language_code;
+    						}						
+    						if ($key2 == $entity_billing) {
+        						if ($pref == 1) $billing_preferred_language_code_1 = $language_code;
+        						if ($pref == 2) $billing_preferred_language_code_2 = $language_code;
+    						}
+    						if ($key2 == $entity_reseller) {
+        						if ($pref == 1) $reseller_preferred_language_code_1 = $language_code;
+        						if ($pref == 2) $reseller_preferred_language_code_2 = $language_code;
+    						}						
+    						if ($key2 == $entity_registrar) {
+        						if ($pref == 1) $registrar_preferred_language_code_1 = $language_code;
+        						if ($pref == 2) $registrar_preferred_language_code_2 = $language_code;
+							}						
+    						if ($key2 == $entity_sponsor) {
+        						if ($pref == 1) $sponsor_preferred_language_code_1 = $language_code;
+        						if ($pref == 2) $sponsor_preferred_language_code_2 = $language_code;
+    						}
 						}						
 						if ($key1 == 'entities' and $key3 == 'vcardArray' and $value5[0] == 'adr' and $key6 == 1)	{
 							if ($key2 == $entity_registrant)	{
