@@ -154,16 +154,16 @@ function SwitchDisplay(type) {
 }
 		
 const modeling = `Legacy table structures lack explicit disclosure semantics.
+Aggregating data across relationships may incorrectly disclose or suppress data.
 
-Each field’s publication state is evaluated per domain–entity relationship record.
-Implementations MUST NOT aggregate data across records when determining disclosure.
-Disclosure is determined per field value, not per field type.
+Each field’s publication state is determined for each domain–relationship–field combination.
+Implementations MUST NOT aggregate data across relationships when determining disclosure.
+Disclosure MUST be evaluated independently within each relationship.
 
 Example (non-normative)
 
-An entity may have multiple relationship records with a domain; each record assigns a publication state to each field. An email field in one record is marked as "visible", while the same field in another record is marked as "shielded". 
-
-Aggregating these records could incorrectly disclose or suppress data. Therefore, publication decisions are made per record.
+An entity may be associated with a domain through multiple relationships, each assigning a publication state to each field.
+An email field in one relationship is "visible", while in another relationship it is "shielded".
 
 Enumerated Values (domain_entities.field_publication)
 
