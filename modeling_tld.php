@@ -151,7 +151,7 @@ function SwitchTranslation(translation)	{
 		var modified = '';
 		var proposed = '';
 		var legacy = '';
-		document.getElementById("title").textContent = "Top-Level Domain Information — IANA Data";
+		document.getElementById("title").textContent = "TLD Information — IANA Data";
 		document.getElementById("instruction").textContent = "Enter here:";
 		document.getElementById("modeling").textContent = "";
 		document.getElementById("field").textContent = "Modeled with snake_case";
@@ -198,7 +198,7 @@ function SwitchTranslation(translation)	{
 		var modified = '(Gewijzigd) ';
 		var proposed = '(Nieuw) ';
 		var legacy = '(Legacy) ';
-		document.getElementById("title").textContent = "Topdomeininformatie — IANA-gegevens";
+		document.getElementById("title").textContent = "TLD-informatie — IANA-gegevens";
 		document.getElementById("instruction").textContent = "Geef hier in:";
 		document.getElementById("modeling").textContent = "Een RDAPv2 kan onbepaalde statussen elimineren en ccTLD-proof zijn via een nieuwe globale tabeldefinitie in snake_case.";
 		document.getElementById("field").textContent = "Gemodelleerd met snake_case";
@@ -245,7 +245,7 @@ function SwitchTranslation(translation)	{
 		var modified = '(Modified) ';
 		var proposed = '(New) ';
 		var legacy = '(Legacy) ';		
-		document.getElementById("title").textContent = "Top-Level Domain Information — IANA Data";
+		document.getElementById("title").textContent = "TLD Information — IANA Data";
 		document.getElementById("instruction").textContent = "Enter here:";
 		document.getElementById("modeling").textContent = "An RDAPv2 can eliminate indeterminate statuses and be ccTLD-proof via a new global table definition in snake_case.";
 		document.getElementById("field").textContent = "Modeled with snake_case";
@@ -292,7 +292,7 @@ function SwitchTranslation(translation)	{
 		var modified = '(Geändert) ';
 		var proposed = '(Neu) ';
 		var legacy = '(Legacy) ';		
-		document.getElementById("title").textContent = "Top-Level-Domain-Informationen — IANA-Daten";
+		document.getElementById("title").textContent = "TLD-Informationen — IANA-Daten";
 		document.getElementById("instruction").textContent = "Hier eingeben:";
 		document.getElementById("modeling").textContent = "Ein RDAPv2 kann unbestimmte Statuswerte eliminieren und ccTLD-sicher sein durch eine neue globale Tabellendefinition in snake_case.";
 		document.getElementById("field").textContent = "Modelliert mit snake_case";
@@ -339,7 +339,7 @@ function SwitchTranslation(translation)	{
 		var modified = '(Modifié) ';
 		var proposed = '(Nouveau) ';
 		var legacy = '(Legacy) ';		
-		document.getElementById("title").textContent = "Informations des domaines de premier niveau — Données IANA";
+		document.getElementById("title").textContent = "Informations sur les TLD — Données IANA";
 		document.getElementById("instruction").textContent = "Saisissez ici :";
 		document.getElementById("modeling").textContent = "Un RDAPv2 peut éliminer les statuts indéterminés et être ccTLD-compatible en adoptant une nouvelle définition globale de table en snake_case.";
 		document.getElementById("field").textContent = "Modélisé en snake_case";
