@@ -677,13 +677,11 @@ switch ($inputtld) {
 	
 $arr = array();
 	
-$arr[$inputtld]['notices'] = $notices;
-$arr[$inputtld]['links'] = $links;	
-	
+$arr[$inputtld]['root']['notices'] = $notices;
 $arr[$inputtld]['root']['services_uri'] = $root_services_uri;
 $arr[$inputtld]['root']['tlds_uri'] = $root_tlds_uri;
-$arr[$inputtld]['root']['root_policies_uri'] = $root_policies_uri;
-$arr[$inputtld]['root']['root_privacy_policy_uri'] = $root_privacy_policy_uri;	
+$arr[$inputtld]['root']['policies_uri'] = $root_policies_uri;
+$arr[$inputtld]['root']['privacy_policy_uri'] = $root_privacy_policy_uri;	
 $arr[$inputtld]['root']['lookup_endpoints_uri'] = $lookup_endpoints_uri;
 $arr[$inputtld]['root']['registrar_accreditations_uri'] = $registrar_accreditations_uri;	
 $arr[$inputtld]['root']['function_identifiers'] = $function_identifiers;
@@ -691,6 +689,7 @@ $arr[$inputtld]['root']['ambiguous_rdap_statuses'] = $ambiguous_rdap_statuses;
 $arr[$inputtld]['root']['lifecycle_period_ranges'] = $lifecycle_period_ranges;		
 $arr[$inputtld]['root']['accepted_workload'] = $root_accepted_workload;	
 	
+$arr[$inputtld]['tld']['links'] = $links;
 $arr[$inputtld]['tld']['ascii_name'] = $inputtld;
 $arr[$inputtld]['tld']['unicode_name'] = value_to_unicode($inputtld);	
 $arr[$inputtld]['tld']['data_active_from'] = $tld_data_active_from;	

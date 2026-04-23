@@ -78,7 +78,7 @@ function SwitchDisplay(type) {
 		var pre = '20';
 		var max = 12
 	}
-	else if (type == 30)	{ // properties
+	else if (type == 30)	{ // domain properties
 		var pre = '30';
 		var max = 24
 	}
@@ -182,22 +182,22 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_registrar_publication_method").textContent = proposed;
 		document.getElementById("metadata_status_explanation_uri").textContent = proposed;
 		document.getElementById("metadata_resource_upload_at").textContent = modified;
-		document.getElementById("properties_part").textContent = "";
-		document.getElementById("properties_ascii_name").textContent = "";
-		document.getElementById("properties_unicode_name").textContent = "";
-		document.getElementById("properties_statuses").textContent = legacy;
-		document.getElementById("properties_policy_statuses").textContent = modified;
-		document.getElementById("properties_dns_state").textContent = proposed;
-		document.getElementById("properties_created_at").textContent = "";
-		document.getElementById("properties_latest_data_mutation_at").textContent = modified;
-		document.getElementById("properties_expiration_at").textContent = "";
-		document.getElementById("properties_lifecycle_phase").textContent = modified;
-		document.getElementById("properties_lifecycle_phase_until").textContent = modified;
-		document.getElementById("properties_applicable_grace").textContent = modified;
-		document.getElementById("properties_applicable_grace_until").textContent = modified;		
-		document.getElementById("properties_recoverable_until").textContent = proposed;
-		document.getElementById("properties_deletion_at").textContent = "";
-		document.getElementById("properties_extensions").textContent = "";		
+		document.getElementById("domain_part").textContent = "";
+		document.getElementById("domain_ascii_name").textContent = "";
+		document.getElementById("domain_unicode_name").textContent = "";
+		document.getElementById("domain_statuses").textContent = legacy;
+		document.getElementById("domain_policy_statuses").textContent = modified;
+		document.getElementById("domain_dns_state").textContent = proposed;
+		document.getElementById("domain_created_at").textContent = "";
+		document.getElementById("domain_latest_data_mutation_at").textContent = modified;
+		document.getElementById("domain_expiration_at").textContent = "";
+		document.getElementById("domain_lifecycle_phase").textContent = modified;
+		document.getElementById("domain_lifecycle_phase_until").textContent = modified;
+		document.getElementById("domain_applicable_grace").textContent = modified;
+		document.getElementById("domain_applicable_grace_until").textContent = modified;		
+		document.getElementById("domain_recoverable_until").textContent = proposed;
+		document.getElementById("domain_deletion_at").textContent = "";
+		document.getElementById("domain_extensions").textContent = "";		
 		document.getElementById("sponsor_part").textContent = "";
 		document.getElementById("registrant_part").textContent = "";
 		document.getElementById("registrant_server_handle").textContent = proposed;
@@ -271,22 +271,22 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_registrar_publication_method").textContent = proposed + "Voor gTLD’s kan de houder publicatie per registrantveld inschakelen.";
 		document.getElementById("metadata_status_explanation_uri").textContent = proposed + 'Vereist als de registrar IANA-geaccrediteerd is; bevat uitleg over de statuscode.';
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Tijdstempel van de RDAP-datasetupdate in UTC (Zulu-tijd).";
-		document.getElementById("properties_part").textContent = "Een domein onder TLD-niveau is wereldwijd uniek en kan vrij worden gekozen onder bepaalde regels.";
-		document.getElementById("properties_ascii_name").textContent = "Voor speciale tekens bevatten de ASCII-tekenreeksen Punycode-transcriptie.";
-		document.getElementById("properties_unicode_name").textContent = "Optioneel veld dat, indien van toepassing, de Unicode-weergave van het domein biedt.";
-		document.getElementById("properties_statuses").textContent = legacy + "RDAPv1 zelf garandeert niet of status van registry, registrar, of lifecycle is — elimineerbaar.";
-		document.getElementById("properties_policy_statuses").textContent = modified;
-		document.getElementById("properties_dns_state").textContent = proposed + "Gemodelleerde DNS-resolutiestatussen: dns_delegated, dns_undelegated, no_dns_records, unknown.";
-		document.getElementById("properties_created_at").textContent = "De datumvelden staan hier in een logische volgorde. Dit is ook eenvoudig in de JSON-array.";
-		document.getElementById("properties_latest_data_mutation_at").textContent = modified + "Verschillende mutatieniveaus: contactobject (registrar) versus domeinobject (registry).";
-		document.getElementById("properties_expiration_at").textContent = "Vervaldatumgrens van het domein, waarna de rechten van de registrar afnemen.";
-		document.getElementById("properties_lifecycle_phase").textContent = modified + "De EPP-status 'redemptionPeriod' kan in RDAPv2 worden gewijzigd naar 'pending_redemption'.";
-		document.getElementById("properties_lifecycle_phase_until").textContent = modified;
-		document.getElementById("properties_applicable_grace").textContent = modified;
-		document.getElementById("properties_applicable_grace_until").textContent = modified;		
-		document.getElementById("properties_recoverable_until").textContent = proposed + "Gemodelleerd als na stop van DNS-publicatie + TLD pending_redemption_days.";
-		document.getElementById("properties_deletion_at").textContent = "Datum en tijdstip gepland voor volledige verwijdering. Er kan een laatste verwijderingsfase zijn.";
-		document.getElementById("properties_extensions").textContent = "'Eligibility': Hoe het domein voldoet aan specifieke eisen van de TLD-rootzone.";		
+		document.getElementById("domain_part").textContent = "Een domein onder TLD-niveau is wereldwijd uniek en kan vrij worden gekozen onder bepaalde regels.";
+		document.getElementById("domain_ascii_name").textContent = "Voor speciale tekens bevatten de ASCII-tekenreeksen Punycode-transcriptie.";
+		document.getElementById("domain_unicode_name").textContent = "Optioneel veld dat, indien van toepassing, de Unicode-weergave van het domein biedt.";
+		document.getElementById("domain_statuses").textContent = legacy + "RDAPv1 zelf garandeert niet of status van registry, registrar, of lifecycle is — elimineerbaar.";
+		document.getElementById("domain_policy_statuses").textContent = modified;
+		document.getElementById("domain_dns_state").textContent = proposed + "Gemodelleerde DNS-resolutiestatussen: dns_delegated, dns_undelegated, no_dns_records, unknown.";
+		document.getElementById("domain_created_at").textContent = "De datumvelden staan hier in een logische volgorde. Dit is ook eenvoudig in de JSON-array.";
+		document.getElementById("domain_latest_data_mutation_at").textContent = modified + "Verschillende mutatieniveaus: contactobject (registrar) versus domeinobject (registry).";
+		document.getElementById("domain_expiration_at").textContent = "Vervaldatumgrens van het domein, waarna de rechten van de registrar afnemen.";
+		document.getElementById("domain_lifecycle_phase").textContent = modified + "De EPP-status 'redemptionPeriod' kan in RDAPv2 worden gewijzigd naar 'pending_redemption'.";
+		document.getElementById("domain_lifecycle_phase_until").textContent = modified;
+		document.getElementById("domain_applicable_grace").textContent = modified;
+		document.getElementById("domain_applicable_grace_until").textContent = modified;		
+		document.getElementById("domain_recoverable_until").textContent = proposed + "Gemodelleerd als na stop van DNS-publicatie + TLD pending_redemption_days.";
+		document.getElementById("domain_deletion_at").textContent = "Datum en tijdstip gepland voor volledige verwijdering. Er kan een laatste verwijderingsfase zijn.";
+		document.getElementById("domain_extensions").textContent = "'Eligibility': Hoe het domein voldoet aan specifieke eisen van de TLD-rootzone.";		
 		document.getElementById("sponsor_part").textContent = "De domeinregistratie kan, indien van toepassing, via een sponsorrelatie worden beheerd. Zie bijvoorbeeld france.fr.";
 		document.getElementById("registrant_part").textContent = "Jurisdictiereferentie op basis van het land van vestiging van de legitieme registrant of organisatorische gebruiker.";
 		document.getElementById("registrant_server_handle").textContent = proposed + "Zonder deze identificatie kan een wereldwijde RDAP-server niet worden bijgewerkt.";
@@ -360,22 +360,22 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_registrar_publication_method").textContent = proposed + "For gTLDs, the holder may enable publication on a per-registrant-field basis.";
 		document.getElementById("metadata_status_explanation_uri").textContent = proposed + 'Required if the registrar is IANA-accredited; provides status code explanations.';
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Timestamp of RDAP dataset update in UTC (Zulu time).";
-		document.getElementById("properties_part").textContent = "A domain below TLD level is globally unique and can be freely chosen under certain rules.";
-		document.getElementById("properties_ascii_name").textContent = "For special characters, the ASCII character strings contain Punycode transcription.";
-		document.getElementById("properties_unicode_name").textContent = "Optional field that provides the Unicode representation of the domain, if applicable.";
-		document.getElementById("properties_statuses").textContent = legacy + "RDAPv1 itself doesn’t guarantee showing if status is registry, registrar, or lifecycle — eliminable.";
-		document.getElementById("properties_policy_statuses").textContent = modified;
-		document.getElementById("properties_dns_state").textContent = proposed + "Modeled DNS resolution states: dns_delegated, dns_undelegated, no_dns_records, unknown.";
-		document.getElementById("properties_created_at").textContent = "The date fields are here in a logical order. This is also easy in the JSON array.";
-		document.getElementById("properties_latest_data_mutation_at").textContent = modified + "Distinct mutation layers: contact object (registrar) vs domain object (registry).";
-		document.getElementById("properties_expiration_at").textContent = "Domain expiration boundary, after which registrar rights decline.";
-		document.getElementById("properties_lifecycle_phase").textContent = modified + "The EPP 'redemptionPeriod' status can be changed to 'pending_redemption' in RDAPv2.";
-		document.getElementById("properties_lifecycle_phase_until").textContent = modified;
-		document.getElementById("properties_applicable_grace").textContent = modified;
-		document.getElementById("properties_applicable_grace_until").textContent = modified;
-		document.getElementById("properties_recoverable_until").textContent = proposed + "Modeled as after DNS publication stop + TLD pending_redemption_days.";
-		document.getElementById("properties_deletion_at").textContent = "Date and time scheduled for complete deletion. A final deletion phase may exist.";
-		document.getElementById("properties_extensions").textContent = "'Eligibility': How the domain meets specific TLD root zone requirements.";
+		document.getElementById("domain_part").textContent = "A domain below TLD level is globally unique and can be freely chosen under certain rules.";
+		document.getElementById("domain_ascii_name").textContent = "For special characters, the ASCII character strings contain Punycode transcription.";
+		document.getElementById("domain_unicode_name").textContent = "Optional field that provides the Unicode representation of the domain, if applicable.";
+		document.getElementById("domain_statuses").textContent = legacy + "RDAPv1 itself doesn’t guarantee showing if status is registry, registrar, or lifecycle — eliminable.";
+		document.getElementById("domain_policy_statuses").textContent = modified;
+		document.getElementById("domain_dns_state").textContent = proposed + "Modeled DNS resolution states: dns_delegated, dns_undelegated, no_dns_records, unknown.";
+		document.getElementById("domain_created_at").textContent = "The date fields are here in a logical order. This is also easy in the JSON array.";
+		document.getElementById("domain_latest_data_mutation_at").textContent = modified + "Distinct mutation layers: contact object (registrar) vs domain object (registry).";
+		document.getElementById("domain_expiration_at").textContent = "Domain expiration boundary, after which registrar rights decline.";
+		document.getElementById("domain_lifecycle_phase").textContent = modified + "The EPP 'redemptionPeriod' status can be changed to 'pending_redemption' in RDAPv2.";
+		document.getElementById("domain_lifecycle_phase_until").textContent = modified;
+		document.getElementById("domain_applicable_grace").textContent = modified;
+		document.getElementById("domain_applicable_grace_until").textContent = modified;
+		document.getElementById("domain_recoverable_until").textContent = proposed + "Modeled as after DNS publication stop + TLD pending_redemption_days.";
+		document.getElementById("domain_deletion_at").textContent = "Date and time scheduled for complete deletion. A final deletion phase may exist.";
+		document.getElementById("domain_extensions").textContent = "'Eligibility': How the domain meets specific TLD root zone requirements.";
 		document.getElementById("sponsor_part").textContent = "The domain registration may be managed through a sponsor relationship, where applicable. See for example france.fr.";
 		document.getElementById("registrant_part").textContent = "Jurisdiction reference based on the country of establishment of the legitimate registrant or organizational user.";
 		document.getElementById("registrant_server_handle").textContent = proposed + "Without this identifier, a global RDAP server cannot be updated.";
@@ -449,22 +449,22 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_registrar_publication_method").textContent = proposed + "Für gTLDs kann der Inhaber die Veröffentlichung pro Registrantenfeld aktivieren.";
 		document.getElementById("metadata_status_explanation_uri").textContent = proposed + 'Erforderlich, wenn der Registrar IANA-akkreditiert ist; bietet Erklärungen zum Statuscode.';
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Zeitstempel der Aktualisierung des RDAP-Datensatzes in UTC (Zulu-Zeit).";
-		document.getElementById("properties_part").textContent = "Eine Domain unterhalb der TLD-Ebene ist weltweit eindeutig und kann unter bestimmten Regeln frei gewählt werden.";
-		document.getElementById("properties_ascii_name").textContent = "Für Sonderzeichen enthalten die ASCII-Zeichenfolgen eine Punycode-Transkription.";
-		document.getElementById("properties_unicode_name").textContent = "Optionales Feld, das gegebenenfalls die Unicode-Darstellung der Domäne bereitstellt.";
-		document.getElementById("properties_statuses").textContent = legacy + "RDAPv1 garantiert nicht, ob Status von Registry, Registrar, oder Lifecycle stammt — eliminierbar.";
-		document.getElementById("properties_policy_statuses").textContent = modified;
-		document.getElementById("properties_dns_state").textContent = proposed + "Modellierte DNS-Auflösungszustände: dns_delegated, dns_undelegated, no_dns_records, unknown.";
-		document.getElementById("properties_created_at").textContent = "Die Datumsfelder stehen hier in einer logischen Reihenfolge. Auch dies ist im JSON-Array einfach.";
-		document.getElementById("properties_latest_data_mutation_at").textContent = modified + "Unterschiedliche Mutationsebenen: Kontaktobjekt (Registrar) versus Domainobjekt (Registry).";
-		document.getElementById("properties_expiration_at").textContent = "Ablaufschwelle der Domain, nach der die Befugnisse des Registrars abnehmen.";
-		document.getElementById("properties_lifecycle_phase").textContent = modified + "Der EPP-Status 'redemptionPeriod' kann in RDAPv2 auf 'pending_redemption' geändert werden.";
-		document.getElementById("properties_lifecycle_phase_until").textContent = modified;
-		document.getElementById("properties_applicable_grace").textContent = modified;
-		document.getElementById("properties_applicable_grace_until").textContent = modified;		
-		document.getElementById("properties_recoverable_until").textContent = proposed + "Modelliert als nach Ende der DNS-Veröffentlichung + TLD pending_redemption_days.";
-		document.getElementById("properties_deletion_at").textContent = "Datum und Uhrzeit für die vollständige Löschung geplant. Es kann eine abschließende Löschphase geben.";
-		document.getElementById("properties_extensions").textContent = "'Eligibility': Wie die Domain die spezifischen Anforderungen der TLD-Rootzone erfüllt.";
+		document.getElementById("domain_part").textContent = "Eine Domain unterhalb der TLD-Ebene ist weltweit eindeutig und kann unter bestimmten Regeln frei gewählt werden.";
+		document.getElementById("domain_ascii_name").textContent = "Für Sonderzeichen enthalten die ASCII-Zeichenfolgen eine Punycode-Transkription.";
+		document.getElementById("domain_unicode_name").textContent = "Optionales Feld, das gegebenenfalls die Unicode-Darstellung der Domäne bereitstellt.";
+		document.getElementById("domain_statuses").textContent = legacy + "RDAPv1 garantiert nicht, ob Status von Registry, Registrar, oder Lifecycle stammt — eliminierbar.";
+		document.getElementById("domain_policy_statuses").textContent = modified;
+		document.getElementById("domain_dns_state").textContent = proposed + "Modellierte DNS-Auflösungszustände: dns_delegated, dns_undelegated, no_dns_records, unknown.";
+		document.getElementById("domain_created_at").textContent = "Die Datumsfelder stehen hier in einer logischen Reihenfolge. Auch dies ist im JSON-Array einfach.";
+		document.getElementById("domain_latest_data_mutation_at").textContent = modified + "Unterschiedliche Mutationsebenen: Kontaktobjekt (Registrar) versus Domainobjekt (Registry).";
+		document.getElementById("domain_expiration_at").textContent = "Ablaufschwelle der Domain, nach der die Befugnisse des Registrars abnehmen.";
+		document.getElementById("domain_lifecycle_phase").textContent = modified + "Der EPP-Status 'redemptionPeriod' kann in RDAPv2 auf 'pending_redemption' geändert werden.";
+		document.getElementById("domain_lifecycle_phase_until").textContent = modified;
+		document.getElementById("domain_applicable_grace").textContent = modified;
+		document.getElementById("domain_applicable_grace_until").textContent = modified;		
+		document.getElementById("domain_recoverable_until").textContent = proposed + "Modelliert als nach Ende der DNS-Veröffentlichung + TLD pending_redemption_days.";
+		document.getElementById("domain_deletion_at").textContent = "Datum und Uhrzeit für die vollständige Löschung geplant. Es kann eine abschließende Löschphase geben.";
+		document.getElementById("domain_extensions").textContent = "'Eligibility': Wie die Domain die spezifischen Anforderungen der TLD-Rootzone erfüllt.";
 		document.getElementById("sponsor_part").textContent = "Die Domainregistrierung kann gegebenenfalls über eine Sponsorenrolle verwaltet werden. Siehe z.B. france.fr.";
 		document.getElementById("registrant_part").textContent = "Jurisdiktionsreferenz: Niederlassungsland des legitimen Registranten oder Organisationsnutzers.";
 		document.getElementById("registrant_server_handle").textContent = proposed + "Ohne diese Kennung kann ein globaler RDAP-Server nicht aktualisiert werden.";
@@ -538,22 +538,22 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_registrar_publication_method").textContent = proposed + "Pour les gTLD, le titulaire peut activer la publication par champ du titulaire.";
 		document.getElementById("metadata_status_explanation_uri").textContent = proposed + "Obligatoire si le registraire est accrédité par l'IANA ; fournit des explications sur le code de statut.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Horodatage de la mise à jour de l'ensemble de données RDAP en UTC (heure Zulu).";
-		document.getElementById("properties_part").textContent = "Un domaine inférieur au niveau TLD est unique au monde et peut être choisi librement selon certaines règles.";
-		document.getElementById("properties_ascii_name").textContent = "Pour les caractères spéciaux, les chaînes de caractères ASCII contiennent une transcription Punycode.";
-		document.getElementById("properties_unicode_name").textContent = "Champ facultatif qui fournit la représentation Unicode du domaine, le cas échéant.";
-		document.getElementById("properties_statuses").textContent = legacy + "Les statuts ne garantissent pas que RDAPv1 indique registre, registrar, ou cycle — éliminable.";
-		document.getElementById("properties_policy_statuses").textContent = modified;
-		document.getElementById("properties_dns_state").textContent = proposed + "États de résolution DNS modélisés : dns_delegated, dns_undelegated, no_dns_records, unknown.";
-		document.getElementById("properties_created_at").textContent = "Les champs de date sont ici classés dans un ordre logique. C'est également facile dans le tableau JSON.";
-		document.getElementById("properties_latest_data_mutation_at").textContent = modified + "Niveaux de mutation distincts : objet contact (registrar) vs objet domaine (registre).";
-		document.getElementById("properties_expiration_at").textContent = "Limite d’expiration du domaine, après laquelle les droits du registrar diminuent.";
-		document.getElementById("properties_lifecycle_phase").textContent = modified + "Le statut 'redemptionPeriod' de l’EPP peut être modifié en 'pending_redemption' dans RDAPv2.";
-		document.getElementById("properties_lifecycle_phase_until").textContent = modified;
-		document.getElementById("properties_applicable_grace").textContent = modified;
-		document.getElementById("properties_applicable_grace_until").textContent = modified;		
-		document.getElementById("properties_recoverable_until").textContent = proposed + "Modélisé comme après l’arrêt de publication DNS + TLD pending_redemption_days.";
-		document.getElementById("properties_deletion_at").textContent = "Date et heure prévues pour la suppression complète. Une phase de suppression finale peut exister.";
-		document.getElementById("properties_extensions").textContent = "'Eligibility' : comment le domaine répond aux exigences spécifiques de la zone racine TLD.";
+		document.getElementById("domain_part").textContent = "Un domaine inférieur au niveau TLD est unique au monde et peut être choisi librement selon certaines règles.";
+		document.getElementById("domain_ascii_name").textContent = "Pour les caractères spéciaux, les chaînes de caractères ASCII contiennent une transcription Punycode.";
+		document.getElementById("domain_unicode_name").textContent = "Champ facultatif qui fournit la représentation Unicode du domaine, le cas échéant.";
+		document.getElementById("domain_statuses").textContent = legacy + "Les statuts ne garantissent pas que RDAPv1 indique registre, registrar, ou cycle — éliminable.";
+		document.getElementById("domain_policy_statuses").textContent = modified;
+		document.getElementById("domain_dns_state").textContent = proposed + "États de résolution DNS modélisés : dns_delegated, dns_undelegated, no_dns_records, unknown.";
+		document.getElementById("domain_created_at").textContent = "Les champs de date sont ici classés dans un ordre logique. C'est également facile dans le tableau JSON.";
+		document.getElementById("domain_latest_data_mutation_at").textContent = modified + "Niveaux de mutation distincts : objet contact (registrar) vs objet domaine (registre).";
+		document.getElementById("domain_expiration_at").textContent = "Limite d’expiration du domaine, après laquelle les droits du registrar diminuent.";
+		document.getElementById("domain_lifecycle_phase").textContent = modified + "Le statut 'redemptionPeriod' de l’EPP peut être modifié en 'pending_redemption' dans RDAPv2.";
+		document.getElementById("domain_lifecycle_phase_until").textContent = modified;
+		document.getElementById("domain_applicable_grace").textContent = modified;
+		document.getElementById("domain_applicable_grace_until").textContent = modified;		
+		document.getElementById("domain_recoverable_until").textContent = proposed + "Modélisé comme après l’arrêt de publication DNS + TLD pending_redemption_days.";
+		document.getElementById("domain_deletion_at").textContent = "Date et heure prévues pour la suppression complète. Une phase de suppression finale peut exister.";
+		document.getElementById("domain_extensions").textContent = "'Eligibility' : comment le domaine répond aux exigences spécifiques de la zone racine TLD.";
 		document.getElementById("sponsor_part").textContent = "L'enregistrement du domaine peut être géré par un sponsor, le cas échéant. Voir par exemple france.fr.";
 		document.getElementById("registrant_server_handle").textContent = proposed + "Sans cet identifiant, un serveur RDAP global ne peut pas être mis à jour.";
 		document.getElementById("registrant_part").textContent = "Référence de juridiction fondée sur le pays d’établissement du titulaire légitime ou de l’utilisateur organisationnel.";
@@ -652,7 +652,7 @@ $html_text .= '<tr><td id="instruction" style="font-size: 0.8rem; vertical-align
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(3)">de_DE</button> 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(4)">fr_FR</button> 
 	<a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_email" target="_blank">Email modeling</a> - <a style="font-size: 0.9rem" href="https://github.com/janwillemstegink/rdap.hostingtool.nl" target="_blank">Code/issues on GitHub</a> - <a style="font-size: 0.9rem" href="https://janwillemstegink.nl/" target="_blank">Insight at janwillemstegink.nl</a></td><td></td></tr>';
-if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_name']) or empty($data[$pd]['registry']['properties']['ascii_name']))	{
+if (true or $pd == mb_strtolower($data[$pd]['registry']['domain']['ascii_name']) or empty($data[$pd]['registry']['domain']['ascii_name']))	{
 	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field_name"></td><td>registry_rdap_service<td id="explanation"></td><td>registrar_rdap_service</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:.85rem" onclick="SwitchDisplay(11)">Notices +/-</button><td></td><td id="notices_part"></td><td></td></tr>';
 	$html_text .= '<tr id="111" style="display:none"><td colspan="2">'.$data[$pd]['registry']['notices'].'</td><td></td><td>'.$data[$pd]['registrar']['notices'].'</td></tr>';
@@ -685,60 +685,60 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 	if (!empty($data[$pd]['registry']['interface_notice']) or !empty($data[$pd]['registrar']['interface_notice']))	{
 		$html_text .= '<tr><td><b>interface_notice</b></td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['interface_notice']).'</td><td></td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['interface_notice']).'</td></tr>';
 	}
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(30)">Domain Properties +/-</button></td><td><b>'.$vd.'</b></td><td id="properties_part"></td><td></td></tr>';
-	$html_text .= '<tr id="301" style="display:none"><td>properties_server_handle</td><td colspan="2">'.$data[$pd]['registry']['properties']['server_handle'].'</td><td>'.$data[$pd]['registrar']['properties']['server_handle'].'</td></tr>';
-	$html_text .= '<tr id="302" style="display:none"><td>properties_client_handle</td><td colspan="2">'.$data[$pd]['registry']['properties']['client_handle'].'</td><td>'.$data[$pd]['registrar']['properties']['client_handle'].'</td></tr>';
-	$html_text .= '<tr id="303" style="display:none"><td>properties_ascii_name (lowercase is no "MUST")</td><td>'.$data[$pd]['registry']['properties']['ascii_name'].'</td><td id="properties_ascii_name"></td><td>'.$data[$pd]['registrar']['properties']['ascii_name'].'</td></tr>';
-	$html_text .= '<tr id="304" style="display:none"><td>properties_unicode_name</td><td>'.$data[$pd]['registry']['properties']['unicode_name'].'</td><td id="properties_unicode_name"></td><td>'.$data[$pd]['registrar']['properties']['unicode_name'].'</td></tr>';
-	$properties_statuses = (!empty($data[$pd]['registry']['properties']['statuses'])) ? $data[$pd]['registry']['properties']['statuses'] : '';
-	$properties_statuses = str_replace('excluded','<br />excluded (without DNS no email protection)', $properties_statuses);
-	$properties_statuses = str_replace('locked','<br />locked (ambiguous RDAP use)', $properties_statuses);
-	$properties_statuses = str_replace('removed','<br />removed (ambiguous RDAP use)', $properties_statuses);
-	$properties_statuses = str_replace('obscured','<br />obscured (ambiguous RDAP use)', $properties_statuses);
-	$properties_statuses = str_replace('private','<br />private (ambiguous RDAP use)', $properties_statuses);
-	$properties_statuses = str_replace('proxy','<br />proxy (ambiguous RDAP use)', $properties_statuses);
-	$properties_statuses = str_replace('associated','<br />associated (ambiguous RDAP use)', $properties_statuses);
-	if (str_contains($data[$pd]['registry']['properties']['statuses'], 'renew prohibited'))	{
-		if (!str_contains($data[$pd]['registry']['properties']['statuses'], 'server renew prohibited') and !str_contains($data[$pd]['registry']['properties']['statuses'], 'client renew prohibited'))	{
-			$properties_statuses = str_replace('renew prohibited','<br />renew prohibited (ambiguous RDAP use)', $properties_statuses);
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(30)">Domain Properties +/-</button></td><td><b>'.$vd.'</b></td><td id="domain_part"></td><td></td></tr>';
+	$html_text .= '<tr id="301" style="display:none"><td>domain_server_handle</td><td colspan="2">'.$data[$pd]['registry']['domain']['server_handle'].'</td><td>'.$data[$pd]['registrar']['domain']['server_handle'].'</td></tr>';
+	$html_text .= '<tr id="302" style="display:none"><td>domain_client_handle</td><td colspan="2">'.$data[$pd]['registry']['domain']['client_handle'].'</td><td>'.$data[$pd]['registrar']['domain']['client_handle'].'</td></tr>';
+	$html_text .= '<tr id="303" style="display:none"><td>domain_ascii_name (lowercase is no "MUST")</td><td>'.$data[$pd]['registry']['domain']['ascii_name'].'</td><td id="domain_ascii_name"></td><td>'.$data[$pd]['registrar']['domain']['ascii_name'].'</td></tr>';
+	$html_text .= '<tr id="304" style="display:none"><td>domain_unicode_name</td><td>'.$data[$pd]['registry']['domain']['unicode_name'].'</td><td id="domain_unicode_name"></td><td>'.$data[$pd]['registrar']['domain']['unicode_name'].'</td></tr>';
+	$domain_statuses = (!empty($data[$pd]['registry']['domain']['statuses'])) ? $data[$pd]['registry']['domain']['statuses'] : '';
+	$domain_statuses = str_replace('excluded','<br />excluded (without DNS no email protection)', $domain_statuses);
+	$domain_statuses = str_replace('locked','<br />locked (ambiguous RDAP use)', $domain_statuses);
+	$domain_statuses = str_replace('removed','<br />removed (ambiguous RDAP use)', $domain_statuses);
+	$domain_statuses = str_replace('obscured','<br />obscured (ambiguous RDAP use)', $domain_statuses);
+	$domain_statuses = str_replace('private','<br />private (ambiguous RDAP use)', $domain_statuses);
+	$domain_statuses = str_replace('proxy','<br />proxy (ambiguous RDAP use)', $domain_statuses);
+	$domain_statuses = str_replace('associated','<br />associated (ambiguous RDAP use)', $domain_statuses);
+	if (str_contains($data[$pd]['registry']['domain']['statuses'], 'renew prohibited'))	{
+		if (!str_contains($data[$pd]['registry']['domain']['statuses'], 'server renew prohibited') and !str_contains($data[$pd]['registry']['domain']['statuses'], 'client renew prohibited'))	{
+			$domain_statuses = str_replace('renew prohibited','<br />renew prohibited (ambiguous RDAP use)', $domain_statuses);
 		}
 	}
-	if (str_contains($data[$pd]['registry']['properties']['statuses'], 'update prohibited'))	{
-		if (!str_contains($data[$pd]['registry']['properties']['statuses'], 'server update prohibited') and !str_contains($data[$pd]['registry']['properties']['statuses'], 'client update prohibited'))	{
-			$properties_statuses = str_replace('update prohibited','<br />update prohibited (ambiguous RDAP use)', $properties_statuses);
+	if (str_contains($data[$pd]['registry']['domain']['statuses'], 'update prohibited'))	{
+		if (!str_contains($data[$pd]['registry']['domain']['statuses'], 'server update prohibited') and !str_contains($data[$pd]['registry']['domain']['statuses'], 'client update prohibited'))	{
+			$domain_statuses = str_replace('update prohibited','<br />update prohibited (ambiguous RDAP use)', $domain_statuses);
 		}
 	}
-	if (str_contains($data[$pd]['registry']['properties']['statuses'], 'transfer prohibited'))	{
-		if (!str_contains($data[$pd]['registry']['properties']['statuses'], 'server transfer prohibited') and !str_contains($data[$pd]['registry']['properties']['statuses'], 'client transfer prohibited'))	{
-			$properties_statuses = str_replace('transfer prohibited','<br />transfer prohibited (ambiguous RDAP use)', $properties_statuses);
+	if (str_contains($data[$pd]['registry']['domain']['statuses'], 'transfer prohibited'))	{
+		if (!str_contains($data[$pd]['registry']['domain']['statuses'], 'server transfer prohibited') and !str_contains($data[$pd]['registry']['domain']['statuses'], 'client transfer prohibited'))	{
+			$domain_statuses = str_replace('transfer prohibited','<br />transfer prohibited (ambiguous RDAP use)', $domain_statuses);
 		}
 	}	
-	if (str_contains($data[$pd]['registry']['properties']['statuses'], 'delete prohibited'))	{
-		if (!str_contains($data[$pd]['registry']['properties']['statuses'], 'server delete prohibited') and !str_contains($data[$pd]['registry']['properties']['statuses'], 'client delete prohibited'))	{
-			$properties_statuses = str_replace('delete prohibited','<br />delete prohibited (ambiguous RDAP use)', $properties_statuses);
+	if (str_contains($data[$pd]['registry']['domain']['statuses'], 'delete prohibited'))	{
+		if (!str_contains($data[$pd]['registry']['domain']['statuses'], 'server delete prohibited') and !str_contains($data[$pd]['registry']['domain']['statuses'], 'client delete prohibited'))	{
+			$domain_statuses = str_replace('delete prohibited','<br />delete prohibited (ambiguous RDAP use)', $domain_statuses);
 		}
 	}	
-	$html_text .= '<tr id="305" style="display:none"><td>properties_statuses</td><td>'.$properties_statuses.'</td><td id="properties_statuses"></td><td>'.$data[$pd]['registrar']['properties']['statuses'].'</td></tr>';
-	$html_text .= '<tr id="306" style="display:none"><td>properties_policy_statuses</td><td>'.$data[$pd]['registry']['properties']['policy_statuses'].'</td><td id="properties_policy_statuses"></td><td>'.$data[$pd]['registrar']['properties']['policy_statuses'].'</td></tr>';
-	$html_text .= '<tr><td>properties_dns_state</td><td>'.$data[$pd]['registry']['properties']['dns_state'].'</td><td id="properties_dns_state"></td><td>'.$data[$pd]['registrar']['properties']['dns_state'].'</td></tr>';
-	$html_text .= '<tr id="307" style="display:none"><td>properties_created_at</td><td>'.$data[$pd]['registry']['properties']['created_at'].'</td><td id="properties_created_at"></td><td>'.$data[$pd]['registrar']['properties']['created_at'].'</td></tr>';
-	$html_text .= '<tr id="308" style="display:none"><td>properties_latest_registrar_transfer_at</td><td>'.$data[$pd]['registry']['properties']['latest_registrar_transfer_at'].'</td><td></td><td>'.$data[$pd]['registrar']['properties']['latest_registrar_transfer_at'].'</td></tr>';		
-	$html_text .= '<tr><td>properties_latest_data_mutation_at</td><td>'.$data[$pd]['registry']['properties']['latest_data_mutation_at'].'</td><td id="properties_latest_data_mutation_at"></td><td>'.$data[$pd]['registrar']['properties']['latest_data_mutation_at'].'</td></tr>';	
-	$html_text .= '<tr><td>properties_expiration_at</td><td>'.$data[$pd]['registry']['properties']['expiration_at'].'</td><td id="properties_expiration_at"></td><td>'.$data[$pd]['registrar']['properties']['expiration_at'].'</td></tr>';
-	$html_text .= '<tr id="309" style="display:none"><td>properties_lifecycle_phase</td><td>'.$data[$pd]['registry']['properties']['lifecycle_phase'].'</td><td id="properties_lifecycle_phase"></td><td>'.$data[$pd]['registrar']['properties']['lifecycle_phase'].'</td></tr>';
-	$html_text .= '<tr id="3010" style="display:none"><td>properties_lifecycle_phase_until</td><td>'.$data[$pd]['registry']['properties']['lifecycle_phase_until'].'</td><td id="properties_lifecycle_phase_until"></td><td>'.$data[$pd]['registrar']['properties']['lifecycle_phase_until'].'</td></tr>';
-	$html_text .= '<tr id="3011" style="display:none"><td>properties_applicable_grace</td><td>'.$data[$pd]['registry']['properties']['applicable_grace'].'</td><td id="properties_applicable_grace"></td><td>'.$data[$pd]['registrar']['properties']['applicable_grace'].'</td></tr>';
-	$html_text .= '<tr id="3012" style="display:none"><td>properties_applicable_grace_until</td><td>'.$data[$pd]['registry']['properties']['applicable_grace_until'].'</td><td id="properties_applicable_grace_until"></td><td>'.$data[$pd]['registrar']['properties']['applicable_grace_until'].'</td></tr>';
-	$html_text .= '<tr id="3013" style="display:none"><td>properties_recoverable_until</td><td>'.$data[$pd]['registry']['properties']['recoverable_until'].'</td><td id="properties_recoverable_until"></td><td>'.$data[$pd]['registrar']['properties']['recoverable_until'].'</td></tr>';
-	$html_text .= '<tr id="3014" style="display:none"><td>properties_deletion_at</td><td>'.$data[$pd]['registry']['properties']['deletion_at'].'</td><td id="properties_deletion_at"></td><td>'.$data[$pd]['registrar']['properties']['deletion_at'].'</td></tr>';
-	if (!empty($data[$pd]['registry']['properties']['statuses']))	{
-		if (!empty($data[$pd]['registry']['properties']['lifecycle_phase']))	{
-			if (str_contains($data[$pd]['registry']['properties']['lifecycle_phase'], ','))	{
+	$html_text .= '<tr id="305" style="display:none"><td>domain_statuses</td><td>'.$domain_statuses.'</td><td id="domain_statuses"></td><td>'.$data[$pd]['registrar']['domain']['statuses'].'</td></tr>';
+	$html_text .= '<tr id="306" style="display:none"><td>domain_policy_statuses</td><td>'.$data[$pd]['registry']['domain']['policy_statuses'].'</td><td id="domain_policy_statuses"></td><td>'.$data[$pd]['registrar']['domain']['policy_statuses'].'</td></tr>';
+	$html_text .= '<tr><td>domain_dns_state</td><td>'.$data[$pd]['registry']['domain']['dns_state'].'</td><td id="domain_dns_state"></td><td>'.$data[$pd]['registrar']['domain']['dns_state'].'</td></tr>';
+	$html_text .= '<tr id="307" style="display:none"><td>domain_created_at</td><td>'.$data[$pd]['registry']['domain']['created_at'].'</td><td id="domain_created_at"></td><td>'.$data[$pd]['registrar']['domain']['created_at'].'</td></tr>';
+	$html_text .= '<tr id="308" style="display:none"><td>domain_latest_registrar_transfer_at</td><td>'.$data[$pd]['registry']['domain']['latest_registrar_transfer_at'].'</td><td></td><td>'.$data[$pd]['registrar']['domain']['latest_registrar_transfer_at'].'</td></tr>';		
+	$html_text .= '<tr><td>domain_latest_data_mutation_at</td><td>'.$data[$pd]['registry']['domain']['latest_data_mutation_at'].'</td><td id="domain_latest_data_mutation_at"></td><td>'.$data[$pd]['registrar']['domain']['latest_data_mutation_at'].'</td></tr>';	
+	$html_text .= '<tr><td>domain_expiration_at</td><td>'.$data[$pd]['registry']['domain']['expiration_at'].'</td><td id="domain_expiration_at"></td><td>'.$data[$pd]['registrar']['domain']['expiration_at'].'</td></tr>';
+	$html_text .= '<tr id="309" style="display:none"><td>domain_lifecycle_phase</td><td>'.$data[$pd]['registry']['domain']['lifecycle_phase'].'</td><td id="domain_lifecycle_phase"></td><td>'.$data[$pd]['registrar']['domain']['lifecycle_phase'].'</td></tr>';
+	$html_text .= '<tr id="3010" style="display:none"><td>domain_lifecycle_phase_until</td><td>'.$data[$pd]['registry']['domain']['lifecycle_phase_until'].'</td><td id="domain_lifecycle_phase_until"></td><td>'.$data[$pd]['registrar']['domain']['lifecycle_phase_until'].'</td></tr>';
+	$html_text .= '<tr id="3011" style="display:none"><td>domain_applicable_grace</td><td>'.$data[$pd]['registry']['domain']['applicable_grace'].'</td><td id="domain_applicable_grace"></td><td>'.$data[$pd]['registrar']['domain']['applicable_grace'].'</td></tr>';
+	$html_text .= '<tr id="3012" style="display:none"><td>domain_applicable_grace_until</td><td>'.$data[$pd]['registry']['domain']['applicable_grace_until'].'</td><td id="domain_applicable_grace_until"></td><td>'.$data[$pd]['registrar']['domain']['applicable_grace_until'].'</td></tr>';
+	$html_text .= '<tr id="3013" style="display:none"><td>domain_recoverable_until</td><td>'.$data[$pd]['registry']['domain']['recoverable_until'].'</td><td id="domain_recoverable_until"></td><td>'.$data[$pd]['registrar']['domain']['recoverable_until'].'</td></tr>';
+	$html_text .= '<tr id="3014" style="display:none"><td>domain_deletion_at</td><td>'.$data[$pd]['registry']['domain']['deletion_at'].'</td><td id="domain_deletion_at"></td><td>'.$data[$pd]['registrar']['domain']['deletion_at'].'</td></tr>';
+	if (!empty($data[$pd]['registry']['domain']['statuses']))	{
+		if (!empty($data[$pd]['registry']['domain']['lifecycle_phase']))	{
+			if (str_contains($data[$pd]['registry']['domain']['lifecycle_phase'], ','))	{
 				$html_text .= '<tr id="3015" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>RDAPv2: single-value for lifecycle_phase</td><td></td><td></td></tr>';
 			}
 		}
-		if (str_contains($data[$pd]['registry']['properties']['statuses'], 'pending delete'))	{
-			if (str_contains($data[$pd]['registry']['properties']['statuses'], 'redemption period') and str_contains($data[$pd]['registry']['properties']['statuses'], 'pending delete'))	{
+		if (str_contains($data[$pd]['registry']['domain']['statuses'], 'pending delete'))	{
+			if (str_contains($data[$pd]['registry']['domain']['statuses'], 'redemption period') and str_contains($data[$pd]['registry']['domain']['statuses'], 'pending delete'))	{
 				$html_text .= '<tr id="3016" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"pending delete" disregards redemption grace</td><td></td><td></td></tr>';
 			}	
 			elseif (!empty($data[$pd]['registry']['tld_unicode_name']))	{
@@ -747,27 +747,27 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 				}	
 			}	
 		}
-		if (str_contains($data[$pd]['registry']['properties']['statuses'], 'redemption period') or str_contains($data[$pd]['registry']['properties']['statuses'], 'pending delete'))	{
-			if (!empty($data[$pd]['registry']['properties']['dns_state']))	{
-				if ($data[$pd]['registry']['properties']['dns_state'] == 'dns_delegated')	{
+		if (str_contains($data[$pd]['registry']['domain']['statuses'], 'redemption period') or str_contains($data[$pd]['registry']['domain']['statuses'], 'pending delete'))	{
+			if (!empty($data[$pd]['registry']['domain']['dns_state']))	{
+				if ($data[$pd]['registry']['domain']['dns_state'] == 'dns_delegated')	{
 					$html_text .= '<tr id="3018" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>upon deletion, DNS publishing is not expected</td><td></td><td></td></tr>';
 				}	
 			}
 		}		
-		if (str_contains($data[$pd]['registry']['properties']['statuses'], 'redemption period'))	{
-			if (empty($data[$pd]['registry']['properties']['expiration_at']) and empty($data[$pd]['registry']['properties']['deletion_at'])) {
+		if (str_contains($data[$pd]['registry']['domain']['statuses'], 'redemption period'))	{
+			if (empty($data[$pd]['registry']['domain']['expiration_at']) and empty($data[$pd]['registry']['domain']['deletion_at'])) {
 				$html_text .= '<tr id="3019" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"redemption" without date-time provided</td><td></td><td></td></tr>';
 			}	
 		}
-		elseif (str_contains($data[$pd]['registry']['properties']['statuses'], 'pending delete'))	{
-			if (empty($data[$pd]['registry']['properties']['expiration_at']) and empty($data[$pd]['registry']['properties']['deletion_at'])) {
+		elseif (str_contains($data[$pd]['registry']['domain']['statuses'], 'pending delete'))	{
+			if (empty($data[$pd]['registry']['domain']['expiration_at']) and empty($data[$pd]['registry']['domain']['deletion_at'])) {
 				$html_text .= '<tr id="3020" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"pending delete" without date-time provided</td><td></td><td></td></tr>';
 			}	
 		}
 	}
-	if (!empty($data[$pd]['registry']['properties']['expiration_at']) and !empty($data[$pd]['registry']['properties']['deletion_at'])) {
-    	$expiration = strtotime($data[$pd]['registry']['properties']['expiration_at']);
-    	$deletion = strtotime($data[$pd]['registry']['properties']['deletion_at']);
+	if (!empty($data[$pd]['registry']['domain']['expiration_at']) and !empty($data[$pd]['registry']['domain']['deletion_at'])) {
+    	$expiration = strtotime($data[$pd]['registry']['domain']['expiration_at']);
+    	$deletion = strtotime($data[$pd]['registry']['domain']['deletion_at']);
     	if ($expiration !== false and $deletion !== false)	{
 			$days_before = floor(($expiration - $deletion) / (60 * 60 * 24));
 			if ($days_before > 0) {
@@ -775,17 +775,17 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['properties']['ascii_nam
 			}	
     	}
 	}
-	if (!empty($data[$pd]['registry']['properties']['deletion_at'])) {
+	if (!empty($data[$pd]['registry']['domain']['deletion_at'])) {
 		$current = strtotime($datetime->format('Y-m-d H:i:s'));
-		$deletion = strtotime($data[$pd]['registry']['properties']['deletion_at']);
+		$deletion = strtotime($data[$pd]['registry']['domain']['deletion_at']);
     	if ($current !== false and $deletion !== false and $current > $deletion) {
 			$days_ago = floor(($current - $deletion) / (60 * 60 * 24));
         	$html_text .= '<tr id="3022" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"deletion_at" was '.$days_ago.' days ago?</td><td></td><td></td></tr>';
 		}
 	}	
-	$html_text .= '<tr id="3023" style="display:none"><td>properties_extensions</td><td>'.$data[$pd]['registry']['properties']['extensions'].'</td><td id="properties_extensions"></td><td>'.$data[$pd]['registrar']['properties']['extensions'].'</td></tr>';
-	$html_text .= '<tr id="3024" style="display:none"><td>properties_remarks</td><td>'.$data[$pd]['registry']['properties']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['properties']['remarks'].'</td></tr>';
-	if (!empty($data[$pd]['registry']['properties']['statuses']))	{
+	$html_text .= '<tr id="3023" style="display:none"><td>domain_prextensions</td><td>'.$data[$pd]['registry']['domain']['extensions'].'</td><td id="domain_extensions"></td><td>'.$data[$pd]['registrar']['domain']['extensions'].'</td></tr>';
+	$html_text .= '<tr id="3024" style="display:none"><td>domain_remarks</td><td>'.$data[$pd]['registry']['domain']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['domain']['remarks'].'</td></tr>';
+	if (!empty($data[$pd]['registry']['domain']['statuses']))	{
 		$sponsor_applicable = (!empty($data[$pd]['registry']['sponsor']['organization_name']) or !empty($data[$pd]['registry']['sponsor']['presented_name'])) ? '(sponsor data exists)' : '(no sponsor data)';
 	}
 	else	{

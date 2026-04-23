@@ -1,20 +1,20 @@
 <?php
 //ini_set('display_errors', 1);
 //error_reporting(E_ALL);
-//$_GET['domain'] = 'hostingtool.nl';
-//$_GET['domain'] = 'cyberfusion.nl';
-//$_GET['domain'] = 'münchen.de';
-//$_GET['domain'] = 'example.tel';
-//$_GET['domain'] = 'rdap.org';
-//$_GET['domain'] = 'france.fr';
-//$_GET['domain'] = 'domaincontrolregister.org';
-//$_GET['domain'] = 'icann.org';
-//$_GET['domain'] = 'amsterdam.amsterdam';
-//$_GET['domain'] = 'eurid.eu';
-//$_GET['domain'] = 'denic.de';
-//$_GET['domain'] = 'internet.nl';
-//$_GET['domain'] = 'nic.vermögensberater';
-//$_GET['domain'] = 'teamblue.domains';
+//$_GET['properties'] = 'hostingtool.nl';
+//$_GET['properties'] = 'cyberfusion.nl';
+//$_GET['properties'] = 'münchen.de';
+//$_GET['properties'] = 'example.tel';
+//$_GET['properties'] = 'rdap.org';
+//$_GET['properties'] = 'france.fr';
+//$_GET['properties'] = 'domaincontrolregister.org';
+//$_GET['properties'] = 'icann.org';
+//$_GET['properties'] = 'amsterdam.amsterdam';
+//$_GET['properties'] = 'eurid.eu';
+//$_GET['properties'] = 'denic.de';
+//$_GET['properties'] = 'internet.nl';
+//$_GET['properties'] = 'nic.vermögensberater';
+//$_GET['properties'] = 'teamblue.domains';
 
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
@@ -58,7 +58,7 @@ if (!empty($_GET['domain']))	{
 		$registry_rdap['metadata']['domain_ascii_name'] = $domain_ascii_name ?? null;
 		$registrar_rdap = [];
 		$registrar_interface = '';
-		$registry_statuses = $registry_rdap['properties']['statuses'] ?? null;
+		$registry_statuses = $registry_rdap['domain']['statuses'] ?? null;
 		if (!empty($registry_statuses) and mb_strlen($tld_unicode_name) > 2) {
 			$registry_rdap['metadata']['rdap_data_layer'] = 'registry_rdap';
 			$registrar_identifier = $registry_rdap['metadata']['registrar_identifier'] ?? null;
@@ -99,7 +99,7 @@ if (!empty($_GET['domain']))	{
 						$registry_rdap['interface_notice'] = 'Registry RDAP misses the rel="related" link.';
        					$registrar_rdap = write_file($tld_ascii_name, $domain_ascii_name, $batch, $registrar_uri);
 						$registrar_interface = $registrar_rdap['interface_notice'] ?? '';
-						$registrar_statuses = $registrar_rdap['properties']['statuses'] ?? null;
+						$registrar_statuses = $registrar_rdap['domain']['statuses'] ?? null;
 						if (!empty($registrar_statuses)) {						
 							$registrar_rdap['metadata']['rdap_data_layer'] = 'registrar_rdap';
 							$registrar_rdap['metadata']['tld_unicode_name'] = $tld_unicode_name ?? null;
@@ -1410,7 +1410,7 @@ foreach($obj as $key1 => $value1) {
 					}
 				}	
 				if ($key1 == 'entities')	{
-					if ($key3 == 'properties')	{
+					if ($key3 == 'domain')	{
 						if ($key2 == $entity_registrant)	{
 							$registrant_properties = $key4 . ":<br />" . (is_array($value4)) ? implode(",<br />", $value4) : $value4;
 						}
@@ -2056,21 +2056,21 @@ $arr['metadata']['registrar_uri_links'] = $registrar_links;
 $arr['metadata']['status_explanation_uri'] = $status_explanation_uri;
 $arr['metadata']['resource_upload_at'] = $resource_upload_at;		
 	
-$arr['properties']['server_handle'] = $server_handle;
-$arr['properties']['client_handle'] = $client_handle;
-$arr['properties']['ascii_name'] = $ascii_name;	
-$arr['properties']['unicode_name'] = $unicode_name;
-$arr['properties']['statuses'] = rtrim($indeterminate_statuses . $server_statuses . $client_statuses . $lifecycle_phase, ",");
-$arr['properties']['policy_statuses'] = rtrim($server_statuses . $client_statuses, ",");
-$arr['properties']['dns_state'] = $dns_state;
-$arr['properties']['created_at'] = $created_at;	
-$arr['properties']['latest_registrar_transfer_at'] = $latest_registrar_transfer_at;
-$arr['properties']['latest_data_mutation_at'] = $latest_data_mutation_at;
-$arr['properties']['expiration_at'] = $expiration_at;
-$arr['properties']['lifecycle_phase'] = rtrim($lifecycle_phase, ",");
-$arr['properties']['deletion_at'] = $deletion_at;
-$arr['properties']['extensions'] = $extensions;
-$arr['properties']['remarks'] = $remarks;			
+$arr['domain']['server_handle'] = $server_handle;
+$arr['domain']['client_handle'] = $client_handle;
+$arr['domain']['ascii_name'] = $ascii_name;	
+$arr['domain']['unicode_name'] = $unicode_name;
+$arr['domain']['statuses'] = rtrim($indeterminate_statuses . $server_statuses . $client_statuses . $lifecycle_phase, ",");
+$arr['domain']['policy_statuses'] = rtrim($server_statuses . $client_statuses, ",");
+$arr['domain']['dns_state'] = $dns_state;
+$arr['domain']['created_at'] = $created_at;	
+$arr['domain']['latest_registrar_transfer_at'] = $latest_registrar_transfer_at;
+$arr['domain']['latest_data_mutation_at'] = $latest_data_mutation_at;
+$arr['domain']['expiration_at'] = $expiration_at;
+$arr['domain']['lifecycle_phase'] = rtrim($lifecycle_phase, ",");
+$arr['domain']['deletion_at'] = $deletion_at;
+$arr['domain']['extensions'] = $extensions;
+$arr['domain']['remarks'] = $remarks;			
 	
 $arr['sponsor']['client_handle'] = $sponsor_handle;
 $arr['sponsor']['web_id'] = $sponsor_web_id;		

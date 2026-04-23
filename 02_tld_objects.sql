@@ -45,8 +45,8 @@ CREATE TABLE IF NOT EXISTS root (
     root_id SERIAL PRIMARY KEY,
     root_services_uri JSONB DEFAULT '[]'::jsonb,
     root_tlds_uri JSONB DEFAULT '[]'::jsonb,
-	root_root_policies_uri JSONB DEFAULT '[]'::jsonb,
-	root_root_privacy_policy_uri DEFAULT '[]'::jsonb,
+	root_policies_uri JSONB DEFAULT '[]'::jsonb,
+	root_rivacy_policy_uri DEFAULT '[]'::jsonb,
 	root_lookup_endpoints_uri JSONB DEFAULT '[]'::jsonb,
     root_registrar_accreditations_uri DEFAULT '[]'::jsonb,
     root_function_identifiers JSONB DEFAULT 
