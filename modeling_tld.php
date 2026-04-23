@@ -200,7 +200,7 @@ function SwitchTranslation(translation)	{
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "TLD-informatie — IANA-gegevens";
 		document.getElementById("instruction").textContent = "Geef hier in:";
-		document.getElementById("modeling").textContent = "Een RDAPv2 kan onbepaalde statussen elimineren en ccTLD-proof zijn via een nieuwe globale tabeldefinitie in snake_case.";
+		document.getElementById("modeling").textContent = "Een RDAPv2 kan statussen herzien en ccTLD-proof zijn via een nieuwe globale tabeldefinitie in snake_case.";
 		document.getElementById("field").textContent = "Gemodelleerd met snake_case";
 		document.getElementById("explanation").textContent = "Gestroomlijnde TLD-metadata met een centraal model om redundantie te voorkomen.";
 		document.getElementById("root_notices_part").textContent = legacy;
@@ -247,7 +247,7 @@ function SwitchTranslation(translation)	{
 		var legacy = '(Legacy) ';		
 		document.getElementById("title").textContent = "TLD Information — IANA Data";
 		document.getElementById("instruction").textContent = "Enter here:";
-		document.getElementById("modeling").textContent = "An RDAPv2 can eliminate indeterminate statuses and be ccTLD-proof via a new global table definition in snake_case.";
+		document.getElementById("modeling").textContent = "An RDAPv2 can revise statuses and be ccTLD-proof via a new global table definition in snake_case.";
 		document.getElementById("field").textContent = "Modeled with snake_case";
 		document.getElementById("explanation").textContent = "Streamlined TLD metadata using a single-source model to prevent redundancy.";
 		document.getElementById("root_notices_part").textContent = legacy;
@@ -294,7 +294,7 @@ function SwitchTranslation(translation)	{
 		var legacy = '(Legacy) ';		
 		document.getElementById("title").textContent = "TLD-Informationen — IANA-Daten";
 		document.getElementById("instruction").textContent = "Hier eingeben:";
-		document.getElementById("modeling").textContent = "Ein RDAPv2 kann unbestimmte Statuswerte eliminieren und ccTLD-sicher sein durch eine neue globale Tabellendefinition in snake_case.";
+		document.getElementById("modeling").textContent = "Ein RDAPv2 kann Status ändern und ccTLD-sicher sein durch eine neue globale Tabellendefinition in snake_case.";
 		document.getElementById("field").textContent = "Modelliert mit snake_case";
 		document.getElementById("explanation").textContent = "Schlanke TLD-Metadaten mit einem Single-Source-Modell zur Vermeidung von Redundanz.";
 		document.getElementById("root_notices_part").textContent = legacy;
@@ -341,7 +341,7 @@ function SwitchTranslation(translation)	{
 		var legacy = '(Legacy) ';		
 		document.getElementById("title").textContent = "Informations sur les TLD — Données IANA";
 		document.getElementById("instruction").textContent = "Saisissez ici :";
-		document.getElementById("modeling").textContent = "Un RDAPv2 peut éliminer les statuts indéterminés et être ccTLD-compatible en adoptant une nouvelle définition globale de table en snake_case.";
+		document.getElementById("modeling").textContent = "Un RDAPv2 peut modifier les statuts et être ccTLD-compatible en adoptant une nouvelle définition globale de table en snake_case.";
 		document.getElementById("field").textContent = "Modélisé en snake_case";
 		document.getElementById("explanation").textContent = "Métadonnées TLD rationalisées utilisant un modèle à source unique pour éviter la redondance.";
 		document.getElementById("root_notices_part").textContent = legacy;
