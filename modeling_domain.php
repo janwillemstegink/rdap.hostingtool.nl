@@ -59,7 +59,7 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 90%">
 <meta charset="UTF-8"><meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="robots" content="index">
 <title>Domain Information</title><style>.top-align td {vertical-align: top;}</style>';
-?><script>
+?><script>	
 	
 function SwitchDisplay(type) {
 	if (type == 11)	{ // notice
@@ -70,7 +70,7 @@ function SwitchDisplay(type) {
 		var pre = '12';
 		var max = 1
 	}
-	else if (type == 13)	{ // redacted
+	else if (type == 13)	{ // publication
 		var pre = '13';
 		var max = 1
 	}
@@ -152,6 +152,29 @@ function SwitchDisplay(type) {
 		}
 	}
 }
+		
+const modeling = `Legacy table structures lack explicit disclosure semantics.
+
+Each field’s publication state is evaluated per domain–entity relationship record.
+Implementations MUST NOT aggregate data across records when determining disclosure.
+Disclosure is determined per field value, not per field type.
+
+Example (non-normative)
+
+An entity may have multiple relationship records with a domain; each record assigns a publication state to each field. An email field in one record is marked as "visible", while the same field in another record is marked as "shielded". 
+
+Aggregating these records could incorrectly disclose or suppress data. Therefore, publication decisions are made per record.
+
+Enumerated Values (domain_entities.field_publication)
+
+shielded — not disclosed
+visible — disclosed
+authorizable_shielded — disclosed only if authorized and permitted by policy
+authorizable_visible — disclosed based on authorization and permitted by policy
+
+End of RFC Modeling Section
+
+`;
 
 function SwitchTranslation(translation)	{
 	document.getElementById("language").value = translation;
@@ -167,7 +190,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "";
 		document.getElementById("notices_part").textContent = legacy;
 		document.getElementById("links_part").textContent = legacy;
-		document.getElementById("redacted").textContent = "";
+		document.getElementById("field_publication_part").textContent = "";
+		document.getElementById("field_publication").textContent = "";
 		document.getElementById("metadata_part").textContent = proposed;
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
@@ -250,13 +274,14 @@ function SwitchTranslation(translation)	{
 		var accessible = 'Voor het gebruiksgemak en de duidelijkheid kunnen nieuwe velden worden toegevoegd.';
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domeininformatie — RDAP-gegevens & Verificatie";
-		document.getElementById("modeling").textContent = "Deze RDAP-modellering biedt Nederland een gestructureerd referentiekader voor het afstemmen van technische conformiteit op praktische transparantie. Een Nationale Raad voor Digitale Kaders kan dienen als platform van waaruit Nederland bijdraagt aan versterkte internationale dialoog over digitale standaarden en governance.";
+		document.getElementById("modeling").textContent = "Deze RDAP-modellering biedt een gestructureerde referentie voor het interpreteren van domeingegevens en openbaarmakingssemantiek.";
 		document.getElementById("instruction").textContent = "Geef hier in:";
 		document.getElementById("field_name").textContent = "Gemodelleerd met snake_case";
 		document.getElementById("explanation").textContent = "Een overzicht van en toelichting op de structuur en kenmerken van webdomeinen.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("redacted").textContent = "Sommige gegevens zijn afgeschermd voor het publiek, maar blijven zichtbaar voor geautoriseerde registrars.";
+		document.getElementById("field_publication_part").textContent = "Gegevens kunnen afgeschermd zijn. Interpretatie vereist RFC-modellering.";
+		document.getElementById("field_publication").textContent = modeling;
 		document.getElementById("metadata_part").textContent = proposed + "Metadata bieden context en details over data-elementen.";
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
@@ -339,13 +364,14 @@ function SwitchTranslation(translation)	{
 		var accessible = 'For ease of use and clarity, new fields can be added.';
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domain Information — RDAP Data & Verification";
-		document.getElementById("modeling").textContent = "This RDAP modeling provides the Netherlands with a structured reference for aligning technical conformity with practical transparency. A National Council for Digital Frameworks could serve as a platform through which the Netherlands contributes to enhanced international dialogue on digital standards and governance.";
+		document.getElementById("modeling").textContent = "This RDAP modeling provides a structured reference for interpreting domain data and disclosure semantics.";
 		document.getElementById("instruction").textContent = "Enter here:";
 		document.getElementById("field_name").textContent = "Modeled with snake_case";
 		document.getElementById("explanation").textContent = "An overview of the structure and key characteristics of domain data.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("redacted").textContent = "Some data is shielded from public view but remains visible to authorized registrars.";
+		document.getElementById("field_publication_part").textContent = "Data may be shielded. Interpretation requires RFC modeling.";
+		document.getElementById("field_publication").textContent = modeling;
 		document.getElementById("metadata_part").textContent = proposed + "Metadata provides context and details about data elements.";
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
@@ -428,13 +454,14 @@ function SwitchTranslation(translation)	{
 		var accessible = 'Zur Vereinfachung und besseren Übersichtlichkeit können neue Felder hinzugefügt werden.';
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Domaininformationen — RDAP-Daten & Verifikation";
-		document.getElementById("modeling").textContent = "Diese RDAP-Modellierung bietet den Niederlanden einen strukturierten Referenzrahmen zur Abstimmung technischer Konformität mit praktischer Transparenz. Ein Nationaler Rat für Digitale Rahmenwerke könnte als Plattform dienen, über die die Niederlande zu einem verstärkten internationalen Dialog über digitale Standards und Governance beitragen.";
+		document.getElementById("modeling").textContent = "Diese RDAP-Modellierung bietet eine strukturierte Referenz zur Interpretation von Domain-Daten und Offenlegungssemantik.";
 		document.getElementById("instruction").textContent = "Hier eingeben:";
 		document.getElementById("field_name").textContent = "Modelliert mit snake_case";
 		document.getElementById("explanation").textContent = "Eine Übersicht und Erklärung zur Struktur und den Eigenschaften von Webdomänen.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("redacted").textContent = "Einige Daten sind vor der Öffentlichkeit abgeschirmt, bleiben jedoch für autorisierte Registrare sichtbar.";
+		document.getElementById("field_publication_part").textContent = "Daten können abgeschirmt sein. Interpretation erfordert RFC-Modellierung.";
+		document.getElementById("field_publication").textContent = modeling;
 		document.getElementById("metadata_part").textContent = proposed + "Metadaten liefern Kontext und Details zu Datenelementen.";
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
@@ -517,13 +544,14 @@ function SwitchTranslation(translation)	{
 		var accessible = "Pour plus de facilité d'utilisation et de clarté, de nouveaux champs peuvent être ajoutés.";
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "Informations sur le domaine — Données RDAP & Vérification";
-		document.getElementById("modeling").textContent = "Cette modélisation RDAP fournit aux Pays-Bas un cadre de référence structuré pour aligner la conformité technique avec la transparence pratique. Un Conseil national des cadres numériques pourrait servir de plateforme par laquelle les Pays-Bas contribuent à un dialogue international renforcé sur les standards numériques et la gouvernance.";
+		document.getElementById("modeling").textContent = "Cette modélisation RDAP fournit une référence structurée pour l’interprétation des données de domaine et de la sémantique de divulgation.";
 		document.getElementById("instruction").textContent = "Saisissez ici :";
 		document.getElementById("field_name").textContent = "Modélisé en snake_case";
 		document.getElementById("explanation").textContent = "Un aperçu et une explication de la structure et des caractéristiques des domaines Web.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("redacted").textContent = "Certaines données sont protégées du public mais restent visibles pour les registries autorisés.";
+		document.getElementById("field_publication_part").textContent = "Les données peuvent être masquées. Interprétation nécessite une modélisation RFC.";
+		document.getElementById("field_publication").textContent = modeling;
 		document.getElementById("metadata_part").textContent = proposed + "Les métadonnées fournissent le contexte et des détails sur les éléments de données.";
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
@@ -642,7 +670,7 @@ if	(is_null($data))	{
 $html_text = '<body onload=SwitchTranslation('.$viewlanguage.')><div style="line-height: 1.2;">
 <table class="top-align" style="border-collapse:collapse; font-family:Helvetica, Arial, sans-serif; font-size: 1rem; table-layout: fixed; width:1675px">
 <tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th><th style="width:300px"></th></tr>';
-$html_text .= '<tr style="font-size: 0.8rem"><td colspan="2" id="title" style="font-size: 1.4rem;color:blue;font-weight:bold"></td><td colspan="2" id="modeling"></td></tr>';
+$html_text .= '<tr style="font-size: 0.9rem"><td colspan="2" id="title" style="font-size: 1.4rem;color:blue;font-weight:bold"></td><td colspan="2" id="modeling"></td></tr>';
 $html_text .= '<tr><td id="instruction" style="font-size: 0.8rem; vertical-align:middle; text-align: right;"></td><td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">
 	<input type="hidden" id="language" name="language" value='.$viewlanguage.'>	
 	<input type="text" style="width:90%" id="domain" name="domain" value='.$vd.'></form></td><td>
@@ -658,8 +686,8 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['domain']['ascii_name'])
 	$html_text .= '<tr id="111" style="display:none"><td colspan="2">'.$data[$pd]['registry']['notices'].'</td><td></td><td>'.$data[$pd]['registrar']['notices'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(12)">Links +/-</button><td></td><td id="links_part"></td><td></td></tr>';
 	$html_text .= '<tr id="121" style="display:none"><td colspan="2">'.$data[$pd]['registry']['links'].'</td><td></td><td>'.$data[$pd]['registrar']['links'].'</td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(13)">Field Publication +/-</button></td><td></td><td id="redacted"></td><td></td></tr>';
-	$html_text .= '<tr id="131" style="display:none"><td colspan="2">'.$data[$pd]['registry']['redacted'].'</td><td></td><td>'.$data[$pd]['registrar']['redacted'].'</td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(13)">Field Publication +/-</button></td><td></td><td id="field_publication_part"></td><td></td></tr>';
+	$html_text .= '<tr id="131" style="display:none"><td colspan="2">'.$data[$pd]['registry']['field_publication'].'</td><td id="field_publication" style="white-space: pre-wrap; font-family: monospace; line-height: 1.4; font-size: 13px;"></td><td>'.$data[$pd]['registrar']['field_publication'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(20)">Metadata +/-</button></td><td></td><td id="metadata_part"></td><td></td></tr>';
 	$html_text .= '<tr id="201" style="display:none"><td>object_type</td><td>'.$data[$pd]['registry']['metadata']['object_type'].'</td><td id="metadata_object_type"></td><td>'.$data[$pd]['registrar']['metadata']['object_type'].'</td></tr>';
 	$html_text .= '<tr id="202" style="display:none"><td>rdap_version</td><td>'.$data[$pd]['registry']['metadata']['rdap_version'].'</td><td id="metadata_rdap_version"></td><td>'.$data[$pd]['registrar']['metadata']['rdap_version'].'</td></tr>';

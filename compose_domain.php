@@ -1293,11 +1293,10 @@ foreach($obj as $key1 => $value1) {
 			}
 		}
 		if ($key1 == 'redacted')	{
-			$redacted .= $key2;
-			$redacted .= (!empty($value2['name']['description'])) ? ": name: " . $value2['name']['description'] : '';
-			$redacted .= (!empty($value2['name']['type'])) ? ": type: " . $value2['name']['type'] : '';
-			$redacted .= (!empty($value2['method'])) ? ": method: " . $value2['method'] : '';
-			$redacted .= (!empty($value2['reason']['description'])) ? ": reason: " . $value2['reason']['description'] : '';
+			$redacted .= (!empty($value2['name']['description'])) ? "name: " . $value2['name']['description'] : '';
+			$redacted .= (!empty($value2['name']['type'])) ? "type: " . $value2['name']['type'] : '';
+			$redacted .= (!empty($value2['method'])) ? " | method: " . $value2['method'] : '';
+			$redacted .= (!empty($value2['reason']['description'])) ? " | reason: " . $value2['reason']['description'] : '';
 			$redacted .= "<br />";
 		}
 		foreach($value2 as $key3 => $value3) {
@@ -2038,7 +2037,7 @@ if ($inputbatch)	{
 	
 $arr['notices'] = $notices;
 $arr['links'] = $links;
-$arr['redacted'] = $redacted;
+$arr['field_publication'] = $redacted;
 	
 $arr['metadata']['object_type'] = $object_type;
 $arr['metadata']['rdap_version'] = $rdap_version;
