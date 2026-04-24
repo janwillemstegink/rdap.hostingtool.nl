@@ -938,6 +938,7 @@ function write_file($inputtld, $inputdomain, $inputbatch, $inputurl) {
 $notices = '';	
 $links = '';		
 $redacted = '';
+$interface_notice = '';	
 $resource_upload_at = null;
 $object_type = $obj['objectClassName'];
 $rdap_version = '';	
@@ -1293,12 +1294,24 @@ foreach($obj as $key1 => $value1) {
 			}
 		}
 		if ($key1 == 'redacted')	{
-			$redacted .= (!empty($value2['name']['description'])) ? "name: " . $value2['name']['description'] : '';
-			$redacted .= (!empty($value2['name']['type'])) ? "type: " . $value2['name']['type'] : '';
-			$redacted .= (!empty($value2['method'])) ? " | method: " . $value2['method'] : '';
-			$redacted .= (!empty($value2['reason']['description'])) ? " | reason: " . $value2['reason']['description'] : '';
-			$redacted .= "<br />";
-		}
+			//$redacted .= (!empty($value2['name']['description'])) ? "name: " . $value2['name']['description'] : '';
+			//$redacted .= (!empty($value2['name']['type'])) ? "type: " . $value2['name']['type'] : '';
+			//$redacted .= (!empty($value2['method'])) ? " | method: " . $value2['method'] : '';
+			//$redacted .= (!empty($value2['reason']['description'])) ? " | reason: " . $value2['reason']['description'] : '';
+    		$parts = [];
+    		$type = $value2['type'] ?? $value2['name']['type'] ?? $value2['name']['description'] ?? null;
+    		if (!empty($type)) { $parts[] = "type: " . $type; }
+    		if (!empty($value2['method'])) { $parts[] = "method: " . $value2['method']; }
+    		if (!empty($value2['reason']['description'])) { $parts[] = "reason: " . $value2['reason']['description']; }
+    		if (!empty($parts)) { $redacted .= implode(' | ', $parts) . "<br />"; }
+		    //if (!empty($value2['name']['type']) || !empty($value2['name']['description'])) {
+			//	//$notice = 'redacted: name.* &rarr; type (more stable)';
+			//	$notice = 'redacted: name.* ? type (more stable)';
+        	//	if (!str_contains($interface_notice, $notice)) {
+            //		$interface_notice .= $notice . "<br />";
+        	//	}
+    		//}
+		}		
 		foreach($value2 as $key3 => $value3) {
 			if ($key1 == 'notices')	{
 				if (!is_array($value3))	{
@@ -2038,6 +2051,7 @@ if ($inputbatch)	{
 $arr['notices'] = $notices;
 $arr['links'] = $links;
 $arr['field_publication'] = $redacted;
+$arr['interface_notice'] = $interface_notice;
 	
 $arr['metadata']['object_type'] = $object_type;
 $arr['metadata']['rdap_version'] = $rdap_version;

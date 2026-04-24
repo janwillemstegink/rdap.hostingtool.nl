@@ -280,7 +280,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Een overzicht van en toelichting op de structuur en kenmerken van webdomeinen.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("field_publication_part").textContent = "Gegevens kunnen afgeschermd zijn. Interpretatie vereist RFC-modellering.";
+		document.getElementById("field_publication_part").textContent = "Gegevens kunnen afgeschermd zijn; interpretatie vereist op RFC gebaseerde modellering.";
 		document.getElementById("field_publication").textContent = modeling;
 		document.getElementById("metadata_part").textContent = proposed + "Metadata bieden context en details over data-elementen.";
 		document.getElementById("metadata_object_type").textContent = modified;
@@ -370,7 +370,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "An overview of the structure and key characteristics of domain data.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("field_publication_part").textContent = "Data may be shielded. Interpretation requires RFC modeling.";
+		document.getElementById("field_publication_part").textContent = "Data may be shielded; interpretation requires RFC-based modeling.";
 		document.getElementById("field_publication").textContent = modeling;
 		document.getElementById("metadata_part").textContent = proposed + "Metadata provides context and details about data elements.";
 		document.getElementById("metadata_object_type").textContent = modified;
@@ -460,7 +460,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Eine Übersicht und Erklärung zur Struktur und den Eigenschaften von Webdomänen.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("field_publication_part").textContent = "Daten können abgeschirmt sein. Interpretation erfordert RFC-Modellierung.";
+		document.getElementById("field_publication_part").textContent = "Daten können abgeschirmt sein; die Interpretation erfordert eine RFC-basierte Modellierung.";
 		document.getElementById("field_publication").textContent = modeling;
 		document.getElementById("metadata_part").textContent = proposed + "Metadaten liefern Kontext und Details zu Datenelementen.";
 		document.getElementById("metadata_object_type").textContent = modified;
@@ -550,7 +550,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Un aperçu et une explication de la structure et des caractéristiques des domaines Web.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("field_publication_part").textContent = "Les données peuvent être masquées. Interprétation nécessite une modélisation RFC.";
+		document.getElementById("field_publication_part").textContent = "Les données peuvent être masquées ; leur interprétation nécessite une modélisation basée sur les RFC.";
 		document.getElementById("field_publication").textContent = modeling;
 		document.getElementById("metadata_part").textContent = proposed + "Les métadonnées fournissent le contexte et des détails sur les éléments de données.";
 		document.getElementById("metadata_object_type").textContent = modified;
@@ -716,7 +716,7 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['domain']['ascii_name'])
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(30)">Domain Properties +/-</button></td><td><b>'.$vd.'</b></td><td id="domain_part"></td><td></td></tr>';
 	$html_text .= '<tr id="301" style="display:none"><td>domain_server_handle</td><td colspan="2">'.$data[$pd]['registry']['domain']['server_handle'].'</td><td>'.$data[$pd]['registrar']['domain']['server_handle'].'</td></tr>';
 	$html_text .= '<tr id="302" style="display:none"><td>domain_client_handle</td><td colspan="2">'.$data[$pd]['registry']['domain']['client_handle'].'</td><td>'.$data[$pd]['registrar']['domain']['client_handle'].'</td></tr>';
-	$html_text .= '<tr id="303" style="display:none"><td>domain_ascii_name (lowercase is no "MUST")</td><td>'.$data[$pd]['registry']['domain']['ascii_name'].'</td><td id="domain_ascii_name"></td><td>'.$data[$pd]['registrar']['domain']['ascii_name'].'</td></tr>';
+	$html_text .= '<tr id="303" style="display:none"><td>domain_ascii_name (lowercase not required)</td><td>'.$data[$pd]['registry']['domain']['ascii_name'].'</td><td id="domain_ascii_name"></td><td>'.$data[$pd]['registrar']['domain']['ascii_name'].'</td></tr>';
 	$html_text .= '<tr id="304" style="display:none"><td>domain_unicode_name</td><td>'.$data[$pd]['registry']['domain']['unicode_name'].'</td><td id="domain_unicode_name"></td><td>'.$data[$pd]['registrar']['domain']['unicode_name'].'</td></tr>';
 	$domain_statuses = (!empty($data[$pd]['registry']['domain']['statuses'])) ? $data[$pd]['registry']['domain']['statuses'] : '';
 	$domain_statuses = str_replace('excluded','<br />excluded (without DNS no email protection)', $domain_statuses);
