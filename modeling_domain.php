@@ -811,7 +811,7 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['domain']['ascii_name'])
         	$html_text .= '<tr id="3022" style="display:none"><td>(Global table definition addresses ccTLD variation)</td><td>"deletion_at" was '.$days_ago.' days ago?</td><td></td><td></td></tr>';
 		}
 	}	
-	$html_text .= '<tr id="3023" style="display:none"><td>domain_prextensions</td><td>'.$data[$pd]['registry']['domain']['extensions'].'</td><td id="domain_extensions"></td><td>'.$data[$pd]['registrar']['domain']['extensions'].'</td></tr>';
+	$html_text .= '<tr id="3023" style="display:none"><td>domain_extensions</td><td>'.$data[$pd]['registry']['domain']['extensions'].'</td><td id="domain_extensions"></td><td>'.$data[$pd]['registrar']['domain']['extensions'].'</td></tr>';
 	$html_text .= '<tr id="3024" style="display:none"><td>domain_remarks</td><td>'.$data[$pd]['registry']['domain']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['domain']['remarks'].'</td></tr>';
 	if (!empty($data[$pd]['registry']['domain']['statuses']))	{
 		$sponsor_applicable = (!empty($data[$pd]['registry']['sponsor']['organization_name']) or !empty($data[$pd]['registry']['sponsor']['presented_name'])) ? '(sponsor data exists)' : '(no sponsor data)';
