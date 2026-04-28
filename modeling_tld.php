@@ -172,6 +172,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_data_active_from").textContent = proposed;
 		document.getElementById("tld_category").textContent = proposed;
 		document.getElementById("tld_type").textContent = proposed;
+		document.getElementById("tld_ascii_name").textContent = modified;
+		document.getElementById("tld_unicode_name").textContent = modified;
 		document.getElementById("tld_statuses").textContent = modified;
 		document.getElementById("tld_storage_model").textContent = proposed;
 		document.getElementById("tld_response_model").textContent = proposed;
@@ -190,6 +192,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_status_meanings").textContent = proposed;
 		document.getElementById("lifecycle_operational_periods").textContent = proposed;
+		document.getElementById("nameservers_part").textContent = "";
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "";
 		document.getElementById("nameservers_rdap_ds_algorithms").textContent = "";
 		document.getElementById("nameservers_ip").textContent = "";
@@ -219,6 +222,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_data_active_from").textContent = proposed;
 		document.getElementById("tld_category").textContent = proposed + 'Geeft een generieke TLD (gTLD) of een landcode-TLD (ccTLD) aan.';
 		document.getElementById("tld_type").textContent = proposed + 'Het TLD-type, bijvoorbeeld gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD of geoTLD.';
+		document.getElementById("tld_ascii_name").textContent = modified;
+		document.getElementById("tld_unicode_name").textContent = modified;
 		document.getElementById("tld_statuses").textContent = modified;
 		document.getElementById("tld_storage_model").textContent = proposed + "Opslagmodel voor TLD-domeingegevens (thin of thick).";
 		document.getElementById("tld_response_model").textContent = proposed + "RDAP-responsmodel voor domeingegevens (thin, delegated of thick).";
@@ -228,7 +233,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_json_response_uri").textContent = proposed + "Verrijkte machineleesbare TLD- en RDAP-gegevens.";
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Beperkt gebruik. Interpretatie hangt af van TLD- en RDAP-context.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;
-		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + 'Of zoekmachines op pending delete mogen vertrouwen om resultaten te wissen.';
+		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + 'Of zoekmachines kunnen vertrouwen op de “pending delete”-fase om resultaten te verwijderen.';
 		document.getElementById("tld_functions").textContent = proposed;
 		document.getElementById("tld_accepted_workload").textContent = proposed + "Deze modellering ondersteunt de modernisering van IANA-databasetabellen.";
 		document.getElementById("tld_relationships").textContent = proposed;
@@ -237,9 +242,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_status_meanings").textContent = proposed + "Let op: Er bestaat een globale tabeldefinitie; ICANN speelt nog geen leidende rol.";
 		document.getElementById("lifecycle_operational_periods").textContent = proposed + 'Meerjarige registratie soms mogelijk; max. verschilt per TLD en registrar.';
+		document.getElementById("nameservers_part").textContent = "Authoritatieve zone: DNS-gegevens die door deze nameservers worden geserveerd.";
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC beveiligt DNS tegen spoofing en cachevergiftiging.";
 		document.getElementById("nameservers_rdap_ds_algorithms").textContent = "Algoritmen 13–16 zijn actueel. IANA voert algoritme 8 als RECOMMENDED, geldt als uitlopend.";
-		document.getElementById("nameservers_ip").textContent = "IP-adressen zijn zichtbaar indien van toepassing en ook opgenomen in het RDAP-bestand.";
+		document.getElementById("nameservers_ip").textContent = "IP addresses from RDAP, if available. Usually present for TLD zones.";
 	}
 	else if (translation == 2)	{
 		var modified = '(Modified) ';
@@ -266,6 +272,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_data_active_from").textContent = proposed;
 		document.getElementById("tld_category").textContent = proposed + 'Indicates generic TLD (gTLD) or a country-code TLD (ccTLD).';
 		document.getElementById("tld_type").textContent = proposed + 'The TLD type, such as gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD, or geoTLD.';
+		document.getElementById("tld_ascii_name").textContent = modified;
+		document.getElementById("tld_unicode_name").textContent = modified;		
 		document.getElementById("tld_statuses").textContent = modified;
 		document.getElementById("tld_storage_model").textContent = proposed + "Storage model for TLD domain data (thin or thick).";
 		document.getElementById("tld_response_model").textContent = proposed + "RDAP response model for domain data (thin, delegated or thick).";		
@@ -275,7 +283,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_json_response_uri").textContent = proposed + "Enriched machine-readable TLD and RDAP data.";
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Restricted use. Interpretation depends on TLD and RDAP context.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;		
-		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + 'If search engines may rely on pending delete to delete results.';
+		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + 'Whether search engines can rely on the “pending delete” phase to remove results.';
 		document.getElementById("tld_functions").textContent = proposed;
 		document.getElementById("tld_accepted_workload").textContent = proposed + "This modeling supports IANA database table modernization efforts.";
 		document.getElementById("tld_relationships").textContent = proposed;
@@ -284,9 +292,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;	
 		document.getElementById("lifecycle_status_meanings").textContent = proposed + "Note: A global table definition exists; ICANN is not yet in a leading role.";
 		document.getElementById("lifecycle_operational_periods").textContent = proposed + 'Multi-year registration sometimes possible; max varies by TLD & registrar.';
+		document.getElementById("nameservers_part").textContent = "Authoritative zone: DNS data served by these nameservers.";
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC secures DNS against spoofing and cache poisoning.";
 		document.getElementById("nameservers_rdap_ds_algorithms").textContent = "Algorithms 13–16 are current. IANA lists algorithm 8 as RECOMMENDED, considered phasing out.";
-		document.getElementById("nameservers_ip").textContent = "IP addresses are visible if applicable and also included in the RDAP file.";
+		document.getElementById("nameservers_ip").textContent = "IP addresses from RDAP, if available. Usually present for TLD zones.";
 	}
 	else if (translation == 3)	{
 		var modified = '(Geändert) ';
@@ -314,6 +323,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_json_response_uri").textContent = proposed + "Angereicherte maschinenlesbare TLD- und RDAP-Daten.";
 		document.getElementById("tld_category").textContent = proposed + 'Zeigt eine generische TLD (gTLD) oder eine länderspezifische TLD (ccTLD) an.';
 		document.getElementById("tld_type").textContent = proposed + 'Der TLD-Typ, z. B. gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD oder geoTLD.';
+		document.getElementById("tld_ascii_name").textContent = modified;
+		document.getElementById("tld_unicode_name").textContent = modified;		
 		document.getElementById("tld_statuses").textContent = modified;
 		document.getElementById("tld_storage_model").textContent = proposed + "Speichermodell für TLD-Domaindaten (thin oder thick).";
 		document.getElementById("tld_response_model").textContent = proposed + "RDAP-Antwortmodell für Domaindaten (thin, delegated oder thick).";		
@@ -322,7 +333,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_delegation_uri").textContent = proposed + 'URI mit Verweis auf den ICANN-Delegationsdatensatz für die TLD.';
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Eingeschränkte Nutzung. Interpretation hängt vom TLD- und RDAP-Kontext ab.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;		
-		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + 'Ob Suchmaschinen auf Pending Delete vertrauen dürfen, um Ergebnisse zu löschen.';
+		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + "Ob Suchmaschinen sich auf die 'Pending-Delete-Phase' verlassen können, um Ergebnisse zu entfernen.";
 		document.getElementById("tld_functions").textContent = proposed;
 		document.getElementById("tld_accepted_workload").textContent = proposed + "Dieses Modell unterstützt die Modernisierung der IANA-Datenbanktabellen."; 
 		document.getElementById("tld_relationships").textContent = proposed;
@@ -331,9 +342,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_status_meanings").textContent = proposed + "Hinweis: Eine globale Tabellendefinition existiert; ICANN übernimmt noch keine führende Rolle.";
 		document.getElementById("lifecycle_operational_periods").textContent = proposed + 'Mehrjährige Registrierung teils möglich; max. variiert je nach TLD und Registrar.';
+		document.getElementById("nameservers_part").textContent = "Autoritative Zone: DNS-Daten, die von diesen Nameservern bereitgestellt werden.";
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC sichert DNS gegen Spoofing und Cache-Poisoning.";
 		document.getElementById("nameservers_rdap_ds_algorithms").textContent = "Algorithmen 13–16 sind aktuell. IANA führt Algorithmus 8 als RECOMMENDED, gilt als auslaufend.";
-		document.getElementById("nameservers_ip").textContent = "IP-Adressen sind sichtbar, sofern zutreffend, und auch in der RDAP-Datei enthalten.";
+		document.getElementById("nameservers_ip").textContent = "RDAP-IP-Adressen, sofern verfügbar. Meist für TLD-Zonen vorhanden.";
 	}
 	else if (translation == 4)	{
 		var modified = '(Modifié) ';
@@ -360,6 +372,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_data_active_from").textContent = proposed;
 		document.getElementById("tld_category").textContent = proposed + "Indique un TLD générique (gTLD) ou un TLD de code pays (ccTLD).";
 		document.getElementById("tld_type").textContent = proposed + "Le type de TLD, tel que gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD ou geoTLD.";
+		document.getElementById("tld_ascii_name").textContent = modified;
+		document.getElementById("tld_unicode_name").textContent = modified;		
 		document.getElementById("tld_statuses").textContent = modified;
 		document.getElementById("tld_storage_model").textContent = proposed + "Mode de stockage des données de domaine du TLD (thin ou thick).";
 		document.getElementById("tld_response_model").textContent = proposed + "Mode de réponse RDAP pour les données de domaine (thin, delegated ou thick).";
@@ -369,7 +383,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_json_response_uri").textContent = proposed + "Données TLD et RDAP lisibles par machine enrichies.";
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Utilisation restreinte. L’interprétation dépend du contexte TLD et RDAP.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;		
-		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + "Si les moteurs peuvent se fier à pending delete pour supprimer des résultats.";
+		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + "Si les moteurs de recherche peuvent se fier à la phase 'pending delete' pour supprimer des résultats.";
 		document.getElementById("tld_functions").textContent = proposed;
 		document.getElementById("tld_accepted_workload").textContent = proposed + "Cette modélisation soutient la modernisation des tables de la base de données IANA.";
 		document.getElementById("tld_relationships").textContent = proposed;
@@ -378,9 +392,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_upon_termination").textContent = proposed;
 		document.getElementById("lifecycle_status_meanings").textContent = proposed + "Remarque : Une définition de table globale existe ; l’ICANN ne joue pas encore un rôle de premier plan.";
 		document.getElementById("lifecycle_operational_periods").textContent = proposed + "Enregistrement pluriannuel parfois possible ; max. selon TLD et bureau d’enregistrement.";
+		document.getElementById("nameservers_part").textContent = "Zone autoritative : données DNS servies par ces serveurs de noms.";
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC sécurise le DNS contre le spoofing et l’empoisonnement.";
 		document.getElementById("nameservers_rdap_ds_algorithms").textContent = "Les algorithmes 13–16 sont actuels. L’IANA classe l’algorithme 8 comme RECOMMENDED, en fin de vie.";
-		document.getElementById("nameservers_ip").textContent = "Les adresses IP sont visibles si cela s’applique et sont également fournies dans le fichier RDAP.";
+		document.getElementById("nameservers_ip").textContent = "Adresses IP RDAP, si disponibles. Généralement présentes pour les zones TLD.";
 	}
 }	
 </script><?php
@@ -443,8 +458,8 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="411" style="display:table-row"><td>tld_data_active_from</td><td> '.$data[$pd]['tld']['data_active_from'].'</td><td id="tld_data_active_from"></td></tr>';
 	$html_text .= '<tr id="412" style="display:table-row"><td>tld_category</td><td>'.$data[$pd]['tld']['category'].'</td><td id="tld_category"></td></tr>';
 	$html_text .= '<tr id="413" style="display:table-row"><td>tld_type</td><td>'.$data[$pd]['tld']['type'].'</td><td id="tld_type"></td></tr>';
-	$html_text .= '<tr id="414" style="display:table-row"><td>tld_ascii_name</td><td>'.$data[$pd]['tld']['ascii_name'].'</td><td></td></tr>';
-	$html_text .= '<tr id="415" style="display:table-row"><td>tld_unicode_name</td><td>'.$data[$pd]['tld']['unicode_name'].'</td><td></td></tr>';
+	$html_text .= '<tr id="414" style="display:table-row"><td>tld_ascii_name</td><td>'.$data[$pd]['tld']['ascii_name'].'</td><td id="tld_ascii_name"></td></tr>';
+	$html_text .= '<tr id="415" style="display:table-row"><td>tld_unicode_name</td><td>'.$data[$pd]['tld']['unicode_name'].'</td><td id="tld_unicode_name"></td></tr>';
 	$html_text .= '<tr id="416" style="display:table-row"><td>tld_statuses</td><td> '.$data[$pd]['tld']['statuses'].'</td><td id="tld_statuses"></td></tr>';
 	$html_text .= '<tr id="417" style="display:table-row"><td>tld_storage_model</td><td> '.$data[$pd]['tld']['storage_model'].'</td><td id="tld_storage_model"></td></tr>';
 	$html_text .= '<tr id="418" style="display:table-row"><td>tld_response_model</td><td> '.$data[$pd]['tld']['response_model'].'</td><td id="tld_response_model"></td></tr>';
@@ -470,7 +485,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(53)">Operational Periods +/-</button></td><td></td><td id="lifecycle_operational_periods"></td></tr>';
 	$html_text .= '<tr id="531" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['operational_periods'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Nameservers +/-</button></td><td><b>'.$vd.'</b></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Nameservers +/-</button></td><td><b>'.$vd.'</b></td><td id="nameservers_part"></td></tr>';
 	$html_text .= '<tr id="611" style="display:none;vertical-align:top"><td>handles</td><td colspan="2">'.$data[$pd]['nameservers']['handles'].'</td></tr>';
 	$html_text .= '<tr id="612" style="display:none;vertical-align:top"><td>ascii_names</td><td colspan="2">'.$data[$pd]['nameservers']['ascii_names'].'</td></tr>';
 	$html_text .= '<tr id="613" style="display:none;vertical-align:top"><td>unicode_names</td><td colspan="2">'.$data[$pd]['nameservers']['unicode_names'].'</td></tr>';
