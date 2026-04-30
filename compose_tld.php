@@ -640,11 +640,11 @@ foreach ($decoded as $workload_entry) {
 }
 $tld_relationships_json = '[{"tld_relationship_sequence": 10,"tld_relationship_identifier": "sponsor"},
 {"tld_relationship_sequence": 20,"tld_relationship_identifier": "registrant"},
-{"tld_relationship_sequence": 30,"tld_relationship_identifier": "administrative"},
-{"tld_relationship_sequence": 40,"tld_relationship_identifier": "technical"},
-{"tld_relationship_sequence": 50,"tld_relationship_identifier": "billing"},
-{"tld_relationship_sequence": 60,"tld_relationship_identifier": "emergency"},
-{"tld_relationship_sequence": 70,"tld_relationship_identifier": "fallback"},
+{"tld_relationship_sequence": 30,"tld_relationship_identifier": "actor"},
+{"tld_relationship_sequence": 40,"tld_relationship_identifier": "administrative"},
+{"tld_relationship_sequence": 50,"tld_relationship_identifier": "technical"},
+{"tld_relationship_sequence": 60,"tld_relationship_identifier": "billing"},
+{"tld_relationship_sequence": 70,"tld_relationship_identifier": "escalation"},
 {"tld_relationship_sequence": 80,"tld_relationship_identifier": "reseller"},
 {"tld_relationship_sequence": 90,"tld_relationship_identifier": "registrar"},
 {"tld_relationship_sequence": 95,"tld_relationship_identifier": "abuse"}]';

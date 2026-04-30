@@ -164,11 +164,11 @@ CREATE TABLE IF NOT EXISTS tlds (
         '[
             {"relationship_sequence": 10, "relationship_identifier": "sponsor"},
             {"relationship_sequence": 20, "relationship_identifier": "registrant"},
-            {"relationship_sequence": 30, "relationship_identifier": "administrative"},
-            {"relationship_sequence": 40, "relationship_identifier": "technical"},
-            {"relationship_sequence": 50, "relationship_identifier": "billing"},
-            {"relationship_sequence": 60, "relationship_identifier": "emergency"},
-            {"relationship_sequence": 70, "relationship_identifier": "fallback"},
+			{"relationship_sequence": 30, "relationship_identifier": "actor"},
+            {"relationship_sequence": 40, "relationship_identifier": "administrative"},
+            {"relationship_sequence": 50, "relationship_identifier": "technical"},
+            {"relationship_sequence": 60, "relationship_identifier": "billing"},
+            {"relationship_sequence": 70, "relationship_identifier": "escalation"},
             {"relationship_sequence": 80, "relationship_identifier": "reseller"},
             {"relationship_sequence": 90, "relationship_identifier": "registrar"},
             {"relationship_sequence": 95, "relationship_identifier": "abuse"}
