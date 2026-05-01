@@ -54,8 +54,8 @@ function write_file($inputtld)	{
 	
 $tld_json_response_uri = 'https://rdap.iana.org/domain/'.$inputtld;
 $obj = json_decode(file_get_contents($tld_json_response_uri), true);
-$notices = '';	
-$links = '';	
+$governance_notices = '';	
+$tld_links = '';	
 $tld_ascii_name = $obj['ldhName'];
 $tld_unicode_name = $obj['unicodeName'];		
 $tld_statuses = '';	
@@ -93,11 +93,11 @@ foreach($obj as $key1 => $value1) {
 		foreach($value2 as $key3 => $value3) {
 			if ($key1 == 'notices')	{
 				if (!is_array($value3))	{
-					$notices .= $key2.': '.$key3.': '.$value3."<br />";		
+					$governance_notices .= $key2.': '.$key3.': '.$value3."<br />";		
 				}
 			}				
 			if ($key1 == 'links')	{
-				$links .= $key2.': '.$key3.': '.$value3."<br />";					
+				$tld_links .= $key2.': '.$key3.': '.$value3."<br />";					
 			}
 			if ($key1 == 'nameservers')	{
 				if ($key3 == 'handle') {
@@ -124,13 +124,13 @@ foreach($obj as $key1 => $value1) {
 			foreach($value3 as $key4 => $value4) {
 				if ($key1 == 'notices')	{
 					if (!is_array($value4))	{
-						$notices .= $key2.': '.$key3.': '.$key4.': '.$value4."<br />";				
+						$governance_notices .= $key2.': '.$key3.': '.$key4.': '.$value4."<br />";				
 					}
 				}
 				foreach($value4 as $key5 => $value5) {
 					if ($key1 == 'notices')	{
 						if (!is_array($value5))	{
-							$notices .= $key2.': '.$key3.': '.$key4.': '.$key5.': '.$value5."<br />";
+							$governance_notices .= $key2.': '.$key3.': '.$key4.': '.$key5.': '.$value5."<br />";
 						}	
 					}
 					if ($key1 == 'nameservers')	{							
@@ -146,7 +146,7 @@ foreach($obj as $key1 => $value1) {
 					foreach($value5 as $key6 => $value6) {
 						if ($key1 == 'notices')	{
 							if (!is_array($value6))	{
-								$notices .= $key2.': '.$key3.': '.$key4.': '.$key5.': '.$key6.': '.$value6."<br />";
+								$governance_notices .= $key2.': '.$key3.': '.$key4.': '.$key5.': '.$key6.': '.$value6."<br />";
 							}	
 						}	
 					}
@@ -157,8 +157,8 @@ foreach($obj as $key1 => $value1) {
 }
 $root_services_uri = 'https://www.iana.org';	
 $root_tlds_uri = 'https://www.iana.org/domains/root/db';
-$root_policies_uri = 'https://www.icann.org/en/data-protection/terms-of-service';
-$root_privacy_policy_uri = 'https://www.icann.org/privacy/policy';	
+$governance_policies_uri = 'https://www.icann.org/en/data-protection/terms-of-service';
+$governance_privacy_policy_uri = 'https://www.icann.org/privacy/policy';	
 $registrar_accreditations_uri = 'https://www.iana.org/assignments/registrar-ids/registrar-ids.xhtml';
 $lookup_endpoints_uri = 'https://data.iana.org/rdap/dns.json';
 $tld_data_active_from = null;	
@@ -551,7 +551,7 @@ elseif ($inputtld == 'org')	{
 	$tld_privacy_policy_uri = 'https://www.icann.org/privacy/policy';
 	$tld_services_uri = '';
 }
-$tld_delegation_uri = 'https://www.iana.org/domains/root/db/'.$inputtld.'.html';		
+$delegation_uri = 'https://www.iana.org/domains/root/db/'.$inputtld.'.html';		
 $decoded = json_decode($function_json, true);
 $tld_functions = '';   
 foreach ($decoded as $function) {
@@ -677,19 +677,21 @@ switch ($inputtld) {
 	
 $arr = array();
 	
-$arr[$inputtld]['root']['notices'] = $notices;
+$arr[$inputtld]['governance']['notices'] = $governance_notices;
+$arr[$inputtld]['governance']['policies_uri'] = $governance_policies_uri;
+$arr[$inputtld]['governance']['privacy_policy_uri'] = $governance_privacy_policy_uri;
+$arr[$inputtld]['governance']['delegation_uri'] = $delegation_uri;	
+$arr[$inputtld]['governance']['registrar_accreditations_uri'] = $registrar_accreditations_uri;
+		
 $arr[$inputtld]['root']['services_uri'] = $root_services_uri;
 $arr[$inputtld]['root']['tlds_uri'] = $root_tlds_uri;
-$arr[$inputtld]['root']['policies_uri'] = $root_policies_uri;
-$arr[$inputtld]['root']['privacy_policy_uri'] = $root_privacy_policy_uri;	
-$arr[$inputtld]['root']['lookup_endpoints_uri'] = $lookup_endpoints_uri;
-$arr[$inputtld]['root']['registrar_accreditations_uri'] = $registrar_accreditations_uri;	
+$arr[$inputtld]['root']['lookup_endpoints_uri'] = $lookup_endpoints_uri;	
 $arr[$inputtld]['root']['function_identifiers'] = $function_identifiers;
 $arr[$inputtld]['root']['ambiguous_rdap_statuses'] = $ambiguous_rdap_statuses;
 $arr[$inputtld]['root']['lifecycle_period_ranges'] = $lifecycle_period_ranges;		
 $arr[$inputtld]['root']['accepted_workload'] = $root_accepted_workload;	
 	
-$arr[$inputtld]['tld']['links'] = $links;
+$arr[$inputtld]['tld']['links'] = $tld_links;
 $arr[$inputtld]['tld']['ascii_name'] = $inputtld;
 $arr[$inputtld]['tld']['unicode_name'] = value_to_unicode($inputtld);	
 $arr[$inputtld]['tld']['data_active_from'] = $tld_data_active_from;	
@@ -701,7 +703,6 @@ $arr[$inputtld]['tld']['statuses'] = $tld_statuses;
 $arr[$inputtld]['tld']['storage_model'] = $tld_storage_model;
 $arr[$inputtld]['tld']['response_model'] = $tld_response_model;
 $arr[$inputtld]['tld']['services_uri'] = $tld_services_uri;	
-$arr[$inputtld]['tld']['delegation_uri'] = $tld_delegation_uri;	
 $arr[$inputtld]['tld']['json_response_uri'] = $tld_json_response_uri;
 $arr[$inputtld]['tld']['data_usage_policy_uri'] = $tld_data_usage_policy_uri;
 $arr[$inputtld]['tld']['privacy_policy_uri'] = $tld_privacy_policy_uri;

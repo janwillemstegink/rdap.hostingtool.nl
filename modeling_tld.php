@@ -62,13 +62,17 @@ echo '<!DOCTYPE html><html lang="en" style="font-size: 90%"><head>
 ?><script>
 	
 function SwitchDisplay(type) {
-	if (type == 21)			{ // root notices
+	if (type == 21)			{ // governance notices
 		var pre = '21';
 		var max = 1
 	}
+	else if (type == 22)	{ // governance URIs
+		var pre = '22';
+		var max = 4
+	}
 	else if (type == 31)	{ // root URIs
 		var pre = '31';
-		var max = 6
+		var max = 3
 	}
 	else if (type == 32)	{ // function identifiers
 		var pre = '32';
@@ -92,7 +96,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 41)	{ // tld information
 		var pre = '41';
-		var max = 15
+		var max = 14
 	}
 	else if (type == 42)	{ // tld functions
 		var pre = '42';
@@ -156,18 +160,19 @@ function SwitchTranslation(translation)	{
 		document.getElementById("modeling").textContent = "";
 		document.getElementById("field").textContent = "Modeled with snake_case";
 		document.getElementById("explanation").textContent = "";
-		document.getElementById("root_notices_part").textContent = legacy;
-		document.getElementById("tld_links_part").textContent = legacy;		
+		document.getElementById("governance_notices_part").textContent = legacy;		
+		document.getElementById("governance_policies_uri").textContent = proposed;
+		document.getElementById("governance_privacy_policy_uri").textContent = proposed;
+		document.getElementById("governance_delegation_uri").textContent = proposed;		
+		document.getElementById("governance_registrar_accreditations_uri").textContent = proposed;	
 		document.getElementById("root_services_uri").textContent = proposed;
 		document.getElementById("root_tlds_uri").textContent = proposed;
-		document.getElementById("root_policies_uri").textContent = proposed;
-		document.getElementById("root_privacy_policy_uri").textContent = proposed;
 		document.getElementById("root_lookup_endpoints_uri").textContent = proposed;
-		document.getElementById("root_registrar_accreditations_uri").textContent = proposed;
 		document.getElementById("root_function_identifiers").textContent = proposed;
 		document.getElementById("root_ambiguous_rdap_statuses").textContent = proposed;
 		document.getElementById("root_lifecycle_period_ranges").textContent = proposed;
 		document.getElementById("root_accepted_workload").textContent = proposed;
+		document.getElementById("tld_links_part").textContent = legacy;	
 		document.getElementById("tld_part").textContent = "";
 		document.getElementById("tld_data_active_from").textContent = proposed;
 		document.getElementById("tld_category").textContent = proposed;
@@ -179,7 +184,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_response_model").textContent = proposed;
 		document.getElementById("tld_services_uri").textContent = proposed;		
 		document.getElementById("tld_standardized_price_list_uri").textContent = proposed;
-		document.getElementById("tld_delegation_uri").textContent = proposed;
 		document.getElementById("tld_json_response_uri").textContent = proposed;
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed;
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;
@@ -206,18 +210,19 @@ function SwitchTranslation(translation)	{
 		document.getElementById("modeling").textContent = "Een RDAPv2 kan statussen herzien en ccTLD-proof zijn via een nieuwe globale tabeldefinitie in snake_case.";
 		document.getElementById("field").textContent = "Gemodelleerd met snake_case";
 		document.getElementById("explanation").textContent = "Gestroomlijnde TLD-metadata met een centraal model om redundantie te voorkomen.";
-		document.getElementById("root_notices_part").textContent = legacy;
-		document.getElementById("tld_links_part").textContent = legacy;
-		document.getElementById("root_services_uri").textContent = proposed + "IANA beheert, voor ICANN, TLD’s en wijst IP-blokken en AS-nummers toe aan regionale registries.";
+		document.getElementById("governance_notices_part").textContent = legacy;
+		document.getElementById("governance_policies_uri").textContent = proposed;
+		document.getElementById("governance_privacy_policy_uri").textContent = proposed;
+		document.getElementById("governance_delegation_uri").textContent = proposed + 'URI die verwijst naar het delegatierecord voor de TLD onder toepasselijk governancebeleid.';		
+		document.getElementById("governance_registrar_accreditations_uri").textContent = proposed + "Referentie naar de officiële lijst van geaccrediteerde registrars onder ICANN-beleid.";	
+		document.getElementById("root_services_uri").textContent = proposed + "De Internet Assigned Numbers Authority beheert DNS-rootdiensten en coördineert IP- en AS-toewijzingen.";
 		document.getElementById("root_tlds_uri").textContent = proposed + 'Officiële TLD-lijst, beheerd door IANA, de DNS-rootautoriteit.';
-		document.getElementById("root_policies_uri").textContent = proposed;
-		document.getElementById("root_privacy_policy_uri").textContent = proposed;
 		document.getElementById("root_lookup_endpoints_uri").textContent = proposed + "Een API-endpoint onder /v1/ kan een nieuwere versie onder /v2/ ondersteunen — zie com.";
-		document.getElementById("root_registrar_accreditations_uri").textContent = proposed + "Officiële lijst van geaccrediteerde registrars, beheerd door IANA onder ICANN-beleid.";
 		document.getElementById("root_function_identifiers").textContent = proposed + "Deze functiebenamingen zijn voorlopig. Ze kunnen nog veranderen.";
 		document.getElementById("root_ambiguous_rdap_statuses").textContent = proposed + "Deze statussen zijn niet betrouwbaar interpreteerbaar.";
 		document.getElementById("root_lifecycle_period_ranges").textContent = proposed + "Registries kunnen baat hebben bij gedeelde richtlijnen.";
 		document.getElementById("root_accepted_workload").textContent = proposed + "IANA-servers kunnen in de toekomst limieten toepassen.";
+		document.getElementById("tld_links_part").textContent = legacy;
 		document.getElementById("tld_part").textContent = "Top-Level Domain (TLD)";
 		document.getElementById("tld_data_active_from").textContent = proposed;
 		document.getElementById("tld_category").textContent = proposed + 'Geeft een generieke TLD (gTLD) of een landcode-TLD (ccTLD) aan.';
@@ -229,7 +234,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_response_model").textContent = proposed + "RDAP-responsmodel voor domeingegevens (thin, delegated of thick).";
 		document.getElementById("tld_services_uri").textContent = proposed + 'Een TLD-specifiek informatiemenu, beschikbaar onder een subdomein zoals "regmenu".';
 		document.getElementById("tld_standardized_price_list_uri").textContent = proposed + "Een machineleesbare gestandaardiseerde prijslijst zou de transparantie van registry-diensten ondersteunen.";
-		document.getElementById("tld_delegation_uri").textContent = proposed + 'URI die verwijst naar het ICANN-delegatierecord voor de TLD.';
 		document.getElementById("tld_json_response_uri").textContent = proposed + "Verrijkte machineleesbare TLD- en RDAP-gegevens.";
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Beperkt gebruik. Interpretatie hangt af van TLD- en RDAP-context.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;
@@ -256,18 +260,19 @@ function SwitchTranslation(translation)	{
 		document.getElementById("modeling").textContent = "An RDAPv2 can revise statuses and be ccTLD-proof via a new global table definition in snake_case.";
 		document.getElementById("field").textContent = "Modeled with snake_case";
 		document.getElementById("explanation").textContent = "Streamlined TLD metadata using a single-source model to prevent redundancy.";
-		document.getElementById("root_notices_part").textContent = legacy;
-		document.getElementById("tld_links_part").textContent = legacy;		
-		document.getElementById("root_services_uri").textContent = proposed + "IANA manages, for ICANN, TLDs and allocates IP blocks and AS numbers to regional registries.";
-		document.getElementById("root_tlds_uri").textContent = proposed + 'Official TLD list maintained by IANA, the DNS root authority.';
-		document.getElementById("root_policies_uri").textContent = proposed;
-		document.getElementById("root_privacy_policy_uri").textContent = proposed;		
+		document.getElementById("governance_notices_part").textContent = legacy;
+		document.getElementById("governance_policies_uri").textContent = proposed;
+		document.getElementById("governance_privacy_policy_uri").textContent = proposed;
+		document.getElementById("governance_delegation_uri").textContent = proposed + 'URI pointing to the delegation record for the TLD under applicable governance.';		
+		document.getElementById("governance_registrar_accreditations_uri").textContent = proposed + "Reference to the official list of accredited registrars under ICANN policy.";
+		document.getElementById("root_services_uri").textContent = proposed + "IANA manages DNS root-related services and coordinates allocations for IP blocks and AS numbers.";
+		document.getElementById("root_tlds_uri").textContent = proposed + 'Official TLD list maintained by IANA, the DNS root authority.';		
 		document.getElementById("root_lookup_endpoints_uri").textContent = proposed + "An API endpoint under /v1/ may support a newer version under /v2/ — as seen on com.";
-		document.getElementById("root_registrar_accreditations_uri").textContent = proposed + "Official list of accredited registrars maintained by IANA under ICANN policy.";
 		document.getElementById("root_function_identifiers").textContent = proposed + "These function names are draft. They may change.";
 		document.getElementById("root_ambiguous_rdap_statuses").textContent = proposed + "These statuses are not reliably interpretable.";
 		document.getElementById("root_lifecycle_period_ranges").textContent = proposed + "Registries may benefit from shared timing guidelines.";
 		document.getElementById("root_accepted_workload").textContent = proposed + "IANA servers may apply limits in the future.";
+		document.getElementById("tld_links_part").textContent = legacy;
 		document.getElementById("tld_part").textContent = "Top-Level Domain (TLD)";
 		document.getElementById("tld_data_active_from").textContent = proposed;
 		document.getElementById("tld_category").textContent = proposed + 'Indicates generic TLD (gTLD) or a country-code TLD (ccTLD).';
@@ -279,7 +284,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_response_model").textContent = proposed + "RDAP response model for domain data (thin, delegated or thick).";		
 		document.getElementById("tld_services_uri").textContent = proposed + 'A TLD specific information menu, available under a subdomain such as "regmenu".';
 		document.getElementById("tld_standardized_price_list_uri").textContent = proposed + "A machine-readable standardized price list would support registry transparency.";
-		document.getElementById("tld_delegation_uri").textContent = proposed + 'URI pointing to the ICANN delegation record for the TLD.';
 		document.getElementById("tld_json_response_uri").textContent = proposed + "Enriched machine-readable TLD and RDAP data.";
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Restricted use. Interpretation depends on TLD and RDAP context.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;		
@@ -306,18 +310,19 @@ function SwitchTranslation(translation)	{
 		document.getElementById("modeling").textContent = "Ein RDAPv2 kann Status ändern und ccTLD-sicher sein durch eine neue globale Tabellendefinition in snake_case.";
 		document.getElementById("field").textContent = "Modelliert mit snake_case";
 		document.getElementById("explanation").textContent = "Schlanke TLD-Metadaten mit einem Single-Source-Modell zur Vermeidung von Redundanz.";
-		document.getElementById("root_notices_part").textContent = legacy;
-		document.getElementById("tld_links_part").textContent = legacy;		
-		document.getElementById("root_services_uri").textContent = proposed + "IANA verwaltet, für ICANN, TLDs und weist IP-Blöcke sowie AS-Nummern an regionale Registries zu.";
-		document.getElementById("root_tlds_uri").textContent = proposed + 'Offizielle TLD-liste, verwaltet von IANA, der DNS-Root-Behörde.';
-		document.getElementById("root_policies_uri").textContent = proposed;
-		document.getElementById("root_privacy_policy_uri").textContent = proposed;		
+		document.getElementById("governance_notices_part").textContent = legacy;
+		document.getElementById("governance_policies_uri").textContent = proposed;
+		document.getElementById("governance_privacy_policy_uri").textContent = proposed;
+		document.getElementById("governance_delegation_uri").textContent = proposed + 'URI, die auf den Delegationseintrag für die TLD unter der jeweils geltenden Governance verweist.';
+		document.getElementById("governance_registrar_accreditations_uri").textContent = proposed + "Verweis auf die offizielle Liste der akkreditierten Registrare gemäß ICANN-Richtlinien.";
+		document.getElementById("root_services_uri").textContent = proposed + "Die Internet Assigned Numbers Authority verwaltet DNS-Root und koordiniert IP- und AS-Zuweisungen.";
+		document.getElementById("root_tlds_uri").textContent = proposed + 'Offizielle TLD-liste, verwaltet von IANA, der DNS-Root-Behörde.';	
 		document.getElementById("root_lookup_endpoints_uri").textContent = proposed + "Ein API-Endpunkt unter /v1/ kann eine neuere Version unter /v2/ unterstützen — siehe com.";
-		document.getElementById("root_registrar_accreditations_uri").textContent = proposed + "Offizielle Liste der akkreditierten Registrar, verwaltet von IANA unter ICANN-Richtlinien.";
 		document.getElementById("root_function_identifiers").textContent = proposed + "Diese Funktionsnamen sind vorläufig und können sich ändern.";
 		document.getElementById("root_ambiguous_rdap_statuses").textContent = proposed + "Diese Statusangaben sind nicht zuverlässig interpretierbar.";
 		document.getElementById("root_lifecycle_period_ranges").textContent = proposed + "Viele Registries können von gemeinsamen Regeln profitieren.";
 		document.getElementById("root_accepted_workload").textContent = proposed + "IANA kann zukünftig Limits festlegen.";
+		document.getElementById("tld_links_part").textContent = legacy;		
 		document.getElementById("tld_part").textContent = "Top-Level Domain (TLD)";
 		document.getElementById("tld_data_active_from").textContent = proposed;
 		document.getElementById("tld_json_response_uri").textContent = proposed + "Angereicherte maschinenlesbare TLD- und RDAP-Daten.";
@@ -330,7 +335,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_response_model").textContent = proposed + "RDAP-Antwortmodell für Domaindaten (thin, delegated oder thick).";		
 		document.getElementById("tld_services_uri").textContent = proposed + 'Ein TLD-spezifisches Informationsmenü, verfügbar unter einer Subdomäne wie "regmenu".';
 		document.getElementById("tld_standardized_price_list_uri").textContent = proposed + "Eine maschinenlesbare standardisierte Preisliste würde die Transparenz von Registry-Diensten unterstützen.";
-		document.getElementById("tld_delegation_uri").textContent = proposed + 'URI mit Verweis auf den ICANN-Delegationsdatensatz für die TLD.';
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Eingeschränkte Nutzung. Interpretation hängt vom TLD- und RDAP-Kontext ab.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;		
 		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + "Ob Suchmaschinen sich auf die 'Pending-Delete-Phase' verlassen können, um Ergebnisse zu entfernen.";
@@ -356,18 +360,19 @@ function SwitchTranslation(translation)	{
 		document.getElementById("modeling").textContent = "Un RDAPv2 peut modifier les statuts et être ccTLD-compatible en adoptant une nouvelle définition globale de table en snake_case.";
 		document.getElementById("field").textContent = "Modélisé en snake_case";
 		document.getElementById("explanation").textContent = "Métadonnées TLD rationalisées utilisant un modèle à source unique pour éviter la redondance.";
-		document.getElementById("root_notices_part").textContent = legacy;
-		document.getElementById("tld_links_part").textContent = legacy;		
-		document.getElementById("root_services_uri").textContent = proposed + "L’IANA gère pour l’ICANN les TLD et alloue les blocs IP ainsi que les numéros AS aux registres régionaux.";
+		document.getElementById("governance_notices_part").textContent = legacy;
+		document.getElementById("governance_policies_uri").textContent = proposed;
+		document.getElementById("governance_privacy_policy_uri").textContent = proposed;
+		document.getElementById("governance_delegation_uri").textContent = proposed + "URI pointant vers l’enregistrement de délégation du TLD selon la gouvernance applicable.";
+		document.getElementById("governance_registrar_accreditations_uri").textContent = proposed + "Référence à la liste officielle des bureaux d’enregistrement accrédités selon la politique de ICANN.";	
+		document.getElementById("root_services_uri").textContent = proposed + "L’Internet Assigned Numbers Authority gère les services racine DNS et coordonne les attributions IP et AS.";
 		document.getElementById("root_tlds_uri").textContent = proposed + "Liste officielle des TLD tenue à jour par l'IANA, l'autorité racine du DNS.";
-		document.getElementById("root_policies_uri").textContent = proposed;
-		document.getElementById("root_privacy_policy_uri").textContent = proposed;
 		document.getElementById("root_lookup_endpoints_uri").textContent = proposed + "Un endpoint API sous /v1/ peut supporter une version plus récente sous /v2/ — voir com.";
-		document.getElementById("root_registrar_accreditations_uri").textContent = proposed + "Liste officielle des bureaux d’enregistrement accrédités, gérée par l’IANA selon la politique de l’ICANN.";
 		document.getElementById("root_function_identifiers").textContent = proposed + "Ces noms de fonctions sont provisoires. Ils peuvent changer.";
 		document.getElementById("root_ambiguous_rdap_statuses").textContent = proposed + "Ces statuts ne sont pas interprétables de manière fiable.";
 		document.getElementById("root_lifecycle_period_ranges").textContent = proposed + "Les registres peuvent profiter de lignes directrices communes.";
 		document.getElementById("root_accepted_workload").textContent = proposed + "Les serveurs IANA pourront appliquer des limites.";
+		document.getElementById("tld_links_part").textContent = legacy;	
 		document.getElementById("tld_part").textContent = "Top-Level Domain (TLD)";
 		document.getElementById("tld_data_active_from").textContent = proposed;
 		document.getElementById("tld_category").textContent = proposed + "Indique un TLD générique (gTLD) ou un TLD de code pays (ccTLD).";
@@ -379,7 +384,6 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_response_model").textContent = proposed + "Mode de réponse RDAP pour les données de domaine (thin, delegated ou thick).";
 		document.getElementById("tld_services_uri").textContent = proposed + "Un menu d'informations spécifique au TLD, disponible sous un sous-domaine tel que 'regmenu'.";
 		document.getElementById("tld_standardized_price_list_uri").textContent = proposed + "Une liste de prix standardisée lisible par machine soutiendrait la transparence des services de registre.";
-		document.getElementById("tld_delegation_uri").textContent = proposed + "URI référençant l'enregistrement de délégation de l'ICANN pour le TLD.";
 		document.getElementById("tld_json_response_uri").textContent = proposed + "Données TLD et RDAP lisibles par machine enrichies.";
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Utilisation restreinte. L’interprétation dépend du contexte TLD et RDAP.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;		
@@ -420,9 +424,9 @@ if	(is_null($data))	{
 	sc_redir($reopen);
 }
 $html_text = '<body onload=SwitchTranslation('.$viewlanguage.')><div style="border-collapse:collapse; line-height:120%">
-<table style="font-family:Helvetica, Arial, sans-serif; font-size: 1rem; table-layout: fixed; width:1375px">
-<tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th></tr>';
-$html_text .= '<tr style="font-size: .8rem"><td colspan="2" id="title" style="font-size: 1.4rem;color:blue;font-weight:bold"></td><td id="modeling"></td></tr>';
+<table style="font-family:Helvetica, Arial, sans-serif; font-size: 1rem; table-layout: fixed; width:1675px">
+<tr><th style="width:325px"></th><th style="width:300px"></th><th style="width:750px"></th><th style="width:300px"></tr>';
+$html_text .= '<tr style="font-size: .8rem"><td colspan="2" id="title" style="font-size: 1.4rem;color:blue;font-weight:bold"></td><td id="modeling"></td><td></td></tr>';
 $html_text .= '<tr style="font-size: .8rem"><td id="instruction" style="vertical-align:middle; text-align: right"></td><td><form action='.htmlentities($_SERVER['PHP_SELF']).' method="get">
 	<input type="hidden" id="language" name="language" value='.$viewlanguage.'>	
 	<input type="text" style="width:90%" id="tld" name="tld" value='.$vd.'></form></td><td>
@@ -431,73 +435,74 @@ $html_text .= '<tr style="font-size: .8rem"><td id="instruction" style="vertical
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(2)">en_US</button> 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(3)">de_DE</button> 
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(4)">fr_FR</button> 
-	<a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_menu" target="_blank">Menu modeling</a> - <a style="font-size: 0.9rem" href="https://github.com/janwillemstegink/rdap.hostingtool.nl" target="_blank">Code/issues on GitHub</a> - <a style="font-size: 0.9rem" href="https://janwillemstegink.nl/" target="_blank">Insight at janwillemstegink.nl</a></td></tr>';
+	<a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_menu" target="_blank">Menu modeling</a> - <a style="font-size: 0.9rem" href="https://github.com/janwillemstegink/rdap.hostingtool.nl" target="_blank">Code/issues on GitHub</a> - <a style="font-size: 0.9rem" href="https://janwillemstegink.nl/" target="_blank">Insight at janwillemstegink.nl</a></td><td></td></tr>';
 if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($data[$pd]['domain']['ascii_name']))	{
-	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td>iana_rdap_service</td><td id="explanation"></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(21)">Root Notices +/-</button><td></td><td id="root_notices_part"></td></tr>';
-	$html_text .= '<tr id="211" style="display:none;vertical-align:top"><td colspan="3">'.$data[$pd]['root']['notices'].'</td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(31)">Root URIs +/-</button></td><td></td><td></td></tr>';
-	$html_text .= '<tr id="311" style="display:table-row"><td>root_services_uri</td><td><a href='.$data[$pd]['root']['services_uri'].' target="_blank">Root Services</a></td><td id="root_services_uri"></td></tr>';
-	$html_text .= '<tr id="312" style="display:table-row"><td>root_tlds_uri</td><td><a href='.$data[$pd]['root']['tlds_uri'].' target="_blank">Root TLDs</a></td><td id="root_tlds_uri"></td></tr>';
-	$html_text .= '<tr id="313" style="display:table-row"><td>root_policies_uri</td><td>'.((!empty($data[$pd]['root']['policies_uri'])) ? '<a href='.$data[$pd]['root']['policies_uri'].' target="_blank">Root Policies</a>' : '').'</td><td id="root_policies_uri"></td></tr>';
-	$html_text .= '<tr id="314" style="display:table-row"><td>root_privacy_policy_uri</td><td>'.((!empty($data[$pd]['root']['privacy_policy_uri'])) ? '<a href='.$data[$pd]['root']['privacy_policy_uri'].' target="_blank">Root Privacy</a>' : '').'</td><td id="root_privacy_policy_uri"></td></tr>';
-	$html_text .= '<tr id="315" style="display:table-row"><td>root_lookup_endpoints_uri</td><td><a href='.$data[$pd]['root']['lookup_endpoints_uri'].' target="_blank">Lookup Endpoints</a></td><td id="root_lookup_endpoints_uri"></td></tr>';
-	$html_text .= '<tr id="316" style="display:table-row"><td>root_registrar_accreditations_uri</td><td><a href='.$data[$pd]['root']['registrar_accreditations_uri'].' target="_blank">IANA Registrars</a></td><td id="root_registrar_accreditations_uri"></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(32)">Function Identifiers +/-</button></td><td></td><td id="root_function_identifiers"></td></tr>';
-	$html_text .= '<tr id="321" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root']['function_identifiers'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(33)">Ambiguous RDAP Statuses +/-</button></td><td></td><td id="root_ambiguous_rdap_statuses"></td></tr>';
-	$html_text .= '<tr id="331" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root']['ambiguous_rdap_statuses'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(34)">Lifecycle Period Ranges +/-</button></td><td></td><td id="root_lifecycle_period_ranges"></td></tr>';
-	$html_text .= '<tr id="341" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root']['lifecycle_period_ranges'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(35)">Root Accepted Workload +/-</button></td><td></td><td id="root_accepted_workload"></td></tr>';
-	$html_text .= '<tr id="351" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root']['accepted_workload'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(38)">TLD Links +/-</button><td></td><td id="tld_links_part"></td></tr>';
-	$html_text .= '<tr id="381" style="display:none;vertical-align:top"><td colspan="3">'.$data[$pd]['tld']['links'].'</td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(41)">TLD Properties +/-</button></td><td><b>'.$vd.'</b></td><td id="tld_part"></td></tr>';
-	$html_text .= '<tr id="411" style="display:table-row"><td>tld_data_active_from</td><td> '.$data[$pd]['tld']['data_active_from'].'</td><td id="tld_data_active_from"></td></tr>';
-	$html_text .= '<tr id="412" style="display:table-row"><td>tld_category</td><td>'.$data[$pd]['tld']['category'].'</td><td id="tld_category"></td></tr>';
-	$html_text .= '<tr id="413" style="display:table-row"><td>tld_type</td><td>'.$data[$pd]['tld']['type'].'</td><td id="tld_type"></td></tr>';
-	$html_text .= '<tr id="414" style="display:table-row"><td>tld_ascii_name</td><td>'.$data[$pd]['tld']['ascii_name'].'</td><td id="tld_ascii_name"></td></tr>';
-	$html_text .= '<tr id="415" style="display:table-row"><td>tld_unicode_name</td><td>'.$data[$pd]['tld']['unicode_name'].'</td><td id="tld_unicode_name"></td></tr>';
-	$html_text .= '<tr id="416" style="display:table-row"><td>tld_statuses</td><td> '.$data[$pd]['tld']['statuses'].'</td><td id="tld_statuses"></td></tr>';
-	$html_text .= '<tr id="417" style="display:table-row"><td>tld_storage_model</td><td> '.$data[$pd]['tld']['storage_model'].'</td><td id="tld_storage_model"></td></tr>';
-	$html_text .= '<tr id="418" style="display:table-row"><td>tld_response_model</td><td> '.$data[$pd]['tld']['response_model'].'</td><td id="tld_response_model"></td></tr>';
-	$html_text .= '<tr id="419" style="display:table-row"><td>tld_services_uri</td><td>'.((!empty($data[$pd]['tld']['services_uri'])) ? '<a href='.$data[$pd]['tld']['services_uri'].' target="_blank">TLD Services</a>' : '').'</td><td id="tld_services_uri"></td></tr>';
-	$html_text .= '<tr id="4110" style="display:table-row"><td>tld_standardized_price_list_uri</td><td>'.((!empty($data[$pd]['tld']['standardized_price_list_uri'])) ? '<a href='.$data[$pd]['tld']['standardized_price_list_uri'].' target="_blank">TLD Prices</a>' : '').'</td><td id="tld_standardized_price_list_uri"></td></tr>';
-	$html_text .= '<tr id="4111" style="display:table-row"><td>tld_delegation_uri</td><td><a href='.$data[$pd]['tld']['delegation_uri'].' target="_blank">TLD Delegation</a></td><td id="tld_delegation_uri"></td></tr>';
-	$html_text .= '<tr id="4112" style="display:table-row"><td>tld_json_response_uri</td><td>'.((!empty($data[$pd]['tld']['json_response_uri'])) ? '<a href='.$data[$pd]['tld']['json_response_uri'].' target="_blank">TLD Data</a>' : '').'</td><td id="tld_json_response_uri"></td></tr>';
-	$html_text .= '<tr id="4113" style="display:table-row"><td>tld_data_usage_policy_uri</td><td>'.((!empty($data[$pd]['tld']['data_usage_policy_uri'])) ? '<a href='.$data[$pd]['tld']['data_usage_policy_uri'].' target="_blank">TLD Data Usage</a>' : '').'</td><td id="tld_data_usage_policy_uri"></td></tr>';
-	$html_text .= '<tr id="4114" style="display:table-row"><td>tld_privacy_policy_uri</td><td>'.((!empty($data[$pd]['tld']['privacy_policy_uri'])) ? '<a href='.$data[$pd]['tld']['privacy_policy_uri'].' target="_blank">TLD Privacy</a>' : '').'</td><td id="tld_privacy_policy_uri"></td></tr>';
-	$html_text .= '<tr id="4115" style="display:table-row"><td>tld_search_engine_deletion_phase_ready</td><td>'.$data[$pd]['tld']['search_engine_deletion_phase_ready'].'</td><td id="tld_search_engine_deletion_phase_ready"></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Functions +/-</button></td><td></td><td id="tld_functions"></td></tr>';
-	$html_text .= '<tr id="421" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['tld']['functions'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Accepted Workload +/-</button></td><td></td><td id="tld_accepted_workload"></td></tr>';
-	$html_text .= '<tr id="441" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['tld']['accepted_workload'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(43)">Relationships +/-</button></td><td></td><td id="tld_relationships"></td></tr>';
-	$html_text .= '<tr id="431" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['tld']['relationships'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';	
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(51)">Lifecycle Information +/-</button></td><td><b>'.$vd.'</b></td><td id="lifecycle_part"></td></tr>';
-	$html_text .= '<tr id="511" style="display:table-row"><td>data_active_from</td><td>'.$data[$pd]['lifecycle']['data_active_from'].'</td><td id="lifecycle_data_active_from"></td></tr>';
-	$html_text .= '<tr id="512" style="display:table-row"><td>upon_termination</td><td>'.$data[$pd]['lifecycle']['upon_termination'].'</td><td id="lifecycle_upon_termination"></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(52)">Status Meanings +/-</button></td><td></td><td id="lifecycle_status_meanings"></td></tr>';
-	$html_text .= '<tr id="521" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['status_meanings'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(53)">Operational Periods +/-</button></td><td></td><td id="lifecycle_operational_periods"></td></tr>';
-	$html_text .= '<tr id="531" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['operational_periods'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Nameservers +/-</button></td><td><b>'.$vd.'</b></td><td id="nameservers_part"></td></tr>';
-	$html_text .= '<tr id="611" style="display:none;vertical-align:top"><td>handles</td><td colspan="2">'.$data[$pd]['nameservers']['handles'].'</td></tr>';
-	$html_text .= '<tr id="612" style="display:none;vertical-align:top"><td>ascii_names</td><td colspan="2">'.$data[$pd]['nameservers']['ascii_names'].'</td></tr>';
-	$html_text .= '<tr id="613" style="display:none;vertical-align:top"><td>unicode_names</td><td colspan="2">'.$data[$pd]['nameservers']['unicode_names'].'</td></tr>';
-	$html_text .= '<tr id="614" style="display:none;vertical-align:top"><td>ipv4_addresses</td><td>'.$data[$pd]['nameservers']['ipv4_addresses'].'</td><td id="nameservers_ip"></td></tr>';
-	$html_text .= '<tr id="615" style="display:none;vertical-align:top"><td>ipv6_addresses</td><td>'.$data[$pd]['nameservers']['ipv6_addresses'].'</td><td></td></tr>';
-	$html_text .= '<tr id="616" style="display:none;vertical-align:top"><td>statuses</td><td>'.$data[$pd]['nameservers']['statuses'].'</td><td></td></tr>';
-	$html_text .= '<tr id="617" style="display:none;vertical-align:top"><td>rdap_dnssec_signed</td><td>'.$data[$pd]['nameservers']['rdap_dnssec_signed'].'</td><td id="nameservers_rdap_dnssec_signed"></td></tr>';
-	$html_text .= '<tr id="618" style="display:none;vertical-align:top"><td>rdap_ds_key_tags</td><td>'.$data[$pd]['nameservers']['rdap_ds_key_tags'].'</td><td></td></tr>';
-	$html_text .= '<tr style="vertical-align:top"><td>rdap_ds_algorithms</td><td>'.$data[$pd]['nameservers']['rdap_ds_algorithms'].'</td><td id="nameservers_rdap_ds_algorithms"></td></tr>';	
-	$html_text .= '<tr id="619" style="display:none;vertical-align:top"><td>rdap_ds_digest_types</td><td>'.$data[$pd]['nameservers']['rdap_ds_digest_types'].'</td><td></td></tr>';
-	$html_text .= '<tr id="6110" style="display:none;vertical-align:top"><td>rdap_ds_digests</td><td colspan="2">'.$data[$pd]['nameservers']['rdap_ds_digests'].'</td></tr>';
-	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td></tr>';
+	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td>iana_rdap_service</td><td id="explanation"></td><td>registry_rdap_service</td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(21)">Governance Notices +/-</button><td></td><td id="governance_notices_part"></td><td></td></tr>';
+	$html_text .= '<tr id="211" style="display:none;vertical-align:top"><td colspan="3">'.$data[$pd]['governance']['notices'].'</td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(22)">Governance URIs +/-</button><td></td><td id="governance_notices_part"></td><td></td></tr>';
+	$html_text .= '<tr id="221" style="display:table-row"><td>governance_policies_uri</td><td>'.((!empty($data[$pd]['governance']['policies_uri'])) ? '<a href='.$data[$pd]['governance']['policies_uri'].' target="_blank">Governance Policies</a>' : '').'</td><td id="governance_policies_uri"></td><td></td></tr>';
+	$html_text .= '<tr id="222" style="display:table-row"><td>governance_privacy_policy_uri</td><td>'.((!empty($data[$pd]['governance']['privacy_policy_uri'])) ? '<a href='.$data[$pd]['governance']['privacy_policy_uri'].' target="_blank">Governance Privacy</a>' : '').'</td><td id="governance_privacy_policy_uri"></td><td></td></tr>';
+	$html_text .= '<tr id="223" style="display:table-row"><td>governance_delegation_uri</td><td><a href='.$data[$pd]['governance']['delegation_uri'].' target="_blank">TLD Delegation</a></td><td id="governance_delegation_uri"></td><td></td></tr>';
+	$html_text .= '<tr id="224" style="display:table-row"><td>governance_registrar_accreditations_uri</td><td><a href='.$data[$pd]['governance']['registrar_accreditations_uri'].' target="_blank">Accredited Registrars</a></td><td id="governance_registrar_accreditations_uri"></td><td></td></tr>';	
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(31)">Root URIs +/-</button></td><td></td><td></td><td></td></tr>';
+	$html_text .= '<tr id="311" style="display:table-row"><td>root_services_uri</td><td><a href='.$data[$pd]['root']['services_uri'].' target="_blank">Root Services</a></td><td id="root_services_uri"></td><td></td></tr>';
+	$html_text .= '<tr id="312" style="display:table-row"><td>root_tlds_uri</td><td><a href='.$data[$pd]['root']['tlds_uri'].' target="_blank">Root TLDs</a></td><td id="root_tlds_uri"></td><td></td></tr>';
+	$html_text .= '<tr id="313" style="display:table-row"><td>root_lookup_endpoints_uri</td><td><a href='.$data[$pd]['root']['lookup_endpoints_uri'].' target="_blank">Lookup Endpoints</a></td><td id="root_lookup_endpoints_uri"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(32)">Function Identifiers +/-</button></td><td></td><td id="root_function_identifiers"></td><td></td></tr>';
+	$html_text .= '<tr id="321" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root']['function_identifiers'].'</td><td></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(33)">Ambiguous RDAP Statuses +/-</button></td><td></td><td id="root_ambiguous_rdap_statuses"></td><td></td></tr>';
+	$html_text .= '<tr id="331" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root']['ambiguous_rdap_statuses'].'</td><td></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(34)">Lifecycle Period Ranges +/-</button></td><td></td><td id="root_lifecycle_period_ranges"></td><td></td></tr>';
+	$html_text .= '<tr id="341" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root']['lifecycle_period_ranges'].'</td><td></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(35)">Root Accepted Workload +/-</button></td><td></td><td id="root_accepted_workload"></td><td></td></tr>';
+	$html_text .= '<tr id="351" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root']['accepted_workload'].'</td><td></td><td></td></tr>';
+	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(38)">TLD Links +/-</button><td></td><td id="tld_links_part"></td><td></td></tr>';
+	$html_text .= '<tr id="381" style="display:none;vertical-align:top"><td colspan="3">'.$data[$pd]['tld']['links'].'</td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(41)">TLD Properties +/-</button></td><td><b>'.$vd.'</b></td><td id="tld_part"></td><td></td></tr>';
+	$html_text .= '<tr id="411" style="display:table-row"><td>tld_data_active_from</td><td> '.$data[$pd]['tld']['data_active_from'].'</td><td id="tld_data_active_from"></td><td></td></tr>';
+	$html_text .= '<tr id="412" style="display:table-row"><td>tld_category</td><td>'.$data[$pd]['tld']['category'].'</td><td id="tld_category"></td><td></td></tr>';
+	$html_text .= '<tr id="413" style="display:table-row"><td>tld_type</td><td>'.$data[$pd]['tld']['type'].'</td><td id="tld_type"></td><td></td></tr>';
+	$html_text .= '<tr id="414" style="display:table-row"><td>tld_ascii_name</td><td>'.$data[$pd]['tld']['ascii_name'].'</td><td id="tld_ascii_name"></td><td></td></tr>';
+	$html_text .= '<tr id="415" style="display:table-row"><td>tld_unicode_name</td><td>'.$data[$pd]['tld']['unicode_name'].'</td><td id="tld_unicode_name"></td><td></td></tr>';
+	$html_text .= '<tr id="416" style="display:table-row"><td>tld_statuses</td><td> '.$data[$pd]['tld']['statuses'].'</td><td id="tld_statuses"></td><td></td></tr>';
+	$html_text .= '<tr id="417" style="display:table-row"><td>tld_storage_model</td><td> '.$data[$pd]['tld']['storage_model'].'</td><td id="tld_storage_model"></td><td></td></tr>';
+	$html_text .= '<tr id="418" style="display:table-row"><td>tld_response_model</td><td> '.$data[$pd]['tld']['response_model'].'</td><td id="tld_response_model"></td><td></td></tr>';
+	$html_text .= '<tr id="419" style="display:table-row"><td>tld_services_uri</td><td>'.((!empty($data[$pd]['tld']['services_uri'])) ? '<a href='.$data[$pd]['tld']['services_uri'].' target="_blank">TLD Services</a>' : '').'</td><td id="tld_services_uri"></td><td></td></tr>';
+	$html_text .= '<tr id="4110" style="display:table-row"><td>tld_standardized_price_list_uri</td><td>'.((!empty($data[$pd]['tld']['standardized_price_list_uri'])) ? '<a href='.$data[$pd]['tld']['standardized_price_list_uri'].' target="_blank">TLD Prices</a>' : '').'</td><td id="tld_standardized_price_list_uri"></td><td></td></tr>';
+	$html_text .= '<tr id="4111" style="display:table-row"><td>tld_json_response_uri</td><td>'.((!empty($data[$pd]['tld']['json_response_uri'])) ? '<a href='.$data[$pd]['tld']['json_response_uri'].' target="_blank">TLD Data</a>' : '').'</td><td id="tld_json_response_uri"></td><td></td></tr>';
+	$html_text .= '<tr id="4112" style="display:table-row"><td>tld_data_usage_policy_uri</td><td>'.((!empty($data[$pd]['tld']['data_usage_policy_uri'])) ? '<a href='.$data[$pd]['tld']['data_usage_policy_uri'].' target="_blank">TLD Data Usage</a>' : '').'</td><td id="tld_data_usage_policy_uri"></td><td></td></tr>';
+	$html_text .= '<tr id="4113" style="display:table-row"><td>tld_privacy_policy_uri</td><td>'.((!empty($data[$pd]['tld']['privacy_policy_uri'])) ? '<a href='.$data[$pd]['tld']['privacy_policy_uri'].' target="_blank">TLD Privacy</a>' : '').'</td><td id="tld_privacy_policy_uri"></td><td></td></tr>';
+	$html_text .= '<tr id="4114" style="display:table-row"><td>tld_search_engine_deletion_phase_ready</td><td>'.$data[$pd]['tld']['search_engine_deletion_phase_ready'].'</td><td id="tld_search_engine_deletion_phase_ready"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Functions +/-</button></td><td></td><td id="tld_functions"></td><td></td></tr>';
+	$html_text .= '<tr id="421" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['tld']['functions'].'</td><td></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Accepted Workload +/-</button></td><td></td><td id="tld_accepted_workload"></td><td></td></tr>';
+	$html_text .= '<tr id="441" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['tld']['accepted_workload'].'</td><td></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(43)">Relationships +/-</button></td><td></td><td id="tld_relationships"></td><td></td></tr>';
+	$html_text .= '<tr id="431" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['tld']['relationships'].'</td><td></td><td></td></tr>';
+	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';	
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(51)">Lifecycle Information +/-</button></td><td><b>'.$vd.'</b></td><td id="lifecycle_part"></td><td></td></tr>';
+	$html_text .= '<tr id="511" style="display:table-row"><td>data_active_from</td><td>'.$data[$pd]['lifecycle']['data_active_from'].'</td><td id="lifecycle_data_active_from"></td><td></td></tr>';
+	$html_text .= '<tr id="512" style="display:table-row"><td>upon_termination</td><td>'.$data[$pd]['lifecycle']['upon_termination'].'</td><td id="lifecycle_upon_termination"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(52)">Status Meanings +/-</button></td><td></td><td id="lifecycle_status_meanings"></td><td></td></tr>';
+	$html_text .= '<tr id="521" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['status_meanings'].'</td><td></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(53)">Operational Periods +/-</button></td><td></td><td id="lifecycle_operational_periods"></td><td></td></tr>';
+	$html_text .= '<tr id="531" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['operational_periods'].'</td><td></td><td></td></tr>';
+	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Nameservers +/-</button></td><td><b>'.$vd.'</b></td><td id="nameservers_part"></td><td></td></tr>';
+	$html_text .= '<tr id="611" style="display:none;vertical-align:top"><td>handles</td><td colspan="2">'.$data[$pd]['nameservers']['handles'].'</td><td></td></tr>';
+	$html_text .= '<tr id="612" style="display:none;vertical-align:top"><td>ascii_names</td><td colspan="2">'.$data[$pd]['nameservers']['ascii_names'].'</td><td></td></tr>';
+	$html_text .= '<tr id="613" style="display:none;vertical-align:top"><td>unicode_names</td><td colspan="2">'.$data[$pd]['nameservers']['unicode_names'].'</td><td></td></tr>';
+	$html_text .= '<tr id="614" style="display:none;vertical-align:top"><td>ipv4_addresses</td><td>'.$data[$pd]['nameservers']['ipv4_addresses'].'</td><td id="nameservers_ip"></td><td></td></tr>';
+	$html_text .= '<tr id="615" style="display:none;vertical-align:top"><td>ipv6_addresses</td><td>'.$data[$pd]['nameservers']['ipv6_addresses'].'</td><td></td><td></td></tr>';
+	$html_text .= '<tr id="616" style="display:none;vertical-align:top"><td>statuses</td><td>'.$data[$pd]['nameservers']['statuses'].'</td><td></td><td></td></tr>';
+	$html_text .= '<tr id="617" style="display:none;vertical-align:top"><td>rdap_dnssec_signed</td><td>'.$data[$pd]['nameservers']['rdap_dnssec_signed'].'</td><td id="nameservers_rdap_dnssec_signed"></td><td></td></tr>';
+	$html_text .= '<tr id="618" style="display:none;vertical-align:top"><td>rdap_ds_key_tags</td><td>'.$data[$pd]['nameservers']['rdap_ds_key_tags'].'</td><td></td><td></td></tr>';
+	$html_text .= '<tr style="vertical-align:top"><td>rdap_ds_algorithms</td><td>'.$data[$pd]['nameservers']['rdap_ds_algorithms'].'</td><td id="nameservers_rdap_ds_algorithms"></td><td></td></tr>';	
+	$html_text .= '<tr id="619" style="display:none;vertical-align:top"><td>rdap_ds_digest_types</td><td>'.$data[$pd]['nameservers']['rdap_ds_digest_types'].'</td><td></td><td></td></tr>';
+	$html_text .= '<tr id="6110" style="display:none;vertical-align:top"><td>rdap_ds_digests</td><td colspan="2">'.$data[$pd]['nameservers']['rdap_ds_digests'].'</td><td></td></tr>';
+	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 }
 $html_text .= '</table></div></body></html>';
 echo $html_text;
