@@ -1,20 +1,20 @@
 <?php
 //ini_set('display_errors', 1);
 //error_reporting(E_ALL);
-//$_GET['properties'] = 'hostingtool.nl';
-//$_GET['properties'] = 'cyberfusion.nl';
-//$_GET['properties'] = 'münchen.de';
-//$_GET['properties'] = 'example.tel';
-//$_GET['properties'] = 'rdap.org';
-//$_GET['properties'] = 'france.fr';
-//$_GET['properties'] = 'domaincontrolregister.org';
-//$_GET['properties'] = 'icann.org';
-//$_GET['properties'] = 'amsterdam.amsterdam';
-//$_GET['properties'] = 'eurid.eu';
-//$_GET['properties'] = 'denic.de';
-//$_GET['properties'] = 'internet.nl';
-//$_GET['properties'] = 'nic.vermögensberater';
-//$_GET['properties'] = 'teamblue.domains';
+//$_GET['domain'] = 'hostingtool.nl';
+//$_GET['domain'] = 'cyberfusion.nl';
+//$_GET['domain'] = 'münchen.de';
+//$_GET['domain'] = 'example.tel';
+//$_GET['domain'] = 'rdap.org';
+//$_GET['domain'] = 'france.fr';
+//$_GET['domain'] = 'domaincontrolregister.org';
+//$_GET['domain'] = 'icann.org';
+//$_GET['domain'] = 'amsterdam.amsterdam';
+//$_GET['domain'] = 'eurid.eu';
+//$_GET['domain'] = 'denic.de';
+//$_GET['domain'] = 'internet.nl';
+//$_GET['domain'] = 'nic.vermögensberater';
+//$_GET['domain'] = 'teamblue.domains';
 
 if (!empty($_GET['domain']))	{
 	if (strlen($_GET['domain']))	{
@@ -50,6 +50,7 @@ if (!empty($_GET['domain']))	{
             $tld_unicode_name = 'tld';
 			$tld_ascii_name = 'tld';
         }
+		$registry_rdap = [];
 		$registry_rdap = write_file($tld_ascii_name, $domain_ascii_name, $batch, '');
 		$registry_interface = $registry_rdap['interface_notice'] ?? '';
 		$registry_rdap['metadata']['tld_unicode_name'] = $tld_unicode_name ?? null;
@@ -60,6 +61,7 @@ if (!empty($_GET['domain']))	{
 		$registrar_interface = '';
 		$registry_statuses = $registry_rdap['domain']['statuses'] ?? null;
 		if (!empty($registry_statuses) and mb_strlen($tld_unicode_name) > 2) {
+		//if (mb_strlen($tld_unicode_name) > 2) {
 			$registry_rdap['metadata']['rdap_data_layer'] = 'registry_rdap';
 			$registrar_identifier = $registry_rdap['metadata']['registrar_identifier'] ?? null;
 			$iana_id = (int) $registrar_identifier;
@@ -983,14 +985,10 @@ $registrant_created_at = null;
 $registrant_latest_transfer_at = null;	
 $registrant_latest_data_mutation_at = null;
 $registrant_expiration_at = null;	
-$registrant_deletion_at = null;
-$registrant_properties = '(not tested yet)';		
+$registrant_deletion_at = null;	
 $registrant_remarks = '';		
-$administrative_properties = '(not tested yet)';	
 $administrative_remarks = '';
-$technical_properties = '(not tested yet)';	
 $technical_remarks = '';
-$billing_properties = '(not tested yet)';
 $billing_remarks = '';		
 $reseller_statuses = '';
 $reseller_created_at = null;
@@ -998,7 +996,6 @@ $reseller_latest_transfer_at = null;
 $reseller_latest_data_mutation_at = null;
 $reseller_expiration_at = null;	
 $reseller_deletion_at = null;
-$reseller_properties = '(not tested yet)';	
 $reseller_remarks = '';		
 $registrar_statuses = '';	
 $registrar_created_at = null;
@@ -1006,7 +1003,6 @@ $registrar_latest_transfer_at = null;
 $registrar_latest_data_mutation_at = null;
 $registrar_expiration_at = null;	
 $registrar_deletion_at = null;		
-$registrar_properties = '(not tested yet)';	
 $registrar_remarks = '';
 $sponsor_statuses = '';
 $sponsor_created_at = null;
@@ -1014,7 +1010,6 @@ $sponsor_latest_transfer_at = null;
 $sponsor_latest_data_mutation_at = null;
 $sponsor_expiration_at = null;	
 $sponsor_deletion_at = null;
-$sponsor_properties = '(not tested yet)';
 $sponsor_remarks = '';
 $server_handle	= '';
 $client_handle = $obj['handle'];
@@ -1423,29 +1418,6 @@ foreach($obj as $key1 => $value1) {
 					}
 				}	
 				if ($key1 == 'entities')	{
-					if ($key3 == 'domain')	{
-						if ($key2 == $entity_registrant)	{
-							$registrant_properties = $key4 . ":<br />" . (is_array($value4)) ? implode(",<br />", $value4) : $value4;
-						}
-						if ($key2 == $entity_administrative)	{
-							$administrative_properties = $key4 . ":<br />" . (is_array($value4)) ? implode(",<br />", $value4) : $value4;
-						}
-						if ($key2 == $entity_technical)	{
-							$technical_properties = $key4 . ":<br />" . (is_array($value4)) ? implode(",<br />", $value4) : $value4;
-						}
-						if ($key2 == $entity_billing)	{
-							$billing_properties = $key4 . ":<br />" . (is_array($value4)) ? implode(",<br />", $value4) : $value4;
-						}							
-						if ($key2 == $entity_reseller)	{
-							$reseller_properties = $key4 . ":<br />" . (is_array($value4)) ? implode(",<br />", $value4) : $value4;
-						}
-						if ($key2 == $entity_registrar)	{
-							$registrar_properties = $key4 . ":<br />" . (is_array($value4)) ? implode(",<br />", $value4) : $value4;
-						}
-						if ($key2 == $entity_sponsor)	{
-							$sponsor_properties = $key4 . ":<br />" . (is_array($value4)) ? implode(",<br />", $value4) : $value4;
-						}	
-					}
 					if ($key2 == $entity_registrar and $key3 == 'publicIds')	{
 						$registrar_identifiers .= $value4['type'].': '.$value4['identifier']."<br />";
 						$registrar_identifier = $value4['identifier'];
@@ -2105,7 +2077,6 @@ $arr['sponsor']['preferred_languages'] = $sponsor_preferred_languages;
 $arr['sponsor']['statuses'] = $sponsor_statuses;
 $arr['sponsor']['created_at'] = $sponsor_created_at;
 $arr['sponsor']['latest_data_mutation_at'] = $sponsor_latest_data_mutation_at;
-$arr['sponsor']['properties'] = $sponsor_properties;
 $arr['sponsor']['remarks'] = $sponsor_remarks;
 $arr['sponsor']['links'] = $sponsor_links;	
 	
@@ -2129,7 +2100,6 @@ $arr['registrant']['preferred_languages'] = $registrant_preferred_languages;
 $arr['registrant']['statuses'] = $registrant_statuses;
 $arr['registrant']['created_at'] = $registrant_created_at;
 $arr['registrant']['latest_data_mutation_at'] = $registrant_latest_data_mutation_at;
-$arr['registrant']['properties'] = $registrant_properties;
 $arr['registrant']['remarks'] = $registrant_remarks;
 $arr['registrant']['links'] = $registrant_links;	
 	
@@ -2153,7 +2123,6 @@ $arr['administrative']['preferred_languages'] = $administrative_preferred_langua
 $arr['administrative']['statuses'] = $administrative_statuses;
 $arr['administrative']['created_at'] = $administrative_created_at;
 $arr['administrative']['latest_data_mutation_at'] = $administrative_latest_data_mutation_at;
-$arr['administrative']['properties'] = $administrative_properties;
 $arr['administrative']['remarks'] = $administrative_remarks;
 $arr['administrative']['links'] = $administrative_links;
 
@@ -2177,7 +2146,6 @@ $arr['technical']['preferred_languages'] = $technical_preferred_languages;
 $arr['technical']['statuses'] = $technical_statuses;
 $arr['technical']['created_at'] = $technical_created_at;
 $arr['technical']['latest_data_mutation_at'] = $technical_latest_data_mutation_at;
-$arr['technical']['properties'] = $technical_properties;
 $arr['technical']['remarks'] = $technical_remarks;
 $arr['technical']['links'] = $technical_links;	
 	
@@ -2201,7 +2169,6 @@ $arr['billing']['preferred_languages'] = $billing_preferred_languages;
 $arr['billing']['statuses'] = $billing_statuses;
 $arr['billing']['created_at'] = $billing_created_at;
 $arr['billing']['latest_data_mutation_at'] = $billing_latest_data_mutation_at;
-$arr['billing']['properties'] = $billing_properties;
 $arr['billing']['remarks'] = $billing_remarks;
 $arr['billing']['links'] = $billing_links;	
 
@@ -2225,7 +2192,6 @@ $arr['reseller']['preferred_languages'] = $reseller_preferred_languages;
 $arr['reseller']['statuses'] = $reseller_statuses;
 $arr['reseller']['created_at'] = $reseller_created_at;
 $arr['reseller']['latest_data_mutation_at'] = $reseller_latest_data_mutation_at;
-$arr['reseller']['properties'] = $reseller_properties;
 $arr['reseller']['remarks'] = $reseller_remarks;
 $arr['reseller']['links'] = $reseller_links;	
 
@@ -2249,7 +2215,6 @@ $arr['registrar']['preferred_languages'] = $registrar_preferred_languages;
 $arr['registrar']['statuses'] = $registrar_statuses;
 $arr['registrar']['created_at'] = $registrar_created_at;
 $arr['registrar']['latest_data_mutation_at'] = $registrar_latest_data_mutation_at;
-$arr['registrar']['properties'] = $registrar_properties;
 $arr['registrar']['remarks'] = $registrar_remarks;
 $arr['registrar']['links'] = $registrar_links;	
 	
