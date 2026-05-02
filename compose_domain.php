@@ -889,19 +889,17 @@ function write_file($inputtld, $inputdomain, $inputbatch, $inputurl) {
         }
         $url = rtrim($url, '/') . '/domain/' . $inputdomain;
     }
-	$options = [
-    	"http" => [
-        	"method" => "GET",
-        	"ignore_errors" => true,
-        	"timeout" => 8,
-        	"header" => [
-            	"User-Agent: MyRDAPClient/1.0 (+https://example.com/contact)",
-            	"Accept: application/rdap+json, application/json;q=0.9",
-            	"Connection: close",
-        	],
-    	],
-	];
-    $context = stream_context_create($options);
+	$context = stream_context_create([
+		'http' => [
+    	'method'           => 'GET',
+    	'timeout'          => 8,
+    	'ignore_errors'    => true,
+    	'protocol_version' => 1.1,
+    	'header' =>
+			"Accept: application/rdap+json, application/json\r\n" .
+      		"Connection: close\r\n",
+  		],
+	]);
     $time_pass = microtime(true) - $time_start;
     if ($time_pass < 1.05) {
         usleep((int)((1.05 - $time_pass) * 1_000_000));
@@ -912,13 +910,13 @@ function write_file($inputtld, $inputdomain, $inputbatch, $inputurl) {
 	$fp=@fopen($url,'r',false,$context);
 	if ($fp===false) {
     	$phpError=error_get_last();
-    	$parts=['No working RDAP URL for this TLD'];
+    	$parts=['no valid response from RDAP endpoint'];
     	if(!empty($url))$parts[]=$url;
     	if(!empty($start_utc_iso)||!empty($server_seen)){
         	$meta=[];
         	if(!empty($start_utc_iso))$meta[]='UTC: '.$start_utc_iso;
         	if(!empty($server_seen))$meta[]='IP: '.$server_seen;
-        	$parts[]='('.implode(', ',$meta).')';
+        	$parts[]=implode(', ',$meta);
     	}
     	if(!empty($phpError['message']))$parts[]=$phpError['message'];
     	$arr['interface_notice']=implode(', ',$parts);
