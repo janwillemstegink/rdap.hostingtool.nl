@@ -155,12 +155,14 @@ foreach($obj as $key1 => $value1) {
 		}
 	}
 }
-$root_services_uri = 'https://www.iana.org';	
-$root_tlds_uri = 'https://www.iana.org/domains/root/db';
+$governance_services_uri = 'https://www.icann.org';
 $governance_policies_uri = 'https://www.icann.org/en/data-protection/terms-of-service';
 $governance_privacy_policy_uri = 'https://www.icann.org/privacy/policy';	
-$registrar_accreditations_uri = 'https://www.iana.org/assignments/registrar-ids/registrar-ids.xhtml';
-$lookup_endpoints_uri = 'https://data.iana.org/rdap/dns.json';
+$governance_registrar_accreditation_uri = 'https://www.icann.org/en/contracted-parties/accredited-registrars';
+$root_services_uri = 'https://www.iana.org';	
+$root_tlds_uri = 'https://www.iana.org/domains/root/db';
+$root_registrar_ids_uri = 'https://www.iana.org/assignments/registrar-ids/registrar-ids.xhtml';	
+$root_lookup_endpoints_uri = 'https://data.iana.org/rdap/dns.json';
 $tld_data_active_from = null;	
 $tld_category = '';
 $tld_type = '';
@@ -551,7 +553,7 @@ elseif ($inputtld == 'org')	{
 	$tld_privacy_policy_uri = 'https://www.icann.org/privacy/policy';
 	$tld_services_uri = '';
 }
-$delegation_uri = 'https://www.iana.org/domains/root/db/'.$inputtld.'.html';		
+$governance_delegation_uri = 'https://www.iana.org/domains/root/db/'.$inputtld.'.html';		
 $decoded = json_decode($function_json, true);
 $tld_functions = '';   
 foreach ($decoded as $function) {
@@ -678,14 +680,16 @@ switch ($inputtld) {
 $arr = array();
 	
 $arr[$inputtld]['governance']['notices'] = $governance_notices;
+$arr[$inputtld]['governance']['services_uri'] = $governance_services_uri;	
 $arr[$inputtld]['governance']['policies_uri'] = $governance_policies_uri;
 $arr[$inputtld]['governance']['privacy_policy_uri'] = $governance_privacy_policy_uri;
-$arr[$inputtld]['governance']['delegation_uri'] = $delegation_uri;	
-$arr[$inputtld]['governance']['registrar_accreditations_uri'] = $registrar_accreditations_uri;
+$arr[$inputtld]['governance']['delegation_uri'] = $governance_delegation_uri;	
+$arr[$inputtld]['governance']['registrar_accreditation_uri'] = $governance_registrar_accreditation_uri;
 		
 $arr[$inputtld]['root']['services_uri'] = $root_services_uri;
 $arr[$inputtld]['root']['tlds_uri'] = $root_tlds_uri;
-$arr[$inputtld]['root']['lookup_endpoints_uri'] = $lookup_endpoints_uri;	
+$arr[$inputtld]['root']['registrar_ids_uri'] = $root_registrar_ids_uri;	
+$arr[$inputtld]['root']['lookup_endpoints_uri'] = $root_lookup_endpoints_uri;	
 $arr[$inputtld]['root']['function_identifiers'] = $function_identifiers;
 $arr[$inputtld]['root']['ambiguous_rdap_statuses'] = $ambiguous_rdap_statuses;
 $arr[$inputtld]['root']['lifecycle_period_ranges'] = $lifecycle_period_ranges;		
