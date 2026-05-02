@@ -46,9 +46,9 @@ CREATE TABLE IF NOT EXISTS root (
     root_services_uri JSONB DEFAULT '[]'::jsonb,
     root_tlds_uri JSONB DEFAULT '[]'::jsonb,
 	root_policies_uri JSONB DEFAULT '[]'::jsonb,
-	root_rivacy_policy_uri DEFAULT '[]'::jsonb,
+	root_privacy_policy_uri DEFAULT '[]'::jsonb,
 	root_lookup_endpoints_uri JSONB DEFAULT '[]'::jsonb,
-    root_registrar_accreditations_uri DEFAULT '[]'::jsonb,
+    root_registrar_ids_uri DEFAULT '[]'::jsonb,
     root_function_identifiers JSONB DEFAULT 
         '[
             {"function_sequence": 10,"function_identifier": "contracting_authority"},
@@ -135,6 +135,7 @@ CREATE TABLE IF NOT EXISTS tlds (
     tld_statuses TEXT[],
 	tld_storage_model TEXT[],
 	tld_response_model TEXT[],
+	tld_search_engine_deletion_phase_ready BOOLEAN NOT NULL DEFAULT FALSE,
 	tld_services_uri JSONB DEFAULT '[]'::jsonb,
 	tld_standardized_price_list_uri JSONB DEFAULT '[]'::jsonb,
     tld_delegation_uri JSONB DEFAULT '[]'::jsonb,
@@ -142,7 +143,6 @@ CREATE TABLE IF NOT EXISTS tlds (
     tld_data_usage_policy_uri JSONB DEFAULT '[]'::jsonb,
 	tld_registry_geo_location JSONB DEFAULT '[]'::jsonb,
     tld_privacy_policy_uri JSONB DEFAULT '[]'::jsonb,
-    tld_search_engine_deletion_phase_ready BOOLEAN NOT NULL DEFAULT FALSE,
     tld_accepted_workload JSONB DEFAULT 
         '[
             {
