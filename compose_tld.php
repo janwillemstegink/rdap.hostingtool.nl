@@ -680,6 +680,7 @@ switch ($inputtld) {
 $arr = array();
 	
 $arr[$inputtld]['governance']['notices'] = $governance_notices;
+	
 $arr[$inputtld]['governance']['services_uri'] = $governance_services_uri;	
 $arr[$inputtld]['governance']['policies_uri'] = $governance_policies_uri;
 $arr[$inputtld]['governance']['privacy_policy_uri'] = $governance_privacy_policy_uri;
@@ -689,13 +690,15 @@ $arr[$inputtld]['governance']['registrar_accreditation_uri'] = $governance_regis
 $arr[$inputtld]['root']['services_uri'] = $root_services_uri;
 $arr[$inputtld]['root']['tlds_uri'] = $root_tlds_uri;
 $arr[$inputtld]['root']['registrar_ids_uri'] = $root_registrar_ids_uri;	
-$arr[$inputtld]['root']['lookup_endpoints_uri'] = $root_lookup_endpoints_uri;	
+$arr[$inputtld]['root']['lookup_endpoints_uri'] = $root_lookup_endpoints_uri;
+	
 $arr[$inputtld]['root']['function_identifiers'] = $function_identifiers;
 $arr[$inputtld]['root']['ambiguous_rdap_statuses'] = $ambiguous_rdap_statuses;
 $arr[$inputtld]['root']['lifecycle_period_ranges'] = $lifecycle_period_ranges;		
 $arr[$inputtld]['root']['accepted_workload'] = $root_accepted_workload;	
 	
 $arr[$inputtld]['tld']['links'] = $tld_links;
+
 $arr[$inputtld]['tld']['ascii_name'] = $inputtld;
 $arr[$inputtld]['tld']['unicode_name'] = value_to_unicode($inputtld);	
 $arr[$inputtld]['tld']['data_active_from'] = $tld_data_active_from;	
@@ -706,11 +709,13 @@ $arr[$inputtld]['tld']['unicode_name'] = $tld_unicode_name;
 $arr[$inputtld]['tld']['statuses'] = $tld_statuses;
 $arr[$inputtld]['tld']['storage_model'] = $tld_storage_model;
 $arr[$inputtld]['tld']['response_model'] = $tld_response_model;
+$arr[$inputtld]['tld']['search_engine_deletion_phase_ready'] = $tld_search_engine_deletion_phase_ready;
+	
 $arr[$inputtld]['tld']['services_uri'] = $tld_services_uri;	
 $arr[$inputtld]['tld']['json_response_uri'] = $tld_json_response_uri;
 $arr[$inputtld]['tld']['data_usage_policy_uri'] = $tld_data_usage_policy_uri;
 $arr[$inputtld]['tld']['privacy_policy_uri'] = $tld_privacy_policy_uri;
-$arr[$inputtld]['tld']['search_engine_deletion_phase_ready'] = $tld_search_engine_deletion_phase_ready;
+
 $arr[$inputtld]['tld']['functions'] = $tld_functions;
 $arr[$inputtld]['tld']['accepted_workload'] = $tld_accepted_workload;
 $arr[$inputtld]['tld']['relationships'] = $tld_relationships;

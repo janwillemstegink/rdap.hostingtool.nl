@@ -94,9 +94,13 @@ function SwitchDisplay(type) {
 		var pre = '38';
 		var max = 1
 	}
-	else if (type == 41)	{ // tld information
+	else if (type == 39)	{ // tld data
+		var pre = '39';
+		var max = 7
+	}
+	else if (type == 41)	{ // tld URIs
 		var pre = '41';
-		var max = 14
+		var max = 5
 	}
 	else if (type == 42)	{ // tld functions
 		var pre = '42';
@@ -186,12 +190,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_statuses").textContent = modified;
 		document.getElementById("tld_storage_model").textContent = proposed;
 		document.getElementById("tld_response_model").textContent = proposed;
+		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed;
 		document.getElementById("tld_services_uri").textContent = proposed;		
 		document.getElementById("tld_standardized_price_list_uri").textContent = proposed;
 		document.getElementById("tld_json_response_uri").textContent = modified + proposed;
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed;
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;
-		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed;
 		document.getElementById("tld_functions").textContent = proposed;
 		document.getElementById("tld_accepted_workload").textContent = proposed;
 		document.getElementById("tld_relationships").textContent = proposed;
@@ -240,12 +244,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_statuses").textContent = modified;
 		document.getElementById("tld_storage_model").textContent = proposed + "Opslagmodel voor TLD-domeingegevens (thin of thick).";
 		document.getElementById("tld_response_model").textContent = proposed + "RDAP-responsmodel voor domeingegevens (thin, delegated of thick).";
+		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + 'Of zoekmachines kunnen vertrouwen op de “pending delete”-fase om resultaten te verwijderen.';
 		document.getElementById("tld_services_uri").textContent = proposed + 'Een TLD-specifiek informatiemenu, beschikbaar onder een subdomein zoals "regmenu".';
 		document.getElementById("tld_standardized_price_list_uri").textContent = proposed + "Een machineleesbare gestandaardiseerde prijslijst zou de transparantie van registry-diensten ondersteunen.";
 		document.getElementById("tld_json_response_uri").textContent = modified + "Verrijkte machineleesbare TLD- en RDAP-gegevens.";
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Beperkt gebruik. Interpretatie hangt af van TLD- en RDAP-context.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;
-		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + 'Of zoekmachines kunnen vertrouwen op de “pending delete”-fase om resultaten te verwijderen.';
 		document.getElementById("tld_functions").textContent = proposed;
 		document.getElementById("tld_accepted_workload").textContent = proposed + "Deze modellering ondersteunt de modernisering van IANA-databasetabellen.";
 		document.getElementById("tld_relationships").textContent = proposed;
@@ -293,13 +297,13 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_unicode_name").textContent = modified;		
 		document.getElementById("tld_statuses").textContent = modified;
 		document.getElementById("tld_storage_model").textContent = proposed + "Storage model for TLD domain data (thin or thick).";
-		document.getElementById("tld_response_model").textContent = proposed + "RDAP response model for domain data (thin, delegated or thick).";		
+		document.getElementById("tld_response_model").textContent = proposed + "RDAP response model for domain data (thin, delegated or thick).";
+		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + 'Whether search engines can rely on the “pending delete” phase to remove results.';
 		document.getElementById("tld_services_uri").textContent = proposed + 'A TLD specific information menu, available under a subdomain such as "regmenu".';
 		document.getElementById("tld_standardized_price_list_uri").textContent = proposed + "A machine-readable standardized price list would support registry transparency.";
 		document.getElementById("tld_json_response_uri").textContent = modified + "Enriched machine-readable TLD and RDAP data.";
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Restricted use. Interpretation depends on TLD and RDAP context.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;		
-		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + 'Whether search engines can rely on the “pending delete” phase to remove results.';
 		document.getElementById("tld_functions").textContent = proposed;
 		document.getElementById("tld_accepted_workload").textContent = proposed + "This modeling supports IANA database table modernization efforts.";
 		document.getElementById("tld_relationships").textContent = proposed;
@@ -348,9 +352,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_unicode_name").textContent = modified;		
 		document.getElementById("tld_statuses").textContent = modified;
 		document.getElementById("tld_storage_model").textContent = proposed + "Speichermodell für TLD-Domaindaten (thin oder thick).";
-		document.getElementById("tld_response_model").textContent = proposed + "RDAP-Antwortmodell für Domaindaten (thin, delegated oder thick).";		
-		document.getElementById("tld_services_uri").textContent = proposed + 'Ein TLD-spezifisches Informationsmenü, verfügbar unter einer Subdomäne wie "regmenu".';
+		document.getElementById("tld_response_model").textContent = proposed + "RDAP-Antwortmodell für Domaindaten (thin, delegated oder thick).";
 		document.getElementById("tld_standardized_price_list_uri").textContent = proposed + "Eine maschinenlesbare standardisierte Preisliste würde die Transparenz von Registry-Diensten unterstützen.";
+		document.getElementById("tld_services_uri").textContent = proposed + 'Ein TLD-spezifisches Informationsmenü, verfügbar unter einer Subdomäne wie "regmenu".';
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Eingeschränkte Nutzung. Interpretation hängt vom TLD- und RDAP-Kontext ab.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;		
 		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + "Ob Suchmaschinen sich auf die 'Pending-Delete-Phase' verlassen können, um Ergebnisse zu entfernen.";
@@ -402,12 +406,12 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_statuses").textContent = modified;
 		document.getElementById("tld_storage_model").textContent = proposed + "Mode de stockage des données de domaine du TLD (thin ou thick).";
 		document.getElementById("tld_response_model").textContent = proposed + "Mode de réponse RDAP pour les données de domaine (thin, delegated ou thick).";
+		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + "Si les moteurs de recherche peuvent se fier à la phase 'pending delete' pour supprimer des résultats.";
 		document.getElementById("tld_services_uri").textContent = proposed + "Un menu d'informations spécifique au TLD, disponible sous un sous-domaine tel que 'regmenu'.";
 		document.getElementById("tld_standardized_price_list_uri").textContent = proposed + "Une liste de prix standardisée lisible par machine soutiendrait la transparence des services de registre.";
 		document.getElementById("tld_json_response_uri").textContent = modified + "Données TLD et RDAP lisibles par machine enrichies.";
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Utilisation restreinte. L’interprétation dépend du contexte TLD et RDAP.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;		
-		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + "Si les moteurs de recherche peuvent se fier à la phase 'pending delete' pour supprimer des résultats.";
 		document.getElementById("tld_functions").textContent = proposed;
 		document.getElementById("tld_accepted_workload").textContent = proposed + "Cette modélisation soutient la modernisation des tables de la base de données IANA.";
 		document.getElementById("tld_relationships").textContent = proposed;
@@ -466,6 +470,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="223" style="display:table-row"><td>governance_privacy_policy_uri</td><td>'.((!empty($data[$pd]['governance']['privacy_policy_uri'])) ? '<a href='.$data[$pd]['governance']['privacy_policy_uri'].' target="_blank">Governance Privacy</a>' : '').'</td><td id="governance_privacy_policy_uri"></td><td></td></tr>';
 	$html_text .= '<tr id="224" style="display:table-row"><td>governance_delegation_uri</td><td><a href='.$data[$pd]['governance']['delegation_uri'].' target="_blank">TLD Delegation</a></td><td id="governance_delegation_uri"></td><td></td></tr>';
 	$html_text .= '<tr id="225" style="display:table-row"><td>governance_registrar_accreditation_uri</td><td><a href='.$data[$pd]['governance']['registrar_accreditation_uri'].' target="_blank">Registrar Accreditation</a></td><td id="governance_registrar_accreditation_uri"></td><td></td></tr>';	
+	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(31)">Root URIs +/-</button></td><td></td><td id="root_part"></td><td></td></tr>';
 	$html_text .= '<tr id="311" style="display:table-row"><td>root_services_uri</td><td><a href='.$data[$pd]['root']['services_uri'].' target="_blank">Root Services</a></td><td id="root_services_uri"></td><td></td></tr>';
 	$html_text .= '<tr id="312" style="display:table-row"><td>root_tlds_uri</td><td><a href='.$data[$pd]['root']['tlds_uri'].' target="_blank">Root TLDs</a></td><td id="root_tlds_uri"></td><td></td></tr>';
@@ -479,37 +484,40 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="341" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root']['lifecycle_period_ranges'].'</td><td></td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(35)">Root Accepted Workload +/-</button></td><td></td><td id="root_accepted_workload"></td><td></td></tr>';
 	$html_text .= '<tr id="351" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root']['accepted_workload'].'</td><td></td><td></td></tr>';
+	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(38)">TLD Links +/-</button><td></td><td id="tld_links"></td><td></td></tr>';
 	$html_text .= '<tr id="381" style="display:none;vertical-align:top"><td colspan="3">'.$data[$pd]['tld']['links'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(41)">TLD Properties +/-</button></td><td><b>'.$vd.'</b></td><td id="tld_part"></td><td>(exists)</td></tr>';
-	$html_text .= '<tr id="411" style="display:table-row"><td>tld_data_active_from</td><td> '.$data[$pd]['tld']['data_active_from'].'</td><td id="tld_data_active_from"></td><td></td></tr>';
-	$html_text .= '<tr id="412" style="display:table-row"><td>tld_category</td><td>'.$data[$pd]['tld']['category'].'</td><td id="tld_category"></td><td></td></tr>';
-	$html_text .= '<tr id="413" style="display:table-row"><td>tld_type</td><td>'.$data[$pd]['tld']['type'].'</td><td id="tld_type"></td><td></td></tr>';
-	$html_text .= '<tr id="414" style="display:table-row"><td>tld_ascii_name</td><td>'.$data[$pd]['tld']['ascii_name'].'</td><td id="tld_ascii_name"></td><td></td></tr>';
-	$html_text .= '<tr id="415" style="display:table-row"><td>tld_unicode_name</td><td>'.$data[$pd]['tld']['unicode_name'].'</td><td id="tld_unicode_name"></td><td></td></tr>';
-	$html_text .= '<tr id="416" style="display:table-row"><td>tld_statuses</td><td> '.$data[$pd]['tld']['statuses'].'</td><td id="tld_statuses"></td><td></td></tr>';
-	$html_text .= '<tr id="417" style="display:table-row"><td>tld_storage_model</td><td> '.$data[$pd]['tld']['storage_model'].'</td><td id="tld_storage_model"></td><td></td></tr>';
-	$html_text .= '<tr id="418" style="display:table-row"><td>tld_response_model</td><td> '.$data[$pd]['tld']['response_model'].'</td><td id="tld_response_model"></td><td></td></tr>';
-	$html_text .= '<tr id="419" style="display:table-row"><td>tld_services_uri</td><td>'.((!empty($data[$pd]['tld']['services_uri'])) ? '<a href='.$data[$pd]['tld']['services_uri'].' target="_blank">TLD Services</a>' : '').'</td><td id="tld_services_uri"></td><td></td></tr>';
-	$html_text .= '<tr id="4110" style="display:table-row"><td>tld_standardized_price_list_uri</td><td>'.((!empty($data[$pd]['tld']['standardized_price_list_uri'])) ? '<a href='.$data[$pd]['tld']['standardized_price_list_uri'].' target="_blank">TLD Prices</a>' : '').'</td><td id="tld_standardized_price_list_uri"></td><td></td></tr>';
-	$html_text .= '<tr id="4111" style="display:table-row"><td>tld_json_response_uri</td><td>'.((!empty($data[$pd]['tld']['json_response_uri'])) ? '<a href='.$data[$pd]['tld']['json_response_uri'].' target="_blank">TLD Data</a>' : '').'</td><td id="tld_json_response_uri"></td><td></td></tr>';
-	$html_text .= '<tr id="4112" style="display:table-row"><td>tld_data_usage_policy_uri</td><td>'.((!empty($data[$pd]['tld']['data_usage_policy_uri'])) ? '<a href='.$data[$pd]['tld']['data_usage_policy_uri'].' target="_blank">TLD Data Usage</a>' : '').'</td><td id="tld_data_usage_policy_uri"></td><td></td></tr>';
-	$html_text .= '<tr id="4113" style="display:table-row"><td>tld_privacy_policy_uri</td><td>'.((!empty($data[$pd]['tld']['privacy_policy_uri'])) ? '<a href='.$data[$pd]['tld']['privacy_policy_uri'].' target="_blank">TLD Privacy</a>' : '').'</td><td id="tld_privacy_policy_uri"></td><td></td></tr>';
-	$html_text .= '<tr id="4114" style="display:table-row"><td>tld_search_engine_deletion_phase_ready</td><td>'.$data[$pd]['tld']['search_engine_deletion_phase_ready'].'</td><td id="tld_search_engine_deletion_phase_ready"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(39)">TLD Data +/-</button></td><td><b>'.$vd.'</b></td><td id="tld_part"></td><td></td></tr>';
+	$html_text .= '<tr id="391" style="display:none"><td>tld_data_active_from</td><td> '.$data[$pd]['tld']['data_active_from'].'</td><td id="tld_data_active_from"></td><td></td></tr>';
+	$html_text .= '<tr><td>tld_category</td><td>'.$data[$pd]['tld']['category'].'</td><td id="tld_category"></td><td></td></tr>';
+	$html_text .= '<tr><td>tld_type</td><td>'.$data[$pd]['tld']['type'].'</td><td id="tld_type"></td><td></td></tr>';
+	$html_text .= '<tr id="392" style="display:none"><td>tld_ascii_name</td><td>'.$data[$pd]['tld']['ascii_name'].'</td><td id="tld_ascii_name"></td><td></td></tr>';
+	$html_text .= '<tr id="393" style="display:none"><td>tld_unicode_name</td><td>'.$data[$pd]['tld']['unicode_name'].'</td><td id="tld_unicode_name"></td><td></td></tr>';
+	$html_text .= '<tr id="394" style="display:none"><td>tld_statuses</td><td> '.$data[$pd]['tld']['statuses'].'</td><td id="tld_statuses"></td><td></td></tr>';
+	$html_text .= '<tr id="395" style="display:none"><td>tld_storage_model</td><td> '.$data[$pd]['tld']['storage_model'].'</td><td id="tld_storage_model"></td><td></td></tr>';
+	$html_text .= '<tr id="396" style="display:none"><td>tld_response_model</td><td> '.$data[$pd]['tld']['response_model'].'</td><td id="tld_response_model"></td><td></td></tr>';
+	$html_text .= '<tr id="397" style="display:none"><td>tld_search_engine_deletion_phase_ready</td><td>'.$data[$pd]['tld']['search_engine_deletion_phase_ready'].'</td><td id="tld_search_engine_deletion_phase_ready"></td><td></td></tr>';	
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(41)">TLD URIs +/-</button></td><td></td><td id="tld_part"></td><td></td></tr>';	
+	$html_text .= '<tr id="411" style="display:table-row"><td>tld_services_uri</td><td>'.((!empty($data[$pd]['tld']['services_uri'])) ? '<a href='.$data[$pd]['tld']['services_uri'].' target="_blank">TLD Services</a>' : '').'</td><td id="tld_services_uri"></td><td></td></tr>';
+	$html_text .= '<tr id="412" style="display:table-row"><td>tld_standardized_price_list_uri</td><td>'.((!empty($data[$pd]['tld']['standardized_price_list_uri'])) ? '<a href='.$data[$pd]['tld']['standardized_price_list_uri'].' target="_blank">TLD Prices</a>' : '').'</td><td id="tld_standardized_price_list_uri"></td><td></td></tr>';
+	$html_text .= '<tr id="413" style="display:table-row"><td>tld_json_response_uri</td><td>'.((!empty($data[$pd]['tld']['json_response_uri'])) ? '<a href='.$data[$pd]['tld']['json_response_uri'].' target="_blank">TLD Data</a>' : '').'</td><td id="tld_json_response_uri"></td><td></td></tr>';
+	$html_text .= '<tr id="414" style="display:table-row"><td>tld_data_usage_policy_uri</td><td>'.((!empty($data[$pd]['tld']['data_usage_policy_uri'])) ? '<a href='.$data[$pd]['tld']['data_usage_policy_uri'].' target="_blank">TLD Data Usage</a>' : '').'</td><td id="tld_data_usage_policy_uri"></td><td></td></tr>';
+	$html_text .= '<tr id="415" style="display:table-row"><td>tld_privacy_policy_uri</td><td>'.((!empty($data[$pd]['tld']['privacy_policy_uri'])) ? '<a href='.$data[$pd]['tld']['privacy_policy_uri'].' target="_blank">TLD Privacy</a>' : '').'</td><td id="tld_privacy_policy_uri"></td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Functions +/-</button></td><td></td><td id="tld_functions"></td><td></td></tr>';
 	$html_text .= '<tr id="421" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['tld']['functions'].'</td><td></td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Accepted Workload +/-</button></td><td></td><td id="tld_accepted_workload"></td><td></td></tr>';
 	$html_text .= '<tr id="441" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['tld']['accepted_workload'].'</td><td></td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(43)">Relationships +/-</button></td><td></td><td id="tld_relationships"></td><td></td></tr>';
 	$html_text .= '<tr id="431" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['tld']['relationships'].'</td><td></td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(51)">Lifecycle Information +/-</button></td><td><b>'.$vd.'</b></td><td id="lifecycle_part"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(51)">Lifecycle Information +/-</button></td><td></td><td id="lifecycle_part"></td><td></td></tr>';
 	$html_text .= '<tr id="511" style="display:none"><td>data_active_from</td><td>'.$data[$pd]['lifecycle']['data_active_from'].'</td><td id="lifecycle_data_active_from"></td><td></td></tr>';
 	$html_text .= '<tr id="512" style="display:none"><td>upon_termination</td><td>'.$data[$pd]['lifecycle']['upon_termination'].'</td><td id="lifecycle_upon_termination"></td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(52)">Status Meanings +/-</button></td><td></td><td id="lifecycle_status_meanings"></td><td></td></tr>';
 	$html_text .= '<tr id="521" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['status_meanings'].'</td><td></td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(53)">Operational Periods +/-</button></td><td></td><td id="lifecycle_operational_periods"></td><td></td></tr>';
 	$html_text .= '<tr id="531" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['operational_periods'].'</td><td></td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Nameservers +/-</button></td><td><b>'.$vd.'</b></td><td id="nameservers_part"></td><td>(exists)</td></tr>';
+	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Nameserver Data +/-</button></td><td><b>'.$vd.'</b></td><td id="nameservers_part"></td><td>(data exists)</td></tr>';
 	$html_text .= '<tr id="611" style="display:none;vertical-align:top"><td>handles</td><td colspan="2">'.$data[$pd]['nameservers']['handles'].'</td><td></td></tr>';
 	$html_text .= '<tr id="612" style="display:none;vertical-align:top"><td>ascii_names</td><td colspan="2">'.$data[$pd]['nameservers']['ascii_names'].'</td><td></td></tr>';
 	$html_text .= '<tr id="613" style="display:none;vertical-align:top"><td>unicode_names</td><td colspan="2">'.$data[$pd]['nameservers']['unicode_names'].'</td><td></td></tr>';

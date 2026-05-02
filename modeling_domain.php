@@ -197,7 +197,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_rdap_version").textContent = modified;
 		document.getElementById("metadata_rdap_data_layer").textContent = proposed;
 		document.getElementById("metadata_rdap_issue_uri").textContent = proposed;
-		document.getElementById("metadata_tld_policies_uri").textContent = proposed;
+		document.getElementById("metadata_tld_information_uri").textContent = proposed;
 		document.getElementById("metadata_global_json_response_uri").textContent = proposed;
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed;
 		document.getElementById("metadata_registrar_identifiers").textContent = modified;
@@ -286,7 +286,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_rdap_version").textContent = modified;
 		document.getElementById("metadata_rdap_data_layer").textContent = proposed + "Geeft aan uit welke RDAP-laag de gegevens afkomstig zijn.";
 		document.getElementById("metadata_rdap_issue_uri").textContent = proposed + "URI voor het melden van technische of dataintegriteitsproblemen in RDAP";
-		document.getElementById("metadata_tld_policies_uri").textContent = proposed + "Beperkt gebruik. Interpretatie hangt af van TLD- en RDAP-context.";
+		document.getElementById("metadata_tld_information_uri").textContent = proposed + "Beperkt gebruik. Interpretatie hangt af van TLD- en RDAP-context.";
 		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "JSON-antwoord via een globale RDAP-URI die kan verwijzen naar een andere RDAP-bron.";
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed + "URI van het RDAP-JSON-antwoord van de registry; relatie 'self'.";
 		document.getElementById("metadata_registrar_identifiers").textContent = modified + "Identificatoren die met de registrar zijn verbonden. Een IANA-Registrar-ID moet geldig zijn.";
@@ -375,7 +375,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_rdap_version").textContent = modified;
 		document.getElementById("metadata_rdap_data_layer").textContent = proposed + "Indicates the RDAP layer from which the data originates.";
 		document.getElementById("metadata_rdap_issue_uri").textContent = proposed + "URI for reporting RDAP technical or data integrity issues";
-		document.getElementById("metadata_tld_policies_uri").textContent = proposed + "Restricted use. Interpretation depends on TLD and RDAP context.";
+		document.getElementById("metadata_tld_information_uri").textContent = proposed + "Restricted use. Interpretation depends on TLD and RDAP context.";
 		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "JSON response via a global RDAP URI that may reference another RDAP source.";
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed + "RDAP JSON response URI from the registry; relationship 'self'.";
 		document.getElementById("metadata_registrar_identifiers").textContent = modified + "Identifiers associated with the registrar. Any IANA Registrar ID must be valid.";
@@ -464,7 +464,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_rdap_version").textContent = modified;
 		document.getElementById("metadata_rdap_data_layer").textContent = proposed + "Gibt an, aus welcher RDAP-Ebene die Daten stammen.";
 		document.getElementById("metadata_rdap_issue_uri").textContent = proposed + "URI zur Meldung technischer oder Datenintegritätsprobleme bei RDAP";
-		document.getElementById("metadata_tld_policies_uri").textContent = proposed + "Eingeschränkte Nutzung. Interpretation hängt vom TLD- und RDAP-Kontext ab.";
+		document.getElementById("metadata_tld_information_uri").textContent = proposed + "Eingeschränkte Nutzung. Interpretation hängt vom TLD- und RDAP-Kontext ab.";
 		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "JSON-Antwort über eine globale RDAP-URI, die auf eine andere RDAP-Quelle verweisen kann.";
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed + "URI der RDAP-JSON-Antwort der Registry; Beziehung 'self'.";
 		document.getElementById("metadata_registrar_identifiers").textContent = modified + "Kennungen, die dem Registrar zugeordnet sind. Eine IANA-Registrar-ID muss gültig sein.";
@@ -553,7 +553,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_rdap_version").textContent = modified;
 		document.getElementById("metadata_rdap_data_layer").textContent = proposed + "Indique la couche RDAP dont proviennent les données.";
 		document.getElementById("metadata_rdap_issue_uri").textContent = proposed + "URI pour signaler des problèmes techniques ou d’intégrité des données RDAP";
-		document.getElementById("metadata_tld_policies_uri").textContent = proposed + "Utilisation restreinte. L’interprétation dépend du contexte TLD et RDAP.";
+		document.getElementById("metadata_tld_information_uri").textContent = proposed + "Utilisation restreinte. L’interprétation dépend du contexte TLD et RDAP.";
 		document.getElementById("metadata_global_json_response_uri").textContent = proposed + "Réponse JSON via une URI RDAP globale pouvant référencer une autre source RDAP.";
 		document.getElementById("metadata_registry_json_response_uri").textContent = proposed + "URI de la réponse JSON RDAP du registre ; relation 'self'.";
 		document.getElementById("metadata_registrar_identifiers").textContent = modified + "Identifiants associés au registrar. Tout identifiant de registrar IANA doit être valide.";
@@ -667,10 +667,10 @@ $data = json_decode($json, true);
 if (!is_array($data)) {
 	die("RDAP returned invalid JSON (after {$duration}s).");
 }
-$tld_policies_uri = $server_uri.'/modeling_tld/index.php?language='.$viewlanguage.'&tld='.$data[$pd]['registry']['metadata']['tld_ascii_name'];
+$tld_information_uri = $server_uri.'/modeling_tld/index.php?language='.$viewlanguage.'&tld='.$data[$pd]['registry']['metadata']['tld_ascii_name'];
 $raw_whois = $server_uri.'/domain_whois/index.php?language='.$viewlanguage.'&domain='.$vd;
 if	(is_null($data))	{
-	$tld_policies_uri = '';
+	$tld_information_uri = '';
 	$raw_whois = '';
 	$reopen = $server_uri.'/modeling_domain/index.php?batch=0&domain=domain';
 	sc_redir($reopen);
@@ -707,7 +707,7 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['domain']['ascii_name'])
 	$validation_registry = 'https://validator.rdap.org/?url=https://'.$registry_json_response_uri.'&response-type=domain&server-type=gtld-registry&errors-only=1';	
 	$html_text .= '<tr><td>registry_json_response_uri</td><td>'.((!empty($data[$pd]['registry']['metadata']['registry_json_response_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['registry_json_response_uri'].' target="_blank">Registry Response</a> - <a href="' . htmlspecialchars($validation_registry, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registry_json_response_uri"></td><td>'.$data[$pd]['registrar']['metadata']['registry_json_response_uri'].'</td></tr>';
 	$html_text .= '<tr><td>registrar_json_response_uri</td><td>'.((!empty($data[$pd]['registry']['metadata']['registrar_json_response_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['registrar_json_response_uri'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registrar_json_response_uri"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_json_response_uri'].'</td></tr>';	
-	$html_text .= '<tr><td>tld_policies_uri</td><td>'.((!empty($tld_policies_uri)) ? '<a href="'.$tld_policies_uri.'" target="_blank">.'.$data[$pd]['registry']['tld_unicode_name'].' TLD Policies</a>' : '').'</td><td id="metadata_tld_policies_uri"></td><td></td></tr>';
+	$html_text .= '<tr><td>tld_information_uri</td><td>'.((!empty($tld_information_uri)) ? '<a href="'.$tld_information_uri.'" target="_blank">.'.$data[$pd]['registry']['tld_unicode_name'].' TLD Information</a>' : '').'</td><td id="metadata_tld_information_uri"></td><td></td></tr>';
 	$html_text .= '<tr id="207" style="display:none"><td>registry_geo_location</td><td>'.$data[$pd]['registry']['metadata']['registry_geo_location'].'</td><td></td><td>'.$data[$pd]['registrar']['metadata']['registry_geo_location'].'</td></tr>';
 	$html_text .= '<tr id="208" style="display:none"><td>registrar_identifiers</td><td>'.((!empty($data[$pd]['registry']['metadata']['registrar_identifiers'])) ? $data[$pd]['registry']['metadata']['registrar_identifiers'] : '').'</td><td id="metadata_registrar_identifiers"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_identifiers'].'</td></tr>';
 	$registrar_json_response_uri = str_replace('https://', '', $data[$pd]['registry']['metadata']['registrar_json_response_uri']);
@@ -1029,7 +1029,7 @@ $html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="
 	$html_text .= '<tr id="619" style="display:none"><td>registrar_abuse_phone</td><td>'.$data[$pd]['registry']['registrar_abuse']['phone'].'</td><td id="registrar_abuse_phone"></td><td>'.$data[$pd]['registrar']['registrar_abuse']['phone'].'</td></tr>';
 	$html_text .= '<tr id="6110" style="display:none"><td>registrar_abuse_country_code</td><td>'.$data[$pd]['registry']['registrar_abuse']['country_code'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar_abuse']['country_code'].'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(63)">Nameservers +/-</button></td><td><b>'.$vd.'</b></td><td></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(63)">Nameserver Data +/-</button></td><td><b>'.$vd.'</b></td><td></td><td></td></tr>';
 	$html_text .= '<tr id="631" style="display:none"><td>server_handles</td><td colspan="2">'.$data[$pd]['registry']['nameservers']['server_handles'].'</td><td>'.$data[$pd]['registrar']['nameservers']['server_handles'].'</td></tr>';
 	$html_text .= '<tr id="632" style="display:none"><td>client_handles</td><td colspan="2">'.$data[$pd]['registry']['nameservers']['client_handles'].'</td><td>'.$data[$pd]['registrar']['nameservers']['client_handles'].'</td></tr>';
 	$html_text .= '<tr id="633" style="display:none"><td>ascii_names</td><td colspan="2">'.$data[$pd]['registry']['nameservers']['ascii_names'].'</td><td>'.$data[$pd]['registrar']['nameservers']['ascii_names'].'</td></tr>';
