@@ -184,7 +184,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_response_model").textContent = proposed;
 		document.getElementById("tld_services_uri").textContent = proposed;		
 		document.getElementById("tld_standardized_price_list_uri").textContent = proposed;
-		document.getElementById("tld_json_response_uri").textContent = proposed;
+		document.getElementById("tld_json_response_uri").textContent = modified + proposed;
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed;
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;
 		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed;
@@ -205,11 +205,11 @@ function SwitchTranslation(translation)	{
 		var modified = '(Gewijzigd) ';
 		var proposed = '(Nieuw) ';
 		var legacy = '(Legacy) ';
-		document.getElementById("title").textContent = "TLD-informatie — IANA-gegevens";
+		document.getElementById("title").textContent = "TLD-informatie — IANA-gegevens (gemodelleerd)";
 		document.getElementById("instruction").textContent = "Geef hier in:";
 		document.getElementById("modeling").textContent = "Een RDAPv2 kan statussen herzien en ccTLD-proof zijn via een nieuwe globale tabeldefinitie in snake_case.";
 		document.getElementById("field").textContent = "Gemodelleerd met snake_case";
-		document.getElementById("explanation").textContent = "Gestroomlijnde TLD-metadata met een centraal model om redundantie te voorkomen.";
+		document.getElementById("explanation").textContent = "TLD RDAP-model dat IANA combineert met TLD-specifieke gegevens.";
 		document.getElementById("governance_notices_part").textContent = legacy;
 		document.getElementById("governance_policies_uri").textContent = proposed;
 		document.getElementById("governance_privacy_policy_uri").textContent = proposed;
@@ -234,7 +234,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_response_model").textContent = proposed + "RDAP-responsmodel voor domeingegevens (thin, delegated of thick).";
 		document.getElementById("tld_services_uri").textContent = proposed + 'Een TLD-specifiek informatiemenu, beschikbaar onder een subdomein zoals "regmenu".';
 		document.getElementById("tld_standardized_price_list_uri").textContent = proposed + "Een machineleesbare gestandaardiseerde prijslijst zou de transparantie van registry-diensten ondersteunen.";
-		document.getElementById("tld_json_response_uri").textContent = proposed + "Verrijkte machineleesbare TLD- en RDAP-gegevens.";
+		document.getElementById("tld_json_response_uri").textContent = modified + "Verrijkte machineleesbare TLD- en RDAP-gegevens.";
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Beperkt gebruik. Interpretatie hangt af van TLD- en RDAP-context.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;
 		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + 'Of zoekmachines kunnen vertrouwen op de “pending delete”-fase om resultaten te verwijderen.';
@@ -255,11 +255,11 @@ function SwitchTranslation(translation)	{
 		var modified = '(Modified) ';
 		var proposed = '(New) ';
 		var legacy = '(Legacy) ';		
-		document.getElementById("title").textContent = "TLD Information — IANA Data";
+		document.getElementById("title").textContent = "TLD Information — IANA Data (modeled)";
 		document.getElementById("instruction").textContent = "Enter here:";
 		document.getElementById("modeling").textContent = "An RDAPv2 can revise statuses and be ccTLD-proof via a new global table definition in snake_case.";
 		document.getElementById("field").textContent = "Modeled with snake_case";
-		document.getElementById("explanation").textContent = "Streamlined TLD metadata using a single-source model to prevent redundancy.";
+		document.getElementById("explanation").textContent = "TLD RDAP model combining IANA with TLD-specific data.";
 		document.getElementById("governance_notices_part").textContent = legacy;
 		document.getElementById("governance_policies_uri").textContent = proposed;
 		document.getElementById("governance_privacy_policy_uri").textContent = proposed;
@@ -284,7 +284,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_response_model").textContent = proposed + "RDAP response model for domain data (thin, delegated or thick).";		
 		document.getElementById("tld_services_uri").textContent = proposed + 'A TLD specific information menu, available under a subdomain such as "regmenu".';
 		document.getElementById("tld_standardized_price_list_uri").textContent = proposed + "A machine-readable standardized price list would support registry transparency.";
-		document.getElementById("tld_json_response_uri").textContent = proposed + "Enriched machine-readable TLD and RDAP data.";
+		document.getElementById("tld_json_response_uri").textContent = modified + "Enriched machine-readable TLD and RDAP data.";
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Restricted use. Interpretation depends on TLD and RDAP context.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;		
 		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + 'Whether search engines can rely on the “pending delete” phase to remove results.';
@@ -305,11 +305,11 @@ function SwitchTranslation(translation)	{
 		var modified = '(Geändert) ';
 		var proposed = '(Neu) ';
 		var legacy = '(Legacy) ';		
-		document.getElementById("title").textContent = "TLD-Informationen — IANA-Daten";
+		document.getElementById("title").textContent = "TLD-Informationen — IANA-Daten (modelliert)";
 		document.getElementById("instruction").textContent = "Hier eingeben:";
 		document.getElementById("modeling").textContent = "Ein RDAPv2 kann Status ändern und ccTLD-sicher sein durch eine neue globale Tabellendefinition in snake_case.";
 		document.getElementById("field").textContent = "Modelliert mit snake_case";
-		document.getElementById("explanation").textContent = "Schlanke TLD-Metadaten mit einem Single-Source-Modell zur Vermeidung von Redundanz.";
+		document.getElementById("explanation").textContent = "TLD-RDAP-Modell, das IANA mit TLD-spezifischen Daten kombiniert.";
 		document.getElementById("governance_notices_part").textContent = legacy;
 		document.getElementById("governance_policies_uri").textContent = proposed;
 		document.getElementById("governance_privacy_policy_uri").textContent = proposed;
@@ -325,7 +325,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_links_part").textContent = legacy;		
 		document.getElementById("tld_part").textContent = "Top-Level Domain (TLD)";
 		document.getElementById("tld_data_active_from").textContent = proposed;
-		document.getElementById("tld_json_response_uri").textContent = proposed + "Angereicherte maschinenlesbare TLD- und RDAP-Daten.";
+		document.getElementById("tld_json_response_uri").textContent = modified + "Angereicherte maschinenlesbare TLD- und RDAP-Daten.";
 		document.getElementById("tld_category").textContent = proposed + 'Zeigt eine generische TLD (gTLD) oder eine länderspezifische TLD (ccTLD) an.';
 		document.getElementById("tld_type").textContent = proposed + 'Der TLD-Typ, z. B. gTLD, grTLD, sTLD, ccTLD, tTLD, iTLD oder geoTLD.';
 		document.getElementById("tld_ascii_name").textContent = modified;
@@ -355,11 +355,11 @@ function SwitchTranslation(translation)	{
 		var modified = '(Modifié) ';
 		var proposed = '(Nouveau) ';
 		var legacy = '(Legacy) ';		
-		document.getElementById("title").textContent = "Informations sur les TLD — Données IANA";
+		document.getElementById("title").textContent = "Informations TLD — données de l’IANA (modélisées)";
 		document.getElementById("instruction").textContent = "Saisissez ici :";
 		document.getElementById("modeling").textContent = "Un RDAPv2 peut modifier les statuts et être ccTLD-compatible en adoptant une nouvelle définition globale de table en snake_case.";
 		document.getElementById("field").textContent = "Modélisé en snake_case";
-		document.getElementById("explanation").textContent = "Métadonnées TLD rationalisées utilisant un modèle à source unique pour éviter la redondance.";
+		document.getElementById("explanation").textContent = "Modèle RDAP TLD combinant l’IANA avec des données spécifiques au TLD.";
 		document.getElementById("governance_notices_part").textContent = legacy;
 		document.getElementById("governance_policies_uri").textContent = proposed;
 		document.getElementById("governance_privacy_policy_uri").textContent = proposed;
@@ -384,7 +384,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_response_model").textContent = proposed + "Mode de réponse RDAP pour les données de domaine (thin, delegated ou thick).";
 		document.getElementById("tld_services_uri").textContent = proposed + "Un menu d'informations spécifique au TLD, disponible sous un sous-domaine tel que 'regmenu'.";
 		document.getElementById("tld_standardized_price_list_uri").textContent = proposed + "Une liste de prix standardisée lisible par machine soutiendrait la transparence des services de registre.";
-		document.getElementById("tld_json_response_uri").textContent = proposed + "Données TLD et RDAP lisibles par machine enrichies.";
+		document.getElementById("tld_json_response_uri").textContent = modified + "Données TLD et RDAP lisibles par machine enrichies.";
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Utilisation restreinte. L’interprétation dépend du contexte TLD et RDAP.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;		
 		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + "Si les moteurs de recherche peuvent se fier à la phase 'pending delete' pour supprimer des résultats.";
@@ -437,7 +437,7 @@ $html_text .= '<tr style="font-size: .8rem"><td id="instruction" style="vertical
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(4)">fr_FR</button> 
 	<a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_menu" target="_blank">Menu modeling</a> - <a style="font-size: 0.9rem" href="https://github.com/janwillemstegink/rdap.hostingtool.nl" target="_blank">Code/issues on GitHub</a> - <a style="font-size: 0.9rem" href="https://janwillemstegink.nl/" target="_blank">Insight at janwillemstegink.nl</a></td><td></td></tr>';
 if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($data[$pd]['domain']['ascii_name']))	{
-	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td>iana_rdap_service</td><td id="explanation"></td><td>registry_rdap_service</td></tr>';
+	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td>root_tld_rdap</td><td id="explanation"></td><td>tld_specific_data</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(21)">Governance Notices +/-</button><td></td><td id="governance_notices_part"></td><td></td></tr>';
 	$html_text .= '<tr id="211" style="display:none;vertical-align:top"><td colspan="3">'.$data[$pd]['governance']['notices'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(22)">Governance URIs +/-</button><td></td><td id="governance_notices_part"></td><td></td></tr>';
@@ -460,7 +460,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(38)">TLD Links +/-</button><td></td><td id="tld_links_part"></td><td></td></tr>';
 	$html_text .= '<tr id="381" style="display:none;vertical-align:top"><td colspan="3">'.$data[$pd]['tld']['links'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(41)">TLD Properties +/-</button></td><td><b>'.$vd.'</b></td><td id="tld_part"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(41)">TLD Properties +/-</button></td><td><b>'.$vd.'</b></td><td id="tld_part"></td><td>exists</td></tr>';
 	$html_text .= '<tr id="411" style="display:table-row"><td>tld_data_active_from</td><td> '.$data[$pd]['tld']['data_active_from'].'</td><td id="tld_data_active_from"></td><td></td></tr>';
 	$html_text .= '<tr id="412" style="display:table-row"><td>tld_category</td><td>'.$data[$pd]['tld']['category'].'</td><td id="tld_category"></td><td></td></tr>';
 	$html_text .= '<tr id="413" style="display:table-row"><td>tld_type</td><td>'.$data[$pd]['tld']['type'].'</td><td id="tld_type"></td><td></td></tr>';
@@ -490,7 +490,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(53)">Operational Periods +/-</button></td><td></td><td id="lifecycle_operational_periods"></td><td></td></tr>';
 	$html_text .= '<tr id="531" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['operational_periods'].'</td><td></td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Nameservers +/-</button></td><td><b>'.$vd.'</b></td><td id="nameservers_part"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Nameservers +/-</button></td><td><b>'.$vd.'</b></td><td id="nameservers_part"></td><td>exists</td></tr>';
 	$html_text .= '<tr id="611" style="display:none;vertical-align:top"><td>handles</td><td colspan="2">'.$data[$pd]['nameservers']['handles'].'</td><td></td></tr>';
 	$html_text .= '<tr id="612" style="display:none;vertical-align:top"><td>ascii_names</td><td colspan="2">'.$data[$pd]['nameservers']['ascii_names'].'</td><td></td></tr>';
 	$html_text .= '<tr id="613" style="display:none;vertical-align:top"><td>unicode_names</td><td colspan="2">'.$data[$pd]['nameservers']['unicode_names'].'</td><td></td></tr>';
