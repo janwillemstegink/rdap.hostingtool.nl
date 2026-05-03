@@ -94,7 +94,7 @@ function SwitchDisplay(type) {
 		var pre = '38';
 		var max = 1
 	}
-	else if (type == 39)	{ // tld data
+	else if (type == 39)	{ // tld properties
 		var pre = '39';
 		var max = 7
 	}
@@ -464,30 +464,30 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td>root_tld_rdap</td><td id="explanation"></td><td>tld_specific_data</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(21)">Governance Notices +/-</button><td></td><td id="governance_notices"></td><td></td></tr>';
 	$html_text .= '<tr id="211" style="display:none;vertical-align:top"><td colspan="3">'.$data[$pd]['governance']['notices'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(22)">Governance URIs +/-</button><td></td><td id="governance_part"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(22)">Governance URIs +/-</button><td></td><td id="governance_part"></td><td>data partial</td></tr>';
 	$html_text .= '<tr id="221" style="display:table-row"><td>governance_services_uri</td><td><a href='.$data[$pd]['governance']['services_uri'].' target="_blank">Governance Services</a></td><td id="governance_services_uri"></td><td></td></tr>';
 	$html_text .= '<tr id="222" style="display:table-row"><td>governance_policies_uri</td><td>'.((!empty($data[$pd]['governance']['policies_uri'])) ? '<a href='.$data[$pd]['governance']['policies_uri'].' target="_blank">Governance Policies</a>' : '').'</td><td id="governance_policies_uri"></td><td></td></tr>';
 	$html_text .= '<tr id="223" style="display:table-row"><td>governance_privacy_policy_uri</td><td>'.((!empty($data[$pd]['governance']['privacy_policy_uri'])) ? '<a href='.$data[$pd]['governance']['privacy_policy_uri'].' target="_blank">Governance Privacy</a>' : '').'</td><td id="governance_privacy_policy_uri"></td><td></td></tr>';
 	$html_text .= '<tr id="224" style="display:table-row"><td>governance_delegation_uri</td><td><a href='.$data[$pd]['governance']['delegation_uri'].' target="_blank">TLD Delegation</a></td><td id="governance_delegation_uri"></td><td></td></tr>';
 	$html_text .= '<tr id="225" style="display:table-row"><td>governance_registrar_accreditation_uri</td><td><a href='.$data[$pd]['governance']['registrar_accreditation_uri'].' target="_blank">Registrar Accreditation</a></td><td id="governance_registrar_accreditation_uri"></td><td></td></tr>';	
-	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(31)">Root URIs +/-</button></td><td></td><td id="root_part"></td><td></td></tr>';
+	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';	
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(31)">Root URIs +/-</button></td><td></td><td id="root_part"></td><td>data partial</td></tr>';	
 	$html_text .= '<tr id="311" style="display:table-row"><td>root_services_uri</td><td><a href='.$data[$pd]['root']['services_uri'].' target="_blank">Root Services</a></td><td id="root_services_uri"></td><td></td></tr>';
 	$html_text .= '<tr id="312" style="display:table-row"><td>root_tlds_uri</td><td><a href='.$data[$pd]['root']['tlds_uri'].' target="_blank">Root TLDs</a></td><td id="root_tlds_uri"></td><td></td></tr>';
 	$html_text .= '<tr id="313" style="display:table-row"><td>root_registrar_ids_uri</td><td><a href='.$data[$pd]['root']['registrar_ids_uri'].' target="_blank">Registrar IDs</a></td><td id="root_registrar_ids_uri"></td><td></td></tr>';
 	$html_text .= '<tr id="314" style="display:table-row"><td>root_lookup_endpoints_uri</td><td><a href='.$data[$pd]['root']['lookup_endpoints_uri'].' target="_blank">Lookup Endpoints</a></td><td id="root_lookup_endpoints_uri"></td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(32)">Function Identifiers +/-</button></td><td></td><td id="root_function_identifiers"></td><td></td></tr>';
-	$html_text .= '<tr id="321" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root']['function_identifiers'].'</td><td></td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(33)">Ambiguous RDAP Statuses +/-</button></td><td></td><td id="root_ambiguous_rdap_statuses"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(32)">Function Identifiers +/-</button></td><td></td><td id="root_function_identifiers"></td><td>data needed</td></tr>';
+	$html_text .= '<tr id="321" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root']['function_identifiers'].'</td><td></td><td></td></tr>';	
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(33)">Ambiguous RDAP Statuses +/-</button></td><td></td><td id="root_ambiguous_rdap_statuses"></td><td>data needed</td></tr>';	
 	$html_text .= '<tr id="331" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root']['ambiguous_rdap_statuses'].'</td><td></td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(34)">Lifecycle Period Ranges +/-</button></td><td></td><td id="root_lifecycle_period_ranges"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(34)">Lifecycle Period Ranges +/-</button></td><td></td><td id="root_lifecycle_period_ranges"></td><td>data needed</td></tr>';
 	$html_text .= '<tr id="341" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root']['lifecycle_period_ranges'].'</td><td></td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(35)">Root Accepted Workload +/-</button></td><td></td><td id="root_accepted_workload"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(35)">Root Accepted Workload +/-</button></td><td></td><td id="root_accepted_workload"></td><td>data needed</td></tr>';
 	$html_text .= '<tr id="351" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['root']['accepted_workload'].'</td><td></td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(38)">TLD Links +/-</button><td></td><td id="tld_links"></td><td></td></tr>';
 	$html_text .= '<tr id="381" style="display:none;vertical-align:top"><td colspan="3">'.$data[$pd]['tld']['links'].'</td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(39)">TLD Data +/-</button></td><td><b>'.$vd.'</b></td><td id="tld_part"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(39)">TLD Properties +/-</button></td><td><b>'.$vd.'</b></td><td id="tld_part"></td><td>data partial</td></tr>';
 	$html_text .= '<tr id="391" style="display:none"><td>tld_data_active_from</td><td> '.$data[$pd]['tld']['data_active_from'].'</td><td id="tld_data_active_from"></td><td></td></tr>';
 	$html_text .= '<tr><td>tld_category</td><td>'.$data[$pd]['tld']['category'].'</td><td id="tld_category"></td><td></td></tr>';
 	$html_text .= '<tr><td>tld_type</td><td>'.$data[$pd]['tld']['type'].'</td><td id="tld_type"></td><td></td></tr>';
@@ -497,27 +497,27 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="395" style="display:none"><td>tld_storage_model</td><td> '.$data[$pd]['tld']['storage_model'].'</td><td id="tld_storage_model"></td><td></td></tr>';
 	$html_text .= '<tr id="396" style="display:none"><td>tld_response_model</td><td> '.$data[$pd]['tld']['response_model'].'</td><td id="tld_response_model"></td><td></td></tr>';
 	$html_text .= '<tr id="397" style="display:none"><td>tld_search_engine_deletion_phase_ready</td><td>'.$data[$pd]['tld']['search_engine_deletion_phase_ready'].'</td><td id="tld_search_engine_deletion_phase_ready"></td><td></td></tr>';	
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(41)">TLD URIs +/-</button></td><td></td><td id="tld_part"></td><td></td></tr>';	
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(41)">TLD URIs +/-</button></td><td></td><td></td><td>data partial</td></tr>';	
 	$html_text .= '<tr id="411" style="display:table-row"><td>tld_services_uri</td><td>'.((!empty($data[$pd]['tld']['services_uri'])) ? '<a href='.$data[$pd]['tld']['services_uri'].' target="_blank">TLD Services</a>' : '').'</td><td id="tld_services_uri"></td><td></td></tr>';
 	$html_text .= '<tr id="412" style="display:table-row"><td>tld_standardized_price_list_uri</td><td>'.((!empty($data[$pd]['tld']['standardized_price_list_uri'])) ? '<a href='.$data[$pd]['tld']['standardized_price_list_uri'].' target="_blank">TLD Prices</a>' : '').'</td><td id="tld_standardized_price_list_uri"></td><td></td></tr>';
 	$html_text .= '<tr id="413" style="display:table-row"><td>tld_json_response_uri</td><td>'.((!empty($data[$pd]['tld']['json_response_uri'])) ? '<a href='.$data[$pd]['tld']['json_response_uri'].' target="_blank">TLD Data</a>' : '').'</td><td id="tld_json_response_uri"></td><td></td></tr>';
 	$html_text .= '<tr id="414" style="display:table-row"><td>tld_data_usage_policy_uri</td><td>'.((!empty($data[$pd]['tld']['data_usage_policy_uri'])) ? '<a href='.$data[$pd]['tld']['data_usage_policy_uri'].' target="_blank">TLD Data Usage</a>' : '').'</td><td id="tld_data_usage_policy_uri"></td><td></td></tr>';
 	$html_text .= '<tr id="415" style="display:table-row"><td>tld_privacy_policy_uri</td><td>'.((!empty($data[$pd]['tld']['privacy_policy_uri'])) ? '<a href='.$data[$pd]['tld']['privacy_policy_uri'].' target="_blank">TLD Privacy</a>' : '').'</td><td id="tld_privacy_policy_uri"></td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Functions +/-</button></td><td></td><td id="tld_functions"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Functions +/-</button></td><td></td><td id="tld_functions"></td><td>data needed</td></tr>';
 	$html_text .= '<tr id="421" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['tld']['functions'].'</td><td></td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Accepted Workload +/-</button></td><td></td><td id="tld_accepted_workload"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Accepted Workload +/-</button></td><td></td><td id="tld_accepted_workload"></td><td>data needed</td></tr>';
 	$html_text .= '<tr id="441" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['tld']['accepted_workload'].'</td><td></td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(43)">Relationships +/-</button></td><td></td><td id="tld_relationships"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(43)">Relationships +/-</button></td><td></td><td id="tld_relationships"></td><td>data needed</td></tr>';
 	$html_text .= '<tr id="431" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['tld']['relationships'].'</td><td></td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(51)">Lifecycle Information +/-</button></td><td></td><td id="lifecycle_part"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(51)">Lifecycle Information +/-</button></td><td></td><td id="lifecycle_part"></td><td>data needed</td></tr>';
 	$html_text .= '<tr id="511" style="display:none"><td>data_active_from</td><td>'.$data[$pd]['lifecycle']['data_active_from'].'</td><td id="lifecycle_data_active_from"></td><td></td></tr>';
 	$html_text .= '<tr id="512" style="display:none"><td>upon_termination</td><td>'.$data[$pd]['lifecycle']['upon_termination'].'</td><td id="lifecycle_upon_termination"></td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(52)">Status Meanings +/-</button></td><td></td><td id="lifecycle_status_meanings"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(52)">Status Meanings +/-</button></td><td></td><td id="lifecycle_status_meanings"></td><td>data needed</td></tr>';
 	$html_text .= '<tr id="521" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['status_meanings'].'</td><td></td><td></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(53)">Operational Periods +/-</button></td><td></td><td id="lifecycle_operational_periods"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(53)">Operational Periods +/-</button></td><td></td><td id="lifecycle_operational_periods"></td><td>data needed</td></tr>';
 	$html_text .= '<tr id="531" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['lifecycle']['operational_periods'].'</td><td></td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Nameserver Data +/-</button></td><td><b>'.$vd.'</b></td><td id="nameservers_part"></td><td>(data exists)</td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Nameserver Data +/-</button></td><td><b>'.$vd.'</b></td><td id="nameservers_part"></td><td>data exists</td></tr>';
 	$html_text .= '<tr id="611" style="display:none;vertical-align:top"><td>handles</td><td colspan="2">'.$data[$pd]['nameservers']['handles'].'</td><td></td></tr>';
 	$html_text .= '<tr id="612" style="display:none;vertical-align:top"><td>ascii_names</td><td colspan="2">'.$data[$pd]['nameservers']['ascii_names'].'</td><td></td></tr>';
 	$html_text .= '<tr id="613" style="display:none;vertical-align:top"><td>unicode_names</td><td colspan="2">'.$data[$pd]['nameservers']['unicode_names'].'</td><td></td></tr>';
@@ -529,6 +529,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr style="vertical-align:top"><td>rdap_ds_algorithms</td><td>'.$data[$pd]['nameservers']['rdap_ds_algorithms'].'</td><td id="nameservers_rdap_ds_algorithms"></td><td></td></tr>';	
 	$html_text .= '<tr id="619" style="display:none;vertical-align:top"><td>rdap_ds_digest_types</td><td>'.$data[$pd]['nameservers']['rdap_ds_digest_types'].'</td><td></td><td></td></tr>';
 	$html_text .= '<tr id="6110" style="display:none;vertical-align:top"><td>rdap_ds_digests</td><td colspan="2">'.$data[$pd]['nameservers']['rdap_ds_digests'].'</td><td></td></tr>';
+	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 }
 $html_text .= '</table></div></body></html>';
 echo $html_text;
