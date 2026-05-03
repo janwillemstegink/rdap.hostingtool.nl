@@ -52,8 +52,8 @@ function value_to_unicode(string $inputvalue): string	{
 
 function write_file($inputtld)	{
 	
-$tld_json_response_uri = 'https://rdap.iana.org/domain/'.$inputtld;
-$obj = json_decode(file_get_contents($tld_json_response_uri), true);
+$tld_root_data_uri = 'https://rdap.iana.org/domain/'.$inputtld;
+$obj = json_decode(file_get_contents($tld_root_data_uri), true);
 $governance_notices = '';	
 $tld_links = '';	
 $tld_ascii_name = $obj['ldhName'];
@@ -712,7 +712,8 @@ $arr[$inputtld]['tld']['response_model'] = $tld_response_model;
 $arr[$inputtld]['tld']['search_engine_deletion_phase_ready'] = $tld_search_engine_deletion_phase_ready;
 	
 $arr[$inputtld]['tld']['services_uri'] = $tld_services_uri;	
-$arr[$inputtld]['tld']['json_response_uri'] = $tld_json_response_uri;
+$arr[$inputtld]['tld']['root_data_uri'] = $tld_root_data_uri;
+$arr[$inputtld]['tld']['registry_data_uri'] = '';
 $arr[$inputtld]['tld']['data_usage_policy_uri'] = $tld_data_usage_policy_uri;
 $arr[$inputtld]['tld']['privacy_policy_uri'] = $tld_privacy_policy_uri;
 

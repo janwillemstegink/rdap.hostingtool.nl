@@ -139,7 +139,7 @@ CREATE TABLE IF NOT EXISTS tlds (
 	tld_services_uri JSONB DEFAULT '[]'::jsonb,
 	tld_standardized_price_list_uri JSONB DEFAULT '[]'::jsonb,
     tld_delegation_uri JSONB DEFAULT '[]'::jsonb,
-    tld_json_response_uri JSONB DEFAULT '[]'::jsonb,
+    tld_data_uri JSONB DEFAULT '[]'::jsonb,
     tld_data_usage_policy_uri JSONB DEFAULT '[]'::jsonb,
 	tld_registry_geo_location JSONB DEFAULT '[]'::jsonb,
     tld_privacy_policy_uri JSONB DEFAULT '[]'::jsonb,
