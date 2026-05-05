@@ -160,17 +160,23 @@ Each field’s publication state is determined for each domain–relationship–
 Implementations MUST NOT aggregate data across relationships when determining disclosure.
 Disclosure MUST be evaluated independently within each relationship.
 
-Example (non-normative)
+Definition (Normative)
 
-An entity may be associated with a domain through multiple relationships, each assigning a publication state to each field.
+"field_publication" MAY be provided for a subset of fields.
+For each field included, exactly one publication state MUST be specified per relationship.
+
+Example (Non-Normative)
+
+An entity may be associated with a domain through multiple relationships, each assigning a publication state to its fields.
 An email field in one relationship is "visible", while in another relationship it is "shielded".
 
-Enumerated Values (domain_entities.field_publication)
+Enumerated Values
 
-shielded — not disclosed
-visible — disclosed
-authorizable_shielded — disclosed only if authorized and permitted by policy
-authorizable_visible — disclosed based on authorization and permitted by policy
+"not_stored" — value not maintained by the domain service
+"shielded" — value not disclosed  
+"visible" — value disclosed  
+"authorizable_shielded" — value disclosed only if authorized and permitted by policy
+"authorizable_visible" — value disclosed only if authorized and permitted by policy
 
 End of RFC Modeling Section
 
@@ -186,7 +192,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("title").textContent = "Domain Information — RDAP Data & Verification";
 		document.getElementById("modeling").textContent = "";
 		document.getElementById("instruction").textContent = "Enter here:";
-		document.getElementById("field_name").textContent = "Modeled with snake_case";
+		document.getElementById("field_name").textContent = "Modeled in snake_case";
 		document.getElementById("explanation").textContent = "";
 		document.getElementById("notices_part").textContent = legacy;
 		document.getElementById("links_part").textContent = legacy;
@@ -275,11 +281,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("title").textContent = "Domeininformatie — RDAP-gegevens & Verificatie";
 		document.getElementById("modeling").textContent = "Deze RDAP-modellering biedt een gestructureerde referentie voor het interpreteren van domeingegevens en openbaarmakingssemantiek.";
 		document.getElementById("instruction").textContent = "Geef hier in:";
-		document.getElementById("field_name").textContent = "Gemodelleerd met snake_case";
-		document.getElementById("explanation").textContent = "Een overzicht van en toelichting op de structuur en kenmerken van webdomeinen.";
+		document.getElementById("field_name").textContent = "Gemodelleerd in snake_case";
+		document.getElementById("explanation").textContent = "Domein-RDAP-model dat RDAP-gegevens van registry en registrar combineert.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("field_publication_part").textContent = "Gegevens kunnen afgeschermd zijn; interpretatie vereist op RFC gebaseerde modellering.";
+		document.getElementById("field_publication_part").textContent = "Huidige zichtbaarheidsinformatie is niet machineleesbaar; het volgende model biedt structuur.";
 		document.getElementById("field_publication").textContent = modeling;
 		document.getElementById("metadata_part").textContent = proposed + "Metadata bieden context en details over data-elementen.";
 		document.getElementById("metadata_object_type").textContent = modified;
@@ -364,11 +370,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("title").textContent = "Domain Information — RDAP Data & Verification";
 		document.getElementById("modeling").textContent = "This RDAP modeling provides a structured reference for interpreting domain data and disclosure semantics.";
 		document.getElementById("instruction").textContent = "Enter here:";
-		document.getElementById("field_name").textContent = "Modeled with snake_case";
-		document.getElementById("explanation").textContent = "An overview of the structure and key characteristics of domain data.";
+		document.getElementById("field_name").textContent = "Modeled in snake_case";
+		document.getElementById("explanation").textContent = "Domain RDAP model combining registry and registrar RDAP data.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("field_publication_part").textContent = "Data may be shielded; interpretation requires RFC-based modeling.";
+		document.getElementById("field_publication_part").textContent = "Current visibility information is not machine-readable; the following model provides structure.";
 		document.getElementById("field_publication").textContent = modeling;
 		document.getElementById("metadata_part").textContent = proposed + "Metadata provides context and details about data elements.";
 		document.getElementById("metadata_object_type").textContent = modified;
@@ -453,11 +459,11 @@ function SwitchTranslation(translation)	{
 		document.getElementById("title").textContent = "Domaininformationen — RDAP-Daten & Verifikation";
 		document.getElementById("modeling").textContent = "Diese RDAP-Modellierung bietet eine strukturierte Referenz zur Interpretation von Domain-Daten und Offenlegungssemantik.";
 		document.getElementById("instruction").textContent = "Hier eingeben:";
-		document.getElementById("field_name").textContent = "Modelliert mit snake_case";
-		document.getElementById("explanation").textContent = "Eine Übersicht und Erklärung zur Struktur und den Eigenschaften von Webdomänen.";
+		document.getElementById("field_name").textContent = "Modelliert in snake_case";
+		document.getElementById("explanation").textContent = "Domain-RDAP-Modell, das RDAP-Daten von Registry und Registrar kombiniert.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("field_publication_part").textContent = "Daten können abgeschirmt sein; die Interpretation erfordert eine RFC-basierte Modellierung.";
+		document.getElementById("field_publication_part").textContent = "Aktuelle Sichtbarkeitsinformationen sind nicht maschinenlesbar; das folgende Modell schafft Struktur.";
 		document.getElementById("field_publication").textContent = modeling;
 		document.getElementById("metadata_part").textContent = proposed + "Metadaten liefern Kontext und Details zu Datenelementen.";
 		document.getElementById("metadata_object_type").textContent = modified;
@@ -543,10 +549,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("modeling").textContent = "Cette modélisation RDAP fournit une référence structurée pour l’interprétation des données de domaine et de la sémantique de divulgation.";
 		document.getElementById("instruction").textContent = "Saisissez ici :";
 		document.getElementById("field_name").textContent = "Modélisé en snake_case";
-		document.getElementById("explanation").textContent = "Un aperçu et une explication de la structure et des caractéristiques des domaines Web.";
+		document.getElementById("explanation").textContent = "Modèle RDAP de domaine combinant les données RDAP du registre et du registrar.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("field_publication_part").textContent = "Les données peuvent être masquées ; leur interprétation nécessite une modélisation basée sur les RFC.";
+		document.getElementById("field_publication_part").textContent = "La visibilité actuelle n’est pas lisible par machine ; le modèle suivant structure.";
 		document.getElementById("field_publication").textContent = modeling;
 		document.getElementById("metadata_part").textContent = proposed + "Les métadonnées fournissent le contexte et des détails sur les éléments de données.";
 		document.getElementById("metadata_object_type").textContent = modified;
@@ -689,7 +695,7 @@ $html_text .= '<tr><td id="instruction" style="font-size: 0.8rem; vertical-align
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(4)">fr_FR</button> 
 	<a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_email" target="_blank">Email modeling</a> - <a style="font-size: 0.9rem" href="https://github.com/janwillemstegink/rdap.hostingtool.nl" target="_blank">Code/issues on GitHub</a> - <a style="font-size: 0.9rem" href="https://janwillemstegink.nl/" target="_blank">Insight at janwillemstegink.nl</a></td><td></td></tr>';
 if (true or $pd == mb_strtolower($data[$pd]['registry']['domain']['ascii_name']) or empty($data[$pd]['registry']['domain']['ascii_name']))	{
-	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field_name"></td><td>registry_domain_rdap<td id="explanation"></td><td>registrar_domain_rdap</td></tr>';
+	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field_name"></td><td>domain_from_registry<td id="explanation"></td><td>domain_from_registrar</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(11)">Notices +/-</button><td></td><td id="notices_part"></td><td></td></tr>';
 	$html_text .= '<tr id="111" style="display:none"><td colspan="2">'.$data[$pd]['registry']['notices'].'</td><td></td><td>'.$data[$pd]['registrar']['notices'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(12)">Links +/-</button><td></td><td id="links_part"></td><td></td></tr>';

@@ -162,8 +162,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("title").textContent = "TLD Information — IANA Data";
 		document.getElementById("instruction").textContent = "Enter here:";
 		document.getElementById("modeling").textContent = "";
-		document.getElementById("field").textContent = "Modeled with snake_case";
+		document.getElementById("field").textContent = "Modeled in snake_case";
 		document.getElementById("explanation").textContent = "";
+		document.getElementById("rdap_state").textContent = "";
 		document.getElementById("governance_notices").textContent = legacy;		
 		document.getElementById("governance_part").textContent = proposed;
 		document.getElementById("governance_services_uri").textContent = proposed;
@@ -216,9 +217,10 @@ function SwitchTranslation(translation)	{
 		var legacy = '(Legacy) ';
 		document.getElementById("title").textContent = "TLD-informatie — IANA-gegevens (gemodelleerd)";
 		document.getElementById("instruction").textContent = "Geef hier in:";
-		document.getElementById("modeling").textContent = "Een RDAPv2 kan statussen herzien en ccTLD-proof zijn via een nieuwe globale tabeldefinitie in snake_case.";
-		document.getElementById("field").textContent = "Gemodelleerd met snake_case";
-		document.getElementById("explanation").textContent = "TLD RDAP-model dat IANA combineert met TLD-specifieke gegevens.";
+		document.getElementById("modeling").textContent = "Een RDAPv2 kan statussen herzien en ccTLD-proof zijn via een nieuwe globale tabeldefinitie.";
+		document.getElementById("field").textContent = "Gemodelleerd in snake_case";
+		document.getElementById("explanation").textContent = "TLD RDAP-model dat IANA-gegevens combineert met TLD-specifieke gegevens.";
+		document.getElementById("rdap_state").textContent = "RDAPv2-situatie";
 		document.getElementById("governance_notices").textContent = legacy;
 		document.getElementById("governance_part").textContent = proposed;
 		document.getElementById("governance_services_uri").textContent = proposed + "Governancegerelateerde diensten en informatie die worden aangeboden onder ICANN-beleid."; 
@@ -271,9 +273,10 @@ function SwitchTranslation(translation)	{
 		var legacy = '(Legacy) ';		
 		document.getElementById("title").textContent = "TLD Information — IANA Data (modeled)";
 		document.getElementById("instruction").textContent = "Enter here:";
-		document.getElementById("modeling").textContent = "An RDAPv2 can revise statuses and be ccTLD-proof via a new global table definition in snake_case.";
-		document.getElementById("field").textContent = "Modeled with snake_case";
-		document.getElementById("explanation").textContent = "TLD RDAP model combining IANA with TLD-specific data.";
+		document.getElementById("modeling").textContent = "An RDAPv2 can revise statuses and be ccTLD-proof via a new global table definition.";
+		document.getElementById("field").textContent = "Modeled in snake_case";
+		document.getElementById("explanation").textContent = "TLD RDAP model combining IANA data with TLD-specific data.";
+		document.getElementById("rdap_state").textContent = "RDAPv2 situation";		
 		document.getElementById("governance_notices").textContent = legacy;
 		document.getElementById("governance_part").textContent = proposed;
 		document.getElementById("governance_services_uri").textContent = proposed + "Governance-related services and information provided under ICANN policy.";
@@ -326,9 +329,10 @@ function SwitchTranslation(translation)	{
 		var legacy = '(Legacy) ';		
 		document.getElementById("title").textContent = "TLD-Informationen — IANA-Daten (modelliert)";
 		document.getElementById("instruction").textContent = "Hier eingeben:";
-		document.getElementById("modeling").textContent = "Ein RDAPv2 kann Status ändern und ccTLD-sicher sein durch eine neue globale Tabellendefinition in snake_case.";
-		document.getElementById("field").textContent = "Modelliert mit snake_case";
-		document.getElementById("explanation").textContent = "TLD-RDAP-Modell, das IANA mit TLD-spezifischen Daten kombiniert.";
+		document.getElementById("modeling").textContent = "Ein RDAPv2 kann Status ändern und ccTLD-sicher sein durch eine neue globale Tabellendefinition.";
+		document.getElementById("field").textContent = "Modelliert in snake_case";
+		document.getElementById("explanation").textContent = "TLD-RDAP-Modell, das IANA-Daten mit TLD-spezifischen Daten kombiniert.";
+		document.getElementById("rdap_state").textContent = "RDAPv2-Situation";		
 		document.getElementById("governance_notices").textContent = legacy;
 		document.getElementById("governance_part").textContent = proposed;
 		document.getElementById("governance_services_uri").textContent = proposed + "Governancebezogene Dienste und Informationen, die im Rahmen der ICANN-Richtlinien bereitgestellt werden.";
@@ -381,9 +385,10 @@ function SwitchTranslation(translation)	{
 		var legacy = '(Legacy) ';		
 		document.getElementById("title").textContent = "Informations TLD — données de l’IANA (modélisées)";
 		document.getElementById("instruction").textContent = "Saisissez ici :";
-		document.getElementById("modeling").textContent = "Un RDAPv2 peut modifier les statuts et être ccTLD-compatible en adoptant une nouvelle définition globale de table en snake_case.";
+		document.getElementById("modeling").textContent = "Un RDAPv2 peut modifier les statuts et être ccTLD-compatible en adoptant une nouvelle définition globale de table.";
 		document.getElementById("field").textContent = "Modélisé en snake_case";
-		document.getElementById("explanation").textContent = "Modèle RDAP TLD combinant l’IANA avec des données spécifiques au TLD.";
+		document.getElementById("explanation").textContent = "Modèle RDAP de TLD combinant les données de l’IANA avec des données spécifiques au TLD.";
+		document.getElementById("rdap_state").textContent = "Situation RDAPv2";		
 		document.getElementById("governance_notices").textContent = legacy;
 		document.getElementById("governance_part").textContent = proposed;
 		document.getElementById("governance_services_uri").textContent = proposed + "Services et informations liés à la gouvernance fournis dans le cadre de la politique de l’ICANN.";
@@ -466,7 +471,7 @@ $html_text .= '<tr style="font-size: .8rem"><td id="instruction" style="vertical
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(4)">fr_FR</button> 
 	<a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_menu" target="_blank">Menu modeling</a> - <a style="font-size: 0.9rem" href="https://github.com/janwillemstegink/rdap.hostingtool.nl" target="_blank">Code/issues on GitHub</a> - <a style="font-size: 0.9rem" href="https://janwillemstegink.nl/" target="_blank">Insight at janwillemstegink.nl</a></td><td></td></tr>';
 if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($data[$pd]['domain']['ascii_name']))	{
-	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td>root_tld_rdap</td><td id="explanation"></td><td>tld_specific_data</td></tr>';
+	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td>tld_from_root</td><td id="explanation"></td><td id="rdap_state"></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(21)">Governance Notices +/-</button><td></td><td id="governance_notices"></td><td>data moved</td></tr>';
 	$html_text .= '<tr id="211" style="display:none;vertical-align:top"><td colspan="3">'.$data[$pd]['governance']['notices'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(22)">Governance URIs +/-</button><td></td><td id="governance_part"></td><td>data partial</td></tr>';

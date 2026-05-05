@@ -259,11 +259,12 @@ EXECUTE FUNCTION update_autnums_latest_data_mutation_at();
 
 -- ========================================
 -- Table: domain_entities (link domains<->entities with relationship)
--- Publication state per field:
--- shielded              = not publicly disclosed
--- visible               = publicly disclosed
--- authorizable_shielded = currently not publicly disclosed; may be disclosed if authorized by the registrant and allowed by policy
--- authorizable_visible  = currently publicly disclosed based on registrant authorization and allowed by policy
+-- ========================================
+-- "not_stored" — value not maintained by the domain service
+-- "shielded" — value not disclosed  
+-- "visible" — value disclosed  
+-- "authorizable_shielded" — value disclosed only if authorized and permitted by policy
+-- "authorizable_visible" — value disclosed only if authorized and permitted by policy
 -- ========================================
 CREATE TABLE IF NOT EXISTS domain_entities (
     de_id SERIAL PRIMARY KEY,
@@ -316,12 +317,11 @@ FOR EACH ROW
 EXECUTE FUNCTION update_domain_nameservers_latest_data_mutation_at();
 
 -- ========================================
--- Table: entity_entities (entity relationships)
--- Publication state per field:
--- shielded              = not publicly disclosed
--- visible               = publicly disclosed
--- authorizable_shielded = currently not publicly disclosed; may be disclosed if authorized by the registrant and allowed by policy
--- authorizable_visible  = currently publicly disclosed based on registrant authorization and allowed by policy
+-- "not_stored" — value not maintained by the domain service
+-- "shielded" — value not disclosed  
+-- "visible" — value disclosed  
+-- "authorizable_shielded" — value disclosed only if authorized and permitted by policy
+-- "authorizable_visible" — value disclosed only if authorized and permitted by policy
 -- ========================================
 CREATE TABLE IF NOT EXISTS entity_entities (
     ee_id BIGSERIAL PRIMARY KEY,
