@@ -67,9 +67,9 @@ if (!empty($_GET['domain']))	{
 			$registry_self_uri = $registry_rdap['metadata']['registry_data_uri'] ?? null;
 			$registry_related_uri = $registry_rdap['metadata']['registrar_data_uri'] ?? null;
 			if (empty($registry_self_uri)) {
-				$registry_interface .= 'Registry RDAP misses the rel="self" link.';
+				$registry_interface .= 'The registry rel="self" link is a SHOULD.';
 			}		
-			elseif (strcasecmp($registry_rdap['metadata']['url'], $registry_self_uri) !== 0) {
+			elseif (strcasecmp($registry_rdap['metadata']['request_uri'], $registry_self_uri) !== 0) {
  				$registry_interface .= 'Registry RDAP has an uneven rel="self" link.';
 			}
 			elseif ($iana_id > 9990 and strcasecmp($registry_related_uri, $registry_self_uri) === 0) {
@@ -84,7 +84,7 @@ if (!empty($_GET['domain']))	{
 				elseif (!empty($registry_related_uri)) {
        				$registrar_rdap = write_file($tld_ascii_name, $domain_ascii_name, $batch, $registry_related_uri);
 					$registrar_interface = $registrar_rdap['interface_notice'] ?? '';
-					$registry_rdap['metadata']['registrar_json_response_uri'] = $registry_related_uri;
+					$registry_rdap['metadata']['registrar_data_uri'] = $registry_related_uri;
 					$registrar_rdap['metadata']['rdap_data_layer'] = 'registrar_rdap';
 					$registrar_rdap['metadata']['tld_unicode_name'] = $tld_unicode_name ?? null;
 					$registrar_rdap['metadata']['tld_ascii_name'] = $tld_ascii_name ?? null;
@@ -96,8 +96,7 @@ if (!empty($_GET['domain']))	{
 						$base_url = fetchIanaRegistrarRdapBaseUrl($iana_id);
 		    			if ($base_url) {
 							$registrar_uri = rtrim($base_url, '/') . '/domain/' . rawurlencode($domain);
-							$registry_rdap['metadata']['registrar_json_response_uri'] = $registrar_uri;
-							$registry_rdap['interface_notice'] = 'Registry RDAP misses the rel="related" link.';
+							$registry_rdap['metadata']['registrar_data_uri'] = $registrar_uri;
        						$registrar_rdap = write_file($tld_ascii_name, $domain_ascii_name, $batch, $registrar_uri);
 							$registrar_interface = $registrar_rdap['interface_notice'] ?? '';
 							$registrar_statuses = $registrar_rdap['domain']['statuses'] ?? null;
@@ -110,7 +109,7 @@ if (!empty($_GET['domain']))	{
 								if (strlen($registry_interface))	{
 									$registry_interface .= "<br />";
 								}
-								$registry_interface .= 'Registry RDAP misses the rel="related" link.';
+								$registry_interface .= 'The registry rel="related" link here is a MUST.';
 							}	
     					}	
 						else	{
@@ -121,22 +120,15 @@ if (!empty($_GET['domain']))	{
 						}	
 					}
 				}
-				$url_uri = $registrar_rdap['metadata']['url'] ?? null;
-				$registry_self_uri = $registrar_rdap['metadata']['registry_data_uri'] ?? null;
-				if (!empty($registry_self_uri)) {
-					$registrar_rdap['metadata']['url'] = $registry_self_uri;
-				}
-				elseif (!empty($url_uri)) {
-					$registrar_rdap['metadata']['url'] = $url_uri;
-				}
-				$registry_related_uri = $registrar_rdap['metadata']['registrar_data_uri'] ?? null;					
-				if (!empty($registry_related_uri)) {
-					$registrar_rdap['metadata']['registrar_json_response_uri'] = $registry_related_uri;
+				if (!empty($registrar_rdap['metadata']['registrar_data_uri'])) {
 					if (strlen($registrar_interface))	{
 						$registrar_interface .= "<br />";
 					}
-					$registrar_interface .= 'Registrar RDAP shows a rel="related" link.';
+					$registrar_interface .= 'Unexpected rel="related" link.';
 				}
+			}					
+			if (empty($registry_rdap['metadata']['registry_data_uri'])) {
+				$registry_rdap['metadata']['registry_data_uri'] = $registry_rdap['metadata']['request_uri'] ?? null;
 			}
 		}
 		$dnssecInfo = getDnssecInfo($domain);
@@ -2031,7 +2023,8 @@ $arr['metadata']['tld_information_uri'] = $tld_information_uri;
 $arr['metadata']['registry_geo_location'] = '';	
 $arr['metadata']['registrar_identifiers'] = $registrar_identifiers;		
 $arr['metadata']['registrar_identifier'] = $registrar_identifier;
-$arr['metadata']['url'] = $url;
+
+$arr['metadata']['request_uri'] = $url;	
 $arr['metadata']['registry_data_uri'] = $registry_data_uri;
 $arr['metadata']['registrar_data_uri'] = $registrar_data_uri;
 $arr['metadata']['registrar_complaint_uri'] = $registrar_complaint_uri;
