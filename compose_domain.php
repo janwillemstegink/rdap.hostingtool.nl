@@ -78,7 +78,8 @@ if (!empty($_GET['domain']))	{
 			elseif (strcasecmp($registry_related_uri, $registry_self_uri) === 0) {
     			$registry_interface .= 'Registry RDAP "related" equals "self"';
 			}
-			if (mb_strlen($tld_unicode_name) > 2) {			
+			if (mb_strlen($tld_unicode_name) > 2) {	
+				//$registry_related_uri = 'https://rdap.gandi.net/domain/tel.tel';
 				if (!empty($registry_self_uri) and strcasecmp($registry_related_uri, $registry_self_uri) === 0)	{	
 				}	
 				elseif (!empty($registry_related_uri)) {
@@ -825,6 +826,10 @@ function write_file($inputtld, $inputdomain, $inputbatch, $inputurl) {
                 $url = 'https://rdap.je/';
                 $stealth = true;
                 break;
+			case 'co':
+                $url = 'https://rdap.hello.co/';
+                $stealth = true;
+                break;				
             default:
                 // die("No match with a top level domain.");
         }
@@ -884,7 +889,7 @@ function write_file($inputtld, $inputdomain, $inputbatch, $inputurl) {
 	$context = stream_context_create([
 		'http' => [
     	'method'           => 'GET',
-    	'timeout'          => 8,
+    	'timeout'          => 20,
     	'ignore_errors'    => true,
     	'protocol_version' => 1.1,
     	'header' =>
