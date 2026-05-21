@@ -261,10 +261,10 @@ EXECUTE FUNCTION update_autnums_latest_data_mutation_at();
 -- Table: domain_entities (link domains<->entities with relationship)
 -- ========================================
 -- "not_stored" — value not maintained by the domain service
--- "shielded" — value not disclosed  
--- "visible" — value disclosed  
--- "authorizable_shielded" — value disclosed only if authorized and permitted by policy
--- "authorizable_visible" — value disclosed only if authorized and permitted by policy
+-- "shielded" — value maintained, not disclosed
+-- "visible" — value disclosed
+-- "tunable_shielded" — value maintained, currently not disclosed
+-- "tunable_visible" — value maintained, currently disclosed
 -- ========================================
 CREATE TABLE IF NOT EXISTS domain_entities (
     de_id SERIAL PRIMARY KEY,
@@ -318,10 +318,10 @@ EXECUTE FUNCTION update_domain_nameservers_latest_data_mutation_at();
 
 -- ========================================
 -- "not_stored" — value not maintained by the domain service
--- "shielded" — value not disclosed  
--- "visible" — value disclosed  
--- "authorizable_shielded" — value disclosed only if authorized and permitted by policy
--- "authorizable_visible" — value disclosed only if authorized and permitted by policy
+-- "shielded" — value maintained, not disclosed
+-- "visible" — value disclosed
+-- "tunable_shielded" — value maintained, currently not disclosed
+-- "tunable_visible" — value maintained, currently disclosed
 -- ========================================
 CREATE TABLE IF NOT EXISTS entity_entities (
     ee_id BIGSERIAL PRIMARY KEY,
