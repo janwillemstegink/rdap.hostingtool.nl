@@ -159,7 +159,7 @@ function SwitchTranslation(translation)	{
 		var modified = '';
 		var proposed = '';
 		var legacy = '';
-		document.getElementById("title").textContent = "TLD Information — IANA Data";
+		document.getElementById("title").textContent = "TLD Information — modeled";
 		document.getElementById("instruction").textContent = "Enter here:";
 		document.getElementById("modeling").textContent = "";
 		document.getElementById("field").textContent = "Modeled in snake_case";
@@ -214,7 +214,7 @@ function SwitchTranslation(translation)	{
 		var modified = '(Gewijzigd) ';
 		var proposed = '(Nieuw) ';
 		var legacy = '(Legacy) ';
-		document.getElementById("title").textContent = "TLD-informatie — IANA-gegevens (gemodelleerd)";
+		document.getElementById("title").textContent = "TLD-informatie — gemodelleerd";
 		document.getElementById("instruction").textContent = "Geef hier in:";
 		document.getElementById("modeling").textContent = "Een RDAPv2 kan statussen herzien en ccTLD-proof zijn via een nieuwe globale tabeldefinitie.";
 		document.getElementById("field").textContent = "Gemodelleerd in snake_case";
@@ -269,7 +269,7 @@ function SwitchTranslation(translation)	{
 		var modified = '(Modified) ';
 		var proposed = '(New) ';
 		var legacy = '(Legacy) ';		
-		document.getElementById("title").textContent = "TLD Information — IANA Data (modeled)";
+		document.getElementById("title").textContent = "TLD Information — modeled";
 		document.getElementById("instruction").textContent = "Enter here:";
 		document.getElementById("modeling").textContent = "An RDAPv2 can revise statuses and be ccTLD-proof via a new global table definition.";
 		document.getElementById("field").textContent = "Modeled in snake_case";
@@ -324,7 +324,7 @@ function SwitchTranslation(translation)	{
 		var modified = '(Geändert) ';
 		var proposed = '(Neu) ';
 		var legacy = '(Legacy) ';		
-		document.getElementById("title").textContent = "TLD-Informationen — IANA-Daten (modelliert)";
+		document.getElementById("title").textContent = "TLD-Informationen — modelliert";
 		document.getElementById("instruction").textContent = "Hier eingeben:";
 		document.getElementById("modeling").textContent = "Ein RDAPv2 kann Status ändern und ccTLD-sicher sein durch eine neue globale Tabellendefinition.";
 		document.getElementById("field").textContent = "Modelliert in snake_case";
@@ -379,7 +379,7 @@ function SwitchTranslation(translation)	{
 		var modified = '(Modifié) ';
 		var proposed = '(Nouveau) ';
 		var legacy = '(Legacy) ';		
-		document.getElementById("title").textContent = "Informations TLD — données de l’IANA (modélisées)";
+		document.getElementById("title").textContent = "Informations TLD — modélisées";
 		document.getElementById("instruction").textContent = "Saisissez ici :";
 		document.getElementById("modeling").textContent = "Un RDAPv2 peut modifier les statuts et être ccTLD-compatible en adoptant une nouvelle définition globale de table.";
 		document.getElementById("field").textContent = "Modélisé en snake_case";
@@ -466,7 +466,7 @@ $html_text .= '<tr style="font-size: .8rem"><td id="instruction" style="vertical
 	<button style="cursor:pointer;font-size:1.0rem" onclick="SwitchTranslation(4)">fr_FR</button> 
 	<a style="font-size: 0.9rem" href="https://rdap.hostingtool.nl/modeling_menu" target="_blank">Menu modeling</a> - <a style="font-size: 0.9rem" href="https://github.com/janwillemstegink/rdap.hostingtool.nl" target="_blank">Code/issues on GitHub</a> - <a style="font-size: 0.9rem" href="https://janwillemstegink.nl/" target="_blank">Insight at janwillemstegink.nl</a></td><td></td></tr>';
 if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($data[$pd]['domain']['ascii_name']))	{
-	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td>tld_from_root</td><td id="explanation"></td><td>tld_from_registry — next model</td></tr>';
+	$html_text .= '<tr style="font-size:1.05rem;font-weight:bold"><td id="field"></td><td>tld_from_root</td><td id="explanation"></td><td>tld_from_registry — optional</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(21)">Governance Notices +/-</button><td></td><td id="governance_notices"></td><td>data moved</td></tr>';
 	$html_text .= '<tr id="211" style="display:none;vertical-align:top"><td colspan="3">'.$data[$pd]['governance']['notices'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(22)">Governance URIs +/-</button><td></td><td id="governance_part"></td><td>data partial</td></tr>';

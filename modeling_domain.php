@@ -173,10 +173,10 @@ An email field in one relationship is "visible", while in another relationship i
 Enumerated Values
 
 "not_stored" — value not maintained by the domain service
-"shielded" — value not disclosed  
-"visible" — value disclosed  
-"authorizable_shielded" — value disclosed only if authorized and permitted by policy
-"authorizable_visible" — value disclosed only if authorized and permitted by policy
+"shielded" — value maintained, not disclosed
+"visible" — value disclosed
+"tunable_shielded" — value maintained, currently not disclosed
+"tunable_visible" — value maintained, currently disclosed
 
 End of RFC Modeling Section
 
@@ -329,7 +329,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_name").textContent = "Een persoonlijke naam kan openbaar zichtbaar zijn in het veld 'presented_name'. Zie bijvoorbeeld cira.ca.";
 		document.getElementById("registrant_contact_uri").textContent = "Biedt een contactendpoint, mogelijk professioneel beheerd, om de registrant te bereiken.";
 		document.getElementById("registrant_country_code").textContent = "ISO-2 landcode van vestiging; standaard rechtsmacht tenzij overschreven door wet of beleid.";
-		document.getElementById("registrant_street_address").textContent = "Het afschermen van adresgegevens zoals bij example.tel, resulteert in rommelige gegevens.";
+		document.getElementById("registrant_street_address").textContent = "Het afschermen van adresgegevens resulteert in rommelige gegevens.";
 		document.getElementById("registrant_postal_code").textContent = "Indexeren op postcode is in de database noodzakelijk. De vCard-array vormt een obstakel.";
 		document.getElementById("registrant_country_name").textContent = "Een openbaar zichtbare landnaam is beperkt tot 'gTLD registrar RDAP' (ontwerpwijziging).";
 		document.getElementById("registrant_verification_received_at").textContent = proposed + "Na identificatie kan een overeenkomende web-ID worden bevestigd, leeg is intrekking.";
@@ -348,7 +348,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_verification_set_at").textContent = proposed;
 		document.getElementById("registrar_part").textContent = "De domeinregistrar is verantwoordelijk voor domeinreserveringen en IP-adresroutering.";
 		document.getElementById("registrar_web_id").textContent = proposed
-		document.getElementById("registrar_email").textContent = "Een registrar moet zonder verdere hyperlinks bereikbaar zijn. Zie bijvoorbeeld example.tel.";
+		document.getElementById("registrar_email").textContent = "Een registrar moet zonder verdere hyperlinks bereikbaar zijn.";
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
 		document.getElementById("registrar_abuse_part").textContent = "Informatie over hoe een derde partij contact kan opnemen met de registrar of belaste partij. Zie fryslan.frl.";
@@ -418,7 +418,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_name").textContent = "A personal name may be publicly visible in the 'presented_name' field. See for example cira.ca.";
 		document.getElementById("registrant_contact_uri").textContent = "Provides a contact endpoint, potentially professionally managed, for reaching the registrant.";
 		document.getElementById("registrant_country_code").textContent = "ISO-2 country code of establishment; default jurisdiction unless overridden by law or policy.";
-		document.getElementById("registrant_street_address").textContent = "Shielding address data as with example.tel, results in messy data.";
+		document.getElementById("registrant_street_address").textContent = "Shielding address data results in messy data.";
 		document.getElementById("registrant_postal_code").textContent = "Indexing by postal code is necessary in the database. The Vcard array is an obstacle.";	
 		document.getElementById("registrant_country_name").textContent = "A publicly visible country name is limited to 'gTLD registrar RDAP' (design change).";
 		document.getElementById("registrant_verification_received_at").textContent = proposed + "After identification, a matching web ID can be confirmed, empty is revocation.";
@@ -437,7 +437,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_verification_set_at").textContent = proposed;		
 		document.getElementById("registrar_part").textContent = "The domain registrar is responsible for domain reservations and IP address routing.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_email").textContent = "A registrar needs to be reachable without any further hyperlink. See, for example, example.tel.";
+		document.getElementById("registrar_email").textContent = "A registrar needs to be reachable without any further hyperlink.";
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
 		document.getElementById("registrar_abuse_part").textContent = "Information on how a third party can contact the registrar or entrusted party. See fryslan.frl.";
@@ -507,7 +507,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_name").textContent = "Ein Personenname kann im Feld 'presented_name' öffentlich sichtbar sei. Siehe beispielsweise cira.ca.";
 		document.getElementById("registrant_contact_uri").textContent = "Stellt einen Kontaktendpunkt bereit, möglicherweise professionell verwaltet, um den Registranten zu erreichen.";
 		document.getElementById("registrant_country_code").textContent = "ISO-2-Ländercode der Niederlassung; Standard-Gerichtsstand, sofern nicht durch Recht oder Richtlinien ersetzt.";
-		document.getElementById("registrant_street_address").textContent = "Das Abschirmen von Adressdaten wie bei example.tel, führt zu unordentlichen Daten.";
+		document.getElementById("registrant_street_address").textContent = "Das Abschirmen von Adressdaten führt zu unordentlichen Daten.";
 		document.getElementById("registrant_postal_code").textContent = "In der Datenbank ist eine Indizierung nach Postleitzahl erforderlich. Das vCard-Array stellt ein Hindernis dar.";	
 		document.getElementById("registrant_country_name").textContent = "Ein öffentlich sichtbarer Ländername ist auf 'gTLD registrar RDAP' beschränkt (Designänderung).";
 		document.getElementById("registrant_verification_received_at").textContent = proposed + "Nach der Identifizierung kann eine passende Web-ID bestätigt werden, leer ist der Widerruf.";
@@ -526,7 +526,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_verification_set_at").textContent = proposed;		
 		document.getElementById("registrar_part").textContent = "Der Domänenregistrar ist für die Domänenreservierung und das IP-Adressrouting verantwortlich.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_email").textContent = "Ein Registrar muss ohne weitere Hyperlinks erreichbar sein. Siehe beispielsweise example.tel.";
+		document.getElementById("registrar_email").textContent = "Ein Registrar muss ohne weitere Hyperlinks erreichbar sein.";
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
 		document.getElementById("registrar_abuse_part").textContent = "Informationen darüber, wie Dritte den Registrar oder die beauftragte Partei kontaktieren können. Siehe fryslan.frl.";
@@ -596,7 +596,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_name").textContent = "Un nom personnel peut être visible publiquement dans le champ 'presented_name'. Voir, par exemple, cira.ca.";
 		document.getElementById("registrant_contact_uri").textContent = "Fournit un point de contact, potentiellement géré professionnellement, pour joindre le titulaire.";
 		document.getElementById("registrant_country_code").textContent = "Code pays ISO-2 de l’établissement ; juridiction par défaut sauf dérogation par la loi ou la politique.";
-		document.getElementById("registrant_street_address").textContent = "Le blindage des données d'adresse comme avec example.tel, génère des données désordonnées.";
+		document.getElementById("registrant_street_address").textContent = "Le blindage des données d'adresse génère des données désordonnées.";
 		document.getElementById("registrant_postal_code").textContent = "L'indexation par code postal est nécessaire dans la base de données. Le tableau de vCard constitue un obstacle.";
 		document.getElementById("registrant_country_name").textContent = "Un nom de pays visible publiquement est limité à 'gTLD registrar RDAP' (changement de conception).";
 		document.getElementById("registrant_verification_received_at").textContent = proposed + "Après identification, un identifiant Web correspondant peut être confirmé, vide signifie révocation.";
@@ -615,7 +615,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("reseller_verification_set_at").textContent = proposed;		
 		document.getElementById("registrar_part").textContent = "Le registraire de domaine est responsable des réservations de domaines et du routage des adresses IP.";
 		document.getElementById("registrar_web_id").textContent = proposed;
-		document.getElementById("registrar_email").textContent = "Un registraire doit être joignable sans lien hypertexte supplémentaire. Voir, par exemple, example.tel.";
+		document.getElementById("registrar_email").textContent = "Un registraire doit être joignable sans lien hypertexte supplémentaire.";
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
 		document.getElementById("registrar_abuse_part").textContent = "Informations sur la manière dont un tiers peut contacter le registraire ou la partie mandatée. Voir fryslan.frl.";
