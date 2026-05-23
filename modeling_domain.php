@@ -155,16 +155,18 @@ function SwitchDisplay(type) {
 		
 const modeling = `A field’s publication state is determined independently for each domain–relationship–field combination.
 
-Table definitions MUST support relationship-specific disclosure semantics to ensure correct disclosure or suppression. An RDAP implementation MUST evaluate disclosure independently for each relationship and MUST NOT aggregate disclosure state across relationships.
+Table definitions MUST support relationship-specific disclosure semantics.
+RDAP output MUST preserve relationship context and MUST NOT combine distinct relationships.
 
 Definition (Normative)
 
 The "publication_state" member MAY be provided for a subset of fields.
-For each included field, exactly one publication state MUST be specified per relationship.
+For each included field and relationship, exactly one publication state MUST be specified.
 
 Example (Non-Normative)
 
-An entity may be associated with a domain through multiple relationships, with publication state determined independently for each field within each relationship. For example, an email address may be disclosed for one relationship but not another.
+An entity may be associated with a domain through multiple relationships.
+For example, an email address may be disclosed for one relationship but not another.
 
 Enumerated Values
 
