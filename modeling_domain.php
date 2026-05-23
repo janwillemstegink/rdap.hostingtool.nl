@@ -153,22 +153,18 @@ function SwitchDisplay(type) {
 	}
 }
 		
-const modeling = `Legacy table structures lack explicit disclosure semantics.
-Aggregating data across relationships may incorrectly disclose or suppress data.
+const modeling = `A field’s publication state is determined independently for each domain–relationship–field combination.
 
-Each field’s publication state is determined for each domain–relationship–field combination.
-Implementations MUST NOT aggregate data across relationships when determining disclosure.
-Disclosure MUST be evaluated independently within each relationship.
+Table definitions MUST support relationship-specific disclosure semantics to ensure correct disclosure or suppression. An RDAP implementation MUST evaluate disclosure independently for each relationship and MUST NOT aggregate disclosure state across relationships.
 
 Definition (Normative)
 
-"field_publication" MAY be provided for a subset of fields.
-For each field included, exactly one publication state MUST be specified per relationship.
+The "publication_state" member MAY be provided for a subset of fields.
+For each included field, exactly one publication state MUST be specified per relationship.
 
 Example (Non-Normative)
 
-An entity may be associated with a domain through multiple relationships, each assigning a publication state to its fields.
-An email field in one relationship is "visible", while in another relationship it is "shielded".
+An entity may be associated with a domain through multiple relationships, with publication state determined independently for each field within each relationship. For example, an email address may be disclosed for one relationship but not another.
 
 Enumerated Values
 
@@ -196,8 +192,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "";
 		document.getElementById("notices_part").textContent = legacy;
 		document.getElementById("links_part").textContent = legacy;
-		document.getElementById("field_publication_part").textContent = "";
-		document.getElementById("field_publication").textContent = "";
+		document.getElementById("publication_state_part").textContent = "";
+		document.getElementById("publication_state").textContent = "";
 		document.getElementById("metadata_part").textContent = proposed;
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
@@ -285,8 +281,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Domein-RDAP-model dat RDAP-gegevens van registry en registrar combineert.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("field_publication_part").textContent = "Huidige zichtbaarheidsinformatie is niet machineleesbaar; het volgende model biedt structuur.";
-		document.getElementById("field_publication").textContent = modeling;
+		document.getElementById("publication_state_part").textContent = "Huidige zichtbaarheidsinformatie is niet machineleesbaar; het volgende model biedt structuur.";
+		document.getElementById("publication_state").textContent = modeling;
 		document.getElementById("metadata_part").textContent = proposed + "Metadata bieden context en details over data-elementen.";
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
@@ -374,8 +370,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Domain RDAP model combining registry and registrar RDAP data.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("field_publication_part").textContent = "Current visibility information is not machine-readable; the following model provides structure.";
-		document.getElementById("field_publication").textContent = modeling;
+		document.getElementById("publication_state_part").textContent = "Current visibility information is not machine-readable; the following model provides structure.";
+		document.getElementById("publication_state").textContent = modeling;
 		document.getElementById("metadata_part").textContent = proposed + "Metadata provides context and details about data elements.";
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
@@ -463,8 +459,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Domain-RDAP-Modell, das RDAP-Daten von Registry und Registrar kombiniert.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("field_publication_part").textContent = "Aktuelle Sichtbarkeitsinformationen sind nicht maschinenlesbar; das folgende Modell schafft Struktur.";
-		document.getElementById("field_publication").textContent = modeling;
+		document.getElementById("publication_state_part").textContent = "Aktuelle Sichtbarkeitsinformationen sind nicht maschinenlesbar; das folgende Modell schafft Struktur.";
+		document.getElementById("publication_state").textContent = modeling;
 		document.getElementById("metadata_part").textContent = proposed + "Metadaten liefern Kontext und Details zu Datenelementen.";
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
@@ -552,8 +548,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Modèle RDAP de domaine combinant les données RDAP du registre et du registrar.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("field_publication_part").textContent = "La visibilité actuelle n’est pas lisible par machine ; le modèle suivant structure.";
-		document.getElementById("field_publication").textContent = modeling;
+		document.getElementById("publication_state_part").textContent = "La visibilité actuelle n’est pas lisible par machine ; le modèle suivant structure.";
+		document.getElementById("publication_state").textContent = modeling;
 		document.getElementById("metadata_part").textContent = proposed + "Les métadonnées fournissent le contexte et des détails sur les éléments de données.";
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
@@ -700,8 +696,8 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['domain']['ascii_name'])
 	$html_text .= '<tr id="111" style="display:none"><td colspan="2">'.$data[$pd]['registry']['notices'].'</td><td></td><td>'.$data[$pd]['registrar']['notices'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(12)">Links +/-</button><td></td><td id="links_part"></td><td></td></tr>';
 	$html_text .= '<tr id="121" style="display:none"><td colspan="2">'.$data[$pd]['registry']['links'].'</td><td></td><td>'.$data[$pd]['registrar']['links'].'</td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(13)">Field Publication +/-</button></td><td></td><td id="field_publication_part"></td><td></td></tr>';
-	$html_text .= '<tr id="131" style="display:none"><td colspan="2">'.$data[$pd]['registry']['field_publication'].'</td><td id="field_publication" style="white-space: pre-wrap; font-family: monospace; line-height: 1.4; font-size: 13px;"></td><td>'.$data[$pd]['registrar']['field_publication'].'</td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(13)">Publication State +/-</button></td><td></td><td id="publication_state_part"></td><td></td></tr>';
+	$html_text .= '<tr id="131" style="display:none"><td colspan="2">'.$data[$pd]['registry']['publication_state'].'</td><td id="publication_state" style="white-space: pre-wrap; font-family: monospace; line-height: 1.4; font-size: 13px;"></td><td>'.$data[$pd]['registrar']['publication_state'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(20)">Metadata +/-</button></td><td></td><td id="metadata_part"></td><td></td></tr>';
 	$html_text .= '<tr id="201" style="display:none"><td>object_type</td><td>'.$data[$pd]['registry']['metadata']['object_type'].'</td><td id="metadata_object_type"></td><td>'.$data[$pd]['registrar']['metadata']['object_type'].'</td></tr>';
 	$html_text .= '<tr id="202" style="display:none"><td>rdap_version</td><td>'.$data[$pd]['registry']['metadata']['rdap_version'].'</td><td id="metadata_rdap_version"></td><td>'.$data[$pd]['registrar']['metadata']['rdap_version'].'</td></tr>';

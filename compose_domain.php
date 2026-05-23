@@ -2018,7 +2018,7 @@ if ($inputbatch)	{
 	
 $arr['notices'] = $notices;
 $arr['links'] = $links;
-$arr['field_publication'] = $redacted;
+$arr['publication_state'] = $redacted;
 $arr['interface_notice'] = $interface_notice;
 	
 $arr['metadata']['object_type'] = $object_type;
