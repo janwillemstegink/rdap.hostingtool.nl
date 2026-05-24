@@ -160,7 +160,7 @@ function SwitchDisplay(type) {
 const modeling = `1. The current "name.description", "name.type", and "type" alternatives may result in differing visibility representation across registry and registrar RDAP.
 2. Output representation and field names such as "registrant_contact_uri" can provide explicit visibility information and preserve relationship context.
 3. Revising "redacted" representation to "publication_state" can support future RDAP evolution by expressing visibility state directly.
-4. Relationship order reflects responsibility in output representation.
+4. Relationship order reflects responsibility.
 
 A field’s publication state is determined independently for each domain–relationship–field combination.
 Table definitions MUST support relationship-specific disclosure semantics.
@@ -174,6 +174,8 @@ Within each relationship, if present, data MUST precede "publication_state".
 The "publication_state" member MUST remain present even when relationship data is not disclosed.
 Relationship entries MUST be ordered by responsibility: sponsor, registrant, administrative, technical, billing, reseller, registrar, registrar_abuse.
 Nameserver data MUST follow relationship entries. RDAP "secureDNS" data MUST follow nameserver data.
+
+Registry communications SHOULD clearly identify the applicable relationship when addressing the recipient.
 
 Example (Non-Normative)
 An entity may be associated with a domain through multiple relationships.
