@@ -163,7 +163,7 @@ const modeling = `1. The current "name.description", "name.type", and "type" alt
 4. Relationship order reflects responsibility.
 
 A field’s publication state is determined independently for each domain–relationship–field combination.
-Table definitions MUST support relationship-specific disclosure semantics.
+An RDAP service MUST be capable of representing relationship-specific disclosure semantics.
 RDAP output MUST preserve relationship context and MUST NOT combine distinct relationships.
 
 Definition (Normative)
