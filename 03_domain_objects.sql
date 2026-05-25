@@ -9,9 +9,9 @@
      - ip_network_versions   : registry for IPv4/IPv6 labels
      - ip_networks           : IP ranges with metadata
      - autnums               : Autonomous System Numbers
-     - domain_entities       : domains ↔ entities (relationship-based)
+     - domain_relationships	 : domains ↔ entities (relationship-based)
      - domain_nameservers    : domains ↔ nameservers (unique pairs)
-     - entity_entities       : entity ↔ entity relations (e.g., registrar ↔ abuse)
+     - entity_relationships  : entity ↔ entity relations (e.g., registrar ↔ abuse)
      - domain_secure_dns     : DNSSEC/DANE settings per domain
      - domain_tlsa_records   : TLSA records tied to domain_secure_dns
 
@@ -258,7 +258,7 @@ FOR EACH ROW
 EXECUTE FUNCTION update_autnums_latest_data_mutation_at();
 
 -- ========================================
--- Table: domain_entities (link domains<->entities with relationship)
+-- Table: domain_relationships
 -- ========================================
 -- "not_stored" — value not maintained by the domain service
 -- "shielded" — value maintained, not disclosed
@@ -266,12 +266,12 @@ EXECUTE FUNCTION update_autnums_latest_data_mutation_at();
 -- "tunable_shielded" — value maintained, currently not disclosed
 -- "tunable_visible" — value maintained, currently disclosed
 -- ========================================
-CREATE TABLE IF NOT EXISTS domain_entities (
-    de_id SERIAL PRIMARY KEY,
-    de_domain BIGINT NOT NULL REFERENCES domains(domain_id) ON DELETE CASCADE,
-    de_source_layer VARCHAR(12) NOT NULL CHECK (de_source_layer IN ('registry','registrar')),
-    de_relationship VARCHAR(50),
-    de_publication_state JSONB NOT NULL DEFAULT '{
+CREATE TABLE IF NOT EXISTS domain_relationships (
+    dr_id SERIAL PRIMARY KEY,
+    dr_domain BIGINT NOT NULL REFERENCES domains(domain_id) ON DELETE CASCADE,
+    dr_source_layer VARCHAR(12) NOT NULL CHECK (dr_source_layer IN ('registry','registrar')),
+    dr_relationship VARCHAR(50),
+    dr_publication_state JSONB NOT NULL DEFAULT '{
         "organization_name": "shielded",
         "presented_name": "shielded",
         "name": "shielded",
@@ -281,11 +281,11 @@ CREATE TABLE IF NOT EXISTS domain_entities (
         "country_code": "shielded",
         "address": "shielded"
     }'::jsonb,
-    de_entity BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE
+    dr_entity BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE
 );
-CREATE UNIQUE INDEX IF NOT EXISTS uq_de_unique ON domain_entities (de_domain, de_source_layer, de_relationship, de_entity);
-CREATE INDEX IF NOT EXISTS idx_de_domain ON domain_entities(de_domain);
-CREATE INDEX IF NOT EXISTS idx_de_entity ON domain_entities(de_entity);
+CREATE UNIQUE INDEX IF NOT EXISTS uq_dr_unique ON domain_relationships (dr_domain, dr_source_layer, dr_relationship, dr_entity);
+CREATE INDEX IF NOT EXISTS idx_dr_domain ON domain_relationships(dr_domain);
+CREATE INDEX IF NOT EXISTS idx_dr_entity ON domain_relationships(dr_entity);
 
 -- ========================================
 -- Table: domain_nameservers (link domains<->nameservers)
@@ -323,13 +323,13 @@ EXECUTE FUNCTION update_domain_nameservers_latest_data_mutation_at();
 -- "tunable_shielded" — value maintained, currently not disclosed
 -- "tunable_visible" — value maintained, currently disclosed
 -- ========================================
-CREATE TABLE IF NOT EXISTS entity_entities (
-    ee_id BIGSERIAL PRIMARY KEY,
-	ee_source_layer VARCHAR(12) NOT NULL CHECK (ee_source_layer IN ('registry','registrar')),
-    ee_parent_relationship VARCHAR(50),
-    ee_parent BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE,
-    ee_child_relationship VARCHAR(50),
-    ee_publication_state JSONB NOT NULL DEFAULT '{
+CREATE TABLE IF NOT EXISTS entity_relationships (
+    er_id BIGSERIAL PRIMARY KEY,
+	er_source_layer VARCHAR(12) NOT NULL CHECK (er_source_layer IN ('registry','registrar')),
+    er_parent_relationship VARCHAR(50),
+    er_parent BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE,
+    er_child_relationship VARCHAR(50),
+    er_publication_state JSONB NOT NULL DEFAULT '{
         "organization_name": "shielded",
         "presented_name": "shielded",
         "name": "shielded",
@@ -339,11 +339,11 @@ CREATE TABLE IF NOT EXISTS entity_entities (
         "country_code": "shielded",
         "address": "shielded"
     }'::jsonb,
-    ee_child BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE
+    er_child BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE
 );
-CREATE UNIQUE INDEX IF NOT EXISTS uq_ee_unique ON entity_entities (ee_source_layer, ee_parent_relationship, ee_parent, ee_child_relationship, ee_child);
-CREATE INDEX IF NOT EXISTS idx_ee_parent ON entity_entities(ee_parent);
-CREATE INDEX IF NOT EXISTS idx_ee_child ON entity_entities(ee_child);
+CREATE UNIQUE INDEX IF NOT EXISTS uq_er_unique ON entity_relationships (er_source_layer, er_parent_relationship, er_parent, er_child_relationship, er_child);
+CREATE INDEX IF NOT EXISTS idx_er_parent ON entity_relationships(er_parent);
+CREATE INDEX IF NOT EXISTS idx_er_child ON entity_relationships(er_child);
 
 -- ========================================
 -- Table: domain_secure_dns
