@@ -305,9 +305,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_tld_information_uri").textContent = proposed + "Naar informatieve TLD-context die vereenvoudigde domein-RDAP kan ondersteunen.";
 		document.getElementById("metadata_global_data_uri").textContent=proposed+"URI naar een globale RDAP JSON-respons die kan verwijzen naar een andere gezaghebbende RDAP-bron.";
 		document.getElementById("metadata_registry_data_uri").textContent=proposed+"URI van de registry-RDAP JSON-respons; relatie 'self'.";
-		document.getElementById("metadata_registrar_identifiers").textContent = modified + "Identificatoren die met de registrar zijn verbonden. Een IANA-Registrar-ID moet geldig zijn.";
+		document.getElementById("metadata_registrar_identifiers").textContent = modified + "Registrar-identificaties. Voor ccTLD's: een geldige IANA Registrar ID of 0000.";
 		document.getElementById("metadata_registrar_data_uri").textContent=proposed+"URI van de registrar-RDAP JSON-respons; relatie 'related'.";
-		document.getElementById("metadata_registrar_complaint_uri").textContent=proposed+"Vereist indien de registrar IANA-geaccrediteerd is; biedt informatie voor klachtenafhandeling.";
+		document.getElementById("metadata_registrar_complaint_uri").textContent=proposed+"URI voor klachtenafhandeling van ICANN gTLD-registrars.";
 		document.getElementById("metadata_registrar_publication_method").textContent=proposed+"Voor gTLD's kan publicatie per registrantveld worden ingeschakeld.";
 		document.getElementById("metadata_status_explanation_uri").textContent=proposed+"Vereist indien de registrar IANA-geaccrediteerd is; biedt uitleg over statuscodes.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Tijdstempel van de RDAP-datasetupdate in UTC (Zulu-tijd).";
@@ -394,9 +394,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_tld_information_uri").textContent=proposed+"Towards informative TLD context that may support simplified domain RDAP.";
 		document.getElementById("metadata_global_data_uri").textContent=proposed+"URI to a global RDAP JSON response that may reference another authoritative RDAP source.";
 		document.getElementById("metadata_registry_data_uri").textContent=proposed+"Registry RDAP JSON response URI; relationship 'self'.";
-		document.getElementById("metadata_registrar_identifiers").textContent=modified+"Identifiers associated with the registrar. Any IANA Registrar ID must be valid.";
+		document.getElementById("metadata_registrar_identifiers").textContent=modified+"Registrar identifiers. For ccTLDs: a valid IANA Registrar ID or 0000.";
 		document.getElementById("metadata_registrar_data_uri").textContent=proposed+"Registrar RDAP JSON response URI; relationship 'related'.";
-		document.getElementById("metadata_registrar_complaint_uri").textContent=proposed+"Required if the registrar is IANA-accredited; provides complaint handling information.";
+		document.getElementById("metadata_registrar_complaint_uri").textContent=proposed+"URI for ICANN gTLD registrar complaint handling.";
 		document.getElementById("metadata_registrar_publication_method").textContent=proposed+"For gTLDs, publication may be enabled on a per-registrant-field basis.";
 		document.getElementById("metadata_status_explanation_uri").textContent=proposed+"Required if the registrar is IANA-accredited; provides status code explanations.";
 		document.getElementById("metadata_resource_upload_at").textContent=modified+"Timestamp of RDAP dataset update in UTC (Zulu time).";		
@@ -483,9 +483,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_tld_information_uri").textContent = proposed + "Hin zu einem informativen TLD-Kontext, der vereinfachtes Domain-RDAP unterstützen kann.";
 		document.getElementById("metadata_global_data_uri").textContent=proposed+"URI zu einer globalen RDAP-JSON-Antwort, die auf eine andere maßgebliche RDAP-Quelle verweisen kann.";
 		document.getElementById("metadata_registry_data_uri").textContent=proposed+"URI der Registry-RDAP-JSON-Antwort; Beziehung 'self'.";
-		document.getElementById("metadata_registrar_identifiers").textContent = modified + "Kennungen, die dem Registrar zugeordnet sind. Eine IANA-Registrar-ID muss gültig sein.";
+		document.getElementById("metadata_registrar_identifiers").textContent = modified + "Registrar-Kennungen. Für ccTLDs: eine gültige IANA Registrar-ID oder 0000.";
 		document.getElementById("metadata_registrar_data_uri").textContent=proposed+"URI der Registrar-RDAP-JSON-Antwort; Beziehung 'related'.";
-		document.getElementById("metadata_registrar_complaint_uri").textContent=proposed+"Erforderlich, wenn der Registrar IANA-akkreditiert ist; stellt Informationen zur Beschwerdebearbeitung bereit.";
+		document.getElementById("metadata_registrar_complaint_uri").textContent=proposed+"URI für die Beschwerdebehandlung von ICANN-gTLD-Registraren.";
 		document.getElementById("metadata_registrar_publication_method").textContent=proposed+"Für gTLDs kann die Veröffentlichung pro Registrantenfeld aktiviert werden.";
 		document.getElementById("metadata_status_explanation_uri").textContent=proposed+"Erforderlich, wenn der Registrar IANA-akkreditiert ist; stellt Erläuterungen zu Statuscodes bereit.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Zeitstempel der Aktualisierung des RDAP-Datensatzes in UTC (Zulu-Zeit).";
@@ -572,9 +572,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("metadata_tld_information_uri").textContent = proposed + "Vers un contexte TLD informatif pouvant prendre en charge un RDAP de domaine simplifié.";
 		document.getElementById("metadata_global_data_uri").textContent=proposed+"URI vers une réponse JSON RDAP globale pouvant référencer une autre source RDAP.";
 		document.getElementById("metadata_registry_data_uri").textContent=proposed+"URI de la réponse JSON RDAP du registre ; relation 'self'.";
-		document.getElementById("metadata_registrar_identifiers").textContent = modified + "Identifiants associés au registrar. Tout identifiant de registrar IANA doit être valide.";
+		document.getElementById("metadata_registrar_identifiers").textContent = modified + "Identifiants du bureau d’enregistrement. Pour les ccTLD : un identifiant de registrar IANA valide ou 0000.";
 		document.getElementById("metadata_registrar_data_uri").textContent=proposed+"URI de la réponse JSON RDAP du bureau d’enregistrement ; relation 'related'.";
-		document.getElementById("metadata_registrar_complaint_uri").textContent=proposed+"Requis si le bureau d’enregistrement est accrédité IANA ; informations de réclamation.";
+		document.getElementById("metadata_registrar_complaint_uri").textContent=proposed+"URI pour le traitement des plaintes des bureaux d’enregistrement ICANN gTLD.";
 		document.getElementById("metadata_registrar_publication_method").textContent=proposed+"Pour les gTLD, la publication peut être activée par champ de titulaire.";
 		document.getElementById("metadata_status_explanation_uri").textContent=proposed+"Requis si accrédité IANA ; explications des codes d’état.";
 		document.getElementById("metadata_resource_upload_at").textContent = modified + "Horodatage de la mise à jour de l'ensemble de données RDAP en UTC (heure Zulu).";
