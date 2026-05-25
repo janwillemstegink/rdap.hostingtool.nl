@@ -271,7 +271,7 @@ CREATE TABLE IF NOT EXISTS domain_entities (
     de_domain BIGINT NOT NULL REFERENCES domains(domain_id) ON DELETE CASCADE,
     de_source_layer VARCHAR(12) NOT NULL CHECK (de_source_layer IN ('registry','registrar')),
     de_relationship VARCHAR(50),
-    de_field_publication JSONB NOT NULL DEFAULT '{
+    de_publication_state JSONB NOT NULL DEFAULT '{
         "organization_name": "shielded",
         "presented_name": "shielded",
         "name": "shielded",
@@ -329,7 +329,7 @@ CREATE TABLE IF NOT EXISTS entity_entities (
     ee_parent_relationship VARCHAR(50),
     ee_parent BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE,
     ee_child_relationship VARCHAR(50),
-    ee_field_publication JSONB NOT NULL DEFAULT '{
+    ee_publication_state JSONB NOT NULL DEFAULT '{
         "organization_name": "shielded",
         "presented_name": "shielded",
         "name": "shielded",
