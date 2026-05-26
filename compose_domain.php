@@ -1041,7 +1041,7 @@ $ascii_name = $obj['ldhName'];
 $unicode_name = $obj['unicodeName'];
 $nameservers_rdap_dnssec_signed = '';
 $nameservers_rdap_ds_key_tags = '';	
-$nameservers_rdap_ds_algorithms = '';
+$nameservers_rdap_ds_algorithm_numbers = '';
 $nameservers_rdap_ds_digest_types = '';
 $nameservers_rdap_ds_digests = '';	
 	
@@ -1430,7 +1430,7 @@ foreach($obj as $key1 => $value1) {
 			if ($key1 == 'secureDNS')	{
 				if ($key2 == 'dsData') {
 					$nameservers_rdap_ds_key_tags .= $key3.': '.$value3['keyTag'].",";	
-					$nameservers_rdap_ds_algorithms .= $key3.': '.$value3['algorithm'].",";	
+					$nameservers_rdap_ds_algorithm_numbers .= $key3.': '.$value3['algorithm'].",";	
 					$nameservers_rdap_ds_digest_types .= $key3.': '.$value3['digestType'].",";	
 					$nameservers_rdap_ds_digests .= $key3.': '.$value3['digest'].",";
 				}				
@@ -2263,7 +2263,7 @@ $arr['nameservers']['nameserver_check_dates'] = $nameservers_check_dates;
 $arr['nameservers']['last_valid_nameserver_check_dates'] = $nameservers_last_valid_nameserver_check_dates;	
 $arr['nameservers']['rdap_dnssec_signed'] = $nameservers_rdap_dnssec_signed;
 $arr['nameservers']['rdap_ds_key_tags'] = rtrim($nameservers_rdap_ds_key_tags, ",");
-$arr['nameservers']['rdap_ds_algorithms'] = rtrim($nameservers_rdap_ds_algorithms, ",");
+$arr['nameservers']['rdap_ds_algorithm_numbers'] = rtrim($nameservers_rdap_ds_algorithm_numbers, ",");
 $arr['nameservers']['rdap_ds_digest_types'] = rtrim($nameservers_rdap_ds_digest_types, ",");
 $arr['nameservers']['rdap_ds_digests'] = rtrim($nameservers_rdap_ds_digests, ",");
 	
@@ -2271,4 +2271,4 @@ $arr['raw_rdap'] = $raw_rdap_data;
 
 return $arr;
 }
-?>
+}?>
