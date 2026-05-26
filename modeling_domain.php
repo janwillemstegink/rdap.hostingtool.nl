@@ -157,24 +157,38 @@ function SwitchDisplay(type) {
 	}
 }
 		
-const modeling = `1. The current "name.description", "name.type", and "type" alternatives may result in differing visibility representation across registry and registrar RDAP.
+const modeling = `Legacy limitations
+1. The current "name.description", "name.type", and "type" alternatives may result in differing visibility representation across registry and registrar RDAP.
 2. Output representation and field names such as "registrant_contact_uri" can provide explicit visibility information and preserve relationship context.
 3. Revising "redacted" representation to "publication_state" can support future RDAP evolution by expressing visibility state directly.
-4. Relationship order reflects responsibility.
+4. Relationship responsibility order is not inherent in RDAP JSON representation.
 
+Model principles
 A field’s publication state is determined independently for each domain–relationship–field combination.
-An RDAP service MUST be capable of representing relationship-specific disclosure semantics.
-RDAP output MUST preserve relationship context and MUST NOT combine distinct relationships.
+Inclusion of publication details depends on an RDAP service having sufficient data structure.
+
+RDAP output:
+MUST preserve relationship context
+MUST NOT combine distinct relationships
 
 Definition (Normative)
-The "publication_state" member MUST be included within relationship entries.
-The "publication_state" member MAY provide publication state for a subset of fields.
-For each included field and relationship, exactly one publication state MUST be specified.
-Within each relationship, if present, data MUST precede "publication_state".
-The "publication_state" member MUST remain present even when relationship data is not disclosed.
-Relationship entries MUST be ordered by responsibility: sponsor, registrant, administrative, technical, billing, reseller, registrar, registrar_abuse.
-Nameserver data MUST follow relationship entries. RDAP "secureDNS" data MUST follow nameserver data.
+The "publication_state" member:
+MUST be included within relationship entries
+MAY provide publication state for a subset of fields
 
+For each included field and relationship, exactly one publication state MUST be specified.
+
+Relationship structure:
+If present, data MUST precede "publication_state"
+"publication_state" MUST remain present even when relationship data is not disclosed
+
+Output ordering:
+Relationship entries MUST be ordered by responsibility:
+sponsor, registrant, administrative, technical, billing, reseller, registrar, registrar_abuse
+Nameserver data MUST follow relationship entries
+RDAP "secureDNS" data MUST follow nameserver data
+
+Operational guidance
 Registry communications SHOULD clearly identify the applicable relationship when addressing the recipient.
 
 Example (Non-Normative)
@@ -711,7 +725,7 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['domain']['ascii_name'])
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(12)">Links +/-</button><td></td><td id="links_part"></td><td></td></tr>';
 	$html_text .= '<tr id="121" style="display:none"><td colspan="2">'.$data[$pd]['registry']['links'].'</td><td></td><td>'.$data[$pd]['registrar']['links'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(13)">Redacted +/-</button></td><td></td><td id="publication_state_part"></td><td></td></tr>';
-	$html_text .= '<tr id="131" style="display:none"><td colspan="2">'.$data[$pd]['registry']['publication_state'].'</td><td id="publication_state" style="white-space: pre-wrap; font-family: monospace; line-height: 1.4; font-size: 13px;"></td><td>'.$data[$pd]['registrar']['publication_state'].'</td></tr>';
+	$html_text .= '<tr id="131" style="display:none"><td colspan="2">'.$data[$pd]['registry']['publication_state'].'</td><td id="publication_state" style="white-space: pre-wrap; font-family: monospace; line-height: 1.15; font-size: 12px;"></td><td>'.$data[$pd]['registrar']['publication_state'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(20)">Metadata +/-</button> <button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(15)">Publication State +/-</button></td><td></td><td id="metadata_part"></td><td></td></tr>';
 	$html_text .= '<tr id="201" style="display:none"><td>object_type</td><td>'.$data[$pd]['registry']['metadata']['object_type'].'</td><td id="metadata_object_type"></td><td>'.$data[$pd]['registrar']['metadata']['object_type'].'</td></tr>';
 	$html_text .= '<tr id="202" style="display:none"><td>rdap_version</td><td>'.$data[$pd]['registry']['metadata']['rdap_version'].'</td><td id="metadata_rdap_version"></td><td>'.$data[$pd]['registrar']['metadata']['rdap_version'].'</td></tr>';
