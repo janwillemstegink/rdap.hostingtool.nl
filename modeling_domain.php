@@ -165,7 +165,7 @@ const modeling = `Legacy limitations
 
 Model principles
 A field’s publication state is determined independently for each domain–relationship–field combination.
-Inclusion of publication details depends on an RDAP service having sufficient data structure.
+Inclusion of publication details depends on an RDAP service’s data structure and representation choices.
 
 RDAP output:
 MUST preserve relationship context
@@ -182,11 +182,11 @@ Relationship structure:
 If present, data MUST precede "publication_state"
 "publication_state" MUST remain present even when relationship data is not disclosed
 
-Output ordering:
-Relationship entries MUST be ordered by responsibility:
+Output naming and ordering:
+RDAP "relationships" MUST be ordered by relationship responsibility:
 sponsor, registrant, administrative, technical, billing, reseller, registrar, registrar_abuse
-Nameserver data MUST follow relationship entries
-RDAP "secureDNS" data MUST follow nameserver data
+RDAP output MUST be ordered:
+"metadata", "domain", "relationships", "nameservers", "dns_security"
 
 Operational guidance
 Registry communications SHOULD clearly identify the applicable relationship when addressing the recipient.
