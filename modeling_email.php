@@ -39,9 +39,9 @@ $html_text .= '<body><div style="border-collapse:collapse; line-height:120%">
 $html_text .= '<tr><td style="font-size:1.1rem;color:blue;font-weight:bold">Web Domain Email Model</td><td style="font-size:.8rem"><a style="font-size: 0.9rem" href="https://github.com/janwillemstegink/rdap.hostingtool.nl" target="_blank">Code/issues on GitHub</a> - <a style="font-size: 0.9rem" href="https://janwillemstegink.nl/" target="_blank">Insight at janwillemstegink.nl</a></td></tr>';
 $html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 $html_text .= '<tr><td COLSPAN="2">- English version of this message below –</td></tr>';
-$html_text .= '<tr><td COLSPAN="2"><br />Beste domeinnaamhouder,</td></tr>';
-$html_text .= '<tr><td COLSPAN="2"><br />Je krijgt deze mail omdat je de administratieve contactpersoon bent voor onderstaand webdomein.</td></tr>';
-$html_text .= '<tr><td COLSPAN="2">team.blue nl B.V. heeft minimaal één van de houdergegevens gewijzigd. Dit zijn de gegevens:</td></tr>';
+$html_text .= '<tr><td COLSPAN="2"><br />Geachte ontvanger,</td></tr>';
+$html_text .= '<tr><td COLSPAN="2"><br />U ontvangt dit bericht omdat uw administratieve verantwoordelijkheid voor bovenstaand domein relevant is voor deze melding.</td></tr>';
+$html_text .= '<tr><td COLSPAN="2">team.blue nl B.V. heeft ten minste één domeingegeven gewijzigd. De relevante domeingegevens zijn:</td></tr>';
 foreach ($xml1->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
 	$html_text .= '<tr><td COLSPAN="2"><br /><u>Domein / Domain:</u></td></tr>';
@@ -95,19 +95,21 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>city</td><td>'.$item->billing->city.'</td></tr>';
 	$html_text .= '<tr><td>state_or_province</td><td>'.$item->billing->state_or_province.'</td></tr>';
 	$html_text .= '<tr><td>country_name</td><td>'.$item->billing->country_name.'</td></tr>';
-	$html_text .= '<tr><td COLSPAN="2"><br />Is er iets mis? Het bedrijf dat deze domeinnaam beheert is: team.blue nl B.V., of de reseller: TransIP.</td></tr>';
-	$html_text .= '<tr><td COLSPAN="2">Als u als registrant via hun menu wijzigingen kunt aanbrengen, dan bent u primair verantwoordelijk.</td></tr>';
+	$html_text .= '<tr><td COLSPAN="2"><br />Is er iets mis? Deze domeinnaam wordt beheerd door team.blue nl B.V. en mogelijk door de reseller TransIP.</td></tr>';
+	$html_text .= '<tr><td COLSPAN="2">Als u als registrant via het menu van uw registrar of reseller wijzigingen kunt aanbrengen,</td></tr>';
+	$html_text .= '<tr><td COLSPAN="2">dan bent u primair verantwoordelijk voor de juistheid van deze domeingegevens.</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Met vriendelijke groet,</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2">SIDN</td></tr>';
 	$html_text .= '<tr><td COLSPAN="2"><br />Beantwoord deze mail niet. Als je vragen of feedback hebt, neem dan contact op met <a href="mailto:support@sidn.nl">support@sidn.nl</a>.</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 	break;
 }
-$html_text .= '<tr><td COLSPAN="2"><br />Dear registrant,</td></tr>';
-$html_text .= '<tr><td COLSPAN="2"><br />You are receiving this message because you are the administrative contact for the above web domain.</td></tr>';
-$html_text .= '<tr><td COLSPAN="2">team.blue nl B.V. has changed at least one of the holder details. This information is listed.</td></tr>';
-$html_text .= '<tr><td COLSPAN="2"><br />Is there something wrong? The company that manages this domain name is: team.blue nl B.V., or the reseller: TransIP.</td></tr>';
-$html_text .= '<tr><td COLSPAN="2">If you, as a registrant, can make changes via their menu, you are primarily responsible.</td></tr>';
+$html_text .= '<tr><td COLSPAN="2"><br />Dear recipient,</td></tr>';
+$html_text .= '<tr><td COLSPAN="2"><br />You are receiving this message because your administrative responsibility for the above domain is relevant to this notification.</td></tr>';
+$html_text .= '<tr><td COLSPAN="2">team.blue nl B.V. has changed at least one domain detail. The relevant domain information is provided above.</td></tr>';
+$html_text .= '<tr><td COLSPAN="2"><br />Is there something wrong? This domain name is managed by team.blue nl B.V. and possibly through reseller TransIP.</td></tr>';
+$html_text .= '<tr><td COLSPAN="2">If, as a registrant, you can make changes via the menu of your registrar or reseller,</td></tr>';
+$html_text .= '<tr><td COLSPAN="2">you are primarily responsible for the accuracy of this domain information.</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />Kind regards</td></tr>';
 $html_text .= '<tr><td COLSPAN="2">SIDN</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />Please don&#39;t reply to this mail. If you have any questions or feedback, please contact <a href="mailto:support@sidn.nl">support@sidn.nl</a>.</td></tr>';
@@ -162,4 +164,4 @@ function get_block($ip) {
     }
 	return (strlen($country)) ? $country . '; ' . $orgName : $orgName;	
 }
-?>
+}?>
