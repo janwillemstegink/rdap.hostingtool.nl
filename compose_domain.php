@@ -134,17 +134,19 @@ if (!empty($_GET['domain']))	{
 		}
 		$dnssecInfo = getDnssecInfo($domain);
 		$registry_rdap['measured_ds_key_tags'] = '';
-		$registry_rdap['measured_ds_algorithms'] = '';
+		$registry_rdap['measured_ds_algorithm_numbers'] = '';
 		$registry_rdap['measured_ds_digest_types'] = '';
 		$registry_rdap['measured_ds_digests'] = '';
 		foreach ($dnssecInfo['ds_data'] as $index => $ds) {
     		$registry_rdap['measured_ds_key_tags'] .= $index . ': ' . $ds['keyTag'] . ',';
-    		$registry_rdap['measured_ds_algorithms'] .= $index . ': ' . $ds['algorithm'] . ',';
+    		$registry_rdap['measured_ds_algorithm_numbers'] .= $index . ': ' . $ds['algorithm'] . ',';
+			$registry_rdap['measured_ds_algorithm_names'] .= $index . ': ' . $ds['algorithm_name'] . ',';
     		$registry_rdap['measured_ds_digest_types'] .= $index . ': ' . $ds['digestType'] . ',';
     		$registry_rdap['measured_ds_digests'] .= $index . ': ' . $ds['digest'] . ',';
 		}
 		$registry_rdap['measured_ds_key_tags'] = rtrim($registry_rdap['measured_ds_key_tags'], ',');
-		$registry_rdap['measured_ds_algorithms'] = rtrim($registry_rdap['measured_ds_algorithms'], ',');
+		$registry_rdap['measured_ds_algorithm_numbers'] = rtrim($registry_rdap['measured_ds_algorithm_numbers'], ',');
+		$registry_rdap['measured_ds_algorithm_names'] = rtrim($registry_rdap['measured_ds_algorithm_names'], ',');
 		$registry_rdap['measured_ds_digest_types'] = rtrim($registry_rdap['measured_ds_digest_types'], ',');
 		$registry_rdap['measured_ds_digests'] = rtrim($registry_rdap['measured_ds_digests'], ',');		
 		$registry_rdap['interface_notice'] = $registry_interface;
@@ -388,12 +390,29 @@ function getDnssecInfo(string $domain): array
     $domain = strtolower(trim($domain));
     $domain = rtrim($domain, '.');
 
+    $algorithmNames = [
+        1  => 'RSAMD5',
+        3  => 'DSA',
+        5  => 'RSASHA1',
+        6  => 'DSA-NSEC3-SHA1',
+        7  => 'RSASHA1-NSEC3-SHA1',
+        8  => 'RSASHA256',
+        10 => 'RSASHA512',
+        12 => 'ECC-GOST',
+        13 => 'ECDSAP256SHA256',
+        14 => 'ECDSAP384SHA384',
+        15 => 'ED25519',
+        16 => 'ED448',
+    ];
+
     $result = [
         'domain' => $domain,
         'signed' => false,
 
         'dnskey_algorithms' => [],
+        'dnskey_algorithm_names' => [],
         'dnskey_algorithms_csv' => '',
+        'dnskey_algorithm_names_csv' => '',
         'dnskey_keytags' => [],
         'dnskey_keytags_csv' => '',
         'dnskey_data' => [],
@@ -401,7 +420,9 @@ function getDnssecInfo(string $domain): array
         'ds_keytags' => [],
         'ds_keytags_csv' => '',
         'ds_algorithms' => [],
+        'ds_algorithm_names' => [],
         'ds_algorithms_csv' => '',
+        'ds_algorithm_names_csv' => '',
         'ds_digest_types' => [],
         'ds_digest_types_csv' => '',
         'ds_digests' => [],
@@ -431,16 +452,18 @@ function getDnssecInfo(string $domain): array
     $result['dnskey_records'] = $dnskeyLines;
     $result['ds_records'] = $dsLines;
 
-    // Parse DNSKEY lines
     foreach ($dnskeyLines as $line) {
         $parsed = parseDnskeyLine($line);
         if ($parsed === null) {
             continue;
         }
 
-        $result['signed'] = true;
+        $algorithm = (int) $parsed['algorithm'];
+        $algorithmName = $algorithmNames[$algorithm] ?? 'UNKNOWN';
 
-        $result['dnskey_algorithms'][] = $parsed['algorithm'];
+        $result['signed'] = true;
+        $result['dnskey_algorithms'][] = $algorithm;
+        $result['dnskey_algorithm_names'][] = $algorithmName;
 
         if ($parsed['keytag'] !== null) {
             $result['dnskey_keytags'][] = $parsed['keytag'];
@@ -449,49 +472,55 @@ function getDnssecInfo(string $domain): array
         $result['dnskey_data'][] = [
             'flags' => $parsed['flags'],
             'protocol' => $parsed['protocol'],
-            'algorithm' => $parsed['algorithm'],
+            'algorithm' => $algorithm,
+            'algorithm_name' => $algorithmName,
             'keytag' => $parsed['keytag'],
         ];
     }
 
-    // Parse DS lines
     foreach ($dsLines as $line) {
         $parsed = parseDsLine($line);
         if ($parsed === null) {
             continue;
         }
 
+        $algorithm = (int) $parsed['algorithm'];
+        $algorithmName = $algorithmNames[$algorithm] ?? 'UNKNOWN';
+
         $result['signed'] = true;
 
         $result['ds_keytags'][] = $parsed['keytag'];
-        $result['ds_algorithms'][] = $parsed['algorithm'];
+        $result['ds_algorithms'][] = $algorithm;
+        $result['ds_algorithm_names'][] = $algorithmName;
         $result['ds_digest_types'][] = $parsed['digest_type'];
         $result['ds_digests'][] = $parsed['digest'];
 
-        // Preserve full DS tuple for RDAP-like output
         $result['ds_data'][] = [
             'keyTag' => $parsed['keytag'],
-            'algorithm' => $parsed['algorithm'],
+            'algorithm' => $algorithm,
+            'algorithm_name' => $algorithmName,
             'digestType' => $parsed['digest_type'],
             'digest' => $parsed['digest'],
         ];
     }
 
-    // Normalize summary lists
     $result['dnskey_algorithms'] = normalizeIntList($result['dnskey_algorithms']);
+    $result['dnskey_algorithm_names'] = normalizeStringList($result['dnskey_algorithm_names']);
     $result['dnskey_keytags'] = normalizeIntList($result['dnskey_keytags']);
 
     $result['ds_keytags'] = normalizeIntList($result['ds_keytags']);
     $result['ds_algorithms'] = normalizeIntList($result['ds_algorithms']);
+    $result['ds_algorithm_names'] = normalizeStringList($result['ds_algorithm_names']);
     $result['ds_digest_types'] = normalizeIntList($result['ds_digest_types']);
     $result['ds_digests'] = normalizeStringList($result['ds_digests']);
 
-    // Stringify summary lists
     $result['dnskey_algorithms_csv'] = implode(',', $result['dnskey_algorithms']);
+    $result['dnskey_algorithm_names_csv'] = implode(',', $result['dnskey_algorithm_names']);
     $result['dnskey_keytags_csv'] = implode(',', $result['dnskey_keytags']);
 
     $result['ds_keytags_csv'] = implode(',', $result['ds_keytags']);
     $result['ds_algorithms_csv'] = implode(',', $result['ds_algorithms']);
+    $result['ds_algorithm_names_csv'] = implode(',', $result['ds_algorithm_names']);
     $result['ds_digest_types_csv'] = implode(',', $result['ds_digest_types']);
     $result['ds_digests_csv'] = implode(',', $result['ds_digests']);
 
@@ -2029,7 +2058,7 @@ $arr['metadata']['registry_geo_location'] = '';
 $arr['metadata']['registrar_identifiers'] = $registrar_identifiers;		
 $arr['metadata']['registrar_identifier'] = $registrar_identifier;
 
-$arr['metadata']['request_uri'] = $url;	
+$arr['metadata']['request_uri'] = $url;
 $arr['metadata']['registry_data_uri'] = $registry_data_uri;
 $arr['metadata']['registrar_data_uri'] = $registrar_data_uri;
 $arr['metadata']['registrar_complaint_uri'] = $registrar_complaint_uri;
