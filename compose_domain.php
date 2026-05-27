@@ -2062,7 +2062,6 @@ $arr['metadata']['request_uri'] = $url;
 $arr['metadata']['registry_data_uri'] = $registry_data_uri;
 $arr['metadata']['registrar_data_uri'] = $registrar_data_uri;
 $arr['metadata']['registrar_complaint_uri'] = $registrar_complaint_uri;
-$arr['metadata']['registrar_uri_links'] = $registrar_links;
 $arr['metadata']['status_explanation_uri'] = $status_explanation_uri;
 $arr['metadata']['resource_upload_at'] = $resource_upload_at;		
 	

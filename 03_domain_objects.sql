@@ -38,8 +38,7 @@ CREATE TABLE IF NOT EXISTS metadata_registrar (
 	mr_registrar_server_handle TEXT NOT NULL UNIQUE,
 	mr_registrar_identifiers JSONB DEFAULT '[]'::jsonb,
     mr_registrar_data_uri JSONB DEFAULT '[]'::jsonb,
-    mr_registrar_complaint_uri JSONB DEFAULT '[]'::jsonb,
-	mr_registrar_uri_links JSONB DEFAULT '[]'::jsonb
+    mr_registrar_complaint_uri JSONB DEFAULT '[]'::jsonb
 );
 
 -- ========================================
@@ -271,6 +270,7 @@ CREATE TABLE IF NOT EXISTS domain_relationships (
     dr_domain BIGINT NOT NULL REFERENCES domains(domain_id) ON DELETE CASCADE,
     dr_source_layer VARCHAR(12) NOT NULL CHECK (dr_source_layer IN ('registry','registrar')),
     dr_relationship VARCHAR(50),
+	dr_links JSONB NOT NULL DEFAULT '[]'::jsonb,
     dr_publication_state JSONB NOT NULL DEFAULT '{
         "organization_name": "shielded",
         "presented_name": "shielded",
@@ -329,6 +329,7 @@ CREATE TABLE IF NOT EXISTS entity_relationships (
     er_parent_relationship VARCHAR(50),
     er_parent BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE,
     er_child_relationship VARCHAR(50),
+	er_links JSONB NOT NULL DEFAULT '[]'::jsonb,
     er_publication_state JSONB NOT NULL DEFAULT '{
         "organization_name": "shielded",
         "presented_name": "shielded",
