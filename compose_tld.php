@@ -69,7 +69,7 @@ $nameservers_ipv6 = '';
 $nameservers_statuses = '';	
 $nameservers_rdap_dnssec_signed = '';
 $nameservers_rdap_ds_key_tags = '';	
-$nameservers_rdap_ds_algorithms = '';
+$nameservers_rdap_ds_algorithm_numbers = '';
 $nameservers_rdap_ds_digest_types = '';
 $nameservers_rdap_ds_digests = '';	
 foreach($obj as $key1 => $value1) {
@@ -116,7 +116,7 @@ foreach($obj as $key1 => $value1) {
 			if ($key1 == 'secureDNS')	{
 				if ($key2 == 'dsData') {
 					$nameservers_rdap_ds_key_tags .= $key3.': '.$value3['keyTag']."<br />";	
-					$nameservers_rdap_ds_algorithms .= $key3.': '.$value3['algorithm']."<br />";	
+					$nameservers_rdap_ds_algorithm_numbers .= $key3.': '.$value3['algorithm']."<br />";	
 					$nameservers_rdap_ds_digest_types .= $key3.': '.$value3['digestType']."<br />";	
 					$nameservers_rdap_ds_digests .= $key3.': '.$value3['digest']."<br />";
 				}				
@@ -734,7 +734,7 @@ $arr[$inputtld]['nameservers']['ipv6_addresses'] = $nameservers_ipv6;
 $arr[$inputtld]['nameservers']['statuses'] = $nameservers_statuses;
 $arr[$inputtld]['nameservers']['rdap_dnssec_signed'] = $nameservers_rdap_dnssec_signed;
 $arr[$inputtld]['nameservers']['rdap_ds_key_tags'] = $nameservers_rdap_ds_key_tags;
-$arr[$inputtld]['nameservers']['rdap_ds_algorithms'] = $nameservers_rdap_ds_algorithms;
+$arr[$inputtld]['nameservers']['rdap_ds_algorithm_numbers'] = $nameservers_rdap_ds_algorithm_numbers;
 $arr[$inputtld]['nameservers']['rdap_ds_digest_types'] = $nameservers_rdap_ds_digest_types;
 $arr[$inputtld]['nameservers']['rdap_ds_digests'] = $nameservers_rdap_ds_digests;
 

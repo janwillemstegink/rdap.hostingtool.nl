@@ -207,7 +207,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_operational_periods").textContent = proposed;
 		document.getElementById("nameservers_part").textContent = "";
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "";
-		document.getElementById("nameservers_rdap_ds_algorithms").textContent = "";
+		document.getElementById("nameservers_rdap_ds_algorithm_numbers").textContent = "";
 		document.getElementById("nameservers_ip").textContent = "";
 	}
 	else if (translation == 1)	{
@@ -262,7 +262,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_operational_periods").textContent = proposed + 'Meerjarige registratie soms mogelijk; max. verschilt per TLD en registrar.';
 		document.getElementById("nameservers_part").textContent = "Authoritatieve zone: DNS-gegevens die door deze nameservers worden geserveerd.";
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC beveiligt DNS tegen spoofing en cachevergiftiging.";
-		document.getElementById("nameservers_rdap_ds_algorithms").textContent = "Algoritmen 13–16 zijn actueel. IANA voert algoritme 8 als RECOMMENDED, geldt als uitlopend.";
+		document.getElementById("nameservers_rdap_ds_algorithm_numbers").textContent = "Algoritmen 13–16 zijn actueel. IANA voert algoritme 8 als RECOMMENDED, geldt als uitlopend.";
 		document.getElementById("nameservers_ip").textContent = "IP addresses from RDAP, if available. Usually present for TLD zones.";
 	}
 	else if (translation == 2)	{
@@ -317,7 +317,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_operational_periods").textContent = proposed + 'Multi-year registration sometimes possible; max varies by TLD & registrar.';
 		document.getElementById("nameservers_part").textContent = "Authoritative zone: DNS data served by these nameservers.";
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC secures DNS against spoofing and cache poisoning.";
-		document.getElementById("nameservers_rdap_ds_algorithms").textContent = "Algorithms 13–16 are current. IANA lists algorithm 8 as RECOMMENDED, considered phasing out.";
+		document.getElementById("nameservers_rdap_ds_algorithm_numbers").textContent = "Algorithms 13–16 are current. IANA lists algorithm 8 as RECOMMENDED, considered phasing out.";
 		document.getElementById("nameservers_ip").textContent = "IP addresses from RDAP, if available. Usually present for TLD zones.";
 	}
 	else if (translation == 3)	{
@@ -372,7 +372,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_operational_periods").textContent = proposed + 'Mehrjährige Registrierung teils möglich; max. variiert je nach TLD und Registrar.';
 		document.getElementById("nameservers_part").textContent = "Autoritative Zone: DNS-Daten, die von diesen Nameservern bereitgestellt werden.";
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC sichert DNS gegen Spoofing und Cache-Poisoning.";
-		document.getElementById("nameservers_rdap_ds_algorithms").textContent = "Algorithmen 13–16 sind aktuell. IANA führt Algorithmus 8 als RECOMMENDED, gilt als auslaufend.";
+		document.getElementById("nameservers_rdap_ds_algorithm_numbers").textContent = "Algorithmen 13–16 sind aktuell. IANA führt Algorithmus 8 als RECOMMENDED, gilt als auslaufend.";
 		document.getElementById("nameservers_ip").textContent = "RDAP-IP-Adressen, sofern verfügbar. Meist für TLD-Zonen vorhanden.";
 	}
 	else if (translation == 4)	{
@@ -427,7 +427,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("lifecycle_operational_periods").textContent = proposed + "Enregistrement pluriannuel parfois possible ; max. selon TLD et bureau d’enregistrement.";
 		document.getElementById("nameservers_part").textContent = "Zone autoritative : données DNS servies par ces serveurs de noms.";
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC sécurise le DNS contre le spoofing et l’empoisonnement.";
-		document.getElementById("nameservers_rdap_ds_algorithms").textContent = "Les algorithmes 13–16 sont actuels. L’IANA classe l’algorithme 8 comme RECOMMENDED, en fin de vie.";
+		document.getElementById("nameservers_rdap_ds_algorithm_numbers").textContent = "Les algorithmes 13–16 sont actuels. L’IANA classe l’algorithme 8 comme RECOMMENDED, en fin de vie.";
 		document.getElementById("nameservers_ip").textContent = "Adresses IP RDAP, si disponibles. Généralement présentes pour les zones TLD.";
 	}
 }	
@@ -532,7 +532,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="616" style="display:none;vertical-align:top"><td>statuses</td><td>'.$data[$pd]['nameservers']['statuses'].'</td><td></td><td></td></tr>';
 	$html_text .= '<tr id="617" style="display:none;vertical-align:top"><td>rdap_dnssec_signed</td><td>'.$data[$pd]['nameservers']['rdap_dnssec_signed'].'</td><td id="nameservers_rdap_dnssec_signed"></td><td></td></tr>';
 	$html_text .= '<tr id="618" style="display:none;vertical-align:top"><td>rdap_ds_key_tags</td><td>'.$data[$pd]['nameservers']['rdap_ds_key_tags'].'</td><td></td><td></td></tr>';
-	$html_text .= '<tr style="vertical-align:top"><td>rdap_ds_algorithms</td><td>'.$data[$pd]['nameservers']['rdap_ds_algorithms'].'</td><td id="nameservers_rdap_ds_algorithms"></td><td></td></tr>';	
+	$html_text .= '<tr style="vertical-align:top"><td>rdap_ds_algorithm_numbers</td><td>'.$data[$pd]['nameservers']['rdap_ds_algorithm_numbers'].'</td><td id="nameservers_rdap_ds_algorithm_numbers"></td><td></td></tr>';	
 	$html_text .= '<tr id="619" style="display:none;vertical-align:top"><td>rdap_ds_digest_types</td><td>'.$data[$pd]['nameservers']['rdap_ds_digest_types'].'</td><td></td><td></td></tr>';
 	$html_text .= '<tr id="6110" style="display:none;vertical-align:top"><td>rdap_ds_digests</td><td colspan="2">'.$data[$pd]['nameservers']['rdap_ds_digests'].'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
