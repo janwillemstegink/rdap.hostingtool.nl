@@ -1011,7 +1011,7 @@ $registrant_latest_data_mutation_at = null;
 $registrant_expiration_at = null;	
 $registrant_deletion_at = null;	
 $registrant_remarks = '';		
-$administrative_remarks = '';
+$request_handling_remarks = '';
 $technical_remarks = '';
 $billing_remarks = '';		
 $reseller_statuses = '';
@@ -1077,23 +1077,23 @@ $registrant_postal_code = '';
 $registrant_country_name = '';	
 $registrant_preferred_languages = '';
 $registrant_links = '';	
-$administrative_handle = '';
-$administrative_organization_type = '';
-$administrative_organization_name = '';	
-$administrative_presented_name = '';
-$administrative_kind = '';
-$administrative_name = '';	
-$administrative_email = '';
-$administrative_contact_uri = '';	
-$administrative_phone = '';
-$administrative_country_code = '';	
-$administrative_street_address = '';
-$administrative_city = '';	
-$administrative_state_or_province = '';
-$administrative_postal_code = '';	
-$administrative_country_name = '';
-$administrative_preferred_languages = '';
-$administrative_links = '';	
+$request_handling_handle = '';
+$request_handling_organization_type = '';
+$request_handling_organization_name = '';	
+$request_handling_presented_name = '';
+$request_handling_kind = '';
+$request_handling_name = '';	
+$request_handling_email = '';
+$request_handling_contact_uri = '';	
+$request_handling_phone = '';
+$request_handling_country_code = '';	
+$request_handling_street_address = '';
+$request_handling_city = '';	
+$request_handling_state_or_province = '';
+$request_handling_postal_code = '';	
+$request_handling_country_name = '';
+$request_handling_preferred_languages = '';
+$request_handling_links = '';	
 $technical_handle = '';
 $technical_organization_type = '';
 $technical_organization_name = '';	
@@ -1186,14 +1186,14 @@ $nameservers_last_valid_nameserver_check_dates = '';
 	
 $entity_sponsor = -1;	
 $entity_registrant = -1;
-$entity_administrative = -1;
+$entity_request_handling = -1;
 $entity_technical = -1;
 $entity_billing = -1;	
 $entity_reseller = -1;		
 $entity_registrar = -1;
 $entity_key4_sponsor = -1;	
 $entity_key4_registrant = -1;	
-$entity_key4_administrative = -1;
+$entity_key4_request_handling = -1;
 $entity_key4_tech = -1;
 $entity_key4_billing = -1;
 $entity_key4_reseller = -1;		
@@ -1214,7 +1214,7 @@ foreach($obj as $key1 => $value1) {
 					$entity_registrant = $key2;
 				}
 				elseif ($value4 == 'administrative')	{
-					$entity_administrative = $key2;
+					$entity_request_handling = $key2;
 				}
 				elseif ($value4 == 'technical')	{
 					$entity_technical = $key2;
@@ -1239,7 +1239,7 @@ foreach($obj as $key1 => $value1) {
 							$entity_key4_registrant = $key4;
 						}
 						elseif ($value6 == 'administrative')	{
-							$entity_key4_administrative = $key4;
+							$entity_key4_request_handling = $key4;
 						}
 						elseif ($value6 == 'technical')	{
 							$entity_key4_tech = $key4;
@@ -1382,8 +1382,8 @@ foreach($obj as $key1 => $value1) {
 					if ($key2 == $entity_registrant)	{
 						$registrant_handle = $value3;
 					}				
-					if ($key2 == $entity_administrative)	{
-						$administrative_handle = $value3;
+					if ($key2 == $entity_request_handling)	{
+						$request_handling_handle = $value3;
 					}
 					if ($key2 == $entity_technical)	{
 						$technical_handle = $value3;
@@ -1550,11 +1550,11 @@ foreach($obj as $key1 => $value1) {
 							}
 		        			$registrant_remarks .= interprete_remark($key5, $value5);
 						}
-						if ($key2 == $entity_administrative and $key3 == 'remarks')	{
-							if (strlen($administrative_remarks))	{
-								$administrative_remarks .= "<br />";				
+						if ($key2 == $entity_request_handling and $key3 == 'remarks')	{
+							if (strlen($request_handling_remarks))	{
+								$request_handling_remarks .= "<br />";				
 							}
-		        			$administrative_remarks .= interprete_remark($key5, $value5);
+		        			$request_handling_remarks .= interprete_remark($key5, $value5);
 						}
 						if ($key2 == $entity_technical and $key3 == 'remarks')	{
 							if (strlen($technical_remarks))	{
@@ -1586,8 +1586,8 @@ foreach($obj as $key1 => $value1) {
 						if ($key2 == $entity_registrant and $key3 == 'links')	{
 							$registrant_links .= $key4.': '.$key5.': '.$value5."<br />";
 						}
-						if ($key2 == $entity_administrative and $key3 == 'links')	{
-							$administrative_links .= $key4.': '.$key5.': '.$value5."<br />";
+						if ($key2 == $entity_request_handling and $key3 == 'links')	{
+							$request_handling_links .= $key4.': '.$key5.': '.$value5."<br />";
 						}
 						if ($key2 == $entity_technical and $key3 == 'links')	{
 							$technical_links .= $key4.': '.$key5.': '.$value5."<br />";
@@ -1641,8 +1641,8 @@ foreach($obj as $key1 => $value1) {
 							if ($key2 == $entity_registrant)	{
 								$registrant_email .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
 							}
-							if ($key2 == $entity_administrative)	{
-								$administrative_email .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
+							if ($key2 == $entity_request_handling)	{
+								$request_handling_email .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
 							}
 							if ($key2 == $entity_technical)	{
 								$technical_email .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
@@ -1664,8 +1664,8 @@ foreach($obj as $key1 => $value1) {
 							if ($key2 == $entity_registrant)	{
 								$registrant_contact_uri .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
 							}
-							if ($key2 == $entity_administrative)	{
-								$administrative_contact_uri .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
+							if ($key2 == $entity_request_handling)	{
+								$request_handling_contact_uri .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
 							}
 							if ($key2 == $entity_technical)	{
 								$technical_contact_uri .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
@@ -1700,8 +1700,8 @@ foreach($obj as $key1 => $value1) {
 							if ($key2 == $entity_registrant)	{
 								$registrant_phone .= $typeresult . $value5[2] . ' ' . $value5[3]."<br />";
 							}
-							if ($key2 == $entity_administrative)	{
-								$administrative_phone .= $typeresult . $value5[2] . ' ' . $value5[3]."<br />";
+							if ($key2 == $entity_request_handling)	{
+								$request_handling_phone .= $typeresult . $value5[2] . ' ' . $value5[3]."<br />";
 							}
 							if ($key2 == $entity_technical)	{
 								$technical_phone .= $typeresult . $value5[2] . ' ' . $value5[3]."<br />";
@@ -1723,8 +1723,8 @@ foreach($obj as $key1 => $value1) {
 							if ($key2 == $entity_registrant)	{
 								$registrant_presented_name = $value5[3];
 							}
-							if ($key2 == $entity_administrative)	{
-								$administrative_presented_name = $value5[3];
+							if ($key2 == $entity_request_handling)	{
+								$request_handling_presented_name = $value5[3];
 							}
 							if ($key2 == $entity_technical)	{
 								$technical_presented_name = $value5[3];
@@ -1749,10 +1749,10 @@ foreach($obj as $key1 => $value1) {
 									$registrant_name .= ', '. $value5[3][1];
 								}
 							}
-							if ($key2 == $entity_administrative)	{
-								$administrative_name = $value5[3][0];	
+							if ($key2 == $entity_request_handling)	{
+								$request_handling_name = $value5[3][0];	
 								if (strlen($value5[3][1]))	{
-									$administrative_name .= ', '. $value5[3][1];
+									$request_handling_name .= ', '. $value5[3][1];
 								}
 							}
 							if ($key2 == $entity_technical)	{
@@ -1790,8 +1790,8 @@ foreach($obj as $key1 => $value1) {
 							if ($key2 == $entity_registrant)	{
 								$registrant_kind = $value5[3];
 							}
-							if ($key2 == $entity_administrative)	{
-								$administrative_kind = $value5[3];
+							if ($key2 == $entity_request_handling)	{
+								$request_handling_kind = $value5[3];
 							}
 							if ($key2 == $entity_technical)	{
 								$technical_kind = $value5[3];
@@ -1814,9 +1814,9 @@ foreach($obj as $key1 => $value1) {
 								$registrant_organization_type = (is_array($value5[1]['type'])) ? implode(",<br />",$value5[1]['type']) : $value5[1]['type'];
 								$registrant_organization_name = $value5[3];
 							}
-							if ($key2 == $entity_administrative)	{
-								$administrative_organization_type = (is_array($value5[1]['type'])) ? implode(",<br />",$value5[1]['type']) : $value5[1]['type'];
-								$administrative_organization_name = $value5[3];
+							if ($key2 == $entity_request_handling)	{
+								$request_handling_organization_type = (is_array($value5[1]['type'])) ? implode(",<br />",$value5[1]['type']) : $value5[1]['type'];
+								$request_handling_organization_name = $value5[3];
 							}
 							if ($key2 == $entity_technical)	{
 								$technical_organization_type = (is_array($value5[1]['type'])) ? implode(",<br />",$value5[1]['type']) : $value5[1]['type'];
@@ -1846,9 +1846,9 @@ foreach($obj as $key1 => $value1) {
         						if ($pref == 1) $registrant_preferred_languages .= $language_code;
         						if ($pref == 2) $registrant_preferred_languages .= ', ' . $language_code;
     						}						
-    						if ($key2 == $entity_administrative) {
-        						if ($pref == 1) $administrative_preferred_languages .= $language_code;
-        						if ($pref == 2) $administrative_preferred_languages .= ', ' . $language_code;
+    						if ($key2 == $entity_request_handling) {
+        						if ($pref == 1) $request_handling_preferred_languages .= $language_code;
+        						if ($pref == 2) $request_handling_preferred_languages .= ', ' . $language_code;
     						}
     						if ($key2 == $entity_technical) {
         						if ($pref == 1) $technical_preferred_languages .= $language_code;
@@ -1875,8 +1875,8 @@ foreach($obj as $key1 => $value1) {
 							if ($key2 == $entity_registrant)	{
 								$registrant_country_code = detect_country_code($registrant_country_code, $value6['CC'], $value6['cc']);
 							}
-							if ($key2 == $entity_administrative)	{
-								$administrative_country_code = detect_country_code($administrative_country_code, $value6['CC'], $value6['cc']);
+							if ($key2 == $entity_request_handling)	{
+								$request_handling_country_code = detect_country_code($request_handling_country_code, $value6['CC'], $value6['cc']);
 							}	
 							if ($key2 == $entity_technical)	{
 								$technical_country_code = detect_country_code($technical_country_code, $value6['CC'], $value6['cc']);
@@ -1902,12 +1902,12 @@ foreach($obj as $key1 => $value1) {
 								$registrant_postal_code = (is_array($value6[5])) ? implode(",<br />",$value6[5]) : $value6[5];
 								$registrant_country_name = (is_array($value6[6])) ? implode(",<br />",$value6[6]) : $value6[6];
 							}
-							if ($key2 == $entity_administrative)	{
-								$administrative_street_address = (is_array($value6[2])) ? implode(",<br />",$value6[2]) : $value6[2];
-								$administrative_city = (is_array($value6[3])) ? implode(",<br />",$value6[3]) : $value6[3];
-								$administrative_state_or_province = (is_array($value6[4])) ? implode(",<br />",$value6[4]) : $value6[4];
-								$administrative_postal_code = (is_array($value6[5])) ? implode(",<br />",$value6[5]) : $value6[5];
-								$administrative_country_name = (is_array($value6[6])) ? implode(",<br />",$value6[6]) : $value6[6];
+							if ($key2 == $entity_request_handling)	{
+								$request_handling_street_address = (is_array($value6[2])) ? implode(",<br />",$value6[2]) : $value6[2];
+								$request_handling_city = (is_array($value6[3])) ? implode(",<br />",$value6[3]) : $value6[3];
+								$request_handling_state_or_province = (is_array($value6[4])) ? implode(",<br />",$value6[4]) : $value6[4];
+								$request_handling_postal_code = (is_array($value6[5])) ? implode(",<br />",$value6[5]) : $value6[5];
+								$request_handling_country_name = (is_array($value6[6])) ? implode(",<br />",$value6[6]) : $value6[6];
 							}	
 							if ($key2 == $entity_technical)	{
 								$technical_street_address = (is_array($value6[2])) ? implode(",<br />",$value6[2]) : $value6[2];
@@ -1996,8 +1996,8 @@ foreach($obj as $key1 => $value1) {
 									if ($key4 == $entity_key4_registrant)	{
 										$registrant_email .= $value7[3]."<br />";
 									}
-									if ($key4 == $entity_key4_administrative)	{
-										$administrative_email .= $value7[3]."<br />";
+									if ($key4 == $entity_key4_request_handling)	{
+										$request_handling_email .= $value7[3]."<br />";
 									}
 									if ($key4 == $entity_key4_tech)	{
 										$technical_email .= $value7[3]."<br />";
@@ -2016,8 +2016,8 @@ foreach($obj as $key1 => $value1) {
 									if ($key4 == $entity_key4_registrant)	{
 										$registrant_phone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . "<br />";
 									}
-									if ($key4 == $entity_key4_administrative)	{
-										$administrative_phone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . "<br />";
+									if ($key4 == $entity_key4_request_handling)	{
+										$request_handling_phone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . "<br />";
 									}
 									if ($key4 == $entity_key4_tech)	{
 										$technical_phone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . "<br />";
@@ -2127,28 +2127,28 @@ $arr['registrant']['latest_data_mutation_at'] = $registrant_latest_data_mutation
 $arr['registrant']['remarks'] = $registrant_remarks;
 $arr['registrant']['links'] = $registrant_links;	
 	
-$arr['administrative']['client_handle'] = $administrative_handle;
-$arr['administrative']['web_id'] = $administrative_web_id;		
-$arr['administrative']['organization_type'] = $administrative_organization_type;	
-$arr['administrative']['organization_name'] = $administrative_organization_name;	
-$arr['administrative']['presented_name'] = $administrative_presented_name;	
-$arr['administrative']['kind'] = $administrative_kind;	
-$arr['administrative']['name'] = $administrative_name;		
-$arr['administrative']['email'] = $administrative_email;
-$arr['administrative']['contact_uri'] = $administrative_contact_uri;	
-$arr['administrative']['phone'] = $administrative_phone;
-$arr['administrative']['country_code'] = $administrative_country_code;		
-$arr['administrative']['street_address'] = $administrative_street_address;
-$arr['administrative']['city'] = $administrative_city;
-$arr['administrative']['state_or_province'] = $administrative_state_or_province;
-$arr['administrative']['postal_code'] = $administrative_postal_code;
-$arr['administrative']['country_name'] = $administrative_country_name;	
-$arr['administrative']['preferred_languages'] = $administrative_preferred_languages;
-$arr['administrative']['statuses'] = $administrative_statuses;
-$arr['administrative']['created_at'] = $administrative_created_at;
-$arr['administrative']['latest_data_mutation_at'] = $administrative_latest_data_mutation_at;
-$arr['administrative']['remarks'] = $administrative_remarks;
-$arr['administrative']['links'] = $administrative_links;
+$arr['request_handling']['client_handle'] = $request_handling_handle;
+$arr['request_handling']['web_id'] = $request_handling_web_id;		
+$arr['request_handling']['organization_type'] = $request_handling_organization_type;	
+$arr['request_handling']['organization_name'] = $request_handling_organization_name;	
+$arr['request_handling']['presented_name'] = $request_handling_presented_name;	
+$arr['request_handling']['kind'] = $request_handling_kind;	
+$arr['request_handling']['name'] = $request_handling_name;		
+$arr['request_handling']['email'] = $request_handling_email;
+$arr['request_handling']['contact_uri'] = $request_handling_contact_uri;	
+$arr['request_handling']['phone'] = $request_handling_phone;
+$arr['request_handling']['country_code'] = $request_handling_country_code;		
+$arr['request_handling']['street_address'] = $request_handling_street_address;
+$arr['request_handling']['city'] = $request_handling_city;
+$arr['request_handling']['state_or_province'] = $request_handling_state_or_province;
+$arr['request_handling']['postal_code'] = $request_handling_postal_code;
+$arr['request_handling']['country_name'] = $request_handling_country_name;	
+$arr['request_handling']['preferred_languages'] = $request_handling_preferred_languages;
+$arr['request_handling']['statuses'] = $request_handling_statuses;
+$arr['request_handling']['created_at'] = $request_handling_created_at;
+$arr['request_handling']['latest_data_mutation_at'] = $request_handling_latest_data_mutation_at;
+$arr['request_handling']['remarks'] = $request_handling_remarks;
+$arr['request_handling']['links'] = $request_handling_links;
 
 $arr['technical']['client_handle'] = $technical_handle;
 $arr['technical']['web_id'] = $technical_web_id;		

@@ -40,7 +40,7 @@ $html_text .= '<tr><td style="font-size:1.1rem;color:blue;font-weight:bold">Web 
 $html_text .= '<tr><td><hr></td><td><hr></td></tr>';
 $html_text .= '<tr><td COLSPAN="2">- English version of this message below –</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />Geachte ontvanger,</td></tr>';
-$html_text .= '<tr><td COLSPAN="2"><br />U ontvangt dit bericht omdat uw administratieve verantwoordelijkheid voor bovenstaand domein relevant is voor deze melding.</td></tr>';
+$html_text .= '<tr><td COLSPAN="2"><br />U ontvangt dit bericht omdat uw verantwoordelijkheid voor verzoekafhandeling inzake bovenstaand domein relevant is voor deze melding.</td></tr>';
 $html_text .= '<tr><td COLSPAN="2">team.blue nl B.V. heeft ten minste één domeingegeven gewijzigd. De relevante domeingegevens zijn:</td></tr>';
 foreach ($xml1->xpath('//domain') as $item)	{
 	simplexml_load_string($item->asXML());
@@ -63,7 +63,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	$html_text .= '<tr><td>city</td><td>'.$item->registrant->city.'</td></tr>';
 	$html_text .= '<tr><td>state_or_province</td><td>'.$item->registrant->state_or_province.'</td></tr>';	
 	$html_text .= '<tr><td>country_name</td><td>'.$item->registrant->country_name.'</td></tr>';
-	$html_text .= '<tr><td COLSPAN="2"><br /><u>Administratieve contactpersoon / Administrative contact:</u></td></tr>';
+	$html_text .= '<tr><td COLSPAN="2"><br /><u>Verzoekafhandeling / Request Handling:</u></td></tr>';
 	$html_text .= '<tr><td>web_id</td><td>'.$item->administrative->web_id.'</td></tr>';
 	$html_text .= '<tr><td>organization_type</td><td>'.$item->administrative->organization_type.'</td></tr>';
 	$html_text .= '<tr><td>organization_name</td><td>'.$item->administrative->organization_name.'</td></tr>';
@@ -105,7 +105,7 @@ foreach ($xml1->xpath('//domain') as $item)	{
 	break;
 }
 $html_text .= '<tr><td COLSPAN="2"><br />Dear recipient,</td></tr>';
-$html_text .= '<tr><td COLSPAN="2"><br />You are receiving this message because your administrative responsibility for the above domain is relevant to this notification.</td></tr>';
+$html_text .= '<tr><td COLSPAN="2"><br />You are receiving this message because your request handling responsibility for the above domain is relevant to this notification.</td></tr>';
 $html_text .= '<tr><td COLSPAN="2">team.blue nl B.V. has changed at least one domain detail. The relevant domain information is provided above.</td></tr>';
 $html_text .= '<tr><td COLSPAN="2"><br />Is there something wrong? This domain name is managed by team.blue nl B.V. and possibly through reseller TransIP.</td></tr>';
 $html_text .= '<tr><td COLSPAN="2">If, as a registrant, you can make changes via the menu of your registrar or reseller,</td></tr>';

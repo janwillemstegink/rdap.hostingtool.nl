@@ -165,7 +165,7 @@ CREATE TABLE IF NOT EXISTS tlds (
             {"relationship_sequence": 10, "relationship_identifier": "sponsor"},
             {"relationship_sequence": 20, "relationship_identifier": "registrant"},
 			{"relationship_sequence": 30, "relationship_identifier": "actor"},
-            {"relationship_sequence": 40, "relationship_identifier": "administrative"},
+            {"relationship_sequence": 40, "relationship_identifier": "request_handling"},
             {"relationship_sequence": 50, "relationship_identifier": "technical"},
             {"relationship_sequence": 60, "relationship_identifier": "billing"},
             {"relationship_sequence": 70, "relationship_identifier": "escalation"},
