@@ -162,10 +162,12 @@ const modeling = `Legacy limitations
 2. Output representation and field names such as "registrant_contact_uri" can provide explicit visibility information and preserve relationship context.
 3. Revising "redacted" representation to "publication_state" can support future RDAP evolution by expressing visibility state directly.
 4. Relationship responsibility order is not inherent in RDAP JSON representation.
+5. Contact endpoints may be represented in email fields even when the value is not an email address, resulting in ambiguous semantics and reduced interoperability.
 
 Model principles
 Publication state may vary for each domain–relationship–field combination.
 Inclusion of publication details depends on an RDAP service’s data structure and representation choices.
+Field values SHOULD conform to the semantics of the field in which they are represented.
 
 RDAP output:
 MUST preserve relationship context.
