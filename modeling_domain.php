@@ -167,7 +167,6 @@ const modeling = `Legacy limitations
 Model principles
 Publication state may vary for each domain–relationship–field combination.
 Inclusion of publication details depends on an RDAP service’s data structure and representation choices.
-Field values SHOULD conform to the semantics of the field in which they are represented.
 
 RDAP output:
 MUST preserve relationship context.
@@ -189,6 +188,7 @@ RDAP "relationships" MUST be ordered by relationship responsibility: sponsor, re
 request_handling, issue_reporting, billing, escalation, reseller, registrar, registrar_abuse
 
 Operational guidance
+Field values SHOULD conform to the semantics of the field in which they are represented.
 Registry communications SHOULD clearly identify the applicable relationship when addressing the recipient.
 
 Example (Non-Normative)
