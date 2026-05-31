@@ -160,9 +160,10 @@ function SwitchDisplay(type) {
 const modeling = `Legacy limitations
 1. The current "name.description", "name.type", and "type" alternatives may result in differing visibility representation across registry and registrar RDAP.
 2. Output representation and field names such as "registrant_contact_uri" can provide explicit visibility information and preserve relationship context.
-3. Revising "redacted" representation to "publication_state" can support future RDAP evolution by expressing visibility state directly.
+3. Revising the "redacted" representation to "publication_state" can support future RDAP evolution by expressing visibility state directly.
 4. Relationship responsibility order is not inherent in RDAP JSON representation.
 5. Contact endpoints may be represented in email fields even when the value is not an email address, resulting in ambiguous semantics and reduced interoperability.
+6. Registry RDAP and registrar RDAP are distinct sources; "Server policy" does not identify which source applies.
 
 Model principles
 Publication state may vary for each domain–relationship–field combination.
