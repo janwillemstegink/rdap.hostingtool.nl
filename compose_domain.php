@@ -1012,7 +1012,7 @@ $registrant_expiration_at = null;
 $registrant_deletion_at = null;	
 $registrant_remarks = '';		
 $request_handling_remarks = '';
-$technical_remarks = '';
+$issue_reporting_remarks = '';
 $billing_remarks = '';		
 $reseller_statuses = '';
 $reseller_created_at = null;
@@ -1094,23 +1094,23 @@ $request_handling_postal_code = '';
 $request_handling_country_name = '';
 $request_handling_preferred_languages = '';
 $request_handling_links = '';	
-$technical_handle = '';
-$technical_organization_type = '';
-$technical_organization_name = '';	
-$technical_presented_name = '';
-$technical_kind = '';
-$technical_name = '';	
-$technical_email = '';
-$technical_contact_uri = '';	
-$technical_phone = '';
-$technical_country_code = '';	
-$technical_street_address = '';
-$technical_city = '';	
-$technical_state_or_province = '';
-$technical_postal_code = '';	
-$technical_country_name = '';
-$technical_preferred_languages = '';
-$technical_links = '';	
+$issue_reporting_handle = '';
+$issue_reporting_organization_type = '';
+$issue_reporting_organization_name = '';	
+$issue_reporting_presented_name = '';
+$issue_reporting_kind = '';
+$issue_reporting_name = '';	
+$issue_reporting_email = '';
+$issue_reporting_contact_uri = '';	
+$issue_reporting_phone = '';
+$issue_reporting_country_code = '';	
+$issue_reporting_street_address = '';
+$issue_reporting_city = '';	
+$issue_reporting_state_or_province = '';
+$issue_reporting_postal_code = '';	
+$issue_reporting_country_name = '';
+$issue_reporting_preferred_languages = '';
+$issue_reporting_links = '';	
 $billing_handle = '';
 $billing_organization_type = '';
 $billing_organization_name = '';	
@@ -1386,7 +1386,7 @@ foreach($obj as $key1 => $value1) {
 						$request_handling_handle = $value3;
 					}
 					if ($key2 == $entity_technical)	{
-						$technical_handle = $value3;
+						$issue_reporting_handle = $value3;
 					}
 					if ($key2 == $entity_reseller)	{
 						$reseller_handle = $value3;
@@ -1557,10 +1557,10 @@ foreach($obj as $key1 => $value1) {
 		        			$request_handling_remarks .= interprete_remark($key5, $value5);
 						}
 						if ($key2 == $entity_technical and $key3 == 'remarks')	{
-							if (strlen($technical_remarks))	{
-								$technical_remarks .= "<br />";				
+							if (strlen($issue_reporting_remarks))	{
+								$issue_reporting_remarks .= "<br />";				
 							}
-		        			$technical_remarks .= interprete_remark($key5, $value5);
+		        			$issue_reporting_remarks .= interprete_remark($key5, $value5);
 						}
 						if ($key2 == $entity_billing and $key3 == 'remarks')	{
 							if (strlen($billing_remarks))	{
@@ -1590,7 +1590,7 @@ foreach($obj as $key1 => $value1) {
 							$request_handling_links .= $key4.': '.$key5.': '.$value5."<br />";
 						}
 						if ($key2 == $entity_technical and $key3 == 'links')	{
-							$technical_links .= $key4.': '.$key5.': '.$value5."<br />";
+							$issue_reporting_links .= $key4.': '.$key5.': '.$value5."<br />";
 						}
 						if ($key2 == $entity_billing and $key3 == 'links')	{
 							$billing_links .= $key4.': '.$key5.': '.$value5."<br />";
@@ -1645,7 +1645,7 @@ foreach($obj as $key1 => $value1) {
 								$request_handling_email .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
 							}
 							if ($key2 == $entity_technical)	{
-								$technical_email .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
+								$issue_reporting_email .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
 							}
 							if ($key2 == $entity_billing)	{
 								$billing_email .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
@@ -1668,7 +1668,7 @@ foreach($obj as $key1 => $value1) {
 								$request_handling_contact_uri .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
 							}
 							if ($key2 == $entity_technical)	{
-								$technical_contact_uri .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
+								$issue_reporting_contact_uri .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
 							}
 							if ($key2 == $entity_billing)	{
 								$billing_contact_uri .= (is_array($value5[3])) ? implode(",<br />",$value5[3]) : $value5[3];
@@ -1704,7 +1704,7 @@ foreach($obj as $key1 => $value1) {
 								$request_handling_phone .= $typeresult . $value5[2] . ' ' . $value5[3]."<br />";
 							}
 							if ($key2 == $entity_technical)	{
-								$technical_phone .= $typeresult . $value5[2] . ' ' . $value5[3]."<br />";
+								$issue_reporting_phone .= $typeresult . $value5[2] . ' ' . $value5[3]."<br />";
 							}
 							if ($key2 == $entity_billing)	{
 								$billing_phone .= $typeresult . $value5[2] . ' ' . $value5[3]."<br />";
@@ -1727,7 +1727,7 @@ foreach($obj as $key1 => $value1) {
 								$request_handling_presented_name = $value5[3];
 							}
 							if ($key2 == $entity_technical)	{
-								$technical_presented_name = $value5[3];
+								$issue_reporting_presented_name = $value5[3];
 							}
 							if ($key2 == $entity_billing)	{
 								$billing_presented_name = $value5[3];
@@ -1756,9 +1756,9 @@ foreach($obj as $key1 => $value1) {
 								}
 							}
 							if ($key2 == $entity_technical)	{
-								$technical_name = $value5[3][0];	
+								$issue_reporting_name = $value5[3][0];	
 								if (strlen($value5[3][1]))	{
-									$technical_name .= ', '. $value5[3][1];
+									$issue_reporting_name .= ', '. $value5[3][1];
 								}
 							}
 							if ($key2 == $entity_billing)	{
@@ -1794,7 +1794,7 @@ foreach($obj as $key1 => $value1) {
 								$request_handling_kind = $value5[3];
 							}
 							if ($key2 == $entity_technical)	{
-								$technical_kind = $value5[3];
+								$issue_reporting_kind = $value5[3];
 							}
 							if ($key2 == $entity_billing)	{
 								$biiling_kind = $value5[3];
@@ -1819,8 +1819,8 @@ foreach($obj as $key1 => $value1) {
 								$request_handling_organization_name = $value5[3];
 							}
 							if ($key2 == $entity_technical)	{
-								$technical_organization_type = (is_array($value5[1]['type'])) ? implode(",<br />",$value5[1]['type']) : $value5[1]['type'];
-								$technical_organization_name = $value5[3];
+								$issue_reporting_organization_type = (is_array($value5[1]['type'])) ? implode(",<br />",$value5[1]['type']) : $value5[1]['type'];
+								$issue_reporting_organization_name = $value5[3];
 							}
 							if ($key2 == $entity_billing)	{
 								$billing_organization_type = (is_array($value5[1]['type'])) ? implode(",<br />",$value5[1]['type']) : $value5[1]['type'];
@@ -1851,8 +1851,8 @@ foreach($obj as $key1 => $value1) {
         						if ($pref == 2) $request_handling_preferred_languages .= ', ' . $language_code;
     						}
     						if ($key2 == $entity_technical) {
-        						if ($pref == 1) $technical_preferred_languages .= $language_code;
-        						if ($pref == 2) $technical_preferred_languages .= ', ' . $language_code;
+        						if ($pref == 1) $issue_reporting_preferred_languages .= $language_code;
+        						if ($pref == 2) $issue_reporting_preferred_languages .= ', ' . $language_code;
     						}						
     						if ($key2 == $entity_billing) {
         						if ($pref == 1) $billing_preferred_languages .= $language_code;
@@ -1879,7 +1879,7 @@ foreach($obj as $key1 => $value1) {
 								$request_handling_country_code = detect_country_code($request_handling_country_code, $value6['CC'], $value6['cc']);
 							}	
 							if ($key2 == $entity_technical)	{
-								$technical_country_code = detect_country_code($technical_country_code, $value6['CC'], $value6['cc']);
+								$issue_reporting_country_code = detect_country_code($issue_reporting_country_code, $value6['CC'], $value6['cc']);
 							}
 							if ($key2 == $entity_billing)	{
 								$billing_country_code = detect_country_code($billing_country_code, $value6['CC'], $value6['cc']);
@@ -1910,11 +1910,11 @@ foreach($obj as $key1 => $value1) {
 								$request_handling_country_name = (is_array($value6[6])) ? implode(",<br />",$value6[6]) : $value6[6];
 							}	
 							if ($key2 == $entity_technical)	{
-								$technical_street_address = (is_array($value6[2])) ? implode(",<br />",$value6[2]) : $value6[2];
-								$technical_city = (is_array($value6[3])) ? implode(",<br />",$value6[3]) : $value6[3];
-								$technical_state_or_province = (is_array($value6[4])) ? implode(",<br />",$value6[4]) : $value6[4];
-								$technical_postal_code = (is_array($value6[5])) ? implode(",<br />",$value6[5]) : $value6[5];
-								$technical_country_name = (is_array($value6[6])) ? implode(",<br />",$value6[6]) : $value6[6];
+								$issue_reporting_street_address = (is_array($value6[2])) ? implode(",<br />",$value6[2]) : $value6[2];
+								$issue_reporting_city = (is_array($value6[3])) ? implode(",<br />",$value6[3]) : $value6[3];
+								$issue_reporting_state_or_province = (is_array($value6[4])) ? implode(",<br />",$value6[4]) : $value6[4];
+								$issue_reporting_postal_code = (is_array($value6[5])) ? implode(",<br />",$value6[5]) : $value6[5];
+								$issue_reporting_country_name = (is_array($value6[6])) ? implode(",<br />",$value6[6]) : $value6[6];
 							}
 							if ($key2 == $entity_billing)	{
 								$billing_street_address = (is_array($value6[2])) ? implode(",<br />",$value6[2]) : $value6[2];
@@ -2000,7 +2000,7 @@ foreach($obj as $key1 => $value1) {
 										$request_handling_email .= $value7[3]."<br />";
 									}
 									if ($key4 == $entity_key4_tech)	{
-										$technical_email .= $value7[3]."<br />";
+										$issue_reporting_email .= $value7[3]."<br />";
 									}
 									if ($key4 == $entity_key4_reseller)	{
 										$reseller_email .= $value7[3]."<br />";
@@ -2020,7 +2020,7 @@ foreach($obj as $key1 => $value1) {
 										$request_handling_phone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . "<br />";
 									}
 									if ($key4 == $entity_key4_tech)	{
-										$technical_phone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . "<br />";
+										$issue_reporting_phone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . "<br />";
 									}	
 									if ($key4 == $entity_key4_reseller)	{
 										$reseller_phone .= implode(",<br />",$value7[1]) . ': ' . $value7[3] . "<br />";
@@ -2149,28 +2149,28 @@ $arr['request_handling']['latest_data_mutation_at'] = $request_handling_latest_d
 $arr['request_handling']['remarks'] = $request_handling_remarks;
 $arr['request_handling']['links'] = $request_handling_links;
 
-$arr['technical']['client_handle'] = $technical_handle;
-$arr['technical']['web_id'] = $technical_web_id;		
-$arr['technical']['organization_type'] = $technical_organization_type;	
-$arr['technical']['organization_name'] = $technical_organization_name;	
-$arr['technical']['presented_name'] = $technical_presented_name;	
-$arr['technical']['kind'] = $technical_kind;	
-$arr['technical']['name'] = $technical_name;		
-$arr['technical']['email'] = $technical_email;
-$arr['technical']['contact_uri'] = $technical_contact_uri;	
-$arr['technical']['phone'] = $technical_phone;
-$arr['technical']['country_code'] = $technical_country_code;		
-$arr['technical']['street_address'] = $technical_street_address;
-$arr['technical']['city'] = $technical_city;
-$arr['technical']['state_or_province'] = $technical_state_or_province;
-$arr['technical']['postal_code'] = $technical_postal_code;
-$arr['technical']['country_name'] = $technical_country_name;	
-$arr['technical']['preferred_languages'] = $technical_preferred_languages;
-$arr['technical']['statuses'] = $technical_statuses;
-$arr['technical']['created_at'] = $technical_created_at;
-$arr['technical']['latest_data_mutation_at'] = $technical_latest_data_mutation_at;
-$arr['technical']['remarks'] = $technical_remarks;
-$arr['technical']['links'] = $technical_links;	
+$arr['issue_reporting']['client_handle'] = $issue_reporting_handle;
+$arr['issue_reporting']['web_id'] = $issue_reporting_web_id;		
+$arr['issue_reporting']['organization_type'] = $issue_reporting_organization_type;	
+$arr['issue_reporting']['organization_name'] = $issue_reporting_organization_name;	
+$arr['issue_reporting']['presented_name'] = $issue_reporting_presented_name;	
+$arr['issue_reporting']['kind'] = $issue_reporting_kind;	
+$arr['issue_reporting']['name'] = $issue_reporting_name;		
+$arr['issue_reporting']['email'] = $issue_reporting_email;
+$arr['issue_reporting']['contact_uri'] = $issue_reporting_contact_uri;	
+$arr['issue_reporting']['phone'] = $issue_reporting_phone;
+$arr['issue_reporting']['country_code'] = $issue_reporting_country_code;		
+$arr['issue_reporting']['street_address'] = $issue_reporting_street_address;
+$arr['issue_reporting']['city'] = $issue_reporting_city;
+$arr['issue_reporting']['state_or_province'] = $issue_reporting_state_or_province;
+$arr['issue_reporting']['postal_code'] = $issue_reporting_postal_code;
+$arr['issue_reporting']['country_name'] = $issue_reporting_country_name;	
+$arr['issue_reporting']['preferred_languages'] = $issue_reporting_preferred_languages;
+$arr['issue_reporting']['statuses'] = $issue_reporting_statuses;
+$arr['issue_reporting']['created_at'] = $issue_reporting_created_at;
+$arr['issue_reporting']['latest_data_mutation_at'] = $issue_reporting_latest_data_mutation_at;
+$arr['issue_reporting']['remarks'] = $issue_reporting_remarks;
+$arr['issue_reporting']['links'] = $issue_reporting_links;	
 	
 $arr['billing']['client_handle'] = $billing_handle;
 $arr['billing']['web_id'] = $billing_web_id;		

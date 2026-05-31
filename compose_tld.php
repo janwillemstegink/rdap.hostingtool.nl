@@ -644,7 +644,7 @@ $tld_relationships_json = '[{"tld_relationship_sequence": 10,"tld_relationship_i
 {"tld_relationship_sequence": 20,"tld_relationship_identifier": "registrant"},
 {"tld_relationship_sequence": 30,"tld_relationship_identifier": "actor"},
 {"tld_relationship_sequence": 40,"tld_relationship_identifier": "request_handling"},
-{"tld_relationship_sequence": 50,"tld_relationship_identifier": "technical"},
+{"tld_relationship_sequence": 50,"tld_relationship_identifier": "issue_reporting"},
 {"tld_relationship_sequence": 60,"tld_relationship_identifier": "billing"},
 {"tld_relationship_sequence": 70,"tld_relationship_identifier": "escalation"},
 {"tld_relationship_sequence": 80,"tld_relationship_identifier": "reseller"},

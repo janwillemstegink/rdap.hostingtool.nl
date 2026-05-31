@@ -102,7 +102,7 @@ function SwitchDisplay(type) {
 		var pre = '42';
 		var max = 18
 	}
-	else if (type == 43)	{ // technical
+	else if (type == 43)	{ // issue_reporting
 		var pre = '43';
 		var max = 18
 	}
@@ -168,8 +168,8 @@ A field’s publication state is determined independently for each domain–rela
 Inclusion of publication details depends on an RDAP service’s data structure and representation choices.
 
 RDAP output:
-MUST preserve relationship context
-MUST NOT combine distinct relationships
+MUST preserve relationship context.
+MUST NOT combine distinct relationships.
 
 Definition (Normative)
 The "publication_state" member:
@@ -179,12 +179,12 @@ MAY provide publication state for a subset of fields
 For each included field and relationship, exactly one publication state MUST be specified.
 
 Relationship structure:
-If present, data MUST precede "publication_state"
-"publication_state" MUST remain present even when relationship data is not disclosed
+If present, data MUST precede "publication_state".
+"publication_state" MUST remain present even when relationship data is not disclosed.
 
 Output naming and ordering:
 RDAP "relationships" MUST be ordered by relationship responsibility:
-sponsor, registrant, request_handling, technical, billing, reseller, registrar, registrar_abuse
+sponsor, registrant, request_handling, issue_reporting, billing, reseller, registrar, registrar_abuse
 RDAP output MUST be ordered:
 "metadata", "domain", "relationships", "nameservers", "dns_security"
 
@@ -213,6 +213,7 @@ function SwitchTranslation(translation)	{
 		var proposed = '';
 		var accessible = '';
 		var legacy = '';
+		var conditional = '';
 		document.getElementById("title").textContent = "Domain Information — RDAP Data & Verification";
 		document.getElementById("modeling").textContent = "";
 		document.getElementById("instruction").textContent = "Enter here:";
@@ -271,13 +272,13 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_verification_set_at").textContent = proposed;
 		document.getElementById("registrant_remarks").textContent = "";
 		document.getElementById("actor_part").textContent = proposed;
-		document.getElementById("request_handling_part").textContent = "";
+		document.getElementById("request_handling_part").textContent = modified;
 		document.getElementById("request_handling_web_id").textContent = proposed;
-		document.getElementById("technical_part").textContent = "";
-		document.getElementById("technical_web_id").textContent = proposed;
+		document.getElementById("issue_reporting_part").textContent = modified;
+		document.getElementById("issue_reporting_web_id").textContent = proposed;
 		document.getElementById("billing_part").textContent = "";
 		document.getElementById("escalation_part").textContent = proposed;
-		document.getElementById("reseller_part").textContent = "";
+		document.getElementById("reseller_part").textContent = conditional;
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_verification_received_at").textContent = proposed;
 		document.getElementById("reseller_verification_set_at").textContent = proposed;
@@ -302,6 +303,7 @@ function SwitchTranslation(translation)	{
 		var proposed = '(Nieuw) ';
 		var accessible = 'Voor het gebruiksgemak en de duidelijkheid kunnen nieuwe velden worden toegevoegd.';
 		var legacy = '(Legacy) ';
+		var conditional = '(Voorwaardelijk) ';
 		document.getElementById("title").textContent = "Domeininformatie — RDAP-gegevens & Verificatie";
 		document.getElementById("modeling").textContent = "Deze RDAP-modellering biedt een gestructureerde referentie voor het interpreteren van domeingegevens en openbaarmakingssemantiek.";
 		document.getElementById("instruction").textContent = "Geef hier in:";
@@ -360,17 +362,17 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_verification_set_at").textContent = proposed + "Vervolgens verifieert de registry de gegevens bij de landspecifieke webdomeindienst.";
 		document.getElementById("registrant_remarks").textContent = "Meer informatie. Zie bijvoorbeeld france.fr.";
 		document.getElementById("actor_part").textContent = proposed + "Handelt namens de registrant en opereert volgens de vereisten van de registrant.";
-		document.getElementById("request_handling_part").textContent = "Behandelt inkomende verzoeken en reageert of stuurt deze indien nodig door naar de juiste partij.";
+		document.getElementById("request_handling_part").textContent = modified + "Behandelt binnenkomende verzoeken en stuurt deze indien nodig door naar de juiste partij.";
 		document.getElementById("request_handling_web_id").textContent = proposed;
-		document.getElementById("technical_part").textContent = "Reageert op gemelde storingen en coördineert hun oplossing bij DNS-werking van het domein.";
-		document.getElementById("technical_web_id").textContent = proposed;
-		document.getElementById("billing_part").textContent = "Verwerkt financiële gegevens en handelingen met betrekking tot het domeinabonnement.";
-		document.getElementById("escalation_part").textContent = proposed + "Gebruikt wanneer het primaire contact niet beschikbaar, niet responsief of onvoldoende is.";
-		document.getElementById("reseller_part").textContent = "De domeinreseller is als tweede verantwoordelijk, ook afhankelijk van de overeenkomst en de regelgeving.";
+		document.getElementById("issue_reporting_part").textContent = modified + "Ontvangt en behandelt meldingen van DNS-problemen.";
+		document.getElementById("issue_reporting_web_id").textContent = proposed;
+		document.getElementById("billing_part").textContent = "Gebruikt wanneer het register het domeinabonnement rechtstreeks factureert.";
+		document.getElementById("escalation_part").textContent = proposed + "Gebruikt wanneer escalatie voorbij het primaire contact vereist is.";
+		document.getElementById("reseller_part").textContent = conditional + "Verantwoordelijkheden zijn afhankelijk van overeenkomsten en toepasselijke TLD-beleidsregels.";
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_verification_received_at").textContent = proposed;
 		document.getElementById("reseller_verification_set_at").textContent = proposed;
-		document.getElementById("registrar_part").textContent = "De domeinregistrar is verantwoordelijk voor domeinreserveringen en IP-adresroutering.";
+		document.getElementById("registrar_part").textContent = "Erkend door het register in relatie tot het domeinabonnement.";
 		document.getElementById("registrar_web_id").textContent = proposed
 		document.getElementById("registrar_email").textContent = "Een registrar moet zonder verdere hyperlinks bereikbaar zijn.";
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
@@ -391,6 +393,7 @@ function SwitchTranslation(translation)	{
 		var proposed = '(New) ';
 		var accessible = 'For ease of use and clarity, new fields can be added.';
 		var legacy = '(Legacy) ';
+		var conditional = '(Conditional) ';
 		document.getElementById("title").textContent = "Domain Information — RDAP Data & Verification";
 		document.getElementById("modeling").textContent = "This RDAP modeling provides a structured reference for interpreting domain data and disclosure semantics.";
 		document.getElementById("instruction").textContent = "Enter here:";
@@ -449,17 +452,17 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_verification_set_at").textContent = proposed + "The registry then verifies the data with the country-specific web domain service.";
 		document.getElementById("registrant_remarks").textContent = "More information. See for example france.fr.";
 		document.getElementById("actor_part").textContent = proposed + "Acts on behalf of the registrant and operates in accordance with the registrant’s requirements.";
-		document.getElementById("request_handling_part").textContent = "Handles incoming requests and responds or forwards them to the appropriate party when necessary.";
+		document.getElementById("request_handling_part").textContent = modified + "Handles incoming requests and forwards them to the appropriate party when necessary.";
 		document.getElementById("request_handling_web_id").textContent = proposed;
-		document.getElementById("technical_part").textContent = "Responds to reported technical malfunctions and coordinates their resolution affecting domain DNS operation.";
-		document.getElementById("technical_web_id").textContent = proposed;
-		document.getElementById("billing_part").textContent = "Handles financial records and processes related to the domain subscription.";
-		document.getElementById("escalation_part").textContent = proposed + "Used when the primary contact is unavailable, unresponsive, or insufficient.";
-		document.getElementById("reseller_part").textContent = "The domain reseller is secondly responsible, also depending on the agreement and regulations.";
+		document.getElementById("issue_reporting_part").textContent = modified + "Receives and handles DNS issue reports.";
+		document.getElementById("issue_reporting_web_id").textContent = proposed;
+		document.getElementById("billing_part").textContent = "Used when the registry directly bills the domain subscription.";
+		document.getElementById("escalation_part").textContent = proposed + "Used when escalation beyond the primary contact is required.";
+		document.getElementById("reseller_part").textContent = conditional + "Responsibilities depend on agreements and applicable TLD policies.";
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_verification_received_at").textContent = proposed;
 		document.getElementById("reseller_verification_set_at").textContent = proposed;		
-		document.getElementById("registrar_part").textContent = "The domain registrar is responsible for domain reservations and IP address routing.";
+		document.getElementById("registrar_part").textContent = "Recognized by the registry in relation to the domain subscription.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_email").textContent = "A registrar needs to be reachable without any further hyperlink.";
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
@@ -480,6 +483,7 @@ function SwitchTranslation(translation)	{
 		var proposed = '(Neu) ';
 		var accessible = 'Zur Vereinfachung und besseren Übersichtlichkeit können neue Felder hinzugefügt werden.';
 		var legacy = '(Legacy) ';
+		var conditional = '(Bedingt) ';
 		document.getElementById("title").textContent = "Domaininformationen — RDAP-Daten & Verifikation";
 		document.getElementById("modeling").textContent = "Diese RDAP-Modellierung bietet eine strukturierte Referenz zur Interpretation von Domain-Daten und Offenlegungssemantik.";
 		document.getElementById("instruction").textContent = "Hier eingeben:";
@@ -538,17 +542,17 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_verification_set_at").textContent = proposed + "Anschließend verifiziert die Registry die Daten beim länderspezifischen Webdomänendienst.";
 		document.getElementById("registrant_remarks").textContent = "Weitere Informationen. Siehe beispielsweise france.fr.";
 		document.getElementById("actor_part").textContent = proposed + "Handelt im Auftrag des Registranten und agiert gemäß dessen Anforderungen.";
-		document.getElementById("request_handling_part").textContent = "Bearbeitet eingehende Anfragen, reagiert darauf oder leitet sie bei Bedarf an die zuständige Stelle weiter.";
+		document.getElementById("request_handling_part").textContent = modified + "Bearbeitet eingehende Anfragen und leitet sie bei Bedarf an die zuständige Stelle weiter.";
 		document.getElementById("request_handling_web_id").textContent = proposed;
-		document.getElementById("technical_part").textContent = "Reagiert auf gemeldete Störungen und koordiniert deren Behebung beim DNS-Betrieb der Domain.";
-		document.getElementById("technical_web_id").textContent = proposed;		
-		document.getElementById("billing_part").textContent = "Verarbeitet finanzielle Daten und Vorgänge im Zusammenhang mit dem Domainabonnement.";
-		document.getElementById("escalation_part").textContent = proposed + "Verwendet, wenn der primäre Kontakt nicht verfügbar, nicht reaktionsfähig oder unzureichend ist.";
-		document.getElementById("reseller_part").textContent = "In zweiter Linie ist der Domain-Reseller, ebenfalls je nach Vereinbarung und Regelungen, verantwortlich.";
+		document.getElementById("issue_reporting_part").textContent = modified + "Nimmt Meldungen zu DNS-Problemen entgegen und bearbeitet diese.";
+		document.getElementById("issue_reporting_web_id").textContent = proposed;		
+		document.getElementById("billing_part").textContent = "Wird verwendet, wenn die Registry das Domain-Abonnement direkt in Rechnung stellt.";
+		document.getElementById("escalation_part").textContent = proposed + "Wird verwendet, wenn eine Eskalation über den primären Ansprechpartner hinaus erforderlich ist.";
+		document.getElementById("reseller_part").textContent = conditional + "Die Verantwortlichkeiten hängen von Vereinbarungen und den geltenden TLD-Richtlinien ab.";
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_verification_received_at").textContent = proposed;
 		document.getElementById("reseller_verification_set_at").textContent = proposed;		
-		document.getElementById("registrar_part").textContent = "Der Domänenregistrar ist für die Domänenreservierung und das IP-Adressrouting verantwortlich.";
+		document.getElementById("registrar_part").textContent = "Von der Registry im Zusammenhang mit dem Domain-Abonnement anerkannt.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_email").textContent = "Ein Registrar muss ohne weitere Hyperlinks erreichbar sein.";
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
@@ -569,6 +573,7 @@ function SwitchTranslation(translation)	{
 		var proposed = '(Nouveau) ';
 		var accessible = "Pour plus de facilité d'utilisation et de clarté, de nouveaux champs peuvent être ajoutés.";
 		var legacy = '(Legacy) ';
+		var conditional = '(Conditionnel) ';
 		document.getElementById("title").textContent = "Informations sur le domaine — Données RDAP & Vérification";
 		document.getElementById("modeling").textContent = "Cette modélisation RDAP fournit une référence structurée pour l’interprétation des données de domaine et de la sémantique de divulgation.";
 		document.getElementById("instruction").textContent = "Saisissez ici :";
@@ -627,17 +632,17 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_verification_set_at").textContent = proposed + "Le registre vérifie ensuite les données avec le service de domaine Web spécifique au pays.";
 		document.getElementById("registrant_remarks").textContent = "Plus d'informations. Voir, par exemple, france.fr.";
 		document.getElementById("actor_part").textContent = proposed + "Agit pour le compte du titulaire et opère conformément à ses exigences.";
-		document.getElementById("request_handling_part").textContent = "Traite les demandes entrantes, y répond ou les transmet à la partie appropriée si nécessaire.";
+		document.getElementById("request_handling_part").textContent = modified + "Traite les demandes reçues et les transmet à la partie compétente si nécessaire.";
 		document.getElementById("request_handling_web_id").textContent = proposed;
-		document.getElementById("technical_part").textContent = "Utilisé lorsque le contact principal est indisponible, non réactif ou insuffisant pour résoudre le problème.";
-		document.getElementById("technical_web_id").textContent = proposed;		
-		document.getElementById("billing_part").textContent = "Gère les données et opérations financières liées à l’abonnement du domaine.";
-		document.getElementById("escalation_part").textContent = proposed + "Utilisé lorsque le contact principal est indisponible, non réactif ou insuffisant.";
-		document.getElementById("reseller_part").textContent = "Le revendeur de domaine est en second lieu responsable, également en fonction de l'accord et des réglementations.";
+		document.getElementById("issue_reporting_part").textContent = modified + "Reçoit et traite les signalements de problèmes DNS.";
+		document.getElementById("issue_reporting_web_id").textContent = proposed;		
+		document.getElementById("billing_part").textContent = "Utilisé lorsque le registre facture directement l’abonnement du nom de domaine.";
+		document.getElementById("escalation_part").textContent = proposed + "Utilisé lorsqu’une escalade au-delà du contact principal est nécessaire.";
+		document.getElementById("reseller_part").textContent = conditional + "Les responsabilités dépendent des accords et des politiques TLD applicables.";
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_verification_received_at").textContent = proposed;
 		document.getElementById("reseller_verification_set_at").textContent = proposed;		
-		document.getElementById("registrar_part").textContent = "Le registraire de domaine est responsable des réservations de domaines et du routage des adresses IP.";
+		document.getElementById("registrar_part").textContent = "Reconnu par le registre dans le cadre de l’abonnement du nom de domaine.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_email").textContent = "Un registraire doit être joignable sans lien hypertexte supplémentaire.";
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
@@ -944,28 +949,28 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['domain']['ascii_name'])
 	$html_text .= '<tr id="4217" style="display:none"><td>request_handling_remarks</td><td>'.$data[$pd]['registry']['request_handling']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['request_handling']['remarks'].'</td></tr>';
 	$html_text .= '<tr id="4218" style="display:none"><td>request_handling_links</td><td colspan="2">'.$data[$pd]['registry']['request_handling']['links'].'</td><td>'.$data[$pd]['registrar']['request_handling']['links'].'</td></tr>';
 	$html_text .= '<tr id="154" style="display:none"><td colspan="2">request_handling_publication_state'.$data[$pd]['registry']['request_handling']['publication_state'].'</td><td></td><td>'.$data[$pd]['registrar']['request_handling']['publication_state'].'</td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(43)">Technical +/-</button></td><td></td><td id="technical_part"></td><td></td></tr>';
-	$html_text .= '<tr id="431" style="display:none"><td>technical_server_handle</td><td>'.$data[$pd]['registry']['technical']['server_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['server_handle'].'</td></tr>';
-	$html_text .= '<tr id="432" style="display:none"><td>technical_client_handle</td><td>'.$data[$pd]['registry']['technical']['client_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['client_handle'].'</td></tr>';
-	$html_text .= '<tr id="433" style="display:none"><td>technical_web_id</td><td>'.$data[$pd]['registry']['technical']['web_id'].'</td><td id="technical_web_id"></td><td>'.$data[$pd]['registrar']['technical']['web_id'].'</td></tr>';
-	$html_text .= '<tr id="434" style="display:none"><td>technical_organization_type</td><td>'.$data[$pd]['registry']['technical']['organization_type'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['organization_type'].'</td></tr>';
-	$html_text .= '<tr id="435" style="display:none"><td>technical_organization_name</td><td>'.$data[$pd]['registry']['technical']['organization_name'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['organization_name'].'</td></tr>';
-	$html_text .= '<tr id="436" style="display:none"><td>technical_presented_name</td><td>'.$data[$pd]['registry']['technical']['presented_name'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['presented_name'].'</td></tr>';
-	$html_text .= '<tr id="437" style="display:none"><td>technical_kind</td><td>'.$data[$pd]['registry']['technical']['kind'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['kind'].'</td></tr>';
-	$html_text .= '<tr id="438" style="display:none"><td>technical_name</td><td>'.$data[$pd]['registry']['technical']['name'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['name'].'</td></tr>';
-	$html_text .= '<tr><td>technical_email</td><td>'.$data[$pd]['registry']['technical']['email'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['email'].'</td></tr>';
-	$html_text .= '<tr><td>technical_contact_uri</td><td>'.$data[$pd]['registry']['technical']['contact_uri'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['contact_uri'].'</td></tr>';
-	$html_text .= '<tr id="439" style="display:none"><td>technical_phone</td><td>'.$data[$pd]['registry']['technical']['phone'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['phone'].'</td></tr>';
-	$html_text .= '<tr id="4310" style="display:none"><td>technical_country_code</td><td>'.$data[$pd]['registry']['technical']['country_code'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['country_code'].'</td></tr>';
-	$html_text .= '<tr id="4311" style="display:none"><td>technical_street_address</td><td>'.$data[$pd]['registry']['technical']['street_address'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['street_address'].'</td></tr>';
-	$html_text .= '<tr id="4312" style="display:none"><td>technical_city</td><td>'.$data[$pd]['registry']['technical']['city'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['city'].'</td></tr>';
-	$html_text .= '<tr id="4313" style="display:none"><td>technical_state_or_province</td><td>'.$data[$pd]['registry']['technical']['state_or_province'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['state_or_province'].'</td></tr>';
-	$html_text .= '<tr id="4314" style="display:none"><td>technical_postal_code</td><td>'.$data[$pd]['registry']['technical']['postal_code'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['postal_code'].'</td></tr>';
-	$html_text .= '<tr id="4315" style="display:none"><td>technical_country_name'.if_filled($data[$pd]['registry']['technical']['country_name']).'</td><td>'.$data[$pd]['registry']['technical']['country_name'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['country_name'].'</td></tr>';
-	$html_text .= '<tr id="4316" style="display:none"><td>technical_preferred_languages</td><td>'.$data[$pd]['registry']['technical']['preferred_languages'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['preferred_languages'].'</td></tr>';
-	$html_text .= '<tr id="4317" style="display:none"><td>technical_remarks</td><td>'.$data[$pd]['registry']['technical']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['remarks'].'</td></tr>';
-	$html_text .= '<tr id="4318" style="display:none"><td>technical_links</td><td colspan="2">'.$data[$pd]['registry']['technical']['links'].'</td><td>'.$data[$pd]['registrar']['technical']['links'].'</td></tr>';
-	$html_text .= '<tr id="155" style="display:none"><td colspan="2">technical_publication_state'.$data[$pd]['registry']['technical']['publication_state'].'</td><td></td><td>'.$data[$pd]['registrar']['technical']['publication_state'].'</td></tr>';	
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(43)">Issue Reporting +/-</button></td><td></td><td id="issue_reporting_part"></td><td></td></tr>';
+	$html_text .= '<tr id="431" style="display:none"><td>issue_reporting_server_handle</td><td>'.$data[$pd]['registry']['issue_reporting']['server_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['server_handle'].'</td></tr>';
+	$html_text .= '<tr id="432" style="display:none"><td>issue_reporting_client_handle</td><td>'.$data[$pd]['registry']['issue_reporting']['client_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['client_handle'].'</td></tr>';
+	$html_text .= '<tr id="433" style="display:none"><td>issue_reporting_web_id</td><td>'.$data[$pd]['registry']['issue_reporting']['web_id'].'</td><td id="issue_reporting_web_id"></td><td>'.$data[$pd]['registrar']['issue_reporting']['web_id'].'</td></tr>';
+	$html_text .= '<tr id="434" style="display:none"><td>issue_reporting_organization_type</td><td>'.$data[$pd]['registry']['issue_reporting']['organization_type'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['organization_type'].'</td></tr>';
+	$html_text .= '<tr id="435" style="display:none"><td>issue_reporting_organization_name</td><td>'.$data[$pd]['registry']['issue_reporting']['organization_name'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['organization_name'].'</td></tr>';
+	$html_text .= '<tr id="436" style="display:none"><td>issue_reporting_presented_name</td><td>'.$data[$pd]['registry']['issue_reporting']['presented_name'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['presented_name'].'</td></tr>';
+	$html_text .= '<tr id="437" style="display:none"><td>issue_reporting_kind</td><td>'.$data[$pd]['registry']['issue_reporting']['kind'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['kind'].'</td></tr>';
+	$html_text .= '<tr id="438" style="display:none"><td>issue_reporting_name</td><td>'.$data[$pd]['registry']['issue_reporting']['name'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['name'].'</td></tr>';
+	$html_text .= '<tr><td>issue_reporting_email</td><td>'.$data[$pd]['registry']['issue_reporting']['email'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['email'].'</td></tr>';
+	$html_text .= '<tr><td>issue_reporting_contact_uri</td><td>'.$data[$pd]['registry']['issue_reporting']['contact_uri'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['contact_uri'].'</td></tr>';
+	$html_text .= '<tr id="439" style="display:none"><td>issue_reporting_phone</td><td>'.$data[$pd]['registry']['issue_reporting']['phone'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['phone'].'</td></tr>';
+	$html_text .= '<tr id="4310" style="display:none"><td>issue_reporting_country_code</td><td>'.$data[$pd]['registry']['issue_reporting']['country_code'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['country_code'].'</td></tr>';
+	$html_text .= '<tr id="4311" style="display:none"><td>issue_reporting_street_address</td><td>'.$data[$pd]['registry']['issue_reporting']['street_address'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['street_address'].'</td></tr>';
+	$html_text .= '<tr id="4312" style="display:none"><td>issue_reporting_city</td><td>'.$data[$pd]['registry']['issue_reporting']['city'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['city'].'</td></tr>';
+	$html_text .= '<tr id="4313" style="display:none"><td>issue_reporting_state_or_province</td><td>'.$data[$pd]['registry']['issue_reporting']['state_or_province'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['state_or_province'].'</td></tr>';
+	$html_text .= '<tr id="4314" style="display:none"><td>issue_reporting_postal_code</td><td>'.$data[$pd]['registry']['issue_reporting']['postal_code'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['postal_code'].'</td></tr>';
+	$html_text .= '<tr id="4315" style="display:none"><td>issue_reporting_country_name'.if_filled($data[$pd]['registry']['issue_reporting']['country_name']).'</td><td>'.$data[$pd]['registry']['issue_reporting']['country_name'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['country_name'].'</td></tr>';
+	$html_text .= '<tr id="4316" style="display:none"><td>issue_reporting_preferred_languages</td><td>'.$data[$pd]['registry']['issue_reporting']['preferred_languages'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['preferred_languages'].'</td></tr>';
+	$html_text .= '<tr id="4317" style="display:none"><td>issue_reporting_remarks</td><td>'.$data[$pd]['registry']['issue_reporting']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['remarks'].'</td></tr>';
+	$html_text .= '<tr id="4318" style="display:none"><td>issue_reporting_links</td><td colspan="2">'.$data[$pd]['registry']['issue_reporting']['links'].'</td><td>'.$data[$pd]['registrar']['issue_reporting']['links'].'</td></tr>';
+	$html_text .= '<tr id="155" style="display:none"><td colspan="2">issue_reporting_publication_state'.$data[$pd]['registry']['issue_reporting']['publication_state'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['publication_state'].'</td></tr>';	
 $html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Billing +/-</button></td><td></td><td id="billing_part"></td><td></td></tr>';
 	$html_text .= '<tr id="441" style="display:none"><td>billing_server_handle</td><td>'.$data[$pd]['registry']['billing']['server_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['billing']['server_handle'].'</td></tr>';
 	$html_text .= '<tr id="442" style="display:none"><td>billing_client_handle</td><td>'.$data[$pd]['registry']['billing']['client_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['billing']['client_handle'].'</td></tr>';
