@@ -164,7 +164,7 @@ const modeling = `Legacy limitations
 4. Relationship responsibility order is not inherent in RDAP JSON representation.
 
 Model principles
-A field’s publication state is determined independently for each domain–relationship–field combination.
+Publication state may vary for each domain–relationship–field combination.
 Inclusion of publication details depends on an RDAP service’s data structure and representation choices.
 
 RDAP output:
@@ -173,20 +173,18 @@ MUST NOT combine distinct relationships.
 
 Definition (Normative)
 The "publication_state" member:
-MUST be included within relationship entries
-MAY provide publication state for a subset of fields
+MUST be included within relationship entries for which data is stored.
+MAY provide publication state for all fields or a subset of fields.
 
-For each included field and relationship, exactly one publication state MUST be specified.
-
-Relationship structure:
-If present, data MUST precede "publication_state".
-"publication_state" MUST remain present even when relationship data is not disclosed.
+A publication state MUST contain exactly one enumerated value.
+When data is unavailable or not disclosed, placeholder values MUST NOT be used.
+If relationship data is present, it MUST precede "publication_state".
 
 Output naming and ordering:
-RDAP "relationships" MUST be ordered by relationship responsibility:
-sponsor, registrant, request_handling, issue_reporting, billing, reseller, registrar, registrar_abuse
-RDAP output MUST be ordered:
-"metadata", "domain", "relationships", "nameservers", "dns_security"
+For human-readable RDAP output, top-level members MUST be emitted in the following order:
+"metadata", "domain", "relationships", "nameservers", "dns_security".
+RDAP "relationships" MUST be ordered by relationship responsibility: sponsor, registrant, actor, 
+request_handling, issue_reporting, billing, escalation, reseller, registrar, registrar_abuse
 
 Operational guidance
 Registry communications SHOULD clearly identify the applicable relationship when addressing the recipient.
@@ -213,7 +211,6 @@ function SwitchTranslation(translation)	{
 		var proposed = '';
 		var accessible = '';
 		var legacy = '';
-		var conditional = '';
 		document.getElementById("title").textContent = "Domain Information — RDAP Data & Verification";
 		document.getElementById("modeling").textContent = "";
 		document.getElementById("instruction").textContent = "Enter here:";
@@ -278,7 +275,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("issue_reporting_web_id").textContent = proposed;
 		document.getElementById("billing_part").textContent = "";
 		document.getElementById("escalation_part").textContent = proposed;
-		document.getElementById("reseller_part").textContent = conditional;
+		document.getElementById("reseller_part").textContent = "";
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_verification_received_at").textContent = proposed;
 		document.getElementById("reseller_verification_set_at").textContent = proposed;
@@ -303,7 +300,6 @@ function SwitchTranslation(translation)	{
 		var proposed = '(Nieuw) ';
 		var accessible = 'Voor het gebruiksgemak en de duidelijkheid kunnen nieuwe velden worden toegevoegd.';
 		var legacy = '(Legacy) ';
-		var conditional = '(Voorwaardelijk) ';
 		document.getElementById("title").textContent = "Domeininformatie — RDAP-gegevens & Verificatie";
 		document.getElementById("modeling").textContent = "Deze RDAP-modellering biedt een gestructureerde referentie voor het interpreteren van domeingegevens en openbaarmakingssemantiek.";
 		document.getElementById("instruction").textContent = "Geef hier in:";
@@ -343,7 +339,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_recoverable_until").textContent = proposed + "Gemodelleerd als na stop van DNS-publicatie + TLD pending_redemption_days.";
 		document.getElementById("domain_deletion_at").textContent = "Datum en tijdstip gepland voor volledige verwijdering. Er kan een laatste verwijderingsfase zijn.";
 		document.getElementById("domain_extensions").textContent = "'Eligibility': Hoe het domein voldoet aan specifieke eisen van de TLD-rootzone.";
-		document.getElementById("sponsor_part").textContent = "De domeinregistratie kan waar van toepassing via een sponsorrelatie worden beheerd (zie bijv. france.fr).";
+		document.getElementById("sponsor_part").textContent = "Gebruikt wanneer een partij toezicht houdt op het domeinabonnement.";
 		document.getElementById("registrant_part").textContent = "De registrant is primair verantwoordelijk; andere partijen kunnen afhankelijk van de context worden benaderd.";
 		document.getElementById("registrant_server_handle").textContent = proposed + "Zonder deze identificatie kan een wereldwijde RDAP-server niet worden bijgewerkt.";
 		document.getElementById("registrant_client_handle").textContent = 'Voor "janwillemstegink.nl" wordt vertrouwelijke informatie weergegeven met "STE135420-TRAP".';
@@ -368,16 +364,16 @@ function SwitchTranslation(translation)	{
 		document.getElementById("issue_reporting_web_id").textContent = proposed;
 		document.getElementById("billing_part").textContent = "Gebruikt wanneer het register het domeinabonnement rechtstreeks factureert.";
 		document.getElementById("escalation_part").textContent = proposed + "Gebruikt wanneer escalatie voorbij het primaire contact vereist is.";
-		document.getElementById("reseller_part").textContent = conditional + "Verantwoordelijkheden zijn afhankelijk van overeenkomsten en toepasselijke TLD-beleidsregels.";
+		document.getElementById("reseller_part").textContent = "Verantwoordelijkheden zijn afhankelijk van overeenkomsten en toepasselijke TLD-beleidsregels.";
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_verification_received_at").textContent = proposed;
 		document.getElementById("reseller_verification_set_at").textContent = proposed;
-		document.getElementById("registrar_part").textContent = "Erkend door het register in relatie tot het domeinabonnement.";
+		document.getElementById("registrar_part").textContent = "Door het register erkende organisatie in verband met het domeinabonnement.";
 		document.getElementById("registrar_web_id").textContent = proposed
 		document.getElementById("registrar_email").textContent = "Een registrar moet zonder verdere hyperlinks bereikbaar zijn.";
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
-		document.getElementById("registrar_abuse_part").textContent = "Informatie over hoe een derde partij contact kan opnemen met de registrar of belaste partij. Zie fryslan.frl.";
+		document.getElementById("registrar_abuse_part").textContent = "Biedt contactinformatie voor de registrar of een aangewezen abuse-afhandelaar.";
 		document.getElementById("registrar_abuse_phone").textContent = "Een telefoonnummer moet beginnen met het type. Toegestaan zijn in ieder geval 'voice' en 'fax'.";
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC beveiligt DNS tegen spoofing en cachevergiftiging.";
 		document.getElementById("nameservers_rdap_ds_algorithm_numbers").textContent = "Algoritmen 13–16 zijn actueel. IANA voert algoritme 8 als RECOMMENDED, geldt als uitlopend.";
@@ -393,7 +389,6 @@ function SwitchTranslation(translation)	{
 		var proposed = '(New) ';
 		var accessible = 'For ease of use and clarity, new fields can be added.';
 		var legacy = '(Legacy) ';
-		var conditional = '(Conditional) ';
 		document.getElementById("title").textContent = "Domain Information — RDAP Data & Verification";
 		document.getElementById("modeling").textContent = "This RDAP modeling provides a structured reference for interpreting domain data and disclosure semantics.";
 		document.getElementById("instruction").textContent = "Enter here:";
@@ -433,7 +428,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_recoverable_until").textContent = proposed + "Modeled as after DNS publication stop + TLD pending_redemption_days.";
 		document.getElementById("domain_deletion_at").textContent = "Date and time scheduled for complete deletion. A final deletion phase may exist.";
 		document.getElementById("domain_extensions").textContent = "'Eligibility': How the domain meets specific TLD root zone requirements.";
-		document.getElementById("sponsor_part").textContent = "The domain registration may be managed through a sponsoring relationship where applicable (see e.g. france.fr).";
+		document.getElementById("sponsor_part").textContent = "Used when a party provides oversight related to the domain subscription.";
 		document.getElementById("registrant_part").textContent = "The registrant is the primary accountable party; other parties may be addressed depending on context.";
 		document.getElementById("registrant_server_handle").textContent = proposed + "Without this identifier, a global RDAP server cannot be updated.";
 		document.getElementById("registrant_client_handle").textContent = 'For “janwillemstegink.nl”, confidential information is indicated by “STE135420-TRAP”.';
@@ -458,16 +453,16 @@ function SwitchTranslation(translation)	{
 		document.getElementById("issue_reporting_web_id").textContent = proposed;
 		document.getElementById("billing_part").textContent = "Used when the registry directly bills the domain subscription.";
 		document.getElementById("escalation_part").textContent = proposed + "Used when escalation beyond the primary contact is required.";
-		document.getElementById("reseller_part").textContent = conditional + "Responsibilities depend on agreements and applicable TLD policies.";
+		document.getElementById("reseller_part").textContent = "Responsibilities depend on agreements and applicable TLD policies.";
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_verification_received_at").textContent = proposed;
 		document.getElementById("reseller_verification_set_at").textContent = proposed;		
-		document.getElementById("registrar_part").textContent = "Recognized by the registry in relation to the domain subscription.";
+		document.getElementById("registrar_part").textContent = "Organization recognized by the registry in relation to the domain subscription.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_email").textContent = "A registrar needs to be reachable without any further hyperlink.";
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
-		document.getElementById("registrar_abuse_part").textContent = "Information on how a third party can contact the registrar or entrusted party. See fryslan.frl.";
+		document.getElementById("registrar_abuse_part").textContent = "Provides contact information for the registrar or designated abuse handler.";
 		document.getElementById("registrar_abuse_phone").textContent = "A phone number must begin with the type. Allowed are anyway 'voice' and 'fax'.";
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC secures DNS against spoofing and cache poisoning.";
 		document.getElementById("nameservers_rdap_ds_algorithm_numbers").textContent = "Algorithms 13–16 are current. IANA lists algorithm 8 as RECOMMENDED, considered phasing out.";
@@ -483,7 +478,6 @@ function SwitchTranslation(translation)	{
 		var proposed = '(Neu) ';
 		var accessible = 'Zur Vereinfachung und besseren Übersichtlichkeit können neue Felder hinzugefügt werden.';
 		var legacy = '(Legacy) ';
-		var conditional = '(Bedingt) ';
 		document.getElementById("title").textContent = "Domaininformationen — RDAP-Daten & Verifikation";
 		document.getElementById("modeling").textContent = "Diese RDAP-Modellierung bietet eine strukturierte Referenz zur Interpretation von Domain-Daten und Offenlegungssemantik.";
 		document.getElementById("instruction").textContent = "Hier eingeben:";
@@ -523,7 +517,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_recoverable_until").textContent = proposed + "Modelliert als nach Ende der DNS-Veröffentlichung + TLD pending_redemption_days.";
 		document.getElementById("domain_deletion_at").textContent = "Datum und Uhrzeit für die vollständige Löschung geplant. Es kann eine abschließende Löschphase geben.";
 		document.getElementById("domain_extensions").textContent = "'Eligibility': Wie die Domain die spezifischen Anforderungen der TLD-Rootzone erfüllt.";
-		document.getElementById("sponsor_part").textContent = "Die Domainregistrierung kann, sofern zutreffend, über eine Sponsorenbeziehung verwaltet werden (z. B. france.fr).";
+		document.getElementById("sponsor_part").textContent = "Wird verwendet, wenn eine Partei die Aufsicht über das Domain-Abonnement wahrnimmt.";
 		document.getElementById("registrant_part").textContent = "Der Registrant ist die primär verantwortliche Partei; andere Parteien können je nach Kontext angesprochen werden.";
 		document.getElementById("registrant_server_handle").textContent = proposed + "Ohne diese Kennung kann ein globaler RDAP-Server nicht aktualisiert werden.";
 		document.getElementById("registrant_client_handle").textContent = 'Für "janwillemstegink.nl" werden vertrauliche Informationen mit "STE135420-TRAP" gekennzeichnet.';
@@ -548,16 +542,16 @@ function SwitchTranslation(translation)	{
 		document.getElementById("issue_reporting_web_id").textContent = proposed;		
 		document.getElementById("billing_part").textContent = "Wird verwendet, wenn die Registry das Domain-Abonnement direkt in Rechnung stellt.";
 		document.getElementById("escalation_part").textContent = proposed + "Wird verwendet, wenn eine Eskalation über den primären Ansprechpartner hinaus erforderlich ist.";
-		document.getElementById("reseller_part").textContent = conditional + "Die Verantwortlichkeiten hängen von Vereinbarungen und den geltenden TLD-Richtlinien ab.";
+		document.getElementById("reseller_part").textContent = "Die Verantwortlichkeiten hängen von Vereinbarungen und den geltenden TLD-Richtlinien ab.";
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_verification_received_at").textContent = proposed;
 		document.getElementById("reseller_verification_set_at").textContent = proposed;		
-		document.getElementById("registrar_part").textContent = "Von der Registry im Zusammenhang mit dem Domain-Abonnement anerkannt.";
+		document.getElementById("registrar_part").textContent = "Organisation, die von der Registry im Zusammenhang mit dem Domain-Abonnement anerkannt ist.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_email").textContent = "Ein Registrar muss ohne weitere Hyperlinks erreichbar sein.";
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
-		document.getElementById("registrar_abuse_part").textContent = "Informationen darüber, wie Dritte den Registrar oder die beauftragte Partei kontaktieren können. Siehe fryslan.frl.";
+		document.getElementById("registrar_abuse_part").textContent = "Stellt Kontaktinformationen für den Registrar oder eine benannte Stelle zur Bearbeitung von Abuse-Meldungen bereit.";
 		document.getElementById("registrar_abuse_phone").textContent = "Eine Telefonnummer muss mit dem Typ beginnen. Erlaubt sind grundsätzlich 'voice' und 'fax'.";		
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC sichert DNS gegen Spoofing und Cache-Poisoning.";
 		document.getElementById("nameservers_rdap_ds_digest_types").textContent = "Der hexadezimale Digest-Wert unterscheidet nicht zwischen Groß- und Kleinschreibung.";
@@ -573,7 +567,6 @@ function SwitchTranslation(translation)	{
 		var proposed = '(Nouveau) ';
 		var accessible = "Pour plus de facilité d'utilisation et de clarté, de nouveaux champs peuvent être ajoutés.";
 		var legacy = '(Legacy) ';
-		var conditional = '(Conditionnel) ';
 		document.getElementById("title").textContent = "Informations sur le domaine — Données RDAP & Vérification";
 		document.getElementById("modeling").textContent = "Cette modélisation RDAP fournit une référence structurée pour l’interprétation des données de domaine et de la sémantique de divulgation.";
 		document.getElementById("instruction").textContent = "Saisissez ici :";
@@ -613,7 +606,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("domain_recoverable_until").textContent = proposed + "Modélisé comme après l’arrêt de publication DNS + TLD pending_redemption_days.";
 		document.getElementById("domain_deletion_at").textContent = "Date et heure prévues pour la suppression complète. Une phase de suppression finale peut exister.";
 		document.getElementById("domain_extensions").textContent = "'Eligibility' : comment le domaine répond aux exigences spécifiques de la zone racine TLD.";
-		document.getElementById("sponsor_part").textContent = "L’enregistrement du domaine peut, le cas échéant, être géré via une relation de sponsoring (voir p. ex. france.fr).";
+		document.getElementById("sponsor_part").textContent = "Utilisé lorsqu’une partie assure une supervision liée à l’abonnement du nom de domaine.";
 		document.getElementById("registrant_part").textContent = "Le titulaire est la partie principale responsable ; d’autres parties peuvent être contactées selon le contexte.";
 		document.getElementById("registrant_server_handle").textContent = proposed + "Sans cet identifiant, un serveur RDAP global ne peut pas être mis à jour.";
 		document.getElementById("registrant_client_handle").textContent = 'Pour "janwillemstegink.nl", les informations confidentielles sont indiquées par "STE135420-TRAP".';
@@ -638,16 +631,16 @@ function SwitchTranslation(translation)	{
 		document.getElementById("issue_reporting_web_id").textContent = proposed;		
 		document.getElementById("billing_part").textContent = "Utilisé lorsque le registre facture directement l’abonnement du nom de domaine.";
 		document.getElementById("escalation_part").textContent = proposed + "Utilisé lorsqu’une escalade au-delà du contact principal est nécessaire.";
-		document.getElementById("reseller_part").textContent = conditional + "Les responsabilités dépendent des accords et des politiques TLD applicables.";
+		document.getElementById("reseller_part").textContent = "Les responsabilités dépendent des accords et des politiques TLD applicables.";
 		document.getElementById("reseller_web_id").textContent = proposed;
 		document.getElementById("reseller_verification_received_at").textContent = proposed;
 		document.getElementById("reseller_verification_set_at").textContent = proposed;		
-		document.getElementById("registrar_part").textContent = "Reconnu par le registre dans le cadre de l’abonnement du nom de domaine.";
+		document.getElementById("registrar_part").textContent = "Organisation reconnue par le registre dans le cadre de l’abonnement du nom de domaine.";
 		document.getElementById("registrar_web_id").textContent = proposed;
 		document.getElementById("registrar_email").textContent = "Un registraire doit être joignable sans lien hypertexte supplémentaire.";
 		document.getElementById("registrar_verification_received_at").textContent = proposed;
 		document.getElementById("registrar_verification_set_at").textContent = proposed;
-		document.getElementById("registrar_abuse_part").textContent = "Informations sur la manière dont un tiers peut contacter le registraire ou la partie mandatée. Voir fryslan.frl.";
+		document.getElementById("registrar_abuse_part").textContent = "Fournit les coordonnées du bureau d’enregistrement ou du contact abuse désigné.";
 		document.getElementById("registrar_abuse_phone").textContent = "Un numéro de téléphone doit commencer par le type. Sont autorisés de toute façon 'voice' et 'fax'.";
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC sécurise le DNS contre le spoofing et l’empoisonnement.";
 		document.getElementById("nameservers_rdap_ds_algorithm_numbers").textContent = "Les algorithmes 13–16 sont actuels. L’IANA classe l’algorithme 8 comme RECOMMENDED, en fin de vie.";
@@ -927,7 +920,7 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['domain']['ascii_name'])
 	$html_text .= '<tr id="418" style="display:none"><td>actor_phone</td><td>'.$data[$pd]['registry']['actor']['phone'].'</td><td></td><td>'.$data[$pd]['registrar']['actor']['phone'].'</td></tr>';
 	$html_text .= '<tr id="419" style="display:none"><td>actor_country_code</td><td>'.$data[$pd]['registry']['actor']['country_code'].'</td><td></td><td>'.$data[$pd]['registrar']['actor']['country_code'].'</td></tr>';
 	$html_text .= '<tr id="153" style="display:none"><td colspan="2">actor_publication_state'.$data[$pd]['registry']['actor']['publication_state'].'</td><td></td><td>'.$data[$pd]['registrar']['actor']['publication_state'].'</td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Request Handling +/-</button></td><td></td><td id="request_handling_part"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Request Handling (Administrative) +/-</button></td><td></td><td id="request_handling_part"></td><td></td></tr>';
 	$html_text .= '<tr id="421" style="display:none"><td>request_handling_server_handle</td><td>'.$data[$pd]['registry']['request_handling']['server_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['request_handling']['server_handle'].'</td></tr>';
 	$html_text .= '<tr id="422" style="display:none"><td>request_handling_client_handle</td><td>'.$data[$pd]['registry']['request_handling']['client_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['request_handling']['client_handle'].'</td></tr>';
 	$html_text .= '<tr id="423" style="display:none"><td>request_handling_web_id</td><td>'.$data[$pd]['registry']['request_handling']['web_id'].'</td><td id="request_handling_web_id"></td><td>'.$data[$pd]['registrar']['request_handling']['web_id'].'</td></tr>';
@@ -949,7 +942,7 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['domain']['ascii_name'])
 	$html_text .= '<tr id="4217" style="display:none"><td>request_handling_remarks</td><td>'.$data[$pd]['registry']['request_handling']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['request_handling']['remarks'].'</td></tr>';
 	$html_text .= '<tr id="4218" style="display:none"><td>request_handling_links</td><td colspan="2">'.$data[$pd]['registry']['request_handling']['links'].'</td><td>'.$data[$pd]['registrar']['request_handling']['links'].'</td></tr>';
 	$html_text .= '<tr id="154" style="display:none"><td colspan="2">request_handling_publication_state'.$data[$pd]['registry']['request_handling']['publication_state'].'</td><td></td><td>'.$data[$pd]['registrar']['request_handling']['publication_state'].'</td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(43)">Issue Reporting +/-</button></td><td></td><td id="issue_reporting_part"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(43)">Issue Reporting (Technical) +/-</button></td><td></td><td id="issue_reporting_part"></td><td></td></tr>';
 	$html_text .= '<tr id="431" style="display:none"><td>issue_reporting_server_handle</td><td>'.$data[$pd]['registry']['issue_reporting']['server_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['server_handle'].'</td></tr>';
 	$html_text .= '<tr id="432" style="display:none"><td>issue_reporting_client_handle</td><td>'.$data[$pd]['registry']['issue_reporting']['client_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['client_handle'].'</td></tr>';
 	$html_text .= '<tr id="433" style="display:none"><td>issue_reporting_web_id</td><td>'.$data[$pd]['registry']['issue_reporting']['web_id'].'</td><td id="issue_reporting_web_id"></td><td>'.$data[$pd]['registrar']['issue_reporting']['web_id'].'</td></tr>';
@@ -1006,7 +999,7 @@ $html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="
 	$html_text .= '<tr id="4510" style="display:none"><td>escalation_country_code</td><td>'.$data[$pd]['registry']['escalation']['country_code'].'</td><td></td><td>'.$data[$pd]['registrar']['escalation']['country_code'].'</td></tr>';
 	$html_text .= '<tr id="157" style="display:none"><td colspan="2">escalation_publication_state'.$data[$pd]['registry']['escalation']['publication_state'].'</td><td></td><td>'.$data[$pd]['registrar']['escalation']['publication_state'].'</td></tr>';		
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(50)">Reseller +/-</button></td><td><b>'.$vd.'</b></td><td id="reseller_part"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(50)">Reseller (Conditional) +/-</button></td><td><b>'.$vd.'</b></td><td id="reseller_part"></td><td></td></tr>';
 	$html_text .= '<tr id="501" style="display:none"><td>reseller_server_handle</td><td>'.$data[$pd]['registry']['reseller']['server_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['server_handle'].'</td></tr>';
 	$html_text .= '<tr id="502" style="display:none"><td>reseller_client_handle</td><td>'.$data[$pd]['registry']['reseller']['client_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['client_handle'].'</td></tr>';
 	$html_text .= '<tr id="503" style="display:none"><td>reseller_web_id</td><td>'.$data[$pd]['registry']['reseller']['web_id'].'</td><td id="reseller_web_id"></td><td>'.$data[$pd]['registrar']['reseller']['web_id'].'</td></tr>';
