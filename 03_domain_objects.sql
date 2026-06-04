@@ -127,6 +127,7 @@ CREATE TABLE IF NOT EXISTS entities (
     entity_latest_data_mutation_at TIMESTAMPTZ,
     entity_verification_received_at TIMESTAMPTZ,
     entity_verification_set_at TIMESTAMPTZ,
+	entity_verification_revoked_at TIMESTAMPTZ,
     entity_properties JSONB DEFAULT '[]'::jsonb,
     entity_remarks JSONB DEFAULT '[]'::jsonb
 );
