@@ -295,7 +295,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "";
 		document.getElementById("nameservers_rdap_ds_algorithm_numbers").textContent = "";
 		document.getElementById("nameservers_rdap_ds_digest_types").textContent = "";
-		document.getElementById("measured_ds_algorithm_numbers").textContent = proposed;
+		document.getElementById("measured_ds_algorithm_numbers").textContent = "";
+		document.getElementById("measured_ds_algorithm_names").textContent = "";
 		document.getElementById("nameservers_ipv4_addresses").textContent = "";
 		document.getElementById("nameservers_ipv6_addresses").textContent = "";
 		document.getElementById("br_tld").textContent = "";
@@ -349,7 +350,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_part").textContent = "De registrant is primair verantwoordelijk; andere partijen kunnen afhankelijk van de context worden benaderd.";
 		document.getElementById("registrant_server_handle").textContent = proposed + "Zonder deze identificatie kan een wereldwijde RDAP-server niet worden bijgewerkt.";
 		document.getElementById("registrant_client_handle").textContent = 'Voor "janwillemstegink.nl" wordt vertrouwelijke informatie weergegeven met "STE135420-TRAP".';
-		document.getElementById("registrant_web_id").textContent = proposed + "Webidentificatienummer voor bedrijfsentiteiten en natuurlijke personen.";
+		document.getElementById("registrant_web_id").textContent = proposed + "Een jurisdictiegebonden identificatie van een rechtspersoon of natuurlijke persoon, geverifieerd via PKI.";
 		document.getElementById("registrant_organization_type").textContent = 'De gebruikelijke waarde is "work", of mogelijk "work", "headquarters".';
 		document.getElementById("registrant_organization_name").textContent = "De juridische naam van de organisatie die primair verantwoordelijk is voor het domeinabonnement.";
 		document.getElementById("registrant_presented_name").textContent = "De naam van de primair verantwoordelijke persoon of een rol binnen de organisatie wordt verwacht.";
@@ -387,7 +388,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC beveiligt DNS tegen spoofing en cachevergiftiging.";
 		document.getElementById("nameservers_rdap_ds_algorithm_numbers").textContent = "Algoritmen 13–16 zijn actueel. IANA voert algoritme 8 als RECOMMENDED, geldt als uitlopend.";
 		document.getElementById("nameservers_rdap_ds_digest_types").textContent = "De hexadecimale digest waarde is niet hoofdlettergevoelig.";
-		document.getElementById("measured_ds_algorithm_numbers").textContent = proposed + "Deze tool meet DNSSEC-algoritmen direct, onafhankelijk van RDAP, ook bij tijdelijke duplicatie.";
+		document.getElementById("measured_ds_algorithm_numbers").textContent = "Deze tool meet DNSSEC-algoritmen direct, onafhankelijk van RDAP, ook bij tijdelijke duplicatie.";
+		document.getElementById("measured_ds_algorithm_names").textContent = "IANA DNSSEC-algoritmenaamidentificaties op basis van de algoritmenummers.";
 		document.getElementById("nameservers_ipv4_addresses").textContent = "Een glue-record is een DNS-record dat wordt meegegeven door de bovenliggende zone, ook al is die daar niet";
 		document.getElementById("nameservers_ipv6_addresses").textContent = "autoritatief voor, om cirkelafhankelijke resoluties van nameservers binnen de onderliggende zone te voorkomen.";
 		document.getElementById("br_tld").textContent = "De .br TLD RDAP-dienst is verrijkt met nameservervalidatie.";
@@ -441,7 +443,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_part").textContent = "The registrant is the primary accountable party; other parties may be addressed depending on context.";
 		document.getElementById("registrant_server_handle").textContent = proposed + "Without this identifier, a global RDAP server cannot be updated.";
 		document.getElementById("registrant_client_handle").textContent = 'For “janwillemstegink.nl”, confidential information is indicated by “STE135420-TRAP”.';
-		document.getElementById("registrant_web_id").textContent = proposed + "Web Identification number for business entities and natural persons.";
+		document.getElementById("registrant_web_id").textContent = proposed + "A jurisdiction-specific identifier for a business entity or natural person, verified through PKI.";
 		document.getElementById("registrant_organization_type").textContent = 'The usual value is "work", or possibly "work", "headquarters".';
 		document.getElementById("registrant_organization_name").textContent = "The legal name of the organization primarily responsible for the domain subscription.";
 		document.getElementById("registrant_presented_name").textContent = "The name of the primarily responsible person or a role within the organization is expected.";
@@ -479,7 +481,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC secures DNS against spoofing and cache poisoning.";
 		document.getElementById("nameservers_rdap_ds_algorithm_numbers").textContent = "Algorithms 13–16 are current. IANA lists algorithm 8 as RECOMMENDED, considered phasing out.";
 		document.getElementById("nameservers_rdap_ds_digest_types").textContent = "The hexadecimal digest value is not case-sensitive.";
-		document.getElementById("measured_ds_algorithm_numbers").textContent = proposed + "This tool measures DNSSEC algorithms directly, independent of RDAP, including during temporary duplication.";
+		document.getElementById("measured_ds_algorithm_numbers").textContent = "This tool measures DNSSEC algorithms directly, independent of RDAP, including during temporary duplication.";
+		document.getElementById("measured_ds_algorithm_names").textContent = "IANA DNSSEC algorithm name identifiers based on the algorithm numbers.";
 		document.getElementById("nameservers_ipv4_addresses").textContent = "A glue record is a DNS record provided by the parent zone, even though it is not authoritative for it,";
 		document.getElementById("nameservers_ipv6_addresses").textContent = "to prevent circular dependencies when resolving nameservers within the child zone.";
 		document.getElementById("br_tld").textContent = "The .br TLD RDAP service includes nameserver validation enrichment.";
@@ -533,7 +536,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_part").textContent = "Der Registrant ist die primär verantwortliche Partei; andere Parteien können je nach Kontext angesprochen werden.";
 		document.getElementById("registrant_server_handle").textContent = proposed + "Ohne diese Kennung kann ein globaler RDAP-Server nicht aktualisiert werden.";
 		document.getElementById("registrant_client_handle").textContent = 'Für "janwillemstegink.nl" werden vertrauliche Informationen mit "STE135420-TRAP" gekennzeichnet.';
-		document.getElementById("registrant_web_id").textContent = proposed + "Web-Identifikationsnummer für Unternehmen und natürliche Personen.";
+		document.getElementById("registrant_web_id").textContent = proposed + "Eine rechtsraumbezogene Identifikation einer juristischen oder natürlichen Person, verifiziert durch PKI.";
 		document.getElementById("registrant_organization_type").textContent = 'Der übliche Wert ist "work" oder möglicherweise "work", "headquarters".';
 		document.getElementById("registrant_organization_name").textContent = "Der offizielle Name der Organisation, die hauptsächlich für das Domänenabonnement verantwortlich ist.";
 		document.getElementById("registrant_presented_name").textContent = "Erwartet wird der Name der primär verantwortlichen Person oder einer Rolle innerhalb der Organisation.";
@@ -570,7 +573,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrar_abuse_phone").textContent = "Eine Telefonnummer muss mit dem Typ beginnen. Erlaubt sind grundsätzlich 'voice' und 'fax'.";		
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC sichert DNS gegen Spoofing und Cache-Poisoning.";
 		document.getElementById("nameservers_rdap_ds_digest_types").textContent = "Der hexadezimale Digest-Wert unterscheidet nicht zwischen Groß- und Kleinschreibung.";
-		document.getElementById("measured_ds_algorithm_numbers").textContent = proposed + "Dieses Tool ermittelt DNSSEC-Algorithmen direkt, unabhängig von RDAP, auch bei temporärer Doppelung.";
+		document.getElementById("measured_ds_algorithm_numbers").textContent = "Dieses Tool ermittelt DNSSEC-Algorithmen direkt, unabhängig von RDAP, auch bei temporärer Doppelung.";
+		document.getElementById("measured_ds_algorithm_names").textContent = "IANA-DNSSEC-Algorithmusnamenskennungen basierend auf den Algorithmusnummern.";
 		document.getElementById("nameservers_rdap_ds_algorithm_numbers").textContent = "Algorithmen 13–16 sind aktuell. IANA führt Algorithmus 8 als RECOMMENDED, gilt als auslaufend.";
 		document.getElementById("nameservers_ipv4_addresses").textContent = "Ein Glue-Record ist ein DNS-Eintrag, den die übergeordnete Zone bereitstellt, obwohl sie nicht autoritativ ist,";
 		document.getElementById("nameservers_ipv6_addresses").textContent = "um zirkuläre Abhängigkeiten bei der Auflösung von Nameservern in der untergeordneten Zone zu verhindern.";		
@@ -625,7 +629,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_part").textContent = "Le titulaire est la partie principale responsable ; d’autres parties peuvent être contactées selon le contexte.";
 		document.getElementById("registrant_server_handle").textContent = proposed + "Sans cet identifiant, un serveur RDAP global ne peut pas être mis à jour.";
 		document.getElementById("registrant_client_handle").textContent = 'Pour "janwillemstegink.nl", les informations confidentielles sont indiquées par "STE135420-TRAP".';
-		document.getElementById("registrant_web_id").textContent = proposed + "Numéro d’identification Web pour les entités commerciales et les personnes physiques.";
+		document.getElementById("registrant_web_id").textContent = proposed + "Une identification juridictionnelle d’une personne morale ou physique, vérifiée par PKI.";
 		document.getElementById("registrant_organization_type").textContent = 'La valeur habituelle est "work", ou éventuellement "work", "headquarters".';
 		document.getElementById("registrant_organization_name").textContent = "Le nom légal de l'organisation principalement responsable de l'abonnement au domaine.";
 		document.getElementById("registrant_presented_name").textContent = "Le nom de la personne principalement responsable ou d’un rôle au sein de l’organisation est attendu.";
@@ -663,7 +667,8 @@ function SwitchTranslation(translation)	{
 		document.getElementById("nameservers_rdap_dnssec_signed").textContent = "DNSSEC sécurise le DNS contre le spoofing et l’empoisonnement.";
 		document.getElementById("nameservers_rdap_ds_algorithm_numbers").textContent = "Les algorithmes 13–16 sont actuels. L’IANA classe l’algorithme 8 comme RECOMMENDED, en fin de vie.";
 		document.getElementById("nameservers_rdap_ds_digest_types").textContent = "La valeur de hachage hexadécimale n'est pas sensible à la casse.";
-		document.getElementById("measured_ds_algorithm_numbers").textContent = proposed + "Mesure directe des algorithmes DNSSEC, indépendante du RDAP, y compris duplication temporaire.";
+		document.getElementById("measured_ds_algorithm_numbers").textContent = "Mesure directe des algorithmes DNSSEC, indépendante du RDAP, y compris duplication temporaire.";
+		document.getElementById("measured_ds_algorithm_names").textContent = "Identifiants de noms d’algorithmes DNSSEC de l’IANA basés sur les numéros d’algorithme.";
 		document.getElementById("nameservers_ipv4_addresses").textContent = "Un glue record est un enregistrement DNS fourni par la zone parente, bien qu’elle n’en soit pas autoritaire,";
 		document.getElementById("nameservers_ipv6_addresses").textContent = "afin d’éviter les dépendances circulaires lors de la résolution des serveurs de noms de la zone enfant.";		
 		document.getElementById("br_tld").textContent = "Le service RDAP du TLD .br a été enrichi avec une validation des serveurs de noms.";
@@ -1105,7 +1110,7 @@ $html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="
 	$html_text .= '<tr id="6315" style="display:none"><td>rdap_ds_digests</td><td colspan="2">'.str_replace(',',',<br />',$data[$pd]['registry']['nameservers']['rdap_ds_digests']).'</td><td>'.str_replace(',',',<br />',$data[$pd]['registrar']['nameservers']['rdap_ds_digests']).'</td></tr>';
 	$html_text .= '<tr id="6316" style="display:none"><td>measured_ds_key_tags</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['measured_ds_key_tags']).'</td><td></td><td></td></tr>';
 	$html_text .= '<tr><td><b>measured_ds_algorithm_numbers</b></td><td><b>'.str_replace(',',',<br />',$data[$pd]['registry']['measured_ds_algorithm_numbers']).'</b></td><td id="measured_ds_algorithm_numbers"></td><td></td></tr>';
-	$html_text .= '<tr id="6317" style="display:none"><td>measured_ds_algorithm_names</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['measured_ds_algorithm_names']).'</td><td></td><td></td></tr>';
+	$html_text .= '<tr id="6317" style="display:none"><td>measured_ds_algorithm_names</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['measured_ds_algorithm_names']).'</td><td id="measured_ds_algorithm_names"></td><td></td></tr>';
 	$html_text .= '<tr id="6318" style="display:none"><td>measured_ds_digest_types</td><td>'.str_replace(',',',<br />',$data[$pd]['registry']['measured_ds_digest_types']).'</td><td></td><td></td></tr>';
 	$html_text .= '<tr id="6319" style="display:none"><td>measured_ds_digests</td><td colspan="2">'.str_replace(',',',<br />',$data[$pd]['registry']['measured_ds_digests']).'</td><td></td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
