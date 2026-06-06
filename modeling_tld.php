@@ -252,7 +252,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_registry_data_uri").textContent = modified + "Machineleesbare, informatieve registry-TLD-gegevens."; 
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Beperkt gebruik. Interpretatie hangt af van TLD- en RDAP-context.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;
-		document.getElementById("tld_functions").textContent = proposed;
+		document.getElementById("tld_functions").textContent = proposed + "Een formeel functioneel aanspreekbaarheidsmodel onderscheidt juridische en gepresenteerde identiteiten.";
 		document.getElementById("tld_accepted_workload").textContent = proposed + "Deze modellering ondersteunt de modernisering van IANA-databasetabellen.";
 		document.getElementById("tld_relationships").textContent = proposed;
 		document.getElementById("lifecycle_part").textContent = proposed;
@@ -307,7 +307,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_registry_data_uri").textContent = modified + "Machine-readable, informative registry TLD data.";
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Restricted use. Interpretation depends on TLD and RDAP context.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;		
-		document.getElementById("tld_functions").textContent = proposed;
+		document.getElementById("tld_functions").textContent = proposed + "A formal function addressability model distinguishes legal and presented identities.";
 		document.getElementById("tld_accepted_workload").textContent = proposed + "This modeling supports IANA database table modernization efforts.";
 		document.getElementById("tld_relationships").textContent = proposed;
 		document.getElementById("lifecycle_part").textContent = proposed;
@@ -362,7 +362,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Eingeschränkte Nutzung. Interpretation hängt vom TLD- und RDAP-Kontext ab.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;		
 		document.getElementById("tld_search_engine_deletion_phase_ready").textContent = proposed + "Ob Suchmaschinen sich auf die 'Pending-Delete-Phase' verlassen können, um Ergebnisse zu entfernen.";
-		document.getElementById("tld_functions").textContent = proposed;
+		document.getElementById("tld_functions").textContent = proposed + "Ein formales Funktions-Adressierbarkeitsmodell unterscheidet rechtliche und dargestellte Identitäten.";
 		document.getElementById("tld_accepted_workload").textContent = proposed + "Dieses Modell unterstützt die Modernisierung der IANA-Datenbanktabellen."; 
 		document.getElementById("tld_relationships").textContent = proposed;
 		document.getElementById("lifecycle_part").textContent = proposed;
@@ -417,7 +417,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("tld_registry_data_uri").textContent = modified + "Données TLD du registre lisibles par machine et informatives.";
 		document.getElementById("tld_data_usage_policy_uri").textContent = proposed + "Utilisation restreinte. L’interprétation dépend du contexte TLD et RDAP.";
 		document.getElementById("tld_privacy_policy_uri").textContent = proposed;		
-		document.getElementById("tld_functions").textContent = proposed;
+		document.getElementById("tld_functions").textContent = proposed + "Un modèle formel d'adressabilité des fonctions distingue les identités légales et présentées.";
 		document.getElementById("tld_accepted_workload").textContent = proposed + "Cette modélisation soutient la modernisation des tables de la base de données IANA.";
 		document.getElementById("tld_relationships").textContent = proposed;
 		document.getElementById("lifecycle_part").textContent = proposed;
@@ -510,7 +510,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="415" style="display:table-row"><td>tld_data_usage_policy_uri</td><td>'.((!empty($data[$pd]['tld']['data_usage_policy_uri'])) ? '<a href='.$data[$pd]['tld']['data_usage_policy_uri'].' target="_blank">TLD Data Usage</a>' : '').'</td><td id="tld_data_usage_policy_uri"></td><td></td></tr>';
 	$html_text .= '<tr id="416" style="display:table-row"><td>tld_privacy_policy_uri</td><td>'.((!empty($data[$pd]['tld']['privacy_policy_uri'])) ? '<a href='.$data[$pd]['tld']['privacy_policy_uri'].' target="_blank">TLD Privacy</a>' : '').'</td><td id="tld_privacy_policy_uri"></td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Functions +/-</button></td><td></td><td id="tld_functions"></td><td>data needed</td></tr>';
-	$html_text .= '<tr><td colspan="3">TLD RDAP registrant full name: '.$data[$pd]['tld']['registrant_fn'].'</td><td>data moved</td></tr>';
+	$html_text .= '<tr><td colspan="3">tld_registrant_full_name: '.$data[$pd]['tld']['registrant_full_name'].'</td><td>data replaced</td></tr>';
 	$html_text .= '<tr id="421" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['tld']['functions'].'</td><td></td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Accepted Workload +/-</button></td><td></td><td id="tld_accepted_workload"></td><td>data needed</td></tr>';
 	$html_text .= '<tr id="441" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['tld']['accepted_workload'].'</td><td></td><td></td></tr>';
