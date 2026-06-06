@@ -71,7 +71,25 @@ $nameservers_rdap_dnssec_signed = '';
 $nameservers_rdap_ds_key_tags = '';	
 $nameservers_rdap_ds_algorithm_numbers = '';
 $nameservers_rdap_ds_digest_types = '';
-$nameservers_rdap_ds_digests = '';	
+$nameservers_rdap_ds_digests = '';
+$entity_registrant = -1;
+$tld_registrant_fn = '';
+foreach ($obj['entities'] ?? [] as $entity_index => $entity) {
+	foreach ($entity['roles'] ?? [] as $role) {
+    	if ($role === 'registrant') {
+        	$entity_registrant = $entity_index;
+        	break 2;
+        }
+    }
+}
+if ($entity_registrant >= 0 && isset($obj['entities'][$entity_registrant]['vcardArray'][1])) {
+	foreach ($obj['entities'][$entity_registrant]['vcardArray'][1] as $vcardField) {
+    	if (($vcardField[0] ?? '') === 'fn') {
+        	$tld_registrant_fn = $vcardField[3] ?? '';
+    	    break;
+	    }
+    }
+}		
 foreach($obj as $key1 => $value1) {
 	if ($key1 == 'status')	{	
 		$tld_statuses .= (is_array($value1)) ? implode(",<br />", $value1) : $value1;
@@ -717,7 +735,8 @@ $arr[$inputtld]['tld']['registry_data_uri'] = '';
 $arr[$inputtld]['tld']['data_usage_policy_uri'] = $tld_data_usage_policy_uri;
 $arr[$inputtld]['tld']['privacy_policy_uri'] = $tld_privacy_policy_uri;
 
-$arr[$inputtld]['tld']['functions'] = $tld_functions;
+$arr[$inputtld]['tld']['registrant_fn'] = $tld_registrant_fn;
+$arr[$inputtld]['tld']['functions'] = $tld_functions;	
 $arr[$inputtld]['tld']['accepted_workload'] = $tld_accepted_workload;
 $arr[$inputtld]['tld']['relationships'] = $tld_relationships;
 

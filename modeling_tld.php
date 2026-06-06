@@ -510,6 +510,7 @@ if (true or $pd == mb_strtolower($data[$pd]['domain']['ascii_name']) or empty($d
 	$html_text .= '<tr id="415" style="display:table-row"><td>tld_data_usage_policy_uri</td><td>'.((!empty($data[$pd]['tld']['data_usage_policy_uri'])) ? '<a href='.$data[$pd]['tld']['data_usage_policy_uri'].' target="_blank">TLD Data Usage</a>' : '').'</td><td id="tld_data_usage_policy_uri"></td><td></td></tr>';
 	$html_text .= '<tr id="416" style="display:table-row"><td>tld_privacy_policy_uri</td><td>'.((!empty($data[$pd]['tld']['privacy_policy_uri'])) ? '<a href='.$data[$pd]['tld']['privacy_policy_uri'].' target="_blank">TLD Privacy</a>' : '').'</td><td id="tld_privacy_policy_uri"></td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(42)">Functions +/-</button></td><td></td><td id="tld_functions"></td><td>data needed</td></tr>';
+	$html_text .= '<tr><td colspan="3">TLD RDAP registrant full name: '.$data[$pd]['tld']['registrant_fn'].'</td><td>data moved</td></tr>';
 	$html_text .= '<tr id="421" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['tld']['functions'].'</td><td></td><td></td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Accepted Workload +/-</button></td><td></td><td id="tld_accepted_workload"></td><td>data needed</td></tr>';
 	$html_text .= '<tr id="441" style="display:none;vertical-align:top"><td colspan="2">'.$data[$pd]['tld']['accepted_workload'].'</td><td></td><td></td></tr>';
