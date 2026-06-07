@@ -986,9 +986,9 @@ $registry_data_uri = '';
 $registrar_data_uri = '';
 $registrar_complaint_uri = '';	
 $status_explanation_uri = '';
-$registrant_web_id = '';
+$registrant_subject_id = '';
 if ($inputtld == 'nl' or $inputtld == 'frl')	{		
-	$registrant_web_id = 'NL88COMM01234567890123456789012345';	
+	$registrant_subject_id = 'NL88COMM01234567890123456789012345';	
 }
 $created_at = null;
 $latest_registrar_transfer_at = null;			
@@ -2082,7 +2082,7 @@ $arr['domain']['extensions'] = $extensions;
 $arr['domain']['remarks'] = $remarks;			
 	
 $arr['sponsor']['client_handle'] = $sponsor_handle;
-$arr['sponsor']['web_id'] = $sponsor_web_id;		
+$arr['sponsor']['subject_id'] = $sponsor_subject_id;		
 $arr['sponsor']['organization_type'] = $sponsor_organization_type;	
 $arr['sponsor']['organization_name'] = $sponsor_organization_name;	
 $arr['sponsor']['presented_name'] = $sponsor_presented_name;	
@@ -2104,7 +2104,7 @@ $arr['sponsor']['remarks'] = $sponsor_remarks;
 $arr['sponsor']['links'] = $sponsor_links;	
 	
 $arr['registrant']['client_handle'] = $registrant_handle;
-$arr['registrant']['web_id'] = $registrant_web_id;		
+$arr['registrant']['subject_id'] = $registrant_subject_id;		
 $arr['registrant']['organization_type'] = $registrant_organization_type;	
 $arr['registrant']['organization_name'] = $registrant_organization_name;	
 $arr['registrant']['presented_name'] = $registrant_presented_name;	
@@ -2127,7 +2127,7 @@ $arr['registrant']['remarks'] = $registrant_remarks;
 $arr['registrant']['links'] = $registrant_links;	
 	
 $arr['request_handling']['client_handle'] = $request_handling_handle;
-$arr['request_handling']['web_id'] = $request_handling_web_id;		
+$arr['request_handling']['subject_id'] = $request_handling_subject_id;		
 $arr['request_handling']['organization_type'] = $request_handling_organization_type;	
 $arr['request_handling']['organization_name'] = $request_handling_organization_name;	
 $arr['request_handling']['presented_name'] = $request_handling_presented_name;	
@@ -2150,7 +2150,7 @@ $arr['request_handling']['remarks'] = $request_handling_remarks;
 $arr['request_handling']['links'] = $request_handling_links;
 
 $arr['issue_reporting']['client_handle'] = $issue_reporting_handle;
-$arr['issue_reporting']['web_id'] = $issue_reporting_web_id;		
+$arr['issue_reporting']['subject_id'] = $issue_reporting_subject_id;		
 $arr['issue_reporting']['organization_type'] = $issue_reporting_organization_type;	
 $arr['issue_reporting']['organization_name'] = $issue_reporting_organization_name;	
 $arr['issue_reporting']['presented_name'] = $issue_reporting_presented_name;	
@@ -2173,7 +2173,7 @@ $arr['issue_reporting']['remarks'] = $issue_reporting_remarks;
 $arr['issue_reporting']['links'] = $issue_reporting_links;	
 	
 $arr['billing']['client_handle'] = $billing_handle;
-$arr['billing']['web_id'] = $billing_web_id;		
+$arr['billing']['subject_id'] = $billing_subject_id;		
 $arr['billing']['organization_type'] = $billing_organization_type;	
 $arr['billing']['organization_name'] = $billing_organization_name;	
 $arr['billing']['presented_name'] = $billing_presented_name;	
@@ -2196,7 +2196,7 @@ $arr['billing']['remarks'] = $billing_remarks;
 $arr['billing']['links'] = $billing_links;	
 
 $arr['reseller']['client_handle'] = $reseller_handle;
-$arr['reseller']['web_id'] = $reseller_web_id;		
+$arr['reseller']['subject_id'] = $reseller_subject_id;		
 $arr['reseller']['organization_type'] = $reseller_organization_type;	
 $arr['reseller']['organization_name'] = $reseller_organization_name;	
 $arr['reseller']['presented_name'] = $reseller_presented_name;	
@@ -2219,7 +2219,7 @@ $arr['reseller']['remarks'] = $reseller_remarks;
 $arr['reseller']['links'] = $reseller_links;	
 
 $arr['registrar']['client_handle'] = $registrar_handle;
-$arr['registrar']['web_id'] = $registrar_web_id;		
+$arr['registrar']['subject_id'] = $registrar_subject_id;		
 $arr['registrar']['organization_type'] = $registrar_organization_type;	
 $arr['registrar']['organization_name'] = $registrar_organization_name;	
 $arr['registrar']['presented_name'] = $registrar_presented_name;	
