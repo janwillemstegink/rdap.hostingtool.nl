@@ -14,6 +14,8 @@ Menu information modeling: https://rdap.hostingtool.nl/modeling_menu/
 
 Domain inspection tool: https://www.domaincontrolregister.org/
 
+EU TLDs DNSSEC analysis tool:  https://analyzetlds.hostingtool.org/
+
 Trade register data structure tool: https://analyzesubject.hostingtool.org/
 
 Find background information on:
