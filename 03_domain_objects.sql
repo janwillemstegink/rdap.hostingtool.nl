@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS entities (
     entity_id BIGSERIAL PRIMARY KEY,
     entity_server_handle TEXT NOT NULL UNIQUE,
     entity_client_handle TEXT,
-    entity_subject_id VARCHAR(34),
+    entity_subject_code VARCHAR(34),
     entity_organization_type TEXT,
     entity_organization_name VARCHAR(511),
     entity_presented_name VARCHAR(511),
