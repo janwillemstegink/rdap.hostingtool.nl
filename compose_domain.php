@@ -2046,7 +2046,7 @@ if ($inputbatch)	{
 }
 	
 $arr['notices'] = $notices;
-$arr['links'] = $links;
+$arr['subject_links'] = $links;
 $arr['publication_state'] = $redacted;
 $arr['interface_notice'] = $interface_notice;
 	
@@ -2101,7 +2101,7 @@ $arr['sponsor']['statuses'] = $sponsor_statuses;
 $arr['sponsor']['created_at'] = $sponsor_created_at;
 $arr['sponsor']['latest_data_mutation_at'] = $sponsor_latest_data_mutation_at;
 $arr['sponsor']['remarks'] = $sponsor_remarks;
-$arr['sponsor']['links'] = $sponsor_links;	
+$arr['sponsor']['subject_links'] = $sponsor_links;	
 	
 $arr['registrant']['client_handle'] = $registrant_handle;
 $arr['registrant']['subject_code'] = $registrant_subject_code;		
@@ -2124,7 +2124,7 @@ $arr['registrant']['statuses'] = $registrant_statuses;
 $arr['registrant']['created_at'] = $registrant_created_at;
 $arr['registrant']['latest_data_mutation_at'] = $registrant_latest_data_mutation_at;
 $arr['registrant']['remarks'] = $registrant_remarks;
-$arr['registrant']['links'] = $registrant_links;	
+$arr['registrant']['subject_links'] = $registrant_links;	
 	
 $arr['request_handling']['client_handle'] = $request_handling_handle;
 $arr['request_handling']['subject_code'] = $request_handling_subject_code;		
@@ -2147,7 +2147,7 @@ $arr['request_handling']['statuses'] = $request_handling_statuses;
 $arr['request_handling']['created_at'] = $request_handling_created_at;
 $arr['request_handling']['latest_data_mutation_at'] = $request_handling_latest_data_mutation_at;
 $arr['request_handling']['remarks'] = $request_handling_remarks;
-$arr['request_handling']['links'] = $request_handling_links;
+$arr['request_handling']['subject_links'] = $request_handling_links;
 
 $arr['issue_reporting']['client_handle'] = $issue_reporting_handle;
 $arr['issue_reporting']['subject_code'] = $issue_reporting_subject_code;		
@@ -2170,7 +2170,7 @@ $arr['issue_reporting']['statuses'] = $issue_reporting_statuses;
 $arr['issue_reporting']['created_at'] = $issue_reporting_created_at;
 $arr['issue_reporting']['latest_data_mutation_at'] = $issue_reporting_latest_data_mutation_at;
 $arr['issue_reporting']['remarks'] = $issue_reporting_remarks;
-$arr['issue_reporting']['links'] = $issue_reporting_links;	
+$arr['issue_reporting']['subject_links'] = $issue_reporting_links;	
 	
 $arr['billing']['client_handle'] = $billing_handle;
 $arr['billing']['subject_code'] = $billing_subject_code;		
@@ -2193,7 +2193,7 @@ $arr['billing']['statuses'] = $billing_statuses;
 $arr['billing']['created_at'] = $billing_created_at;
 $arr['billing']['latest_data_mutation_at'] = $billing_latest_data_mutation_at;
 $arr['billing']['remarks'] = $billing_remarks;
-$arr['billing']['links'] = $billing_links;	
+$arr['billing']['subject_links'] = $billing_links;	
 
 $arr['reseller']['client_handle'] = $reseller_handle;
 $arr['reseller']['subject_code'] = $reseller_subject_code;		
@@ -2216,7 +2216,7 @@ $arr['reseller']['statuses'] = $reseller_statuses;
 $arr['reseller']['created_at'] = $reseller_created_at;
 $arr['reseller']['latest_data_mutation_at'] = $reseller_latest_data_mutation_at;
 $arr['reseller']['remarks'] = $reseller_remarks;
-$arr['reseller']['links'] = $reseller_links;	
+$arr['reseller']['subject_links'] = $reseller_links;	
 
 $arr['registrar']['client_handle'] = $registrar_handle;
 $arr['registrar']['subject_code'] = $registrar_subject_code;		
@@ -2239,7 +2239,7 @@ $arr['registrar']['statuses'] = $registrar_statuses;
 $arr['registrar']['created_at'] = $registrar_created_at;
 $arr['registrar']['latest_data_mutation_at'] = $registrar_latest_data_mutation_at;
 $arr['registrar']['remarks'] = $registrar_remarks;
-$arr['registrar']['links'] = $registrar_links;	
+$arr['registrar']['subject_links'] = $registrar_links;	
 	
 $arr['registrar_abuse']['client_handle'] = $registrar_abuse_handle;
 $arr['registrar_abuse']['organization_type'] = $registrar_abuse_organization_type;

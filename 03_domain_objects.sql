@@ -130,7 +130,8 @@ CREATE TABLE IF NOT EXISTS subjects (
     subject_verification_set_at TIMESTAMPTZ,
 	subject_verification_revoked_at TIMESTAMPTZ,
     subject_properties JSONB DEFAULT '[]'::jsonb,
-    subject_remarks JSONB DEFAULT '[]'::jsonb
+    subject_remarks JSONB DEFAULT '[]'::jsonb,
+	subject_links JSONB NOT NULL DEFAULT '[]'::jsonb
 );
 
 CREATE INDEX IF NOT EXISTS idx_subject_postal_code ON subjects(subject_postal_code);
@@ -272,7 +273,6 @@ CREATE TABLE IF NOT EXISTS domain_relationships (
     dr_domain BIGINT NOT NULL REFERENCES domains(domain_id) ON DELETE CASCADE,
     dr_source_layer VARCHAR(12) NOT NULL CHECK (dr_source_layer IN ('registry','registrar')),
     dr_relationship VARCHAR(50),
-	dr_links JSONB NOT NULL DEFAULT '[]'::jsonb,
     dr_publication_state JSONB NOT NULL DEFAULT '{
         "organization_name": "shielded",
         "presented_name": "shielded",
@@ -331,7 +331,6 @@ CREATE TABLE IF NOT EXISTS subject_relationships (
     sr_parent_relationship VARCHAR(50),
     sr_parent BIGINT NOT NULL REFERENCES subjects(subject_id) ON DELETE CASCADE,
     sr_child_relationship VARCHAR(50),
-	sr_links JSONB NOT NULL DEFAULT '[]'::jsonb,
     sr_publication_state JSONB NOT NULL DEFAULT '{
         "organization_name": "shielded",
         "presented_name": "shielded",
