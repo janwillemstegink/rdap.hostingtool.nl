@@ -4,14 +4,14 @@
 
    Tables:
      - domains               : domain core
-     - entities              : contacts/organizations (registrant/admin/tech/etc.)
+     - subjects              : identified parties/contacts/organizations
      - nameservers           : host objects with IPv4/IPv6 arrays
      - ip_network_versions   : registry for IPv4/IPv6 labels
      - ip_networks           : IP ranges with metadata
      - autnums               : Autonomous System Numbers
-     - domain_relationships	 : domains ↔ entities (relationship-based)
+     - domain_relationships	 : domains ↔ subjects (relationship-based)
      - domain_nameservers    : domains ↔ nameservers (unique pairs)
-     - entity_relationships  : entity ↔ entity relations (e.g., registrar ↔ abuse)
+     - subject_relationships : subject ↔ subject relations (e.g., registrar ↔ abuse)
      - domain_secure_dns     : DNSSEC/DANE settings per domain
      - domain_tlsa_records   : TLSA records tied to domain_secure_dns
 
@@ -100,56 +100,57 @@ FOR EACH ROW
 EXECUTE FUNCTION set_domain_tld();
 
 -- ========================================
--- Table: entities
+-- Table: subjects
 -- ========================================
-CREATE TABLE IF NOT EXISTS entities (
-    entity_id BIGSERIAL PRIMARY KEY,
-    entity_server_handle TEXT NOT NULL UNIQUE,
-    entity_client_handle TEXT,
-    entity_subject_code VARCHAR(34),
-    entity_organization_type TEXT,
-    entity_organization_name VARCHAR(511),
-    entity_presented_name VARCHAR(511),
-    entity_kind TEXT,
-    entity_name TEXT,
-    entity_email CITEXT,
-    entity_phone VARCHAR(50),
-    entity_fax VARCHAR(50),
-    entity_country_code CHAR(2),
-    entity_street_address TEXT,
-    entity_city TEXT,
-    entity_state_or_province TEXT,
-    entity_postal_code VARCHAR(20),
-    entity_country_name TEXT,
-	entity_preferred_languages TEXT[],
-	entity_statuses TEXT[],
-    entity_created_at TIMESTAMPTZ,
-    entity_latest_data_mutation_at TIMESTAMPTZ,
-    entity_identifier_received_at TIMESTAMPTZ,
-    entity_verification_set_at TIMESTAMPTZ,
-	entity_verification_revoked_at TIMESTAMPTZ,
-    entity_properties JSONB DEFAULT '[]'::jsonb,
-    entity_remarks JSONB DEFAULT '[]'::jsonb
+CREATE TABLE IF NOT EXISTS subjects (
+    subject_id BIGSERIAL PRIMARY KEY,
+    subject_server_handle TEXT NOT NULL UNIQUE,
+    subject_client_handle TEXT,
+    subject_code VARCHAR(34),
+    subject_organization_type TEXT,
+    subject_organization_name VARCHAR(511),
+    subject_presented_name VARCHAR(511),
+    subject_kind TEXT,
+    subject_name TEXT,
+    subject_email CITEXT,
+    subject_contact_uri JSONB DEFAULT '[]'::jsonb,
+    subject_phone VARCHAR(50),
+    subject_fax VARCHAR(50),
+    subject_country_code CHAR(2),
+    subject_street_address TEXT,
+    subject_city TEXT,
+    subject_state_or_province TEXT,
+    subject_postal_code VARCHAR(20),
+    subject_country_name TEXT,
+	subject_preferred_languages TEXT[],
+	subject_statuses TEXT[],
+    subject_created_at TIMESTAMPTZ,
+    subject_latest_data_mutation_at TIMESTAMPTZ,
+    subject_identifier_received_at TIMESTAMPTZ,
+    subject_verification_set_at TIMESTAMPTZ,
+	subject_verification_revoked_at TIMESTAMPTZ,
+    subject_properties JSONB DEFAULT '[]'::jsonb,
+    subject_remarks JSONB DEFAULT '[]'::jsonb
 );
 
-CREATE INDEX IF NOT EXISTS idx_entity_postal_code ON entities(entity_postal_code);
-CREATE INDEX IF NOT EXISTS idx_entity_email ON entities(entity_email);
-CREATE INDEX IF NOT EXISTS idx_entity_country_code ON entities(entity_country_code);
+CREATE INDEX IF NOT EXISTS idx_subject_postal_code ON subjects(subject_postal_code);
+CREATE INDEX IF NOT EXISTS idx_subject_email ON subjects(subject_email);
+CREATE INDEX IF NOT EXISTS idx_subject_country_code ON subjects(subject_country_code);
 
--- Trigger Function: Update entity_latest_data_mutation_at on UPDATE
-CREATE OR REPLACE FUNCTION update_entities_latest_data_mutation_at()
+-- Trigger Function: Update subject_latest_data_mutation_at on UPDATE
+CREATE OR REPLACE FUNCTION update_subjects_latest_data_mutation_at()
 RETURNS TRIGGER AS $$
 BEGIN
-  NEW.entity_latest_data_mutation_at = CURRENT_TIMESTAMP;
+  NEW.subject_latest_data_mutation_at = CURRENT_TIMESTAMP;
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS trg_update_entities_latest_data_mutation_at ON entities;
-CREATE TRIGGER trg_update_entities_latest_data_mutation_at
-BEFORE UPDATE ON entities
+DROP TRIGGER IF EXISTS trg_update_subjects_latest_data_mutation_at ON subjects;
+CREATE TRIGGER trg_update_subjects_latest_data_mutation_at
+BEFORE UPDATE ON subjects
 FOR EACH ROW
-EXECUTE FUNCTION update_entities_latest_data_mutation_at();
+EXECUTE FUNCTION update_subjects_latest_data_mutation_at();
 
 -- ========================================
 -- Table: nameservers
@@ -282,11 +283,11 @@ CREATE TABLE IF NOT EXISTS domain_relationships (
         "country_code": "shielded",
         "address": "shielded"
     }'::jsonb,
-    dr_entity BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE
+    dr_subject BIGINT NOT NULL REFERENCES subjects(subject_id) ON DELETE CASCADE
 );
-CREATE UNIQUE INDEX IF NOT EXISTS uq_dr_unique ON domain_relationships (dr_domain, dr_source_layer, dr_relationship, dr_entity);
+CREATE UNIQUE INDEX IF NOT EXISTS uq_dr_unique ON domain_relationships (dr_domain, dr_source_layer, dr_relationship, dr_subject);
 CREATE INDEX IF NOT EXISTS idx_dr_domain ON domain_relationships(dr_domain);
-CREATE INDEX IF NOT EXISTS idx_dr_entity ON domain_relationships(dr_entity);
+CREATE INDEX IF NOT EXISTS idx_dr_subject ON domain_relationships(dr_subject);
 
 -- ========================================
 -- Table: domain_nameservers (link domains<->nameservers)
@@ -324,14 +325,14 @@ EXECUTE FUNCTION update_domain_nameservers_latest_data_mutation_at();
 -- "tunable_shielded" — value maintained, currently not disclosed
 -- "tunable_visible" — value maintained, currently disclosed
 -- ========================================
-CREATE TABLE IF NOT EXISTS entity_relationships (
-    er_id BIGSERIAL PRIMARY KEY,
-	er_source_layer VARCHAR(12) NOT NULL CHECK (er_source_layer IN ('registry','registrar')),
-    er_parent_relationship VARCHAR(50),
-    er_parent BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE,
-    er_child_relationship VARCHAR(50),
-	er_links JSONB NOT NULL DEFAULT '[]'::jsonb,
-    er_publication_state JSONB NOT NULL DEFAULT '{
+CREATE TABLE IF NOT EXISTS subject_relationships (
+    sr_id BIGSERIAL PRIMARY KEY,
+	sr_source_layer VARCHAR(12) NOT NULL CHECK (sr_source_layer IN ('registry','registrar')),
+    sr_parent_relationship VARCHAR(50),
+    sr_parent BIGINT NOT NULL REFERENCES subjects(subject_id) ON DELETE CASCADE,
+    sr_child_relationship VARCHAR(50),
+	sr_links JSONB NOT NULL DEFAULT '[]'::jsonb,
+    sr_publication_state JSONB NOT NULL DEFAULT '{
         "organization_name": "shielded",
         "presented_name": "shielded",
         "name": "shielded",
@@ -341,11 +342,11 @@ CREATE TABLE IF NOT EXISTS entity_relationships (
         "country_code": "shielded",
         "address": "shielded"
     }'::jsonb,
-    er_child BIGINT NOT NULL REFERENCES entities(entity_id) ON DELETE CASCADE
+    sr_child BIGINT NOT NULL REFERENCES subjects(subject_id) ON DELETE CASCADE
 );
-CREATE UNIQUE INDEX IF NOT EXISTS uq_er_unique ON entity_relationships (er_source_layer, er_parent_relationship, er_parent, er_child_relationship, er_child);
-CREATE INDEX IF NOT EXISTS idx_er_parent ON entity_relationships(er_parent);
-CREATE INDEX IF NOT EXISTS idx_er_child ON entity_relationships(er_child);
+CREATE UNIQUE INDEX IF NOT EXISTS uq_sr_unique ON subject_relationships (sr_source_layer, sr_parent_relationship, sr_parent, sr_child_relationship, sr_child);
+CREATE INDEX IF NOT EXISTS idx_sr_parent ON subject_relationships(sr_parent);
+CREATE INDEX IF NOT EXISTS idx_sr_child ON subject_relationships(sr_child);
 
 -- ========================================
 -- Table: domain_secure_dns

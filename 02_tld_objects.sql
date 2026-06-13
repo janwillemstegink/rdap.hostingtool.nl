@@ -4,9 +4,9 @@
 
    Tables:
      - tld_categories, tld_types
-     - root                : global registry settings (functions, statuses, periods)
+     - root             	 : global registry settings (functions, statuses, periods)
      - tlds                  : public suffix / TLD entries (with functions & workload)
-	 - function_entities     : entity functions
+	 - function_subjects     : subject functions
      - lifecycles            : TLD lifecycle policy snapshots
 
    Functions & Triggers:
@@ -265,25 +265,25 @@ CREATE UNIQUE INDEX IF NOT EXISTS idx_lifecycle_data_active_from
 ON lifecycles(lifecycle_tld, lifecycle_data_active_from);
 
 -- ========================================
--- Table: function_entities (registry/TLD function entities)
+-- Table: function_subjects (registry/TLD function subjects)
 -- ========================================
-CREATE TABLE IF NOT EXISTS functions_entities (
-    function_entity_id SERIAL PRIMARY KEY,
-    function_entity_handle TEXT NOT NULL UNIQUE,
-    function_entity_web_id VARCHAR(34),
-    function_entity_organization_name VARCHAR(511),
-    function_entity_presented_name VARCHAR(511),
-    function_entity_name TEXT,
-    function_entity_email CITEXT,
-    function_entity_phone VARCHAR(50),
-    function_entity_fax VARCHAR(50),
-    function_entity_country_code CHAR(2),
-    function_entity_street_address TEXT,
-    function_entity_city TEXT,
-    function_entity_state_or_province TEXT,
-    function_entity_postal_code VARCHAR(20),
-    function_entity_country_name TEXT,
-    function_entity_latest_update_at TIMESTAMPTZ
+CREATE TABLE IF NOT EXISTS functions_subjects (
+    function_subject_id SERIAL PRIMARY KEY,
+    function_subject_handle TEXT NOT NULL UNIQUE,
+    function_subject_web_id VARCHAR(34),
+    function_subject_organization_name VARCHAR(511),
+    function_subject_presented_name VARCHAR(511),
+    function_subject_name TEXT,
+    function_subject_email CITEXT,
+    function_subject_phone VARCHAR(50),
+    function_subject_fax VARCHAR(50),
+    function_subject_country_code CHAR(2),
+    function_subject_street_address TEXT,
+    function_subject_city TEXT,
+    function_subject_state_or_province TEXT,
+    function_subject_postal_code VARCHAR(20),
+    function_subject_country_name TEXT,
+    function_subject_latest_update_at TIMESTAMPTZ
 );
 
 -- ========================================
@@ -295,7 +295,7 @@ CREATE TABLE IF NOT EXISTS tld_functions (
     tf_function_identifier VARCHAR(50),
     tf_data_active_from TIMESTAMPTZ,
 	tf_field_publication JSONB,
-    tf_function INT NOT NULL REFERENCES function_entities(function_entity_id) ON DELETE CASCADE,
+    tf_function INT NOT NULL REFERENCES function_subjects(function_subject_id) ON DELETE CASCADE,
     tf_latest_update_at TIMESTAMPTZ
 );
 
