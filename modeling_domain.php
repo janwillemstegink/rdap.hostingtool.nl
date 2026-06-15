@@ -80,7 +80,7 @@ function SwitchDisplay(type) {
 	}
 	else if (type == 20)	{ // metadata
 		var pre = '20';
-		var max = 11
+		var max = 10
 	}
 	else if (type == 30)	{ // domain properties
 		var pre = '30';
@@ -273,6 +273,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_verification_set_at").textContent = proposed;
 		document.getElementById("registrant_verification_revoked_at").textContent = proposed;
 		document.getElementById("registrant_remarks").textContent = "";
+		document.getElementById("registrant_subject_data_uri").textContent = proposed;
 		document.getElementById("actor_part").textContent = proposed;
 		document.getElementById("request_handling_part").textContent = modified;
 		document.getElementById("request_handling_subject_code").textContent = proposed;
@@ -366,6 +367,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_verification_set_at").textContent = proposed + "De registry verifieert de subjectidentificatie via de landspecifieke webdomeindienst.";
 		document.getElementById("registrant_verification_revoked_at").textContent = proposed + "De verificatie van de subjectidentificatie kan worden ingetrokken.";
 		document.getElementById("registrant_remarks").textContent = "Meer informatie. Zie bijvoorbeeld france.fr.";
+		document.getElementById("registrant_subject_data_uri").textContent = proposed;
 		document.getElementById("actor_part").textContent = proposed + "Handelt namens de registrant en opereert volgens de vereisten van de registrant.";
 		document.getElementById("request_handling_part").textContent = modified + "Behandelt binnenkomende verzoeken en stuurt deze indien nodig door naar de juiste partij.";
 		document.getElementById("request_handling_subject_code").textContent = proposed;
@@ -459,6 +461,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_verification_set_at").textContent = proposed + "The registry verifies the subject identifier through the country-specific web domain service.";
 		document.getElementById("registrant_verification_revoked_at").textContent = proposed + "The verification of the subject identifier can be revoked.";
 		document.getElementById("registrant_remarks").textContent = "More information. See for example france.fr.";
+		document.getElementById("registrant_subject_data_uri").textContent = proposed;
 		document.getElementById("actor_part").textContent = proposed + "Acts on behalf of the registrant and operates in accordance with the registrant’s requirements.";
 		document.getElementById("request_handling_part").textContent = modified + "Handles incoming requests and forwards them to the appropriate party when necessary.";
 		document.getElementById("request_handling_subject_code").textContent = proposed;
@@ -552,6 +555,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_verification_set_at").textContent = proposed + "Die Registry verifiziert die Subjektkennung über den länderspezifischen Web-Domain-Dienst.";
 		document.getElementById("registrant_verification_revoked_at").textContent = proposed + "Die Verifizierung der Subjektkennung kann widerrufen werden.";
 		document.getElementById("registrant_remarks").textContent = "Weitere Informationen. Siehe beispielsweise france.fr.";
+		document.getElementById("registrant_subject_data_uri").textContent = proposed;
 		document.getElementById("actor_part").textContent = proposed + "Handelt im Auftrag des Registranten und agiert gemäß dessen Anforderungen.";
 		document.getElementById("request_handling_part").textContent = modified + "Bearbeitet eingehende Anfragen und leitet sie bei Bedarf an die zuständige Stelle weiter.";
 		document.getElementById("request_handling_subject_code").textContent = proposed;
@@ -645,6 +649,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("registrant_verification_set_at").textContent = proposed + "Le registre vérifie l'identifiant du sujet par l'intermédiaire du service national de domaine web.";
 		document.getElementById("registrant_verification_revoked_at").textContent = proposed + "La vérification de l'identifiant du sujet peut être révoquée.";
 		document.getElementById("registrant_remarks").textContent = "Plus d'informations. Voir, par exemple, france.fr.";
+		document.getElementById("registrant_subject_data_uri").textContent = proposed;
 		document.getElementById("actor_part").textContent = proposed + "Agit pour le compte du titulaire et opère conformément à ses exigences.";
 		document.getElementById("request_handling_part").textContent = modified + "Traite les demandes reçues et les transmet à la partie compétente si nécessaire.";
 		document.getElementById("request_handling_subject_code").textContent = proposed;
@@ -762,11 +767,10 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['domain']['ascii_name'])
 	$validation_registrar = 'https://validator.rdap.org/?url=https://'.$registrar_data_uri.'&response-type=domain&server-type=gtld-registrar&errors-only=1';
 	$html_text .= '<tr><td>registrar_data_uri</td><td>'.((!empty($data[$pd]['registry']['metadata']['registrar_data_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['registrar_data_uri'].' target="_blank">Registrar Response</a> - <a href="' . htmlspecialchars($validation_registrar, ENT_QUOTES, "UTF-8") . '" target="_blank">gTLD validator.rdap.org</a>' : '').'</td><td id="metadata_registrar_data_uri"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_data_uri'].'</td></tr>';	
 	$html_text .= '<tr><td>tld_information_uri</td><td>'.((!empty($tld_information_uri)) ? '<a href="'.$tld_information_uri.'" target="_blank">.'.$data[$pd]['registry']['metadata']['tld_unicode_name'].' TLD Information</a>' : '').'</td><td id="metadata_tld_information_uri"></td><td></td></tr>';
-	$html_text .= '<tr id="207" style="display:none"><td>registry_geo_location</td><td>'.$data[$pd]['registry']['metadata']['registry_geo_location'].'</td><td></td><td>'.$data[$pd]['registrar']['metadata']['registry_geo_location'].'</td></tr>';
-	$html_text .= '<tr id="208" style="display:none"><td>registrar_identifiers</td><td>'.((!empty($data[$pd]['registry']['metadata']['registrar_identifiers'])) ? $data[$pd]['registry']['metadata']['registrar_identifiers'] : '').'</td><td id="metadata_registrar_identifiers"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_identifiers'].'</td></tr>';	
-	$html_text .= '<tr id="209" style="display:none"><td>registrar_complaint_uri</td><td>'.((!empty($data[$pd]['registry']['metadata']['registrar_complaint_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['registrar_complaint_uri'].' target="_blank">icann.org/wicf</a>' : '').'</td><td id="metadata_registrar_complaint_uri"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_complaint_uri'].'</td></tr>';
-	$html_text .= '<tr id="2010" style="display:none"><td>registrar_publication_method</td><td>'.$data[$pd]['registry']['metadata']['registrar_publication_method'].'</td><td id="metadata_registrar_publication_method"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_publication_method'].'</td></tr>';
-	$html_text .= '<tr id="2011" style="display:none"><td>status_explanation_uri</td><td>'.((!empty($data[$pd]['registry']['metadata']['status_explanation_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['status_explanation_uri'].' target="_blank">icann.org/epp</a>' : '').'</td><td id="metadata_status_explanation_uri"></td><td>'.$data[$pd]['registrar']['metadata']['status_explanation_uri'].'</td></tr>';
+	$html_text .= '<tr id="207" style="display:none"><td>registrar_identifiers</td><td>'.((!empty($data[$pd]['registry']['metadata']['registrar_identifiers'])) ? $data[$pd]['registry']['metadata']['registrar_identifiers'] : '').'</td><td id="metadata_registrar_identifiers"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_identifiers'].'</td></tr>';	
+	$html_text .= '<tr id="208" style="display:none"><td>registrar_complaint_uri</td><td>'.((!empty($data[$pd]['registry']['metadata']['registrar_complaint_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['registrar_complaint_uri'].' target="_blank">icann.org/wicf</a>' : '').'</td><td id="metadata_registrar_complaint_uri"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_complaint_uri'].'</td></tr>';
+	$html_text .= '<tr id="209" style="display:none"><td>registrar_publication_method</td><td>'.$data[$pd]['registry']['metadata']['registrar_publication_method'].'</td><td id="metadata_registrar_publication_method"></td><td>'.$data[$pd]['registrar']['metadata']['registrar_publication_method'].'</td></tr>';
+	$html_text .= '<tr id="2010" style="display:none"><td>status_explanation_uri</td><td>'.((!empty($data[$pd]['registry']['metadata']['status_explanation_uri'])) ? '<a href='.$data[$pd]['registry']['metadata']['status_explanation_uri'].' target="_blank">icann.org/epp</a>' : '').'</td><td id="metadata_status_explanation_uri"></td><td>'.$data[$pd]['registrar']['metadata']['status_explanation_uri'].'</td></tr>';
 	$html_text .= '<tr><td>resource_upload_at</td><td>'.$data[$pd]['registry']['metadata']['resource_upload_at'].'</td><td id="metadata_resource_upload_at"></td><td>'.$data[$pd]['registrar']['metadata']['resource_upload_at'].'</td></tr>';
 	$html_text .= '<tr><td><hr></td><td><hr></td><td><hr></td><td><hr></td></tr>';
 	if (!empty($data[$pd]['registry']['interface_notice']) or !empty($data[$pd]['registrar']['interface_notice']))	{
@@ -903,8 +907,8 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['domain']['ascii_name'])
 	$html_text .= '<tr id="3922" style="display:none"><td>sponsor_verification_set_at</td><td>'.$data[$pd]['registry']['sponsor']['verification_set_at'].'</td><td id="sponsor_verification_set_at"></td><td>'.$data[$pd]['registrar']['sponsor']['verification_set_at'].'</td></tr>';
 	$html_text .= '<tr id="151" style="display:none"><td colspan="2">sponsor_publication_state'.$data[$pd]['registry']['sponsor']['publication_state'].'</td><td></td><td>'.$data[$pd]['registrar']['sponsor']['publication_state'].'</td></tr>';
 	$html_text .= '<tr id="3923" style="display:none"><td>sponsor_remarks</td><td>'.$data[$pd]['registry']['sponsor']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['sponsor']['remarks'].'</td></tr>';
-	$html_text .= '<tr id="3924" style="display:none"><td>sponsor_subject_data_uri</td><td colspan="2">'.$data[$pd]['registry']['sponsor']['subject_data_uri'].'</td><td>'.$data[$pd]['registrar']['sponsor']['subject_data_uri'].'</td></tr>';
-	$html_text .= '<tr id="3925" style="display:none"><td>sponsor_subject_links</td><td colspan="2">'.$data[$pd]['registry']['sponsor']['subject_links'].'</td><td>'.$data[$pd]['registrar']['sponsor']['subject_links'].'</td></tr>';	
+	$html_text .= '<tr id="3924" style="display:none"><td>sponsor_subject_links</td><td colspan="2">'.$data[$pd]['registry']['sponsor']['subject_links'].'</td><td>'.$data[$pd]['registrar']['sponsor']['subject_links'].'</td></tr>';
+	$html_text .= '<tr id="3925" style="display:none"><td>sponsor_subject_data_uri</td><td>'.$data[$pd]['registry']['sponsor']['subject_data_uri'].'</td><td></td><td>'.$data[$pd]['registrar']['sponsor']['subject_data_uri'].'</td></tr>';	
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(40)">Registrant +/-</button></td><td></td><td id="registrant_part"></td><td></td></tr>';
 	$html_text .= '<tr id="401" style="display:none"><td>registrant_server_handle</td><td>'.$data[$pd]['registry']['registrant']['server_handle'].'</td><td id="registrant_server_handle"></td><td>'.$data[$pd]['registrar']['registrant']['server_handle'].'</td></tr>';
 	$html_text .= '<tr id="402" style="display:none"><td>registrant_client_handle</td><td>'.$data[$pd]['registry']['registrant']['client_handle'].'</td><td id="registrant_client_handle"></td><td>'.$data[$pd]['registrar']['registrant']['client_handle'].'</td></tr>';
@@ -931,8 +935,8 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['domain']['ascii_name'])
 	$html_text .= '<tr id="4018" style="display:none"><td>registrant_verification_set_at</td><td>'.$data[$pd]['registry']['registrant']['verification_set_at'].'</td><td id="registrant_verification_set_at"></td><td>'.$data[$pd]['registrar']['registrant']['verification_set_at'].'</td></tr>';
 	$html_text .= '<tr id="4019" style="display:none"><td>registrant_verification_revoked_at</td><td>'.$data[$pd]['registry']['registrant']['verification_revoked_at'].'</td><td id="registrant_verification_revoked_at"></td><td>'.$data[$pd]['registrar']['registrant']['verification_revoked_at'].'</td></tr>';
 	$html_text .= '<tr id="4020" style="display:none"><td>registrant_remarks</td><td>'.$data[$pd]['registry']['registrant']['remarks'].'</td><td id="registrant_remarks"></td><td>'.$data[$pd]['registrar']['registrant']['remarks'].'</td></tr>';
-	$html_text .= '<tr id="4021" style="display:none"><td>registrant_subject_data_uri</td><td colspan="2">'.$data[$pd]['registry']['registrant']['subject_data_uri'].'</td><td>'.$data[$pd]['registrar']['registrant']['subject_data_uri'].'</td></tr>';
-	$html_text .= '<tr id="4022" style="display:none"><td>registrant_subject_links</td><td colspan="2">'.$data[$pd]['registry']['registrant']['subject_links'].'</td><td>'.$data[$pd]['registrar']['registrant']['subject_links'].'</td></tr>';	
+	$html_text .= '<tr id="4021" style="display:none"><td>registrant_subject_links</td><td colspan="2">'.$data[$pd]['registry']['registrant']['subject_links'].'</td><td>'.$data[$pd]['registrar']['registrant']['subject_links'].'</td></tr>';
+	$html_text .= '<tr id="4022" style="display:none"><td>registrant_subject_data_uri</td><td>'.$data[$pd]['registry']['registrant']['subject_data_uri'].'</td><td id="registrant_subject_data_uri"></td><td>'.$data[$pd]['registrar']['registrant']['subject_data_uri'].'</td></tr>';	
 	$html_text .= '<tr id="152" style="display:none"><td colspan="2">registrant_publication_state'.$data[$pd]['registry']['registrant']['publication_state'].'</td><td></td><td>'.$data[$pd]['registrar']['registrant']['publication_state'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(41)">Actor (On Behalf) +/-</button></td><td></td><td id="actor_part"></td><td></td></tr>';
 	$html_text .= '<tr id="411" style="display:none"><td>actor_server_handle</td><td>'.$data[$pd]['registry']['actor']['server_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['actor']['server_handle'].'</td></tr>';
@@ -967,8 +971,8 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['domain']['ascii_name'])
 	$html_text .= '<tr id="4215" style="display:none"><td>request_handling_country_name'.if_filled($data[$pd]['registry']['request_handling']['country_name']).'</td><td>'.$data[$pd]['registry']['request_handling']['country_name'].'</td><td></td><td>'.$data[$pd]['registrar']['request_handling']['country_name'].'</td></tr>';
 	$html_text .= '<tr id="4216" style="display:none"><td>request_handling_preferred_languages</td><td>'.$data[$pd]['registry']['request_handling']['preferred_languages'].'</td><td></td><td>'.$data[$pd]['registrar']['request_handling']['preferred_languages'].'</td></tr>';
 	$html_text .= '<tr id="4217" style="display:none"><td>request_handling_remarks</td><td>'.$data[$pd]['registry']['request_handling']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['request_handling']['remarks'].'</td></tr>';
-	$html_text .= '<tr id="4218" style="display:none"><td>request_handling_subject_data_uri</td><td colspan="2">'.$data[$pd]['registry']['request_handling']['subject_data_uri'].'</td><td>'.$data[$pd]['registrar']['request_handling']['subject_data_uri'].'</td></tr>';
-	$html_text .= '<tr id="4219" style="display:none"><td>request_handling_subject_links</td><td colspan="2">'.$data[$pd]['registry']['request_handling']['subject_links'].'</td><td>'.$data[$pd]['registrar']['request_handling']['subject_links'].'</td></tr>';	
+	$html_text .= '<tr id="4218" style="display:none"><td>request_handling_subject_links</td><td colspan="2">'.$data[$pd]['registry']['request_handling']['subject_links'].'</td><td>'.$data[$pd]['registrar']['request_handling']['subject_links'].'</td></tr>';
+	$html_text .= '<tr id="4219" style="display:none"><td>request_handling_subject_data_uri</td><td>'.$data[$pd]['registry']['request_handling']['subject_data_uri'].'</td><td></td><td>'.$data[$pd]['registrar']['request_handling']['subject_data_uri'].'</td></tr>';	
 	$html_text .= '<tr id="154" style="display:none"><td colspan="2">request_handling_publication_state'.$data[$pd]['registry']['request_handling']['publication_state'].'</td><td></td><td>'.$data[$pd]['registrar']['request_handling']['publication_state'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(43)">Issue Reporting (Technical) +/-</button></td><td></td><td id="issue_reporting_part"></td><td></td></tr>';
 	$html_text .= '<tr id="431" style="display:none"><td>issue_reporting_server_handle</td><td>'.$data[$pd]['registry']['issue_reporting']['server_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['server_handle'].'</td></tr>';
@@ -990,8 +994,8 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['domain']['ascii_name'])
 	$html_text .= '<tr id="4315" style="display:none"><td>issue_reporting_country_name'.if_filled($data[$pd]['registry']['issue_reporting']['country_name']).'</td><td>'.$data[$pd]['registry']['issue_reporting']['country_name'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['country_name'].'</td></tr>';
 	$html_text .= '<tr id="4316" style="display:none"><td>issue_reporting_preferred_languages</td><td>'.$data[$pd]['registry']['issue_reporting']['preferred_languages'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['preferred_languages'].'</td></tr>';
 	$html_text .= '<tr id="4317" style="display:none"><td>issue_reporting_remarks</td><td>'.$data[$pd]['registry']['issue_reporting']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['remarks'].'</td></tr>';
-	$html_text .= '<tr id="4318" style="display:none"><td>issue_reporting_subject_data_uri</td><td colspan="2">'.$data[$pd]['registry']['issue_reporting']['subject_data_uri'].'</td><td>'.$data[$pd]['registrar']['issue_reporting']['subject_data_uri'].'</td></tr>';
-	$html_text .= '<tr id="4319" style="display:none"><td>issue_reporting_subject_links</td><td colspan="2">'.$data[$pd]['registry']['issue_reporting']['subject_links'].'</td><td>'.$data[$pd]['registrar']['issue_reporting']['subject_links'].'</td></tr>';	
+	$html_text .= '<tr id="4318" style="display:none"><td>issue_reporting_subject_links</td><td colspan="2">'.$data[$pd]['registry']['issue_reporting']['subject_links'].'</td><td>'.$data[$pd]['registrar']['issue_reporting']['subject_links'].'</td></tr>';
+	$html_text .= '<tr id="4319" style="display:none"><td>issue_reporting_subject_data_uri</td><td>'.$data[$pd]['registry']['issue_reporting']['subject_data_uri'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['subject_data_uri'].'</td></tr>';	
 	$html_text .= '<tr id="155" style="display:none"><td colspan="2">issue_reporting_publication_state'.$data[$pd]['registry']['issue_reporting']['publication_state'].'</td><td></td><td>'.$data[$pd]['registrar']['issue_reporting']['publication_state'].'</td></tr>';	
 $html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(44)">Billing +/-</button></td><td></td><td id="billing_part"></td><td></td></tr>';
 	$html_text .= '<tr id="441" style="display:none"><td>billing_server_handle</td><td>'.$data[$pd]['registry']['billing']['server_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['billing']['server_handle'].'</td></tr>';
@@ -1013,8 +1017,8 @@ $html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="
 	$html_text .= '<tr id="4417" style="display:none"><td>billing_country_name'.if_filled($data[$pd]['registry']['billing']['country_name']).'</td><td>'.$data[$pd]['registry']['billing']['country_name'].'</td><td></td><td>'.$data[$pd]['registrar']['billing']['country_name'].'</td></tr>';
 	$html_text .= '<tr id="4418" style="display:none"><td>billing_preferred_languages</td><td>'.$data[$pd]['registry']['billing']['preferred_languages'].'</td><td></td><td>'.$data[$pd]['registrar']['billing']['preferred_languages'].'</td></tr>';
 	$html_text .= '<tr id="4419" style="display:none"><td>billing_remarks</td><td>'.$data[$pd]['registry']['billing']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['billing']['remarks'].'</td></tr>';
-	$html_text .= '<tr id="4420" style="display:none"><td>billing_subject_data_uri</td><td colspan="2">'.$data[$pd]['registry']['billing']['subject_data_uri'].'</td><td>'.$data[$pd]['registrar']['billing']['subject_data_uri'].'</td></tr>';
-	$html_text .= '<tr id="4421" style="display:none"><td>billing_subject_links</td><td colspan="2">'.$data[$pd]['registry']['billing']['subject_links'].'</td><td>'.$data[$pd]['registrar']['billing']['subject_links'].'</td></tr>';	
+	$html_text .= '<tr id="4420" style="display:none"><td>billing_subject_links</td><td colspan="2">'.$data[$pd]['registry']['billing']['subject_links'].'</td><td>'.$data[$pd]['registrar']['billing']['subject_links'].'</td></tr>';
+	$html_text .= '<tr id="4421" style="display:none"><td>billing_subject_data_uri</td><td>'.$data[$pd]['registry']['billing']['subject_data_uri'].'</td><td></td><td>'.$data[$pd]['registrar']['billing']['subject_data_uri'].'</td></tr>';	
 	$html_text .= '<tr id="156" style="display:none"><td colspan="2">billing_publication_state'.$data[$pd]['registry']['billing']['publication_state'].'</td><td></td><td>'.$data[$pd]['registrar']['billing']['publication_state'].'</td></tr>';		
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(45)">Escalation +/-</button></td><td></td><td id="escalation_part"></td><td></td></tr>';
 	$html_text .= '<tr id="451" style="display:none"><td>escalation_server_handle</td><td>'.$data[$pd]['registry']['escalation']['server_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['escalation']['server_handle'].'</td></tr>';
@@ -1055,8 +1059,8 @@ $html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="
 	$html_text .= '<tr id="5021" style="display:none"><td>reseller_verification_set_at</td><td>'.$data[$pd]['registry']['reseller']['verification_set_at'].'</td><td id="reseller_verification_set_at"></td><td>'.$data[$pd]['registrar']['reseller']['verification_set_at'].'</td></tr>';
 	$html_text .= '<tr id="5022" style="display:none"><td>reseller_verification_revoked_at</td><td>'.$data[$pd]['registry']['reseller']['verification_revoked_at'].'</td><td id="reseller_verification_revoked_at"></td><td>'.$data[$pd]['registrar']['reseller']['verification_revoked_at'].'</td></tr>';
 	$html_text .= '<tr id="5023" style="display:none"><td>reseller_remarks</td><td>'.$data[$pd]['registry']['reseller']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['remarks'].'</td></tr>';
-	$html_text .= '<tr id="5024" style="display:none"><td>reseller_subject_data_uri</td><td colspan="2">'.$data[$pd]['registry']['reseller']['subject_data_uri'].'</td><td>'.$data[$pd]['registrar']['reseller']['subject_data_uri'].'</td></tr>';
-	$html_text .= '<tr id="5025" style="display:none"><td>reseller_subject_links</td><td colspan="2">'.$data[$pd]['registry']['reseller']['subject_links'].'</td><td>'.$data[$pd]['registrar']['reseller']['subject_links'].'</td></tr>';	
+	$html_text .= '<tr id="5024" style="display:none"><td>reseller_subject_links</td><td colspan="2">'.$data[$pd]['registry']['reseller']['subject_links'].'</td><td>'.$data[$pd]['registrar']['reseller']['subject_links'].'</td></tr>';
+	$html_text .= '<tr id="5025" style="display:none"><td>reseller_subject_data_uri</td><td>'.$data[$pd]['registry']['reseller']['subject_data_uri'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['subject_data_uri'].'</td></tr>';	
 	$html_text .= '<tr id="158" style="display:none"><td colspan="2">reseller_publication_state'.$data[$pd]['registry']['reseller']['publication_state'].'</td><td></td><td>'.$data[$pd]['registrar']['reseller']['publication_state'].'</td></tr>';	
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(60)">Registrar +/-</button></td><td></td><td id="registrar_part"></td><td></td></tr>';
 	$html_text .= '<tr id="601" style="display:none"><td>registrar_server_handle</td><td>'.$data[$pd]['registry']['registrar']['server_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['server_handle'].'</td></tr>';
@@ -1084,8 +1088,8 @@ $html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="
 	$html_text .= '<tr id="6021" style="display:none"><td>registrar_verification_set_at</td><td>'.$data[$pd]['registry']['registrar']['verification_set_at'].'</td><td id="registrar_verification_set_at"></td><td>'.$data[$pd]['registrar']['registrar']['verification_set_at'].'</td></tr>';
 	$html_text .= '<tr id="6022" style="display:none"><td>registrar_verification_revoked_at</td><td>'.$data[$pd]['registry']['registrar']['verification_revoked_at'].'</td><td id="registrar_verification_revoked_at"></td><td>'.$data[$pd]['registrar']['registrar']['verification_revoked_at'].'</td></tr>';
 	$html_text .= '<tr id="6023" style="display:none"><td>registrar_remarks</td><td>'.$data[$pd]['registry']['registrar']['remarks'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['remarks'].'</td></tr>';
-	$html_text .= '<tr id="6024" style="display:none"><td>registrar_subject_data_uri</td><td colspan="2">'.$data[$pd]['registry']['registrar']['subject_data_uri'].'</td><td>'.$data[$pd]['registrar']['registrar']['subject_data_uri'].'</td></tr>';
-	$html_text .= '<tr id="6025" style="display:none"><td>registrar_subject_links</td><td colspan="2">'.$data[$pd]['registry']['registrar']['subject_links'].'</td><td>'.$data[$pd]['registrar']['registrar']['subject_links'].'</td></tr>';	
+	$html_text .= '<tr id="6024" style="display:none"><td>registrar_subject_links</td><td colspan="2">'.$data[$pd]['registry']['registrar']['subject_links'].'</td><td>'.$data[$pd]['registrar']['registrar']['subject_links'].'</td></tr>';
+	$html_text .= '<tr id="6025" style="display:none"><td>registrar_subject_data_uri</td><td>'.$data[$pd]['registry']['registrar']['subject_data_uri'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['subject_data_uri'].'</td></tr>';	
 	$html_text .= '<tr id="159" style="display:none"><td colspan="2">registrar_publication_state'.$data[$pd]['registry']['registrar']['publication_state'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar']['publication_state'].'</td></tr>';	
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(61)">Registrar Abuse +/-</button></td><td></td><td id="registrar_abuse_part"></td><td></td></tr>';
 	$html_text .= '<tr id="611" style="display:none"><td>registrar_abuse_server_handle</td><td>'.$data[$pd]['registry']['registrar_abuse']['server_handle'].'</td><td></td><td>'.$data[$pd]['registrar']['registrar_abuse']['server_handle'].'</td></tr>';
