@@ -172,7 +172,7 @@ RDAP output MUST preserve relationship context and MUST NOT combine data from di
 
 Definition (Normative)
 A subject is a natural person or organization with one or more relationship responsibilities.
-The "publication_state" member MUST be included within relationship entries for which subject data is stored and MAY provide publication state for all fields or a subset of fields.
+The "publication_state" member MUST be included within relationship entries for which subject data is stored and MAY provide publication state for any subset of those fields, including none or all.
 
 A publication state MUST contain exactly one enumerated value.
 When data is unavailable or not disclosed, placeholder values MUST NOT be used.
