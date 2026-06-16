@@ -168,20 +168,21 @@ const modeling = `Legacy limitations
 
 Model principles
 Publication state may vary for each domain–relationship–field combination.
-Inclusion of publication details depends on an RDAP service’s data structure and representation choices.
+Inclusion of publication details depends on an actual RDAP service's data structure and representation choices.
 
 RDAP output:
 MUST preserve relationship context.
-MUST NOT combine distinct relationships.
+MUST NOT combine data from distinct relationships.
 
 Definition (Normative)
-The "publication_state" member:
-MUST be included within relationship entries for which data is stored.
-MAY provide publication state for all fields or a subset of fields.
+A subject is a natural person or organization that may be associated with a domain through multiple relationships.
+
+The "publication_state" member MUST be included within relationship entries for which subject data is stored 
+and MAY provide publication state for all fields or a subset of fields.
 
 A publication state MUST contain exactly one enumerated value.
 When data is unavailable or not disclosed, placeholder values MUST NOT be used.
-If relationship data is present, it MUST precede "publication_state".
+If relationship-specific subject data is present, it MUST precede "publication_state".
 
 Output naming and ordering:
 For human-readable RDAP output, top-level members MUST be emitted in the following order:
@@ -194,8 +195,7 @@ Field values SHOULD conform to the semantics of the field in which they are repr
 Registry communications SHOULD clearly identify the applicable relationship when addressing the recipient.
 
 Example (Non-Normative)
-A subject may be associated with a domain through multiple relationships.
-For example, an email address may be disclosed for one relationship but not another.
+For example, a subject's email address may be disclosed for one relationship but not another.
 
 Enumerated Values
 "not_stored" — value not maintained by the domain service
