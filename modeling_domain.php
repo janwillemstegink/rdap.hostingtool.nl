@@ -167,18 +167,12 @@ const modeling = `Legacy limitations
 7. Current entity-level links may not be sufficiently precise for relationship-specific data visibility.
 
 Model principles
-Publication state may vary for each domain–relationship–field combination.
 Inclusion of publication details depends on an actual RDAP service's data structure and representation choices.
-
-RDAP output:
-MUST preserve relationship context.
-MUST NOT combine data from distinct relationships.
+RDAP output MUST preserve relationship context and MUST NOT combine data from distinct relationships.
 
 Definition (Normative)
-A subject is a natural person or organization that may be associated with a domain through multiple relationships.
-
-The "publication_state" member MUST be included within relationship entries for which subject data is stored 
-and MAY provide publication state for all fields or a subset of fields.
+A subject is a natural person or organization with one or more relationship responsibilities.
+The "publication_state" member MUST be included within relationship entries for which subject data is stored and MAY provide publication state for all fields or a subset of fields.
 
 A publication state MUST contain exactly one enumerated value.
 When data is unavailable or not disclosed, placeholder values MUST NOT be used.
