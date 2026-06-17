@@ -159,12 +159,11 @@ function SwitchDisplay(type) {
 		
 const modeling = `Legacy limitations
 1. The current "name.description", "name.type", and "type" alternatives may result in differing visibility representation across registry and registrar RDAP.
-2. Output representation and field names such as "registrant_contact_uri" can provide explicit visibility information and preserve relationship context.
-3. Revising the "redacted" representation to "publication_state" can support future RDAP evolution by expressing publication state directly.
-4. Relationship responsibility order is not inherent in RDAP JSON representation.
-5. Contact endpoints may be represented in email fields even when the value is not an email address, resulting in ambiguous semantics and reduced interoperability.
-6. Registry RDAP and registrar RDAP are distinct sources; "Server policy" does not identify which source applies.
-7. Current entity-level links may not be sufficiently precise for relationship-specific data visibility.
+2. Current RDAP "redacted" semantics can evolve into relationship-specific field names such as "registrant_contact_uri" and appropriate publication_state representation.
+3. Relationship responsibility order is not inherent in RDAP JSON representation.
+4. Contact endpoints may be represented in email fields even when the value is not an email address, resulting in ambiguous semantics and reduced interoperability.
+5. Registry RDAP and registrar RDAP are distinct sources; "Server policy" does not identify which source applies.
+6. The legacy entity-level hyperlinks may not consistently express relationship-specific data visibility.
 
 Model principles
 Inclusion of publication details depends on an actual RDAP service's data structure and representation choices.
@@ -174,9 +173,9 @@ Definition (Normative)
 A subject is a natural person or organization with one or more relationship responsibilities.
 The "publication_state" member MUST be included within relationship entries for which subject data is stored and MAY provide publication state for any subset of those fields, including none or all.
 
-A publication state MUST contain exactly one enumerated value.
+Each publication state MUST contain exactly one enumerated value.
 When data is unavailable or not disclosed, placeholder values MUST NOT be used.
-If relationship-specific subject data is present, it MUST precede "publication_state".
+If relationship-specific subject data is present, that data MUST precede "publication_state".
 
 Output naming and ordering:
 For human-readable RDAP output, top-level members MUST be emitted in the following order:
@@ -310,7 +309,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Domein-RDAP-model dat RDAP-gegevens van registry en registrar combineert.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("publication_state_part").textContent = legacy + "Het volgende model biedt machineleesbare en mensleesbare zichtbaarheidssemantiek.";
+		document.getElementById("publication_state_part").textContent = legacy + "Het volgende model biedt machineleesbare en mensleesbare zichtbaarheid.";
 		document.getElementById("publication_state").textContent = modeling;
 		document.getElementById("metadata_part").textContent = proposed + "Metadata bieden context en details over data-elementen.";
 		document.getElementById("metadata_object_type").textContent = modified;
@@ -404,7 +403,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Domain RDAP model combining registry and registrar RDAP data.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("publication_state_part").textContent = legacy + "The following model provides machine-readable and human-readable visibility semantics.";
+		document.getElementById("publication_state_part").textContent = legacy + "The following model provides machine-readable and human-readable visibility.";
 		document.getElementById("publication_state").textContent = modeling;		
 		document.getElementById("metadata_part").textContent=proposed+"Metadata provides context and details about data elements.";
 		document.getElementById("metadata_object_type").textContent=modified;
@@ -498,7 +497,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Domain-RDAP-Modell, das RDAP-Daten von Registry und Registrar kombiniert.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("publication_state_part").textContent = legacy + "Das folgende Modell stellt maschinenlesbare und menschenlesbare Sichtbarkeitssemantik bereit.";
+		document.getElementById("publication_state_part").textContent = legacy + "Das folgende Modell bietet maschinenlesbare und menschenlesbare Sichtbarkeit.";
 		document.getElementById("publication_state").textContent = modeling;
 		document.getElementById("metadata_part").textContent = proposed + "Metadaten liefern Kontext und Details zu Datenelementen.";
 		document.getElementById("metadata_object_type").textContent = modified;
@@ -592,7 +591,7 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Modèle RDAP de domaine combinant les données RDAP du registre et du registrar.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("publication_state_part").textContent = legacy + "Le modèle suivant fournit une sémantique de visibilité lisible par machine et lisible par l’être humain.";
+		document.getElementById("publication_state_part").textContent = legacy + "Le modèle suivant fournit une visibilité lisible par machine et par l'homme.";
 		document.getElementById("publication_state").textContent = modeling;
 		document.getElementById("metadata_part").textContent = proposed + "Les métadonnées fournissent le contexte et des détails sur les éléments de données.";
 		document.getElementById("metadata_object_type").textContent = modified;
