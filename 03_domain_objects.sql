@@ -104,8 +104,8 @@ EXECUTE FUNCTION set_domain_tld();
 -- ========================================
 CREATE TABLE IF NOT EXISTS subjects (
     subject_id BIGSERIAL PRIMARY KEY,
-    subject_server_handle TEXT NOT NULL UNIQUE,
-    subject_client_handle TEXT,
+    subject_tld_global_handle TEXT NOT NULL UNIQUE,
+    subject_source_handle TEXT,
     subject_code VARCHAR(34),
     subject_organization_type TEXT,
     subject_organization_name VARCHAR(511),
@@ -158,8 +158,8 @@ EXECUTE FUNCTION update_subjects_latest_data_mutation_at();
 -- ========================================
 CREATE TABLE IF NOT EXISTS nameservers (
     nameserver_id BIGSERIAL PRIMARY KEY,
-    nameserver_server_handle TEXT NOT NULL UNIQUE,
-    nameserver_client_handle TEXT,
+    nameserver_tld_global_handle TEXT NOT NULL UNIQUE,
+    nameserver_source_handle TEXT,
     nameserver_ascii_name TEXT NOT NULL,
     nameserver_unicode_name TEXT,
     nameserver_ipv4_addresses inet[],
@@ -200,8 +200,8 @@ CREATE TABLE IF NOT EXISTS ip_network_versions (
 -- ========================================
 CREATE TABLE IF NOT EXISTS ip_networks (
     ip_network_id BIGSERIAL PRIMARY KEY,
-    ip_network_server_handle TEXT NOT NULL UNIQUE,
-    ip_network_client_handle TEXT,
+    ip_network_tld_global_handle TEXT NOT NULL UNIQUE,
+    ip_network_source_handle TEXT,
     ip_network_start_address VARCHAR(50),
     ip_network_end_address VARCHAR(50),
     ip_network_version INT REFERENCES ip_network_versions(ip_network_version_id),
@@ -232,8 +232,8 @@ EXECUTE FUNCTION update_ip_networks_latest_data_mutation_at();
 -- ========================================
 CREATE TABLE IF NOT EXISTS autnums (
     autnum_id BIGSERIAL PRIMARY KEY,
-    autnum_server_handle TEXT NOT NULL UNIQUE,
-    autnum_client_handle TEXT,
+    autnum_tld_global_handle TEXT NOT NULL UNIQUE,
+    autnum_source_handle TEXT,
     autnum_start BIGINT,
     autnum_end BIGINT,
     autnum_name TEXT,

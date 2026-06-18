@@ -1035,8 +1035,8 @@ $sponsor_latest_data_mutation_at = null;
 $sponsor_expiration_at = null;	
 $sponsor_deletion_at = null;
 $sponsor_remarks = '';
-$server_handle	= '';
-$client_handle = $obj['handle'];
+$tld_global_handle	= '';
+$registrar_handle = $obj['handle'];
 $ascii_name = $obj['ldhName'];
 $unicode_name = $obj['unicodeName'];
 $nameservers_rdap_dnssec_signed = '';
@@ -2065,8 +2065,8 @@ $arr['metadata']['registrar_complaint_uri'] = $registrar_complaint_uri;
 $arr['metadata']['status_explanation_uri'] = $status_explanation_uri;
 $arr['metadata']['resource_upload_at'] = $resource_upload_at;		
 	
-$arr['domain']['server_handle'] = $server_handle;
-$arr['domain']['client_handle'] = $client_handle;
+$arr['domain']['tld_global_handle'] = $tld_global_handle;
+$arr['domain']['source_handle'] = $registrar_handle;
 $arr['domain']['ascii_name'] = $ascii_name;	
 $arr['domain']['unicode_name'] = $unicode_name;
 $arr['domain']['statuses'] = rtrim($indeterminate_statuses . $server_statuses . $client_statuses . $lifecycle_phase, ",");
@@ -2081,7 +2081,7 @@ $arr['domain']['deletion_at'] = $deletion_at;
 $arr['domain']['extensions'] = $extensions;
 $arr['domain']['remarks'] = $remarks;			
 	
-$arr['sponsor']['client_handle'] = $sponsor_handle;
+$arr['sponsor']['source_handle'] = $sponsor_handle;
 $arr['sponsor']['subject_code'] = $sponsor_subject_code;		
 $arr['sponsor']['organization_type'] = $sponsor_organization_type;	
 $arr['sponsor']['organization_name'] = $sponsor_organization_name;	
@@ -2103,7 +2103,7 @@ $arr['sponsor']['latest_data_mutation_at'] = $sponsor_latest_data_mutation_at;
 $arr['sponsor']['remarks'] = $sponsor_remarks;
 $arr['sponsor']['links'] = $sponsor_links;	
 	
-$arr['registrant']['client_handle'] = $registrant_handle;
+$arr['registrant']['source_handle'] = $registrant_handle;
 $arr['registrant']['subject_code'] = $registrant_subject_code;		
 $arr['registrant']['organization_type'] = $registrant_organization_type;	
 $arr['registrant']['organization_name'] = $registrant_organization_name;	
@@ -2126,7 +2126,7 @@ $arr['registrant']['latest_data_mutation_at'] = $registrant_latest_data_mutation
 $arr['registrant']['remarks'] = $registrant_remarks;
 $arr['registrant']['links'] = $registrant_links;	
 	
-$arr['request_handling']['client_handle'] = $request_handling_handle;
+$arr['request_handling']['source_handle'] = $request_handling_handle;
 $arr['request_handling']['subject_code'] = $request_handling_subject_code;		
 $arr['request_handling']['organization_type'] = $request_handling_organization_type;	
 $arr['request_handling']['organization_name'] = $request_handling_organization_name;	
@@ -2149,7 +2149,7 @@ $arr['request_handling']['latest_data_mutation_at'] = $request_handling_latest_d
 $arr['request_handling']['remarks'] = $request_handling_remarks;
 $arr['request_handling']['links'] = $request_handling_links;
 
-$arr['issue_reporting']['client_handle'] = $issue_reporting_handle;
+$arr['issue_reporting']['source_handle'] = $issue_reporting_handle;
 $arr['issue_reporting']['subject_code'] = $issue_reporting_subject_code;		
 $arr['issue_reporting']['organization_type'] = $issue_reporting_organization_type;	
 $arr['issue_reporting']['organization_name'] = $issue_reporting_organization_name;	
@@ -2172,7 +2172,7 @@ $arr['issue_reporting']['latest_data_mutation_at'] = $issue_reporting_latest_dat
 $arr['issue_reporting']['remarks'] = $issue_reporting_remarks;
 $arr['issue_reporting']['links'] = $issue_reporting_links;	
 	
-$arr['billing']['client_handle'] = $billing_handle;
+$arr['billing']['source_handle'] = $billing_handle;
 $arr['billing']['subject_code'] = $billing_subject_code;		
 $arr['billing']['organization_type'] = $billing_organization_type;	
 $arr['billing']['organization_name'] = $billing_organization_name;	
@@ -2195,7 +2195,7 @@ $arr['billing']['latest_data_mutation_at'] = $billing_latest_data_mutation_at;
 $arr['billing']['remarks'] = $billing_remarks;
 $arr['billing']['links'] = $billing_links;	
 
-$arr['reseller']['client_handle'] = $reseller_handle;
+$arr['reseller']['source_handle'] = $reseller_handle;
 $arr['reseller']['subject_code'] = $reseller_subject_code;		
 $arr['reseller']['organization_type'] = $reseller_organization_type;	
 $arr['reseller']['organization_name'] = $reseller_organization_name;	
@@ -2218,7 +2218,7 @@ $arr['reseller']['latest_data_mutation_at'] = $reseller_latest_data_mutation_at;
 $arr['reseller']['remarks'] = $reseller_remarks;
 $arr['reseller']['links'] = $reseller_links;	
 
-$arr['registrar']['client_handle'] = $registrar_handle;
+$arr['registrar']['source_handle'] = $registrar_handle;
 $arr['registrar']['subject_code'] = $registrar_subject_code;		
 $arr['registrar']['organization_type'] = $registrar_organization_type;	
 $arr['registrar']['organization_name'] = $registrar_organization_name;	
@@ -2241,7 +2241,7 @@ $arr['registrar']['latest_data_mutation_at'] = $registrar_latest_data_mutation_a
 $arr['registrar']['remarks'] = $registrar_remarks;
 $arr['registrar']['links'] = $registrar_links;	
 	
-$arr['registrar_abuse']['client_handle'] = $registrar_abuse_handle;
+$arr['registrar_abuse']['source_handle'] = $registrar_abuse_handle;
 $arr['registrar_abuse']['organization_type'] = $registrar_abuse_organization_type;
 $arr['registrar_abuse']['organization_name'] = $registrar_abuse_organization_name;	
 $arr['registrar_abuse']['presented_name'] = $registrar_abuse_presented_name;
@@ -2251,7 +2251,7 @@ $arr['registrar_abuse']['contact_uri'] = $registrar_abuse_contact_uri;
 $arr['registrar_abuse']['phone'] = $registrar_abuse_phone;
 $arr['registrar_abuse']['country_code'] = $registrar_abuse_country_code;
 	
-$arr['nameservers']['client_handles'] = $nameservers_handles;
+$arr['nameservers']['source_handles'] = $nameservers_handles;
 $arr['nameservers']['ascii_names'] = $nameservers_ascii;
 $arr['nameservers']['unicode_names'] = $nameservers_unicode;	
 $arr['nameservers']['ipv4_addresses'] = $nameservers_ipv4;	
