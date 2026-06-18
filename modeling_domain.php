@@ -178,6 +178,7 @@ When data is unavailable or not disclosed, placeholder values MUST NOT be used.
 If relationship-specific subject data is present, that data MUST precede "publication_state".
 
 Output naming and ordering:
+RDAP member names in this model MUST use snake_case for consistency, interoperability, and readability.
 For human-readable RDAP output, top-level members MUST be emitted in the following order:
 "metadata", "domain", "relationships", "nameservers", "dns_security".
 RDAP "relationships" MUST be ordered by relationship responsibility: sponsor, registrant, actor, 
