@@ -157,48 +157,45 @@ function SwitchDisplay(type) {
 	}
 }
 		
-const modeling = `Legacy limitations
+const modeling = `Legacy Limitations
 1. The current "name.description", "name.type", and "type" alternatives may result in differing visibility representation across registry and registrar RDAP.
-2. Current RDAP "redacted" semantics can evolve into relationship-specific field names such as "registrant_contact_uri" and appropriate publication_state representation.
+2. Current RDAP "redacted" semantics can evolve into relationship-specific field names such as "registrant_contact_uri" and appropriate "publication_state" representation.
 3. Relationship responsibility order is not inherent in RDAP JSON representation.
 4. Contact endpoints may be represented in email fields even when the value is not an email address, resulting in ambiguous semantics and reduced interoperability.
-5. Registry RDAP and registrar RDAP are distinct sources; "Server policy" does not identify which source applies.
-6. The legacy entity-level hyperlinks may not consistently express relationship-specific data visibility.
+5. Registry RDAP and registrar RDAP are distinct sources; "Server policy" does not indicate which applies.
+6. Legacy entity-level hyperlinks may not consistently express relationship-specific data visibility.
 
-Model principles
+Model Principles
 Inclusion of publication details depends on an actual RDAP service's data structure and representation choices.
 RDAP output MUST preserve relationship context and MUST NOT combine data from distinct relationships.
 
 Definition (Normative)
 A subject is a natural person or organization with one or more relationship responsibilities.
 The "publication_state" member MUST be included within relationship entries for which subject data is actually stored and MAY provide publication state for any subset of those fields, including none or all.
-
 Each publication state MUST contain exactly one enumerated value.
 When data is unavailable or not disclosed, placeholder values MUST NOT be used.
 If relationship-specific data is present, that data MUST precede "publication_state".
 
-Output naming and ordering:
-RDAP member names in this model MUST use snake_case for consistency, interoperability, and readability.
-For human-readable RDAP output, top-level members MUST be emitted in the following order:
-"metadata", "domain", "relationships", "nameservers", "dns_security".
-RDAP "relationships" MUST be ordered by relationship responsibility: sponsor, registrant, actor, 
-request_handling, issue_reporting, billing, escalation, reseller, registrar, registrar_abuse
+Required Output Naming and Human-Readable Ordering
+Member names defined by this specification MUST use snake_case.
+Top-level members: "metadata", "domain", "relationships", "nameservers", "dns_security".
+Relationship responsibilities: "sponsor", "registrant", "actor", "request_handling", "issue_reporting", "billing", "escalation", "reseller", "registrar", "registrar_abuse".
 
-Operational guidance
+Operational Guidance
 Field values SHOULD conform to the semantics of the field in which they are represented.
 Registry communications SHOULD clearly identify the applicable relationship when addressing the recipient.
 
 Example (Non-Normative)
-For example, a subject's email address may be disclosed for one relationship but not another.
+A subject's email address may be disclosed for one relationship but not another.
 
 Enumerated Values
-"not_stored" — value not maintained by the domain service
-"shielded" — value maintained, not disclosed
-"visible" — value disclosed
-"tunable_shielded" — value maintained, currently not disclosed
-"tunable_visible" — value maintained, currently disclosed
+"not_stored" — value not maintained by the domain service.
+"shielded" — value maintained, not disclosed.
+"visible" — value disclosed.
+"tunable_shielded" — value maintained, currently not disclosed.
+"tunable_visible" — value maintained, currently disclosed.
 
-End of RFC Modeling Section
+End of RFC modeling section.
 
 `;
 
