@@ -12,7 +12,7 @@ Data by email modeling: https://rdap.hostingtool.nl/modeling_email/
 
 Menu information modeling: https://rdap.hostingtool.nl/modeling_menu/
 
-Domain control (modeling): https://control.hostingtool.org/
+Domain control tool: https://control.hostingtool.org/
 
 EU TLDs DNSSEC analysis tool:  https://analyzetlds.hostingtool.org/
 
