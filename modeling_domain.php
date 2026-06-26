@@ -70,8 +70,12 @@ function SwitchDisplay(type) {
 		var pre = '12';
 		var max = 1
 	}
-	else if (type == 13)	{ // publication state
+	else if (type == 13)	{ // verification state
 		var pre = '13';
+		var max = 1
+	}
+	else if (type == 14)	{ // publication state
+		var pre = '14';
 		var max = 1
 	}
 	else if (type == 15)	{ // publication states
@@ -157,7 +161,7 @@ function SwitchDisplay(type) {
 	}
 }
 		
-const modeling = `Legacy Limitations
+const publication_state = `Legacy Limitations
 1. The current "name.description", "name.type", and "type" alternatives may result in differing visibility representation across registry and registrar RDAP.
 2. Current RDAP "redacted" semantics can evolve into relationship-specific field names such as "registrant_contact_uri" and appropriate "publication_state" representation.
 3. Relationship responsibility order is not inherent in RDAP JSON representation.
@@ -198,6 +202,28 @@ Enumerated Values
 End of RFC modeling section.
 
 `;
+const verification_state = `Existing Limitations
+1. Verification based on PKI using an SSL/TLS certificate requires a reachable website and does not inherently provide registry-level verification lifecycle information.
+2. Two-way verification using a "/.well-known/" resource requires a reachable website and does not define registry verification lifecycle semantics.
+3. Business E-Wallets may contain overlapping domain claims and are not authoritative sources for domain registration relationships.
+
+Verification Lifecycle (Normative)
+A registry MAY publish a necessary subset of verification data to a globally accessible RDAP verification service.
+Country-specific web domain services MAY retrieve verification data using a subject identifier that includes a country identifier.
+
+Verification lifecycle members describe the status of subject identifier verification independently of publication state and relationship responsibilities.
+
+When a registry performs subject identifier verification, only the following members apply.
+
+The "identifier_received_at" member indicates that a subject identifier has been received by the registry for verification.
+
+The "verification_set_at" member indicates that the registry has successfully verified the subject identifier through a verification authority recognized by the registry.
+
+The "verification_revoked_at" member indicates that a previously successful verification is no longer valid and that the verification status has been revoked. Revocation of verification MUST NOT imply that the associated subject relationship has been removed.
+
+End of RFC modeling section.
+
+`;
 
 function SwitchTranslation(translation)	{
 	document.getElementById("language").value = translation;
@@ -213,7 +239,9 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "";
 		document.getElementById("notices_part").textContent = legacy;
 		document.getElementById("links_part").textContent = legacy;
-		document.getElementById("publication_state_part").textContent = legacy + "";
+		document.getElementById("verification_state_part").textContent = "";
+		document.getElementById("verification_state").textContent = "";
+		document.getElementById("publication_state_part").textContent = modified + "";
 		document.getElementById("publication_state").textContent = "";
 		document.getElementById("metadata_part").textContent = proposed;
 		document.getElementById("metadata_object_type").textContent = modified;
@@ -308,8 +336,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Domein-RDAP-model dat RDAP-gegevens van registry en registrar combineert.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("publication_state_part").textContent = legacy + "Het volgende model biedt machineleesbare en mensleesbare zichtbaarheid.";
-		document.getElementById("publication_state").textContent = modeling;
+		document.getElementById("verification_state_part").textContent = "Het volgende model biedt wereldwijde verificatie van domeinsubjecten.";
+		document.getElementById("verification_state").textContent = verification_state;
+		document.getElementById("publication_state_part").textContent = modified + "Het volgende model biedt machineleesbare en mensleesbare zichtbaarheid.";
+		document.getElementById("publication_state").textContent = publication_state;
 		document.getElementById("metadata_part").textContent = proposed + "Metadata bieden context en details over data-elementen.";
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
@@ -403,8 +433,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Domain RDAP model combining registry and registrar RDAP data.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("publication_state_part").textContent = legacy + "The following model provides machine-readable and human-readable visibility.";
-		document.getElementById("publication_state").textContent = modeling;		
+		document.getElementById("verification_state_part").textContent = "The following model provides worldwide domain subject verification.";
+		document.getElementById("verification_state").textContent = verification_state;		
+		document.getElementById("publication_state_part").textContent = modified + "The following model provides machine-readable and human-readable visibility.";
+		document.getElementById("publication_state").textContent = publication_state;		
 		document.getElementById("metadata_part").textContent=proposed+"Metadata provides context and details about data elements.";
 		document.getElementById("metadata_object_type").textContent=modified;
 		document.getElementById("metadata_rdap_version").textContent=modified;
@@ -498,8 +530,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Domain-RDAP-Modell, das RDAP-Daten von Registry und Registrar kombiniert.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("publication_state_part").textContent = legacy + "Das folgende Modell bietet maschinenlesbare und menschenlesbare Sichtbarkeit.";
-		document.getElementById("publication_state").textContent = modeling;
+		document.getElementById("verification_state_part").textContent = "Das folgende Modell bietet eine weltweite Verifizierung von Domänensubjekten.";
+		document.getElementById("verification_state").textContent = verification_state;		
+		document.getElementById("publication_state_part").textContent = modified + "Das folgende Modell bietet maschinenlesbare und menschenlesbare Sichtbarkeit.";
+		document.getElementById("publication_state").textContent = publication_state;
 		document.getElementById("metadata_part").textContent = proposed + "Metadaten liefern Kontext und Details zu Datenelementen.";
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
@@ -593,8 +627,10 @@ function SwitchTranslation(translation)	{
 		document.getElementById("explanation").textContent = "Modèle RDAP de domaine combinant les données RDAP du registre et du registrar.";
 		document.getElementById("notices_part").textContent = legacy + accessible;
 		document.getElementById("links_part").textContent = legacy + accessible;
-		document.getElementById("publication_state_part").textContent = legacy + "Le modèle suivant fournit une visibilité lisible par machine et par l'homme.";
-		document.getElementById("publication_state").textContent = modeling;
+		document.getElementById("verification_state_part").textContent = "Le modèle suivant fournit une vérification mondiale des titulaires de domaines.";
+		document.getElementById("verification_state").textContent = verification_state;		
+		document.getElementById("publication_state_part").textContent = modified + "Le modèle suivant fournit une visibilité lisible par machine et par l'homme.";
+		document.getElementById("publication_state").textContent = publication_state;
 		document.getElementById("metadata_part").textContent = proposed + "Les métadonnées fournissent le contexte et des détails sur les éléments de données.";
 		document.getElementById("metadata_object_type").textContent = modified;
 		document.getElementById("metadata_rdap_version").textContent = modified;
@@ -747,9 +783,11 @@ if (true or $pd == mb_strtolower($data[$pd]['registry']['domain']['ascii_name'])
 	$html_text .= '<tr id="111" style="display:none"><td colspan="2">'.$data[$pd]['registry']['notices'].'</td><td></td><td>'.$data[$pd]['registrar']['notices'].'</td></tr>';
 	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(12)">Links +/-</button><td></td><td id="links_part"></td><td></td></tr>';
 	$html_text .= '<tr id="121" style="display:none"><td colspan="2">'.$data[$pd]['registry']['links'].'</td><td></td><td>'.$data[$pd]['registrar']['links'].'</td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(13)">Redacted +/-</button></td><td></td><td id="publication_state_part"></td><td></td></tr>';
-	$html_text .= '<tr id="131" style="display:none"><td colspan="2">'.$data[$pd]['registry']['publication_state'].'</td><td id="publication_state" style="white-space: pre-wrap; font-family: monospace; line-height: 1.15; font-size: 12px;"></td><td>'.$data[$pd]['registrar']['publication_state'].'</td></tr>';
-	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(20)">Metadata +/-</button> <button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(15)">Publication State +/-</button></td><td></td><td id="metadata_part"></td><td></td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(13)">Verification State +/-</button></td><td></td><td id="verification_state_part"></td><td></td></tr>';
+	$html_text .= '<tr id="131" style="display:none"><td colspan="2">'.$data[$pd]['registry']['verification_state'].'</td><td id="verification_state" style="white-space: pre-wrap; font-family: monospace; line-height: 1.15; font-size: 12px;"></td><td>'.$data[$pd]['registrar']['verification_state'].'</td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(14)">Redacted +/-</button> <button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(15)">Publication State +/-</button></td><td></td><td id="publication_state_part"></td><td></td></tr>';
+	$html_text .= '<tr id="141" style="display:none"><td colspan="2">'.$data[$pd]['registry']['publication_state'].'</td><td id="publication_state" style="white-space: pre-wrap; font-family: monospace; line-height: 1.15; font-size: 12px;"></td><td>'.$data[$pd]['registrar']['publication_state'].'</td></tr>';
+	$html_text .= '<tr><td><button style="cursor:pointer;font-size:0.8rem" onclick="SwitchDisplay(20)">Metadata +/-</button></td><td></td><td id="metadata_part"></td><td></td></tr>';
 	$html_text .= '<tr id="201" style="display:none"><td>object_type</td><td>'.$data[$pd]['registry']['metadata']['object_type'].'</td><td id="metadata_object_type"></td><td>'.$data[$pd]['registrar']['metadata']['object_type'].'</td></tr>';
 	$html_text .= '<tr id="202" style="display:none"><td>rdap_version</td><td>'.$data[$pd]['registry']['metadata']['rdap_version'].'</td><td id="metadata_rdap_version"></td><td>'.$data[$pd]['registrar']['metadata']['rdap_version'].'</td></tr>';
 	$html_text .= '<tr id="203" style="display:none"><td>rdap_conformance</td><td colspan="2">'.$data[$pd]['registry']['metadata']['rdap_conformance'].'</td><td>'.$data[$pd]['registrar']['metadata']['rdap_conformance'].'</td></tr>';
