@@ -47,8 +47,8 @@ CREATE TABLE IF NOT EXISTS metadata_registrar (
 CREATE TABLE IF NOT EXISTS domains (
     domain_id BIGSERIAL PRIMARY KEY,
     domain_tld CITEXT NOT NULL,
-    domain_server_handle TEXT NOT NULL UNIQUE,
-    domain_client_handle TEXT,
+    domain_tld_global_handle TEXT NOT NULL UNIQUE,
+    domain_source_handle TEXT,
     domain_ascii_name VARCHAR(511) NOT NULL,
     domain_unicode_name VARCHAR(511) NOT NULL,
     domain_statuses TEXT[],
