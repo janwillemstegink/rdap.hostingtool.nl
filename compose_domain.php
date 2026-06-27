@@ -986,9 +986,9 @@ $registry_data_uri = '';
 $registrar_data_uri = '';
 $registrar_complaint_uri = '';	
 $status_explanation_uri = '';
-$registrant_subject_code = '';
+$registrant_subject_identifier = '';
 if ($inputtld == 'nl' or $inputtld == 'frl')	{		
-	$registrant_subject_code = 'NL88COMM01234567890123456789012345';	
+	$registrant_subject_identifier = 'NL88COMM01234567890123456789012345';	
 }
 $created_at = null;
 $latest_registrar_transfer_at = null;			
@@ -2082,7 +2082,7 @@ $arr['domain']['extensions'] = $extensions;
 $arr['domain']['remarks'] = $remarks;			
 	
 $arr['sponsor']['source_handle'] = $sponsor_handle;
-$arr['sponsor']['subject_code'] = $sponsor_subject_code;		
+$arr['sponsor']['subject_identifier'] = $sponsor_subject_identifier;		
 $arr['sponsor']['organization_type'] = $sponsor_organization_type;	
 $arr['sponsor']['organization_name'] = $sponsor_organization_name;	
 $arr['sponsor']['presented_name'] = $sponsor_presented_name;	
@@ -2104,7 +2104,7 @@ $arr['sponsor']['remarks'] = $sponsor_remarks;
 $arr['sponsor']['links'] = $sponsor_links;	
 	
 $arr['registrant']['source_handle'] = $registrant_handle;
-$arr['registrant']['subject_code'] = $registrant_subject_code;		
+$arr['registrant']['subject_identifier'] = $registrant_subject_identifier;		
 $arr['registrant']['organization_type'] = $registrant_organization_type;	
 $arr['registrant']['organization_name'] = $registrant_organization_name;	
 $arr['registrant']['presented_name'] = $registrant_presented_name;	
@@ -2127,7 +2127,7 @@ $arr['registrant']['remarks'] = $registrant_remarks;
 $arr['registrant']['links'] = $registrant_links;	
 	
 $arr['request_handling']['source_handle'] = $request_handling_handle;
-$arr['request_handling']['subject_code'] = $request_handling_subject_code;		
+$arr['request_handling']['subject_identifier'] = $request_handling_subject_identifier;		
 $arr['request_handling']['organization_type'] = $request_handling_organization_type;	
 $arr['request_handling']['organization_name'] = $request_handling_organization_name;	
 $arr['request_handling']['presented_name'] = $request_handling_presented_name;	
@@ -2150,7 +2150,7 @@ $arr['request_handling']['remarks'] = $request_handling_remarks;
 $arr['request_handling']['links'] = $request_handling_links;
 
 $arr['issue_reporting']['source_handle'] = $issue_reporting_handle;
-$arr['issue_reporting']['subject_code'] = $issue_reporting_subject_code;		
+$arr['issue_reporting']['subject_identifier'] = $issue_reporting_subject_identifier;		
 $arr['issue_reporting']['organization_type'] = $issue_reporting_organization_type;	
 $arr['issue_reporting']['organization_name'] = $issue_reporting_organization_name;	
 $arr['issue_reporting']['presented_name'] = $issue_reporting_presented_name;	
@@ -2173,7 +2173,7 @@ $arr['issue_reporting']['remarks'] = $issue_reporting_remarks;
 $arr['issue_reporting']['links'] = $issue_reporting_links;	
 	
 $arr['billing']['source_handle'] = $billing_handle;
-$arr['billing']['subject_code'] = $billing_subject_code;		
+$arr['billing']['subject_identifier'] = $billing_subject_identifier;		
 $arr['billing']['organization_type'] = $billing_organization_type;	
 $arr['billing']['organization_name'] = $billing_organization_name;	
 $arr['billing']['presented_name'] = $billing_presented_name;	
@@ -2196,7 +2196,7 @@ $arr['billing']['remarks'] = $billing_remarks;
 $arr['billing']['links'] = $billing_links;	
 
 $arr['reseller']['source_handle'] = $reseller_handle;
-$arr['reseller']['subject_code'] = $reseller_subject_code;		
+$arr['reseller']['subject_identifier'] = $reseller_subject_identifier;		
 $arr['reseller']['organization_type'] = $reseller_organization_type;	
 $arr['reseller']['organization_name'] = $reseller_organization_name;	
 $arr['reseller']['presented_name'] = $reseller_presented_name;	
@@ -2219,7 +2219,7 @@ $arr['reseller']['remarks'] = $reseller_remarks;
 $arr['reseller']['links'] = $reseller_links;	
 
 $arr['registrar']['source_handle'] = $registrar_handle;
-$arr['registrar']['subject_code'] = $registrar_subject_code;		
+$arr['registrar']['subject_identifier'] = $registrar_subject_identifier;		
 $arr['registrar']['organization_type'] = $registrar_organization_type;	
 $arr['registrar']['organization_name'] = $registrar_organization_name;	
 $arr['registrar']['presented_name'] = $registrar_presented_name;	

@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS subjects (
     subject_id BIGSERIAL PRIMARY KEY,
     subject_tld_global_handle TEXT NOT NULL UNIQUE,
     subject_source_handle TEXT,
-    subject_code VARCHAR(34),
+    subject_identifier VARCHAR(34),
     subject_organization_type TEXT,
     subject_organization_name VARCHAR(511),
     subject_presented_name VARCHAR(511),
